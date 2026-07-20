@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "volumes": [
+    {
+      "file": "1-fondations-et-analyses.json",
+      "metadata": {
+        "id": "volume-1",
+        "order": 1,
+        "volumeNumber": 1,
+        "title": "Fondations & analyses",
+        "subtitle": "Comprendre ce que l’on achète — puis apprendre à l’analyser",
+        "description": "Un premier volume progressif pour distinguer valeur économique, comportement du marché et gestion du risque.",
+        "edition": "Édition 2026  |  Support pédagogique sourcé",
+        "format": "Édition 2026  |  Support pédagogique sourcé",
+        "coverLines": [
+          "FORMATION INVESTISSEMENT & TRADING",
+          "VOLUME 1",
+          "Fondations & analyses",
+          "Comprendre ce que l’on achète — puis apprendre à l’analyser",
+          "Un premier volume volontairement progressif : peu de jargon, des exemples chiffrés et une distinction nette entre valeur économique, comportement du marché et gestion du risque.",
+          "Édition 2026  |  Support pédagogique sourcé"
+        ],
+        "tags": [
+          "fondamentaux",
+          "analyse fondamentale",
+          "analyse technique",
+          "risque"
+        ],
+        "slug": "1-fondations-et-analyses"
+      },
+      "stats": {
+        "wordCount": 1364,
+        "readingMinutes": 6,
+        "chapterCount": 5,
+        "dossierCount": 0,
+        "figureCount": 0
+      },
+      "archetype": "conceptual"
+    },
+    {
+      "file": "2-dossiers-historiques.json",
+      "metadata": {
+        "id": "volume-2",
+        "order": 2,
+        "volumeNumber": 2,
+        "title": "Dossiers historiques",
+        "subtitle": "Berkshire Hathaway · Enron · Barings · LTCM · Archegos",
+        "description": "Cinq cas réels pour comprendre comment exposition, financement, gouvernance et liquidité transforment une thèse en résultat.",
+        "edition": "VOLUME 2 · ÉDITION 2026",
+        "format": "Document pédagogique sourcé — sans exercices",
+        "coverLines": [
+          "FORMATION — DOSSIERS HISTORIQUES",
+          "Cinq cas concrets",
+          "d'investissement et de trading",
+          "Berkshire Hathaway · Enron · Barings · LTCM · Archegos",
+          "Le prix est le symptôme. Le mécanisme est la leçon.",
+          "VOLUME 2 · ÉDITION 2026",
+          "Document pédagogique sourcé — sans exercices"
+        ],
+        "tags": [
+          "cas historiques",
+          "risques",
+          "levier",
+          "gouvernance",
+          "liquidité"
+        ],
+        "slug": "2-dossiers-historiques"
+      },
+      "stats": {
+        "wordCount": 5239,
+        "readingMinutes": 24,
+        "chapterCount": 17,
+        "dossierCount": 5,
+        "figureCount": 3
+      },
+      "archetype": "case_dossiers"
+    }
+  ]
+}

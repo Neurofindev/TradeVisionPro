@@ -1,0 +1,2393 @@
+{
+  "schemaVersion": 1,
+  "source": {
+    "file": "Formation_Investissement_Trading_Volume_2_Risques_Cas_Historiques.docx",
+    "sha256": "717bcd316f850fdccd001745e1e342e00c52359ade1e4c067bf6a32daa000e28"
+  },
+  "metadata": {
+    "id": "volume-2",
+    "order": 2,
+    "volumeNumber": 2,
+    "title": "Dossiers historiques",
+    "subtitle": "Berkshire Hathaway · Enron · Barings · LTCM · Archegos",
+    "description": "Cinq cas réels pour comprendre comment exposition, financement, gouvernance et liquidité transforment une thèse en résultat.",
+    "edition": "VOLUME 2 · ÉDITION 2026",
+    "format": "Document pédagogique sourcé — sans exercices",
+    "coverLines": [
+      "FORMATION — DOSSIERS HISTORIQUES",
+      "Cinq cas concrets",
+      "d'investissement et de trading",
+      "Berkshire Hathaway · Enron · Barings · LTCM · Archegos",
+      "Le prix est le symptôme. Le mécanisme est la leçon.",
+      "VOLUME 2 · ÉDITION 2026",
+      "Document pédagogique sourcé — sans exercices"
+    ],
+    "tags": [
+      "cas historiques",
+      "risques",
+      "levier",
+      "gouvernance",
+      "liquidité"
+    ],
+    "slug": "2-dossiers-historiques"
+  },
+  "archetype": "case_dossiers",
+  "stats": {
+    "wordCount": 5239,
+    "readingMinutes": 24,
+    "chapterCount": 17,
+    "dossierCount": 5,
+    "figureCount": 3
+  },
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "comment-lire-ce-volume",
+      "text": "Comment lire ce volume"
+    },
+    {
+      "type": "paragraph",
+      "text": "Ce document est uniquement construit autour de cas réels. Il ne commence pas par une liste abstraite de risques : chaque notion apparaît au moment où elle devient nécessaire pour comprendre un événement, une décision ou un mouvement de prix.",
+      "segments": [
+        {
+          "text": "Ce document est uniquement construit autour de cas réels. Il ne commence pas par une liste abstraite de risques : chaque notion apparaît au moment où elle devient nécessaire pour comprendre un événement, une décision ou un mouvement de prix."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "LA GRILLE COMMUNE",
+      "variant": "info",
+      "text": "Pour chaque dossier : contexte → modèle économique → exposition réelle → événement déclencheur → réaction du marché → mécanisme d'amplification → leçon transférable.",
+      "sourceFill": "EEF4FA"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "les-cinq-dossiers",
+      "text": "Les cinq dossiers"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Dossier",
+        "Question centrale",
+        "Mécanisme observé"
+      ],
+      "rows": [
+        [
+          "Berkshire Hathaway",
+          "Comment un gain exceptionnel se construit-il sur plusieurs décennies ?",
+          "Allocation du capital, float et capitalisation."
+        ],
+        [
+          "Enron",
+          "Pourquoi le cours s'effondre-t-il avant la faillite ?",
+          "Fraude, garanties liées au titre et crise de liquidité."
+        ],
+        [
+          "Barings",
+          "Comment un trader dépasse-t-il les fonds propres d'une banque ?",
+          "Levier, pertes cachées et contrôle défaillant."
+        ],
+        [
+          "LTCM",
+          "Pourquoi une convergence plausible ne suffit-elle pas ?",
+          "Financement court, marge, liquidité et ventes forcées."
+        ],
+        [
+          "Archegos",
+          "Comment plusieurs banques sous-estiment-elles le même client ?",
+          "TRS, concentration et visibilité fragmentée."
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Les graphiques ne sont pas des preuves isolées. Ils sont lus avec les documents officiels et la chronologie : le prix montre ce que le marché accepte de payer ; les sources expliquent ce qui change sous la surface.",
+      "segments": [
+        {
+          "text": "Les graphiques ne sont pas des preuves isolées. Ils sont lus avec les documents officiels et la chronologie : le prix montre ce que le marché accepte de payer ; les sources expliquent ce qui change sous la surface.",
+          "italic": true
+        }
+      ]
+    },
+    {
+      "type": "case_dossier_header",
+      "id": "dossier-01-berkshire-hathaway",
+      "kicker": "DOSSIER 01",
+      "title": "Berkshire Hathaway",
+      "question": "Comment une discipline d'allocation du capital devient-elle une machine de capitalisation ?"
+    },
+    {
+      "type": "stat_row",
+      "stats": [
+        {
+          "value": "1965",
+          "label": "CONTRÔLE PAR BUFFETT"
+        },
+        {
+          "value": "19,7 %",
+          "label": "CAGR DE MARCHÉ PAR ACTION"
+        },
+        {
+          "value": "1965–2025",
+          "label": "PÉRIODE OFFICIELLE"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "le-contexte-la-reussite-nait-d-abord-d-une-mauvaise-entreprise",
+      "text": "Le contexte : la réussite naît d'abord d'une mauvaise entreprise"
+    },
+    {
+      "type": "paragraph",
+      "text": "Lorsque Warren Buffett prend le contrôle de Berkshire Hathaway en 1965, il n'achète pas la future architecture idéale : il achète une entreprise textile de Nouvelle-Angleterre dont l'économie est médiocre. Les usines exigent du capital, subissent une concurrence intense et offrent peu de pouvoir sur les prix. La première leçon du cas n'est donc pas « acheter une belle courbe » ; c'est reconnaître qu'un actif bon marché peut rester un mauvais réceptacle pour le capital.",
+      "segments": [
+        {
+          "text": "Lorsque Warren Buffett prend le contrôle de Berkshire Hathaway en 1965, il n'achète pas la future architecture idéale : il achète une entreprise textile de Nouvelle-Angleterre dont l'économie est médiocre. Les usines exigent du capital, subissent une concurrence intense et offrent peu de pouvoir sur les prix. La première leçon du cas n'est donc pas « acheter une belle courbe » ; c'est reconnaître qu'un actif bon marché peut rester un mauvais réceptacle pour le capital."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "La transformation intervient lorsque les profits cessent d'être enfermés dans le textile. Berkshire acquiert des assureurs, puis des entreprises entières et des participations cotées. Le groupe devient une plateforme d'allocation : le capital est déplacé depuis les activités qui en ont moins besoin vers les opportunités offrant le meilleur couple rendement–risque.",
+      "segments": [
+        {
+          "text": "La transformation intervient lorsque les profits cessent d'être enfermés dans le textile. Berkshire acquiert des assureurs, puis des entreprises entières et des participations cotées. Le groupe devient une plateforme d'allocation : le capital est déplacé depuis les activités qui en ont moins besoin vers les opportunités offrant le meilleur couple rendement–risque."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "IDÉE DIRECTRICE",
+      "variant": "info",
+      "text": "La performance n'est pas produite par une transaction emblématique, mais par des milliers de décisions cohérentes : conserver, réinvestir, attendre, acheter et parfois ne rien faire.",
+      "sourceFill": "FFF7DD"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "le-moteur-economique-etape-par-etape",
+      "text": "Le moteur économique, étape par étape"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Étape",
+        "Ce que fait Berkshire",
+        "Pourquoi cela compose"
+      ],
+      "rows": [
+        [
+          "1. Générer",
+          "Filiales opérationnelles et assurance produisent des bénéfices et du float.",
+          "Le groupe dispose d'un flux de capital récurrent."
+        ],
+        [
+          "2. Sélectionner",
+          "Le capital n'est pas automatiquement rendu à chaque filiale.",
+          "Il peut être redirigé vers l'usage le plus rentable."
+        ],
+        [
+          "3. Déployer",
+          "Acquisitions, actions cotées, investissements internes, rachats ou liquidités.",
+          "Chaque dollar est comparé à plusieurs usages possibles."
+        ],
+        [
+          "4. Conserver",
+          "Les gains restent majoritairement dans le système.",
+          "Les rendements futurs portent aussi sur les gains antérieurs."
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Le float d'assurance mérite une précision. Les assurés paient leurs primes avant que toutes les indemnités ne soient versées. Entre les deux, Berkshire détient temporairement ces fonds. Ce financement n'est avantageux que si la souscription est disciplinée : un float obtenu au prix de pertes d'assurance excessives serait une dette chère déguisée.",
+      "segments": [
+        {
+          "text": "Le float d'assurance mérite une précision. Les assurés paient leurs primes avant que toutes les indemnités ne soient versées. Entre les deux, Berkshire détient temporairement ces fonds. Ce financement n'est avantageux que si la souscription est disciplinée : un float obtenu au prix de pertes d'assurance excessives serait une dette chère déguisée."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "le-graphique-voir-la-capitalisation-mais-aussi-les-interruptions",
+      "text": "Le graphique : voir la capitalisation, mais aussi les interruptions"
+    },
+    {
+      "type": "paragraph",
+      "text": "Le graphique ci-dessous est le cours BRK.A affiché par TradingView en bougies mensuelles. Une bougie résume un mois : le corps relie l'ouverture et la clôture ; les mèches indiquent le plus haut et le plus bas. Cette unité de temps évite de transformer chaque séance en événement et rend lisible la structure de long terme.",
+      "segments": [
+        {
+          "text": "Le graphique ci-dessous est le cours BRK.A affiché par TradingView en bougies mensuelles. Une bougie résume un mois : le corps relie l'ouverture et la clôture ; les mèches indiquent le plus haut et le plus bas. Cette unité de temps évite de transformer chaque séance en événement et rend lisible la structure de long terme."
+        }
+      ]
+    },
+    {
+      "type": "figure",
+      "src": "/media/2-dossiers-historiques/2-dossiers-historiques-9f72486e9fba.webp",
+      "originalName": "image1.jpg",
+      "width": 1363,
+      "height": 936,
+      "optimized": true,
+      "caption": "Figure 1 — Berkshire Hathaway Class A (NYSE:BRK.A), bougies mensuelles TradingView, 2011–juillet 2026.",
+      "source": "TradingView · TradingView",
+      "sourceLinks": [
+        "https://www.tradingview.com/chart/?symbol=NYSE%3ABRK.A",
+        "https://www.tradingview.com/symbols/NYSE-BRK.A/"
+      ],
+      "alt": "Berkshire Hathaway Class A (NYSE:BRK.A), bougies mensuelles TradingView, 2011–juillet 2026."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "ce-que-la-courbe-raconte-reellement",
+      "text": "Ce que la courbe raconte réellement"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Période visible",
+        "Lecture du prix",
+        "Interprétation pédagogique"
+      ],
+      "rows": [
+        [
+          "2011–2017",
+          "Progression par paliers, entrecoupée de consolidations.",
+          "La capitalisation n'est pas une ligne droite ; le temps sans nouveau sommet fait partie du rendement."
+        ],
+        [
+          "2018–2020",
+          "Volatilité plus forte et baisse brutale autour du choc de 2020.",
+          "Une entreprise robuste n'immunise pas l'action contre une panique de marché."
+        ],
+        [
+          "2021–2023",
+          "Reprise, accélération, puis nouvelles pauses.",
+          "Le marché réévalue le groupe au rythme des résultats, des taux et des anticipations."
+        ],
+        [
+          "2024–2026",
+          "Hausse rapide, puis large zone de fluctuation en altitude.",
+          "Après une revalorisation, le cours peut digérer les attentes sans que le modèle économique disparaisse."
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "CE QUE LE GRAPHIQUE NE PROUVE PAS",
+      "variant": "warning",
+      "text": "La hausse passée n'est pas une estimation de valeur. Pour décider aujourd'hui, il faut encore étudier les bénéfices normalisés, le bilan, la succession, la valeur des filiales et le prix payé.",
+      "sourceFill": "FCEDED"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "pourquoi-ce-cas-est-exceptionnel-et-difficile-a-copier",
+      "text": "Pourquoi ce cas est exceptionnel — et difficile à copier"
+    },
+    {
+      "type": "paragraph",
+      "text": "Le tableau officiel de Berkshire indique, pour la valeur de marché par action, un taux composé annuel de 19,7 % entre 1965 et 2025. Une différence de quelques points, maintenue pendant six décennies, produit un écart gigantesque. Mais copier les positions visibles aujourd'hui ne recrée ni les prix d'achat historiques, ni le coût du float, ni l'accès aux acquisitions, ni l'horizon institutionnel du groupe.",
+      "segments": [
+        {
+          "text": "Le tableau officiel de Berkshire indique, pour la valeur de marché par action, un taux composé annuel de 19,7 % entre 1965 et 2025. Une différence de quelques points, maintenue pendant six décennies, produit un écart gigantesque. Mais copier les positions visibles aujourd'hui ne recrée ni les prix d'achat historiques, ni le coût du float, ni l'accès aux acquisitions, ni l'horizon institutionnel du groupe."
+        }
+      ]
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Échelle : un groupe immense a moins d'opportunités capables de déplacer son résultat.",
+          "segments": [
+            {
+              "text": "Échelle :",
+              "bold": true
+            },
+            {
+              "text": " un groupe immense a moins d'opportunités capables de déplacer son résultat."
+            }
+          ]
+        },
+        {
+          "text": "Prix : une excellente entreprise achetée à une valorisation excessive peut offrir un rendement médiocre.",
+          "segments": [
+            {
+              "text": "Prix :",
+              "bold": true
+            },
+            {
+              "text": " une excellente entreprise achetée à une valorisation excessive peut offrir un rendement médiocre."
+            }
+          ]
+        },
+        {
+          "text": "Temps : supporter plusieurs années de sous-performance exige une structure financière et psychologique stable.",
+          "segments": [
+            {
+              "text": "Temps :",
+              "bold": true
+            },
+            {
+              "text": " supporter plusieurs années de sous-performance exige une structure financière et psychologique stable."
+            }
+          ]
+        },
+        {
+          "text": "Succession : le système doit survivre aux personnes qui l'ont construit.",
+          "segments": [
+            {
+              "text": "Succession :",
+              "bold": true
+            },
+            {
+              "text": " le système doit survivre aux personnes qui l'ont construit."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "LEÇON DU CAS",
+      "variant": "summary",
+      "text": "Berkshire illustre un gain historique réel, mais surtout son mécanisme : allocation rationnelle, financement durable, réinvestissement et absence de vente forcée. La survie permet à la capitalisation d'agir.",
+      "sourceFill": "EAF6EF"
+    },
+    {
+      "type": "sources",
+      "scope": "local",
+      "entries": [
+        {
+          "text": "Berkshire Hathaway · TradingView",
+          "links": [
+            "https://www.berkshirehathaway.com/letters/2025ltr.pdf",
+            "https://www.tradingview.com/chart/?symbol=NYSE%3ABRK.A"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "case_dossier_header",
+      "id": "dossier-02-enron",
+      "kicker": "DOSSIER 02",
+      "title": "Enron",
+      "question": "Comment une entreprise admirée peut-elle passer de 90,75 $ à quelques cents en quinze mois ?"
+    },
+    {
+      "type": "stat_row",
+      "stats": [
+        {
+          "value": "90,75 $",
+          "label": "PLUS HAUT D'AOÛT 2000"
+        },
+        {
+          "value": "0,26 $",
+          "label": "CLÔTURE AU 30 NOV. 2001"
+        },
+        {
+          "value": "2 déc. 2001",
+          "label": "DÉPÔT DE BILAN"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "le-contexte-d-un-reseau-de-gaz-a-une-histoire-de-croissance",
+      "text": "Le contexte : d'un réseau de gaz à une histoire de croissance"
+    },
+    {
+      "type": "paragraph",
+      "text": "Enron vient à l'origine des gazoducs. Sous Kenneth Lay et Jeffrey Skilling, le groupe se présente progressivement comme une plateforme de marché capable d'intermédier l'énergie, puis d'étendre ce modèle à d'autres commodités et au haut débit. Cette narration séduit parce qu'elle promet des revenus plus rapides et moins limités par les actifs physiques.",
+      "segments": [
+        {
+          "text": "Enron vient à l'origine des gazoducs. Sous Kenneth Lay et Jeffrey Skilling, le groupe se présente progressivement comme une plateforme de marché capable d'intermédier l'énergie, puis d'étendre ce modèle à d'autres commodités et au haut débit. Cette narration séduit parce qu'elle promet des revenus plus rapides et moins limités par les actifs physiques."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Le problème n'est pas qu'Enron utilise des contrats ou des entités dédiées : ces outils peuvent être légitimes. Le problème est l'association de trois pratiques : comptabiliser immédiatement des profits futurs très incertains, déplacer dettes et pertes vers des structures opaques, et utiliser l'action Enron elle-même comme soutien économique de certains montages. La hausse du titre n'est plus seulement une récompense ; elle devient une condition du financement.",
+      "segments": [
+        {
+          "text": "Le problème n'est pas qu'Enron utilise des contrats ou des entités dédiées : ces outils peuvent être légitimes. Le problème est l'association de trois pratiques : comptabiliser immédiatement des profits futurs très incertains, déplacer dettes et pertes vers des structures opaques, et utiliser l'action Enron elle-même comme soutien économique de certains montages. La hausse du titre n'est plus seulement une récompense ; elle devient une condition du financement."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "deux-realites-coexistent",
+      "text": "Deux réalités coexistent"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Ce que le marché voit",
+        "Ce qui reste difficile à voir",
+        "Pourquoi l'écart est dangereux"
+      ],
+      "rows": [
+        [
+          "Croissance rapide du chiffre d'affaires et discours d'innovation.",
+          "Qualité du cash-flow et hypothèses de valorisation des contrats.",
+          "Un bénéfice comptable peut exister sans encaissement correspondant."
+        ],
+        [
+          "Notation de crédit encore élevée et soutien des analystes.",
+          "Dettes, garanties et déclencheurs logés dans des SPE.",
+          "La liquidité peut disparaître avant que le compte de résultat ne l'annonce clairement."
+        ],
+        [
+          "Cours élevé, acquisitions possibles et confiance des partenaires.",
+          "Montages adossés à la valeur de l'action Enron.",
+          "La baisse du titre affaiblit précisément les structures censées protéger le bilan."
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "POINT DE BASCULE",
+      "variant": "principle",
+      "text": "Chez Enron, la confiance n'est pas une variable abstraite : elle alimente la capacité à négocier, à obtenir du crédit et à maintenir les garanties. Quand elle tombe, le modèle se contracte.",
+      "sourceFill": "FCEDED"
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "le-graphique-le-marche-se-degrade-avant-l-aveu-final",
+      "text": "Le graphique : le marché se dégrade avant l'aveu final"
+    },
+    {
+      "type": "paragraph",
+      "text": "Les bougies mensuelles permettent de distinguer quatre phases : l'euphorie de 2000, l'érosion régulière de 2001, l'accélération après les révélations d'octobre, puis la capitulation de novembre. Le volume explose au moment où chacun cherche simultanément à sortir.",
+      "segments": [
+        {
+          "text": "Les bougies mensuelles permettent de distinguer quatre phases : l'euphorie de 2000, l'érosion régulière de 2001, l'accélération après les révélations d'octobre, puis la capitulation de novembre. Le volume explose au moment où chacun cherche simultanément à sortir."
+        }
+      ]
+    },
+    {
+      "type": "figure",
+      "src": "/media/2-dossiers-historiques/2-dossiers-historiques-6b1cf8a63b35.webp",
+      "originalName": "image2.png",
+      "width": 2610,
+      "height": 1540,
+      "optimized": true,
+      "caption": "Figure 2 — Enron (ENE), bougies mensuelles et volumes, janvier 2000–novembre 2001.",
+      "source": "Finzeit · U.S. Senate · Archive de l'Investor Relations d'Enron",
+      "sourceLinks": [
+        "https://github.com/captainbuckkets/Finzeit/blob/master/ENRON.csv",
+        "https://www.govinfo.gov/content/pkg/CPRT-107SPRT82147/html/CPRT-107SPRT82147.htm",
+        "https://enroncorp.com/corp/investors/stock/history"
+      ],
+      "alt": "Enron (ENE), bougies mensuelles et volumes, janvier 2000–novembre 2001."
+    },
+    {
+      "type": "callout",
+      "label": "TRANSPARENCE SUR LA DONNÉE",
+      "variant": "note",
+      "text": "Les administrations publient des points de contrôle et la chronologie, mais pas une série publique complète des ouvertures quotidiennes. Les bougies sont donc calculées depuis la série OHLC des archives du procès ; les valeurs clés sont recoupées avec le Sénat, la SEC, le DOJ et l'archive Investor Relations d'Enron/Interactive Data Corp.",
+      "sourceFill": "F4F6F9"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "lire-la-chute-avec-les-evenements",
+      "text": "Lire la chute avec les événements"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Phase",
+        "Information nouvelle",
+        "Réaction et sens"
+      ],
+      "rows": [
+        [
+          "Août 2000",
+          "Le titre atteint 90,75 $.",
+          "Le prix incorpore une forte confiance dans la croissance et la crédibilité du modèle."
+        ],
+        [
+          "Jan.–août 2001",
+          "Les interrogations sur la lisibilité des comptes s'accumulent ; Skilling démissionne le 14 août.",
+          "La baisse devient persistante : le marché exige progressivement une prime de risque plus élevée."
+        ],
+        [
+          "16–22 oct. 2001",
+          "Perte trimestrielle de 618 M$, réduction de fonds propres puis enquête de la SEC.",
+          "Le doute change de nature : il porte désormais sur l'intégrité des chiffres et les engagements cachés."
+        ],
+        [
+          "Nov. 2001",
+          "Retraitements, dégradation du crédit, échec du rapprochement avec Dynegy.",
+          "Les contreparties raccourcissent le financement ; les ventes deviennent une course à la liquidité."
+        ],
+        [
+          "30 nov.–2 déc.",
+          "Clôture à 0,26 $, puis Chapter 11.",
+          "L'action ne représente presque plus une créance résiduelle sur une entreprise solvable."
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "le-mecanisme-fatal-une-boucle-prix-credit-liquidite",
+      "text": "Le mécanisme fatal : une boucle prix–crédit–liquidité"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Étape",
+        "Mécanisme concret",
+        "Conséquence"
+      ],
+      "rows": [
+        [
+          "1",
+          "Le cours élevé soutient la valeur des garanties et facilite les transactions financées par actions.",
+          "Le groupe peut continuer à négocier et à financer ses structures."
+        ],
+        [
+          "2",
+          "Les pertes et obligations restent difficiles à relier au bilan consolidé.",
+          "Investisseurs et créanciers sous-estiment la fragilité."
+        ],
+        [
+          "3",
+          "Les révélations font baisser le titre et déclenchent des demandes de transparence.",
+          "La valeur des garanties et la confiance reculent ensemble."
+        ],
+        [
+          "4",
+          "Les agences et contreparties réduisent leur tolérance au risque.",
+          "Davantage de collatéral et de liquidités sont exigés au pire moment."
+        ],
+        [
+          "5",
+          "La baisse du crédit limite l'activité de trading, source vitale de revenus et de cash.",
+          "La contraction opérationnelle confirme la peur initiale : la boucle s'auto-alimente."
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Le rapport du Sénat sur le conseil d'administration montre la dépendance de certains montages Raptor au cours d'Enron. Une présentation d'avril 2001 estimait qu'à 40 $ l'action, des dizaines de millions d'actions supplémentaires pourraient être nécessaires. Ce n'était donc pas une couverture indépendante : le risque était en partie garanti par l'actif même qui chutait.",
+      "segments": [
+        {
+          "text": "Le rapport du Sénat sur le conseil d'administration montre la dépendance de certains montages Raptor au cours d'Enron. Une présentation d'avril 2001 estimait qu'à 40 $ l'action, des dizaines de millions d'actions supplémentaires pourraient être nécessaires. Ce n'était donc pas une couverture indépendante : le risque était en partie garanti par l'actif même qui chutait."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "ce-que-le-cours-pouvait-et-ne-pouvait-pas-dire",
+      "text": "Ce que le cours pouvait — et ne pouvait pas — dire"
+    },
+    {
+      "type": "paragraph",
+      "text": "La tendance baissière ne démontre pas une fraude. Elle dit seulement que les acheteurs acceptent de payer de moins en moins pour la même histoire. Pour l'investisseur, ce désaccord entre narration et prix doit déclencher une nouvelle enquête : le cash suit-il le bénéfice ? les transactions avec parties liées sont-elles intelligibles ? le financement dépend-il du titre ? les dirigeants achètent-ils ou vendent-ils ?",
+      "segments": [
+        {
+          "text": "La tendance baissière ne démontre pas une fraude. Elle dit seulement que les acheteurs acceptent de payer de moins en moins pour la même histoire. Pour l'investisseur, ce désaccord entre narration et prix doit déclencher une nouvelle enquête : le cash suit-il le bénéfice ? les transactions avec parties liées sont-elles intelligibles ? le financement dépend-il du titre ? les dirigeants achètent-ils ou vendent-ils ?"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "LEÇON DU CAS",
+      "variant": "summary",
+      "text": "Enron n'est pas seulement une fraude comptable. C'est une crise de financement masquée par une histoire de croissance. Lorsque la valeur de l'action garantit le système, la baisse du cours peut transformer le doute en insolvabilité.",
+      "sourceFill": "FCEDED"
+    },
+    {
+      "type": "sources",
+      "scope": "local",
+      "entries": [
+        {
+          "text": "U.S. SEC EDGAR · U.S. SEC EDGAR · U.S. Department of Justice · U.S. Senate · U.S. Senate · FBI",
+          "links": [
+            "https://www.sec.gov/Archives/edgar/data/1024401/000102440101500010/ene10-k.txt",
+            "https://www.sec.gov/Archives/edgar/data/1024401/000095012901504218/h92492e10-q.txt",
+            "https://www.justice.gov/archive/dag/cftf/chargingdocs/delaineyindictment.pdf",
+            "https://www.govinfo.gov/content/pkg/CPRT-107SPRT82147/html/CPRT-107SPRT82147.htm",
+            "https://www.govinfo.gov/content/pkg/CPRT-107SPRT80393/html/CPRT-107SPRT80393.htm",
+            "https://www.fbi.gov/history/cases-and-criminals/enron"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "case_dossier_header",
+      "id": "dossier-03-barings",
+      "kicker": "DOSSIER 03",
+      "title": "Barings",
+      "question": "Comment un trader peut-il détruire une banque vieille de plus de deux siècles ?"
+    },
+    {
+      "type": "stat_row",
+      "stats": [
+        {
+          "value": "88888",
+          "label": "COMPTE DE DISSIMULATION"
+        },
+        {
+          "value": "≈ 827 M£",
+          "label": "PERTE FINALE"
+        },
+        {
+          "value": "1 £",
+          "label": "VENTE À ING"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "le-contexte-une-activite-legitime-un-controle-illegitime",
+      "text": "Le contexte : une activité légitime, un contrôle illégitime"
+    },
+    {
+      "type": "paragraph",
+      "text": "À Singapour, Nick Leeson intervient pour Barings sur des contrats à terme et options liés notamment au Nikkei 225. L'activité d'arbitrage annoncée peut être relativement peu risquée lorsqu'elle consiste à exploiter de petits écarts entre marchés. Mais Leeson cumule deux fonctions qui devraient se contrôler mutuellement : le front office, qui prend les positions, et le back office, qui les confirme, les enregistre et explique les appels de marge.",
+      "segments": [
+        {
+          "text": "À Singapour, Nick Leeson intervient pour Barings sur des contrats à terme et options liés notamment au Nikkei 225. L'activité d'arbitrage annoncée peut être relativement peu risquée lorsqu'elle consiste à exploiter de petits écarts entre marchés. Mais Leeson cumule deux fonctions qui devraient se contrôler mutuellement : le front office, qui prend les positions, et le back office, qui les confirme, les enregistre et explique les appels de marge."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Ce conflit de fonctions lui permet d'affecter des pertes au compte d'erreur 88888 et d'envoyer à Londres des informations incomplètes. Les bénéfices apparents valorisent le trader ; les pertes réelles restent invisibles. La banque ne découvre pas un seul mauvais pari : elle découvre tardivement une position devenue gigantesque parce que chaque perte antérieure a été cachée et refinancée.",
+      "segments": [
+        {
+          "text": "Ce conflit de fonctions lui permet d'affecter des pertes au compte d'erreur 88888 et d'envoyer à Londres des informations incomplètes. Les bénéfices apparents valorisent le trader ; les pertes réelles restent invisibles. La banque ne découvre pas un seul mauvais pari : elle découvre tardivement une position devenue gigantesque parce que chaque perte antérieure a été cachée et refinancée."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "pourquoi-un-future-peut-grossir-si-vite",
+      "text": "Pourquoi un future peut grossir si vite"
+    },
+    {
+      "type": "paragraph",
+      "text": "Un contrat à terme ne demande pas de payer immédiatement toute sa valeur notionnelle. Le trader dépose une marge, puis les gains et pertes sont réglés au jour le jour. Cette mécanique crée du levier : une variation modeste de l'indice peut représenter une variation énorme par rapport au capital immobilisé. Si la perte est cachée, le siège peut continuer à envoyer du cash sans comprendre qu'il finance une position spéculative.",
+      "segments": [
+        {
+          "text": "Un contrat à terme ne demande pas de payer immédiatement toute sa valeur notionnelle. Le trader dépose une marge, puis les gains et pertes sont réglés au jour le jour. Cette mécanique crée du levier : une variation modeste de l'indice peut représenter une variation énorme par rapport au capital immobilisé. Si la perte est cachée, le siège peut continuer à envoyer du cash sans comprendre qu'il finance une position spéculative."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "ERREUR DE GOUVERNANCE",
+      "variant": "warning",
+      "text": "Le véritable risque n'est pas seulement la direction du Nikkei. C'est qu'une même personne puisse prendre le risque, le mesurer, l'expliquer et demander les fonds nécessaires pour le maintenir.",
+      "sourceFill": "FCEDED"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "la-chronologie-de-la-rupture",
+      "text": "La chronologie de la rupture"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Moment",
+        "Ce qui se passe",
+        "Pourquoi le risque augmente"
+      ],
+      "rows": [
+        [
+          "Avant 1995",
+          "Les pertes sont transférées vers 88888 ; les rapports donnent l'image d'une activité rentable.",
+          "La taille augmente sans alerte indépendante."
+        ],
+        [
+          "17 jan. 1995",
+          "Le séisme de Kobe provoque un choc sur les marchés japonais.",
+          "Les positions directionnelles perdent fortement."
+        ],
+        [
+          "Après le choc",
+          "Au lieu de réduire, Leeson augmente les paris en espérant un rebond.",
+          "La banque finance une stratégie de récupération sans le savoir."
+        ],
+        [
+          "23 fév. 1995",
+          "Leeson quitte Singapour ; les positions ne peuvent plus être dissimulées.",
+          "La liquidité et la solvabilité de Barings deviennent immédiatement visibles."
+        ],
+        [
+          "26 fév. 1995",
+          "Barings est déclarée insolvable ; ING l'acquiert ensuite pour 1 £.",
+          "La perte dépasse les fonds propres disponibles."
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "la-chaine-de-controle-qui-aurait-du-fonctionner",
+      "text": "La chaîne de contrôle qui aurait dû fonctionner"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Contrôle attendu",
+        "Ce qui a échoué",
+        "Effet"
+      ],
+      "rows": [
+        [
+          "Séparation front/back office",
+          "Leeson supervise les opérations et leur enregistrement.",
+          "Il peut masquer la source des pertes."
+        ],
+        [
+          "Rapprochements indépendants",
+          "Les confirmations et soldes ne déclenchent pas d'escalade efficace.",
+          "Le compte 88888 persiste."
+        ],
+        [
+          "Limites de position",
+          "Le siège ne relie pas les besoins de marge à l'exposition réelle.",
+          "La taille devient incompatible avec le capital de la banque."
+        ],
+        [
+          "Culture d'alerte",
+          "Les profits apparents réduisent la volonté de contester le trader vedette.",
+          "La réputation interne neutralise le scepticisme."
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "LEÇON DU CAS",
+      "variant": "summary",
+      "text": "Barings n'a pas été détruite par une formule complexe. Elle a été détruite par une asymétrie simple : le trader connaît la position réelle, le siège finance les appels de marge, et aucun contrôle indépendant ne relie les deux.",
+      "sourceFill": "FCEDED"
+    },
+    {
+      "type": "sources",
+      "scope": "local",
+      "entries": [
+        {
+          "text": "Bank of England",
+          "links": [
+            "https://www.bankofengland.co.uk/-/media/boe/files/financial-stability-report/1997/autumn-1997.pdf"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "case_dossier_header",
+      "id": "dossier-04-ltcm",
+      "kicker": "DOSSIER 04",
+      "title": "LTCM",
+      "question": "Pourquoi une bonne idée statistique peut-elle mourir de son financement ?"
+    },
+    {
+      "type": "stat_row",
+      "stats": [
+        {
+          "value": "≈ 28×",
+          "label": "LEVIER BILAN FIN 1997"
+        },
+        {
+          "value": "≈ 1 400 Md$",
+          "label": "NOTIONNEL DÉRIVÉS AOÛT 1998"
+        },
+        {
+          "value": "≈ 52 %",
+          "label": "CAPITAL PERDU EN 1998 AU 31 AOÛT"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "le-contexte-gagner-sur-de-petits-ecarts-tres-souvent",
+      "text": "Le contexte : gagner sur de petits écarts, très souvent"
+    },
+    {
+      "type": "paragraph",
+      "text": "Long-Term Capital Management est créé en 1994 autour de John Meriwether avec des spécialistes reconnus des marchés obligataires et des universitaires de premier plan. Le fonds ne cherche pas nécessairement à deviner si les taux vont monter ou baisser. Il cherche surtout des écarts relatifs : deux titres économiquement proches sont temporairement valorisés différemment ; LTCM achète le moins cher et vend le plus cher, en attendant leur convergence.",
+      "segments": [
+        {
+          "text": "Long-Term Capital Management est créé en 1994 autour de John Meriwether avec des spécialistes reconnus des marchés obligataires et des universitaires de premier plan. Le fonds ne cherche pas nécessairement à deviner si les taux vont monter ou baisser. Il cherche surtout des écarts relatifs : deux titres économiquement proches sont temporairement valorisés différemment ; LTCM achète le moins cher et vend le plus cher, en attendant leur convergence."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Prenons l'intuition d'un arbitrage de Treasuries. Une obligation très liquide et récemment émise peut être plus chère qu'une obligation presque équivalente mais moins liquide. Acheter la seconde et vendre la première réduit une partie du risque général de taux. Pourtant, le gain espéré sur l'écart est minuscule. Pour en faire un rendement élevé sur fonds propres, le fonds multiplie les positions et finance une grande partie de l'actif par emprunt et dérivés.",
+      "segments": [
+        {
+          "text": "Prenons l'intuition d'un arbitrage de Treasuries. Une obligation très liquide et récemment émise peut être plus chère qu'une obligation presque équivalente mais moins liquide. Acheter la seconde et vendre la première réduit une partie du risque général de taux. Pourtant, le gain espéré sur l'écart est minuscule. Pour en faire un rendement élevé sur fonds propres, le fonds multiplie les positions et finance une grande partie de l'actif par emprunt et dérivés."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "LA CONFUSION À ÉVITER",
+      "variant": "warning",
+      "text": "Une position peut être couverte contre le mouvement moyen du marché et rester très exposée à la liquidité, à la corrélation, au financement et au comportement des autres vendeurs forcés.",
+      "sourceFill": "FFF7DD"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "le-bilan-reel-du-risque",
+      "text": "Le bilan réel du risque"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Mesure officielle",
+        "Ordre de grandeur",
+        "Ce que cela signifie"
+      ],
+      "rows": [
+        [
+          "Valeur nette fin 1997",
+          "≈ 4,67 Md$",
+          "Coussin absorbant les pertes après restitution de capital aux investisseurs."
+        ],
+        [
+          "Levier simple",
+          "≈ 28 pour 1",
+          "Une variation défavorable de quelques pourcents des actifs peut absorber le capital."
+        ],
+        [
+          "Dérivés au 31 août 1998",
+          "≈ 1 400 Md$ notionnels",
+          "Le notionnel n'est pas une perte, mais montre l'étendue des contrats et dépendances."
+        ],
+        [
+          "Portefeuille",
+          "> 20 000 transactions",
+          "Un débouclage rapide exige de nombreux marchés et contreparties disponibles."
+        ],
+        [
+          "Contreparties",
+          "> 75",
+          "La fragilité est répartie dans le système financier, pas enfermée dans un seul compte."
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "une-bonne-idee-peut-mourir-avant-d-avoir-raison",
+      "text": "Une bonne idée peut mourir avant d'avoir raison"
+    },
+    {
+      "type": "paragraph",
+      "text": "La phrase est littérale. Le pari de convergence porte sur un horizon économique : si le calme revient, les écarts peuvent se refermer. Le financement, lui, fonctionne à un horizon beaucoup plus court. Les positions sont réévaluées chaque jour ; les prêteurs peuvent demander davantage de marge ; les lignes de repo peuvent être réduites ; les contreparties peuvent refuser de renouveler. LTCM doit donc survivre aujourd'hui pour avoir raison demain.",
+      "segments": [
+        {
+          "text": "La phrase est littérale. Le pari de convergence porte sur un horizon économique : si le calme revient, les écarts peuvent se refermer. Le financement, lui, fonctionne à un horizon beaucoup plus court. Les positions sont réévaluées chaque jour ; les prêteurs peuvent demander davantage de marge ; les lignes de repo peuvent être réduites ; les contreparties peuvent refuser de renouveler. LTCM doit donc survivre aujourd'hui pour avoir raison demain."
+        }
+      ]
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Horizon de la thèse",
+        "Horizon du financement",
+        "Collision"
+      ],
+      "rows": [
+        [
+          "Les prix relatifs devraient converger avec le retour de la liquidité.",
+          "Les pertes de marché et marges sont réglées immédiatement.",
+          "Le fonds vend avant la convergence pour trouver du cash."
+        ],
+        [
+          "La diversification historique suppose que plusieurs écarts se comportent différemment.",
+          "En crise, les investisseurs liquident simultanément les actifs moins liquides.",
+          "Les corrélations augmentent précisément quand elles devaient protéger."
+        ],
+        [
+          "Le modèle estime des mouvements à partir de données normales.",
+          "La taille du fonds modifie le prix auquel il peut sortir.",
+          "Le risque observé dans le modèle est inférieur au coût réel de liquidation."
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "le-choc-de-1998",
+      "text": "Le choc de 1998"
+    },
+    {
+      "type": "paragraph",
+      "text": "Après la crise asiatique, le défaut et la dévaluation russes du 17 août 1998 déclenchent une fuite mondiale vers les actifs les plus liquides. C'est exactement le mauvais régime pour LTCM : les titres « riches » et liquides deviennent encore plus recherchés, tandis que les titres « bon marché » et moins liquides sont vendus. Les écarts censés converger s'écartent davantage.",
+      "segments": [
+        {
+          "text": "Après la crise asiatique, le défaut et la dévaluation russes du 17 août 1998 déclenchent une fuite mondiale vers les actifs les plus liquides. C'est exactement le mauvais régime pour LTCM : les titres « riches » et liquides deviennent encore plus recherchés, tandis que les titres « bon marché » et moins liquides sont vendus. Les écarts censés converger s'écartent davantage."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Le 21 août, la perte atteint environ 550 millions de dollars en une seule journée selon le GAO. Sur le seul mois d'août, le fonds perd 44 % ; au 31 août, il a perdu environ 52 % depuis le début de l'année et sa valeur nette est tombée à 2,3 milliards de dollars. Chaque perte réduit le capital, donc augmente mécaniquement le levier restant.",
+      "segments": [
+        {
+          "text": "Le 21 août, la perte atteint environ 550 millions de dollars en une seule journée selon le GAO. Sur le seul mois d'août, le fonds perd 44 % ; au 31 août, il a perdu environ 52 % depuis le début de l'année et sa valeur nette est tombée à 2,3 milliards de dollars. Chaque perte réduit le capital, donc augmente mécaniquement le levier restant."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "la-boucle-de-liquidation",
+      "text": "La boucle de liquidation"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Séquence",
+        "Mouvement",
+        "Amplification"
+      ],
+      "rows": [
+        [
+          "1",
+          "Les spreads s'écartent et le portefeuille perd.",
+          "Le ratio exposition/capital augmente."
+        ],
+        [
+          "2",
+          "Les contreparties demandent du collatéral et réduisent les lignes.",
+          "Le fonds a besoin de cash immédiatement."
+        ],
+        [
+          "3",
+          "LTCM vend des positions peu liquides.",
+          "Les prix se déplacent contre les positions qu'il conserve encore."
+        ],
+        [
+          "4",
+          "D'autres acteurs aux portefeuilles proches vendent aussi.",
+          "Les corrélations et l'impact de marché augmentent."
+        ],
+        [
+          "5",
+          "La nouvelle baisse déclenche de nouveaux appels de marge.",
+          "La boucle recommence avec moins de capital."
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "pourquoi-la-reserve-federale-intervient-autour-de-la-table",
+      "text": "Pourquoi la Réserve fédérale intervient autour de la table"
+    },
+    {
+      "type": "paragraph",
+      "text": "Le problème dépasse les investisseurs du fonds. Plus de 75 contreparties sont liées à un portefeuille de dizaines de milliers de transactions. Une liquidation désordonnée risque de déplacer brutalement les prix, d'imposer des pertes aux banques et de forcer d'autres ventes. La Federal Reserve Bank of New York réunit donc les principales institutions pour organiser une solution privée.",
+      "segments": [
+        {
+          "text": "Le problème dépasse les investisseurs du fonds. Plus de 75 contreparties sont liées à un portefeuille de dizaines de milliers de transactions. Une liquidation désordonnée risque de déplacer brutalement les prix, d'imposer des pertes aux banques et de forcer d'autres ventes. La Federal Reserve Bank of New York réunit donc les principales institutions pour organiser une solution privée."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Quatorze institutions injectent environ 3,6 milliards de dollars en échange de 90 % du fonds. Il ne s'agit pas d'un chèque direct du contribuable au fonds : la Fed facilite la coordination, tandis que les banques exposées apportent le capital. Cette nuance compte, mais elle ne supprime pas l'aléa moral : des acteurs peuvent anticiper qu'une crise systémique rendra leur chute politiquement difficile à laisser se dérouler sans coordination.",
+      "segments": [
+        {
+          "text": "Quatorze institutions injectent environ 3,6 milliards de dollars en échange de 90 % du fonds. Il ne s'agit pas d'un chèque direct du contribuable au fonds : la Fed facilite la coordination, tandis que les banques exposées apportent le capital. Cette nuance compte, mais elle ne supprime pas l'aléa moral : des acteurs peuvent anticiper qu'une crise systémique rendra leur chute politiquement difficile à laisser se dérouler sans coordination."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "ce-que-les-modeles-avaient-sous-estime",
+      "text": "Ce que les modèles avaient sous-estimé"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Le régime : les relations historiques changent lorsque tous cherchent la liquidité.",
+          "segments": [
+            {
+              "text": "Le régime :",
+              "bold": true
+            },
+            {
+              "text": " les relations historiques changent lorsque tous cherchent la liquidité."
+            }
+          ]
+        },
+        {
+          "text": "L'impact : une position importante n'a pas le même prix de sortie que sa cotation affichée.",
+          "segments": [
+            {
+              "text": "L'impact :",
+              "bold": true
+            },
+            {
+              "text": " une position importante n'a pas le même prix de sortie que sa cotation affichée."
+            }
+          ]
+        },
+        {
+          "text": "Le financement : le prêteur contrôle l'horizon réel de la stratégie.",
+          "segments": [
+            {
+              "text": "Le financement :",
+              "bold": true
+            },
+            {
+              "text": " le prêteur contrôle l'horizon réel de la stratégie."
+            }
+          ]
+        },
+        {
+          "text": "La similarité : plusieurs fonds peuvent détenir la même « bonne idée » et vendre ensemble.",
+          "segments": [
+            {
+              "text": "La similarité :",
+              "bold": true
+            },
+            {
+              "text": " plusieurs fonds peuvent détenir la même « bonne idée » et vendre ensemble."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "LEÇON DU CAS",
+      "variant": "summary",
+      "text": "La solidité d'une stratégie ne dépend pas seulement de sa probabilité de gain final. Elle dépend du chemin, du collatéral nécessaire pendant ce chemin et du droit des financeurs à interrompre le voyage.",
+      "sourceFill": "FCEDED"
+    },
+    {
+      "type": "case_dossier_header",
+      "id": "dossier-05-archegos",
+      "kicker": "DOSSIER 05",
+      "title": "Archegos",
+      "question": "Comment la concentration et les dérivés rendent-ils le risque invisible jusqu'à la vente forcée ?"
+    },
+    {
+      "type": "stat_row",
+      "stats": [
+        {
+          "value": "≈ 10 Md$",
+          "label": "CAPITAL FIN 2020"
+        },
+        {
+          "value": "≈ 6×",
+          "label": "EXPOSITION SYNTHÉTIQUE"
+        },
+        {
+          "value": "> 10 Md$",
+          "label": "PERTES BANCAIRES DIRECTES"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "le-contexte-un-family-office-qui-agit-comme-un-grand-hedge-fund",
+      "text": "Le contexte : un family office qui agit comme un grand hedge fund"
+    },
+    {
+      "type": "paragraph",
+      "text": "Archegos Capital Management est le family office de Bill Hwang. Cette forme juridique bénéficie alors d'obligations de déclaration moins étendues qu'un gestionnaire classique recevant l'argent de clients externes. Pourtant, son activité est institutionnelle : positions concentrées, plusieurs prime brokers et recours massif aux total return swaps, ou TRS.",
+      "segments": [
+        {
+          "text": "Archegos Capital Management est le family office de Bill Hwang. Cette forme juridique bénéficie alors d'obligations de déclaration moins étendues qu'un gestionnaire classique recevant l'argent de clients externes. Pourtant, son activité est institutionnelle : positions concentrées, plusieurs prime brokers et recours massif aux total return swaps, ou TRS."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Un TRS sépare la propriété juridique de l'exposition économique. La banque détient ou couvre l'action ; Archegos reçoit la hausse du titre et les revenus économiques, et paie la baisse ainsi qu'un coût de financement. Pour le marché, Archegos peut donc contrôler une exposition très importante sans apparaître comme actionnaire direct de la même manière qu'un achat au comptant.",
+      "segments": [
+        {
+          "text": "Un TRS sépare la propriété juridique de l'exposition économique. La banque détient ou couvre l'action ; Archegos reçoit la hausse du titre et les revenus économiques, et paie la baisse ainsi qu'un coût de financement. Pour le marché, Archegos peut donc contrôler une exposition très importante sans apparaître comme actionnaire direct de la même manière qu'un achat au comptant."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "un-trs-concretement",
+      "text": "Un TRS, concrètement"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Acteur",
+        "Ce qu'il apporte",
+        "Ce qu'il reçoit",
+        "Risque principal"
+      ],
+      "rows": [
+        [
+          "Archegos",
+          "Collatéral initial et marges ultérieures.",
+          "Performance économique de l'action.",
+          "Une baisse exige rapidement du cash supplémentaire."
+        ],
+        [
+          "Prime broker",
+          "Financement et exposition contractuelle ; couverture en actions.",
+          "Frais et paiements contractuels.",
+          "Si Archegos fait défaut, la banque doit liquider sa couverture."
+        ],
+        [
+          "Marché",
+          "Liquidité sur les actions sous-jacentes.",
+          "Flux d'achat puis de vente des banques.",
+          "Les blocs forcés peuvent dépasser la profondeur disponible."
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "LE POINT AVEUGLE",
+      "variant": "warning",
+      "text": "Chaque banque connaît son TRS avec Archegos, mais pas nécessairement les TRS similaires signés avec les autres banques. Une exposition qui semble acceptable bilatéralement devient extrême une fois additionnée.",
+      "sourceFill": "FFF7DD"
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "le-mecanisme-complet-en-trois-etages",
+      "text": "Le mécanisme complet, en trois étages"
+    },
+    {
+      "type": "figure",
+      "src": "/media/2-dossiers-historiques/2-dossiers-historiques-8f92981ee71c.webp",
+      "originalName": "image3.png",
+      "width": 2533,
+      "height": 1595,
+      "optimized": true,
+      "caption": "Figure 3 — Archegos : construction de l'exposition, visibilité fragmentée et cascade de liquidation.",
+      "source": "ESMA",
+      "sourceLinks": [
+        "https://www.esma.europa.eu/sites/default/files/library/esma50-165-2096_leverage_and_derivatives_the_case_of_archegos.pdf"
+      ],
+      "alt": "Archegos : construction de l'exposition, visibilité fragmentée et cascade de liquidation."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "pourquoi-la-concentration-change-tout",
+      "text": "Pourquoi la concentration change tout"
+    },
+    {
+      "type": "paragraph",
+      "text": "Selon l'ESMA, les cinq principales actions représentent environ 80 % des expositions longues à la fin février 2021. La diversification apparente par nombre de contrats est donc trompeuse : plusieurs contrats, plusieurs banques et plusieurs véhicules peuvent dépendre des mêmes quelques cours. Lorsque ViacomCBS et d'autres positions reculent brutalement en mars, la valeur du collatéral se dégrade partout en même temps.",
+      "segments": [
+        {
+          "text": "Selon l'ESMA, les cinq principales actions représentent environ 80 % des expositions longues à la fin février 2021. La diversification apparente par nombre de contrats est donc trompeuse : plusieurs contrats, plusieurs banques et plusieurs véhicules peuvent dépendre des mêmes quelques cours. Lorsque ViacomCBS et d'autres positions reculent brutalement en mars, la valeur du collatéral se dégrade partout en même temps."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Les banques demandent alors des marges supplémentaires. Archegos ne peut pas répondre suffisamment. Les prime brokers prennent le contrôle des couvertures et cherchent à vendre de gros blocs. Les premiers vendeurs limitent une partie de leurs pertes ; les plus lents subissent des prix plus faibles, car les ventes précédentes ont déjà déprimé le marché.",
+      "segments": [
+        {
+          "text": "Les banques demandent alors des marges supplémentaires. Archegos ne peut pas répondre suffisamment. Les prime brokers prennent le contrôle des couvertures et cherchent à vendre de gros blocs. Les premiers vendeurs limitent une partie de leurs pertes ; les plus lents subissent des prix plus faibles, car les ventes précédentes ont déjà déprimé le marché."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "les-pertes-ne-sont-pas-reparties-au-hasard",
+      "text": "Les pertes ne sont pas réparties au hasard"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Banque",
+        "Perte directe rapportée",
+        "Lecture"
+      ],
+      "rows": [
+        [
+          "Credit Suisse",
+          "5,5 Md$",
+          "Sortie tardive, gouvernance et limites de risque déficientes."
+        ],
+        [
+          "Nomura",
+          "2,9 Md$",
+          "Exposition bilatérale importante au moment du défaut."
+        ],
+        [
+          "Morgan Stanley",
+          "0,9 Md$",
+          "Liquidation plus rapide, mais perte encore substantielle."
+        ],
+        [
+          "UBS",
+          "0,9 Md$",
+          "Risque de contrepartie sous-estimé malgré les marges."
+        ],
+        [
+          "Mitsubishi UFJ",
+          "0,3 Md$",
+          "Exposition plus petite, même mécanisme de contagion."
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "ce-qui-manque-dans-une-lecture-superficielle",
+      "text": "Ce qui manque dans une lecture superficielle"
+    },
+    {
+      "type": "paragraph",
+      "text": "Dire seulement « Archegos était trop concentré » est incomplet. La concentration explique la sensibilité au prix ; les TRS expliquent le levier ; le statut de family office et la fragmentation entre banques expliquent l'opacité ; la compétition commerciale entre prime brokers explique pourquoi chacun accepte une relation qui paraît rentable ; enfin, la liquidation des couvertures explique l'accélération des pertes.",
+      "segments": [
+        {
+          "text": "Dire seulement « Archegos était trop concentré » est incomplet. La concentration explique la sensibilité au prix ; les TRS expliquent le levier ; le statut de family office et la fragmentation entre banques expliquent l'opacité ; la compétition commerciale entre prime brokers explique pourquoi chacun accepte une relation qui paraît rentable ; enfin, la liquidation des couvertures explique l'accélération des pertes."
+        }
+      ]
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Couche",
+        "Question à poser",
+        "Réponse dans le cas Archegos"
+      ],
+      "rows": [
+        [
+          "Économique",
+          "De quels titres dépend réellement le portefeuille ?",
+          "Un petit groupe d'actions domine les expositions longues."
+        ],
+        [
+          "Contractuelle",
+          "Qui doit fournir du cash quand les prix baissent ?",
+          "Archegos doit répondre aux appels de marge de plusieurs banques."
+        ],
+        [
+          "Informationnelle",
+          "Qui voit l'exposition totale ?",
+          "Chaque banque voit surtout sa tranche bilatérale."
+        ],
+        [
+          "Commerciale",
+          "Qui a intérêt à laisser croître la relation ?",
+          "Les prime brokers gagnent des frais et se disputent le client."
+        ],
+        [
+          "Liquidation",
+          "Qui vend, quand et sur quelle profondeur de marché ?",
+          "Les banques vendent des blocs similaires, avec un avantage aux premières sorties."
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "l-epilogue-trois-illusions-dissipees",
+      "text": "L'épilogue : trois illusions dissipées"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Illusion",
+        "Réalité révélée par le défaut"
+      ],
+      "rows": [
+        [
+          "« Plusieurs banques, donc plusieurs risques indépendants »",
+          "Les mêmes actions et les mêmes TRS sont répliqués ; la diversification des contrats ne diversifie pas le sous-jacent."
+        ],
+        [
+          "« La banque est couverte par l'action qu'elle détient »",
+          "La couverture protège tant que la contrepartie paie et que le bloc peut être liquidé près du prix observé."
+        ],
+        [
+          "« Les marges suffisent à absorber la baisse »",
+          "Un choc rapide crée un écart entre la dernière valorisation, le cash disponible et le prix réel de sortie."
+        ]
+      ],
+      "links": [
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Le dossier ne s'arrête pas à une erreur de gestion. En décembre 2024, le Department of Justice a annoncé la condamnation de Bill Hwang à dix-huit ans de prison après sa condamnation pour fraude et manipulation de marché. Cette dimension judiciaire distingue le cas d'un simple pari concentré qui aurait mal tourné.",
+      "segments": [
+        {
+          "text": "Le dossier ne s'arrête pas à une erreur de gestion. En décembre 2024, le Department of Justice a annoncé la condamnation de Bill Hwang à dix-huit ans de prison après sa condamnation pour fraude et manipulation de marché. Cette dimension judiciaire distingue le cas d'un simple pari concentré qui aurait mal tourné."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "LEÇON DU CAS",
+      "variant": "summary",
+      "text": "Le risque d'un dérivé n'est pas visible dans le nom du contrat. Il faut reconstituer l'exposition économique, l'additionner entre contreparties et simuler la liquidation. L'opacité transforme une position en surprise ; le levier transforme la surprise en urgence.",
+      "sourceFill": "FCEDED"
+    },
+    {
+      "type": "sources",
+      "scope": "local",
+      "entries": [
+        {
+          "text": "ESMA · U.S. Department of Justice",
+          "links": [
+            "https://www.esma.europa.eu/sites/default/files/library/esma50-165-2096_leverage_and_derivatives_the_case_of_archegos.pdf",
+            "https://www.justice.gov/usao-sdny/pr/founder-and-head-archegos-capital-management-bill-hwang-sentenced-18-years-prison"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "DOSSIER SYNTHÈSE",
+      "segments": [
+        {
+          "text": "DOSSIER SYNTHÈSE",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Les cinq cas, une seule grille",
+      "segments": [
+        {
+          "text": "Les cinq cas, une seule grille",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Qu'est-ce qui crée le rendement — et qu'est-ce qui transforme une erreur en catastrophe ?",
+      "segments": [
+        {
+          "text": "Qu'est-ce qui crée le rendement — et qu'est-ce qui transforme une erreur en catastrophe ?",
+          "italic": true
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Ces histoires ne s'opposent pas entre « bons » et « mauvais » investisseurs. Elles montrent des architectures différentes. Berkshire finance un horizon long avec des ressources durables. Enron, Barings, LTCM et Archegos deviennent vulnérables lorsque l'information, le contrôle ou le financement ne résistent plus au mouvement des prix.",
+      "segments": [
+        {
+          "text": "Ces histoires ne s'opposent pas entre « bons » et « mauvais » investisseurs. Elles montrent des architectures différentes. Berkshire finance un horizon long avec des ressources durables. Enron, Barings, LTCM et Archegos deviennent vulnérables lorsque l'information, le contrôle ou le financement ne résistent plus au mouvement des prix."
+        }
+      ]
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Cas",
+        "Moteur",
+        "Fragilité cachée",
+        "Déclencheur",
+        "Accélérateur fatal"
+      ],
+      "rows": [
+        [
+          "Berkshire",
+          "Réinvestissement et allocation du capital.",
+          "Échelle, valorisation, succession.",
+          "Baisses cycliques et chocs de marché.",
+          "Pas de vente forcée structurelle : le temps reste disponible."
+        ],
+        [
+          "Enron",
+          "Croissance, trading et financement par la confiance.",
+          "Comptes opaques, SPE et dépendance au titre.",
+          "Révélations, enquête SEC, dégradations.",
+          "Boucle cours–garanties–crédit–liquidité."
+        ],
+        [
+          "Barings",
+          "Arbitrage et dérivés sur indices.",
+          "Trader et contrôleur réunis, pertes cachées.",
+          "Séisme de Kobe et marché adverse.",
+          "Doublement des positions et appels de marge."
+        ],
+        [
+          "LTCM",
+          "Convergence de prix relatifs.",
+          "Levier, liquidité et financement court.",
+          "Défaut russe et fuite vers la qualité.",
+          "Marges, ventes forcées et corrélations."
+        ],
+        [
+          "Archegos",
+          "Exposition synthétique concentrée.",
+          "TRS multi-banques et vision fragmentée.",
+          "Baisse des actions sous-jacentes.",
+          "Défaut de marge puis blocs vendus simultanément."
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "la-difference-decisive-qui-controle-le-temps",
+      "text": "La différence décisive : qui contrôle le temps ?"
+    },
+    {
+      "type": "paragraph",
+      "text": "Berkshire peut traverser une baisse sans qu'un prêteur impose la liquidation de l'ensemble du portefeuille. Dans les quatre échecs, un acteur externe ou une obligation de marge raccourcit l'horizon : créanciers d'Enron, besoins de cash de Barings, contreparties de LTCM, prime brokers d'Archegos. La stratégie cesse alors d'être jugée à son échéance économique ; elle est jugée à sa capacité de payer aujourd'hui.",
+      "segments": [
+        {
+          "text": "Berkshire peut traverser une baisse sans qu'un prêteur impose la liquidation de l'ensemble du portefeuille. Dans les quatre échecs, un acteur externe ou une obligation de marge raccourcit l'horizon : créanciers d'Enron, besoins de cash de Barings, contreparties de LTCM, prime brokers d'Archegos. La stratégie cesse alors d'être jugée à son échéance économique ; elle est jugée à sa capacité de payer aujourd'hui."
+        }
+      ]
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Quand le graphique montre…",
+        "La question imposée par les cas"
+      ],
+      "rows": [
+        [
+          "Une hausse longue et régulière",
+          "Quel mécanisme économique réinvestit le capital, comme chez Berkshire ?"
+        ],
+        [
+          "Une baisse qui précède les annonces",
+          "Le marché détecte-t-il une fragilité de cash, de crédit ou d'information, comme chez Enron ?"
+        ],
+        [
+          "Une rupture brutale avec volume",
+          "Qui reçoit un appel de marge et qui devra vendre, comme chez Barings, LTCM ou Archegos ?"
+        ],
+        [
+          "Un rebond après une chute",
+          "Le financement a-t-il survécu assez longtemps pour que la thèse reste applicable ?"
+        ]
+      ],
+      "links": [
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "CONCLUSION",
+      "variant": "summary",
+      "text": "Comprendre un cas concret consiste à relier quatre éléments : l'exposition réelle, la source de financement, la qualité de l'information et le mécanisme de sortie. Le graphique montre quand le marché réagit ; l'étude du mécanisme explique pourquoi la réaction devient durable ou catastrophique.",
+      "sourceFill": "EAF6EF"
+    },
+    {
+      "type": "paragraph",
+      "text": "Avertissement : ces cas historiques expliquent des mécanismes. Ils ne constituent ni une recommandation d'achat ou de vente ni une promesse de rendement ; les performances passées ne préjugent pas des performances futures.",
+      "segments": [
+        {
+          "text": "Avertissement : ces cas historiques expliquent des mécanismes. Ils ne constituent ni une recommandation d'achat ou de vente ni une promesse de rendement ; les performances passées ne préjugent pas des performances futures.",
+          "italic": true
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "sources-et-methode-de-verification",
+      "text": "Sources et méthode de vérification"
+    },
+    {
+      "type": "paragraph",
+      "text": "Les chiffres centraux proviennent en priorité des entreprises, régulateurs, banques centrales, autorités judiciaires et rapports publics. Le graphique Enron utilise une série OHLC de l'archive du procès pour construire les bougies ; ses niveaux et événements clés sont recoupés avec les sources officielles listées ci-dessous.",
+      "segments": [
+        {
+          "text": "Les chiffres centraux proviennent en priorité des entreprises, régulateurs, banques centrales, autorités judiciaires et rapports publics. Le graphique Enron utilise une série OHLC de l'archive du procès pour construire les bougies ; ses niveaux et événements clés sont recoupés avec les sources officielles listées ci-dessous.",
+          "italic": true
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "berkshire-hathaway",
+      "text": "Berkshire Hathaway"
+    },
+    {
+      "type": "sources",
+      "scope": "global",
+      "entries": [
+        {
+          "text": "TradingView — BRK.A, NYSE, graphique interactif",
+          "links": [
+            "https://www.tradingview.com/chart/?symbol=NYSE%3ABRK.A"
+          ]
+        },
+        {
+          "text": "TradingView — Berkshire Hathaway Inc. Class A (NYSE:BRK.A)",
+          "links": [
+            "https://www.tradingview.com/symbols/NYSE-BRK.A/"
+          ]
+        },
+        {
+          "text": "Berkshire Hathaway — Lettre annuelle 2025, tableau de performance 1965–2025",
+          "links": [
+            "https://www.berkshirehathaway.com/letters/2025ltr.pdf"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "enron",
+      "text": "Enron"
+    },
+    {
+      "type": "sources",
+      "scope": "global",
+      "entries": [
+        {
+          "text": "Archive de l'Investor Relations d'Enron — Stock Chart, données Interactive Data Corp.",
+          "links": [
+            "https://enroncorp.com/corp/investors/stock/charts"
+          ]
+        },
+        {
+          "text": "Archive de l'Investor Relations d'Enron — Historical Price Lookup",
+          "links": [
+            "https://enroncorp.com/corp/investors/stock/history"
+          ]
+        },
+        {
+          "text": "Finzeit — série OHLC ENRON.csv issue des archives du procès UMKC/Famous Trials",
+          "links": [
+            "https://github.com/captainbuckkets/Finzeit/blob/master/ENRON.csv"
+          ]
+        },
+        {
+          "text": "Famous Trials / Prof. Douglas O. Linder — Enron Stock Price Chart and Data",
+          "links": [
+            "https://famous-trials.com/enron/1791-stockchart"
+          ]
+        },
+        {
+          "text": "U.S. SEC EDGAR — Enron 2000 Form 10-K",
+          "links": [
+            "https://www.sec.gov/Archives/edgar/data/1024401/000102440101500010/ene10-k.txt"
+          ]
+        },
+        {
+          "text": "U.S. SEC EDGAR — Enron 2001 Form 10-Q et retraitements",
+          "links": [
+            "https://www.sec.gov/Archives/edgar/data/1024401/000095012901504218/h92492e10-q.txt"
+          ]
+        },
+        {
+          "text": "U.S. Department of Justice — Delainey indictment, cours datés et chronologie",
+          "links": [
+            "https://www.justice.gov/archive/dag/cftf/chargingdocs/delaineyindictment.pdf"
+          ]
+        },
+        {
+          "text": "U.S. Senate — Financial Oversight of Enron: The SEC and Private-Sector Watchdogs",
+          "links": [
+            "https://www.govinfo.gov/content/pkg/CPRT-107SPRT82147/html/CPRT-107SPRT82147.htm"
+          ]
+        },
+        {
+          "text": "U.S. Senate — The Role of the Board of Directors in Enron's Collapse",
+          "links": [
+            "https://www.govinfo.gov/content/pkg/CPRT-107SPRT80393/html/CPRT-107SPRT80393.htm"
+          ]
+        },
+        {
+          "text": "FBI — Enron case history",
+          "links": [
+            "https://www.fbi.gov/history/cases-and-criminals/enron"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "barings",
+      "text": "Barings"
+    },
+    {
+      "type": "sources",
+      "scope": "global",
+      "entries": [
+        {
+          "text": "Bank of England — Financial Stability Review, Autumn 1997, p. 16",
+          "links": [
+            "https://www.bankofengland.co.uk/-/media/boe/files/financial-stability-report/1997/autumn-1997.pdf"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "ltcm",
+      "text": "LTCM"
+    },
+    {
+      "type": "sources",
+      "scope": "global",
+      "entries": [
+        {
+          "text": "U.S. GAO — Long-Term Capital Management: Regulators Need to Focus Greater Attention on Systemic Risk",
+          "links": [
+            "https://www.gao.gov/assets/ggd-00-3.pdf"
+          ]
+        },
+        {
+          "text": "Federal Reserve — Monetary Policy Report, February 1999, section LTCM",
+          "links": [
+            "https://www.federalreserve.gov/boarddocs/hh/1999/february/ReportSection2.htm"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "archegos",
+      "text": "Archegos"
+    },
+    {
+      "type": "sources",
+      "scope": "global",
+      "entries": [
+        {
+          "text": "ESMA — Leverage and derivatives: the case of Archegos, May 2022",
+          "links": [
+            "https://www.esma.europa.eu/sites/default/files/library/esma50-165-2096_leverage_and_derivatives_the_case_of_archegos.pdf"
+          ]
+        },
+        {
+          "text": "U.S. Department of Justice — Bill Hwang sentenced to 18 years, December 2024",
+          "links": [
+            "https://www.justice.gov/usao-sdny/pr/founder-and-head-archegos-capital-management-bill-hwang-sentenced-18-years-prison"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "DOSSIER CONCLUSION GÉNÉRALE",
+      "segments": [
+        {
+          "text": "DOSSIER CONCLUSION GÉNÉRALE",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Du cadre à la réalité",
+      "segments": [
+        {
+          "text": "Du cadre à la réalité",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Le volume 1 fournit les outils ; le volume 2 montre ce qui arrive lorsqu'ils sont bien combinés — ou lorsqu'un maillon disparaît.",
+      "segments": [
+        {
+          "text": "Le volume 1 fournit les outils ; le volume 2 montre ce qui arrive lorsqu'ils sont bien combinés — ou lorsqu'un maillon disparaît.",
+          "italic": true
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Le volume 1 a posé la méthode : comprendre ce que l'on achète, estimer ce qui peut créer ou détruire la valeur, observer le comportement du marché et limiter le capital exposé. Le volume 2 a soumis cette méthode à cinq situations réelles. Les résultats sont très différents, mais la même question revient toujours : la décision reste-t-elle défendable lorsque les prix, le financement ou l'information évoluent contre l'investisseur ?",
+      "segments": [
+        {
+          "text": "Le volume 1 a posé la méthode : comprendre ce que l'on achète, estimer ce qui peut créer ou détruire la valeur, observer le comportement du marché et limiter le capital exposé. Le volume 2 a soumis cette méthode à cinq situations réelles. Les résultats sont très différents, mais la même question revient toujours : la décision reste-t-elle défendable lorsque les prix, le financement ou l'information évoluent contre l'investisseur ?"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "ce-que-les-cas-ajoutent-aux-notions-du-volume-1",
+      "text": "Ce que les cas ajoutent aux notions du volume 1"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Notion du volume 1",
+        "Mise à l'épreuve dans le volume 2",
+        "Réflexe à conserver"
+      ],
+      "rows": [
+        [
+          "Analyse fondamentale : que possède-t-on et pourquoi ?",
+          "Berkshire relie la performance à l'allocation du capital. Enron montre qu'une croissance affichée ne vaut rien si les comptes et les flux sont opaques.",
+          "Comprendre le modèle économique, la qualité du cash-flow, la dette et les incitations de la direction."
+        ],
+        [
+          "Analyse technique : que dit réellement le prix ?",
+          "Les bougies de Berkshire rendent visibles la tendance et les corrections. Celles d'Enron montrent une destruction progressive de confiance avant la faillite.",
+          "Lire tendance, niveaux, volume et volatilité comme des informations — jamais comme une certitude."
+        ],
+        [
+          "Gestion du risque : combien engager et où le scénario s'invalide-t-il ?",
+          "Barings, LTCM et Archegos transforment une mauvaise évolution en catastrophe par le levier, les appels de marge et les ventes forcées.",
+          "Dimensionner la position, tester la liquidité et savoir qui peut imposer la sortie."
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "une-seule-chaine-de-decision",
+      "text": "Une seule chaîne de décision"
+    },
+    {
+      "type": "paragraph",
+      "text": "Les deux volumes forment donc un parcours unique. L'analyse fondamentale construit la thèse ; l'analyse technique observe si le marché la confirme ou la contredit ; la gestion du risque détermine si l'on pourra encore réfléchir lorsque le scénario se dégrade. Aucun de ces outils ne remplace les deux autres.",
+      "segments": [
+        {
+          "text": "Les deux volumes forment donc un parcours unique. L'analyse fondamentale construit la thèse ; l'analyse technique observe si le marché la confirme ou la contredit ; la gestion du risque détermine si l'on pourra encore réfléchir lorsque le scénario se dégrade. Aucun de ces outils ne remplace les deux autres."
+        }
+      ]
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Étape",
+        "Question de décision",
+        "Signal d'alerte révélé par les cas"
+      ],
+      "rows": [
+        [
+          "1. Comprendre",
+          "D'où viennent les profits et le cash ?",
+          "Complexité impossible à expliquer simplement — Enron."
+        ],
+        [
+          "2. Évaluer",
+          "Quelles attentes le prix intègre-t-il déjà ?",
+          "Confiance excessive dans une histoire ou un modèle."
+        ],
+        [
+          "3. Observer",
+          "Le prix et le volume confirment-ils la thèse ?",
+          "Rupture de tendance ignorée ou rationalisée."
+        ],
+        [
+          "4. Dimensionner",
+          "Quelle perte reste supportable si l'analyse est fausse ?",
+          "Concentration et levier — Barings, LTCM, Archegos."
+        ],
+        [
+          "5. Financer",
+          "Qui contrôle réellement l'horizon de la position ?",
+          "Créancier ou prime broker capable d'imposer la liquidation."
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "LA LEÇON COMMUNE DES DEUX VOLUMES",
+      "variant": "summary",
+      "text": "Une bonne analyse ne consiste pas à avoir raison avec certitude. Elle consiste à savoir ce que l'on détient, pourquoi on le détient, ce qui invaliderait la thèse et combien on peut perdre sans être forcé d'abandonner toute discipline.",
+      "sourceFill": "EAF6EF"
+    },
+    {
+      "type": "paragraph",
+      "text": "Berkshire illustre la puissance du temps lorsqu'il est soutenu par une économie réelle et un financement durable. Enron, Barings, LTCM et Archegos rappellent qu'une réputation, un modèle sophistiqué ou une conviction forte ne protègent ni d'une information trompeuse ni d'une contrainte de liquidité. La compétence décisive n'est donc pas de prévoir chaque mouvement : c'est de construire un processus capable de survivre à l'erreur.",
+      "segments": [
+        {
+          "text": "Berkshire illustre la puissance du temps lorsqu'il est soutenu par une économie réelle et un financement durable. Enron, Barings, LTCM et Archegos rappellent qu'une réputation, un modèle sophistiqué ou une conviction forte ne protègent ni d'une information trompeuse ni d'une contrainte de liquidité. La compétence décisive n'est donc pas de prévoir chaque mouvement : c'est de construire un processus capable de survivre à l'erreur."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "À retenir : comprendre l'actif. Confronter la thèse au marché. Définir l'invalidation. Adapter la taille. Préserver sa capacité à décider.",
+      "segments": [
+        {
+          "text": "À retenir :",
+          "bold": true
+        },
+        {
+          "text": " comprendre l'actif. Confronter la thèse au marché. Définir l'invalidation. Adapter la taille. Préserver sa capacité à décider."
+        }
+      ]
+    }
+  ]
+}

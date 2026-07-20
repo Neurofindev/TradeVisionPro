@@ -1,0 +1,21 @@
+{
+  "FIL CONDUCTEUR": "info",
+  "PRINCIPE PROFESSIONNEL": "principle",
+  "PIÈGE CLASSIQUE": "warning",
+  "RÈGLE DE SIMPLICITÉ": "info",
+  "FORMULE MENTALE": "mnemonic",
+  "À MÉMORISER": "summary",
+  "AVERTISSEMENT PÉDAGOGIQUE": "disclaimer",
+  "LA GRILLE COMMUNE": "info",
+  "IDÉE DIRECTRICE": "info",
+  "CE QUE LE GRAPHIQUE NE PROUVE PAS": "warning",
+  "LEÇON DU CAS": "summary",
+  "POINT DE BASCULE": "principle",
+  "TRANSPARENCE SUR LA DONNÉE": "note",
+  "ERREUR DE GOUVERNANCE": "warning",
+  "LA CONFUSION À ÉVITER": "warning",
+  "LE POINT AVEUGLE": "warning",
+  "CONCLUSION / LA LEÇON COMMUNE DES DEUX VOLUMES": "summary",
+  "CONCLUSION": "summary",
+  "LA LEÇON COMMUNE DES DEUX VOLUMES": "summary"
+}

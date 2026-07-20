@@ -1,0 +1,24 @@
+[
+  {
+    "id": "volume-1",
+    "order": 1,
+    "source": "content/source/V1.docx",
+    "slug": "1-fondations-et-analyses",
+    "title": "Fondations & analyses",
+    "subtitle": "Comprendre ce que l’on achète — puis apprendre à l’analyser",
+    "description": "Un premier volume progressif pour distinguer valeur économique, comportement du marché et gestion du risque.",
+    "archetype": "conceptual",
+    "tags": ["fondamentaux", "analyse fondamentale", "analyse technique", "risque"]
+  },
+  {
+    "id": "volume-2",
+    "order": 2,
+    "source": "content/source/Formation_Investissement_Trading_Volume_2_Risques_Cas_Historiques.docx",
+    "slug": "2-dossiers-historiques",
+    "title": "Dossiers historiques",
+    "subtitle": "Berkshire Hathaway · Enron · Barings · LTCM · Archegos",
+    "description": "Cinq cas réels pour comprendre comment exposition, financement, gouvernance et liquidité transforment une thèse en résultat.",
+    "archetype": "case_dossiers",
+    "tags": ["cas historiques", "risques", "levier", "gouvernance", "liquidité"]
+  }
+]

@@ -1,0 +1,790 @@
+{
+  "schemaVersion": 1,
+  "source": {
+    "file": "V1.docx",
+    "sha256": "e17768ac1f2689338b0a568e7cc8f2ee7b338a9bfa24e5e4ebb1517452dfd78d"
+  },
+  "metadata": {
+    "id": "volume-1",
+    "order": 1,
+    "volumeNumber": 1,
+    "title": "Fondations & analyses",
+    "subtitle": "Comprendre ce que l’on achète — puis apprendre à l’analyser",
+    "description": "Un premier volume progressif pour distinguer valeur économique, comportement du marché et gestion du risque.",
+    "edition": "Édition 2026  |  Support pédagogique sourcé",
+    "format": "Édition 2026  |  Support pédagogique sourcé",
+    "coverLines": [
+      "FORMATION INVESTISSEMENT & TRADING",
+      "VOLUME 1",
+      "Fondations & analyses",
+      "Comprendre ce que l’on achète — puis apprendre à l’analyser",
+      "Un premier volume volontairement progressif : peu de jargon, des exemples chiffrés et une distinction nette entre valeur économique, comportement du marché et gestion du risque.",
+      "Édition 2026  |  Support pédagogique sourcé"
+    ],
+    "tags": [
+      "fondamentaux",
+      "analyse fondamentale",
+      "analyse technique",
+      "risque"
+    ],
+    "slug": "1-fondations-et-analyses"
+  },
+  "archetype": "conceptual",
+  "stats": {
+    "wordCount": 1364,
+    "readingMinutes": 6,
+    "chapterCount": 5,
+    "dossierCount": 0,
+    "figureCount": 0
+  },
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "comment-lire-ce-volume",
+      "text": "Comment lire ce volume"
+    },
+    {
+      "type": "paragraph",
+      "text": "L’objectif n’est pas d’apprendre une liste d’indicateurs. Il est de construire une décision défendable : comprendre l’actif, estimer ce qui peut créer ou détruire sa valeur, puis observer la façon dont le marché traite cette information.",
+      "segments": [
+        {
+          "text": "L’objectif n’est pas d’apprendre une liste d’indicateurs. Il est de construire une décision défendable : comprendre l’actif, estimer ce qui peut créer ou détruire sa valeur, puis observer la façon dont le marché traite cette information."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "FIL CONDUCTEUR",
+      "variant": "info",
+      "text": "Fondamentale = quoi acheter et pourquoi. Technique = quand agir et où le scénario s’invalide. Gestion du risque = combien engager.",
+      "sourceFill": "EEF4FA"
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "1-qu-est-ce-que-l-investissement",
+      "text": "1. Qu’est-ce que l’investissement ?"
+    },
+    {
+      "type": "paragraph",
+      "text": "Investir consiste à engager aujourd’hui une partie de son capital dans un actif — action, obligation, immobilier, fonds ou projet — avec l’objectif d’en retirer, sur une durée déterminée, des revenus, une hausse de valeur ou les deux. Ce n’est pas une promesse de gain : le rendement attendu rémunère l’immobilisation de l’argent et le risque accepté, tandis que la valeur peut varier et que le capital peut être partiellement ou totalement perdu.",
+      "segments": [
+        {
+          "text": "Investir consiste à engager aujourd’hui une partie de son capital dans un actif — action, obligation, immobilier, fonds ou projet — avec l’objectif d’en retirer, sur une durée déterminée, des revenus, une hausse de valeur ou les deux. Ce n’est pas une promesse de gain : le rendement attendu rémunère l’immobilisation de l’argent et le risque accepté, tandis que la valeur peut varier et que le capital peut être partiellement ou totalement perdu."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Concrètement, l’investisseur ne cherche pas seulement à acheter un prix : il finance ou acquiert un actif capable de produire quelque chose. Une action donne une part d’une entreprise et de ses résultats potentiels ; une obligation revient à prêter de l’argent en échange d’intérêts ; un bien immobilier peut générer des loyers. La création de valeur dépend donc de la qualité de l’actif, du prix payé, du temps laissé à la thèse et des conditions économiques.",
+      "segments": [
+        {
+          "text": "Concrètement, l’investisseur ne cherche pas seulement à acheter un prix : il finance ou acquiert un actif capable de produire quelque chose. Une action donne une part d’une entreprise et de ses résultats potentiels ; une obligation revient à prêter de l’argent en échange d’intérêts ; un bien immobilier peut générer des loyers. La création de valeur dépend donc de la qualité de l’actif, du prix payé, du temps laissé à la thèse et des conditions économiques."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Une démarche d’investissement repose sur une logique explicite : pourquoi acheter, sur quel horizon, quel rendement viser et quels risques pourraient invalider la décision. À long terme, la discipline, la diversification et le réinvestissement comptent souvent autant que le choix initial. À court terme, le prix peut s’éloigner de la valeur sous l’effet des anticipations, des taux, des flux et des émotions.",
+      "segments": [
+        {
+          "text": "Une démarche d’investissement repose sur une logique explicite : pourquoi acheter, sur quel horizon, quel rendement viser et quels risques pourraient invalider la décision. À long terme, la discipline, la diversification et le réinvestissement comptent souvent autant que le choix initial. À court terme, le prix peut s’éloigner de la valeur sous l’effet des anticipations, des taux, des flux et des émotions."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "1-1-epargner-investir-speculer-et-trader",
+      "text": "1.1 Épargner, investir, spéculer et trader"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Approche",
+        "But principal",
+        "Exemple",
+        "Horizon"
+      ],
+      "rows": [
+        [
+          "Épargner",
+          "Préserver une réserve disponible",
+          "Compte ou livret",
+          "Court à moyen terme"
+        ],
+        [
+          "Investir",
+          "Faire croître un capital grâce à un actif",
+          "Action, obligation, ETF",
+          "Plutôt long"
+        ],
+        [
+          "Spéculer",
+          "Miser sur une variation future incertaine",
+          "Actif acheté surtout pour être revendu",
+          "Variable"
+        ],
+        [
+          "Trader",
+          "Exploiter un mouvement avec un plan",
+          "Actions, indices, devises, futures",
+          "Court à moyen terme"
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "La frontière dépend moins du produit que de la méthode. Une action peut être un investissement lorsqu’elle est étudiée sur plusieurs années, ou une spéculation lorsqu’elle est achetée uniquement parce que son prix monte.",
+      "segments": [
+        {
+          "text": "La frontière dépend moins du produit que de la méthode. Une action peut être un investissement lorsqu’elle est étudiée sur plusieurs années, ou une spéculation lorsqu’elle est achetée uniquement parce que son prix monte."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "1-2-les-moteurs-du-rendement",
+      "text": "1.2 Les moteurs du rendement"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Hausse du prix : l’actif est revendu plus cher qu’il n’a été acheté.",
+          "segments": [
+            {
+              "text": "Hausse du prix :",
+              "bold": true
+            },
+            {
+              "text": " l’actif est revendu plus cher qu’il n’a été acheté."
+            }
+          ]
+        },
+        {
+          "text": "Revenus : dividendes, coupons obligataires ou loyers.",
+          "segments": [
+            {
+              "text": "Revenus :",
+              "bold": true
+            },
+            {
+              "text": " dividendes, coupons obligataires ou loyers."
+            }
+          ]
+        },
+        {
+          "text": "Réinvestissement : les revenus et gains restent placés et produisent à leur tour des gains.",
+          "segments": [
+            {
+              "text": "Réinvestissement :",
+              "bold": true
+            },
+            {
+              "text": " les revenus et gains restent placés et produisent à leur tour des gains."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "REPÈRE",
+      "variant": "note",
+      "text": "Rendement total : (valeur finale − valeur initiale + revenus encaissés) / valeur initiale",
+      "sourceFill": "F4F6F9"
+    },
+    {
+      "type": "paragraph",
+      "text": "Exemple : 1 000 € sont investis. La position vaut ensuite 1 080 € et verse 20 € de dividendes. Le gain total atteint 100 €, soit 10 %. Les frais, la fiscalité et l’inflation réduisent ensuite le rendement réellement conservé.",
+      "segments": [
+        {
+          "text": "Exemple : 1 000 € sont investis. La position vaut ensuite 1 080 € et verse 20 € de dividendes. Le gain total atteint 100 €, soit 10 %. Les frais, la fiscalité et l’inflation réduisent ensuite le rendement réellement conservé."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "1-3-le-triangle-avant-toute-decision",
+      "text": "1.3 Le triangle avant toute décision"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Objectif : à quoi servira cet argent — études, logement, retraite ou indépendance financière ?",
+          "segments": [
+            {
+              "text": "Objectif :",
+              "bold": true
+            },
+            {
+              "text": " à quoi servira cet argent — études, logement, retraite ou indépendance financière ?"
+            }
+          ]
+        },
+        {
+          "text": "Horizon : quand l’argent sera-t-il nécessaire ? Un an et vingt ans n’autorisent pas le même risque.",
+          "segments": [
+            {
+              "text": "Horizon :",
+              "bold": true
+            },
+            {
+              "text": " quand l’argent sera-t-il nécessaire ? Un an et vingt ans n’autorisent pas le même risque."
+            }
+          ]
+        },
+        {
+          "text": "Capacité de perte : quelle baisse peut être supportée sans vendre au pire moment ?",
+          "segments": [
+            {
+              "text": "Capacité de perte :",
+              "bold": true
+            },
+            {
+              "text": " quelle baisse peut être supportée sans vendre au pire moment ?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "PRINCIPE PROFESSIONNEL",
+      "variant": "principle",
+      "text": "On ne choisit pas d’abord l’action. On définit l’objectif, l’horizon et le risque acceptable ; ensuite seulement, on sélectionne les actifs compatibles.",
+      "sourceFill": "FFF7DD"
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "2-les-deux-grandes-familles-d-analyse",
+      "text": "2. Les deux grandes familles d’analyse"
+    },
+    {
+      "type": "paragraph",
+      "text": "L’analyse n’est pas une prophétie. Elle organise l’information, rend les hypothèses visibles et permet de préparer plusieurs scénarios. Les deux grandes familles observent le même actif sous des angles différents.",
+      "segments": [
+        {
+          "text": "L’analyse n’est pas une prophétie. Elle organise l’information, rend les hypothèses visibles et permet de préparer plusieurs scénarios. Les deux grandes familles observent le même actif sous des angles différents."
+        }
+      ]
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Angle",
+        "Analyse fondamentale",
+        "Analyse technique"
+      ],
+      "rows": [
+        [
+          "Objet",
+          "Entreprise, secteur, économie et valorisation",
+          "Prix, volume, tendance et volatilité"
+        ],
+        [
+          "Question",
+          "Que vaut l’actif et pourquoi ?",
+          "Que font réellement acheteurs et vendeurs ?"
+        ],
+        [
+          "Horizon naturel",
+          "Moyen à long terme",
+          "Très court à moyen terme"
+        ],
+        [
+          "Force",
+          "Comprendre la qualité et la valeur économique",
+          "Cadrer l’entrée, la sortie et l’invalidation"
+        ],
+        [
+          "Limite",
+          "Une excellente entreprise peut être trop chère",
+          "Un signal graphique n’explique pas l’entreprise"
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "2-1-analyse-fondamentale-la-machine-economique",
+      "text": "2.1 Analyse fondamentale : la machine économique"
+    },
+    {
+      "type": "paragraph",
+      "text": "L’analyse fondamentale cherche à estimer la valeur économique d’un actif à partir de ce qu’il peut produire dans le temps, puis à comparer cette valeur au prix demandé par le marché. Pour une action, elle étudie le modèle d’affaires, la croissance, les marges, les flux de trésorerie, la dette, la qualité de la direction, le secteur et les perspectives économiques.",
+      "segments": [
+        {
+          "text": "L’analyse fondamentale cherche à estimer la valeur économique d’un actif à partir de ce qu’il peut produire dans le temps, puis à comparer cette valeur au prix demandé par le marché. Pour une action, elle étudie le modèle d’affaires, la croissance, les marges, les flux de trésorerie, la dette, la qualité de la direction, le secteur et les perspectives économiques."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Elle ne fournit pas un chiffre certain : elle construit une fourchette de valeur et plusieurs scénarios fondés sur des hypothèses. Son rôle est surtout de vérifier si l’entreprise est solide, si ses résultats peuvent durer et si le prix payé laisse une marge de sécurité suffisante.",
+      "segments": [
+        {
+          "text": "Elle ne fournit pas un chiffre certain : elle construit une fourchette de valeur et plusieurs scénarios fondés sur des hypothèses. Son rôle est surtout de vérifier si l’entreprise est solide, si ses résultats peuvent durer et si le prix payé laisse une marge de sécurité suffisante."
+        }
+      ]
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Activité : comment l’entreprise gagne-t-elle de l’argent ? Qui paie et pourquoi le client reste-t-il ?",
+          "segments": [
+            {
+              "text": "Activité :",
+              "bold": true
+            },
+            {
+              "text": " comment l’entreprise gagne-t-elle de l’argent ? Qui paie et pourquoi le client reste-t-il ?"
+            }
+          ]
+        },
+        {
+          "text": "Qualité : croissance, marges, rentabilité du capital et avantage concurrentiel.",
+          "segments": [
+            {
+              "text": "Qualité :",
+              "bold": true
+            },
+            {
+              "text": " croissance, marges, rentabilité du capital et avantage concurrentiel."
+            }
+          ]
+        },
+        {
+          "text": "Solidité : dette, liquidité, dilution, free cash-flow et capacité à traverser une crise.",
+          "segments": [
+            {
+              "text": "Solidité :",
+              "bold": true
+            },
+            {
+              "text": " dette, liquidité, dilution, free cash-flow et capacité à traverser une crise."
+            }
+          ]
+        },
+        {
+          "text": "Valorisation : quelles attentes sont déjà intégrées dans le prix ?",
+          "segments": [
+            {
+              "text": "Valorisation :",
+              "bold": true
+            },
+            {
+              "text": " quelles attentes sont déjà intégrées dans le prix ?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "les-donnees-fondamentales-a-apprendre-progressivement",
+      "text": "Les données fondamentales à apprendre progressivement"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Indicateur",
+        "Définition simple",
+        "Bonne question"
+      ],
+      "rows": [
+        [
+          "Chiffre d’affaires",
+          "Ventes réalisées",
+          "L’activité grandit-elle réellement ?"
+        ],
+        [
+          "Marge opérationnelle",
+          "Profit opérationnel / ventes",
+          "Le modèle devient-il plus efficace ?"
+        ],
+        [
+          "Bénéfice net",
+          "Résultat après charges et impôts",
+          "Ce profit est-il durable ou exceptionnel ?"
+        ],
+        [
+          "Free cash-flow",
+          "Cash après investissements nécessaires",
+          "Le bénéfice se transforme-t-il en argent ?"
+        ],
+        [
+          "Dette nette",
+          "Dette financière moins trésorerie",
+          "L’entreprise peut-elle rembourser sans se fragiliser ?"
+        ],
+        [
+          "PER",
+          "Prix / bénéfice par action",
+          "Le prix suppose-t-il une croissance trop élevée ?"
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "PIÈGE CLASSIQUE",
+      "variant": "warning",
+      "text": "« Le PER est bas, donc l’action est bon marché. » Faux : le marché peut anticiper une chute des bénéfices. Un ratio n’a de sens qu’avec la qualité, la croissance, le cycle et l’historique de l’entreprise.",
+      "sourceFill": "FCEDED"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "2-2-analyse-technique-le-comportement-du-marche",
+      "text": "2.2 Analyse technique : le comportement du marché"
+    },
+    {
+      "type": "paragraph",
+      "text": "L’analyse technique étudie l’évolution du prix, des volumes et parfois d’autres données de marché pour comprendre le comportement collectif des acheteurs et des vendeurs. Elle part de l’idée que leurs décisions, leurs anticipations et leurs émotions se traduisent dans des mouvements observables. Son objectif n’est pas de prédire avec certitude, mais d’identifier une tendance, des zones clés, le momentum et la volatilité afin de choisir un point d’intervention et un niveau d’invalidation.",
+      "segments": [
+        {
+          "text": "L’analyse technique étudie l’évolution du prix, des volumes et parfois d’autres données de marché pour comprendre le comportement collectif des acheteurs et des vendeurs. Elle part de l’idée que leurs décisions, leurs anticipations et leurs émotions se traduisent dans des mouvements observables. Son objectif n’est pas de prédire avec certitude, mais d’identifier une tendance, des zones clés, le momentum et la volatilité afin de choisir un point d’intervention et un niveau d’invalidation."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Un signal technique reste donc un scénario probabiliste. Il gagne en qualité lorsqu’il est confirmé par plusieurs éléments cohérents et qu’il s’accompagne d’une gestion du risque précise.",
+      "segments": [
+        {
+          "text": "Un signal technique reste donc un scénario probabiliste. Il gagne en qualité lorsqu’il est confirmé par plusieurs éléments cohérents et qu’il s’accompagne d’une gestion du risque précise."
+        }
+      ]
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Tendance : sommets et creux ascendants, descendants ou marché sans direction.",
+          "segments": [
+            {
+              "text": "Tendance :",
+              "bold": true
+            },
+            {
+              "text": " sommets et creux ascendants, descendants ou marché sans direction."
+            }
+          ]
+        },
+        {
+          "text": "Support et résistance : zones où acheteurs et vendeurs ont déjà réagi.",
+          "segments": [
+            {
+              "text": "Support et résistance :",
+              "bold": true
+            },
+            {
+              "text": " zones où acheteurs et vendeurs ont déjà réagi."
+            }
+          ]
+        },
+        {
+          "text": "Volume : quantité échangée et degré de participation au mouvement.",
+          "segments": [
+            {
+              "text": "Volume :",
+              "bold": true
+            },
+            {
+              "text": " quantité échangée et degré de participation au mouvement."
+            }
+          ]
+        },
+        {
+          "text": "Volatilité : amplitude et vitesse des variations, utiles pour adapter taille et stop.",
+          "segments": [
+            {
+              "text": "Volatilité :",
+              "bold": true
+            },
+            {
+              "text": " amplitude et vitesse des variations, utiles pour adapter taille et stop."
+            }
+          ]
+        },
+        {
+          "text": "Momentum : force ou essoufflement du mouvement.",
+          "segments": [
+            {
+              "text": "Momentum :",
+              "bold": true
+            },
+            {
+              "text": " force ou essoufflement du mouvement."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "RÈGLE DE SIMPLICITÉ",
+      "variant": "info",
+      "text": "Un débutant n’a pas besoin de douze indicateurs. La structure des prix, les niveaux, le volume et la volatilité suffisent pour commencer proprement.",
+      "sourceFill": "EEF4FA"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "2-3-les-combiner-sans-les-confondre",
+      "text": "2.3 Les combiner sans les confondre"
+    },
+    {
+      "type": "paragraph",
+      "text": "Imaginons l’entreprise fictive NovaCloud. Son chiffre d’affaires progresse de 20 %, son free cash-flow devient positif et sa dette diminue : la fondamentale produit une thèse intéressante. Pourtant, l’action reste sous une résistance et forme encore des sommets descendants : la technique montre que le marché ne valide pas encore cette thèse.",
+      "segments": [
+        {
+          "text": "Imaginons l’entreprise fictive NovaCloud. Son chiffre d’affaires progresse de 20 %, son free cash-flow devient positif et sa dette diminue : la fondamentale produit une thèse intéressante. Pourtant, l’action reste sous une résistance et forme encore des sommets descendants : la technique montre que le marché ne valide pas encore cette thèse."
+        }
+      ]
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Fondamentale : placer NovaCloud sur une liste de surveillance avec une estimation de valeur et les risques clés.",
+          "segments": [
+            {
+              "text": "Fondamentale :",
+              "bold": true
+            },
+            {
+              "text": " placer NovaCloud sur une liste de surveillance avec une estimation de valeur et les risques clés."
+            }
+          ]
+        },
+        {
+          "text": "Technique : attendre un signal défini à l’avance, par exemple une cassure confirmée suivie d’un pullback propre.",
+          "segments": [
+            {
+              "text": "Technique :",
+              "bold": true
+            },
+            {
+              "text": " attendre un signal défini à l’avance, par exemple une cassure confirmée suivie d’un pullback propre."
+            }
+          ]
+        },
+        {
+          "text": "Risque : engager une taille limitée et fixer le point où le scénario est invalidé.",
+          "segments": [
+            {
+              "text": "Risque :",
+              "bold": true
+            },
+            {
+              "text": " engager une taille limitée et fixer le point où le scénario est invalidé."
+            }
+          ]
+        },
+        {
+          "text": "Suivi : vérifier si les résultats réels confirment ou détruisent la thèse.",
+          "segments": [
+            {
+              "text": "Suivi :",
+              "bold": true
+            },
+            {
+              "text": " vérifier si les résultats réels confirment ou détruisent la thèse."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "FORMULE MENTALE",
+      "variant": "mnemonic",
+      "text": "Bonne entreprise + prix excessif = investissement possiblement médiocre. Beau graphique + entreprise fragile = trade possible, mais risque fondamental élevé. Aucun outil ne remplace la gestion du risque.",
+      "sourceFill": "F4F6F9"
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "conclusion-du-volume-1",
+      "text": "Conclusion du volume 1"
+    },
+    {
+      "type": "paragraph",
+      "text": "Investir ne consiste pas à choisir le symbole qui montera demain. Il s’agit d’allouer un capital limité à des opportunités incertaines. La fondamentale étudie la réalité économique et le prix ; la technique étudie le comportement du marché ; la gestion du risque empêche une erreur normale de devenir une catastrophe.",
+      "segments": [
+        {
+          "text": "Investir ne consiste pas à choisir le symbole qui montera demain. Il s’agit d’allouer un capital limité à des opportunités incertaines. La fondamentale étudie la réalité économique et le prix ; la technique étudie le comportement du marché ; la gestion du risque empêche une erreur normale de devenir une catastrophe."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "À MÉMORISER",
+      "variant": "summary",
+      "text": "Comprendre l’actif. Estimer le potentiel et les risques. Définir l’invalidation. Adapter la taille. Accepter l’incertitude.",
+      "sourceFill": "EAF6EF"
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "sources",
+      "text": "Sources"
+    },
+    {
+      "type": "paragraph",
+      "text": "Les liens ci-dessous conduisent aux documents utilisés pour vérifier les définitions, les principes de risque et les chiffres historiques.",
+      "segments": [
+        {
+          "text": "Les liens ci-dessous conduisent aux documents utilisés pour vérifier les définitions, les principes de risque et les chiffres historiques.",
+          "italic": true
+        }
+      ]
+    },
+    {
+      "type": "sources",
+      "scope": "global",
+      "entries": [
+        {
+          "text": "1. AMF — Risques et rendements des placements financiers",
+          "links": [
+            "https://www.amf-france.org/fr/espace-epargnants/savoir-bien-investir/cadrer-son-projet/risques-et-rendements-des-placements/connaissez-vous-vraiment-les-risques-des-differents-placements-financiers"
+          ]
+        },
+        {
+          "text": "2. AMF — Comment bien diversifier un investissement ?",
+          "links": [
+            "https://www.amf-france.org/fr/espace-epargnants/savoir-bien-investir/conseils-pratiques/diversifier-ses-placements"
+          ]
+        },
+        {
+          "text": "3. Investor.gov — Introduction to Investing",
+          "links": [
+            "https://www.investor.gov/introduction-investing"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "AVERTISSEMENT PÉDAGOGIQUE",
+      "variant": "disclaimer",
+      "text": "Ce document présente des concepts généraux. Il ne tient pas compte d’une situation financière, d’une fiscalité ou d’une capacité personnelle à supporter les pertes et ne constitue pas une recommandation d’achat ou de vente.",
+      "sourceFill": "F4F6F9"
+    }
+  ]
+}

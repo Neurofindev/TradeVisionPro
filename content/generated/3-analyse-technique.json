@@ -1,0 +1,183 @@
+{
+  "schemaVersion": 1,
+  "source": {
+    "file": "Cours_multi_timeframe_original.docx",
+    "sha256": "6f3fdb6ba55965bcf3318e6c931f690ee4fa4484b894208cb47b95029c6f27ad"
+  },
+  "metadata": {
+    "id": "volume-3",
+    "order": 3,
+    "volumeNumber": 3,
+    "title": "L’analyse technique",
+    "subtitle": "L’art du timing, un outil essentiel.",
+    "description": "Apprendre à relier les unités de temps pour lire la tendance de fond, confirmer un scénario et affiner le moment d’intervention.",
+    "edition": null,
+    "format": null,
+    "coverLines": [],
+    "tags": [
+      "analyse technique",
+      "multi-timeframe",
+      "timing",
+      "unités de temps",
+      "confluence"
+    ],
+    "highlights": [
+      {
+        "number": "01",
+        "title": "Contexte",
+        "text": "Identifier la tendance dominante sur les unités de temps longues."
+      },
+      {
+        "number": "02",
+        "title": "Confluence",
+        "text": "Confirmer la lecture en descendant progressivement d’un horizon à l’autre."
+      },
+      {
+        "number": "03",
+        "title": "Timing",
+        "text": "Observer les unités courtes pour préciser le moment d’intervention."
+      }
+    ],
+    "slug": "3-analyse-technique"
+  },
+  "archetype": "technical_analysis",
+  "stats": {
+    "wordCount": 370,
+    "readingMinutes": 2,
+    "chapterCount": 1,
+    "dossierCount": 0,
+    "figureCount": 2
+  },
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "multi-timeframe-confluence",
+      "text": "📆 Multi-timeframe confluence"
+    },
+    {
+      "type": "paragraph",
+      "text": "L’analyse d’un actif (action, ETF, crypto, etc.) se fait sur différentes unités de temps afin d’obtenir une vision globale et précise du marché.",
+      "segments": [
+        {
+          "text": "L’analyse d’un actif (action, ETF, crypto, etc.) se fait sur différentes unités de temps afin d’obtenir une vision globale et précise du marché."
+        }
+      ]
+    },
+    {
+      "type": "lesson_note",
+      "variant": "example",
+      "text": "🎯 Exemple : Si le titre NVIDIA m’intéresse particulièrement, je commence par examiner la tendance de fond sur de larges unités de temps (Weekly, Daily) que vous pouvez visualiser sur les graphiques TradingView . Cette première étape permet d’identifier la direction dominante (haussière, baissière, ou range) de l’actif.\nEnsuite, il est nécessaire de descendre progressivement sur des unités de temps inférieures pour affiner l’analyse technique.",
+      "segments": [
+        {
+          "text": "🎯 Exemple : ",
+          "bold": true
+        },
+        {
+          "text": "Si le titre NVIDIA m’intéresse particulièrement, je commence par examiner la tendance de fond sur de larges unités de temps (Weekly, Daily) que vous pouvez visualiser sur les graphiques TradingView . Cette première étape permet d’identifier la direction dominante (haussière, baissière, ou range) de l’actif.\nEnsuite, il est nécessaire de descendre progressivement sur des unités de temps inférieures pour affiner l’analyse technique."
+        }
+      ]
+    },
+    {
+      "type": "figure",
+      "src": "/media/3-analyse-technique/3-analyse-technique-a2d8d6e8c5d2.webp",
+      "originalName": "image1.png",
+      "width": 1280,
+      "height": 720,
+      "optimized": true,
+      "caption": "",
+      "source": "",
+      "sourceLinks": [],
+      "alt": "Comparaison du graphique NVIDIA en unité hebdomadaire et en unité de quinze minutes."
+    },
+    {
+      "type": "lesson_note",
+      "variant": "example",
+      "text": "🎯 Par exemple, après avoir identifié la tendance dominante en Weekly, je passe au Daily pour confirmer ma vision, puis j’analyse les unités horaires (H8, H4, H1). Ces timefraime offrent de nouvelles confluences et permettent de repérer d’éventuelles failles dans l’analyse long terme.",
+      "segments": [
+        {
+          "text": "🎯 Par exemple, ",
+          "bold": true
+        },
+        {
+          "text": "après avoir identifié la tendance dominante en Weekly, je passe au Daily pour confirmer ma vision, puis j’analyse les unités horaires (H8, H4, H1). Ces timefraime offrent de nouvelles confluences et permettent de repérer d’éventuelles failles dans l’analyse long terme."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "La démarche se poursuit en descendant encore sur des unités de temps plus courtes, comme le 15 minutes. Cette unité de temps est utilisée pour détecter des opportunités d’entrée à court terme et souligne la réactivité du marché aux actualités.",
+      "segments": [
+        {
+          "text": "La démarche se poursuit en descendant encore sur des unités de temps plus courtes, comme le 15 minutes. Cette unité de temps est utilisée pour détecter des opportunités d’entrée à court terme et souligne la réactivité du marché aux actualités."
+        }
+      ]
+    },
+    {
+      "type": "lesson_note",
+      "variant": "example",
+      "text": "🎯 exemple : en 15 minutes, on peut observer la façon dont le marché réagit à une annonce macroéconomique majeure : la réaction apparaît plus rapidement et de manière plus explicite sur les timefraime courts, ce qui donne une première idée du sentiment dominant. Toutefois, ces unités courtes sont moins fiables comparées aux timefraime moyens ou long terme pour confirmer la tendance.",
+      "segments": [
+        {
+          "text": "🎯 exemple : ",
+          "bold": true
+        },
+        {
+          "text": "en 15 minutes, on peut observer la façon dont le marché réagit à une annonce macroéconomique majeure : la réaction apparaît plus rapidement et de manière plus explicite sur les timefraime courts, ce qui donne une première idée du sentiment dominant. Toutefois, ces unités courtes sont moins fiables comparées aux timefraime moyens ou long terme pour confirmer la tendance."
+        }
+      ]
+    },
+    {
+      "type": "lesson_note",
+      "variant": "note",
+      "text": "📚 Note : J’utilise rarement les unités de temps très courtes, préférant les combiner avec des analyses sur des timefraime plus larges afin d’obtenir une vision plus cohérente et robuste du marché.",
+      "segments": [
+        {
+          "text": "📚 Note : ",
+          "bold": true
+        },
+        {
+          "text": "J’utilise rarement les unités de temps très courtes, préférant les combiner avec des analyses sur des timefraime plus larges afin d’obtenir une vision plus cohérente et robuste du marché."
+        }
+      ]
+    },
+    {
+      "type": "lesson_note",
+      "variant": "concrete",
+      "text": "‼️ Exemple concret :",
+      "segments": [
+        {
+          "text": "‼️ Exemple concret :",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "type": "figure",
+      "src": "/media/3-analyse-technique/3-analyse-technique-4517c848d428.webp",
+      "originalName": "image2.png",
+      "width": 1280,
+      "height": 720,
+      "optimized": true,
+      "caption": "",
+      "source": "",
+      "sourceLinks": [],
+      "alt": "Comparaison du graphique Lululemon en unité quotidienne et en unité de quatre heures."
+    },
+    {
+      "type": "paragraph",
+      "text": "Comme tu peux le constater, Lululemon affiche une tendance de fond baissière en Daily, accompagnée d’une légère correction.\nDe plus, en H4, la tendance devient de plus en plus nette, ce qui nous fournit des indications sur un potentiel retournement de tendance.",
+      "segments": [
+        {
+          "text": "Comme tu peux le constater, Lululemon affiche une tendance de fond baissière en Daily, accompagnée d’une légère correction.\nDe plus, en H4, la tendance devient de plus en plus nette, ce qui nous fournit des indications sur un potentiel retournement de tendance."
+        }
+      ]
+    },
+    {
+      "type": "editorial_conclusion",
+      "id": "conclusion",
+      "title": "Conclusion",
+      "text": "L’analyse multi-timeframe permet de replacer chaque signal dans son contexte : les unités longues donnent la direction, les unités intermédiaires confirment le scénario et les unités courtes affinent le timing. L’essentiel reste de rechercher la cohérence entre ces horizons avant toute décision."
+    }
+  ]
+}

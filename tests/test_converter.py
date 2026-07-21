@@ -57,7 +57,13 @@ def source_text_units(path):
         root = ET.fromstring(archive.read("word/document.xml"))
     units = []
     for paragraph in root.findall(".//w:body//w:p", NS):
-        text = "".join(node.text or "" for node in paragraph.iter(W + "t"))
+        pieces = []
+        for node in paragraph.iter():
+            if node.tag == W + "t":
+                pieces.append(node.text or "")
+            elif node.tag in {W + "br", W + "cr", W + "tab"}:
+                pieces.append(" ")
+        text = "".join(pieces)
         text = normalize(text)
         if text:
             units.append(text)
@@ -69,10 +75,11 @@ class ConverterOutputTests(unittest.TestCase):
     def setUpClass(cls):
         cls.v1 = load("1-fondations-et-analyses.json")
         cls.v2 = load("2-dossiers-historiques.json")
+        cls.v3 = load("3-analyse-technique.json")
 
-    def test_manifest_contains_both_volumes_in_order(self):
+    def test_manifest_contains_all_volumes_in_order(self):
         manifest = load("index.json")
-        self.assertEqual([item["metadata"]["volumeNumber"] for item in manifest["volumes"]], [1, 2])
+        self.assertEqual([item["metadata"]["volumeNumber"] for item in manifest["volumes"]], [1, 2, 3])
 
     def test_volume_one_structure(self):
         types = [block["type"] for block in self.v1["blocks"]]
@@ -89,6 +96,19 @@ class ConverterOutputTests(unittest.TestCase):
         self.assertEqual(types.count("stat_row"), 5)
         self.assertEqual(types.count("table"), 19)
         self.assertEqual(types.count("callout"), 15)
+
+    def test_volume_three_preserves_and_structures_the_original_chapter(self):
+        blocks = self.v3["blocks"]
+        types = [block["type"] for block in blocks]
+        self.assertEqual(self.v3["metadata"]["title"], "L’analyse technique")
+        self.assertEqual(self.v3["metadata"]["subtitle"], "L’art du timing, un outil essentiel.")
+        self.assertEqual(len(self.v3["metadata"]["highlights"]), 3)
+        self.assertEqual(types.count("heading"), 1)
+        self.assertEqual(types.count("lesson_note"), 5)
+        self.assertEqual(types.count("figure"), 2)
+        self.assertEqual(types.count("editorial_conclusion"), 1)
+        self.assertEqual(self.v3["stats"]["chapterCount"], 1)
+        self.assertTrue(all(block["alt"] for block in blocks if block["type"] == "figure"))
 
     def test_figures_are_complete_and_optimized(self):
         figures = [block for block in self.v2["blocks"] if block["type"] == "figure"]
@@ -115,6 +135,7 @@ class ConverterOutputTests(unittest.TestCase):
                 SOURCE / "Formation_Investissement_Trading_Volume_2_Risques_Cas_Historiques.docx",
                 self.v2,
             ),
+            (SOURCE / "Cours_multi_timeframe_original.docx", self.v3),
         ]
         for source, generated in pairs:
             haystack = normalize(" ".join(all_strings(generated)))

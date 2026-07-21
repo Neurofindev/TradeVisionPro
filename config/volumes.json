@@ -20,5 +20,44 @@
     "description": "Cinq cas réels pour comprendre comment exposition, financement, gouvernance et liquidité transforment une thèse en résultat.",
     "archetype": "case_dossiers",
     "tags": ["cas historiques", "risques", "levier", "gouvernance", "liquidité"]
+  },
+  {
+    "id": "volume-3",
+    "order": 3,
+    "volumeNumber": 3,
+    "source": "content/source/Cours_multi_timeframe_original.docx",
+    "slug": "3-analyse-technique",
+    "title": "L’analyse technique",
+    "subtitle": "L’art du timing, un outil essentiel.",
+    "description": "Apprendre à relier les unités de temps pour lire la tendance de fond, confirmer un scénario et affiner le moment d’intervention.",
+    "archetype": "technical_analysis",
+    "tags": ["analyse technique", "multi-timeframe", "timing", "unités de temps", "confluence"],
+    "contentStartsImmediately": true,
+    "firstParagraphHeadingLevel": 1,
+    "highlights": [
+      {
+        "number": "01",
+        "title": "Contexte",
+        "text": "Identifier la tendance dominante sur les unités de temps longues."
+      },
+      {
+        "number": "02",
+        "title": "Confluence",
+        "text": "Confirmer la lecture en descendant progressivement d’un horizon à l’autre."
+      },
+      {
+        "number": "03",
+        "title": "Timing",
+        "text": "Observer les unités courtes pour préciser le moment d’intervention."
+      }
+    ],
+    "figureAlts": [
+      "Comparaison du graphique NVIDIA en unité hebdomadaire et en unité de quinze minutes.",
+      "Comparaison du graphique Lululemon en unité quotidienne et en unité de quatre heures."
+    ],
+    "editorialConclusion": {
+      "title": "Conclusion",
+      "text": "L’analyse multi-timeframe permet de replacer chaque signal dans son contexte : les unités longues donnent la direction, les unités intermédiaires confirment le scénario et les unités courtes affinent le timing. L’essentiel reste de rechercher la cohérence entre ces horizons avant toute décision."
+    }
   }
 ]

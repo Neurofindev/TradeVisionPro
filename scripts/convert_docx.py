@@ -489,7 +489,18 @@ class DocxConverter:
             "coverLines": cover_lines,
             "tags": [],
         }
-        for key in ("id", "order", "title", "subtitle", "description", "edition", "format", "tags"):
+        for key in (
+            "id",
+            "order",
+            "volumeNumber",
+            "title",
+            "subtitle",
+            "description",
+            "edition",
+            "format",
+            "tags",
+            "highlights",
+        ):
             if self.metadata_overrides.get(key) is not None:
                 metadata[key] = self.metadata_overrides[key]
         metadata["slug"] = self.metadata_overrides.get("slug") or (
@@ -529,9 +540,11 @@ class DocxConverter:
             raise ValueError(f"Document body missing in {self.source}")
         cover_lines: list[str] = []
         blocks: list[dict[str, Any]] = []
-        content_started = False
+        content_started = bool(self.metadata_overrides.get("contentStartsImmediately"))
         sources_section = False
         last_figure_index: int | None = None
+        promoted_first_heading = False
+        figure_index = 0
 
         for element in list(body):
             if element.tag == W + "p":
@@ -539,6 +552,11 @@ class DocxConverter:
                 text = self._segments_text(segments)
                 images = self._paragraph_images(element)
                 heading_level = self._heading_level(element)
+
+                first_heading_level = self.metadata_overrides.get("firstParagraphHeadingLevel")
+                if text and first_heading_level and not promoted_first_heading:
+                    heading_level = int(first_heading_level)
+                    promoted_first_heading = True
 
                 if not content_started and heading_level is None and text and not images:
                     cover_lines.append(text)
@@ -549,15 +567,19 @@ class DocxConverter:
                     continue
 
                 for image in images:
-                    blocks.append(
-                        {
-                            "type": "figure",
-                            **image,
-                            "caption": "",
-                            "source": "",
-                            "sourceLinks": [],
-                        }
-                    )
+                    figure_alts = self.metadata_overrides.get("figureAlts") or []
+                    alt = figure_alts[figure_index] if figure_index < len(figure_alts) else ""
+                    figure = {
+                        "type": "figure",
+                        **image,
+                        "caption": "",
+                        "source": "",
+                        "sourceLinks": [],
+                    }
+                    if alt:
+                        figure["alt"] = alt
+                    blocks.append(figure)
+                    figure_index += 1
                     last_figure_index = len(blocks) - 1
                 if not text:
                     continue
@@ -599,6 +621,26 @@ class DocxConverter:
                     blocks.append(self._callout_block(text, fill))
                     continue
 
+                lesson_note_variants = {
+                    "🎯": "example",
+                    "📚": "note",
+                    "‼️": "concrete",
+                }
+                lesson_note_variant = next(
+                    (variant for prefix, variant in lesson_note_variants.items() if text.startswith(prefix)),
+                    None,
+                )
+                if lesson_note_variant:
+                    blocks.append(
+                        {
+                            "type": "lesson_note",
+                            "variant": lesson_note_variant,
+                            "text": text,
+                            "segments": segments,
+                        }
+                    )
+                    continue
+
                 if re.match(r"^Références? du dossier\s*:", text, re.IGNORECASE):
                     entry_text = re.sub(r"^Références? du dossier\s*:\s*", "", text, flags=re.IGNORECASE)
                     self._append_sources(blocks, self._source_entry(entry_text, segments), "local")
@@ -626,6 +668,17 @@ class DocxConverter:
                 last_figure_index = None
 
         blocks = self._postprocess_case_headers(blocks)
+        editorial_conclusion = self.metadata_overrides.get("editorialConclusion")
+        if editorial_conclusion:
+            conclusion_title = clean_text(str(editorial_conclusion.get("title", "Conclusion")))
+            blocks.append(
+                {
+                    "type": "editorial_conclusion",
+                    "id": self._unique_id(conclusion_title),
+                    "title": conclusion_title,
+                    "text": clean_text(str(editorial_conclusion.get("text", ""))),
+                }
+            )
         metadata = self._extract_metadata(cover_lines)
         has_cases = any(block.get("type") == "case_dossier_header" for block in blocks)
         heading_ones = sum(

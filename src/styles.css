@@ -652,7 +652,7 @@ a {
 
 .volume-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
   gap: 1.1rem;
 }
 
@@ -1011,6 +1011,78 @@ a {
   display: none;
 }
 
+.chapter-highlights {
+  max-width: var(--content);
+  margin-top: 2.2rem;
+  padding: clamp(1.4rem, 3vw, 2rem);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--gold-soft) 44%, transparent), transparent 52%),
+    var(--surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.chapter-highlights__intro {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 1.2rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.chapter-highlights__intro .eyebrow {
+  margin: 0;
+}
+
+.chapter-highlights__intro h2 {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: clamp(1.35rem, 3vw, 2rem);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+}
+
+.chapter-highlights ol {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  margin: 0;
+  padding: 1px 0 0;
+  list-style: none;
+  background: var(--line);
+}
+
+.chapter-highlights li {
+  min-width: 0;
+  padding: 1.2rem;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.8rem;
+  background: var(--surface);
+}
+
+.chapter-highlights li > span {
+  color: var(--gold);
+  font-family: var(--font-serif);
+  font-size: 0.8rem;
+}
+
+.chapter-highlights li strong {
+  display: block;
+  color: var(--ink);
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+}
+
+.chapter-highlights li p {
+  margin: 0.3rem 0 0;
+  color: var(--ink-faint);
+  font-size: 0.76rem;
+  line-height: 1.55;
+}
+
 .course-body {
   max-width: var(--content);
   padding-top: 3rem;
@@ -1186,6 +1258,100 @@ a {
   color: var(--ink) !important;
   font-size: 0.94rem !important;
   line-height: 1.65 !important;
+}
+
+.lesson-note {
+  --lesson-accent: var(--brand-2);
+  position: relative;
+  margin: 1.8rem 0;
+  padding: 1.25rem 1.4rem 1.25rem 1.7rem;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--lesson-accent) 28%, var(--line));
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--lesson-accent) 7%, var(--surface));
+  box-shadow: var(--shadow-sm);
+}
+
+.lesson-note::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 3px;
+  background: var(--lesson-accent);
+}
+
+.lesson-note--note {
+  --lesson-accent: #4f7c72;
+}
+
+.lesson-note--concrete {
+  --lesson-accent: var(--gold);
+  margin-bottom: -1.6rem;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  box-shadow: none;
+}
+
+.lesson-note p {
+  margin: 0 !important;
+  color: var(--ink) !important;
+  font-size: 0.98rem !important;
+  line-height: 1.7 !important;
+}
+
+.lesson-note strong {
+  color: var(--lesson-accent);
+}
+
+.chapter-conclusion {
+  position: relative;
+  margin: 1rem 0 2rem;
+  padding: clamp(2rem, 5vw, 3.2rem);
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background:
+    radial-gradient(circle at 100% 0, rgba(230, 189, 91, 0.24), transparent 16rem),
+    linear-gradient(135deg, #17151f, #2b222c);
+  color: #f7f2e7;
+  box-shadow: var(--shadow-lg);
+}
+
+.chapter-conclusion::after {
+  content: "";
+  position: absolute;
+  width: 16rem;
+  height: 1px;
+  right: -2rem;
+  bottom: 2.2rem;
+  transform: rotate(-12deg);
+  background: linear-gradient(90deg, transparent, rgba(239, 199, 98, 0.78), transparent);
+}
+
+.chapter-conclusion__eyebrow {
+  margin: 0 0 1.6rem !important;
+  color: var(--gold) !important;
+  font-size: 0.65rem !important;
+  font-weight: 850;
+  letter-spacing: 0.14em;
+  line-height: 1 !important;
+  text-transform: uppercase;
+}
+
+.chapter-conclusion h2 {
+  margin: 0;
+  color: inherit;
+  font-family: var(--font-serif);
+  font-size: clamp(2.35rem, 6vw, 4rem);
+  font-weight: 500;
+  letter-spacing: -0.045em;
+}
+
+.chapter-conclusion > p:last-child {
+  max-width: 38rem;
+  margin: 1rem 0 0;
+  color: rgba(247, 242, 231, 0.74);
+  font-size: 1rem;
+  line-height: 1.75;
 }
 
 .stat-row {
@@ -1862,6 +2028,22 @@ a {
     font-size: 3.6rem;
   }
 
+  .chapter-highlights__intro {
+    display: block;
+  }
+
+  .chapter-highlights__intro h2 {
+    margin-top: 0.55rem;
+  }
+
+  .chapter-highlights ol {
+    grid-template-columns: 1fr;
+  }
+
+  .chapter-highlights li {
+    padding-inline: 0.8rem;
+  }
+
   .course-body p,
   .course-list {
     font-size: 0.98rem;
@@ -1873,6 +2055,11 @@ a {
   }
 
   .case-header {
+    padding: 2rem 1.3rem;
+    border-radius: var(--radius-md);
+  }
+
+  .chapter-conclusion {
     padding: 2rem 1.3rem;
     border-radius: var(--radius-md);
   }

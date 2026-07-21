@@ -124,6 +124,20 @@ function renderCallout(block) {
   </aside>`;
 }
 
+function renderLessonNote(block) {
+  return `<aside class="lesson-note lesson-note--${escapeHtml(block.variant || "note")}">
+    <p>${renderSegments(block.segments, block.text)}</p>
+  </aside>`;
+}
+
+function renderEditorialConclusion(block) {
+  return `<aside class="chapter-conclusion" id="${escapeHtml(block.id)}">
+    <p class="chapter-conclusion__eyebrow">À retenir</p>
+    <h2>${escapeHtml(block.title || "Conclusion")}</h2>
+    <p>${escapeHtml(block.text || "")}</p>
+  </aside>`;
+}
+
 function renderStatRow(block) {
   return `<section class="stat-row breakout" aria-label="Chiffres clés">
     ${block.stats
@@ -212,6 +226,8 @@ export function renderBlock(block) {
       return `<ul class="course-list">${(block.items || []).map(renderDefinitionItem).join("")}</ul>`;
     case "callout":
       return renderCallout(block);
+    case "lesson_note":
+      return renderLessonNote(block);
     case "stat_row":
       return renderStatRow(block);
     case "table":
@@ -226,6 +242,8 @@ export function renderBlock(block) {
         <h2>${escapeHtml(block.title)}</h2>
         <p>${escapeHtml(block.question)}</p>
       </header>`;
+    case "editorial_conclusion":
+      return renderEditorialConclusion(block);
     default:
       return `<!-- Unsupported content block: ${escapeHtml(block.type || "unknown")} -->`;
   }
@@ -242,6 +260,8 @@ export function buildToc(blocks) {
     } else if (block.type === "heading") {
       const depth = hasCases && inCase ? Math.min(3, Number(block.level) + 1) : Math.min(3, Number(block.level));
       items.push({ id: block.id, title: block.text, depth });
+    } else if (block.type === "editorial_conclusion") {
+      items.push({ id: block.id, title: block.title, depth: 1 });
     } else if (block.type === "sources" && block.scope === "local") {
       inCase = false;
     }
@@ -259,6 +279,8 @@ function sectionGroups(blocks) {
       boundaries.push({ index, id: block.id, title: block.title, kicker: block.kicker });
     } else if (block.type === "heading" && block.level === 1 && (!hasCases || !inCase)) {
       boundaries.push({ index, id: block.id, title: block.text });
+    } else if (block.type === "editorial_conclusion") {
+      boundaries.push({ index, id: block.id, title: block.title });
     } else if (block.type === "sources" && block.scope === "local") {
       inCase = false;
     }
@@ -295,16 +317,25 @@ function renderPrevNext(groups, index) {
 }
 
 function volumeLabel(volume) {
-  return volume.metadata.volumeNumber ? `Volume ${volume.metadata.volumeNumber}` : "Volume";
+  return `Volume ${volume.metadata.volumeNumber || volume.metadata.order}`;
+}
+
+function archetypeLabel(volume) {
+  const labels = {
+    case_dossiers: "Cas historiques",
+    technical_analysis: "Analyse technique",
+    conceptual: "Fondations",
+  };
+  return labels[volume.archetype] || "Formation";
 }
 
 export function renderVolumeCard(volume, featured = false) {
   const metadata = volume.metadata;
   const count = volume.stats.dossierCount
     ? `${volume.stats.dossierCount} dossiers`
-    : `${volume.stats.chapterCount} chapitres`;
+    : `${volume.stats.chapterCount} chapitre${volume.stats.chapterCount > 1 ? "s" : ""}`;
   return `<article class="volume-card${featured ? " volume-card--featured" : ""}">
-    <div class="volume-card__top"><span>${volumeLabel(volume)}</span><span>${escapeHtml(volume.archetype === "case_dossiers" ? "Cas historiques" : "Fondations")}</span></div>
+    <div class="volume-card__top"><span>${volumeLabel(volume)}</span><span>${escapeHtml(archetypeLabel(volume))}</span></div>
     <h3><a href="${escapeHtml(sitePath(`/volumes/${metadata.slug}/`))}">${escapeHtml(metadata.title)}</a></h3>
     <p class="volume-card__subtitle">${escapeHtml(metadata.subtitle || "")}</p>
     <p>${escapeHtml(metadata.description || "")}</p>
@@ -377,7 +408,7 @@ export function renderHome(volumes) {
       <div class="home-hero__content">
         <p class="eyebrow">TradeVisionPro · Édition 2026</p>
         <h1>Lire les marchés.<br><em>Comprendre les mécanismes.</em></h1>
-        <p class="home-hero__lead">Une formation structurée pour relier analyse fondamentale, comportement des prix et gestion du risque — des fondations jusqu’aux cas qui ont marqué l’histoire financière.</p>
+        <p class="home-hero__lead">Une formation structurée pour relier analyse fondamentale, comportement des prix, gestion du risque et timing — des fondations jusqu’aux cas historiques et à l’analyse multi-timeframe.</p>
         <div class="hero-actions"><a class="button button--primary" href="${escapeHtml(
           sitePath(`/volumes/${first.metadata.slug}/`),
         )}">Commencer le Volume 1</a><a class="button button--secondary" href="${sitePath("/volumes/")}">Voir le parcours</a></div>
@@ -393,7 +424,7 @@ export function renderHome(volumes) {
       </aside>
     </section>
     <section class="section-shell section-shell--volumes">
-      <div class="section-heading"><div><p class="eyebrow">Le parcours</p><h2>Deux angles, une même discipline</h2></div><p>Chaque volume possède sa propre structure, mais partage un langage visuel et une méthode de lecture cohérents.</p></div>
+      <div class="section-heading"><div><p class="eyebrow">Le parcours</p><h2>Trois angles, une même discipline</h2></div><p>Chaque volume possède sa propre structure, mais partage un langage visuel et une méthode de lecture cohérents.</p></div>
       <div class="volume-grid">${volumes.map((volume, index) => renderVolumeCard(volume, index === 0)).join("")}</div>
     </section>
     <section class="method-band">
@@ -412,6 +443,20 @@ export function renderVolumesIndex(volumes) {
   </main>`;
 }
 
+function renderVolumeHighlights(highlights = []) {
+  if (!highlights.length) return "";
+  return `<section class="chapter-highlights" aria-labelledby="chapter-highlights-title">
+    <div class="chapter-highlights__intro"><p class="eyebrow">Repères de lecture</p><h2 id="chapter-highlights-title">Du contexte au timing</h2></div>
+    <ol>${highlights
+      .map(
+        (item) => `<li><span>${escapeHtml(item.number || "")}</span><div><strong>${escapeHtml(
+          item.title || "",
+        )}</strong><p>${escapeHtml(item.text || "")}</p></div></li>`,
+      )
+      .join("")}</ol>
+  </section>`;
+}
+
 function renderToc(toc) {
   return `<nav class="volume-toc" aria-label="Sommaire du volume"><p class="volume-toc__title">Dans ce volume</p><div class="reading-progress" aria-hidden="true"><span data-reading-progress></span></div><ol>${toc
     .map(
@@ -428,7 +473,7 @@ export function renderVolumePage(volume, volumes) {
   const groups = sectionGroups(volume.blocks);
   const countLabel = volume.stats.dossierCount
     ? `${volume.stats.dossierCount} dossiers`
-    : `${volume.stats.chapterCount} chapitres`;
+    : `${volume.stats.chapterCount} chapitre${volume.stats.chapterCount > 1 ? "s" : ""}`;
   return `<main id="contenu" class="volume-page">
     <div class="volume-shell">
       <aside class="volume-sidebar" id="volume-sidebar" aria-label="Navigation du volume">
@@ -440,7 +485,7 @@ export function renderVolumePage(volume, volumes) {
           metadata.title,
         )}</span></nav>
         <header class="volume-hero">
-          <p class="eyebrow">${volumeLabel(volume)} · ${escapeHtml(volume.archetype === "case_dossiers" ? "Dossiers historiques" : "Fondations")}</p>
+          <p class="eyebrow">${volumeLabel(volume)} · ${escapeHtml(archetypeLabel(volume))}</p>
           <h1>${escapeHtml(metadata.title)}</h1>
           <p class="volume-hero__subtitle">${escapeHtml(metadata.subtitle || "")}</p>
           <p class="volume-hero__description">${escapeHtml(metadata.description || "")}</p>
@@ -449,6 +494,7 @@ export function renderVolumePage(volume, volumes) {
           )} mots</span>${volume.stats.figureCount ? `<span>${volume.stats.figureCount} figures</span>` : ""}</div>
         </header>
         <div class="mobile-toc-card"><button type="button" data-toc-toggle aria-expanded="false" aria-controls="volume-sidebar"><span>Ouvrir le sommaire</span><span aria-hidden="true">☰</span></button></div>
+        ${renderVolumeHighlights(metadata.highlights)}
         <div class="course-body">${groups
           .map(
             (group, index) => `<section class="course-section" data-course-section="${escapeHtml(group.id)}">${group.blocks

@@ -33,6 +33,7 @@ test("all expected pages are built", () => {
     "volumes/1-fondations-et-analyses/index.html",
     "volumes/2-dossiers-historiques/index.html",
     "volumes/3-analyse-technique/index.html",
+    "volumes/4-analyse-macroeconomique/index.html",
   ]) {
     assert.ok(existsSync(path.join(DIST, relative)), relative);
   }
@@ -93,7 +94,7 @@ test("every page is protected by the access gate without exposing the code", asy
 
 test("every course stage has a ten-question exercise and an enriching correction", async () => {
   const quizzes = JSON.parse(await readFile(path.join(ROOT, "config", "quizzes.json"), "utf8"));
-  const slugs = ["1-fondations-et-analyses", "2-dossiers-historiques", "3-analyse-technique"];
+  const slugs = ["1-fondations-et-analyses", "2-dossiers-historiques", "3-analyse-technique", "4-analyse-macroeconomique"];
   for (const [index, slug] of slugs.entries()) {
     const quiz = quizzes[slug];
     const quizStages = quiz.parts || [quiz];
@@ -144,7 +145,7 @@ test("course progression is isolated by profile while admin access bypasses lock
   assert.ok(client.includes('parsed["3-part-1"] = parsed["3"]'));
   assert.ok(client.includes("isPartUnlocked"));
   assert.ok(client.includes("completesVolume"));
-  assert.equal((home.match(/data-volume-card/g) || []).length, 3);
+  assert.equal((home.match(/data-volume-card/g) || []).length, 4);
   assert.ok(volumeTwo.includes("data-volume-lock"));
   assert.ok(volumeTwo.includes("Ce volume est encore verrouillé"));
   assert.ok(volumeTwo.includes("Passer le QCM du Volume 1"));
@@ -167,7 +168,7 @@ test("profile page presents identity, useful progress and account controls", asy
   assert.ok(profile.includes("data-profile-role"));
   assert.ok(profile.includes("data-profile-logout"));
   assert.ok(profile.includes("Progression enregistrée sur cet appareil"));
-  assert.equal((profile.match(/data-profile-volume data-volume-order=/g) || []).length, 3);
+  assert.equal((profile.match(/data-profile-volume data-volume-order=/g) || []).length, 4);
   assert.ok(profile.includes("data-profile-next-title"));
   assert.ok(profile.includes("data-profile-progress-bar"));
   assert.ok(profile.includes('data-profile-achievement="complete"'));
@@ -227,7 +228,7 @@ test("volume three renders three distinct progressive parts", async () => {
   assert.equal((html.match(/data-completes-volume="false"/g) || []).length, 2);
   assert.equal((html.match(/data-completes-volume="true"/g) || []).length, 1);
   assert.equal((html.match(/data-awaits-next-part="true"/g) || []).length, 0);
-  assert.equal((html.match(/data-awaits-future-volume="true"/g) || []).length, 1);
+  assert.equal((html.match(/data-awaits-future-volume="true"/g) || []).length, 0);
   assert.equal(quizzes[0].questions.length, 10);
   assert.equal(quizzes[1].questions.length, 10);
   assert.equal(quizzes[2].questions.length, 10);
@@ -252,7 +253,7 @@ test("volume three renders three distinct progressive parts", async () => {
   assert.ok(!html.includes("(image 2)"));
   assert.ok(!html.includes("(image 3)"));
   assert.ok(html.includes("Volume 4"));
-  assert.doesNotMatch(html, /href="[^"]*\/volumes\/4-/);
+  assert.match(html, /href="[^"]*\/volumes\/4-analyse-macroeconomique\//);
   assert.ok(!html.includes("Le Volume 3 ajoute RSI"));
   assert.ok(html.includes("Un indicateur ne prédit pas le marché"));
   assert.ok(html.includes("Figure 5 — NVIDIA : SMA 9, volume, MACD 12-26-9 et RSI 14"));
@@ -261,6 +262,33 @@ test("volume three renders three distinct progressive parts", async () => {
   const client = await readFile(path.join(DIST, "assets", "client.js"), "utf8");
   assert.ok(client.includes("il permettra d’accéder au Volume"));
   assert.ok(client.includes('parsed["3"] && !parsed["3-part-3"]'));
+});
+
+test("volume four integrates a clear progressive macroeconomic part", async () => {
+  const html = await readFile(path.join(DIST, "volumes/4-analyse-macroeconomique/index.html"), "utf8");
+  const quiz = JSON.parse(await readFile(path.join(ROOT, "config", "quizzes.json"), "utf8"))["4-analyse-macroeconomique"].parts[0];
+  assert.ok(html.includes("L’analyse macroéconomique"));
+  assert.ok(html.includes("Les fondements de l’analyse macroéconomique"));
+  assert.ok(html.includes("Une partie, une validation"));
+  assert.ok(html.includes("Un QCM indépendant"));
+  assert.ok(html.includes("QCM de la Partie 1 — Fondements macroéconomiques"));
+  assert.ok(html.includes("Pourquoi le consensus domine souvent la première réaction"));
+  assert.ok(html.includes("L’inflation : CPI, Core CPI, PCE et Core PCE"));
+  assert.ok(html.includes("6. L’emploi : NFP, chômage, jobless claims et JOLTS"));
+  assert.ok(html.includes("Figure 8 — Ventes au détail américaines, variation mensuelle"));
+  assert.equal((html.match(/class="volume-part"/g) || []).length, 1);
+  assert.equal((html.match(/class="quiz-workspace"/g) || []).length, 1);
+  assert.equal((html.match(/class="quiz-question"/g) || []).length, 10);
+  assert.equal((html.match(/class="course-figure breakout"/g) || []).length, 8);
+  assert.equal((html.match(/class="data-table breakout"/g) || []).length, 20);
+  assert.ok(html.includes('data-completes-volume="false"'));
+  assert.ok(html.includes('data-awaits-next-part="true"'));
+  assert.equal(quiz.questions.length, 10);
+  assert.ok(new Set(quiz.questions.map((question) => question.answer)).size >= 3);
+  assert.match(JSON.stringify(quiz), /consensus|Core PCE|PIB réel|NFP|JOLTS|ventes au détail/i);
+  assert.doesNotMatch(JSON.stringify(quiz.questions.map((question) => question.question)), /Doji|MACD|moyenne mobile/i);
+  assert.ok(!html.includes("Volume 5"));
+  assert.ok(!html.includes("Unsupported content block"));
 });
 
 test("volume three part headers stay compact and homogeneous on desktop", async () => {
@@ -281,6 +309,9 @@ test("search index covers all volumes and figure captions", async () => {
   assert.ok(index.some((entry) => entry.volume === "Volume 3" && /Trois méthodes ascendantes/i.test(entry.text)));
   assert.ok(index.some((entry) => entry.volume === "Volume 3" && /Relative Strength Index|RSI/i.test(entry.text)));
   assert.ok(index.some((entry) => entry.volume === "Volume 3" && /MACD 12-26-9/i.test(entry.text)));
+  assert.ok(index.some((entry) => entry.volume === "Volume 4" && /consensus/i.test(entry.text)));
+  assert.ok(index.some((entry) => entry.volume === "Volume 4" && /Core PCE/i.test(entry.text)));
+  assert.ok(index.some((entry) => entry.volume === "Volume 4" && /JOLTS/i.test(entry.text)));
 });
 
 test("generated internal links resolve", async () => {

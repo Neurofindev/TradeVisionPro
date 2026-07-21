@@ -76,10 +76,11 @@ class ConverterOutputTests(unittest.TestCase):
         cls.v1 = load("1-fondations-et-analyses.json")
         cls.v2 = load("2-dossiers-historiques.json")
         cls.v3 = load("3-analyse-technique.json")
+        cls.v4 = load("4-analyse-macroeconomique.json")
 
     def test_manifest_contains_all_volumes_in_order(self):
         manifest = load("index.json")
-        self.assertEqual([item["metadata"]["volumeNumber"] for item in manifest["volumes"]], [1, 2, 3])
+        self.assertEqual([item["metadata"]["volumeNumber"] for item in manifest["volumes"]], [1, 2, 3, 4])
 
     def test_volume_one_structure(self):
         types = [block["type"] for block in self.v1["blocks"]]
@@ -105,7 +106,7 @@ class ConverterOutputTests(unittest.TestCase):
         self.assertEqual(len(self.v3["metadata"]["highlights"]), 3)
         self.assertEqual(len(self.v3["metadata"]["parts"]), 3)
         self.assertTrue(self.v3["metadata"]["partSequenceComplete"])
-        self.assertEqual(self.v3["metadata"]["futureVolumeNumber"], 4)
+        self.assertNotIn("futureVolumeNumber", self.v3["metadata"])
         self.assertEqual(self.v3["metadata"]["parts"][1]["title"], "L’essentiel des bougies japonaises")
         self.assertEqual(self.v3["metadata"]["parts"][2]["title"], "Les indicateurs techniques")
         self.assertEqual(types.count("heading"), 128)
@@ -138,8 +139,37 @@ class ConverterOutputTests(unittest.TestCase):
         self.assertNotIn("(image 2)", rendered_text.casefold())
         self.assertNotIn("(image 3)", rendered_text.casefold())
 
+    def test_volume_four_integrates_the_first_macroeconomic_part(self):
+        blocks = self.v4["blocks"]
+        types = [block["type"] for block in blocks]
+        self.assertEqual(self.v4["metadata"]["title"], "L’analyse macroéconomique")
+        self.assertEqual(self.v4["metadata"]["volumeNumber"], 4)
+        self.assertEqual(len(self.v4["metadata"]["parts"]), 1)
+        self.assertFalse(self.v4["metadata"]["partSequenceComplete"])
+        self.assertEqual(self.v4["metadata"]["parts"][0]["title"], "Les fondements de l’analyse macroéconomique")
+        self.assertEqual(blocks[0]["id"], "comment-utiliser-ce-cours")
+        self.assertEqual(types.count("heading"), 72)
+        self.assertEqual(types.count("callout"), 15)
+        self.assertEqual(types.count("figure"), 8)
+        self.assertEqual(types.count("table"), 20)
+        self.assertEqual(self.v4["stats"]["chapterCount"], 13)
+        figures = [block for block in blocks if block["type"] == "figure"]
+        self.assertTrue(all(figure["caption"] and figure["source"] and figure["alt"] for figure in figures))
+        rendered_text = " ".join(all_strings(self.v4))
+        self.assertIn("Les quatre régimes à reconnaître", rendered_text)
+        self.assertIn("Pourquoi le consensus domine souvent la première réaction", rendered_text)
+        self.assertIn("L’inflation : CPI, Core CPI, PCE et Core PCE", rendered_text)
+        self.assertIn("NFP, chômage, jobless claims et JOLTS", rendered_text)
+        self.assertIn("Méthode d’analyse avant, pendant et après une publication", rendered_text)
+        self.assertIn("Figure 8 — Ventes au détail américaines, variation mensuelle", rendered_text)
+
     def test_figures_are_complete_and_optimized(self):
-        figures = [block for block in self.v2["blocks"] if block["type"] == "figure"]
+        figures = [
+            block
+            for volume in (self.v2, self.v4)
+            for block in volume["blocks"]
+            if block["type"] == "figure"
+        ]
         for figure in figures:
             self.assertTrue(figure["caption"].startswith("Figure "))
             self.assertTrue(figure["source"])
@@ -158,19 +188,31 @@ class ConverterOutputTests(unittest.TestCase):
 
     def test_nearly_all_source_text_is_present(self):
         pairs = [
-            (SOURCE / "V1.docx", self.v1),
+            (SOURCE / "V1.docx", self.v1, None),
             (
                 SOURCE / "Formation_Investissement_Trading_Volume_2_Risques_Cas_Historiques.docx",
                 self.v2,
+                None,
             ),
-            (SOURCE / "Cours_multi_timeframe_original.docx", self.v3),
+            (SOURCE / "Cours_multi_timeframe_original.docx", self.v3, None),
+            (
+                SOURCE / "Fondements_analyse_macroeconomique_Volume-4_Partie_1.docx",
+                self.v4,
+                "comment utiliser ce cours",
+            ),
         ]
-        for source, generated in pairs:
+        for source, generated, start_marker in pairs:
             haystack = normalize(" ".join(all_strings(generated)))
             units = source_text_units(source)
+            if start_marker:
+                units = units[units.index(start_marker) :]
             covered = 0
             for unit in units:
-                candidate = re.sub(r"^(?:références? du dossier|sources?)\s*:\s*", "", unit)
+                candidate = re.sub(
+                    r"^(?:références? du dossier|source du graphique|sources?)\s*:\s*",
+                    "",
+                    unit,
+                )
                 if candidate in haystack:
                     covered += 1
             ratio = covered / len(units)

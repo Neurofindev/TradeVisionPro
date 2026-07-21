@@ -690,5 +690,149 @@
         ]
       }
     ]
+  },
+  "4-analyse-macroeconomique": {
+    "title": "Valider les fondements macroéconomiques",
+    "intro": "La Partie 1 possède un QCM de 10 questions. Une note d’au moins 8/10 enregistrera sa validation et préparera l’accès à la prochaine partie lorsqu’elle sera publiée.",
+    "parts": [
+      {
+        "order": 1,
+        "id": "partie-1",
+        "title": "QCM de la Partie 1 — Fondements macroéconomiques",
+        "intro": "10 questions consacrées au calendrier économique, à l’inflation, au PIB, à l’emploi, à la consommation et à la transmission des données vers les marchés.",
+        "questions": [
+          {
+            "id": "v4-p1-q1",
+            "difficulty": "Facile",
+            "question": "Quel est le rôle principal de l’analyse macroéconomique pour un investisseur ou un trader ?",
+            "options": [
+              "Prédire avec certitude le prix de clôture de chaque actif",
+              "Identifier le régime économique et comprendre les réactions possibles des banques centrales",
+              "Remplacer totalement l’analyse du prix et la gestion du risque",
+              "Choisir uniquement les entreprises versant un dividende"
+            ],
+            "answer": 1,
+            "explanation": "L’analyse macroéconomique étudie notamment l’activité, les prix, l’emploi, la consommation et les taux afin d’identifier le régime dominant et ses conséquences possibles."
+          },
+          {
+            "id": "v4-p1-q2",
+            "difficulty": "Facile",
+            "question": "Quelles sont les trois valeurs indispensables d’un calendrier économique ?",
+            "options": [
+              "Ouverture, plus haut et clôture",
+              "Volume, RSI et MACD",
+              "Précédent, consensus et réel",
+              "Chiffre d’affaires, marge et dividende"
+            ],
+            "answer": 2,
+            "explanation": "Le précédent décrit la dernière publication, le consensus représente l’attente centrale et le réel correspond à la nouvelle valeur publiée."
+          },
+          {
+            "id": "v4-p1-q3",
+            "difficulty": "Intermédiaire",
+            "question": "Pourquoi le consensus influence-t-il souvent davantage la première réaction que le chiffre précédent ?",
+            "options": [
+              "Parce que le chiffre précédent est toujours faux",
+              "Parce que les positions du marché intègrent déjà les attentes avant la publication",
+              "Parce que le consensus est fixé par la banque centrale",
+              "Parce que les marchés ignorent les révisions"
+            ],
+            "answer": 1,
+            "explanation": "Les investisseurs se positionnent à partir des informations disponibles. L’écart entre le réel et l’attente crée donc la surprise qui impose un ajustement rapide des positions."
+          },
+          {
+            "id": "v4-p1-q4",
+            "difficulty": "Intermédiaire",
+            "question": "Quel régime limite le plus la liberté d’une banque centrale pour soutenir l’activité ?",
+            "options": [
+              "Croissance solide et inflation maîtrisée",
+              "Croissance faible et inflation en baisse",
+              "Croissance solide sans pression sur les prix",
+              "Croissance faible et inflation élevée"
+            ],
+            "answer": 3,
+            "explanation": "Une activité faible accompagnée d’une inflation élevée combine perte de pouvoir d’achat et faible marge de manœuvre monétaire : baisser les taux pourrait entretenir l’inflation."
+          },
+          {
+            "id": "v4-p1-q5",
+            "difficulty": "Intermédiaire",
+            "question": "Quelle affirmation distingue correctement le Core CPI du Core PCE ?",
+            "options": [
+              "Le Core CPI mesure l’emploi tandis que le Core PCE mesure le PIB",
+              "Le Core PCE inclut uniquement l’énergie",
+              "Les deux excluent généralement alimentation et énergie, mais le Core PCE appartient à la mesure privilégiée par la Fed",
+              "Les deux indicateurs sont publiés par la même institution avec des pondérations identiques"
+            ],
+            "answer": 2,
+            "explanation": "Les versions sous-jacentes cherchent à mieux observer la persistance de l’inflation. Le PCE, publié par le BEA, est la mesure privilégiée par la Réserve fédérale."
+          },
+          {
+            "id": "v4-p1-q6",
+            "difficulty": "Intermédiaire",
+            "question": "Pourquoi le PIB réel est-il généralement plus utile que le PIB nominal pour analyser la croissance ?",
+            "options": [
+              "Il exclut toute consommation des ménages",
+              "Il corrige l’effet de la variation des prix",
+              "Il est publié chaque semaine",
+              "Il ne fait jamais l’objet de révisions"
+            ],
+            "answer": 1,
+            "explanation": "Le PIB nominal peut augmenter simplement parce que les prix montent. Le PIB réel corrige cet effet afin de mieux mesurer l’évolution des quantités produites."
+          },
+          {
+            "id": "v4-p1-q7",
+            "difficulty": "Approfondissement",
+            "question": "Pourquoi un NFP supérieur au consensus ne suffit-il pas à conclure que le rapport d’emploi est solide ?",
+            "options": [
+              "Le NFP ne mesure jamais les emplois salariés",
+              "Le taux de chômage donne toujours exactement le même signal",
+              "Seuls les postes vacants JOLTS comptent pour la banque centrale",
+              "Il faut aussi examiner les révisions, les salaires, les heures travaillées et la répartition sectorielle"
+            ],
+            "answer": 3,
+            "explanation": "Le chiffre principal peut masquer des révisions négatives, une concentration des créations, des heures en baisse ou des pressions salariales différentes de la première impression."
+          },
+          {
+            "id": "v4-p1-q8",
+            "difficulty": "Approfondissement",
+            "question": "Quel ensemble signale le plus clairement une détérioration du marché du travail ?",
+            "options": [
+              "Postes vacants en baisse ordonnée avec licenciements faibles",
+              "Démissions élevées et demandes d’allocations faibles",
+              "Demandes d’allocations en hausse persistante et licenciements JOLTS en progression",
+              "Une seule semaine de demandes légèrement supérieure"
+            ],
+            "answer": 2,
+            "explanation": "Une hausse persistante des demandes, confirmée par davantage de licenciements, est plus préoccupante qu’un chiffre isolé ou qu’un simple refroidissement des postes vacants."
+          },
+          {
+            "id": "v4-p1-q9",
+            "difficulty": "Approfondissement",
+            "question": "Pourquoi une hausse des ventes au détail ne prouve-t-elle pas toujours que les ménages achètent davantage de produits ?",
+            "options": [
+              "Les ventes au détail excluent toutes les dépenses d’énergie",
+              "La publication mesure la valeur dépensée, qui peut augmenter à cause des prix",
+              "La donnée ne concerne que les marchés financiers",
+              "Elle est toujours corrigée de l’inflation avant publication"
+            ],
+            "answer": 1,
+            "explanation": "Une hausse des prix, notamment de l’essence, peut gonfler la valeur des ventes sans augmentation des quantités. Les catégories et le groupe de contrôle complètent la lecture."
+          },
+          {
+            "id": "v4-p1-q10",
+            "difficulty": "Approfondissement",
+            "question": "Quelle méthode décrit le mieux une analyse rigoureuse après une publication ?",
+            "options": [
+              "Trader immédiatement la première bougie sans consulter les composantes",
+              "Comparer uniquement le réel au précédent",
+              "Appliquer la même réaction à tous les actifs et à tous les régimes",
+              "Comparer la surprise, lire les détails, évaluer les attentes de taux puis vérifier la cohérence entre rendements, dollar et actifs"
+            ],
+            "answer": 3,
+            "explanation": "La lecture complète relie le chiffre, ses composantes et ses révisions aux attentes de politique monétaire, puis observe si les marchés confirment durablement ce scénario."
+          }
+        ]
+      }
+    ]
   }
 }

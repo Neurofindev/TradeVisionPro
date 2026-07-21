@@ -574,12 +574,14 @@ class DocxConverter:
 
                 for image in images:
                     figure_alts = self.metadata_overrides.get("figureAlts") or []
+                    figure_captions = self.metadata_overrides.get("figureCaptions") or []
+                    figure_sources = self.metadata_overrides.get("figureSources") or []
                     alt = figure_alts[figure_index] if figure_index < len(figure_alts) else ""
                     figure = {
                         "type": "figure",
                         **image,
-                        "caption": "",
-                        "source": "",
+                        "caption": figure_captions[figure_index] if figure_index < len(figure_captions) else "",
+                        "source": figure_sources[figure_index] if figure_index < len(figure_sources) else "",
                         "sourceLinks": [],
                     }
                     if alt:
@@ -672,6 +674,42 @@ class DocxConverter:
                 if table_block:
                     blocks.append(table_block)
                 last_figure_index = None
+
+        drop_leading_blocks = int(self.metadata_overrides.get("dropLeadingBlocks") or 0)
+        if drop_leading_blocks:
+            blocks = blocks[drop_leading_blocks:]
+
+        promoted_block_level = self.metadata_overrides.get("promoteFirstBlockHeadingLevel")
+        if promoted_block_level:
+            for index, block in enumerate(blocks):
+                if block.get("type") == "paragraph" and block.get("text"):
+                    text = str(block["text"])
+                    blocks[index] = {
+                        "type": "heading",
+                        "level": int(promoted_block_level),
+                        "id": self._unique_id(text),
+                        "text": text,
+                    }
+                    break
+
+        configured_figure_text = {
+            clean_text(str(text))
+            for text in [
+                *(self.metadata_overrides.get("figureCaptions") or []),
+                *(self.metadata_overrides.get("figureSources") or []),
+                *(self.metadata_overrides.get("removeParagraphTexts") or []),
+            ]
+            if clean_text(str(text))
+        }
+        if configured_figure_text:
+            blocks = [
+                block
+                for block in blocks
+                if not (
+                    block.get("type") == "paragraph"
+                    and clean_text(str(block.get("text", ""))) in configured_figure_text
+                )
+            ]
 
         blocks = self._postprocess_case_headers(blocks)
         for supplemental_block in deepcopy(self.supplemental_blocks):

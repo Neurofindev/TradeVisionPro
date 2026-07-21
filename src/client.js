@@ -180,6 +180,7 @@
     document.querySelectorAll("[data-volume-card]").forEach((card) => {
       const order = Number(card.dataset.volumeOrder || 1);
       const partCount = Number(card.dataset.volumePartCount || 1);
+      const hasParts = card.dataset.volumeHasParts === "true";
       const unlocked = isVolumeUnlocked(order, progressData);
       const score = Number(progressData[String(order)] || 0);
       const validatedParts = Array.from({ length: partCount }, (_, index) => partScore(order, index + 1, progressData)).filter(
@@ -195,10 +196,10 @@
           ? `À débloquer avec le Volume ${order - 1}`
           : score >= passingScore
             ? `Validé · ${score}/10`
-            : partCount > 1
+            : hasParts
               ? validatedParts === partCount
-                ? `À jour · ${partCount}/${partCount} parties validées`
-                : `${validatedParts}/${partCount} parties validées`
+                ? `À jour · ${partCount}/${partCount} partie${partCount > 1 ? "s" : ""} validée${partCount > 1 ? "s" : ""}`
+                : `${validatedParts}/${partCount} partie${partCount > 1 ? "s" : ""} validée${partCount > 1 ? "s" : ""}`
               : "Disponible";
       }
       card.querySelectorAll("[data-volume-link]").forEach((link) => {
@@ -234,11 +235,12 @@
       }
       const score = Number(progressData[String(order)] || 0);
       const partCount = Number(volumePage.dataset.volumePartCount || 1);
+      const hasParts = volumePage.dataset.volumeHasParts === "true";
       const validatedParts = Array.from({ length: partCount }, (_, index) => partScore(order, index + 1, progressData)).filter(
         (partResult) => partResult >= passingScore,
       ).length;
       volumePage.querySelectorAll("[data-volume-score]").forEach((label) => {
-        label.textContent = partCount > 1 ? `${validatedParts}/${partCount} validées` : score ? `${score}/10` : "À faire";
+        label.textContent = hasParts ? `${validatedParts}/${partCount} validée${partCount > 1 ? "s" : ""}` : score ? `${score}/10` : "À faire";
         label.classList.toggle("is-complete", score >= passingScore);
       });
 
@@ -287,6 +289,11 @@
     return name.split(/\s+/).filter(Boolean).slice(0, 2).map((part) => part[0]).join("").toUpperCase() || "TV";
   }
 
+  function profilePartAnchor(card, partOrder) {
+    const partIds = String(card?.dataset.volumePartIds || "").split(",").filter(Boolean);
+    return partIds[partOrder - 1] ? `#${partIds[partOrder - 1]}` : "";
+  }
+
   function updateProfileUi(progressData = readCourseProgress()) {
     const profile = currentAccessProfile();
     if (!profile) return;
@@ -302,7 +309,7 @@
     const scores = Array.from({ length: totalVolumes }, (_, index) => Number(progressData[String(index + 1)] || 0));
     const validated = scores.filter((score) => score >= passingScore).length;
     const accessible = isAdminAccess() ? totalVolumes : scores.reduce((count, _score, index) => count + Number(isVolumeUnlocked(index + 1, progressData)), 0);
-    const bestScore = Math.max(0, ...scores);
+    const bestScore = Math.max(0, ...Object.values(progressData).map((score) => Number(score) || 0));
     const completion = Math.round((validated / totalVolumes) * 100);
 
     document.querySelectorAll("[data-profile-validated]").forEach((element) => { element.textContent = String(validated); });
@@ -318,6 +325,7 @@
     profileVolumes.forEach((card) => {
       const order = Number(card.dataset.volumeOrder || 1);
       const partCount = Number(card.dataset.volumePartCount || 1);
+      const hasParts = card.dataset.volumeHasParts === "true";
       const score = Number(progressData[String(order)] || 0);
       const unlocked = isVolumeUnlocked(order, progressData);
       const complete = score >= passingScore;
@@ -334,21 +342,21 @@
           ? "Verrouillé"
           : complete
             ? "Validé"
-            : partCount > 1 && validatedParts === partCount
+            : hasParts && validatedParts === partCount
               ? "Progression à jour"
-              : partCount > 1 && validatedParts
+              : hasParts && validatedParts
                 ? "En progression"
                 : "Disponible";
       }
       if (scoreLabel) {
-        scoreLabel.textContent = partCount > 1 && !complete ? `${validatedParts}/${partCount} parties` : score ? `${score}/10` : "Non évalué";
+        scoreLabel.textContent = hasParts && !complete ? `${validatedParts}/${partCount} partie${partCount > 1 ? "s" : ""}` : score ? `${score}/10` : "Non évalué";
       }
       if (link) {
         const ownUrl = link.dataset.profileVolumeUrl || link.href;
         const previousUrl = profileVolumes[order - 2]?.querySelector("[data-profile-volume-link]")?.dataset.profileVolumeUrl;
-        const nextPart = partCount > 1 && validatedParts < partCount ? validatedParts + 1 : 0;
-        const waitingForNextPart = partCount > 1 && validatedParts === partCount && !complete;
-        link.href = !unlocked && previousUrl ? `${previousUrl}#exercices` : nextPart > 1 ? `${ownUrl}#partie-${nextPart}-bougies-japonaises` : ownUrl;
+        const nextPart = hasParts && validatedParts < partCount ? validatedParts + 1 : 0;
+        const waitingForNextPart = hasParts && validatedParts === partCount && !complete;
+        link.href = !unlocked && previousUrl ? `${previousUrl}#exercices` : nextPart > 1 ? `${ownUrl}${profilePartAnchor(card, nextPart)}` : ownUrl;
         link.textContent = !unlocked
           ? `Valider le Volume ${order - 1} →`
           : complete
@@ -373,7 +381,7 @@
         nextLink.innerHTML = 'Voir tous les volumes <span aria-hidden="true">→</span>';
       } else if (validated === totalVolumes) {
         nextTitle.textContent = "Parcours entièrement validé";
-        nextText.textContent = "Félicitations : les trois volumes sont validés. Vous pouvez les revoir à tout moment.";
+        nextText.textContent = `Félicitations : les ${totalVolumes} volumes sont validés. Vous pouvez les revoir à tout moment.`;
         nextLink.href = `${basePath}volumes/`;
         nextLink.innerHTML = 'Revoir la formation <span aria-hidden="true">→</span>';
       } else {
@@ -383,14 +391,15 @@
         });
         const order = Number(nextCard?.dataset.volumeOrder || 1);
         const partCount = Number(nextCard?.dataset.volumePartCount || 1);
+        const hasParts = nextCard?.dataset.volumeHasParts === "true";
         const validatedParts = Array.from({ length: partCount }, (_, index) => partScore(order, index + 1, progressData)).filter(
           (partResult) => partResult >= passingScore,
         ).length;
         const title = nextCard?.querySelector("h3")?.textContent || `Volume ${order}`;
         const score = Number(progressData[String(order)] || 0);
         const target = nextCard?.querySelector("[data-profile-volume-link]")?.href || `${basePath}volumes/`;
-        const nextPart = partCount > 1 && validatedParts < partCount ? validatedParts + 1 : 0;
-        const waitingForNextPart = partCount > 1 && validatedParts === partCount && !score;
+        const nextPart = hasParts && validatedParts < partCount ? validatedParts + 1 : 0;
+        const waitingForNextPart = hasParts && validatedParts === partCount && !score;
         nextTitle.textContent = waitingForNextPart
           ? `Progression à jour dans le Volume ${order}`
           : nextPart > 1
@@ -399,7 +408,7 @@
               ? `Améliorer votre score au Volume ${order}`
               : `Commencer le Volume ${order}`;
         nextText.textContent = waitingForNextPart
-          ? `Les ${partCount} parties actuellement disponibles sont validées. Le résultat de la Partie ${partCount} est enregistré pour la prochaine partie.`
+          ? `${partCount === 1 ? "La partie actuellement disponible est validée" : `Les ${partCount} parties actuellement disponibles sont validées`}. Le résultat de la Partie ${partCount} est enregistré pour la prochaine partie.`
           : nextPart > 1
           ? `La Partie ${validatedParts} est validée. Vous pouvez maintenant poursuivre « ${title} » avec la Partie ${nextPart}.`
           : score
@@ -408,15 +417,15 @@
         nextLink.href = waitingForNextPart
           ? target.split("#")[0]
           : nextPart > 1
-            ? `${target.split("#")[0]}#partie-${nextPart}-bougies-japonaises`
+            ? `${target.split("#")[0]}${profilePartAnchor(nextCard, nextPart)}`
             : score
               ? `${target.split("#")[0]}#exercices`
               : target;
-        nextLink.innerHTML = `${waitingForNextPart ? "Revoir le Volume 3" : nextPart > 1 ? `Ouvrir la Partie ${nextPart}` : score ? "Reprendre le QCM" : "Continuer"} <span aria-hidden="true">→</span>`;
+        nextLink.innerHTML = `${waitingForNextPart ? `Revoir le Volume ${order}` : nextPart > 1 ? `Ouvrir la Partie ${nextPart}` : score ? "Reprendre le QCM" : "Continuer"} <span aria-hidden="true">→</span>`;
       }
     }
 
-    const hasStarted = scores.some((score) => score > 0);
+    const hasStarted = Object.values(progressData).some((score) => Number(score) > 0);
     document.querySelectorAll('[data-profile-achievement="start"]').forEach((item) => item.classList.toggle("is-earned", hasStarted || isAdminAccess()));
     document.querySelectorAll('[data-profile-achievement="half"]').forEach((item) => item.classList.toggle("is-earned", scores[0] >= passingScore));
     document.querySelectorAll('[data-profile-achievement="complete"]').forEach((item) => item.classList.toggle("is-earned", validated === totalVolumes));

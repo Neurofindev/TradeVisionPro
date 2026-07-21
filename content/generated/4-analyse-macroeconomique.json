@@ -1,0 +1,3914 @@
+{
+  "schemaVersion": 1,
+  "source": {
+    "file": "Fondements_analyse_macroeconomique_Volume-4_Partie_1.docx",
+    "sha256": "fd97c38dd32b616dd9b3b2a67bfb2b36366781fb693a6894ad728237963bfdea"
+  },
+  "metadata": {
+    "id": "volume-4",
+    "order": 4,
+    "volumeNumber": 4,
+    "title": "L’analyse macroéconomique",
+    "subtitle": "Comprendre les données, les attentes et leur transmission aux marchés.",
+    "description": "Lire les publications économiques avec méthode et comprendre leurs effets sur les taux, les obligations, les devises, les actions et l’or.",
+    "edition": null,
+    "format": null,
+    "coverLines": [],
+    "tags": [
+      "macroéconomie",
+      "inflation",
+      "CPI",
+      "PCE",
+      "PIB",
+      "emploi",
+      "NFP",
+      "chômage",
+      "JOLTS",
+      "ventes au détail",
+      "banques centrales",
+      "taux",
+      "obligations",
+      "Forex"
+    ],
+    "highlights": [
+      {
+        "number": "01",
+        "title": "Contexte",
+        "text": "Identifier le régime de croissance et d’inflation avant d’interpréter une publication."
+      },
+      {
+        "number": "02",
+        "title": "Anticipations",
+        "text": "Comparer le chiffre réel au consensus, au précédent révisé et aux composantes du rapport."
+      },
+      {
+        "number": "03",
+        "title": "Transmission",
+        "text": "Relier les attentes de taux aux rendements, aux devises, aux actions, aux obligations et à l’or."
+      }
+    ],
+    "parts": [
+      {
+        "order": 1,
+        "id": "partie-1-fondements-macroeconomiques",
+        "startId": "comment-utiliser-ce-cours",
+        "title": "Les fondements de l’analyse macroéconomique",
+        "subtitle": "Données · attentes · transmission · réaction des marchés",
+        "description": "Apprendre à lire une publication macroéconomique avec méthode, sans réduire une donnée à « bonne » ou « mauvaise », puis comprendre pourquoi les obligations, les devises, les actions et l’or peuvent réagir différemment.",
+        "tocIds": [
+          "comment-utiliser-ce-cours",
+          "1-le-role-de-l-analyse-macroeconomique",
+          "2-lire-un-calendrier-economique",
+          "3-la-chaine-de-transmission-vers-les-marches",
+          "4-l-inflation-cpi-core-cpi-pce-et-core-pce",
+          "5-le-pib-mesurer-l-activite-economique",
+          "6-l-emploi-nfp-chomage-jobless-claims-et-jolts",
+          "7-les-ventes-au-detail-observer-le-consommateur",
+          "8-comprendre-l-impact-selon-chaque-marche",
+          "9-methode-d-analyse-avant-pendant-et-apres-une-publication",
+          "10-cas-pratiques-guides",
+          "11-erreurs-frequentes-et-checklist",
+          "12-glossaire-et-sources-officielles"
+        ]
+      }
+    ],
+    "partSequenceComplete": false,
+    "slug": "4-analyse-macroeconomique"
+  },
+  "archetype": "macroeconomic_analysis",
+  "stats": {
+    "wordCount": 6995,
+    "readingMinutes": 32,
+    "chapterCount": 13,
+    "dossierCount": 0,
+    "figureCount": 8
+  },
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "comment-utiliser-ce-cours",
+      "text": "Comment utiliser ce cours"
+    },
+    {
+      "type": "paragraph",
+      "text": "Ce cours part d’une idée simple : les données macroéconomiques décrivent une économie, mais les marchés réagissent surtout à ce que ces données changent dans les attentes des investisseurs. Il faut donc apprendre à lire à la fois le chiffre, le contexte et la réaction des autres marchés.",
+      "segments": [
+        {
+          "text": "Ce cours part d’une idée simple : les données macroéconomiques décrivent une économie, mais les marchés réagissent surtout à ce que ces données changent dans les attentes des investisseurs. Il faut donc apprendre à lire à la fois le chiffre, le contexte et la réaction des autres marchés."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "objectifs-pedagogiques",
+      "text": "Objectifs pédagogiques"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Différencier l’inflation CPI, le Core CPI, le PCE et le Core PCE.",
+          "segments": [
+            {
+              "text": "Différencier l’inflation CPI, le Core CPI, le PCE et le Core PCE."
+            }
+          ]
+        },
+        {
+          "text": "Comprendre le PIB réel, le NFP, le chômage, les demandes d’allocations chômage, les JOLTS et les ventes au détail.",
+          "segments": [
+            {
+              "text": "Comprendre le PIB réel, le NFP, le chômage, les demandes d’allocations chômage, les JOLTS et les ventes au détail."
+            }
+          ]
+        },
+        {
+          "text": "Lire correctement les colonnes précédent, consensus et réel d’un calendrier économique.",
+          "segments": [
+            {
+              "text": "Lire correctement les colonnes précédent, consensus et réel d’un calendrier économique."
+            }
+          ]
+        },
+        {
+          "text": "Relier une surprise économique aux anticipations de politique monétaire, aux rendements obligataires, au dollar et aux actions.",
+          "segments": [
+            {
+              "text": "Relier une surprise économique aux anticipations de politique monétaire, aux rendements obligataires, au dollar et aux actions."
+            }
+          ]
+        },
+        {
+          "text": "Éviter les interprétations mécaniques et construire une direction dominante seulement après plusieurs confirmations.",
+          "segments": [
+            {
+              "text": "Éviter les interprétations mécaniques et construire une direction dominante seulement après plusieurs confirmations."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "sommaire",
+      "text": "Sommaire"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "PARTIE",
+        "CONTENU"
+      ],
+      "rows": [
+        [
+          "1",
+          "Le rôle de l’analyse macroéconomique"
+        ],
+        [
+          "2",
+          "Lire un calendrier économique"
+        ],
+        [
+          "3",
+          "La chaîne de transmission vers les marchés"
+        ],
+        [
+          "4",
+          "L’inflation : CPI, Core CPI, PCE et Core PCE"
+        ],
+        [
+          "5",
+          "Le PIB : mesurer l’activité économique"
+        ],
+        [
+          "6",
+          "L’emploi : NFP, chômage, jobless claims et JOLTS"
+        ],
+        [
+          "7",
+          "Les ventes au détail : observer le consommateur"
+        ],
+        [
+          "8",
+          "Comprendre l’impact selon chaque marché"
+        ],
+        [
+          "9",
+          "Méthode d’analyse avant, pendant et après une publication"
+        ],
+        [
+          "10",
+          "Cas pratiques guidés"
+        ],
+        [
+          "11",
+          "Erreurs fréquentes et checklist"
+        ],
+        [
+          "12",
+          "Glossaire et sources officielles"
+        ]
+      ],
+      "links": [
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "AVERTISSEMENT",
+      "variant": "disclaimer",
+      "text": "Ce document est un support éducatif. Une publication peut provoquer des écarts de prix, une forte volatilité, du slippage et des mouvements contradictoires. Aucune lecture macroéconomique ne garantit un résultat de marché.",
+      "sourceFill": "FFF4D6"
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "1-le-role-de-l-analyse-macroeconomique",
+      "text": "1. Le rôle de l’analyse macroéconomique"
+    },
+    {
+      "type": "paragraph",
+      "text": "Comprendre l’état d’une économie et les forces qui peuvent modifier le prix des actifs.",
+      "segments": [
+        {
+          "text": "Comprendre l’état d’une économie et les forces qui peuvent modifier le prix des actifs.",
+          "italic": true
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "L’analyse macroéconomique étudie l’activité d’un pays dans son ensemble : les prix, la production, l’emploi, la consommation, les taux d’intérêt et les relations avec le reste du monde. Pour un investisseur ou un trader, elle sert à déterminer le régime économique dominant et à anticiper la réaction probable des banques centrales.",
+      "segments": [
+        {
+          "text": "L’analyse macroéconomique étudie l’activité d’un pays dans son ensemble : les prix, la production, l’emploi, la consommation, les taux d’intérêt et les relations avec le reste du monde. Pour un investisseur ou un trader, elle sert à déterminer le régime économique dominant et à anticiper la réaction probable des banques centrales."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Les principaux indicateurs abordés dans ce cours sont :",
+      "segments": [
+        {
+          "text": "Les principaux indicateurs abordés dans ce cours sont :"
+        }
+      ]
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "l’inflation : CPI, Core CPI, PCE et Core PCE ;",
+          "segments": [
+            {
+              "text": "l’inflation : CPI, Core CPI, PCE et Core PCE ;"
+            }
+          ]
+        },
+        {
+          "text": "la croissance : produit intérieur brut, ou PIB ;",
+          "segments": [
+            {
+              "text": "la croissance : produit intérieur brut, ou PIB ;"
+            }
+          ]
+        },
+        {
+          "text": "l’emploi : NFP, taux de chômage, demandes d’allocations chômage et JOLTS ;",
+          "segments": [
+            {
+              "text": "l’emploi : NFP, taux de chômage, demandes d’allocations chômage et JOLTS ;"
+            }
+          ]
+        },
+        {
+          "text": "la consommation : ventes au détail, ou Retail Sales.",
+          "segments": [
+            {
+              "text": "la consommation : ventes au détail, ou Retail Sales."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "pourquoi-ces-donnees-comptent-elles-autant",
+      "text": "Pourquoi ces données comptent-elles autant ?"
+    },
+    {
+      "type": "paragraph",
+      "text": "Ces indicateurs influencent les décisions des banques centrales. Or, les taux directeurs et les anticipations de taux influencent à leur tour le coût du crédit, les rendements obligataires, la valeur des devises, la valorisation des entreprises et l’appétit pour le risque. Une donnée peut donc provoquer un mouvement sur plusieurs marchés en quelques secondes.",
+      "segments": [
+        {
+          "text": "Ces indicateurs influencent les décisions des banques centrales. Or, les taux directeurs et les anticipations de taux influencent à leur tour le coût du crédit, les rendements obligataires, la valeur des devises, la valorisation des entreprises et l’appétit pour le risque. Une donnée peut donc provoquer un mouvement sur plusieurs marchés en quelques secondes."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "les-quatre-regimes-a-reconnaitre",
+      "text": "Les quatre régimes à reconnaître"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "RÉGIME",
+        "LECTURE GÉNÉRALE"
+      ],
+      "rows": [
+        [
+          "Croissance solide, inflation maîtrisée",
+          "Environnement souvent favorable aux bénéfices et aux actifs risqués. La banque centrale n’est pas forcée de durcir fortement sa politique."
+        ],
+        [
+          "Croissance solide, inflation trop élevée",
+          "L’économie résiste, mais les taux peuvent rester élevés. Les obligations et les actions très sensibles aux taux peuvent souffrir."
+        ],
+        [
+          "Croissance faible, inflation en baisse",
+          "Les baisses de taux deviennent plus envisageables. Cela peut soutenir les obligations et certaines actions, sauf si la peur de récession domine."
+        ],
+        [
+          "Croissance faible, inflation élevée",
+          "Situation difficile : le pouvoir d’achat baisse alors que la banque centrale dispose de moins de liberté pour soutenir l’activité."
+        ]
+      ],
+      "links": [
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "À RETENIR",
+      "variant": "default",
+      "text": "Un chiffre n’a pas un sens fixe. Une croissance forte peut être positive lorsque l’inflation est maîtrisée, mais négative pour les marchés si elle oblige la banque centrale à maintenir des taux élevés.",
+      "sourceFill": "E7F5F3"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "portee-et-limites",
+      "text": "Portée et limites"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Les données sont souvent révisées : la première estimation n’est pas toujours la meilleure photographie de l’économie.",
+          "segments": [
+            {
+              "text": "Les données sont souvent révisées : la première estimation n’est pas toujours la meilleure photographie de l’économie."
+            }
+          ]
+        },
+        {
+          "text": "Un seul mois peut être perturbé par la météo, une grève, des effets saisonniers, l’énergie ou un événement exceptionnel.",
+          "segments": [
+            {
+              "text": "Un seul mois peut être perturbé par la météo, une grève, des effets saisonniers, l’énergie ou un événement exceptionnel."
+            }
+          ]
+        },
+        {
+          "text": "Les marchés peuvent avoir anticipé l’information avant sa publication. Ils réagissent alors moins au niveau absolu qu’à la surprise par rapport au consensus.",
+          "segments": [
+            {
+              "text": "Les marchés peuvent avoir anticipé l’information avant sa publication. Ils réagissent alors moins au niveau absolu qu’à la surprise par rapport au consensus."
+            }
+          ]
+        },
+        {
+          "text": "Une réaction immédiate peut être inversée quelques minutes plus tard lorsque les investisseurs lisent les détails du rapport.",
+          "segments": [
+            {
+              "text": "Une réaction immédiate peut être inversée quelques minutes plus tard lorsque les investisseurs lisent les détails du rapport."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "2-lire-un-calendrier-economique",
+      "text": "2. Lire un calendrier économique"
+    },
+    {
+      "type": "paragraph",
+      "text": "Distinguer l’importance d’une annonce de la qualité réelle de son signal.",
+      "segments": [
+        {
+          "text": "Distinguer l’importance d’une annonce de la qualité réelle de son signal.",
+          "italic": true
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Les calendriers économiques, comme ForexFactory, classent généralement les événements par importance. Sur ForexFactory, le jaune indique un impact attendu faible, l’orange un impact moyen et le rouge un impact élevé. Ce code est propre au calendrier : il ne garantit ni l’amplitude ni la direction du mouvement.",
+      "segments": [
+        {
+          "text": "Les calendriers économiques, comme ForexFactory, classent généralement les événements par importance. Sur ForexFactory, le jaune indique un impact attendu faible, l’orange un impact moyen et le rouge un impact élevé. Ce code est propre au calendrier : il ne garantit ni l’amplitude ni la direction du mouvement."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "les-trois-colonnes-indispensables",
+      "text": "Les trois colonnes indispensables"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "COLONNE",
+        "UTILITÉ"
+      ],
+      "rows": [
+        [
+          "Précédent",
+          "Dernière valeur publiée. Elle permet d’observer l’évolution, mais elle peut être révisée au moment de la nouvelle publication."
+        ],
+        [
+          "Consensus / prévision",
+          "Estimation centrale des économistes interrogés. C’est la référence psychologique la plus utilisée pour mesurer la surprise."
+        ],
+        [
+          "Réel / actuel",
+          "Valeur publiée. Elle doit être comparée au consensus, au précédent révisé et aux composantes du rapport."
+        ]
+      ],
+      "links": [
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "pourquoi-le-consensus-domine-souvent-la-premiere-reaction",
+      "text": "Pourquoi le consensus domine souvent la première réaction"
+    },
+    {
+      "type": "paragraph",
+      "text": "Avant une annonce, les investisseurs construisent déjà des positions à partir des informations disponibles. Si le chiffre correspond exactement à leurs attentes, il apporte peu d’information nouvelle. S’il s’en écarte nettement, ils doivent ajuster rapidement leurs positions : c’est la surprise économique.",
+      "segments": [
+        {
+          "text": "Avant une annonce, les investisseurs construisent déjà des positions à partir des informations disponibles. Si le chiffre correspond exactement à leurs attentes, il apporte peu d’information nouvelle. S’il s’en écarte nettement, ils doivent ajuster rapidement leurs positions : c’est la surprise économique."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "CORRECTION IMPORTANTE",
+      "variant": "default",
+      "text": "Une donnée supérieure au précédent mais inférieure au consensus n’est pas automatiquement neutre ou baissière. Elle déçoit les attentes, mais son effet dépend de la nature de l’indicateur. Une inflation inférieure au consensus peut soutenir les actions, tandis que des créations d’emplois inférieures au consensus peuvent les inquiéter si la crainte de récession domine.",
+      "sourceFill": "FFF4D6"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "la-grille-de-lecture-complete",
+      "text": "La grille de lecture complète"
+    },
+    {
+      "type": "paragraph",
+      "text": "1. Sens économique : pour cet indicateur, une hausse signifie-t-elle davantage d’inflation, de croissance ou de fragilité ?",
+      "segments": [
+        {
+          "text": "1. ",
+          "bold": true
+        },
+        {
+          "text": "Sens économique : pour cet indicateur, une hausse signifie-t-elle davantage d’inflation, de croissance ou de fragilité ?"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "2. Écart au consensus : le chiffre surprend-il réellement le marché ?",
+      "segments": [
+        {
+          "text": "2. ",
+          "bold": true
+        },
+        {
+          "text": "Écart au consensus : le chiffre surprend-il réellement le marché ?"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "3. Précédent révisé : l’histoire récente vient-elle d’être améliorée ou dégradée ?",
+      "segments": [
+        {
+          "text": "3. ",
+          "bold": true
+        },
+        {
+          "text": "Précédent révisé : l’histoire récente vient-elle d’être améliorée ou dégradée ?"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "4. Composition : le chiffre est-il porté par une composante solide ou par un élément exceptionnel ?",
+      "segments": [
+        {
+          "text": "4. ",
+          "bold": true
+        },
+        {
+          "text": "Composition : le chiffre est-il porté par une composante solide ou par un élément exceptionnel ?"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "5. Tendance : les trois à six derniers mois racontent-ils la même histoire ?",
+      "segments": [
+        {
+          "text": "5. ",
+          "bold": true
+        },
+        {
+          "text": "Tendance : les trois à six derniers mois racontent-ils la même histoire ?"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "6. Régime : le marché craint-il surtout l’inflation, une récession ou les deux ?",
+      "segments": [
+        {
+          "text": "6. ",
+          "bold": true
+        },
+        {
+          "text": "Régime : le marché craint-il surtout l’inflation, une récession ou les deux ?"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "7. Positionnement : les investisseurs étaient-ils déjà massivement orientés dans un sens ?",
+      "segments": [
+        {
+          "text": "7. ",
+          "bold": true
+        },
+        {
+          "text": "Positionnement : les investisseurs étaient-ils déjà massivement orientés dans un sens ?"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "revisions-et-effets-de-base",
+      "text": "Révisions et effets de base"
+    },
+    {
+      "type": "paragraph",
+      "text": "Une révision modifie une valeur déjà publiée. Elle peut renforcer ou contredire le nouveau chiffre. Par exemple, un NFP actuel solide peut perdre de sa force si les deux mois précédents sont fortement révisés à la baisse.",
+      "segments": [
+        {
+          "text": "Une révision modifie une valeur déjà publiée. Elle peut renforcer ou contredire le nouveau chiffre. Par exemple, un NFP actuel solide peut perdre de sa force si les deux mois précédents sont fortement révisés à la baisse."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Un effet de base apparaît lorsque la comparaison annuelle dépend d’un mois inhabituellement élevé ou faible l’année précédente. L’inflation annuelle peut ralentir sans que les prix baissent : les prix continuent simplement d’augmenter moins vite.",
+      "segments": [
+        {
+          "text": "Un effet de base apparaît lorsque la comparaison annuelle dépend d’un mois inhabituellement élevé ou faible l’année précédente. L’inflation annuelle peut ralentir sans que les prix baissent : les prix continuent simplement d’augmenter moins vite."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "VOCABULAIRE",
+      "variant": "default",
+      "text": "Désinflation : les prix augmentent encore, mais moins rapidement. Déflation : le niveau général des prix baisse. Ce ne sont pas les mêmes phénomènes.",
+      "sourceFill": "EAF2F8"
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "3-la-chaine-de-transmission-vers-les-marches",
+      "text": "3. La chaîne de transmission vers les marchés"
+    },
+    {
+      "type": "paragraph",
+      "text": "Passer du chiffre publié à une interprétation cohérente des actifs.",
+      "segments": [
+        {
+          "text": "Passer du chiffre publié à une interprétation cohérente des actifs.",
+          "italic": true
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "La donnée n’agit pas directement sur chaque actif. Elle modifie d’abord le scénario économique et les anticipations de politique monétaire. C’est cette chaîne qui explique une grande partie des mouvements de marché.",
+      "segments": [
+        {
+          "text": "La donnée n’agit pas directement sur chaque actif. Elle modifie d’abord le scénario économique et les anticipations de politique monétaire. C’est cette chaîne qui explique une grande partie des mouvements de marché."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "la-chaine-en-cinq-questions",
+      "text": "La chaîne en cinq questions"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "1",
+        "Publication",
+        "Quel indicateur vient de sortir ? Vérifier la période, l’unité et l’ancienne valeur révisée."
+      ],
+      "rows": [
+        [
+          "2",
+          "Surprise et détails",
+          "Comparer le réel au consensus, puis lire la composition du rapport et la tendance des derniers mois."
+        ],
+        [
+          "3",
+          "Attentes de taux",
+          "La donnée pousse-t-elle le marché à attendre des taux plus élevés plus longtemps, ou des baisses plus proches ?"
+        ],
+        [
+          "4",
+          "Rendements et dollar",
+          "Observer surtout le rendement américain à deux ans et le dollar : ils traduisent rapidement le scénario de taux."
+        ],
+        [
+          "5",
+          "Prix des actifs",
+          "Obligations, actions, or et devises se réajustent selon le régime économique, les valorisations et le positionnement."
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Le point clé — la publication ne fait pas directement monter ou baisser un actif. Elle change d’abord le scénario économique, puis les anticipations de taux. La chaîne peut être interrompue si l’information était déjà anticipée ou si les détails contredisent le chiffre principal.",
+      "segments": [
+        {
+          "text": "Le point clé — ",
+          "bold": true
+        },
+        {
+          "text": "la publication ne fait pas directement monter ou baisser un actif. Elle change d’abord le scénario économique, puis les anticipations de taux. La chaîne peut être interrompue si l’information était déjà anticipée ou si les détails contredisent le chiffre principal."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "le-role-central-des-banques-centrales",
+      "text": "Le rôle central des banques centrales"
+    },
+    {
+      "type": "paragraph",
+      "text": "Aux États-Unis, la Réserve fédérale poursuit deux grands objectifs : la stabilité des prix et un niveau d’emploi maximal soutenable. Elle observe donc particulièrement l’inflation et le marché du travail. Si les données montrent une inflation persistante ou une économie trop tendue, le marché peut anticiper des taux plus élevés pendant plus longtemps. Si l’activité et l’inflation ralentissent, il peut anticiper des baisses de taux.",
+      "segments": [
+        {
+          "text": "Aux États-Unis, la Réserve fédérale poursuit deux grands objectifs : la stabilité des prix et un niveau d’emploi maximal soutenable. Elle observe donc particulièrement l’inflation et le marché du travail. Si les données montrent une inflation persistante ou une économie trop tendue, le marché peut anticiper des taux plus élevés pendant plus longtemps. Si l’activité et l’inflation ralentissent, il peut anticiper des baisses de taux."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "pourquoi-les-rendements-obligataires-sont-essentiels",
+      "text": "Pourquoi les rendements obligataires sont essentiels"
+    },
+    {
+      "type": "paragraph",
+      "text": "Les rendements des obligations d’État, notamment à court terme, reflètent rapidement les anticipations de taux directeurs. Lorsque les rendements montent, le prix des obligations déjà émises baisse généralement. Des rendements plus élevés rendent aussi les placements sans risque relativement plus attractifs et augmentent le taux utilisé par les investisseurs pour valoriser les bénéfices futurs des entreprises.",
+      "segments": [
+        {
+          "text": "Les rendements des obligations d’État, notamment à court terme, reflètent rapidement les anticipations de taux directeurs. Lorsque les rendements montent, le prix des obligations déjà émises baisse généralement. Des rendements plus élevés rendent aussi les placements sans risque relativement plus attractifs et augmentent le taux utilisé par les investisseurs pour valoriser les bénéfices futurs des entreprises."
+        }
+      ]
+    },
+    {
+      "type": "table",
+      "headers": [
+        "SURPRISE",
+        "ANTICIPATION",
+        "RÉACTION FRÉQUENTE — NON GARANTIE"
+      ],
+      "rows": [
+        [
+          "Inflation ou emploi plus forts que prévu",
+          "Taux attendus plus hauts ou baisses repoussées",
+          "Rendements souvent en hausse ; dollar souvent soutenu ; obligations sous pression ; actions de croissance parfois fragilisées."
+        ],
+        [
+          "Inflation plus faible que prévu",
+          "Politique moins restrictive envisageable",
+          "Rendements souvent en baisse ; obligations soutenues ; dollar parfois plus faible ; actions sensibles aux taux souvent aidées."
+        ],
+        [
+          "Activité nettement plus faible que prévu",
+          "Baisses de taux plus probables, mais risque de récession",
+          "Obligations souvent soutenues ; dollar et actions dépendent de l’intensité de la peur de récession."
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "RÈGLE DE PRUDENCE",
+      "variant": "default",
+      "text": "Le rendement d’une obligation et son prix évoluent généralement en sens opposé. Dire « les obligations montent » signifie que leur prix progresse, souvent parce que leur rendement recule.",
+      "sourceFill": "EAF2F8"
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "4-l-inflation-cpi-core-cpi-pce-et-core-pce",
+      "text": "4. L’inflation : CPI, Core CPI, PCE et Core PCE"
+    },
+    {
+      "type": "paragraph",
+      "text": "Mesurer la vitesse à laquelle le coût des biens et services évolue.",
+      "segments": [
+        {
+          "text": "Mesurer la vitesse à laquelle le coût des biens et services évolue.",
+          "italic": true
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "L’inflation réduit le pouvoir d’achat lorsque les revenus n’augmentent pas au même rythme. Elle modifie aussi les coûts des entreprises, les salaires demandés, les marges, les taux d’intérêt et la valeur réelle de l’épargne. C’est pourquoi les indicateurs d’inflation figurent parmi les publications les plus suivies.",
+      "segments": [
+        {
+          "text": "L’inflation réduit le pouvoir d’achat lorsque les revenus n’augmentent pas au même rythme. Elle modifie aussi les coûts des entreprises, les salaires demandés, les marges, les taux d’intérêt et la valeur réelle de l’épargne. C’est pourquoi les indicateurs d’inflation figurent parmi les publications les plus suivies."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "4-1-le-cpi-indice-des-prix-a-la-consommation",
+      "text": "4.1 Le CPI — indice des prix à la consommation"
+    },
+    {
+      "type": "paragraph",
+      "text": "Le Consumer Price Index mesure l’évolution moyenne des prix payés par les consommateurs urbains américains pour un panier représentatif de biens et de services. Le Bureau of Labor Statistics collecte des prix dans de nombreuses catégories : logement, alimentation, énergie, transport, santé, vêtements, loisirs, éducation et communication.",
+      "segments": [
+        {
+          "text": "Le Consumer Price Index mesure l’évolution moyenne des prix payés par les consommateurs urbains américains pour un panier représentatif de biens et de services. Le Bureau of Labor Statistics collecte des prix dans de nombreuses catégories : logement, alimentation, énergie, transport, santé, vêtements, loisirs, éducation et communication."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "headline-cpi-et-core-cpi",
+      "text": "Headline CPI et Core CPI"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "CPI global : inclut l’ensemble des catégories, notamment l’alimentation et l’énergie. Il représente mieux la pression directement ressentie par les ménages.",
+          "segments": [
+            {
+              "text": "CPI global :",
+              "bold": true
+            },
+            {
+              "text": " inclut l’ensemble des catégories, notamment l’alimentation et l’énergie. Il représente mieux la pression directement ressentie par les ménages."
+            }
+          ]
+        },
+        {
+          "text": "Core CPI : exclut l’alimentation et l’énergie, deux catégories souvent très volatiles. Il aide à observer une tendance plus persistante, mais il ne signifie pas que ces dépenses sont sans importance.",
+          "segments": [
+            {
+              "text": "Core CPI :",
+              "bold": true
+            },
+            {
+              "text": " exclut l’alimentation et l’énergie, deux catégories souvent très volatiles. Il aide à observer une tendance plus persistante, mais il ne signifie pas que ces dépenses sont sans importance."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "lecture-mensuelle-et-lecture-annuelle",
+      "text": "Lecture mensuelle et lecture annuelle"
+    },
+    {
+      "type": "paragraph",
+      "text": "La variation mensuelle montre l’élan récent. La variation annuelle compare le niveau des prix à celui d’un an auparavant et évolue plus lentement. Pour détecter un retournement, le marché observe souvent plusieurs mois de données mensuelles, tout en vérifiant si le ralentissement est suffisamment large entre les différentes catégories.",
+      "segments": [
+        {
+          "text": "La variation mensuelle montre l’élan récent. La variation annuelle compare le niveau des prix à celui d’un an auparavant et évolue plus lentement. Pour détecter un retournement, le marché observe souvent plusieurs mois de données mensuelles, tout en vérifiant si le ralentissement est suffisamment large entre les différentes catégories."
+        }
+      ]
+    },
+    {
+      "type": "figure",
+      "src": "/media/4-analyse-macroeconomique/4-analyse-macroeconomique-c24cb29406b6.webp",
+      "originalName": "image1.png",
+      "width": 734,
+      "height": 434,
+      "optimized": true,
+      "caption": "Figure 1 — Inflation américaine : CPI en variation annuelle",
+      "source": "Trading Economics • capture du 21 juillet 2026",
+      "sourceLinks": [],
+      "alt": "Histogramme de l’inflation américaine mesurée par le CPI en variation annuelle."
+    },
+    {
+      "type": "paragraph",
+      "text": "Lecture guidée — Chaque barre représente la vitesse de hausse des prix par rapport au même mois un an plus tôt. Lorsque les barres baissent, il s’agit de désinflation : les prix augmentent moins vite, mais ils ne reviennent pas automatiquement à leur ancien niveau. La succession des barres aide à distinguer une amélioration durable d’un simple mois favorable.",
+      "segments": [
+        {
+          "text": "Lecture guidée — ",
+          "bold": true
+        },
+        {
+          "text": "Chaque barre représente la vitesse de hausse des prix par rapport au même mois un an plus tôt. Lorsque les barres baissent, il s’agit de désinflation : les prix augmentent moins vite, mais ils ne reviennent pas automatiquement à leur ancien niveau. La succession des barres aide à distinguer une amélioration durable d’un simple mois favorable."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "composantes-a-surveiller",
+      "text": "Composantes à surveiller"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Logement : composante lourde et parfois lente à refléter les changements observés dans les nouveaux loyers.",
+          "segments": [
+            {
+              "text": "Logement :",
+              "bold": true
+            },
+            {
+              "text": " composante lourde et parfois lente à refléter les changements observés dans les nouveaux loyers."
+            }
+          ]
+        },
+        {
+          "text": "Services hors logement : utiles pour détecter des pressions plus persistantes liées aux salaires et à la demande.",
+          "segments": [
+            {
+              "text": "Services hors logement :",
+              "bold": true
+            },
+            {
+              "text": " utiles pour détecter des pressions plus persistantes liées aux salaires et à la demande."
+            }
+          ]
+        },
+        {
+          "text": "Biens : sensibles aux chaînes d’approvisionnement, aux taux de change, aux tarifs douaniers et aux stocks.",
+          "segments": [
+            {
+              "text": "Biens :",
+              "bold": true
+            },
+            {
+              "text": " sensibles aux chaînes d’approvisionnement, aux taux de change, aux tarifs douaniers et aux stocks."
+            }
+          ]
+        },
+        {
+          "text": "Énergie et alimentation : influencent fortement le budget des ménages, mais peuvent produire des variations temporaires.",
+          "segments": [
+            {
+              "text": "Énergie et alimentation :",
+              "bold": true
+            },
+            {
+              "text": " influencent fortement le budget des ménages, mais peuvent produire des variations temporaires."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "impact-economique",
+      "text": "Impact économique"
+    },
+    {
+      "type": "paragraph",
+      "text": "Une inflation élevée et persistante peut réduire le pouvoir d’achat, compliquer les décisions d’investissement des entreprises et pousser la banque centrale à maintenir une politique restrictive. Une inflation qui ralentit progressivement sans chute de l’activité favorise un scénario de désinflation ordonnée, souvent associé à un atterrissage en douceur.",
+      "segments": [
+        {
+          "text": "Une inflation élevée et persistante peut réduire le pouvoir d’achat, compliquer les décisions d’investissement des entreprises et pousser la banque centrale à maintenir une politique restrictive. Une inflation qui ralentit progressivement sans chute de l’activité favorise un scénario de désinflation ordonnée, souvent associé à un atterrissage en douceur."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "impact-frequent-sur-les-marches",
+      "text": "Impact fréquent sur les marchés"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "PUBLICATION",
+        "LECTURE",
+        "RÉACTION FRÉQUENTE"
+      ],
+      "rows": [
+        [
+          "CPI / Core CPI au-dessus du consensus",
+          "Pression inflationniste supérieure aux attentes",
+          "Rendements et dollar souvent en hausse ; obligations et actions de croissance souvent sous pression."
+        ],
+        [
+          "CPI / Core CPI en dessous du consensus",
+          "Désinflation plus rapide qu’attendu",
+          "Rendements souvent en baisse ; obligations et actions sensibles aux taux souvent soutenues ; dollar parfois plus faible."
+        ],
+        [
+          "CPI conforme, détails contrastés",
+          "Peu de surprise globale",
+          "Réaction dirigée par les composantes, les révisions, le positionnement et les commentaires de la banque centrale."
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "ATTENTION",
+      "variant": "default",
+      "text": "Une inflation plus faible n’est pas toujours haussière pour les actions. Si elle s’effondre parce que la demande et l’emploi se dégradent brutalement, la peur de récession peut dominer le soulagement lié aux taux.",
+      "sourceFill": "FFF4D6"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "4-2-le-pce-indice-des-prix-des-depenses-de-consommation",
+      "text": "4.2 Le PCE — indice des prix des dépenses de consommation"
+    },
+    {
+      "type": "paragraph",
+      "text": "Le Personal Consumption Expenditures Price Index, publié par le Bureau of Economic Analysis, mesure les prix des biens et services achetés par les ménages américains ou en leur nom. Il couvre un ensemble large de dépenses et adapte plus rapidement ses pondérations lorsque les habitudes de consommation changent.",
+      "segments": [
+        {
+          "text": "Le Personal Consumption Expenditures Price Index, publié par le Bureau of Economic Analysis, mesure les prix des biens et services achetés par les ménages américains ou en leur nom. Il couvre un ensemble large de dépenses et adapte plus rapidement ses pondérations lorsque les habitudes de consommation changent."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Le PCE peut donc mieux tenir compte du fait que les consommateurs modifient leurs achats lorsque certains produits deviennent relativement plus chers. Il inclut également certaines dépenses payées pour les ménages, par exemple par des employeurs ou des programmes publics.",
+      "segments": [
+        {
+          "text": "Le PCE peut donc mieux tenir compte du fait que les consommateurs modifient leurs achats lorsque certains produits deviennent relativement plus chers. Il inclut également certaines dépenses payées pour les ménages, par exemple par des employeurs ou des programmes publics."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "pce-global-et-core-pce",
+      "text": "PCE global et Core PCE"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "PCE global : donne une vision large de l’inflation liée aux dépenses de consommation.",
+          "segments": [
+            {
+              "text": "PCE global :",
+              "bold": true
+            },
+            {
+              "text": " donne une vision large de l’inflation liée aux dépenses de consommation."
+            }
+          ]
+        },
+        {
+          "text": "Core PCE : exclut l’alimentation et l’énergie afin de mieux faire ressortir la tendance sous-jacente.",
+          "segments": [
+            {
+              "text": "Core PCE :",
+              "bold": true
+            },
+            {
+              "text": " exclut l’alimentation et l’énergie afin de mieux faire ressortir la tendance sous-jacente."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "POURQUOI LE PCE EST CAPITAL",
+      "variant": "default",
+      "text": "La Réserve fédérale exprime son objectif d’inflation de long terme de 2 % à partir de la variation annuelle du PCE. Le Core PCE est très suivi pour juger de la persistance de l’inflation, même si l’objectif officiel concerne le PCE global.",
+      "sourceFill": "E7F5F3"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "impact-sur-l-economie-et-les-marches",
+      "text": "Impact sur l’économie et les marchés"
+    },
+    {
+      "type": "paragraph",
+      "text": "Le PCE est publié avec les données sur les revenus et les dépenses personnelles. Il permet donc d’observer simultanément l’inflation, la progression des revenus, la consommation réelle et la capacité d’épargne. Un Core PCE supérieur aux attentes peut repousser les anticipations de baisse de taux ; un Core PCE inférieur aux attentes peut les avancer, sous réserve que l’activité ne se dégrade pas excessivement.",
+      "segments": [
+        {
+          "text": "Le PCE est publié avec les données sur les revenus et les dépenses personnelles. Il permet donc d’observer simultanément l’inflation, la progression des revenus, la consommation réelle et la capacité d’épargne. Un Core PCE supérieur aux attentes peut repousser les anticipations de baisse de taux ; un Core PCE inférieur aux attentes peut les avancer, sous réserve que l’activité ne se dégrade pas excessivement."
+        }
+      ]
+    },
+    {
+      "type": "figure",
+      "src": "/media/4-analyse-macroeconomique/4-analyse-macroeconomique-bec2571a1b8c.webp",
+      "originalName": "image2.png",
+      "width": 734,
+      "height": 434,
+      "optimized": true,
+      "caption": "Figure 2 — Inflation sous-jacente : Core PCE en variation annuelle",
+      "source": "Trading Economics • capture du 21 juillet 2026",
+      "sourceLinks": [],
+      "alt": "Histogramme du Core PCE américain en variation annuelle."
+    },
+    {
+      "type": "paragraph",
+      "text": "Lecture guidée — Le Core PCE retire l’alimentation et l’énergie pour mieux faire ressortir la tendance sous-jacente. Une remontée de plusieurs barres indique que la pression inflationniste se diffuse ou persiste ; une baisse régulière suggère un rapprochement progressif de la stabilité des prix. Le marché observe surtout la direction de plusieurs mois, pas une barre isolée.",
+      "segments": [
+        {
+          "text": "Lecture guidée — ",
+          "bold": true
+        },
+        {
+          "text": "Le Core PCE retire l’alimentation et l’énergie pour mieux faire ressortir la tendance sous-jacente. Une remontée de plusieurs barres indique que la pression inflationniste se diffuse ou persiste ; une baisse régulière suggère un rapprochement progressif de la stabilité des prix. Le marché observe surtout la direction de plusieurs mois, pas une barre isolée."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "4-3-cpi-ou-pce-lequel-privilegier",
+      "text": "4.3 CPI ou PCE : lequel privilégier ?"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "CRITÈRE",
+        "CPI",
+        "PCE"
+      ],
+      "rows": [
+        [
+          "Organisme",
+          "BLS",
+          "BEA"
+        ],
+        [
+          "Vision principale",
+          "Prix payés directement par les consommateurs urbains pour un panier représentatif",
+          "Prix des dépenses de consommation, y compris certaines dépenses réalisées pour le compte des ménages"
+        ],
+        [
+          "Pondérations",
+          "Panier fondé sur les habitudes de dépenses des consommateurs",
+          "Pondérations s’adaptant plus rapidement aux changements de comportement"
+        ],
+        [
+          "Publication",
+          "Généralement plus tôt dans le mois",
+          "Plus tard, avec revenus et dépenses personnelles"
+        ],
+        [
+          "Usage de marché",
+          "Très fort impact immédiat ; référence courante dans les contrats et le débat public",
+          "Mesure privilégiée par la Fed pour son objectif d’inflation"
+        ],
+        [
+          "Version sous-jacente",
+          "Core CPI",
+          "Core PCE"
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "4-4-methode-pratique-pour-analyser-l-inflation",
+      "text": "4.4 Méthode pratique pour analyser l’inflation"
+    },
+    {
+      "type": "paragraph",
+      "text": "1. Commencer par le chiffre mensuel global et sous-jacent : l’élan récent est souvent plus informatif que le seul taux annuel.",
+      "segments": [
+        {
+          "text": "1. ",
+          "bold": true
+        },
+        {
+          "text": "Commencer par le chiffre mensuel global et sous-jacent : l’élan récent est souvent plus informatif que le seul taux annuel."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "2. Comparer le réel au consensus, puis vérifier si le précédent a été révisé.",
+      "segments": [
+        {
+          "text": "2. ",
+          "bold": true
+        },
+        {
+          "text": "Comparer le réel au consensus, puis vérifier si le précédent a été révisé."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "3. Identifier les catégories responsables : énergie, logement, biens ou services.",
+      "segments": [
+        {
+          "text": "3. ",
+          "bold": true
+        },
+        {
+          "text": "Identifier les catégories responsables : énergie, logement, biens ou services."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "4. Vérifier si la pression est concentrée dans une seule catégorie ou largement répartie.",
+      "segments": [
+        {
+          "text": "4. ",
+          "bold": true
+        },
+        {
+          "text": "Vérifier si la pression est concentrée dans une seule catégorie ou largement répartie."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "5. Comparer CPI, PCE, salaires et prix à la production afin de rechercher une histoire cohérente.",
+      "segments": [
+        {
+          "text": "5. ",
+          "bold": true
+        },
+        {
+          "text": "Comparer CPI, PCE, salaires et prix à la production afin de rechercher une histoire cohérente."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "6. Observer la réaction du rendement américain à deux ans, du dollar et des indices actions.",
+      "segments": [
+        {
+          "text": "6. ",
+          "bold": true
+        },
+        {
+          "text": "Observer la réaction du rendement américain à deux ans, du dollar et des indices actions."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "5-le-pib-mesurer-l-activite-economique",
+      "text": "5. Le PIB : mesurer l’activité économique"
+    },
+    {
+      "type": "paragraph",
+      "text": "Le produit intérieur brut estime la valeur des biens et services finaux produits dans un pays.",
+      "segments": [
+        {
+          "text": "Le produit intérieur brut estime la valeur des biens et services finaux produits dans un pays.",
+          "italic": true
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Le PIB est l’indicateur le plus large de l’activité économique. Aux États-Unis, il est publié par le Bureau of Economic Analysis. Il permet d’évaluer si l’économie progresse, stagne ou se contracte, mais il arrive avec un certain retard et fait l’objet de plusieurs estimations.",
+      "segments": [
+        {
+          "text": "Le PIB est l’indicateur le plus large de l’activité économique. Aux États-Unis, il est publié par le Bureau of Economic Analysis. Il permet d’évaluer si l’économie progresse, stagne ou se contracte, mais il arrive avec un certain retard et fait l’objet de plusieurs estimations."
+        }
+      ]
+    },
+    {
+      "type": "figure",
+      "src": "/media/4-analyse-macroeconomique/4-analyse-macroeconomique-a6ea2738dcb5.webp",
+      "originalName": "image3.png",
+      "width": 734,
+      "height": 434,
+      "optimized": true,
+      "caption": "Figure 3 — Croissance du PIB réel américain, rythme trimestriel annualisé",
+      "source": "Trading Economics • capture du 21 juillet 2026",
+      "sourceLinks": [],
+      "alt": "Histogramme de la croissance du PIB réel américain en rythme trimestriel annualisé."
+    },
+    {
+      "type": "paragraph",
+      "text": "Lecture guidée — Les barres positives indiquent une expansion ; une barre négative indique une contraction pour la période publiée. L’amplitude varie fortement d’un trimestre à l’autre : il faut donc regarder la composition du PIB et les révisions avant de conclure. Une croissance positive mais faible peut signaler un ralentissement sans récession.",
+      "segments": [
+        {
+          "text": "Lecture guidée — ",
+          "bold": true
+        },
+        {
+          "text": "Les barres positives indiquent une expansion ; une barre négative indique une contraction pour la période publiée. L’amplitude varie fortement d’un trimestre à l’autre : il faut donc regarder la composition du PIB et les révisions avant de conclure. Une croissance positive mais faible peut signaler un ralentissement sans récession."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "pib-nominal-et-pib-reel",
+      "text": "PIB nominal et PIB réel"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "PIB nominal : mesure la production aux prix du moment. Il peut progresser simplement parce que les prix augmentent.",
+          "segments": [
+            {
+              "text": "PIB nominal :",
+              "bold": true
+            },
+            {
+              "text": " mesure la production aux prix du moment. Il peut progresser simplement parce que les prix augmentent."
+            }
+          ]
+        },
+        {
+          "text": "PIB réel : corrige l’effet de l’évolution des prix afin de mieux représenter la variation des quantités produites. C’est généralement la mesure privilégiée pour juger la croissance.",
+          "segments": [
+            {
+              "text": "PIB réel :",
+              "bold": true
+            },
+            {
+              "text": " corrige l’effet de l’évolution des prix afin de mieux représenter la variation des quantités produites. C’est généralement la mesure privilégiée pour juger la croissance."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "ce-qui-compose-le-pib",
+      "text": "Ce qui compose le PIB"
+    },
+    {
+      "type": "paragraph",
+      "text": "Sans utiliser de formule, on peut comprendre le PIB comme l’addition de quatre grands moteurs :",
+      "segments": [
+        {
+          "text": "Sans utiliser de formule, on peut comprendre le PIB comme l’addition de quatre grands moteurs :"
+        }
+      ]
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Consommation des ménages : biens et services achetés par les consommateurs ; elle constitue un moteur majeur de l’économie américaine.",
+          "segments": [
+            {
+              "text": "Consommation des ménages :",
+              "bold": true
+            },
+            {
+              "text": " biens et services achetés par les consommateurs ; elle constitue un moteur majeur de l’économie américaine."
+            }
+          ]
+        },
+        {
+          "text": "Investissement : dépenses des entreprises, construction, logements et variation des stocks.",
+          "segments": [
+            {
+              "text": "Investissement :",
+              "bold": true
+            },
+            {
+              "text": " dépenses des entreprises, construction, logements et variation des stocks."
+            }
+          ]
+        },
+        {
+          "text": "Dépenses publiques : achats et investissements des administrations.",
+          "segments": [
+            {
+              "text": "Dépenses publiques :",
+              "bold": true
+            },
+            {
+              "text": " achats et investissements des administrations."
+            }
+          ]
+        },
+        {
+          "text": "Commerce extérieur : contribution des exportations et effet des importations sur la production mesurée à l’intérieur du pays.",
+          "segments": [
+            {
+              "text": "Commerce extérieur :",
+              "bold": true
+            },
+            {
+              "text": " contribution des exportations et effet des importations sur la production mesurée à l’intérieur du pays."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "les-differentes-estimations",
+      "text": "Les différentes estimations"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "VERSION",
+        "INTERPRÉTATION"
+      ],
+      "rows": [
+        [
+          "Estimation avancée",
+          "Première photographie du trimestre. Elle contient le plus d’information nouvelle et provoque souvent la réaction la plus forte."
+        ],
+        [
+          "Deuxième estimation",
+          "Intègre davantage de données et révise la première lecture."
+        ],
+        [
+          "Troisième estimation",
+          "Affinage supplémentaire. Son impact est souvent plus faible, sauf révision importante ou détails surprenants."
+        ]
+      ],
+      "links": [
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "comment-interpreter-une-croissance-forte-ou-faible",
+      "text": "Comment interpréter une croissance forte ou faible"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "SITUATION",
+        "LECTURE ÉCONOMIQUE",
+        "IMPACT POSSIBLE"
+      ],
+      "rows": [
+        [
+          "PIB plus fort que prévu, inflation modérée",
+          "Bénéfices et demande potentiellement plus solides",
+          "Souvent favorable aux actions cycliques ; rendements et devise peuvent monter."
+        ],
+        [
+          "PIB plus fort que prévu, inflation élevée",
+          "Économie trop résistante pour permettre des baisses de taux rapides",
+          "Rendements souvent en hausse ; réaction des actions plus hésitante, surtout pour la croissance."
+        ],
+        [
+          "PIB plus faible que prévu, inflation en baisse",
+          "Assouplissement monétaire plus probable",
+          "Obligations souvent soutenues ; actions aidées si le scénario reste celui d’un ralentissement maîtrisé."
+        ],
+        [
+          "Contraction profonde ou répétée",
+          "Risque sur l’emploi, les bénéfices et le crédit",
+          "Recherche de sécurité ; actions cycliques sous pression ; obligations souveraines souvent recherchées."
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "NE PAS S’ARRÊTER AU CHIFFRE GLOBAL",
+      "variant": "default",
+      "text": "Une croissance peut être gonflée par les stocks ou le commerce extérieur alors que la demande intérieure ralentit. Il faut vérifier la consommation, l’investissement privé et les ventes finales.",
+      "sourceFill": "FFF4D6"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "limites-du-pib",
+      "text": "Limites du PIB"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Il est trimestriel et moins réactif que les données mensuelles ou hebdomadaires.",
+          "segments": [
+            {
+              "text": "Il est trimestriel et moins réactif que les données mensuelles ou hebdomadaires."
+            }
+          ]
+        },
+        {
+          "text": "Les chiffres américains sont souvent présentés à un rythme annualisé ; ils ne correspondent pas directement à la croissance réellement observée pendant le seul trimestre.",
+          "segments": [
+            {
+              "text": "Les chiffres américains sont souvent présentés à un rythme annualisé ; ils ne correspondent pas directement à la croissance réellement observée pendant le seul trimestre."
+            }
+          ]
+        },
+        {
+          "text": "Il peut être révisé longtemps après la première publication.",
+          "segments": [
+            {
+              "text": "Il peut être révisé longtemps après la première publication."
+            }
+          ]
+        },
+        {
+          "text": "Il décrit la production globale, mais pas la répartition des revenus ni la situation de chaque ménage.",
+          "segments": [
+            {
+              "text": "Il décrit la production globale, mais pas la répartition des revenus ni la situation de chaque ménage."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "6-l-emploi-nfp-chomage-jobless-claims-et-jolts",
+      "text": "6. L’emploi : NFP, chômage, jobless claims et JOLTS"
+    },
+    {
+      "type": "paragraph",
+      "text": "Le marché du travail renseigne sur les revenus, la consommation, les salaires et les tensions inflationnistes.",
+      "segments": [
+        {
+          "text": "Le marché du travail renseigne sur les revenus, la consommation, les salaires et les tensions inflationnistes.",
+          "italic": true
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "L’emploi est au cœur du cycle économique. Des créations d’emplois soutiennent généralement les revenus et la consommation. Mais un marché du travail excessivement tendu peut entretenir les hausses de salaires et l’inflation des services. À l’inverse, une détérioration rapide réduit la demande et augmente le risque de récession.",
+      "segments": [
+        {
+          "text": "L’emploi est au cœur du cycle économique. Des créations d’emplois soutiennent généralement les revenus et la consommation. Mais un marché du travail excessivement tendu peut entretenir les hausses de salaires et l’inflation des services. À l’inverse, une détérioration rapide réduit la demande et augmente le risque de récession."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "6-1-nfp-non-farm-payrolls",
+      "text": "6.1 NFP — Non-Farm Payrolls"
+    },
+    {
+      "type": "paragraph",
+      "text": "Le NFP désigne la variation mensuelle du nombre d’emplois salariés non agricoles. Il provient de l’enquête menée auprès des établissements et fait partie du rapport Employment Situation du BLS. Le chiffre principal est important, mais le rapport contient beaucoup plus d’informations.",
+      "segments": [
+        {
+          "text": "Le NFP désigne la variation mensuelle du nombre d’emplois salariés non agricoles. Il provient de l’enquête menée auprès des établissements et fait partie du rapport Employment Situation du BLS. Le chiffre principal est important, mais le rapport contient beaucoup plus d’informations."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "ce-qu-il-faut-analyser-dans-le-rapport",
+      "text": "Ce qu’il faut analyser dans le rapport"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "ÉLÉMENT",
+        "POURQUOI IL COMPTE"
+      ],
+      "rows": [
+        [
+          "Créations nettes d’emplois",
+          "Mesurent l’évolution globale des emplois salariés non agricoles."
+        ],
+        [
+          "Révisions",
+          "Les deux mois précédents peuvent être corrigés. Des révisions répétées dans le même sens modifient la tendance."
+        ],
+        [
+          "Répartition sectorielle",
+          "Permet de voir si les créations sont larges ou concentrées dans quelques secteurs."
+        ],
+        [
+          "Salaires horaires moyens",
+          "Renseignent sur la pression salariale et donc sur une possible inflation des services."
+        ],
+        [
+          "Durée moyenne du travail",
+          "Une baisse des heures peut précéder une réduction des effectifs ; une hausse soutient le revenu du travail."
+        ],
+        [
+          "Emplois privés et publics",
+          "Aident à distinguer la vigueur du secteur privé d’un soutien provenant de l’emploi public."
+        ]
+      ],
+      "links": [
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "impact-economique-et-de-marche",
+      "text": "Impact économique et de marché"
+    },
+    {
+      "type": "paragraph",
+      "text": "Un NFP nettement supérieur aux attentes signale généralement une demande de travail robuste. Il peut soutenir la consommation et les bénéfices, mais aussi retarder les baisses de taux si les salaires accélèrent. Un NFP faible peut favoriser des attentes de baisse de taux ; s’il devient très faible ou négatif, la crainte de récession peut dominer.",
+      "segments": [
+        {
+          "text": "Un NFP nettement supérieur aux attentes signale généralement une demande de travail robuste. Il peut soutenir la consommation et les bénéfices, mais aussi retarder les baisses de taux si les salaires accélèrent. Un NFP faible peut favoriser des attentes de baisse de taux ; s’il devient très faible ou négatif, la crainte de récession peut dominer."
+        }
+      ]
+    },
+    {
+      "type": "figure",
+      "src": "/media/4-analyse-macroeconomique/4-analyse-macroeconomique-e2890f7c01ba.webp",
+      "originalName": "image4.png",
+      "width": 734,
+      "height": 434,
+      "optimized": true,
+      "caption": "Figure 4 — NFP : créations ou destructions mensuelles d’emplois",
+      "source": "Trading Economics • capture du 21 juillet 2026",
+      "sourceLinks": [],
+      "alt": "Histogramme des créations ou destructions mensuelles d’emplois non agricoles aux États-Unis."
+    },
+    {
+      "type": "paragraph",
+      "text": "Lecture guidée — Une barre positive signifie que l’économie a ajouté des emplois salariés non agricoles ; une barre négative signale une destruction nette. La forte volatilité rappelle pourquoi le chiffre doit être comparé au consensus, aux révisions et à la moyenne des derniers mois. La qualité des emplois, les salaires et la durée du travail complètent toujours la lecture.",
+      "segments": [
+        {
+          "text": "Lecture guidée — ",
+          "bold": true
+        },
+        {
+          "text": "Une barre positive signifie que l’économie a ajouté des emplois salariés non agricoles ; une barre négative signale une destruction nette. La forte volatilité rappelle pourquoi le chiffre doit être comparé au consensus, aux révisions et à la moyenne des derniers mois. La qualité des emplois, les salaires et la durée du travail complètent toujours la lecture."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "6-2-le-taux-de-chomage",
+      "text": "6.2 Le taux de chômage"
+    },
+    {
+      "type": "paragraph",
+      "text": "Le taux de chômage provient d’une enquête auprès des ménages, différente de celle utilisée pour le NFP. Une personne est généralement considérée comme chômeuse si elle n’a pas d’emploi, est disponible et a activement recherché un travail. Les personnes qui souhaitent travailler mais ne recherchent plus activement ne sont pas comptées dans le taux officiel.",
+      "segments": [
+        {
+          "text": "Le taux de chômage provient d’une enquête auprès des ménages, différente de celle utilisée pour le NFP. Une personne est généralement considérée comme chômeuse si elle n’a pas d’emploi, est disponible et a activement recherché un travail. Les personnes qui souhaitent travailler mais ne recherchent plus activement ne sont pas comptées dans le taux officiel."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "pourquoi-le-chomage-peut-monter-sans-catastrophe",
+      "text": "Pourquoi le chômage peut monter sans catastrophe"
+    },
+    {
+      "type": "paragraph",
+      "text": "Le taux peut augmenter parce que davantage de personnes reviennent dans la population active et commencent à chercher un emploi. Cette hausse est moins inquiétante qu’une augmentation causée par des licenciements massifs. Il faut donc observer simultanément le taux d’activité, l’emploi mesuré auprès des ménages et le nombre de personnes travaillant à temps partiel faute de mieux.",
+      "segments": [
+        {
+          "text": "Le taux peut augmenter parce que davantage de personnes reviennent dans la population active et commencent à chercher un emploi. Cette hausse est moins inquiétante qu’une augmentation causée par des licenciements massifs. Il faut donc observer simultanément le taux d’activité, l’emploi mesuré auprès des ménages et le nombre de personnes travaillant à temps partiel faute de mieux."
+        }
+      ]
+    },
+    {
+      "type": "figure",
+      "src": "/media/4-analyse-macroeconomique/4-analyse-macroeconomique-fbe0d4458833.webp",
+      "originalName": "image5.png",
+      "width": 734,
+      "height": 434,
+      "optimized": true,
+      "caption": "Figure 5 — Taux de chômage américain",
+      "source": "Trading Economics • capture du 21 juillet 2026",
+      "sourceLinks": [],
+      "alt": "Histogramme du taux de chômage américain."
+    },
+    {
+      "type": "paragraph",
+      "text": "Lecture guidée — Ce graphique montre un niveau, pas un nombre mensuel de créations d’emplois. Une hausse persistante devient préoccupante si elle s’accompagne d’une baisse de l’emploi et d’une montée des demandes d’allocations. Une variation isolée peut cependant venir d’un changement de la population active : le taux d’activité doit donc être vérifié.",
+      "segments": [
+        {
+          "text": "Lecture guidée — ",
+          "bold": true
+        },
+        {
+          "text": "Ce graphique montre un niveau, pas un nombre mensuel de créations d’emplois. Une hausse persistante devient préoccupante si elle s’accompagne d’une baisse de l’emploi et d’une montée des demandes d’allocations. Une variation isolée peut cependant venir d’un changement de la population active : le taux d’activité doit donc être vérifié."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "NFP ET CHÔMAGE PEUVENT DIVERGER",
+      "variant": "default",
+      "text": "Les deux chiffres viennent de deux enquêtes distinctes. Un mois peut montrer des créations d’emplois salariées solides et une hausse du chômage. L’analyste doit expliquer la divergence au lieu de choisir uniquement le chiffre qui confirme son opinion.",
+      "sourceFill": "EAF2F8"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "6-3-les-demandes-d-allocations-chomage-jobless-claims",
+      "text": "6.3 Les demandes d’allocations chômage — Jobless Claims"
+    },
+    {
+      "type": "paragraph",
+      "text": "Les demandes initiales d’allocations chômage comptent les nouvelles demandes déposées après une perte d’emploi. Les demandes continues représentent les personnes qui réclament encore des prestations après une première demande. Ces données administratives sont publiées chaque semaine et offrent un signal plus rapide que le NFP.",
+      "segments": [
+        {
+          "text": "Les demandes initiales d’allocations chômage comptent les nouvelles demandes déposées après une perte d’emploi. Les demandes continues représentent les personnes qui réclament encore des prestations après une première demande. Ces données administratives sont publiées chaque semaine et offrent un signal plus rapide que le NFP."
+        }
+      ]
+    },
+    {
+      "type": "table",
+      "headers": [
+        "MESURE",
+        "CE QU’ELLE APPROCHE",
+        "LECTURE"
+      ],
+      "rows": [
+        [
+          "Demandes initiales",
+          "Flux de nouvelles pertes d’emploi",
+          "Une hausse persistante peut signaler davantage de licenciements."
+        ],
+        [
+          "Demandes continues",
+          "Difficulté à retrouver un emploi",
+          "Une hausse peut montrer que les chômeurs restent plus longtemps sans travail."
+        ],
+        [
+          "Moyenne sur quatre semaines",
+          "Tendance lissée",
+          "Réduit le bruit lié aux jours fériés, à la météo et aux variations administratives."
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Une seule semaine ne suffit pas. Les marchés accordent davantage de valeur à une hausse ou à une baisse persistante, confirmée par les demandes continues, les annonces de licenciements et d’autres données d’emploi.",
+      "segments": [
+        {
+          "text": "Une seule semaine ne suffit pas. Les marchés accordent davantage de valeur à une hausse ou à une baisse persistante, confirmée par les demandes continues, les annonces de licenciements et d’autres données d’emploi."
+        }
+      ]
+    },
+    {
+      "type": "figure",
+      "src": "/media/4-analyse-macroeconomique/4-analyse-macroeconomique-f148e8bdf7df.webp",
+      "originalName": "image6.png",
+      "width": 734,
+      "height": 434,
+      "optimized": true,
+      "caption": "Figure 6 — Demandes initiales d’allocations chômage",
+      "source": "Trading Economics • capture du 21 juillet 2026",
+      "sourceLinks": [],
+      "alt": "Histogramme des demandes initiales d’allocations chômage aux États-Unis."
+    },
+    {
+      "type": "paragraph",
+      "text": "Lecture guidée — Les barres hebdomadaires rendent le signal plus nerveux que le NFP ou le chômage. Une hausse ponctuelle peut venir d’un événement temporaire ; une progression répétée pendant plusieurs semaines suggère davantage de licenciements. La moyenne sur quatre semaines et les demandes continues permettent de confirmer ou d’infirmer cette détérioration.",
+      "segments": [
+        {
+          "text": "Lecture guidée — ",
+          "bold": true
+        },
+        {
+          "text": "Les barres hebdomadaires rendent le signal plus nerveux que le NFP ou le chômage. Une hausse ponctuelle peut venir d’un événement temporaire ; une progression répétée pendant plusieurs semaines suggère davantage de licenciements. La moyenne sur quatre semaines et les demandes continues permettent de confirmer ou d’infirmer cette détérioration."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "6-4-jolts-job-openings-and-labor-turnover-survey",
+      "text": "6.4 JOLTS — Job Openings and Labor Turnover Survey"
+    },
+    {
+      "type": "paragraph",
+      "text": "Le rapport JOLTS du BLS décrit les mouvements à l’intérieur du marché du travail. Il ne compte pas seulement les emplois créés : il mesure les postes vacants, les embauches, les départs volontaires, les licenciements et les autres séparations. Il permet donc de comprendre la demande de main-d’œuvre et la confiance des travailleurs.",
+      "segments": [
+        {
+          "text": "Le rapport JOLTS du BLS décrit les mouvements à l’intérieur du marché du travail. Il ne compte pas seulement les emplois créés : il mesure les postes vacants, les embauches, les départs volontaires, les licenciements et les autres séparations. Il permet donc de comprendre la demande de main-d’œuvre et la confiance des travailleurs."
+        }
+      ]
+    },
+    {
+      "type": "table",
+      "headers": [
+        "COMPOSANTE",
+        "CE QU’ELLE MESURE",
+        "INTERPRÉTATION"
+      ],
+      "rows": [
+        [
+          "Job openings — postes vacants",
+          "Postes disponibles à la fin du mois",
+          "Un niveau élevé suggère une demande de travail forte ; une baisse ordonnée peut signaler un refroidissement sans licenciements."
+        ],
+        [
+          "Hires — embauches",
+          "Entrées effectives sur les listes de paie",
+          "Plus concrètes que les offres : elles montrent si les entreprises passent réellement à l’embauche."
+        ],
+        [
+          "Quits — départs volontaires",
+          "Salariés quittant volontairement leur emploi",
+          "Un niveau élevé indique souvent que les travailleurs sont confiants dans leur capacité à trouver mieux."
+        ],
+        [
+          "Layoffs and discharges",
+          "Séparations décidées par l’employeur",
+          "Une hausse persistante constitue un signal plus inquiétant de dégradation."
+        ],
+        [
+          "Total separations",
+          "Ensemble des départs",
+          "Doit être décomposé : beaucoup de démissions n’ont pas le même sens que beaucoup de licenciements."
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "impact-du-jolts-sur-l-economie-et-les-marches",
+      "text": "Impact du JOLTS sur l’économie et les marchés"
+    },
+    {
+      "type": "paragraph",
+      "text": "Des postes vacants nombreux, des embauches robustes et des démissions élevées indiquent un marché du travail tendu. Cela peut soutenir les salaires et la consommation, mais aussi maintenir l’inflation des services. Le marché peut alors anticiper une politique monétaire plus restrictive. Une baisse des offres accompagnée de licenciements faibles correspond davantage à un refroidissement maîtrisé. Une envolée des licenciements et des demandes d’allocations signale une détérioration plus sérieuse.",
+      "segments": [
+        {
+          "text": "Des postes vacants nombreux, des embauches robustes et des démissions élevées indiquent un marché du travail tendu. Cela peut soutenir les salaires et la consommation, mais aussi maintenir l’inflation des services. Le marché peut alors anticiper une politique monétaire plus restrictive. Une baisse des offres accompagnée de licenciements faibles correspond davantage à un refroidissement maîtrisé. Une envolée des licenciements et des demandes d’allocations signale une détérioration plus sérieuse."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "JOLTS est publié avec plus de retard que les demandes hebdomadaires et peut être révisé. Son utilité vient surtout de la tendance et de la cohérence entre ses composantes.",
+      "segments": [
+        {
+          "text": "JOLTS est publié avec plus de retard que les demandes hebdomadaires et peut être révisé. Son utilité vient surtout de la tendance et de la cohérence entre ses composantes."
+        }
+      ]
+    },
+    {
+      "type": "figure",
+      "src": "/media/4-analyse-macroeconomique/4-analyse-macroeconomique-43c5b80249ad.webp",
+      "originalName": "image7.png",
+      "width": 734,
+      "height": 434,
+      "optimized": true,
+      "caption": "Figure 7 — JOLTS : nombre de postes vacants",
+      "source": "Trading Economics • capture du 21 juillet 2026",
+      "sourceLinks": [],
+      "alt": "Histogramme du nombre de postes vacants JOLTS aux États-Unis."
+    },
+    {
+      "type": "paragraph",
+      "text": "Lecture guidée — Une hausse des postes vacants traduit une demande de main-d’œuvre plus forte, mais ne signifie pas que ces postes ont été pourvus. Une baisse progressive peut correspondre à un refroidissement normal du marché du travail ; elle devient plus inquiétante si les embauches chutent et si les licenciements augmentent. JOLTS doit donc être lu comme un ensemble : offres, embauches, démissions et licenciements.",
+      "segments": [
+        {
+          "text": "Lecture guidée — ",
+          "bold": true
+        },
+        {
+          "text": "Une hausse des postes vacants traduit une demande de main-d’œuvre plus forte, mais ne signifie pas que ces postes ont été pourvus. Une baisse progressive peut correspondre à un refroidissement normal du marché du travail ; elle devient plus inquiétante si les embauches chutent et si les licenciements augmentent. JOLTS doit donc être lu comme un ensemble : offres, embauches, démissions et licenciements."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "6-5-construire-un-tableau-de-bord-de-l-emploi",
+      "text": "6.5 Construire un tableau de bord de l’emploi"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "ÉTAT",
+        "SIGNES CONCORDANTS",
+        "LECTURE"
+      ],
+      "rows": [
+        [
+          "Solide / tendu",
+          "NFP robuste ; chômage bas ; salaires fermes ; offres et démissions élevées ; demandes chômage faibles",
+          "Croissance soutenue, mais risque de pression inflationniste et de taux élevés."
+        ],
+        [
+          "Refroidissement maîtrisé",
+          "Créations ralenties ; offres en baisse ; licenciements encore faibles ; chômage légèrement plus haut",
+          "Scénario compatible avec une désinflation et un atterrissage en douceur."
+        ],
+        [
+          "Détérioration",
+          "NFP faible ou négatif ; révisions baissières ; demandes chômage en hausse ; licenciements JOLTS en hausse",
+          "Risque accru pour la consommation, les bénéfices et le crédit."
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "7-les-ventes-au-detail-observer-le-consommateur",
+      "text": "7. Les ventes au détail : observer le consommateur"
+    },
+    {
+      "type": "paragraph",
+      "text": "Les Retail Sales donnent une première indication de la demande des ménages pour les biens et la restauration.",
+      "segments": [
+        {
+          "text": "Les Retail Sales donnent une première indication de la demande des ménages pour les biens et la restauration.",
+          "italic": true
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Les ventes au détail américaines sont publiées par le Census Bureau. Elles couvrent les commerces de détail et les services de restauration. Elles sont importantes parce que la consommation joue un rôle majeur dans l’économie américaine et influence directement le chiffre d’affaires de nombreux secteurs.",
+      "segments": [
+        {
+          "text": "Les ventes au détail américaines sont publiées par le Census Bureau. Elles couvrent les commerces de détail et les services de restauration. Elles sont importantes parce que la consommation joue un rôle majeur dans l’économie américaine et influence directement le chiffre d’affaires de nombreux secteurs."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "ce-que-mesure-reellement-la-publication",
+      "text": "Ce que mesure réellement la publication"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "La valeur monétaire des ventes : le rapport avancé n’est pas corrigé de l’évolution des prix. Une hausse peut donc provenir d’une augmentation des prix plutôt que des quantités achetées.",
+          "segments": [
+            {
+              "text": "La valeur monétaire des ventes :",
+              "bold": true
+            },
+            {
+              "text": " le rapport avancé n’est pas corrigé de l’évolution des prix. Une hausse peut donc provenir d’une augmentation des prix plutôt que des quantités achetées."
+            }
+          ]
+        },
+        {
+          "text": "Les ventes globales : elles incluent des catégories volatiles comme les véhicules et l’essence.",
+          "segments": [
+            {
+              "text": "Les ventes globales :",
+              "bold": true
+            },
+            {
+              "text": " elles incluent des catégories volatiles comme les véhicules et l’essence."
+            }
+          ]
+        },
+        {
+          "text": "Les ventes hors automobiles : elles permettent de réduire l’influence des véhicules, dont les achats sont irréguliers et coûteux.",
+          "segments": [
+            {
+              "text": "Les ventes hors automobiles :",
+              "bold": true
+            },
+            {
+              "text": " elles permettent de réduire l’influence des véhicules, dont les achats sont irréguliers et coûteux."
+            }
+          ]
+        },
+        {
+          "text": "Le groupe de contrôle : mesure suivie par les économistes pour mieux approcher certaines dépenses de consommation intégrées au PIB ; elle exclut plusieurs catégories volatiles.",
+          "segments": [
+            {
+              "text": "Le groupe de contrôle :",
+              "bold": true
+            },
+            {
+              "text": " mesure suivie par les économistes pour mieux approcher certaines dépenses de consommation intégrées au PIB ; elle exclut plusieurs catégories volatiles."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "impact-economique-2",
+      "text": "Impact économique"
+    },
+    {
+      "type": "paragraph",
+      "text": "Des ventes solides indiquent généralement que les ménages continuent de dépenser, ce qui soutient l’activité des entreprises, l’emploi et les recettes fiscales. Mais si cette vigueur repose sur le crédit alors que les revenus ralentissent, elle peut être fragile. Des ventes faibles peuvent annoncer un ralentissement de la demande, des stocks plus lourds et une pression future sur les marges.",
+      "segments": [
+        {
+          "text": "Des ventes solides indiquent généralement que les ménages continuent de dépenser, ce qui soutient l’activité des entreprises, l’emploi et les recettes fiscales. Mais si cette vigueur repose sur le crédit alors que les revenus ralentissent, elle peut être fragile. Des ventes faibles peuvent annoncer un ralentissement de la demande, des stocks plus lourds et une pression future sur les marges."
+        }
+      ]
+    },
+    {
+      "type": "figure",
+      "src": "/media/4-analyse-macroeconomique/4-analyse-macroeconomique-3424e9b1c702.webp",
+      "originalName": "image8.png",
+      "width": 734,
+      "height": 434,
+      "optimized": true,
+      "caption": "Figure 8 — Ventes au détail américaines, variation mensuelle",
+      "source": "Trading Economics • capture du 21 juillet 2026",
+      "sourceLinks": [],
+      "alt": "Histogramme de la variation mensuelle des ventes au détail américaines."
+    },
+    {
+      "type": "paragraph",
+      "text": "Lecture guidée — Les barres montrent la variation de la valeur des ventes d’un mois au suivant. Une barre positive indique une hausse des montants dépensés, mais pas nécessairement des quantités achetées, car les prix peuvent avoir augmenté. Pour juger la demande réelle, il faut vérifier les ventes hors automobiles, le groupe de contrôle et l’influence de l’essence.",
+      "segments": [
+        {
+          "text": "Lecture guidée — ",
+          "bold": true
+        },
+        {
+          "text": "Les barres montrent la variation de la valeur des ventes d’un mois au suivant. Une barre positive indique une hausse des montants dépensés, mais pas nécessairement des quantités achetées, car les prix peuvent avoir augmenté. Pour juger la demande réelle, il faut vérifier les ventes hors automobiles, le groupe de contrôle et l’influence de l’essence."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "impact-frequent-sur-les-marches-2",
+      "text": "Impact fréquent sur les marchés"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "RÉSULTAT",
+        "LECTURE",
+        "RÉACTION POSSIBLE"
+      ],
+      "rows": [
+        [
+          "Ventes supérieures aux attentes, inflation maîtrisée",
+          "Consommateur solide",
+          "Actions cycliques et dollar souvent soutenus ; rendements susceptibles de monter."
+        ],
+        [
+          "Ventes supérieures aux attentes, inflation élevée",
+          "Demande trop forte pour une baisse rapide des taux",
+          "Rendements et dollar souvent en hausse ; actions sensibles aux taux parfois sous pression."
+        ],
+        [
+          "Ventes inférieures aux attentes",
+          "Demande plus faible",
+          "Baisses de taux davantage anticipées ; réaction des actions positive si ralentissement doux, négative si risque de récession."
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "EXEMPLE DE FAUSSE LECTURE",
+      "variant": "default",
+      "text": "Une hausse du chiffre global provoquée par le prix de l’essence ne signifie pas forcément que les ménages achètent davantage. Elle peut même réduire l’argent disponible pour les autres dépenses.",
+      "sourceFill": "FFF4D6"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "checklist-retail-sales",
+      "text": "Checklist Retail Sales"
+    },
+    {
+      "type": "paragraph",
+      "text": "1. Comparer le réel au consensus et vérifier les révisions du mois précédent.",
+      "segments": [
+        {
+          "text": "1. ",
+          "bold": true
+        },
+        {
+          "text": "Comparer le réel au consensus et vérifier les révisions du mois précédent."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "2. Regarder le chiffre global, hors automobiles et le groupe de contrôle.",
+      "segments": [
+        {
+          "text": "2. ",
+          "bold": true
+        },
+        {
+          "text": "Regarder le chiffre global, hors automobiles et le groupe de contrôle."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "3. Identifier l’influence de l’essence, des véhicules, des ventes en ligne et de la restauration.",
+      "segments": [
+        {
+          "text": "3. ",
+          "bold": true
+        },
+        {
+          "text": "Identifier l’influence de l’essence, des véhicules, des ventes en ligne et de la restauration."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "4. Comparer avec l’inflation : progression de la valeur ne signifie pas automatiquement progression du volume.",
+      "segments": [
+        {
+          "text": "4. ",
+          "bold": true
+        },
+        {
+          "text": "Comparer avec l’inflation : progression de la valeur ne signifie pas automatiquement progression du volume."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "5. Relier les ventes aux revenus, à l’épargne, au crédit et à la confiance des ménages.",
+      "segments": [
+        {
+          "text": "5. ",
+          "bold": true
+        },
+        {
+          "text": "Relier les ventes aux revenus, à l’épargne, au crédit et à la confiance des ménages."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "8-comprendre-l-impact-selon-chaque-marche",
+      "text": "8. Comprendre l’impact selon chaque marché"
+    },
+    {
+      "type": "paragraph",
+      "text": "Une même donnée traverse plusieurs canaux et ne produit jamais une réaction certaine.",
+      "segments": [
+        {
+          "text": "Une même donnée traverse plusieurs canaux et ne produit jamais une réaction certaine.",
+          "italic": true
+        }
+      ]
+    },
+    {
+      "type": "table",
+      "headers": [
+        "MARCHÉ",
+        "CANAL PRINCIPAL",
+        "LECTURE FRÉQUENTE"
+      ],
+      "rows": [
+        [
+          "Obligations souveraines",
+          "Attentes de taux, inflation, croissance et recherche de sécurité",
+          "Inflation ou activité plus forte : rendements souvent en hausse et prix en baisse. Faiblesse ou désinflation : mouvement souvent inverse."
+        ],
+        [
+          "Devises — Forex",
+          "Différentiel de taux attendu entre deux pays",
+          "Une donnée américaine forte ne soutient le dollar que si elle rend la politique de la Fed relativement plus restrictive que celle des autres banques centrales."
+        ],
+        [
+          "Actions de croissance",
+          "Valeur actuelle de bénéfices attendus loin dans le futur",
+          "Très sensibles aux rendements. Des taux attendus plus élevés peuvent réduire les valorisations, même si l’économie reste solide."
+        ],
+        [
+          "Actions cycliques",
+          "Demande économique, crédit et bénéfices",
+          "Profitent souvent d’une croissance solide, mais souffrent lorsque le ralentissement menace les ventes et les marges."
+        ],
+        [
+          "Or",
+          "Taux réels, dollar, inflation et demande de sécurité",
+          "Peut profiter de la peur ou de taux réels en baisse ; peut souffrir d’un dollar et de rendements réels en hausse. Son statut de protection contre l’inflation ne suffit pas à prévoir le court terme."
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "le-forex-exige-une-comparaison-relative",
+      "text": "Le Forex exige une comparaison relative"
+    },
+    {
+      "type": "paragraph",
+      "text": "Une devise n’est jamais analysée seule : une paire compare deux économies. Pour EUR/USD, il faut comparer les perspectives de la Fed et de la Banque centrale européenne, les différences de croissance, d’inflation, de taux et de risque politique. Un bon chiffre américain peut déjà être intégré dans le prix ou être compensé par une donnée européenne encore plus forte.",
+      "segments": [
+        {
+          "text": "Une devise n’est jamais analysée seule : une paire compare deux économies. Pour EUR/USD, il faut comparer les perspectives de la Fed et de la Banque centrale européenne, les différences de croissance, d’inflation, de taux et de risque politique. Un bon chiffre américain peut déjà être intégré dans le prix ou être compensé par une donnée européenne encore plus forte."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "pourquoi-les-actions-peuvent-monter-apres-une-mauvaise-donnee",
+      "text": "Pourquoi les actions peuvent monter après une mauvaise donnée"
+    },
+    {
+      "type": "paragraph",
+      "text": "Si le marché estime qu’une faiblesse modérée réduit le risque de hausse des taux sans provoquer de récession, les actions peuvent progresser : c’est la logique « mauvaise nouvelle économique, bonne nouvelle pour les taux ». Mais si la faiblesse menace directement les bénéfices, le crédit et l’emploi, la même donnée devient réellement négative pour les actions.",
+      "segments": [
+        {
+          "text": "Si le marché estime qu’une faiblesse modérée réduit le risque de hausse des taux sans provoquer de récession, les actions peuvent progresser : c’est la logique « mauvaise nouvelle économique, bonne nouvelle pour les taux ». Mais si la faiblesse menace directement les bénéfices, le crédit et l’emploi, la même donnée devient réellement négative pour les actions."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "la-fonction-de-reaction-du-marche-change",
+      "text": "La fonction de réaction du marché change"
+    },
+    {
+      "type": "paragraph",
+      "text": "Lorsque l’inflation est la principale peur, les marchés réagissent surtout aux CPI, PCE, salaires et données de demande. Lorsque la récession devient la peur dominante, ils accordent davantage d’importance aux licenciements, aux demandes d’allocations, au chômage et aux indicateurs de consommation. L’analyste doit donc identifier le problème que le marché cherche actuellement à résoudre.",
+      "segments": [
+        {
+          "text": "Lorsque l’inflation est la principale peur, les marchés réagissent surtout aux CPI, PCE, salaires et données de demande. Lorsque la récession devient la peur dominante, ils accordent davantage d’importance aux licenciements, aux demandes d’allocations, au chômage et aux indicateurs de consommation. L’analyste doit donc identifier le problème que le marché cherche actuellement à résoudre."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "RÉFLEXE PROFESSIONNEL",
+      "variant": "default",
+      "text": "Observer d’abord le marché obligataire et la devise aide à comprendre l’interprétation dominante. Si les rendements montent fortement après une annonce, le marché lit généralement la donnée comme plus inflationniste ou plus restrictive pour la banque centrale.",
+      "sourceFill": "E7F5F3"
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "9-methode-d-analyse-avant-pendant-et-apres-une-publication",
+      "text": "9. Méthode d’analyse avant, pendant et après une publication"
+    },
+    {
+      "type": "paragraph",
+      "text": "Construire une direction dominante sans prétendre obtenir une certitude parfaite.",
+      "segments": [
+        {
+          "text": "Construire une direction dominante sans prétendre obtenir une certitude parfaite.",
+          "italic": true
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "9-1-avant-la-publication",
+      "text": "9.1 Avant la publication"
+    },
+    {
+      "type": "paragraph",
+      "text": "1. Identifier le régime : inflation persistante, désinflation, croissance solide ou risque de récession.",
+      "segments": [
+        {
+          "text": "1. ",
+          "bold": true
+        },
+        {
+          "text": "Identifier le régime : inflation persistante, désinflation, croissance solide ou risque de récession."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "2. Lire le consensus, le précédent et les révisions déjà connues.",
+      "segments": [
+        {
+          "text": "2. ",
+          "bold": true
+        },
+        {
+          "text": "Lire le consensus, le précédent et les révisions déjà connues."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "3. Connaître les composantes qui feront réellement bouger le marché : Core CPI, salaires, chômage, groupe de contrôle, etc.",
+      "segments": [
+        {
+          "text": "3. ",
+          "bold": true
+        },
+        {
+          "text": "Connaître les composantes qui feront réellement bouger le marché : Core CPI, salaires, chômage, groupe de contrôle, etc."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "4. Repérer les attentes de la banque centrale et les décisions de taux déjà intégrées dans les prix.",
+      "segments": [
+        {
+          "text": "4. ",
+          "bold": true
+        },
+        {
+          "text": "Repérer les attentes de la banque centrale et les décisions de taux déjà intégrées dans les prix."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "5. Noter les niveaux techniques importants et prévoir une volatilité supérieure à la normale.",
+      "segments": [
+        {
+          "text": "5. ",
+          "bold": true
+        },
+        {
+          "text": "Noter les niveaux techniques importants et prévoir une volatilité supérieure à la normale."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "6. Éviter une position trop grande : les spreads peuvent s’élargir et les ordres être exécutés à un prix différent de celui affiché.",
+      "segments": [
+        {
+          "text": "6. ",
+          "bold": true
+        },
+        {
+          "text": "Éviter une position trop grande : les spreads peuvent s’élargir et les ordres être exécutés à un prix différent de celui affiché."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "9-2-a-l-instant-de-la-publication",
+      "text": "9.2 À l’instant de la publication"
+    },
+    {
+      "type": "paragraph",
+      "text": "1. Comparer immédiatement le réel au consensus, pas uniquement au précédent.",
+      "segments": [
+        {
+          "text": "1. ",
+          "bold": true
+        },
+        {
+          "text": "Comparer immédiatement le réel au consensus, pas uniquement au précédent."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "2. Vérifier les révisions : elles peuvent annuler l’impression donnée par le chiffre principal.",
+      "segments": [
+        {
+          "text": "2. ",
+          "bold": true
+        },
+        {
+          "text": "Vérifier les révisions : elles peuvent annuler l’impression donnée par le chiffre principal."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "3. Lire les détails essentiels : sous-jacent, salaires, taux d’activité, secteurs, catégories de consommation.",
+      "segments": [
+        {
+          "text": "3. ",
+          "bold": true
+        },
+        {
+          "text": "Lire les détails essentiels : sous-jacent, salaires, taux d’activité, secteurs, catégories de consommation."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "4. Regarder si les rendements, le dollar et les indices réagissent de façon cohérente.",
+      "segments": [
+        {
+          "text": "4. ",
+          "bold": true
+        },
+        {
+          "text": "Regarder si les rendements, le dollar et les indices réagissent de façon cohérente."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "5. Ne pas conclure à partir de la première bougie : les algorithmes réagissent au titre, puis le marché humain analyse les détails.",
+      "segments": [
+        {
+          "text": "5. ",
+          "bold": true
+        },
+        {
+          "text": "Ne pas conclure à partir de la première bougie : les algorithmes réagissent au titre, puis le marché humain analyse les détails."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "9-3-apres-la-publication-trois-temps-de-lecture",
+      "text": "9.3 Après la publication : trois temps de lecture"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "PÉRIODE",
+        "CE QUI DOMINE",
+        "ATTITUDE"
+      ],
+      "rows": [
+        [
+          "0 à 2 minutes",
+          "Réaction automatique à la surprise principale",
+          "Forte volatilité, spreads, faux départs. Éviter de confondre vitesse et qualité du signal."
+        ],
+        [
+          "2 à 15 minutes",
+          "Lecture des révisions et composantes",
+          "Vérifier si obligations, dollar et actions racontent la même histoire."
+        ],
+        [
+          "15 à 60 minutes et au-delà",
+          "Repositionnement et mise en contexte",
+          "Chercher la tenue du mouvement, la réaction aux niveaux techniques et les commentaires officiels éventuels."
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "9-4-trouver-la-direction-dominante",
+      "text": "9.4 Trouver la direction dominante"
+    },
+    {
+      "type": "paragraph",
+      "text": "Il n’existe pas de méthode garantissant une direction « précise ». On recherche plutôt une direction dominante confirmée par plusieurs éléments. Plus les confirmations sont nombreuses, plus l’interprétation est robuste.",
+      "segments": [
+        {
+          "text": "Il n’existe pas de méthode garantissant une direction « précise ». On recherche plutôt une direction dominante confirmée par plusieurs éléments. Plus les confirmations sont nombreuses, plus l’interprétation est robuste."
+        }
+      ]
+    },
+    {
+      "type": "table",
+      "headers": [
+        "CONFIRMATION",
+        "QUESTION À POSER"
+      ],
+      "rows": [
+        [
+          "1. Surprise",
+          "Le chiffre principal s’écarte nettement du consensus."
+        ],
+        [
+          "2. Détails",
+          "Les composantes et les révisions vont dans le même sens."
+        ],
+        [
+          "3. Politique monétaire",
+          "La donnée change réellement les attentes de taux."
+        ],
+        [
+          "4. Intermarché",
+          "Rendements, devise et actions réagissent de façon cohérente."
+        ],
+        [
+          "5. Prix",
+          "Le mouvement tient après la volatilité initiale et franchit ou défend un niveau important."
+        ]
+      ],
+      "links": [
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "SIGNAL DE MÉFIANCE",
+      "variant": "default",
+      "text": "Si le chiffre paraît clairement favorable au dollar mais que les rendements baissent et que le dollar ne progresse pas, le marché signale que l’information était anticipée, que les détails contredisent le titre ou qu’une autre force domine.",
+      "sourceFill": "FDECEC"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "9-5-une-fiche-de-lecture-simple",
+      "text": "9.5 Une fiche de lecture simple"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Indicateur et heure :",
+          "segments": [
+            {
+              "text": "Indicateur et heure :"
+            }
+          ]
+        },
+        {
+          "text": "Consensus / précédent / réel / révision :",
+          "segments": [
+            {
+              "text": "Consensus / précédent / réel / révision :"
+            }
+          ]
+        },
+        {
+          "text": "Composantes fortes et faibles :",
+          "segments": [
+            {
+              "text": "Composantes fortes et faibles :"
+            }
+          ]
+        },
+        {
+          "text": "Conséquence probable pour la banque centrale :",
+          "segments": [
+            {
+              "text": "Conséquence probable pour la banque centrale :"
+            }
+          ]
+        },
+        {
+          "text": "Réaction du rendement à deux ans, de la devise et de l’indice principal :",
+          "segments": [
+            {
+              "text": "Réaction du rendement à deux ans, de la devise et de l’indice principal :"
+            }
+          ]
+        },
+        {
+          "text": "Scénario dominant, scénario alternatif et condition d’invalidation :",
+          "segments": [
+            {
+              "text": "Scénario dominant, scénario alternatif et condition d’invalidation :"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "10-cas-pratiques-guides",
+      "text": "10. Cas pratiques guidés"
+    },
+    {
+      "type": "paragraph",
+      "text": "Exemples hypothétiques : les valeurs servent uniquement à apprendre la méthode.",
+      "segments": [
+        {
+          "text": "Exemples hypothétiques : les valeurs servent uniquement à apprendre la méthode.",
+          "italic": true
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "cas-1-core-cpi-superieur-au-consensus",
+      "text": "Cas 1 — Core CPI supérieur au consensus"
+    },
+    {
+      "type": "paragraph",
+      "text": "Le Core CPI mensuel ressort à 0,4 %, contre 0,3 % attendu et 0,2 % précédemment. Le chiffre annuel reste stable, mais les services progressent largement.",
+      "segments": [
+        {
+          "text": "Le Core CPI mensuel ressort à 0,4 %, contre 0,3 % attendu et 0,2 % précédemment. Le chiffre annuel reste stable, mais les services progressent largement."
+        }
+      ]
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Surprise : inflation sous-jacente plus forte que prévu.",
+          "segments": [
+            {
+              "text": "Surprise :",
+              "bold": true
+            },
+            {
+              "text": " inflation sous-jacente plus forte que prévu."
+            }
+          ]
+        },
+        {
+          "text": "Détails : la hausse est large, donc moins facile à attribuer à un seul élément temporaire.",
+          "segments": [
+            {
+              "text": "Détails :",
+              "bold": true
+            },
+            {
+              "text": " la hausse est large, donc moins facile à attribuer à un seul élément temporaire."
+            }
+          ]
+        },
+        {
+          "text": "Banque centrale : les baisses de taux peuvent être repoussées.",
+          "segments": [
+            {
+              "text": "Banque centrale :",
+              "bold": true
+            },
+            {
+              "text": " les baisses de taux peuvent être repoussées."
+            }
+          ]
+        },
+        {
+          "text": "Marchés : rendement à deux ans et dollar souvent orientés à la hausse ; obligations et actions de croissance sous pression.",
+          "segments": [
+            {
+              "text": "Marchés :",
+              "bold": true
+            },
+            {
+              "text": " rendement à deux ans et dollar souvent orientés à la hausse ; obligations et actions de croissance sous pression."
+            }
+          ]
+        },
+        {
+          "text": "Invalidation : si les rendements retombent rapidement, vérifier une révision, un détail favorable ou un positionnement déjà extrême.",
+          "segments": [
+            {
+              "text": "Invalidation :",
+              "bold": true
+            },
+            {
+              "text": " si les rendements retombent rapidement, vérifier une révision, un détail favorable ou un positionnement déjà extrême."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "cas-2-inflation-au-dessus-du-precedent-mais-sous-le-consensus",
+      "text": "Cas 2 — Inflation au-dessus du précédent, mais sous le consensus"
+    },
+    {
+      "type": "paragraph",
+      "text": "Le Core CPI mensuel ressort à 0,3 %, contre 0,4 % attendu et 0,2 % précédemment.",
+      "segments": [
+        {
+          "text": "Le Core CPI mensuel ressort à 0,3 %, contre 0,4 % attendu et 0,2 % précédemment."
+        }
+      ]
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Par rapport au mois précédent, l’inflation accélère.",
+          "segments": [
+            {
+              "text": "Par rapport au mois précédent, l’inflation accélère."
+            }
+          ]
+        },
+        {
+          "text": "Par rapport aux attentes, elle déçoit les scénarios les plus inflationnistes.",
+          "segments": [
+            {
+              "text": "Par rapport aux attentes, elle déçoit les scénarios les plus inflationnistes."
+            }
+          ]
+        },
+        {
+          "text": "La première réaction peut donc être une baisse des rendements et du dollar, avec un soutien aux actions.",
+          "segments": [
+            {
+              "text": "La première réaction peut donc être une baisse des rendements et du dollar, avec un soutien aux actions."
+            }
+          ]
+        },
+        {
+          "text": "La conclusion dépend des détails : si le logement ralentit mais que les autres services accélèrent, le mouvement peut devenir hésitant.",
+          "segments": [
+            {
+              "text": "La conclusion dépend des détails : si le logement ralentit mais que les autres services accélèrent, le mouvement peut devenir hésitant."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "LEÇON",
+      "variant": "summary",
+      "text": "Le consensus explique souvent la réaction immédiate ; le précédent et la composition expliquent davantage la tendance économique.",
+      "sourceFill": "E7F5F3"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "cas-3-nfp-fort-mais-rapport-moins-solide-qu-il-n-y-parait",
+      "text": "Cas 3 — NFP fort, mais rapport moins solide qu’il n’y paraît"
+    },
+    {
+      "type": "paragraph",
+      "text": "Les créations d’emplois dépassent nettement le consensus, mais les deux mois précédents sont fortement révisés à la baisse, la durée du travail recule et le chômage augmente.",
+      "segments": [
+        {
+          "text": "Les créations d’emplois dépassent nettement le consensus, mais les deux mois précédents sont fortement révisés à la baisse, la durée du travail recule et le chômage augmente."
+        }
+      ]
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Le titre est positif, mais la dynamique passée est dégradée.",
+          "segments": [
+            {
+              "text": "Le titre est positif, mais la dynamique passée est dégradée."
+            }
+          ]
+        },
+        {
+          "text": "La baisse des heures peut annoncer un ajustement des entreprises avant les licenciements.",
+          "segments": [
+            {
+              "text": "La baisse des heures peut annoncer un ajustement des entreprises avant les licenciements."
+            }
+          ]
+        },
+        {
+          "text": "La hausse du chômage doit être expliquée par le taux d’activité et l’emploi des ménages.",
+          "segments": [
+            {
+              "text": "La hausse du chômage doit être expliquée par le taux d’activité et l’emploi des ménages."
+            }
+          ]
+        },
+        {
+          "text": "Le dollar peut monter brièvement puis rendre ses gains si les rendements ne confirment pas.",
+          "segments": [
+            {
+              "text": "Le dollar peut monter brièvement puis rendre ses gains si les rendements ne confirment pas."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "cas-4-jolts-en-refroidissement-ordonne",
+      "text": "Cas 4 — JOLTS en refroidissement ordonné"
+    },
+    {
+      "type": "paragraph",
+      "text": "Les postes vacants diminuent, les embauches ralentissent légèrement, mais les licenciements restent faibles et les demandes d’allocations chômage n’augmentent pas.",
+      "segments": [
+        {
+          "text": "Les postes vacants diminuent, les embauches ralentissent légèrement, mais les licenciements restent faibles et les demandes d’allocations chômage n’augmentent pas."
+        }
+      ]
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "La demande de travail se normalise sans vague de pertes d’emplois.",
+          "segments": [
+            {
+              "text": "La demande de travail se normalise sans vague de pertes d’emplois."
+            }
+          ]
+        },
+        {
+          "text": "Les pressions salariales peuvent ralentir, ce qui aide la désinflation.",
+          "segments": [
+            {
+              "text": "Les pressions salariales peuvent ralentir, ce qui aide la désinflation."
+            }
+          ]
+        },
+        {
+          "text": "Ce scénario peut soutenir les obligations et les actions si le marché y voit un atterrissage en douceur.",
+          "segments": [
+            {
+              "text": "Ce scénario peut soutenir les obligations et les actions si le marché y voit un atterrissage en douceur."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "cas-5-retail-sales-fortes-a-cause-de-l-essence",
+      "text": "Cas 5 — Retail Sales fortes à cause de l’essence"
+    },
+    {
+      "type": "paragraph",
+      "text": "Les ventes globales dépassent le consensus, mais les ventes hors essence et le groupe de contrôle sont faibles.",
+      "segments": [
+        {
+          "text": "Les ventes globales dépassent le consensus, mais les ventes hors essence et le groupe de contrôle sont faibles."
+        }
+      ]
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Le chiffre global surestime la vigueur réelle de la consommation discrétionnaire.",
+          "segments": [
+            {
+              "text": "Le chiffre global surestime la vigueur réelle de la consommation discrétionnaire."
+            }
+          ]
+        },
+        {
+          "text": "Les ménages peuvent consacrer davantage d’argent à l’énergie au détriment d’autres achats.",
+          "segments": [
+            {
+              "text": "Les ménages peuvent consacrer davantage d’argent à l’énergie au détriment d’autres achats."
+            }
+          ]
+        },
+        {
+          "text": "La réaction initiale favorable à la croissance peut s’inverser après lecture des catégories.",
+          "segments": [
+            {
+              "text": "La réaction initiale favorable à la croissance peut s’inverser après lecture des catégories."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "11-erreurs-frequentes-et-checklist",
+      "text": "11. Erreurs fréquentes et checklist"
+    },
+    {
+      "type": "paragraph",
+      "text": "Passer d’une réaction impulsive à une analyse reproductible.",
+      "segments": [
+        {
+          "text": "Passer d’une réaction impulsive à une analyse reproductible.",
+          "italic": true
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "les-erreurs-les-plus-courantes",
+      "text": "Les erreurs les plus courantes"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "ERREUR",
+        "POURQUOI ELLE EST DANGEREUSE"
+      ],
+      "rows": [
+        [
+          "Comparer uniquement au précédent",
+          "Le marché s’est surtout positionné par rapport au consensus."
+        ],
+        [
+          "Qualifier chaque hausse de « positive »",
+          "Une inflation ou des salaires trop élevés peuvent être négatifs pour les actifs sensibles aux taux."
+        ],
+        [
+          "Ignorer les révisions",
+          "Le nouveau chiffre peut être compensé par une dégradation des mois précédents."
+        ],
+        [
+          "Analyser un seul mois",
+          "La volatilité statistique peut masquer la tendance."
+        ],
+        [
+          "Confondre désinflation et baisse des prix",
+          "Une inflation plus faible signifie généralement que les prix montent moins vite."
+        ],
+        [
+          "Trader la première bougie",
+          "Elle reflète parfois une lecture incomplète et des conditions d’exécution dégradées."
+        ],
+        [
+          "Ignorer le marché obligataire",
+          "Les rendements révèlent souvent le changement d’anticipation de taux."
+        ],
+        [
+          "Chercher une règle universelle",
+          "La réaction dépend du régime, du positionnement et de ce qui était déjà intégré dans les prix."
+        ]
+      ],
+      "links": [
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "checklist-avant-de-valider-une-analyse",
+      "text": "Checklist avant de valider une analyse"
+    },
+    {
+      "type": "paragraph",
+      "text": "☐  Je connais la définition exacte de l’indicateur.",
+      "segments": [
+        {
+          "text": "☐  Je connais la définition exacte de l’indicateur."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "☐  J’ai comparé le réel au consensus et au précédent révisé.",
+      "segments": [
+        {
+          "text": "☐  J’ai comparé le réel au consensus et au précédent révisé."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "☐  J’ai lu les composantes importantes du rapport.",
+      "segments": [
+        {
+          "text": "☐  J’ai lu les composantes importantes du rapport."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "☐  J’ai vérifié la tendance sur plusieurs publications.",
+      "segments": [
+        {
+          "text": "☐  J’ai vérifié la tendance sur plusieurs publications."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "☐  J’ai identifié le régime dominant : inflation ou ralentissement.",
+      "segments": [
+        {
+          "text": "☐  J’ai identifié le régime dominant : inflation ou ralentissement."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "☐  Je sais ce que la donnée change pour la banque centrale.",
+      "segments": [
+        {
+          "text": "☐  Je sais ce que la donnée change pour la banque centrale."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "☐  J’ai observé les rendements obligataires et la devise.",
+      "segments": [
+        {
+          "text": "☐  J’ai observé les rendements obligataires et la devise."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "☐  Je distingue la réaction initiale de la direction qui se maintient.",
+      "segments": [
+        {
+          "text": "☐  Je distingue la réaction initiale de la direction qui se maintient."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "☐  J’ai un scénario alternatif et une condition d’invalidation.",
+      "segments": [
+        {
+          "text": "☐  J’ai un scénario alternatif et une condition d’invalidation."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "☐  Mon risque tient compte de la volatilité et du slippage.",
+      "segments": [
+        {
+          "text": "☐  Mon risque tient compte de la volatilité et du slippage."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "SYNTHÈSE EN UNE PHRASE",
+      "variant": "default",
+      "text": "Une bonne analyse macroéconomique relie le réel, le consensus, les révisions et les composantes au régime économique, puis vérifie cette lecture dans les taux, la devise et le comportement du prix.",
+      "sourceFill": "EAF5EE"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "tableau-recapitulatif-des-indicateurs",
+      "text": "Tableau récapitulatif des indicateurs"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "INDICATEUR",
+        "RYTHME",
+        "MESURE",
+        "POINT CLÉ"
+      ],
+      "rows": [
+        [
+          "CPI / Core CPI",
+          "Mensuelle",
+          "Prix payés par les consommateurs urbains",
+          "Inflation immédiate et persistante"
+        ],
+        [
+          "PCE / Core PCE",
+          "Mensuelle",
+          "Prix des dépenses de consommation",
+          "Mesure d’inflation privilégiée par la Fed"
+        ],
+        [
+          "PIB réel",
+          "Trimestrielle",
+          "Production corrigée des prix",
+          "Croissance globale et composition de la demande"
+        ],
+        [
+          "NFP",
+          "Mensuelle",
+          "Variation des emplois salariés non agricoles",
+          "Créations, salaires, heures et révisions"
+        ],
+        [
+          "Taux de chômage",
+          "Mensuelle",
+          "Part des actifs sans emploi et en recherche",
+          "Participation et cause de la variation"
+        ],
+        [
+          "Jobless Claims",
+          "Hebdomadaire",
+          "Nouvelles demandes et demandes continues",
+          "Tendance lissée sur plusieurs semaines"
+        ],
+        [
+          "JOLTS",
+          "Mensuelle",
+          "Offres, embauches, démissions et licenciements",
+          "Refroidissement ordonné ou détérioration"
+        ],
+        [
+          "Retail Sales",
+          "Mensuelle",
+          "Valeur des ventes au détail et restauration",
+          "Inflation, catégories et groupe de contrôle"
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "12-glossaire-et-sources-officielles",
+      "text": "12. Glossaire et sources officielles"
+    },
+    {
+      "type": "paragraph",
+      "text": "Les mots indispensables pour lire une publication sans ambiguïté.",
+      "segments": [
+        {
+          "text": "Les mots indispensables pour lire une publication sans ambiguïté.",
+          "italic": true
+        }
+      ]
+    },
+    {
+      "type": "table",
+      "headers": [
+        "TERME",
+        "DÉFINITION SIMPLE"
+      ],
+      "rows": [
+        [
+          "Actual / réel",
+          "Valeur publiée au moment de l’annonce."
+        ],
+        [
+          "Consensus / forecast",
+          "Estimation centrale attendue par les économistes."
+        ],
+        [
+          "Précédent",
+          "Valeur de la publication antérieure, parfois révisée."
+        ],
+        [
+          "Surprise",
+          "Écart qualitatif entre le chiffre réel et ce que le marché attendait."
+        ],
+        [
+          "Headline",
+          "Mesure globale incluant toutes les catégories."
+        ],
+        [
+          "Core / sous-jacent",
+          "Mesure excluant généralement l’alimentation et l’énergie pour mieux observer la persistance."
+        ],
+        [
+          "Révision",
+          "Correction d’une donnée déjà publiée à partir d’informations supplémentaires."
+        ],
+        [
+          "Désinflation",
+          "Ralentissement du rythme de hausse des prix."
+        ],
+        [
+          "Déflation",
+          "Baisse générale du niveau des prix."
+        ],
+        [
+          "Rendement obligataire",
+          "Rémunération implicite d’une obligation au prix du marché ; il évolue généralement à l’inverse de son prix."
+        ],
+        [
+          "Politique restrictive",
+          "Politique monétaire visant à freiner l’inflation, notamment par des taux élevés."
+        ],
+        [
+          "Politique accommodante",
+          "Politique visant à soutenir l’activité, notamment par des taux plus bas."
+        ],
+        [
+          "Soft landing",
+          "Ralentissement suffisant pour réduire l’inflation sans provoquer de récession profonde."
+        ],
+        [
+          "Priced in / intégré dans les prix",
+          "Information déjà anticipée et reflétée dans les cours."
+        ],
+        [
+          "Slippage",
+          "Écart entre le prix souhaité et le prix réel d’exécution."
+        ]
+      ],
+      "links": [
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "sources-officielles-de-reference",
+      "text": "Sources officielles de référence"
+    },
+    {
+      "type": "paragraph",
+      "text": "1. Bureau of Labor Statistics — Consumer Price Index — Définition, méthodologie et publications du CPI.",
+      "segments": [
+        {
+          "text": "1. ",
+          "bold": true
+        },
+        {
+          "text": "Bureau of Labor Statistics — Consumer Price Index",
+          "underline": true,
+          "href": "https://www.bls.gov/cpi/"
+        },
+        {
+          "text": " — Définition, méthodologie et publications du CPI."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "2. Bureau of Economic Analysis — PCE Price Index — Définition et données du PCE.",
+      "segments": [
+        {
+          "text": "2. ",
+          "bold": true
+        },
+        {
+          "text": "Bureau of Economic Analysis — PCE Price Index",
+          "underline": true,
+          "href": "https://www.bea.gov/data/personal-consumption-expenditures-price-index"
+        },
+        {
+          "text": " — Définition et données du PCE."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "3. Federal Reserve — Inflation (PCE) — Objectif d’inflation et usage du PCE par la Fed.",
+      "segments": [
+        {
+          "text": "3. ",
+          "bold": true
+        },
+        {
+          "text": "Federal Reserve — Inflation (PCE)",
+          "underline": true,
+          "href": "https://www.federalreserve.gov/economy-at-a-glance-inflation-pce.htm"
+        },
+        {
+          "text": " — Objectif d’inflation et usage du PCE par la Fed."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "4. Bureau of Economic Analysis — Gross Domestic Product — Définition et publications du PIB américain.",
+      "segments": [
+        {
+          "text": "4. ",
+          "bold": true
+        },
+        {
+          "text": "Bureau of Economic Analysis — Gross Domestic Product",
+          "underline": true,
+          "href": "https://www.bea.gov/data/gdp/gross-domestic-product"
+        },
+        {
+          "text": " — Définition et publications du PIB américain."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "5. Bureau of Labor Statistics — Employment Situation — NFP, chômage, salaires, heures et participation.",
+      "segments": [
+        {
+          "text": "5. ",
+          "bold": true
+        },
+        {
+          "text": "Bureau of Labor Statistics — Employment Situation",
+          "underline": true,
+          "href": "https://www.bls.gov/news.release/empsit.toc.htm"
+        },
+        {
+          "text": " — NFP, chômage, salaires, heures et participation."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "6. Bureau of Labor Statistics — JOLTS — Postes vacants, embauches, démissions et licenciements.",
+      "segments": [
+        {
+          "text": "6. ",
+          "bold": true
+        },
+        {
+          "text": "Bureau of Labor Statistics — JOLTS",
+          "underline": true,
+          "href": "https://www.bls.gov/jlt/"
+        },
+        {
+          "text": " — Postes vacants, embauches, démissions et licenciements."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "7. U.S. Department of Labor — Weekly Unemployment Insurance Claims — Demandes initiales et continues d’allocations chômage.",
+      "segments": [
+        {
+          "text": "7. ",
+          "bold": true
+        },
+        {
+          "text": "U.S. Department of Labor — Weekly Unemployment Insurance Claims",
+          "underline": true,
+          "href": "https://www.dol.gov/ui/data.pdf"
+        },
+        {
+          "text": " — Demandes initiales et continues d’allocations chômage."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "8. U.S. Census Bureau — Advance Monthly Retail Trade Survey — Méthodologie et portée des ventes au détail.",
+      "segments": [
+        {
+          "text": "8. ",
+          "bold": true
+        },
+        {
+          "text": "U.S. Census Bureau — Advance Monthly Retail Trade Survey",
+          "underline": true,
+          "href": "https://www.census.gov/retail/marts/about_the_surveys.html"
+        },
+        {
+          "text": " — Méthodologie et portée des ventes au détail."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "conclusion",
+      "text": "Conclusion"
+    },
+    {
+      "type": "paragraph",
+      "text": "La maîtrise des données macroéconomiques ne consiste pas à mémoriser une liste de chiffres. Elle consiste à comprendre ce que chaque indicateur mesure, à comparer le réel aux attentes, à vérifier les révisions et les détails, puis à relier l’ensemble aux banques centrales et aux différents marchés.",
+      "segments": [
+        {
+          "text": "La maîtrise des données macroéconomiques ne consiste pas à mémoriser une liste de chiffres. Elle consiste à comprendre ce que chaque indicateur mesure, à comparer le réel aux attentes, à vérifier les révisions et les détails, puis à relier l’ensemble aux banques centrales et aux différents marchés."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Avec une méthode constante, le trader ou l’investisseur ne cherche plus une explication après le mouvement : il construit plusieurs scénarios avant la publication, observe lequel est confirmé et sait précisément ce qui invaliderait son analyse.",
+      "segments": [
+        {
+          "text": "Avec une méthode constante, le trader ou l’investisseur ne cherche plus une explication après le mouvement : il construit plusieurs scénarios avant la publication, observe lequel est confirmé et sait précisément ce qui invaliderait son analyse."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "DERNIER PRINCIPE",
+      "variant": "default",
+      "text": "La macroéconomie améliore les probabilités et la qualité du raisonnement ; elle ne supprime jamais l’incertitude. La gestion du risque reste indispensable.",
+      "sourceFill": "FDECEC"
+    }
+  ]
+}

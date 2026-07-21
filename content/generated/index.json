@@ -184,7 +184,6 @@
           }
         ],
         "partSequenceComplete": true,
-        "futureVolumeNumber": 4,
         "slug": "3-analyse-technique"
       },
       "stats": {
@@ -195,6 +194,88 @@
         "figureCount": 30
       },
       "archetype": "technical_analysis"
+    },
+    {
+      "file": "4-analyse-macroeconomique.json",
+      "metadata": {
+        "id": "volume-4",
+        "order": 4,
+        "volumeNumber": 4,
+        "title": "L’analyse macroéconomique",
+        "subtitle": "Comprendre les données, les attentes et leur transmission aux marchés.",
+        "description": "Lire les publications économiques avec méthode et comprendre leurs effets sur les taux, les obligations, les devises, les actions et l’or.",
+        "edition": null,
+        "format": null,
+        "coverLines": [],
+        "tags": [
+          "macroéconomie",
+          "inflation",
+          "CPI",
+          "PCE",
+          "PIB",
+          "emploi",
+          "NFP",
+          "chômage",
+          "JOLTS",
+          "ventes au détail",
+          "banques centrales",
+          "taux",
+          "obligations",
+          "Forex"
+        ],
+        "highlights": [
+          {
+            "number": "01",
+            "title": "Contexte",
+            "text": "Identifier le régime de croissance et d’inflation avant d’interpréter une publication."
+          },
+          {
+            "number": "02",
+            "title": "Anticipations",
+            "text": "Comparer le chiffre réel au consensus, au précédent révisé et aux composantes du rapport."
+          },
+          {
+            "number": "03",
+            "title": "Transmission",
+            "text": "Relier les attentes de taux aux rendements, aux devises, aux actions, aux obligations et à l’or."
+          }
+        ],
+        "parts": [
+          {
+            "order": 1,
+            "id": "partie-1-fondements-macroeconomiques",
+            "startId": "comment-utiliser-ce-cours",
+            "title": "Les fondements de l’analyse macroéconomique",
+            "subtitle": "Données · attentes · transmission · réaction des marchés",
+            "description": "Apprendre à lire une publication macroéconomique avec méthode, sans réduire une donnée à « bonne » ou « mauvaise », puis comprendre pourquoi les obligations, les devises, les actions et l’or peuvent réagir différemment.",
+            "tocIds": [
+              "comment-utiliser-ce-cours",
+              "1-le-role-de-l-analyse-macroeconomique",
+              "2-lire-un-calendrier-economique",
+              "3-la-chaine-de-transmission-vers-les-marches",
+              "4-l-inflation-cpi-core-cpi-pce-et-core-pce",
+              "5-le-pib-mesurer-l-activite-economique",
+              "6-l-emploi-nfp-chomage-jobless-claims-et-jolts",
+              "7-les-ventes-au-detail-observer-le-consommateur",
+              "8-comprendre-l-impact-selon-chaque-marche",
+              "9-methode-d-analyse-avant-pendant-et-apres-une-publication",
+              "10-cas-pratiques-guides",
+              "11-erreurs-frequentes-et-checklist",
+              "12-glossaire-et-sources-officielles"
+            ]
+          }
+        ],
+        "partSequenceComplete": false,
+        "slug": "4-analyse-macroeconomique"
+      },
+      "stats": {
+        "wordCount": 6995,
+        "readingMinutes": 32,
+        "chapterCount": 13,
+        "dossierCount": 0,
+        "figureCount": 8
+      },
+      "archetype": "macroeconomic_analysis"
     }
   ]
 }

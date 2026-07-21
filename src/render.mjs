@@ -1,10 +1,12 @@
 const SITE_NAME = "TradeVisionPro";
 const SITE_TAGLINE = "Financial Training";
 let SITE_BASE_PATH = "/";
+let SITE_ASSET_VERSION = "";
 
-export function configureSite({ basePath = "/" } = {}) {
+export function configureSite({ basePath = "/", assetVersion = "" } = {}) {
   const normalized = `/${String(basePath).trim().replace(/^\/+|\/+$/g, "")}/`;
   SITE_BASE_PATH = normalized === "//" ? "/" : normalized;
+  SITE_ASSET_VERSION = String(assetVersion).trim().replace(/[^a-z0-9_-]/gi, "");
   return SITE_BASE_PATH;
 }
 
@@ -12,6 +14,11 @@ export function sitePath(value = "/") {
   const pathname = `/${String(value).replace(/^\/+/, "")}`;
   if (SITE_BASE_PATH === "/") return pathname;
   return `${SITE_BASE_PATH}${pathname.slice(1)}`;
+}
+
+export function assetPath(value) {
+  const path = sitePath(value);
+  return SITE_ASSET_VERSION ? `${path}?v=${SITE_ASSET_VERSION}` : path;
 }
 
 export function escapeHtml(value = "") {
@@ -387,8 +394,8 @@ export function layout({ title, description, body, volumes, activePage, showToc 
   <link rel="icon" type="image/png" sizes="32x32" href="${sitePath("/brand/tradevisionpro-favicon-32.png")}">
   <link rel="icon" type="image/png" sizes="64x64" href="${sitePath("/brand/tradevisionpro-favicon-64.png")}">
   <link rel="apple-touch-icon" href="${sitePath("/brand/tradevisionpro-apple-touch-icon.png")}">
-  <link rel="stylesheet" href="${sitePath("/assets/styles.css")}">
-  <script src="${sitePath("/assets/client.js")}" defer></script>
+  <link rel="stylesheet" href="${assetPath("/assets/styles.css")}">
+  <script src="${assetPath("/assets/client.js")}" defer></script>
 </head>
 <body class="${escapeHtml(bodyClass)}">
   <section class="access-gate" data-access-gate aria-labelledby="access-title" aria-describedby="access-intro" role="dialog" aria-modal="true">

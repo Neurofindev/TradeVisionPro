@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { createHash } from "node:crypto";
 import { cp, mkdir, readFile, readdir, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -29,7 +30,13 @@ async function writePage(relativePath, html) {
 
 async function main() {
   const basePathArgument = process.argv.find((argument) => argument.startsWith("--base-path="));
-  const basePath = configureSite({ basePath: basePathArgument?.slice("--base-path=".length) || "/" });
+  const stylesSource = await readFile(path.join(ROOT, "src", "styles.css"));
+  const clientSource = await readFile(path.join(ROOT, "src", "client.js"));
+  const assetVersion = createHash("sha256").update(stylesSource).update(clientSource).digest("hex").slice(0, 12);
+  const basePath = configureSite({
+    basePath: basePathArgument?.slice("--base-path=".length) || "/",
+    assetVersion,
+  });
   const manifest = await readJson(path.join(GENERATED, "index.json"));
   const quizzes = await readJson(path.join(ROOT, "config", "quizzes.json"));
   const volumes = await Promise.all(
@@ -40,8 +47,8 @@ async function main() {
   await rm(DIST, { recursive: true, force: true });
   await mkdir(path.join(DIST, "assets"), { recursive: true });
   await cp(path.join(ROOT, "public"), DIST, { recursive: true });
-  await cp(path.join(ROOT, "src", "styles.css"), path.join(DIST, "assets", "styles.css"));
-  await cp(path.join(ROOT, "src", "client.js"), path.join(DIST, "assets", "client.js"));
+  await writeFile(path.join(DIST, "assets", "styles.css"), stylesSource);
+  await writeFile(path.join(DIST, "assets", "client.js"), clientSource);
 
   await writePage(
     "",

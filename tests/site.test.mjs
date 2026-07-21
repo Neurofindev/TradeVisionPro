@@ -55,6 +55,14 @@ test("TradeVisionPro identity and icon assets are published", async () => {
   }
 });
 
+test("HTML automatically refreshes versioned frontend assets", async () => {
+  const home = await readFile(path.join(DIST, "index.html"), "utf8");
+  const styleVersion = home.match(/assets\/styles\.css\?v=([a-f0-9]{12})/)?.[1];
+  const clientVersion = home.match(/assets\/client\.js\?v=([a-f0-9]{12})/)?.[1];
+  assert.ok(styleVersion, "version CSS absente");
+  assert.equal(clientVersion, styleVersion);
+});
+
 test("every page is protected by the access gate without exposing the code", async () => {
   for (const file of await htmlFiles()) {
     const html = await readFile(file, "utf8");

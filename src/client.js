@@ -242,11 +242,13 @@
     const previousButton = quizForm.querySelector("[data-quiz-previous]");
     const nextButton = quizForm.querySelector("[data-quiz-next]");
     const submitButton = quizForm.querySelector("[data-quiz-submit]");
+    const restartInlineButton = quizForm.querySelector("[data-quiz-restart-inline]");
     const help = quizForm.querySelector("[data-quiz-help]");
     const progressText = quizForm.querySelector("[data-quiz-progress-text]");
     const answeredText = quizForm.querySelector("[data-quiz-answered]");
     const progressBar = quizForm.querySelector("[data-quiz-progress-bar]");
     const result = quizForm.parentElement.querySelector("[data-quiz-result]");
+    const quizWorkspace = quizForm.closest(".quiz-workspace");
     let currentQuestion = 0;
     let reviewed = false;
 
@@ -272,6 +274,7 @@
         submitButton.hidden = reviewed || currentQuestion !== questions.length - 1;
         submitButton.disabled = !selected;
       }
+      if (restartInlineButton) restartInlineButton.hidden = !reviewed;
       if (help) {
         help.textContent = reviewed
           ? "Parcourez les corrections pour consolider chaque notion."
@@ -333,16 +336,24 @@
       updateCourseProgress();
       quizForm.classList.add("is-reviewed");
       if (result) {
+        quizForm.hidden = true;
+        quizWorkspace?.classList.remove("is-review-mode");
+        quizWorkspace?.classList.add("is-result-mode");
         result.hidden = false;
         result.classList.toggle("is-success", passed);
         result.classList.toggle("is-retry", !passed);
         result.querySelector("[data-quiz-result-score]").textContent = String(score);
         result.querySelector("[data-quiz-result-eyebrow]").textContent = passed ? "Volume validé" : "Objectif non atteint";
         result.querySelector("[data-quiz-result-title]").textContent = passed ? "Bravo, votre parcours continue." : "Encore un effort pour débloquer la suite.";
+        const hasNextVolume = Boolean(quizForm.dataset.nextVolumeTitle);
         result.querySelector("[data-quiz-result-message]").textContent = passed
           ? score === 10
-            ? "Maîtrise parfaite : toutes les réponses sont correctes. Le volume suivant est maintenant accessible."
-            : `Vous obtenez ${score}/10. Le seuil est atteint et le volume suivant est maintenant accessible.`
+            ? hasNextVolume
+              ? "Maîtrise parfaite : toutes les réponses sont correctes. Le volume suivant est maintenant accessible."
+              : "Maîtrise parfaite : toutes les réponses sont correctes et ce volume est validé."
+            : hasNextVolume
+              ? `Vous obtenez ${score}/10. Le seuil est atteint et le volume suivant est maintenant accessible.`
+              : `Vous obtenez ${score}/10. Le seuil est atteint et ce volume est validé.`
           : `Vous obtenez ${score}/10. Consultez les explications puis recommencez : il faut au moins 8/10 pour poursuivre.`;
         const nextVolumeLink = result.querySelector("[data-quiz-next-volume]");
         if (nextVolumeLink) {
@@ -357,11 +368,23 @@
       updateQuizView();
     });
 
-    result?.querySelector("[data-quiz-retry]")?.addEventListener("click", () => {
+    result?.querySelector("[data-quiz-review]")?.addEventListener("click", () => {
+      quizWorkspace?.classList.remove("is-result-mode");
+      quizWorkspace?.classList.add("is-review-mode");
+      result.hidden = true;
+      quizForm.hidden = false;
+      currentQuestion = 0;
+      updateQuizView();
+      questions[0]?.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "center" });
+    });
+
+    function resetQuiz() {
       reviewed = false;
       currentQuestion = 0;
       quizForm.reset();
+      quizForm.hidden = false;
       quizForm.classList.remove("is-reviewed");
+      quizWorkspace?.classList.remove("is-result-mode", "is-review-mode");
       questions.forEach((question) => {
         question.classList.remove("is-correct", "is-incorrect");
         question.querySelectorAll(".quiz-options label").forEach((label) => label.classList.remove("is-correct-answer", "is-wrong-answer"));
@@ -371,7 +394,10 @@
       result.hidden = true;
       updateQuizView();
       questions[0]?.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "center" });
-    });
+    }
+
+    result?.querySelector("[data-quiz-retry]")?.addEventListener("click", resetQuiz);
+    restartInlineButton?.addEventListener("click", resetQuiz);
 
     updateQuizView();
   });

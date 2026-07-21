@@ -539,12 +539,13 @@ function renderQuiz(volume, quiz, volumes) {
         <button class="button button--secondary quiz-previous" type="button" data-quiz-previous disabled><span aria-hidden="true">←</span> Précédente</button>
         <button class="button button--primary quiz-next" type="button" data-quiz-next>Question suivante <span aria-hidden="true">→</span></button>
         <button class="button button--primary quiz-submit" type="submit" data-quiz-submit hidden>Valider mes réponses <span aria-hidden="true">✓</span></button>
+        <button class="button button--secondary quiz-restart-inline" type="button" data-quiz-restart-inline hidden><span aria-hidden="true">↻</span> Recommencer le QCM</button>
       </div>
       <p class="quiz-navigation__help" data-quiz-help role="status" aria-live="polite">Choisissez une réponse pour poursuivre.</p>
     </form>
     <section class="quiz-result" data-quiz-result hidden tabindex="-1" aria-live="polite">
-      <div class="quiz-result__score"><span data-quiz-result-score>0</span><small>/ 10</small></div>
-      <div><p class="eyebrow" data-quiz-result-eyebrow>Résultat</p><h2 data-quiz-result-title></h2><p data-quiz-result-message></p><div class="quiz-result__actions"><a class="button button--primary" data-quiz-next-volume href="${nextVolume ? escapeHtml(sitePath(`/volumes/${nextVolume.metadata.slug}/`)) : escapeHtml(sitePath("/volumes/"))}"></a><button class="button button--secondary" type="button" data-quiz-retry>Revoir le QCM</button></div></div>
+      <div class="quiz-result__visual"><div class="quiz-result__score"><span data-quiz-result-score>0</span><small>/ 10</small></div><p><span>Seuil de validation</span><strong>8 bonnes réponses</strong></p></div>
+      <div class="quiz-result__content"><p class="eyebrow" data-quiz-result-eyebrow>Résultat</p><h2 data-quiz-result-title></h2><p data-quiz-result-message></p><div class="quiz-result__actions"><a class="button button--primary" data-quiz-next-volume href="${nextVolume ? escapeHtml(sitePath(`/volumes/${nextVolume.metadata.slug}/`)) : escapeHtml(sitePath("/volumes/"))}"></a><button class="button button--secondary" type="button" data-quiz-review>Voir mes corrections</button><button class="button button--restart" type="button" data-quiz-retry><span aria-hidden="true">↻</span> Recommencer le QCM</button></div></div>
     </section>
   </section>`;
 }

@@ -92,7 +92,22 @@ test("every volume has a ten-question exercise tab and an enriching correction",
     assert.equal((html.match(/class="quiz-question"/g) || []).length, 10, slug);
     assert.equal((html.match(/data-quiz-feedback/g) || []).length, 20, slug);
     assert.ok(html.includes("8/10"), slug);
+    assert.ok(html.includes("data-quiz-review"), slug);
+    assert.ok(html.includes("data-quiz-retry"), slug);
+    assert.ok(html.includes("data-quiz-restart-inline"), slug);
+    assert.ok(html.includes("Recommencer le QCM"), slug);
   }
+});
+
+test("quiz results use a dedicated responsive screen and can be restarted", async () => {
+  const client = await readFile(path.join(DIST, "assets", "client.js"), "utf8");
+  const styles = await readFile(path.join(DIST, "assets", "styles.css"), "utf8");
+  assert.ok(client.includes("quizForm.hidden = true"));
+  assert.ok(client.includes("function resetQuiz()"));
+  assert.ok(client.includes('querySelector("[data-quiz-review]")'));
+  assert.match(styles, /\.quiz-workspace\.is-result-mode/);
+  assert.match(styles, /\.quiz-result\s*\{[^}]*width:\s*min\(52rem,/s);
+  assert.match(styles, /@media \(max-width: 46rem\)[\s\S]*?\.quiz-result\s*\{[^}]*width:\s*calc\(100% - 1\.7rem\)/);
 });
 
 test("course progression requires eight correct answers while admin access bypasses locks", async () => {

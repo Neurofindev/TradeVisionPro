@@ -4,7 +4,7 @@
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const accessSessionKey = "tradevisionpro-access-session-v3";
   const accessProfiles = [
-    { id: "aedan-dechavigny", name: "Aedan Dechavigny", role: "learner", hash: "9c6e9172266f90a10de4d8cc2a767e9815488ae926d39ee68b1fab34091d4235" },
+    { id: "aedan-dechavigny", name: "Aedan De Chavigny", role: "learner", hash: "9c6e9172266f90a10de4d8cc2a767e9815488ae926d39ee68b1fab34091d4235" },
     { id: "yann", name: "Yann", role: "learner", hash: "e5af42e35c3fb1fe989dee4acf652b81ef0dc956753926d6b22b705d110b01fc" },
     { id: "charly-labbetoul", name: "Charly Labbetoul", role: "admin", hash: "4f8c5f5a97c0bbf84c176fda321365057b68cd8a135eaf003eae6584af3f77ba" },
   ];

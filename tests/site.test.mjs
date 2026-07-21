@@ -67,6 +67,8 @@ test("every page is protected by the access gate without exposing the code", asy
   const client = await readFile(path.join(DIST, "assets", "client.js"), "utf8");
   const styles = await readFile(path.join(DIST, "assets", "styles.css"), "utf8");
   assert.ok(client.includes("9c6e9172266f90a10de4d8cc2a767e9815488ae926d39ee68b1fab34091d4235"));
+  assert.ok(client.includes('name: "Aedan De Chavigny"'));
+  assert.ok(!client.includes("Aedan Dechavigny"));
   assert.ok(client.includes("e5af42e35c3fb1fe989dee4acf652b81ef0dc956753926d6b22b705d110b01fc"));
   assert.ok(client.includes("4f8c5f5a97c0bbf84c176fda321365057b68cd8a135eaf003eae6584af3f77ba"));
   assert.ok(client.includes('tradevisionpro-access-session-v3'));

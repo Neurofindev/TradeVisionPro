@@ -29,16 +29,18 @@
     "slug": "3-analyse-technique",
     "title": "L’analyse technique",
     "subtitle": "L’art du timing, un outil essentiel.",
-    "description": "Lire le contexte du marché, structurer les niveaux clés et comprendre le langage des bougies japonaises pour affiner le timing.",
+    "description": "Lire le contexte du marché, comprendre le langage des bougies japonaises et utiliser les indicateurs techniques pour affiner le timing.",
     "archetype": "technical_analysis",
-    "tags": ["analyse technique", "multi-timeframe", "timing", "unités de temps", "confluence", "supports", "résistances", "range", "tendances", "bougies japonaises", "chandeliers", "figures de retournement", "figures de continuation"],
+    "tags": ["analyse technique", "multi-timeframe", "timing", "unités de temps", "confluence", "supports", "résistances", "range", "tendances", "bougies japonaises", "chandeliers", "figures de retournement", "figures de continuation", "RSI", "MACD", "moyennes mobiles", "volume", "momentum"],
     "contentStartsImmediately": true,
     "firstParagraphHeadingLevel": 1,
     "supplementalContent": [
       "content/supplemental/3-analyse-technique-supports-resistances.json",
-      "content/supplemental/3-analyse-technique-partie-2-bougies-japonaises.json"
+      "content/supplemental/3-analyse-technique-partie-2-bougies-japonaises.json",
+      "content/supplemental/3-analyse-technique-partie-3-indicateurs-techniques.json"
     ],
-    "partSequenceComplete": false,
+    "partSequenceComplete": true,
+    "futureVolumeNumber": 4,
     "parts": [
       {
         "order": 1,
@@ -74,6 +76,27 @@
           "la-carte-mentale-des-figures",
           "du-dessin-a-la-decision",
           "sources-et-methode"
+        ]
+      },
+      {
+        "order": 3,
+        "id": "partie-3-indicateurs-techniques",
+        "startId": "mode-d-emploi-de-ce-volume",
+        "title": "Les indicateurs techniques",
+        "subtitle": "RSI · MACD · moyennes mobiles · volume",
+        "description": "Un indicateur ne prédit pas le marché : il transforme l’information déjà visible pour t’aider à mieux la lire.",
+        "tocIds": [
+          "mode-d-emploi-de-ce-volume",
+          "1-1-un-indicateur-est-une-transformation",
+          "2-1-definition-simple",
+          "3-1-ce-que-signifie-macd",
+          "4-1-principe",
+          "5-1-ce-que-mesure-le-volume",
+          "6-1-la-hierarchie-correcte",
+          "7-1-suivi-de-tendance",
+          "8-1-configuration-de-depart",
+          "9-1-ce-que-chaque-volume-apporte",
+          "sources-principales"
         ]
       }
     ],

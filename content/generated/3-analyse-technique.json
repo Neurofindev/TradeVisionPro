@@ -10,7 +10,7 @@
     "volumeNumber": 3,
     "title": "L’analyse technique",
     "subtitle": "L’art du timing, un outil essentiel.",
-    "description": "Lire le contexte du marché, structurer les niveaux clés et comprendre le langage des bougies japonaises pour affiner le timing.",
+    "description": "Lire le contexte du marché, comprendre le langage des bougies japonaises et utiliser les indicateurs techniques pour affiner le timing.",
     "edition": null,
     "format": null,
     "coverLines": [],
@@ -27,7 +27,12 @@
       "bougies japonaises",
       "chandeliers",
       "figures de retournement",
-      "figures de continuation"
+      "figures de continuation",
+      "RSI",
+      "MACD",
+      "moyennes mobiles",
+      "volume",
+      "momentum"
     ],
     "highlights": [
       {
@@ -82,18 +87,40 @@
           "du-dessin-a-la-decision",
           "sources-et-methode"
         ]
+      },
+      {
+        "order": 3,
+        "id": "partie-3-indicateurs-techniques",
+        "startId": "mode-d-emploi-de-ce-volume",
+        "title": "Les indicateurs techniques",
+        "subtitle": "RSI · MACD · moyennes mobiles · volume",
+        "description": "Un indicateur ne prédit pas le marché : il transforme l’information déjà visible pour t’aider à mieux la lire.",
+        "tocIds": [
+          "mode-d-emploi-de-ce-volume",
+          "1-1-un-indicateur-est-une-transformation",
+          "2-1-definition-simple",
+          "3-1-ce-que-signifie-macd",
+          "4-1-principe",
+          "5-1-ce-que-mesure-le-volume",
+          "6-1-la-hierarchie-correcte",
+          "7-1-suivi-de-tendance",
+          "8-1-configuration-de-depart",
+          "9-1-ce-que-chaque-volume-apporte",
+          "sources-principales"
+        ]
       }
     ],
-    "partSequenceComplete": false,
+    "partSequenceComplete": true,
+    "futureVolumeNumber": 4,
     "slug": "3-analyse-technique"
   },
   "archetype": "technical_analysis",
   "stats": {
-    "wordCount": 5676,
-    "readingMinutes": 26,
-    "chapterCount": 32,
+    "wordCount": 11943,
+    "readingMinutes": 54,
+    "chapterCount": 34,
     "dossierCount": 0,
-    "figureCount": 25
+    "figureCount": 30
   },
   "blocks": [
     {
@@ -3837,6 +3864,3362 @@
       "variant": "warning",
       "text": "Ce document est un support pédagogique. Il ne constitue ni un conseil d’investissement, ni une garantie de résultat.",
       "sourceFill": "FCEDED"
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "mode-d-emploi-de-ce-volume",
+      "text": "Mode d'emploi de ce volume"
+    },
+    {
+      "type": "paragraph",
+      "text": "Le volume 1 a posé les fondations : l'analyse fondamentale répond à « quoi acheter et pourquoi », l'analyse technique à « quand agir et où le scénario s'invalide », puis la gestion du risque décide combien engager. Le volume 2 a montré, avec des cas historiques, qu'une bonne idée peut être détruite par la fraude, le levier, l'illiquidité ou un financement fragile. Ce troisième volume se concentre sur quatre outils de lecture du prix et de la participation du marché.",
+      "segments": [
+        {
+          "text": "Le volume 1 a posé les fondations : l'analyse fondamentale répond à « quoi acheter et pourquoi », l'analyse technique à « quand agir et où le scénario s'invalide », puis la gestion du risque décide combien engager. Le volume 2 a montré, avec des cas historiques, qu'une bonne idée peut être détruite par la fraude, le levier, l'illiquidité ou un financement fragile. Ce troisième volume se concentre sur quatre outils de lecture du prix et de la participation du marché."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "FIL CONDUCTEUR",
+      "variant": "info",
+      "text": "Le prix reste l'information principale. La moyenne mobile décrit la tendance, le RSI et le MACD décrivent le momentum, et le volume mesure la participation. Aucun ne remplace le contexte, la structure du marché, un niveau d'invalidation ou la taille de position.",
+      "sourceFill": "EEF4FA"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "ce-que-tu-sauras-faire-a-la-fin",
+      "text": "Ce que tu sauras faire à la fin"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Reconnaître ce que mesure réellement chaque indicateur et ce qu'il ne mesure pas.",
+          "segments": [
+            {
+              "text": "Reconnaître ce que mesure réellement chaque indicateur et ce qu'il ne mesure pas."
+            }
+          ]
+        },
+        {
+          "text": "Reconnaître les réglages de départ : RSI 14, MACD 12-26-9, SMA/EMA et volume moyen, sans avoir à effectuer les calculs.",
+          "segments": [
+            {
+              "text": "Reconnaître les réglages de départ : RSI 14, MACD 12-26-9, SMA/EMA et volume moyen, sans avoir à effectuer les calculs."
+            }
+          ]
+        },
+        {
+          "text": "Lire les croisements, la ligne zéro, les zones 30/50/70 et la pente d'une moyenne.",
+          "segments": [
+            {
+              "text": "Lire les croisements, la ligne zéro, les zones 30/50/70 et la pente d'une moyenne."
+            }
+          ]
+        },
+        {
+          "text": "Repérer une divergence et utiliser avec prudence les niveaux tracés directement sur le RSI.",
+          "segments": [
+            {
+              "text": "Repérer une divergence et utiliser avec prudence les niveaux tracés directement sur le RSI."
+            }
+          ]
+        },
+        {
+          "text": "Interpréter une hausse ou une baisse en fonction du volume qui l'accompagne.",
+          "segments": [
+            {
+              "text": "Interpréter une hausse ou une baisse en fonction du volume qui l'accompagne."
+            }
+          ]
+        },
+        {
+          "text": "Combiner les quatre outils dans un ordre logique, sans chercher un signal magique.",
+          "segments": [
+            {
+              "text": "Combiner les quatre outils dans un ordre logique, sans chercher un signal magique."
+            }
+          ]
+        },
+        {
+          "text": "Éviter les erreurs fréquentes : vendre uniquement parce que le RSI dépasse 70, acheter chaque croisement MACD ou confondre corrélation et confirmation.",
+          "segments": [
+            {
+              "text": "Éviter les erreurs fréquentes : vendre uniquement parce que le RSI dépasse 70, acheter chaque croisement MACD ou confondre corrélation et confirmation."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "plan-du-cours",
+      "text": "Plan du cours"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Les bases : prix, unités de temps, familles d'indicateurs et retard.",
+          "segments": [
+            {
+              "text": "Les bases : prix, unités de temps, familles d'indicateurs et retard."
+            }
+          ]
+        },
+        {
+          "text": "Le RSI : vitesse du mouvement, surachat, survente, neutralité, niveaux et divergences.",
+          "segments": [
+            {
+              "text": "Le RSI : vitesse du mouvement, surachat, survente, neutralité, niveaux et divergences."
+            }
+          ]
+        },
+        {
+          "text": "Le MACD : lignes, histogramme, ligne zéro, zone neutre et divergences.",
+          "segments": [
+            {
+              "text": "Le MACD : lignes, histogramme, ligne zéro, zone neutre et divergences."
+            }
+          ]
+        },
+        {
+          "text": "Les moyennes mobiles : tendance, lissage, SMA, EMA et croisements.",
+          "segments": [
+            {
+              "text": "Les moyennes mobiles : tendance, lissage, SMA, EMA et croisements."
+            }
+          ]
+        },
+        {
+          "text": "Le volume : participation, validation, essoufflement et fausses cassures.",
+          "segments": [
+            {
+              "text": "Le volume : participation, validation, essoufflement et fausses cassures."
+            }
+          ]
+        },
+        {
+          "text": "La confluence : méthode complète de lecture et réglages TradingView.",
+          "segments": [
+            {
+              "text": "La confluence : méthode complète de lecture et réglages TradingView."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "AVERTISSEMENT",
+      "variant": "disclaimer",
+      "text": "Les graphiques illustrent une méthode d'analyse ; ils ne constituent ni une recommandation d'achat ou de vente, ni une promesse de performance. Les valeurs visibles sur les captures sont figées au 21 juillet 2026 et peuvent différer des cotations actuelles ou de celles de ton courtier.",
+      "sourceFill": "FCEDED"
+    },
+    {
+      "type": "paragraph",
+      "text": "CHAPITRE 1",
+      "segments": [
+        {
+          "text": "CHAPITRE 1",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Avant les indicateurs",
+      "segments": [
+        {
+          "text": "Avant les indicateurs",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Comprendre ce que l'on transforme avant d'interpréter le résultat.",
+      "segments": [
+        {
+          "text": "Comprendre ce que l'on transforme avant d'interpréter le résultat.",
+          "italic": true
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "1-1-un-indicateur-est-une-transformation",
+      "text": "1.1 Un indicateur est une transformation"
+    },
+    {
+      "type": "paragraph",
+      "text": "Le RSI, le MACD et les moyennes mobiles sont calculés à partir de prix déjà enregistrés. Le volume est une donnée de marché distincte, mais son interprétation dépend elle aussi du prix et du contexte. Un indicateur ne voit donc pas le futur : il résume, lisse ou compare le passé récent pour rendre une information plus lisible.",
+      "segments": [
+        {
+          "text": "Le RSI, le MACD et les moyennes mobiles sont calculés à partir de prix déjà enregistrés. Le volume est une donnée de marché distincte, mais son interprétation dépend elle aussi du prix et du contexte. Un indicateur ne voit donc pas le futur : il résume, lisse ou compare le passé récent pour rendre une information plus lisible."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "IMAGE MENTALE",
+      "variant": "principle",
+      "text": "Le prix est la route devant toi. Les indicateurs ressemblent au compteur, au compte-tours et aux rétroviseurs. Ils améliorent ta conduite, mais aucun ne t'indique avec certitude ce qu'il y aura après le prochain virage.",
+      "sourceFill": "FFF7DD"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "1-2-une-periode-n-est-pas-toujours-un-jour",
+      "text": "1.2 Une période n'est pas toujours un jour"
+    },
+    {
+      "type": "paragraph",
+      "text": "Le mot « période » signifie une bougie. Sur un graphique journalier, une moyenne mobile 20 utilise 20 séances. Sur un graphique en une heure, elle utilise 20 bougies d'une heure. Sur un graphique hebdomadaire, elle utilise 20 semaines. Le même réglage numérique peut donc décrire des horizons très différents.",
+      "segments": [
+        {
+          "text": "Le mot « période » signifie une bougie. Sur un graphique journalier, une moyenne mobile 20 utilise 20 séances. Sur un graphique en une heure, elle utilise 20 bougies d'une heure. Sur un graphique hebdomadaire, elle utilise 20 semaines. Le même réglage numérique peut donc décrire des horizons très différents."
+        }
+      ]
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Réglage",
+        "Graphique 1 h",
+        "Graphique journalier",
+        "Graphique hebdomadaire"
+      ],
+      "rows": [
+        [
+          "14 périodes",
+          "14 heures de marché",
+          "14 séances",
+          "14 semaines"
+        ],
+        [
+          "50 périodes",
+          "50 heures de marché",
+          "50 séances",
+          "50 semaines"
+        ],
+        [
+          "200 périodes",
+          "200 heures de marché",
+          "200 séances",
+          "200 semaines"
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "1-3-trois-familles-a-distinguer",
+      "text": "1.3 Trois familles à distinguer"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Famille",
+        "Question principale",
+        "Outils du cours",
+        "Faiblesse typique"
+      ],
+      "rows": [
+        [
+          "Tendance",
+          "Dans quelle direction le marché se déplace-t-il ?",
+          "Moyennes mobiles",
+          "Réagit après le prix"
+        ],
+        [
+          "Momentum",
+          "Le mouvement accélère-t-il ou ralentit-il ?",
+          "RSI et MACD",
+          "Faux signaux en range ou tendance forte"
+        ],
+        [
+          "Participation",
+          "Le mouvement attire-t-il beaucoup d'échanges ?",
+          "Volume",
+          "Comparaison délicate entre marchés"
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "RÈGLE DE PRIORITÉ",
+      "variant": "warning",
+      "text": "Structure du prix d'abord ; indicateur ensuite. Si le graphique forme des sommets et creux descendants, un croisement haussier isolé du MACD ne transforme pas automatiquement la tendance en hausse.",
+      "sourceFill": "FCEDED"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "1-4-pourquoi-les-indicateurs-donnent-parfois-des-signaux-opposes",
+      "text": "1.4 Pourquoi les indicateurs donnent parfois des signaux opposés"
+    },
+    {
+      "type": "paragraph",
+      "text": "Ils n'observent pas exactement la même chose ni la même vitesse. Une SMA 200 peut rester haussière alors que le RSI 14 chute sous 50 pendant une correction. Ce n'est pas une contradiction : la première décrit la tendance de fond, le second la faiblesse du mouvement récent. La bonne question n'est donc pas « lequel a raison ? », mais « quel horizon et quelle information chacun représente-t-il ? »",
+      "segments": [
+        {
+          "text": "Ils n'observent pas exactement la même chose ni la même vitesse. Une SMA 200 peut rester haussière alors que le RSI 14 chute sous 50 pendant une correction. Ce n'est pas une contradiction : la première décrit la tendance de fond, le second la faiblesse du mouvement récent. La bonne question n'est donc pas « lequel a raison ? », mais « quel horizon et quelle information chacun représente-t-il ? »"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "1-5-la-question-a-poser-a-chaque-outil",
+      "text": "1.5 La question à poser à chaque outil"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Outil",
+        "Question simple",
+        "Ce qu'il ne peut pas décider seul"
+      ],
+      "rows": [
+        [
+          "Prix",
+          "Où sont la tendance et les niveaux importants ?",
+          "Le risque que tu acceptes"
+        ],
+        [
+          "Moyenne mobile",
+          "La direction moyenne monte-t-elle, baisse-t-elle ou reste-t-elle plate ?",
+          "Le moment exact d'un retournement"
+        ],
+        [
+          "RSI et MACD",
+          "Le mouvement gagne-t-il ou perd-il de la force ?",
+          "L'achat ou la vente automatique"
+        ],
+        [
+          "Volume",
+          "La participation est-elle normale ou inhabituelle ?",
+          "La direction de la prochaine bougie"
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "CHAPITRE 2",
+      "segments": [
+        {
+          "text": "CHAPITRE 2",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Le RSI",
+      "segments": [
+        {
+          "text": "Le RSI",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Un oscillateur de momentum : il mesure la vitesse et l'intensité des variations récentes.",
+      "segments": [
+        {
+          "text": "Un oscillateur de momentum : il mesure la vitesse et l'intensité des variations récentes.",
+          "italic": true
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "2-1-definition-simple",
+      "text": "2.1 Définition simple"
+    },
+    {
+      "type": "paragraph",
+      "text": "RSI signifie Relative Strength Index. Il compare la taille moyenne des hausses récentes à celle des baisses récentes. Sa valeur est bornée entre 0 et 100. Plus les gains récents dominent, plus le RSI monte ; plus les pertes récentes dominent, plus il baisse. Sur TradingView, la longueur par défaut est 14 périodes.",
+      "segments": [
+        {
+          "text": "RSI signifie Relative Strength Index. Il compare la taille moyenne des hausses récentes à celle des baisses récentes. Sa valeur est bornée entre 0 et 100. Plus les gains récents dominent, plus le RSI monte ; plus les pertes récentes dominent, plus il baisse. Sur TradingView, la longueur par défaut est 14 périodes."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "À NE PAS CONFONDRE",
+      "variant": "default",
+      "text": "Le RSI ne compare pas NVIDIA à une autre action. Le mot « relative » désigne ici la relation entre les gains et les pertes du même actif sur la fenêtre observée.",
+      "sourceFill": "F5ECFA"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "2-2-comment-il-fonctionne-sans-calcul",
+      "text": "2.2 Comment il fonctionne — sans calcul"
+    },
+    {
+      "type": "paragraph",
+      "text": "Imagine que TradingView observe les 14 dernières bougies. Il regarde si les hausses ont été, dans l'ensemble, plus fortes que les baisses. Si les acheteurs dominent nettement, la courbe du RSI se rapproche du haut de son cadre. Si les vendeurs dominent, elle se rapproche du bas. La plateforme effectue et lisse le calcul automatiquement.",
+      "segments": [
+        {
+          "text": "Imagine que TradingView observe les 14 dernières bougies. Il regarde si les hausses ont été, dans l'ensemble, plus fortes que les baisses. Si les acheteurs dominent nettement, la courbe du RSI se rapproche du haut de son cadre. Si les vendeurs dominent, elle se rapproche du bas. La plateforme effectue et lisse le calcul automatiquement."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "CE QU'IL FAUT RETENIR",
+      "variant": "default",
+      "text": "Tu n'as pas besoin de calculer le RSI pour bien l'utiliser. Tu dois surtout comprendre qu'il compare la force récente des hausses à celle des baisses et qu'il réagit plus vite que la tendance de fond.",
+      "sourceFill": "F5ECFA"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "2-3-les-zones-classiques",
+      "text": "2.3 Les zones classiques"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Zone",
+        "Lecture de départ",
+        "Interprétation prudente"
+      ],
+      "rows": [
+        [
+          "70 à 100",
+          "Momentum haussier très fort / surachat",
+          "Une hausse peut continuer longtemps ; attendre le prix avant de conclure à un sommet."
+        ],
+        [
+          "55 à 70",
+          "Momentum plutôt haussier",
+          "Les hausses récentes dominent, sans être encore dans la zone extrême."
+        ],
+        [
+          "45 à 55",
+          "Équilibre relatif",
+          "Zone neutre pratique autour de 50 : aucun avantage clair en elle-même."
+        ],
+        [
+          "30 à 45",
+          "Momentum plutôt baissier",
+          "Les baisses récentes dominent, sans être encore dans la zone extrême."
+        ],
+        [
+          "0 à 30",
+          "Momentum baissier très fort / survente",
+          "Une baisse peut continuer ; attendre une réaction du prix avant d'acheter."
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "ERREUR CLASSIQUE",
+      "variant": "warning",
+      "text": "RSI supérieur à 70 ne signifie pas « le prix doit baisser maintenant ». Il signifie d'abord que le mouvement haussier récent est puissant ou étiré. Dans une tendance forte, le RSI peut rester au-dessus de 70 pendant plusieurs bougies.",
+      "sourceFill": "FCEDED"
+    },
+    {
+      "type": "callout",
+      "label": "À PROPOS DE LA ZONE NEUTRE",
+      "variant": "note",
+      "text": "Le niveau 50 est la référence centrale. La bande 45-55 est une convention pédagogique, pas une frontière universelle : elle aide simplement à reconnaître un momentum hésitant.",
+      "sourceFill": "F4F6F9"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "2-4-quatre-lectures-utiles",
+      "text": "2.4 Quatre lectures utiles"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Passage de 50. Un franchissement durable au-dessus de 50 signale une amélioration du momentum ; sous 50, une dégradation.",
+          "segments": [
+            {
+              "text": "Passage de 50. ",
+              "bold": true
+            },
+            {
+              "text": "Un franchissement durable au-dessus de 50 signale une amélioration du momentum ; sous 50, une dégradation."
+            }
+          ]
+        },
+        {
+          "text": "Sortie d'une zone extrême. Le retour sous 70 ou au-dessus de 30 est souvent plus informatif que l'entrée dans la zone, mais il doit être confirmé par le prix.",
+          "segments": [
+            {
+              "text": "Sortie d'une zone extrême. ",
+              "bold": true
+            },
+            {
+              "text": "Le retour sous 70 ou au-dessus de 30 est souvent plus informatif que l'entrée dans la zone, mais il doit être confirmé par le prix."
+            }
+          ]
+        },
+        {
+          "text": "Régime de tendance. En hausse, le RSI travaille souvent entre environ 40 et 80 ; en baisse, il évolue plus souvent entre environ 20 et 60.",
+          "segments": [
+            {
+              "text": "Régime de tendance. ",
+              "bold": true
+            },
+            {
+              "text": "En hausse, le RSI travaille souvent entre environ 40 et 80 ; en baisse, il évolue plus souvent entre environ 20 et 60."
+            }
+          ]
+        },
+        {
+          "text": "Divergence. Une divergence apparaît lorsque le prix et le RSI n'impriment pas la même direction de sommets ou de creux. Elle indique un ralentissement potentiel, pas un retournement garanti.",
+          "segments": [
+            {
+              "text": "Divergence. ",
+              "bold": true
+            },
+            {
+              "text": "Une divergence apparaît lorsque le prix et le RSI n'impriment pas la même direction de sommets ou de creux. Elle indique un ralentissement potentiel, pas un retournement garanti."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "lecture-express-du-rsi",
+      "text": "Lecture express du RSI"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Étape",
+        "Question"
+      ],
+      "rows": [
+        [
+          "1. Contexte",
+          "Le prix est-il en tendance ou dans un range ?"
+        ],
+        [
+          "2. Zone",
+          "Le RSI est-il proche de 30, de 50 ou de 70 ?"
+        ],
+        [
+          "3. Direction",
+          "La courbe du RSI monte-t-elle ou baisse-t-elle ?"
+        ],
+        [
+          "4. Confirmation",
+          "Le prix réagit-il réellement sur un niveau important ?"
+        ]
+      ],
+      "links": [
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "2-5-graphique-tradingview-lecture-guidee",
+      "text": "2.5 Graphique TradingView — lecture guidée"
+    },
+    {
+      "type": "figure",
+      "src": "/media/3-analyse-technique/3-analyse-technique-indicateurs-techniques-2221390493b7.webp",
+      "originalName": "image1.jpg",
+      "width": 1363,
+      "height": 936,
+      "optimized": true,
+      "caption": "Figure 1 — NVIDIA, bougies journalières et RSI 14. Capture TradingView du 21 juillet 2026.",
+      "source": "TradingView — graphique NVDA (NASDAQ) · TradingView — Relative Strength Index (RSI)",
+      "sourceLinks": [
+        "https://www.tradingview.com/chart/?symbol=NASDAQ%3ANVDA",
+        "https://www.tradingview.com/support/solutions/43000502338-relative-strength-index-rsi/"
+      ],
+      "alt": "NVIDIA, bougies journalières et RSI 14. Capture TradingView du 21 juillet 2026."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "ce-que-montre-le-graphique",
+      "text": "Ce que montre le graphique"
+    },
+    {
+      "type": "paragraph",
+      "text": "À la fin d'avril puis en mai, le RSI franchit 70 alors que le cours poursuit encore sa progression et inscrit de nouveaux sommets. Le premier enseignement est essentiel : la zone de surachat décrit un momentum très fort ; elle ne donne pas la date exacte du sommet.",
+      "segments": [
+        {
+          "text": "À la fin d'avril puis en mai, le RSI franchit 70 alors que le cours poursuit encore sa progression et inscrit de nouveaux sommets. Le premier enseignement est essentiel : la zone de surachat décrit un momentum très fort ; elle ne donne pas la date exacte du sommet."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Lorsque le cours commence ensuite à corriger, le RSI redescend sous 50. Fin juin et début juillet, il se rapproche de la zone 40 puis remonte avec le rebond du prix. Sur la dernière bougie de la capture, il se situe autour de 51 : le momentum est redevenu presque neutre, ce qui ne suffit pas à trancher entre reprise et consolidation.",
+      "segments": [
+        {
+          "text": "Lorsque le cours commence ensuite à corriger, le RSI redescend sous 50. Fin juin et début juillet, il se rapproche de la zone 40 puis remonte avec le rebond du prix. Sur la dernière bougie de la capture, il se situe autour de 51 : le momentum est redevenu presque neutre, ce qui ne suffit pas à trancher entre reprise et consolidation."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "LECTURE CORRECTE",
+      "variant": "summary",
+      "text": "Le RSI pose une question : « le mouvement récent gagne-t-il ou perd-il de la force ? » Il ne répond pas seul à « dois-je acheter maintenant ? ». Pour agir, on cherche un niveau de prix, une structure et une invalidation.",
+      "sourceFill": "EAF6EF"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "2-6-les-divergences-sans-mystere",
+      "text": "2.6 Les divergences sans mystère"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Type",
+        "Prix",
+        "RSI",
+        "Message possible",
+        "Confirmation recherchée"
+      ],
+      "rows": [
+        [
+          "Haussière",
+          "Nouveau creux plus bas",
+          "Creux plus haut",
+          "La pression baissière ralentit",
+          "Cassure d'un sommet local / reprise d'un support"
+        ],
+        [
+          "Baissière",
+          "Nouveau sommet plus haut",
+          "Sommet plus bas",
+          "La poussée haussière ralentit",
+          "Rupture d'un creux local / rejet d'une résistance"
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "ATTENTION",
+      "variant": "warning",
+      "text": "Une divergence peut durer et se répéter pendant que le prix continue dans sa tendance. Elle est un avertissement de momentum, pas un ordre automatique de prendre la position opposée.",
+      "sourceFill": "FCEDED"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "2-7-reperer-une-divergence-en-quatre-etapes",
+      "text": "2.7 Repérer une divergence en quatre étapes"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Repère deux sommets ou deux creux clairement visibles sur le prix.",
+          "segments": [
+            {
+              "text": "Repère deux sommets ou deux creux clairement visibles sur le prix."
+            }
+          ]
+        },
+        {
+          "text": "Compare uniquement les points du RSI qui correspondent aux mêmes dates.",
+          "segments": [
+            {
+              "text": "Compare uniquement les points du RSI qui correspondent aux mêmes dates."
+            }
+          ]
+        },
+        {
+          "text": "Vérifie si le prix progresse alors que le RSI faiblit, ou si le prix baisse alors que le RSI remonte.",
+          "segments": [
+            {
+              "text": "Vérifie si le prix progresse alors que le RSI faiblit, ou si le prix baisse alors que le RSI remonte."
+            }
+          ]
+        },
+        {
+          "text": "Attends une confirmation du prix : rejet d'une résistance, reprise d'un support ou cassure d'une petite structure.",
+          "segments": [
+            {
+              "text": "Attends une confirmation du prix : rejet d'une résistance, reprise d'un support ou cassure d'une petite structure."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "2-8-reglages-adaptes-au-debutant",
+      "text": "2.8 Réglages adaptés au débutant"
+    },
+    {
+      "type": "paragraph",
+      "text": "Commence avec RSI 14, source clôture, seuils 30, 50 et 70. Garde ce réglage pendant ton apprentissage afin de comparer des situations similaires. Modifier constamment la longueur rend la lecture confuse et peut donner l'illusion qu'un réglage historique parfait fonctionnera aussi dans le futur.",
+      "segments": [
+        {
+          "text": "Commence avec RSI 14, source clôture, seuils 30, 50 et 70. Garde ce réglage pendant ton apprentissage afin de comparer des situations similaires. Modifier constamment la longueur rend la lecture confuse et peut donner l'illusion qu'un réglage historique parfait fonctionnera aussi dans le futur."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "2-9-supports-resistances-et-obliques-sur-le-rsi",
+      "text": "2.9 Supports, résistances et obliques sur le RSI"
+    },
+    {
+      "type": "paragraph",
+      "text": "Il est possible de tracer directement sur le RSI une zone horizontale où sa courbe a rebondi plusieurs fois, ou une oblique reliant plusieurs creux ou plusieurs sommets. Sur la figure 1, la zone proche de 40-45 a plusieurs fois ralenti les replis du RSI. Elle peut donc servir de repère pour cette période précise.",
+      "segments": [
+        {
+          "text": "Il est possible de tracer directement sur le RSI une zone horizontale où sa courbe a rebondi plusieurs fois, ou une oblique reliant plusieurs creux ou plusieurs sommets. Sur la figure 1, la zone proche de 40-45 a plusieurs fois ralenti les replis du RSI. Elle peut donc servir de repère pour cette période précise."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Ce niveau n'est pourtant pas un support du prix et il n'est pas valable pour toujours. Une cassure de l'oblique du RSI indique d'abord un changement de momentum. Pour envisager une position, vérifie ensuite ce que fait le prix sur ses propres supports, résistances, sommets et creux.",
+      "segments": [
+        {
+          "text": "Ce niveau n'est pourtant pas un support du prix et il n'est pas valable pour toujours. Une cassure de l'oblique du RSI indique d'abord un changement de momentum. Pour envisager une position, vérifie ensuite ce que fait le prix sur ses propres supports, résistances, sommets et creux."
+        }
+      ]
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Tracé sur le RSI",
+        "Ce qu'il peut signaler",
+        "Ce qu'il ne prouve pas"
+      ],
+      "rows": [
+        [
+          "Niveau horizontal",
+          "Réaction répétée du momentum dans la période étudiée",
+          "Un support ou une résistance identique sur le prix"
+        ],
+        [
+          "Oblique",
+          "Accélération ou ralentissement progressif du momentum",
+          "Un retournement automatique après la cassure"
+        ],
+        [
+          "Seuils 30, 50 et 70",
+          "Survente, équilibre central et surachat",
+          "Un point d'entrée ou de sortie suffisant"
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "CHAPITRE 3",
+      "segments": [
+        {
+          "text": "CHAPITRE 3",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Le MACD",
+      "segments": [
+        {
+          "text": "Le MACD",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "La rencontre entre tendance et momentum : deux moyennes, une ligne de signal et un histogramme.",
+      "segments": [
+        {
+          "text": "La rencontre entre tendance et momentum : deux moyennes, une ligne de signal et un histogramme.",
+          "italic": true
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "3-1-ce-que-signifie-macd",
+      "text": "3.1 Ce que signifie MACD"
+    },
+    {
+      "type": "paragraph",
+      "text": "MACD signifie Moving Average Convergence Divergence. L'indicateur compare une moyenne rapide à une moyenne plus lente. Lorsque la rapide s'éloigne au-dessus de la lente, le momentum haussier augmente ; lorsqu'elle passe en dessous, le momentum baissier domine. Contrairement au RSI, le MACD n'est pas borné entre 0 et 100.",
+      "segments": [
+        {
+          "text": "MACD signifie Moving Average Convergence Divergence. L'indicateur compare une moyenne rapide à une moyenne plus lente. Lorsque la rapide s'éloigne au-dessus de la lente, le momentum haussier augmente ; lorsqu'elle passe en dessous, le momentum baissier domine. Contrairement au RSI, le MACD n'est pas borné entre 0 et 100."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "3-2-les-trois-elements",
+      "text": "3.2 Les trois éléments"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Élément",
+        "Image mentale",
+        "Lecture simple"
+      ],
+      "rows": [
+        [
+          "Ligne MACD",
+          "Le mouvement rapide comparé au mouvement plus lent",
+          "Elle monte quand le momentum s'améliore et baisse lorsqu'il se détériore."
+        ],
+        [
+          "Ligne de signal",
+          "Une version plus douce de la ligne MACD",
+          "Elle sert de repère pour observer les croisements."
+        ],
+        [
+          "Histogramme",
+          "La distance entre les deux lignes",
+          "De grandes barres montrent un écart qui s'accentue ; de petites barres un écart qui se referme."
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "AUCUN CALCUL NÉCESSAIRE",
+      "variant": "info",
+      "text": "TradingView construit automatiquement les trois éléments. Pour débuter, observe seulement la position des lignes, leur pente, leur rapport à zéro et l'agrandissement ou le rétrécissement des barres.",
+      "sourceFill": "EEF4FA"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "3-3-comment-lire-le-macd",
+      "text": "3.3 Comment lire le MACD"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Croisement haussier. La ligne MACD passe au-dessus de la ligne de signal : le momentum récent s'améliore.",
+          "segments": [
+            {
+              "text": "Croisement haussier. ",
+              "bold": true
+            },
+            {
+              "text": "La ligne MACD passe au-dessus de la ligne de signal : le momentum récent s'améliore."
+            }
+          ]
+        },
+        {
+          "text": "Croisement baissier. La ligne MACD passe sous la ligne de signal : le momentum récent se détériore.",
+          "segments": [
+            {
+              "text": "Croisement baissier. ",
+              "bold": true
+            },
+            {
+              "text": "La ligne MACD passe sous la ligne de signal : le momentum récent se détériore."
+            }
+          ]
+        },
+        {
+          "text": "Passage de zéro. Le passage au-dessus de zéro signifie que la moyenne rapide dépasse la lente ; sous zéro, l'inverse.",
+          "segments": [
+            {
+              "text": "Passage de zéro. ",
+              "bold": true
+            },
+            {
+              "text": "Le passage au-dessus de zéro signifie que la moyenne rapide dépasse la lente ; sous zéro, l'inverse."
+            }
+          ]
+        },
+        {
+          "text": "Expansion de l'histogramme. Les deux lignes s'éloignent : le momentum accélère dans la direction indiquée.",
+          "segments": [
+            {
+              "text": "Expansion de l'histogramme. ",
+              "bold": true
+            },
+            {
+              "text": "Les deux lignes s'éloignent : le momentum accélère dans la direction indiquée."
+            }
+          ]
+        },
+        {
+          "text": "Contraction de l'histogramme. Les lignes se rapprochent : le mouvement perd de la vitesse, même si le prix continue encore.",
+          "segments": [
+            {
+              "text": "Contraction de l'histogramme. ",
+              "bold": true
+            },
+            {
+              "text": "Les lignes se rapprochent : le mouvement perd de la vitesse, même si le prix continue encore."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "POINT IMPORTANT",
+      "variant": "info",
+      "text": "Un croisement situé loin au-dessus de zéro n'a pas la même signification qu'un croisement juste après une longue baisse. Le premier peut signaler un simple ralentissement dans une tendance encore haussière ; le second peut marquer le début d'une reconstruction, mais nécessite toujours une confirmation du prix.",
+      "sourceFill": "EEF4FA"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "3-4-ligne-zero-et-zone-de-neutralite",
+      "text": "3.4 Ligne zéro et zone de neutralité"
+    },
+    {
+      "type": "paragraph",
+      "text": "La ligne zéro est le centre du MACD. Au-dessus, le mouvement récent est généralement plus fort que le mouvement plus lent ; en dessous, il est généralement plus faible. Le passage de zéro est utile pour situer le régime du momentum, mais il arrive souvent après le début du mouvement.",
+      "segments": [
+        {
+          "text": "La ligne zéro est le centre du MACD. Au-dessus, le mouvement récent est généralement plus fort que le mouvement plus lent ; en dessous, il est généralement plus faible. Le passage de zéro est utile pour situer le régime du momentum, mais il arrive souvent après le début du mouvement."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Le MACD ne possède pas une zone neutre chiffrée comparable à la bande 45-55 du RSI. On parle plutôt d'un état neutre lorsque les deux lignes restent proches de zéro, presque plates, et que les barres de l'histogramme sont courtes. Dans cet état, les acheteurs et les vendeurs n'imposent pas une accélération claire.",
+      "segments": [
+        {
+          "text": "Le MACD ne possède pas une zone neutre chiffrée comparable à la bande 45-55 du RSI. On parle plutôt d'un état neutre lorsque les deux lignes restent proches de zéro, presque plates, et que les barres de l'histogramme sont courtes. Dans cet état, les acheteurs et les vendeurs n'imposent pas une accélération claire."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "SIGNAL DE PRUDENCE",
+      "variant": "warning",
+      "text": "Des croisements répétés autour de zéro avec de petites barres indiquent souvent un marché sans direction. Ce n'est pas une invitation à multiplier les trades : attendre une cassure du prix est généralement plus prudent.",
+      "sourceFill": "FCEDED"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "3-5-supports-et-resistances-sur-le-macd",
+      "text": "3.5 Supports et résistances sur le MACD"
+    },
+    {
+      "type": "paragraph",
+      "text": "Tracer des supports et résistances classiques sur le MACD est moins pertinent que sur le prix ou le RSI. Son échelle change avec le niveau de prix et la volatilité de l'actif : un ancien sommet du MACD n'est donc pas une barrière stable. On peut comparer ses sommets et ses creux, ou tracer une oblique pour observer le momentum, mais pas traiter cette ligne comme un niveau d'achat ou de vente autonome.",
+      "segments": [
+        {
+          "text": "Tracer des supports et résistances classiques sur le MACD est moins pertinent que sur le prix ou le RSI. Son échelle change avec le niveau de prix et la volatilité de l'actif : un ancien sommet du MACD n'est donc pas une barrière stable. On peut comparer ses sommets et ses creux, ou tracer une oblique pour observer le momentum, mais pas traiter cette ligne comme un niveau d'achat ou de vente autonome."
+        }
+      ]
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Repère",
+        "Utilité",
+        "Erreur à éviter"
+      ],
+      "rows": [
+        [
+          "Ligne zéro",
+          "Référence centrale du momentum",
+          "La considérer comme un support exact du prix"
+        ],
+        [
+          "Sommets et creux MACD",
+          "Comparer la force de deux impulsions",
+          "Copier leur valeur sur un autre actif"
+        ],
+        [
+          "Oblique sur le MACD",
+          "Repérer un changement de pente",
+          "Entrer sans confirmation de la structure du prix"
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "3-6-pourquoi-le-macd-arrive-parfois-trop-tard",
+      "text": "3.6 Pourquoi le MACD arrive parfois trop tard"
+    },
+    {
+      "type": "paragraph",
+      "text": "Le MACD est calculé à partir de moyennes mobiles, qui lissent elles-mêmes des prix passés. Il est donc naturellement retardé. Dans une tendance régulière, ce retard aide à filtrer le bruit. Dans un range étroit et nerveux, les lignes se croisent fréquemment et peuvent produire une série de faux départs.",
+      "segments": [
+        {
+          "text": "Le MACD est calculé à partir de moyennes mobiles, qui lissent elles-mêmes des prix passés. Il est donc naturellement retardé. Dans une tendance régulière, ce retard aide à filtrer le bruit. Dans un range étroit et nerveux, les lignes se croisent fréquemment et peuvent produire une série de faux départs."
+        }
+      ]
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Contexte",
+        "Forces du MACD",
+        "Risque principal"
+      ],
+      "rows": [
+        [
+          "Tendance claire",
+          "Suit l'accélération et les ralentissements",
+          "Entrée après une partie du mouvement"
+        ],
+        [
+          "Retournement progressif",
+          "Montre l'amélioration du momentum",
+          "Le prix peut rechuter avant confirmation"
+        ],
+        [
+          "Range étroit",
+          "Peu d'avantage",
+          "Croisements successifs et pertes répétées"
+        ],
+        [
+          "Choc de nouvelle",
+          "Visualise rapidement l'écart des moyennes",
+          "Signal obtenu après le gap ou la grande bougie"
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "3-7-divergence-macd",
+      "text": "3.7 Divergence MACD"
+    },
+    {
+      "type": "paragraph",
+      "text": "Comme le RSI, le MACD peut diverger du prix. Un sommet de prix plus haut accompagné d'un sommet MACD plus bas signale un momentum haussier moins puissant. Cette information est plus robuste lorsqu'elle apparaît près d'une résistance, avec un volume qui faiblit et une rupture ultérieure de structure. Isolée, elle reste un avertissement.",
+      "segments": [
+        {
+          "text": "Comme le RSI, le MACD peut diverger du prix. Un sommet de prix plus haut accompagné d'un sommet MACD plus bas signale un momentum haussier moins puissant. Cette information est plus robuste lorsqu'elle apparaît près d'une résistance, avec un volume qui faiblit et une rupture ultérieure de structure. Isolée, elle reste un avertissement."
+        }
+      ]
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Compare deux sommets ou deux creux du prix avec les sommets ou creux MACD formés aux mêmes dates.",
+          "segments": [
+            {
+              "text": "Compare deux sommets ou deux creux du prix avec les sommets ou creux MACD formés aux mêmes dates."
+            }
+          ]
+        },
+        {
+          "text": "Une divergence baissière avertit que la nouvelle poussée haussière est moins puissante ; elle ne prouve pas que le sommet est atteint.",
+          "segments": [
+            {
+              "text": "Une divergence baissière avertit que la nouvelle poussée haussière est moins puissante ; elle ne prouve pas que le sommet est atteint."
+            }
+          ]
+        },
+        {
+          "text": "Une divergence haussière avertit que la nouvelle poussée baissière perd de la force ; elle ne prouve pas que le creux est atteint.",
+          "segments": [
+            {
+              "text": "Une divergence haussière avertit que la nouvelle poussée baissière perd de la force ; elle ne prouve pas que le creux est atteint."
+            }
+          ]
+        },
+        {
+          "text": "Attends toujours une réaction du prix avant de conclure : cassure de structure, rejet ou reprise d'un niveau important.",
+          "segments": [
+            {
+              "text": "Attends toujours une réaction du prix avant de conclure : cassure de structure, rejet ou reprise d'un niveau important."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "3-8-reglages-adaptes-au-debutant",
+      "text": "3.8 Réglages adaptés au débutant"
+    },
+    {
+      "type": "paragraph",
+      "text": "Garde les paramètres 12, 26 et 9 proposés par TradingView. Ils ne sont pas magiques, mais ils constituent un point de départ simple et largement utilisé. Le MACD n'étant pas borné, ne compare pas directement sa valeur numérique entre deux actifs différents : observe surtout sa forme et son évolution sur le même graphique.",
+      "segments": [
+        {
+          "text": "Garde les paramètres 12, 26 et 9 proposés par TradingView. Ils ne sont pas magiques, mais ils constituent un point de départ simple et largement utilisé. Le MACD n'étant pas borné, ne compare pas directement sa valeur numérique entre deux actifs différents : observe surtout sa forme et son évolution sur le même graphique."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "3-9-graphique-tradingview-lecture-guidee",
+      "text": "3.9 Graphique TradingView — lecture guidée"
+    },
+    {
+      "type": "figure",
+      "src": "/media/3-analyse-technique/3-analyse-technique-indicateurs-techniques-925c8225f3ec.webp",
+      "originalName": "image2.jpg",
+      "width": 1363,
+      "height": 936,
+      "optimized": true,
+      "caption": "Figure 2 — NVIDIA, bougies journalières et MACD 12-26-9. Capture TradingView du 21 juillet 2026.",
+      "source": "TradingView — graphique NVDA (NASDAQ) · TradingView — Moving Average Convergence Divergence (MACD)",
+      "sourceLinks": [
+        "https://www.tradingview.com/chart/?symbol=NASDAQ%3ANVDA",
+        "https://www.tradingview.com/support/solutions/43000502344-moving-average-convergence-divergence-macd-indicator/"
+      ],
+      "alt": "NVIDIA, bougies journalières et MACD 12-26-9. Capture TradingView du 21 juillet 2026."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "ce-que-montre-le-graphique-2",
+      "text": "Ce que montre le graphique"
+    },
+    {
+      "type": "paragraph",
+      "text": "Début avril, la ligne MACD remonte depuis une zone négative, franchit sa ligne de signal puis la ligne zéro. Au même moment, le cours quitte sa zone basse et accélère. Les barres positives de l'histogramme s'allongent : l'écart entre les deux lignes augmente, ce qui traduit une accélération du momentum.",
+      "segments": [
+        {
+          "text": "Début avril, la ligne MACD remonte depuis une zone négative, franchit sa ligne de signal puis la ligne zéro. Au même moment, le cours quitte sa zone basse et accélère. Les barres positives de l'histogramme s'allongent : l'écart entre les deux lignes augmente, ce qui traduit une accélération du momentum."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "En mai, le cours atteint encore des sommets élevés, mais l'histogramme commence à se contracter avant que les lignes ne s'orientent franchement vers le bas. Le MACD ne dit pas que le sommet exact est trouvé ; il montre que la poussée haussière perd de la vitesse. En juillet, l'histogramme redevient positif et les lignes remontent depuis une zone négative : c'est une amélioration du momentum, à confirmer par la structure du prix.",
+      "segments": [
+        {
+          "text": "En mai, le cours atteint encore des sommets élevés, mais l'histogramme commence à se contracter avant que les lignes ne s'orientent franchement vers le bas. Le MACD ne dit pas que le sommet exact est trouvé ; il montre que la poussée haussière perd de la vitesse. En juillet, l'histogramme redevient positif et les lignes remontent depuis une zone négative : c'est une amélioration du momentum, à confirmer par la structure du prix."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "LA BONNE QUESTION",
+      "variant": "summary",
+      "text": "Ne demande pas seulement « les lignes se croisent-elles ? ». Demande aussi : où se trouve le croisement par rapport à zéro, quelle est la pente des lignes, l'histogramme accélère-t-il, et le prix casse-t-il réellement un niveau ?",
+      "sourceFill": "EAF6EF"
+    },
+    {
+      "type": "paragraph",
+      "text": "CHAPITRE 4",
+      "segments": [
+        {
+          "text": "CHAPITRE 4",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Les moyennes mobiles",
+      "segments": [
+        {
+          "text": "Les moyennes mobiles",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Lisser le bruit pour observer la direction, la pente et la position du prix.",
+      "segments": [
+        {
+          "text": "Lisser le bruit pour observer la direction, la pente et la position du prix.",
+          "italic": true
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "4-1-principe",
+      "text": "4.1 Principe"
+    },
+    {
+      "type": "paragraph",
+      "text": "Une moyenne mobile calcule un prix moyen sur un nombre fixe de bougies, puis avance d'une bougie à la suivante. Elle transforme une série irrégulière en une ligne plus douce. Plus la longueur est courte, plus la ligne colle au prix ; plus elle est longue, plus elle est stable et retardée.",
+      "segments": [
+        {
+          "text": "Une moyenne mobile calcule un prix moyen sur un nombre fixe de bougies, puis avance d'une bougie à la suivante. Elle transforme une série irrégulière en une ligne plus douce. Plus la longueur est courte, plus la ligne colle au prix ; plus elle est longue, plus elle est stable et retardée."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "4-2-sma-la-moyenne-simple",
+      "text": "4.2 SMA : la moyenne simple"
+    },
+    {
+      "type": "paragraph",
+      "text": "La SMA donne la même importance à chaque clôture de la période observée. Lorsqu'une nouvelle bougie apparaît, la plus ancienne sort de la fenêtre et la nouvelle entre. La ligne avance ainsi avec le marché tout en lissant ses mouvements.",
+      "segments": [
+        {
+          "text": "La SMA donne la même importance à chaque clôture de la période observée. Lorsqu'une nouvelle bougie apparaît, la plus ancienne sort de la fenêtre et la nouvelle entre. La ligne avance ainsi avec le marché tout en lissant ses mouvements."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "4-3-ema-la-moyenne-exponentielle",
+      "text": "4.3 EMA : la moyenne exponentielle"
+    },
+    {
+      "type": "paragraph",
+      "text": "L'EMA accorde davantage de poids aux prix récents. Elle réagit donc plus vite qu'une SMA de même longueur, sans pour autant devenir prédictive. Pour un débutant, la différence essentielle est simple : l'EMA suit plus vite les changements, tandis que la SMA produit une lecture un peu plus calme.",
+      "segments": [
+        {
+          "text": "L'EMA accorde davantage de poids aux prix récents. Elle réagit donc plus vite qu'une SMA de même longueur, sans pour autant devenir prédictive. Pour un débutant, la différence essentielle est simple : l'EMA suit plus vite les changements, tandis que la SMA produit une lecture un peu plus calme."
+        }
+      ]
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Critère",
+        "SMA",
+        "EMA"
+      ],
+      "rows": [
+        [
+          "Pondération",
+          "Égale sur la fenêtre",
+          "Plus forte sur les prix récents"
+        ],
+        [
+          "Réactivité",
+          "Plus lente et plus lisse",
+          "Plus rapide"
+        ],
+        [
+          "Usage fréquent",
+          "Tendance de fond, 50/200",
+          "Suivi court/moyen terme, 9/20/50"
+        ],
+        [
+          "Faiblesse",
+          "Retard",
+          "Plus sensible au bruit"
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "4-4-choisir-une-longueur",
+      "text": "4.4 Choisir une longueur"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Longueur journalière",
+        "Horizon indicatif",
+        "Usage courant"
+      ],
+      "rows": [
+        [
+          "9 à 10",
+          "Très court terme",
+          "Suivi rapide du momentum et des replis courts"
+        ],
+        [
+          "20 à 21",
+          "Environ un mois de séances",
+          "Tendance courte et suivi de swing"
+        ],
+        [
+          "50",
+          "Environ un trimestre",
+          "Tendance intermédiaire"
+        ],
+        [
+          "100",
+          "Moyen / long terme",
+          "Filtre de tendance plus stable"
+        ],
+        [
+          "200",
+          "Environ dix mois de séances",
+          "Tendance de fond très suivie"
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "NUANCE",
+      "variant": "principle",
+      "text": "Ces horizons sont des conventions, pas des lois naturelles. Une moyenne est utile parce que beaucoup d'acteurs la regardent et parce qu'elle résume le prix, non parce que le nombre 50 ou 200 aurait un pouvoir intrinsèque.",
+      "sourceFill": "FFF7DD"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "4-5-trois-methodes-de-lecture",
+      "text": "4.5 Trois méthodes de lecture"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Position. Prix au-dessus d'une moyenne montante : contexte généralement plus haussier ; en dessous d'une moyenne descendante : contexte plus baissier.",
+          "segments": [
+            {
+              "text": "Position. ",
+              "bold": true
+            },
+            {
+              "text": "Prix au-dessus d'une moyenne montante : contexte généralement plus haussier ; en dessous d'une moyenne descendante : contexte plus baissier."
+            }
+          ]
+        },
+        {
+          "text": "Pente. La pente montre la direction moyenne. Une moyenne plate signale souvent un équilibre ou un range.",
+          "segments": [
+            {
+              "text": "Pente. ",
+              "bold": true
+            },
+            {
+              "text": "La pente montre la direction moyenne. Une moyenne plate signale souvent un équilibre ou un range."
+            }
+          ]
+        },
+        {
+          "text": "Croisement. Le croisement du prix avec la moyenne ou de deux moyennes signale un changement possible, mais survient après le début du mouvement.",
+          "segments": [
+            {
+              "text": "Croisement. ",
+              "bold": true
+            },
+            {
+              "text": "Le croisement du prix avec la moyenne ou de deux moyennes signale un changement possible, mais survient après le début du mouvement."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "SUPPORT DYNAMIQUE",
+      "variant": "info",
+      "text": "Une moyenne n'est pas un mur exact. Considère-la comme une zone observée : le prix peut la traverser brièvement, la tester plusieurs fois ou l'ignorer lors d'un événement violent.",
+      "sourceFill": "EEF4FA"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "4-6-graphique-tradingview-lecture-guidee",
+      "text": "4.6 Graphique TradingView — lecture guidée"
+    },
+    {
+      "type": "figure",
+      "src": "/media/3-analyse-technique/3-analyse-technique-indicateurs-techniques-d5461427a837.webp",
+      "originalName": "image3.jpg",
+      "width": 1363,
+      "height": 936,
+      "optimized": true,
+      "caption": "Figure 3 — NVIDIA, bougies journalières, volume et SMA 9. Capture TradingView du 21 juillet 2026.",
+      "source": "TradingView — graphique NVDA (NASDAQ) · TradingView — Simple Moving Average",
+      "sourceLinks": [
+        "https://www.tradingview.com/chart/?symbol=NASDAQ%3ANVDA",
+        "https://www.tradingview.com/support/solutions/43000696841-simple-moving-average/"
+      ],
+      "alt": "NVIDIA, bougies journalières, volume et SMA 9. Capture TradingView du 21 juillet 2026."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "ce-que-montre-le-graphique-3",
+      "text": "Ce que montre le graphique"
+    },
+    {
+      "type": "paragraph",
+      "text": "La SMA 9 suit le prix de près. Pendant l'accélération d'avril et de mai, le cours reste majoritairement au-dessus d'une ligne ascendante. Après le sommet, la moyenne s'aplatit puis se retourne ; en juin, les bougies passent souvent en dessous, ce qui confirme un régime court terme moins favorable.",
+      "segments": [
+        {
+          "text": "La SMA 9 suit le prix de près. Pendant l'accélération d'avril et de mai, le cours reste majoritairement au-dessus d'une ligne ascendante. Après le sommet, la moyenne s'aplatit puis se retourne ; en juin, les bougies passent souvent en dessous, ce qui confirme un régime court terme moins favorable."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "En juillet, le cours recroise plusieurs fois la SMA 9. Ces allers-retours illustrent le principal défaut d'une moyenne courte dans une consolidation : elle réagit vite, mais génère beaucoup de faux changements de direction. Une moyenne 50 ou 200 serait plus lente et décrirait un horizon différent.",
+      "segments": [
+        {
+          "text": "En juillet, le cours recroise plusieurs fois la SMA 9. Ces allers-retours illustrent le principal défaut d'une moyenne courte dans une consolidation : elle réagit vite, mais génère beaucoup de faux changements de direction. Une moyenne 50 ou 200 serait plus lente et décrirait un horizon différent."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "LECTURE CORRECTE",
+      "variant": "summary",
+      "text": "Le fait que le prix touche la SMA 9 ne suffit pas pour acheter. Cherche une réaction du prix, une structure de creux ascendant, un volume cohérent et un emplacement clair pour invalider le scénario.",
+      "sourceFill": "EAF6EF"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "4-7-golden-cross-et-death-cross",
+      "text": "4.7 Golden cross et death cross"
+    },
+    {
+      "type": "paragraph",
+      "text": "On parle souvent de golden cross lorsque la moyenne 50 passe au-dessus de la 200, et de death cross lorsqu'elle passe en dessous. Ces signaux décrivent une tendance longue déjà engagée ; ils ne capturent généralement pas le point bas ou le point haut. Leur intérêt principal est le filtrage d'un régime, pas le timing précis d'une entrée.",
+      "segments": [
+        {
+          "text": "On parle souvent de golden cross lorsque la moyenne 50 passe au-dessus de la 200, et de death cross lorsqu'elle passe en dessous. Ces signaux décrivent une tendance longue déjà engagée ; ils ne capturent généralement pas le point bas ou le point haut. Leur intérêt principal est le filtrage d'un régime, pas le timing précis d'une entrée."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "4-8-erreurs-frequentes",
+      "text": "4.8 Erreurs fréquentes"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Changer sans cesse les longueurs jusqu'à obtenir un graphique historique parfait.",
+          "segments": [
+            {
+              "text": "Changer sans cesse les longueurs jusqu'à obtenir un graphique historique parfait."
+            }
+          ]
+        },
+        {
+          "text": "Multiplier les moyennes 9, 10, 12, 20, 21, 25 et 30 alors qu'elles racontent presque la même chose.",
+          "segments": [
+            {
+              "text": "Multiplier les moyennes 9, 10, 12, 20, 21, 25 et 30 alors qu'elles racontent presque la même chose."
+            }
+          ]
+        },
+        {
+          "text": "Acheter chaque contact avec une moyenne sans examiner la structure du prix.",
+          "segments": [
+            {
+              "text": "Acheter chaque contact avec une moyenne sans examiner la structure du prix."
+            }
+          ]
+        },
+        {
+          "text": "Prendre un croisement retardé pour une prédiction certaine.",
+          "segments": [
+            {
+              "text": "Prendre un croisement retardé pour une prédiction certaine."
+            }
+          ]
+        },
+        {
+          "text": "Oublier que la même longueur change complètement de sens avec l'unité de temps.",
+          "segments": [
+            {
+              "text": "Oublier que la même longueur change complètement de sens avec l'unité de temps."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "CHAPITRE 5",
+      "segments": [
+        {
+          "text": "CHAPITRE 5",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Le volume",
+      "segments": [
+        {
+          "text": "Le volume",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Mesurer la participation derrière une hausse, une baisse, une cassure ou un rejet.",
+      "segments": [
+        {
+          "text": "Mesurer la participation derrière une hausse, une baisse, une cassure ou un rejet.",
+          "italic": true
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "5-1-ce-que-mesure-le-volume",
+      "text": "5.1 Ce que mesure le volume"
+    },
+    {
+      "type": "paragraph",
+      "text": "Pour une action, le volume représente le nombre d'actions échangées pendant la bougie. Pour un contrat future ou une option, il représente le nombre de contrats. En crypto, il dépend de la place de marché observée. Sur le Forex au comptant et certains CFD, la plateforme peut afficher un tick volume — le nombre de changements de prix — plutôt que l'intégralité des transactions mondiales.",
+      "segments": [
+        {
+          "text": "Pour une action, le volume représente le nombre d'actions échangées pendant la bougie. Pour un contrat future ou une option, il représente le nombre de contrats. En crypto, il dépend de la place de marché observée. Sur le Forex au comptant et certains CFD, la plateforme peut afficher un tick volume — le nombre de changements de prix — plutôt que l'intégralité des transactions mondiales."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "TOUJOURS COMPARER",
+      "variant": "info",
+      "text": "Un volume de 10 millions n'est ni élevé ni faible en soi. Compare-le au volume habituel du même actif, sur la même unité de temps et, si possible, sur la même source de données.",
+      "sourceFill": "EEF4FA"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "5-2-la-matrice-prix-volume",
+      "text": "5.2 La matrice prix-volume"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Prix",
+        "Volume",
+        "Lecture initiale",
+        "Ce qu'il faut vérifier"
+      ],
+      "rows": [
+        [
+          "Monte",
+          "Augmente",
+          "Participation haussière croissante",
+          "Cassure réelle, clôture forte, absence de rejet"
+        ],
+        [
+          "Monte",
+          "Diminue",
+          "Hausse moins soutenue / essoufflement possible",
+          "Proximité d'une résistance, divergence de momentum"
+        ],
+        [
+          "Baisse",
+          "Augmente",
+          "Pression vendeuse forte",
+          "Capitulation possible ou début d'une accélération"
+        ],
+        [
+          "Baisse",
+          "Diminue",
+          "Repli peu actif",
+          "Pullback sain dans une tendance ou simple absence d'acheteurs"
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Cette matrice n'est qu'un point de départ. Une forte baisse avec un volume extrême peut signaler une panique finale, mais aussi une rupture qui ne fait que commencer. La forme de la bougie, le niveau touché et les bougies suivantes permettent de distinguer capitulation et continuation.",
+      "segments": [
+        {
+          "text": "Cette matrice n'est qu'un point de départ. Une forte baisse avec un volume extrême peut signaler une panique finale, mais aussi une rupture qui ne fait que commencer. La forme de la bougie, le niveau touché et les bougies suivantes permettent de distinguer capitulation et continuation."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "5-3-quatre-situations-tres-utiles",
+      "text": "5.3 Quatre situations très utiles"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Cassure. Une résistance dépassée avec un volume nettement supérieur à l'habitude est généralement plus crédible qu'une cassure sans participation.",
+          "segments": [
+            {
+              "text": "Cassure. ",
+              "bold": true
+            },
+            {
+              "text": "Une résistance dépassée avec un volume nettement supérieur à l'habitude est généralement plus crédible qu'une cassure sans participation."
+            }
+          ]
+        },
+        {
+          "text": "Pullback. Dans une tendance haussière, une correction sur volume décroissant peut indiquer que les vendeurs manquent de conviction.",
+          "segments": [
+            {
+              "text": "Pullback. ",
+              "bold": true
+            },
+            {
+              "text": "Dans une tendance haussière, une correction sur volume décroissant peut indiquer que les vendeurs manquent de conviction."
+            }
+          ]
+        },
+        {
+          "text": "Climax. Un volume exceptionnel après une longue tendance peut signaler une bataille finale ; attendre la réaction du prix est indispensable.",
+          "segments": [
+            {
+              "text": "Climax. ",
+              "bold": true
+            },
+            {
+              "text": "Un volume exceptionnel après une longue tendance peut signaler une bataille finale ; attendre la réaction du prix est indispensable."
+            }
+          ]
+        },
+        {
+          "text": "Fausses cassures. Un passage bref au-dessus d'un niveau, faible en volume puis rapidement réintégré, manque souvent de validation.",
+          "segments": [
+            {
+              "text": "Fausses cassures. ",
+              "bold": true
+            },
+            {
+              "text": "Un passage bref au-dessus d'un niveau, faible en volume puis rapidement réintégré, manque souvent de validation."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "5-4-volume-moyen-et-volume-relatif",
+      "text": "5.4 Volume moyen et volume relatif"
+    },
+    {
+      "type": "paragraph",
+      "text": "Le volume moyen est une ligne de référence qui résume l'activité habituelle des dernières bougies. Le volume relatif indique simplement si l'activité actuelle est faible, normale ou nettement supérieure à l'habitude. Par exemple, une valeur proche de deux signifie que l'activité est environ deux fois plus élevée que la référence choisie. TradingView effectue ce calcul automatiquement.",
+      "segments": [
+        {
+          "text": "Le volume moyen est une ligne de référence qui résume l'activité habituelle des dernières bougies. Le volume relatif indique simplement si l'activité actuelle est faible, normale ou nettement supérieure à l'habitude. Par exemple, une valeur proche de deux signifie que l'activité est environ deux fois plus élevée que la référence choisie. TradingView effectue ce calcul automatiquement."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "BOUGIE EN COURS",
+      "variant": "warning",
+      "text": "Le volume d'une bougie non clôturée est incomplet. Comparer le volume de 10 h 30 à celui d'une journée entière peut conduire à une conclusion fausse ; utilise un volume relatif « à la même heure » lorsque l'outil le permet.",
+      "sourceFill": "FCEDED"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "5-5-limites-selon-le-marche",
+      "text": "5.5 Limites selon le marché"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Marché",
+        "Unité habituelle",
+        "Précaution"
+      ],
+      "rows": [
+        [
+          "Actions",
+          "Actions échangées",
+          "Flux pouvant différer selon la source et les places incluses"
+        ],
+        [
+          "Futures / options",
+          "Contrats",
+          "Ne pas confondre volume et open interest"
+        ],
+        [
+          "Crypto",
+          "Unités ou valeur échangée",
+          "Volume propre à chaque exchange ; qualité variable"
+        ],
+        [
+          "Forex spot / CFD",
+          "Souvent tick volume",
+          "Pas un registre central du marché mondial"
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "5-6-graphique-tradingview-lecture-guidee",
+      "text": "5.6 Graphique TradingView — lecture guidée"
+    },
+    {
+      "type": "figure",
+      "src": "/media/3-analyse-technique/3-analyse-technique-indicateurs-techniques-3a6e7919d35c.webp",
+      "originalName": "image4.jpg",
+      "width": 1363,
+      "height": 936,
+      "optimized": true,
+      "caption": "Figure 4 — NVIDIA, bougies journalières et volumes. Capture TradingView du 21 juillet 2026.",
+      "source": "TradingView — graphique NVDA (NASDAQ) · TradingView — Volume",
+      "sourceLinks": [
+        "https://www.tradingview.com/chart/?symbol=NASDAQ%3ANVDA",
+        "https://www.tradingview.com/support/solutions/43000591617-volume/"
+      ],
+      "alt": "NVIDIA, bougies journalières et volumes. Capture TradingView du 21 juillet 2026."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "ce-que-montre-le-graphique-4",
+      "text": "Ce que montre le graphique"
+    },
+    {
+      "type": "paragraph",
+      "text": "Les barres de volume ne se lisent pas séparément des bougies. Autour des phases de rupture et des journées de grande amplitude — notamment lors du retournement du printemps et de plusieurs séances volatiles en mai et juin — le volume s'élève. Cela signale une participation accrue, sans dire à lui seul qui contrôlera la séance suivante.",
+      "segments": [
+        {
+          "text": "Les barres de volume ne se lisent pas séparément des bougies. Autour des phases de rupture et des journées de grande amplitude — notamment lors du retournement du printemps et de plusieurs séances volatiles en mai et juin — le volume s'élève. Cela signale une participation accrue, sans dire à lui seul qui contrôlera la séance suivante."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Pendant certaines consolidations, les barres se tassent : moins de titres changent de mains et le marché attend un nouveau catalyseur. Une future sortie de range gagnerait en crédibilité si le cours clôturait au-delà de la borne avec un volume supérieur à sa moyenne récente.",
+      "segments": [
+        {
+          "text": "Pendant certaines consolidations, les barres se tassent : moins de titres changent de mains et le marché attend un nouveau catalyseur. Une future sortie de range gagnerait en crédibilité si le cours clôturait au-delà de la borne avec un volume supérieur à sa moyenne récente."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "LE VOLUME CONFIRME, IL NE DIRIGE PAS TOUJOURS",
+      "variant": "summary",
+      "text": "Une cassure avec volume est plus solide, mais un actif peut aussi progresser durablement avec un volume modéré. Le volume augmente la qualité de la lecture ; il ne remplace pas le niveau, la clôture ni le risque accepté.",
+      "sourceFill": "EAF6EF"
+    },
+    {
+      "type": "paragraph",
+      "text": "CHAPITRE 6",
+      "segments": [
+        {
+          "text": "CHAPITRE 6",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Combiner les indicateurs",
+      "segments": [
+        {
+          "text": "Combiner les indicateurs",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Construire une lecture hiérarchisée plutôt qu'une collection de signaux.",
+      "segments": [
+        {
+          "text": "Construire une lecture hiérarchisée plutôt qu'une collection de signaux.",
+          "italic": true
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "6-1-la-hierarchie-correcte",
+      "text": "6.1 La hiérarchie correcte"
+    },
+    {
+      "type": "paragraph",
+      "text": "La confluence n'est pas le nombre d'indicateurs verts. Elle correspond à plusieurs informations cohérentes qui répondent à des questions différentes. Utilise l'ordre suivant pour éviter de laisser un oscillateur prendre le contrôle de toute l'analyse.",
+      "segments": [
+        {
+          "text": "La confluence n'est pas le nombre d'indicateurs verts. Elle correspond à plusieurs informations cohérentes qui répondent à des questions différentes. Utilise l'ordre suivant pour éviter de laisser un oscillateur prendre le contrôle de toute l'analyse."
+        }
+      ]
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Définir l'actif, le scénario fondamental éventuel et l'horizon de détention.",
+          "segments": [
+            {
+              "text": "Définir l'actif, le scénario fondamental éventuel et l'horizon de détention."
+            }
+          ]
+        },
+        {
+          "text": "Lire la structure du prix : tendance, range, sommets, creux, supports et résistances.",
+          "segments": [
+            {
+              "text": "Lire la structure du prix : tendance, range, sommets, creux, supports et résistances."
+            }
+          ]
+        },
+        {
+          "text": "Utiliser la moyenne mobile pour résumer la direction et la pente.",
+          "segments": [
+            {
+              "text": "Utiliser la moyenne mobile pour résumer la direction et la pente."
+            }
+          ]
+        },
+        {
+          "text": "Comparer le volume pour évaluer la participation derrière le mouvement.",
+          "segments": [
+            {
+              "text": "Comparer le volume pour évaluer la participation derrière le mouvement."
+            }
+          ]
+        },
+        {
+          "text": "Utiliser RSI et MACD pour examiner le momentum, son accélération ou son ralentissement.",
+          "segments": [
+            {
+              "text": "Utiliser RSI et MACD pour examiner le momentum, son accélération ou son ralentissement."
+            }
+          ]
+        },
+        {
+          "text": "Définir l'invalidation, le stop éventuel, la taille de position et le risque maximal avant l'entrée.",
+          "segments": [
+            {
+              "text": "Définir l'invalidation, le stop éventuel, la taille de position et le risque maximal avant l'entrée."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "ATTENTION AU DOUBLE COMPTAGE",
+      "variant": "warning",
+      "text": "La moyenne mobile, le MACD et le RSI sont tous dérivés du prix. Trois signaux haussiers issus des mêmes clôtures ne constituent pas trois preuves indépendantes. Le volume apporte une information plus distincte, mais lui aussi doit être replacé dans le contexte.",
+      "sourceFill": "FCEDED"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "6-2-graphique-complet-tradingview",
+      "text": "6.2 Graphique complet TradingView"
+    },
+    {
+      "type": "figure",
+      "src": "/media/3-analyse-technique/3-analyse-technique-indicateurs-techniques-a88fb5e3d5db.webp",
+      "originalName": "image5.jpg",
+      "width": 1363,
+      "height": 936,
+      "optimized": true,
+      "caption": "Figure 5 — NVIDIA : SMA 9, volume, MACD 12-26-9 et RSI 14 sur le même graphique journalier.",
+      "source": "TradingView — graphique NVDA (NASDAQ) · TradingView — Advanced Chart Widget, démonstration analyse technique",
+      "sourceLinks": [
+        "https://www.tradingview.com/chart/?symbol=NASDAQ%3ANVDA",
+        "https://www.tradingview.com/widget-docs/widgets/charts/advanced-chart/demos/technical-analysis/"
+      ],
+      "alt": "NVIDIA : SMA 9, volume, MACD 12-26-9 et RSI 14 sur le même graphique journalier."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "6-3-lecture-en-quatre-phases",
+      "text": "6.3 Lecture en quatre phases"
+    },
+    {
+      "type": "paragraph",
+      "text": "Phase 1 — Reconstruction d'avril.",
+      "segments": [
+        {
+          "text": "Phase 1 — Reconstruction d'avril. ",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Le prix remonte au-dessus d'une SMA 9 qui se retourne, le MACD s'améliore depuis une zone négative, l'histogramme devient positif et le RSI franchit 50. Le volume s'élève lors de certaines grandes bougies. Les outils racontent une amélioration cohérente, mais le signal exploitable reste la sortie de la structure de prix avec une invalidation claire.",
+      "segments": [
+        {
+          "text": "Le prix remonte au-dessus d'une SMA 9 qui se retourne, le MACD s'améliore depuis une zone négative, l'histogramme devient positif et le RSI franchit 50. Le volume s'élève lors de certaines grandes bougies. Les outils racontent une amélioration cohérente, mais le signal exploitable reste la sortie de la structure de prix avec une invalidation claire."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Phase 2 — Accélération de mai.",
+      "segments": [
+        {
+          "text": "Phase 2 — Accélération de mai. ",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Le cours reste au-dessus de la moyenne, le MACD est positif et le RSI dépasse 70. Ici, le surachat reflète surtout la force. Vendre dès le premier passage de 70 aurait fait sortir trop tôt. Le ralentissement devient plus crédible lorsque l'histogramme se contracte, que le RSI échoue à prolonger sa poussée et que le prix casse ses creux courts.",
+      "segments": [
+        {
+          "text": "Le cours reste au-dessus de la moyenne, le MACD est positif et le RSI dépasse 70. Ici, le surachat reflète surtout la force. Vendre dès le premier passage de 70 aurait fait sortir trop tôt. Le ralentissement devient plus crédible lorsque l'histogramme se contracte, que le RSI échoue à prolonger sa poussée et que le prix casse ses creux courts."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Phase 3 — Correction de juin.",
+      "segments": [
+        {
+          "text": "Phase 3 — Correction de juin. ",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Le prix évolue souvent sous une SMA 9 descendante, le MACD passe sous son signal puis sous zéro, et le RSI travaille davantage sous 50. Les outils confirment une faiblesse de court terme déjà visible dans la structure descendante. Ils ne permettent pas de connaître d'avance le point bas exact.",
+      "segments": [
+        {
+          "text": "Le prix évolue souvent sous une SMA 9 descendante, le MACD passe sous son signal puis sous zéro, et le RSI travaille davantage sous 50. Les outils confirment une faiblesse de court terme déjà visible dans la structure descendante. Ils ne permettent pas de connaître d'avance le point bas exact."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Phase 4 — Rebond de juillet.",
+      "segments": [
+        {
+          "text": "Phase 4 — Rebond de juillet. ",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Le RSI repasse au-dessus de 50 par moments, l'histogramme MACD revient positif et le prix recroise la SMA 9. Toutefois, les croisements répétés autour d'une moyenne courte signalent aussi une consolidation. La confirmation forte viendrait du prix : dépassement d'un sommet local, clôture solide et volume cohérent.",
+      "segments": [
+        {
+          "text": "Le RSI repasse au-dessus de 50 par moments, l'histogramme MACD revient positif et le prix recroise la SMA 9. Toutefois, les croisements répétés autour d'une moyenne courte signalent aussi une consolidation. La confirmation forte viendrait du prix : dépassement d'un sommet local, clôture solide et volume cohérent."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "CONCLUSION DE LA LECTURE",
+      "variant": "summary",
+      "text": "Les indicateurs sont les plus utiles lorsqu'ils expliquent le même mouvement à des niveaux différents : direction, participation et momentum. Ils deviennent dangereux lorsqu'on leur demande de prédire seuls un sommet ou un creux.",
+      "sourceFill": "EAF6EF"
+    },
+    {
+      "type": "paragraph",
+      "text": "CHAPITRE 7",
+      "segments": [
+        {
+          "text": "CHAPITRE 7",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Méthodes d'utilisation",
+      "segments": [
+        {
+          "text": "Méthodes d'utilisation",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Trois cadres simples pour passer de l'observation à un scénario contrôlé.",
+      "segments": [
+        {
+          "text": "Trois cadres simples pour passer de l'observation à un scénario contrôlé.",
+          "italic": true
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "7-1-suivi-de-tendance",
+      "text": "7.1 Suivi de tendance"
+    },
+    {
+      "type": "paragraph",
+      "text": "Objectif : intervenir dans le sens d'une tendance déjà établie après un repli, plutôt que deviner un retournement.",
+      "segments": [
+        {
+          "text": "Objectif : intervenir dans le sens d'une tendance déjà établie après un repli, plutôt que deviner un retournement."
+        }
+      ]
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Le graphique supérieur montre des sommets et creux ascendants.",
+          "segments": [
+            {
+              "text": "Le graphique supérieur montre des sommets et creux ascendants."
+            }
+          ]
+        },
+        {
+          "text": "Le prix reste au-dessus d'une moyenne intermédiaire montante, par exemple 20 ou 50.",
+          "segments": [
+            {
+              "text": "Le prix reste au-dessus d'une moyenne intermédiaire montante, par exemple 20 ou 50."
+            }
+          ]
+        },
+        {
+          "text": "Le pullback se développe sur un volume inférieur à celui de l'impulsion précédente.",
+          "segments": [
+            {
+              "text": "Le pullback se développe sur un volume inférieur à celui de l'impulsion précédente."
+            }
+          ]
+        },
+        {
+          "text": "Le RSI se replie vers 40-50 puis repart sans s'effondrer durablement sous 30.",
+          "segments": [
+            {
+              "text": "Le RSI se replie vers 40-50 puis repart sans s'effondrer durablement sous 30."
+            }
+          ]
+        },
+        {
+          "text": "L'histogramme MACD cesse de se dégrader ou repasse positif.",
+          "segments": [
+            {
+              "text": "L'histogramme MACD cesse de se dégrader ou repasse positif."
+            }
+          ]
+        },
+        {
+          "text": "L'entrée dépend d'un signal du prix ; l'invalidation se situe sous une structure identifiable.",
+          "segments": [
+            {
+              "text": "L'entrée dépend d'un signal du prix ; l'invalidation se situe sous une structure identifiable."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "CE CADRE NE GARANTIT RIEN",
+      "variant": "warning",
+      "text": "Même une confluence parfaite peut échouer après une publication de résultats, un choc macroéconomique ou une rupture de support. La perte acceptable doit être définie avant la position.",
+      "sourceFill": "FCEDED"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "7-2-cassure-de-range",
+      "text": "7.2 Cassure de range"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Avant la cassure. Identifier clairement la borne du range ; éviter une ligne choisie après coup.",
+          "segments": [
+            {
+              "text": "Avant la cassure. ",
+              "bold": true
+            },
+            {
+              "text": "Identifier clairement la borne du range ; éviter une ligne choisie après coup."
+            }
+          ]
+        },
+        {
+          "text": "Au moment de la cassure. Chercher une clôture au-delà du niveau, un volume supérieur à l'habitude et un momentum qui s'améliore.",
+          "segments": [
+            {
+              "text": "Au moment de la cassure. ",
+              "bold": true
+            },
+            {
+              "text": "Chercher une clôture au-delà du niveau, un volume supérieur à l'habitude et un momentum qui s'améliore."
+            }
+          ]
+        },
+        {
+          "text": "Après la cassure. Un retest peu volumineux peut offrir une lecture plus propre qu'une poursuite immédiate.",
+          "segments": [
+            {
+              "text": "Après la cassure. ",
+              "bold": true
+            },
+            {
+              "text": "Un retest peu volumineux peut offrir une lecture plus propre qu'une poursuite immédiate."
+            }
+          ]
+        },
+        {
+          "text": "Invalidation. La réintégration durable du range ou la cassure du dernier creux peut invalider le scénario.",
+          "segments": [
+            {
+              "text": "Invalidation. ",
+              "bold": true
+            },
+            {
+              "text": "La réintégration durable du range ou la cassure du dernier creux peut invalider le scénario."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "7-3-retour-a-la-moyenne-dans-un-range",
+      "text": "7.3 Retour à la moyenne dans un range"
+    },
+    {
+      "type": "paragraph",
+      "text": "Dans un range bien défini, le RSI peut être plus utile que dans une tendance forte. Une approche prudente consiste à chercher un prix proche du support, un RSI survendu qui repasse au-dessus de 30 et un volume de vente qui cesse de s'intensifier. La cible logique se trouve vers le milieu ou la résistance du range. Si le support casse franchement, le scénario de retour à la moyenne n'est plus valable.",
+      "segments": [
+        {
+          "text": "Dans un range bien défini, le RSI peut être plus utile que dans une tendance forte. Une approche prudente consiste à chercher un prix proche du support, un RSI survendu qui repasse au-dessus de 30 et un volume de vente qui cesse de s'intensifier. La cible logique se trouve vers le milieu ou la résistance du range. Si le support casse franchement, le scénario de retour à la moyenne n'est plus valable."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "NE MÉLANGE PAS LES RÉGIMES",
+      "variant": "warning",
+      "text": "Acheter chaque RSI sous 30 fonctionne parfois dans un range, mais peut être catastrophique dans une tendance baissière accélérée. Identifie d'abord si le marché est en tendance ou en équilibre.",
+      "sourceFill": "FCEDED"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "7-4-fiche-de-decision",
+      "text": "7.4 Fiche de décision"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Question",
+        "Réponse attendue avant une position"
+      ],
+      "rows": [
+        [
+          "Contexte",
+          "Tendance, range ou transition ? Sur quelle unité de temps ?"
+        ],
+        [
+          "Niveau",
+          "Support, résistance, cassure ou zone de repli clairement identifiée"
+        ],
+        [
+          "Moyenne",
+          "Position du prix et pente cohérentes avec le scénario"
+        ],
+        [
+          "Momentum",
+          "RSI et MACD améliorent-ils ou dégradent-ils la lecture ?"
+        ],
+        [
+          "Volume",
+          "Le mouvement est-il confirmé, faible ou exceptionnel ?"
+        ],
+        [
+          "Invalidation",
+          "Quel prix prouve que le scénario est faux ?"
+        ],
+        [
+          "Risque",
+          "Combien puis-je perdre si l'invalidation est touchée ?"
+        ]
+      ],
+      "links": [
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "CHAPITRE 8",
+      "segments": [
+        {
+          "text": "CHAPITRE 8",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Réglages TradingView",
+      "segments": [
+        {
+          "text": "Réglages TradingView",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Installer un espace de travail simple, lisible et reproductible.",
+      "segments": [
+        {
+          "text": "Installer un espace de travail simple, lisible et reproductible.",
+          "italic": true
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "8-1-configuration-de-depart",
+      "text": "8.1 Configuration de départ"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Choisir l'actif exact et vérifier la place de cotation : par exemple NASDAQ:NVDA.",
+          "segments": [
+            {
+              "text": "Choisir l'actif exact et vérifier la place de cotation : par exemple NASDAQ:NVDA."
+            }
+          ]
+        },
+        {
+          "text": "Sélectionner les bougies japonaises et commencer par l'unité Daily pour la lecture principale.",
+          "segments": [
+            {
+              "text": "Sélectionner les bougies japonaises et commencer par l'unité Daily pour la lecture principale."
+            }
+          ]
+        },
+        {
+          "text": "Ajouter Volume, Relative Strength Index, MACD et Moving Average depuis le menu Indicateurs.",
+          "segments": [
+            {
+              "text": "Ajouter Volume, Relative Strength Index, MACD et Moving Average depuis le menu Indicateurs."
+            }
+          ]
+        },
+        {
+          "text": "Conserver d'abord RSI 14, MACD 12-26-9 et une seule SMA ou EMA adaptée à l'horizon.",
+          "segments": [
+            {
+              "text": "Conserver d'abord RSI 14, MACD 12-26-9 et une seule SMA ou EMA adaptée à l'horizon."
+            }
+          ]
+        },
+        {
+          "text": "Utiliser des couleurs distinctes, garder le prix suffisamment grand et supprimer les indicateurs inutilisés.",
+          "segments": [
+            {
+              "text": "Utiliser des couleurs distinctes, garder le prix suffisamment grand et supprimer les indicateurs inutilisés."
+            }
+          ]
+        },
+        {
+          "text": "Sauvegarder la disposition et noter les paramètres dans le plan de trading.",
+          "segments": [
+            {
+              "text": "Sauvegarder la disposition et noter les paramètres dans le plan de trading."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "8-2-reglages-conseilles-pour-apprendre",
+      "text": "8.2 Réglages conseillés pour apprendre"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Outil",
+        "Réglage initial",
+        "Ce que tu observes"
+      ],
+      "rows": [
+        [
+          "RSI",
+          "14, clôture, niveaux 30/50/70",
+          "Régime et vitesse du momentum"
+        ],
+        [
+          "MACD",
+          "12, 26, 9",
+          "Croisements, zéro et histogramme"
+        ],
+        [
+          "SMA courte",
+          "9 ou 20",
+          "Suivi rapide et bruit"
+        ],
+        [
+          "SMA intermédiaire",
+          "50",
+          "Tendance de swing"
+        ],
+        [
+          "SMA longue",
+          "200",
+          "Régime de fond"
+        ],
+        [
+          "Volume",
+          "Barres + moyenne 20 si disponible",
+          "Participation relative"
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "SIMPLICITÉ",
+      "variant": "info",
+      "text": "Pour apprendre, affiche une moyenne courte et éventuellement une longue. Ajouter huit moyennes et cinq oscillateurs donne l'impression de précision, mais rend souvent l'analyse contradictoire et illisible.",
+      "sourceFill": "FFF7DD"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "8-3-multi-timeframe-sans-confusion",
+      "text": "8.3 Multi-timeframe sans confusion"
+    },
+    {
+      "type": "paragraph",
+      "text": "Commence par Weekly ou Daily pour la tendance dominante, puis descends progressivement vers H4 ou H1 si ton horizon le nécessite. Un RSI H1 survendu peut n'être qu'un petit repli dans une tendance Daily très haussière. La grande unité donne le contexte ; la petite unité affine le timing.",
+      "segments": [
+        {
+          "text": "Commence par Weekly ou Daily pour la tendance dominante, puis descends progressivement vers H4 ou H1 si ton horizon le nécessite. Un RSI H1 survendu peut n'être qu'un petit repli dans une tendance Daily très haussière. La grande unité donne le contexte ; la petite unité affine le timing."
+        }
+      ]
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Étape",
+        "Unité",
+        "Question"
+      ],
+      "rows": [
+        [
+          "1. Contexte",
+          "Weekly / Daily",
+          "Quelle est la tendance de fond et où sont les niveaux majeurs ?"
+        ],
+        [
+          "2. Structure",
+          "Daily / H4",
+          "Le prix construit-il un scénario exploitable ?"
+        ],
+        [
+          "3. Timing",
+          "H4 / H1",
+          "Momentum et volume confirment-ils l'entrée ?"
+        ],
+        [
+          "4. Risque",
+          "Unité d'entrée",
+          "Où se trouve l'invalidation et quelle taille engager ?"
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "8-4-les-douze-erreurs-du-debutant",
+      "text": "8.4 Les douze erreurs du débutant"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Acheter uniquement parce que le RSI est sous 30.",
+          "segments": [
+            {
+              "text": "Acheter uniquement parce que le RSI est sous 30."
+            }
+          ]
+        },
+        {
+          "text": "Vendre uniquement parce que le RSI est au-dessus de 70.",
+          "segments": [
+            {
+              "text": "Vendre uniquement parce que le RSI est au-dessus de 70."
+            }
+          ]
+        },
+        {
+          "text": "Confondre un niveau tracé sur le RSI avec un support ou une résistance exacte du prix.",
+          "segments": [
+            {
+              "text": "Confondre un niveau tracé sur le RSI avec un support ou une résistance exacte du prix."
+            }
+          ]
+        },
+        {
+          "text": "Prendre chaque croisement MACD sans regarder le régime du marché.",
+          "segments": [
+            {
+              "text": "Prendre chaque croisement MACD sans regarder le régime du marché."
+            }
+          ]
+        },
+        {
+          "text": "Traiter un ancien sommet du MACD comme une résistance stable et universelle.",
+          "segments": [
+            {
+              "text": "Traiter un ancien sommet du MACD comme une résistance stable et universelle."
+            }
+          ]
+        },
+        {
+          "text": "Croire que l'histogramme positif garantit une hausse future.",
+          "segments": [
+            {
+              "text": "Croire que l'histogramme positif garantit une hausse future."
+            }
+          ]
+        },
+        {
+          "text": "Acheter chaque contact avec une moyenne mobile.",
+          "segments": [
+            {
+              "text": "Acheter chaque contact avec une moyenne mobile."
+            }
+          ]
+        },
+        {
+          "text": "Confondre une moyenne plate avec un support fiable.",
+          "segments": [
+            {
+              "text": "Confondre une moyenne plate avec un support fiable."
+            }
+          ]
+        },
+        {
+          "text": "Comparer le volume brut de deux actifs très différents.",
+          "segments": [
+            {
+              "text": "Comparer le volume brut de deux actifs très différents."
+            }
+          ]
+        },
+        {
+          "text": "Interpréter le volume d'une bougie encore ouverte comme un volume final.",
+          "segments": [
+            {
+              "text": "Interpréter le volume d'une bougie encore ouverte comme un volume final."
+            }
+          ]
+        },
+        {
+          "text": "Empiler des indicateurs dérivés du même prix et compter chaque signal comme une preuve indépendante.",
+          "segments": [
+            {
+              "text": "Empiler des indicateurs dérivés du même prix et compter chaque signal comme une preuve indépendante."
+            }
+          ]
+        },
+        {
+          "text": "Entrer sans niveau d'invalidation ni risque maximal, même lorsque tous les indicateurs semblent alignés.",
+          "segments": [
+            {
+              "text": "Entrer sans niveau d'invalidation ni risque maximal, même lorsque tous les indicateurs semblent alignés."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "CHAPITRE 9",
+      "segments": [
+        {
+          "text": "CHAPITRE 9",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Conclusion générale",
+      "segments": [
+        {
+          "text": "Conclusion générale",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Relier les trois volumes pour construire une méthode qui survit à l'erreur.",
+      "segments": [
+        {
+          "text": "Relier les trois volumes pour construire une méthode qui survit à l'erreur.",
+          "italic": true
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "9-1-ce-que-chaque-volume-apporte",
+      "text": "9.1 Ce que chaque volume apporte"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Volume",
+        "Question centrale",
+        "Apport"
+      ],
+      "rows": [
+        [
+          "1 — Fondations",
+          "Quoi acheter, pourquoi et avec quel risque ?",
+          "Fondamentale, technique et gestion du risque"
+        ],
+        [
+          "2 — Cas concrets",
+          "Comment une thèse ou une institution peut-elle échouer ?",
+          "Fraude, levier, liquidité, financement et concentration"
+        ],
+        [
+          "3 — Indicateurs",
+          "Comment lire tendance, momentum et participation ?",
+          "Moyennes, RSI, MACD et volume"
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Les indicateurs ne valent que par leur place dans un processus. L'analyse fondamentale peut identifier une entreprise de qualité, mais elle ne donne pas toujours le meilleur point d'entrée. L'analyse technique peut améliorer le timing, mais elle ne protège ni d'une fraude, ni d'un gap, ni d'un choc systémique. La gestion du risque relie les deux : elle accepte qu'une analyse puisse être raisonnable et néanmoins se tromper.",
+      "segments": [
+        {
+          "text": "Les indicateurs ne valent que par leur place dans un processus. L'analyse fondamentale peut identifier une entreprise de qualité, mais elle ne donne pas toujours le meilleur point d'entrée. L'analyse technique peut améliorer le timing, mais elle ne protège ni d'une fraude, ni d'un gap, ni d'un choc systémique. La gestion du risque relie les deux : elle accepte qu'une analyse puisse être raisonnable et néanmoins se tromper."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "9-2-la-chaine-de-decision-complete",
+      "text": "9.2 La chaîne de décision complète"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Comprendre. Quelle est l'activité, la qualité financière et le scénario fondamental ?",
+          "segments": [
+            {
+              "text": "Comprendre. ",
+              "bold": true
+            },
+            {
+              "text": "Quelle est l'activité, la qualité financière et le scénario fondamental ?"
+            }
+          ]
+        },
+        {
+          "text": "Contextualiser. Quel est le régime de marché, la tendance de fond et le risque macroéconomique ?",
+          "segments": [
+            {
+              "text": "Contextualiser. ",
+              "bold": true
+            },
+            {
+              "text": "Quel est le régime de marché, la tendance de fond et le risque macroéconomique ?"
+            }
+          ]
+        },
+        {
+          "text": "Observer. Que montrent le prix, la moyenne, le volume, le RSI et le MACD ?",
+          "segments": [
+            {
+              "text": "Observer. ",
+              "bold": true
+            },
+            {
+              "text": "Que montrent le prix, la moyenne, le volume, le RSI et le MACD ?"
+            }
+          ]
+        },
+        {
+          "text": "Invalider. Quel fait ou quel niveau prouverait que l'idée est fausse ?",
+          "segments": [
+            {
+              "text": "Invalider. ",
+              "bold": true
+            },
+            {
+              "text": "Quel fait ou quel niveau prouverait que l'idée est fausse ?"
+            }
+          ]
+        },
+        {
+          "text": "Dimensionner. Quelle perte maximale est acceptable et quelle taille de position y correspond ?",
+          "segments": [
+            {
+              "text": "Dimensionner. ",
+              "bold": true
+            },
+            {
+              "text": "Quelle perte maximale est acceptable et quelle taille de position y correspond ?"
+            }
+          ]
+        },
+        {
+          "text": "Réévaluer. Les nouvelles données renforcent-elles ou détruisent-elles la thèse initiale ?",
+          "segments": [
+            {
+              "text": "Réévaluer. ",
+              "bold": true
+            },
+            {
+              "text": "Les nouvelles données renforcent-elles ou détruisent-elles la thèse initiale ?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "LEÇON FINALE",
+      "variant": "summary",
+      "text": "Le bon trader n'est pas celui qui trouve un indicateur infaillible. C'est celui qui sait exactement ce que chaque outil mesure, attend plusieurs confirmations utiles, définit le point où il a tort et protège son capital lorsque le marché choisit un autre scénario.",
+      "sourceFill": "EAF6EF"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "9-3-resume-en-quatre-phrases",
+      "text": "9.3 Résumé en quatre phrases"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Le RSI mesure la force relative des gains et pertes récents sur une échelle de 0 à 100.",
+          "segments": [
+            {
+              "text": "Le RSI mesure la force relative des gains et pertes récents sur une échelle de 0 à 100."
+            }
+          ]
+        },
+        {
+          "text": "Le MACD mesure l'écart entre une moyenne rapide et une moyenne lente, puis l'évolution de cet écart.",
+          "segments": [
+            {
+              "text": "Le MACD mesure l'écart entre une moyenne rapide et une moyenne lente, puis l'évolution de cet écart."
+            }
+          ]
+        },
+        {
+          "text": "La moyenne mobile lisse le prix pour décrire la direction et la pente, avec un retard inévitable.",
+          "segments": [
+            {
+              "text": "La moyenne mobile lisse le prix pour décrire la direction et la pente, avec un retard inévitable."
+            }
+          ]
+        },
+        {
+          "text": "Le volume mesure la participation et aide à juger la crédibilité d'un mouvement de prix.",
+          "segments": [
+            {
+              "text": "Le volume mesure la participation et aide à juger la crédibilité d'un mouvement de prix."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "glossaire-essentiel",
+      "text": "Glossaire essentiel"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Terme",
+        "Définition"
+      ],
+      "rows": [
+        [
+          "Momentum",
+          "Vitesse et intensité d'un mouvement de prix."
+        ],
+        [
+          "Oscillateur",
+          "Indicateur évoluant autour d'un axe ou dans une plage, comme le RSI."
+        ],
+        [
+          "Période",
+          "Une bougie utilisée dans le calcul ; son horizon dépend de l'unité de temps."
+        ],
+        [
+          "Confluence",
+          "Cohérence de plusieurs informations qui répondent à des questions complémentaires."
+        ],
+        [
+          "Divergence",
+          "Désaccord entre la direction du prix et celle d'un indicateur de momentum."
+        ],
+        [
+          "Faux départ",
+          "Signal rapidement annulé dans un marché sans direction claire."
+        ],
+        [
+          "Invalidation",
+          "Niveau ou fait qui démontre que le scénario n'est plus valable."
+        ]
+      ],
+      "links": [
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "sources-principales",
+      "text": "Sources principales"
+    },
+    {
+      "type": "paragraph",
+      "text": "Les définitions, paramètres et principes de lecture ont été recoupés avec le centre d'aide et la documentation officielle de TradingView. Les graphiques sont des captures de NVIDIA en journalier, produites avec le graphique TradingView et son widget officiel. Les données affichées peuvent être différées selon la place et l'offre de données.",
+      "segments": [
+        {
+          "text": "Les définitions, paramètres et principes de lecture ont été recoupés avec le centre d'aide et la documentation officielle de TradingView. Les graphiques sont des captures de NVIDIA en journalier, produites avec le graphique TradingView et son widget officiel. Les données affichées peuvent être différées selon la place et l'offre de données."
+        }
+      ]
+    },
+    {
+      "type": "sources",
+      "scope": "global",
+      "entries": [
+        {
+          "text": "TradingView — Relative Strength Index (RSI)",
+          "links": [
+            "https://www.tradingview.com/support/solutions/43000502338-relative-strength-index-rsi/"
+          ]
+        },
+        {
+          "text": "TradingView — Moving Average Convergence Divergence (MACD)",
+          "links": [
+            "https://www.tradingview.com/support/solutions/43000502344-moving-average-convergence-divergence-macd-indicator/"
+          ]
+        },
+        {
+          "text": "TradingView — Moving Averages",
+          "links": [
+            "https://www.tradingview.com/support/solutions/43000502589-moving-averages/"
+          ]
+        },
+        {
+          "text": "TradingView — Simple Moving Average",
+          "links": [
+            "https://www.tradingview.com/support/solutions/43000696841-simple-moving-average/"
+          ]
+        },
+        {
+          "text": "TradingView — Exponential Moving Average",
+          "links": [
+            "https://www.tradingview.com/support/solutions/43000592270-exponential-moving-average/"
+          ]
+        },
+        {
+          "text": "TradingView — Volume",
+          "links": [
+            "https://www.tradingview.com/support/solutions/43000591617-volume/"
+          ]
+        },
+        {
+          "text": "TradingView — Relative Volume",
+          "links": [
+            "https://www.tradingview.com/support/solutions/43000635874-how-do-we-calculate-relative-volume-and-relative-volume-at-time/"
+          ]
+        },
+        {
+          "text": "TradingView — Advanced Chart Widget, démonstration analyse technique",
+          "links": [
+            "https://www.tradingview.com/widget-docs/widgets/charts/advanced-chart/demos/technical-analysis/"
+          ]
+        },
+        {
+          "text": "TradingView — graphique NVDA (NASDAQ)",
+          "links": [
+            "https://www.tradingview.com/chart/?symbol=NASDAQ%3ANVDA"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "POURSUIVRE L'APPRENTISSAGE",
+      "variant": "principle",
+      "text": "Travaille d'abord sur des graphiques historiques, en masquant la partie droite. Écris ton scénario avec le prix, le volume et un seul indicateur de momentum, puis révèle la suite. Ce processus développe la lecture sans transformer l'exercice en recherche de paramètres parfaits.",
+      "sourceFill": "FFF7DD"
     }
   ]
 }

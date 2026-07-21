@@ -603,6 +603,10 @@ function renderQuiz(volume, quiz, volumes, part = null, parts = []) {
   const nextVolume = volumes.find((candidate) => (candidate.metadata.volumeNumber || candidate.metadata.order) === order + 1);
   const nextPart = part ? parts.find((candidate) => Number(candidate.order) === Number(part.order) + 1) : null;
   const awaitsNextPart = Boolean(part && !nextPart && metadata.partSequenceComplete === false);
+  const futureVolumeNumber = Number(metadata.futureVolumeNumber || 0);
+  const awaitsFutureVolume = Boolean(
+    part && !nextPart && !nextVolume && metadata.partSequenceComplete !== false && futureVolumeNumber === order + 1,
+  );
   const nextStep = nextPart
     ? { kind: "part", label: `Partie ${nextPart.order}`, title: nextPart.title, url: `#${nextPart.id}` }
     : awaitsNextPart
@@ -614,6 +618,13 @@ function renderQuiz(volume, quiz, volumes, part = null, parts = []) {
           title: nextVolume.metadata.title,
           url: sitePath(`/volumes/${nextVolume.metadata.slug}/`),
         }
+      : awaitsFutureVolume
+        ? {
+            kind: "upcoming-volume",
+            label: `Volume ${futureVolumeNumber}`,
+            title: "À venir",
+            url: sitePath("/volumes/"),
+          }
       : { kind: "overview", label: "", title: "", url: sitePath("/volumes/") };
   const quizId = part ? `${order}-part-${part.order}` : String(order);
   const contextLabel = part ? `Partie ${part.order} · ${volumeLabel(volume)}` : `Exercices du ${volumeLabel(volume)}`;
@@ -626,7 +637,7 @@ function renderQuiz(volume, quiz, volumes, part = null, parts = []) {
       <p>${escapeHtml(quiz.intro)}</p>
     </header>
     <div class="quiz-guidance" role="note"><span aria-hidden="true">◆</span><p><strong>Votre objectif</strong> Sélectionnez une réponse par question. Après validation, chaque correction sera expliquée et votre meilleur score sera conservé sur cet appareil.</p></div>
-    <form class="quiz" data-quiz data-volume-order="${order}" data-part-order="${part?.order || ""}" data-completes-volume="${String(completesVolume)}" data-awaits-next-part="${String(awaitsNextPart)}" data-context-label="${escapeHtml(part ? `Partie ${part.order}` : volumeLabel(volume))}" data-next-step-kind="${nextStep.kind}" data-next-step-label="${escapeHtml(nextStep.label)}" data-next-step-title="${escapeHtml(nextStep.title)}" data-next-step-url="${escapeHtml(nextStep.url)}">
+    <form class="quiz" data-quiz data-volume-order="${order}" data-part-order="${part?.order || ""}" data-completes-volume="${String(completesVolume)}" data-awaits-next-part="${String(awaitsNextPart)}" data-awaits-future-volume="${String(awaitsFutureVolume)}" data-future-volume-number="${futureVolumeNumber || ""}" data-context-label="${escapeHtml(part ? `Partie ${part.order}` : volumeLabel(volume))}" data-next-step-kind="${nextStep.kind}" data-next-step-label="${escapeHtml(nextStep.label)}" data-next-step-title="${escapeHtml(nextStep.title)}" data-next-step-url="${escapeHtml(nextStep.url)}">
       <div class="quiz-progress" aria-label="Progression dans le questionnaire">
         <div><span data-quiz-progress-text>Question 1 sur ${questions.length}</span><span data-quiz-answered>0 réponse sur ${questions.length}</span></div>
         <span class="quiz-progress__track" aria-hidden="true"><i data-quiz-progress-bar></i></span>
@@ -668,8 +679,10 @@ function renderQuiz(volume, quiz, volumes, part = null, parts = []) {
 }
 
 function renderPartNavigation(partGroups) {
+  const countWords = { 1: "Une", 2: "Deux", 3: "Trois" };
+  const countLabel = countWords[partGroups.length] || String(partGroups.length);
   return `<section class="volume-parts-map" aria-labelledby="volume-parts-title">
-    <header><div><p class="eyebrow">Parcours du Volume 3</p><h2 id="volume-parts-title">Deux parties, deux validations</h2></div><p>Obtenez au moins 8/10 au QCM d’une partie pour ouvrir la suivante.</p></header>
+    <header><div><p class="eyebrow">Parcours du Volume 3</p><h2 id="volume-parts-title">${countLabel} parties, ${countLabel.toLowerCase()} validations</h2></div><p>Obtenez au moins 8/10 au QCM d’une partie pour ouvrir la suivante.</p></header>
     <ol>${partGroups
       .map(
         (part) => `<li><a href="#${escapeHtml(part.id)}" data-volume-part-link data-part-order="${part.order}">
@@ -715,8 +728,10 @@ function renderVolumeParts(metadata, partGroups) {
 
 function renderPartQuizzes(volume, quiz, volumes, partGroups) {
   const quizzes = quiz?.parts || [];
+  const countWords = { 1: "Un", 2: "Deux", 3: "Trois" };
+  const countLabel = countWords[partGroups.length] || String(partGroups.length);
   return `<section class="part-quizzes" aria-labelledby="part-quizzes-title">
-    <header class="part-quizzes__header"><p class="eyebrow">Validations séparées</p><h2 id="part-quizzes-title">Deux QCM indépendants</h2><p>Chaque partie se valide avec son propre questionnaire de 10 questions. Les questions ne sont pas cumulées et chaque meilleur score est conservé séparément.</p></header>
+    <header class="part-quizzes__header"><p class="eyebrow">Validations séparées</p><h2 id="part-quizzes-title">${countLabel} QCM indépendants</h2><p>Chaque partie se valide avec son propre questionnaire de 10 questions. Les questions ne sont pas cumulées et chaque meilleur score est conservé séparément.</p></header>
     ${partGroups
       .map((part) => {
         const partQuiz = quizzes.find((candidate) => Number(candidate.order) === Number(part.order));

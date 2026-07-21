@@ -272,7 +272,7 @@
     ]
   },
   "3-analyse-technique": {
-    "title": "Valider les deux parties de l’analyse technique",
+    "title": "Valider les trois parties de l’analyse technique",
     "intro": "Chaque partie possède son propre QCM de 10 questions. Une note d’au moins 8/10 débloque l’étape suivante.",
     "parts": [
       {
@@ -548,6 +548,144 @@
             ],
             "answer": 1,
             "explanation": "Le cours place le contexte avant la forme : on observe la réaction, on attend une confirmation, puis on définit l’invalidation et une taille de position supportable."
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "id": "partie-3",
+        "title": "QCM de la Partie 3 — Indicateurs techniques",
+        "intro": "10 questions consacrées uniquement à la Partie 3 : RSI, MACD, moyennes mobiles, volume, confluence et méthode de décision.",
+        "questions": [
+          {
+            "id": "v3-p3-q1",
+            "difficulty": "Facile",
+            "question": "Que fait réellement un indicateur technique ?",
+            "options": [
+              "Il transforme des informations déjà enregistrées pour les rendre plus lisibles",
+              "Il prédit avec certitude la prochaine bougie",
+              "Il remplace le prix et la structure du marché",
+              "Il décide automatiquement de la taille de position"
+            ],
+            "answer": 0,
+            "explanation": "Un indicateur résume, lisse ou compare des données déjà visibles. Il aide à lire le marché, mais ne voit pas le futur et ne remplace ni le contexte ni le risque."
+          },
+          {
+            "id": "v3-p3-q2",
+            "difficulty": "Facile",
+            "question": "Dans le réglage d’un indicateur, que signifie une période ?",
+            "options": [
+              "Une bougie de l’unité de temps observée",
+              "Toujours une journée complète",
+              "Un mois civil, quel que soit le graphique",
+              "Le nombre de transactions de l’investisseur"
+            ],
+            "answer": 0,
+            "explanation": "Une période correspond à une bougie. Ainsi, 14 périodes représentent 14 heures sur un graphique horaire, 14 séances en Daily ou 14 semaines en Weekly."
+          },
+          {
+            "id": "v3-p3-q3",
+            "difficulty": "Facile",
+            "question": "Quelle interprétation du RSI au-dessus de 70 est la plus juste ?",
+            "options": [
+              "Le momentum haussier est fort ou étiré, mais la hausse peut continuer",
+              "Le prix doit immédiatement se retourner à la baisse",
+              "Le volume devient automatiquement insuffisant",
+              "La tendance de fond est nécessairement baissière"
+            ],
+            "answer": 0,
+            "explanation": "Un RSI supérieur à 70 décrit d’abord un momentum haussier puissant ou étiré. En tendance forte, il peut rester en surachat pendant plusieurs bougies."
+          },
+          {
+            "id": "v3-p3-q4",
+            "difficulty": "Intermédiaire",
+            "question": "Que montre la contraction de l’histogramme du MACD ?",
+            "options": [
+              "Les lignes MACD et signal se rapprochent et le mouvement perd de la vitesse",
+              "Le prix a obligatoirement atteint son sommet",
+              "La volatilité disparaît définitivement",
+              "Le volume double sur chaque bougie"
+            ],
+            "answer": 0,
+            "explanation": "Lorsque les barres se raccourcissent, l’écart entre la ligne MACD et sa ligne de signal diminue. Le momentum ralentit, sans garantir un retournement immédiat."
+          },
+          {
+            "id": "v3-p3-q5",
+            "difficulty": "Intermédiaire",
+            "question": "Quelle différence essentielle distingue une EMA d’une SMA de même longueur ?",
+            "options": [
+              "L’EMA accorde davantage de poids aux prix récents et réagit plus vite",
+              "L’EMA ne repose pas sur les prix passés",
+              "La SMA prédit mieux les retournements",
+              "La SMA ne peut pas être utilisée en tendance"
+            ],
+            "answer": 0,
+            "explanation": "L’EMA pondère davantage les données récentes et suit plus vite les changements. La SMA attribue le même poids à chaque clôture et produit une lecture plus lisse."
+          },
+          {
+            "id": "v3-p3-q6",
+            "difficulty": "Intermédiaire",
+            "question": "Que suggère un prix situé au-dessus d’une moyenne mobile montante ?",
+            "options": [
+              "Un contexte généralement plus haussier, à confirmer par la structure",
+              "Une garantie que le prochain mouvement sera positif",
+              "Un support exact que le prix ne peut pas traverser",
+              "Une absence de retard dans l’indicateur"
+            ],
+            "answer": 0,
+            "explanation": "La position du prix et la pente de la moyenne donnent un repère de tendance. Une moyenne reste toutefois retardée et doit être traitée comme une zone observée, non comme un mur exact."
+          },
+          {
+            "id": "v3-p3-q7",
+            "difficulty": "Intermédiaire",
+            "question": "Quelle lecture renforce le plus la crédibilité d’une cassure haussière ?",
+            "options": [
+              "Une clôture au-dessus du niveau accompagnée d’un volume supérieur à l’habitude",
+              "Un RSI élevé sans mouvement du prix",
+              "Une moyenne plate et un volume faible",
+              "Un croisement MACD isolé au milieu d’un range"
+            ],
+            "answer": 0,
+            "explanation": "Une cassure soutenue par une participation inhabituelle est généralement plus crédible. Il faut encore vérifier la clôture, l’absence de rejet et l’invalidation du scénario."
+          },
+          {
+            "id": "v3-p3-q8",
+            "difficulty": "Approfondissement",
+            "question": "Pourquoi faut-il éviter de comparer directement le volume brut de deux actifs très différents ?",
+            "options": [
+              "Les unités, les sources et la structure des marchés peuvent différer",
+              "Le volume n’existe que sur les actions",
+              "Le volume indique toujours la direction suivante",
+              "Tous les courtiers affichent exactement les mêmes échanges"
+            ],
+            "answer": 0,
+            "explanation": "Actions, contrats, cryptomonnaies et Forex ne mesurent pas toujours la participation de la même manière. Le volume doit surtout être comparé à son historique sur le même marché."
+          },
+          {
+            "id": "v3-p3-q9",
+            "difficulty": "Approfondissement",
+            "question": "Quel ordre respecte la hiérarchie de lecture proposée dans la Partie 3 ?",
+            "options": [
+              "Structure du prix, participation, momentum, puis invalidation et risque",
+              "RSI, entrée immédiate, prix, puis risque après la position",
+              "MACD, rumeur, levier, puis support choisi après coup",
+              "Volume, objectif de gain, tendance, puis taille maximale"
+            ],
+            "answer": 0,
+            "explanation": "Le prix et sa structure donnent le contexte. Le volume mesure la participation, le RSI et le MACD éclairent le momentum, puis le risque est défini avant l’entrée."
+          },
+          {
+            "id": "v3-p3-q10",
+            "difficulty": "Approfondissement",
+            "question": "Pourquoi RSI, MACD et moyenne mobile ne constituent-ils pas trois preuves totalement indépendantes ?",
+            "options": [
+              "Ils sont tous dérivés du prix et peuvent compter plusieurs fois la même information",
+              "Ils utilisent toujours exactement le même calcul",
+              "Ils ne fonctionnent que sur NVIDIA",
+              "Ils mesurent uniquement le volume"
+            ],
+            "answer": 0,
+            "explanation": "Ces trois outils sont calculés à partir du prix. Leur alignement peut être utile, mais il faut éviter le double comptage et rechercher des informations complémentaires comme la structure et le volume."
           }
         ]
       }

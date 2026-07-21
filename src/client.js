@@ -134,12 +134,8 @@
       const parsed = JSON.parse(localStorage.getItem(key) || "{}");
       if (!parsed || typeof parsed !== "object") return {};
       let progressChanged = false;
-      if (parsed["3"] && !parsed["3-part-1"] && !parsed["3-part-2"]) {
-        parsed["3-part-1"] = parsed["3"];
-        delete parsed["3"];
-        progressChanged = true;
-      }
-      if (parsed["3"] && parsed["3-part-2"]) {
+      if (parsed["3"] && !parsed["3-part-3"]) {
+        if (!parsed["3-part-1"] && !parsed["3-part-2"]) parsed["3-part-1"] = parsed["3"];
         delete parsed["3"];
         progressChanged = true;
       }
@@ -605,6 +601,8 @@
       const partOrder = Number(quizForm.dataset.partOrder || 0);
       const completesVolume = quizForm.dataset.completesVolume === "true";
       const awaitsNextPart = quizForm.dataset.awaitsNextPart === "true";
+      const awaitsFutureVolume = quizForm.dataset.awaitsFutureVolume === "true";
+      const futureVolumeNumber = Number(quizForm.dataset.futureVolumeNumber || volumeOrder + 1);
       const passed = score >= passingScore;
       saveQuizScore(volumeOrder, score, partOrder, completesVolume);
       updateCourseProgress();
@@ -622,7 +620,7 @@
           : "Objectif non atteint";
         result.querySelector("[data-quiz-result-title]").textContent = passed
           ? completesVolume
-            ? "Bravo, le Volume 3 est validé."
+            ? `Bravo, le Volume ${volumeOrder} est validé.`
             : awaitsNextPart
               ? `La Partie ${partOrder} est validée.`
               : "Bravo, votre parcours continue."
@@ -630,8 +628,10 @@
         const nextStepLabel = quizForm.dataset.nextStepLabel;
         const nextStepKind = quizForm.dataset.nextStepKind;
         const nextStepName = nextStepKind === "part" ? "la partie suivante" : "le volume suivant";
-        result.querySelector("[data-quiz-result-message]").textContent = passed && awaitsNextPart
-          ? `Vous obtenez ${score}/10. Votre score est enregistré : il servira à débloquer la partie suivante lorsqu’elle sera publiée.`
+        result.querySelector("[data-quiz-result-message]").textContent = passed && awaitsFutureVolume
+          ? `Vous obtenez ${score}/10. La Partie ${partOrder} et le Volume ${volumeOrder} sont validés. Votre score est enregistré : il permettra d’accéder au Volume ${futureVolumeNumber} lorsqu’il sera publié.`
+          : passed && awaitsNextPart
+            ? `Vous obtenez ${score}/10. Votre score est enregistré : il servira à débloquer la partie suivante lorsqu’elle sera publiée.`
           : passed
             ? score === 10
             ? nextStepLabel
@@ -646,6 +646,8 @@
           nextVolumeLink.hidden = !passed;
           nextVolumeLink.textContent = nextStepKind === "upcoming-part"
             ? `Revenir à la Partie ${partOrder} →`
+            : nextStepKind === "upcoming-volume"
+              ? "Revenir à tous les volumes →"
             : nextStepLabel
               ? `Accéder ${nextStepKind === "part" ? "à la" : "au"} ${nextStepLabel} →`
               : "Revenir à tous les volumes →";

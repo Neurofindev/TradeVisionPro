@@ -370,7 +370,7 @@ function globalNav(volumes, activePage, showToc) {
 
 export function layout({ title, description, body, volumes, activePage, showToc = false, bodyClass = "" }) {
   return `<!doctype html>
-<html lang="fr" data-base-path="${escapeHtml(sitePath("/"))}">
+<html lang="fr" class="access-locked" data-base-path="${escapeHtml(sitePath("/"))}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -378,7 +378,7 @@ export function layout({ title, description, body, volumes, activePage, showToc 
   <meta name="description" content="${escapeHtml(description)}">
   <meta name="theme-color" content="#17151f">
   <title>${escapeHtml(title)} · ${SITE_NAME}</title>
-  <script>try{const s=localStorage.getItem('tradevisionpro-theme');const t=s||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dataset.theme=t}catch(e){}</script>
+  <script>try{const s=localStorage.getItem('tradevisionpro-theme');const t=s||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dataset.theme=t}catch(e){}try{if(sessionStorage.getItem('tradevisionpro-access-session-v1')==='granted'){const r=document.documentElement;r.classList.remove('access-locked');r.classList.add('access-granted')}}catch(e){}</script>
   <link rel="icon" href="${sitePath("/brand/tradevisionpro-favicon.ico")}" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="${sitePath("/brand/tradevisionpro-favicon-32.png")}">
   <link rel="icon" type="image/png" sizes="64x64" href="${sitePath("/brand/tradevisionpro-favicon-64.png")}">
@@ -387,6 +387,33 @@ export function layout({ title, description, body, volumes, activePage, showToc 
   <script src="${sitePath("/assets/client.js")}" defer></script>
 </head>
 <body class="${escapeHtml(bodyClass)}">
+  <section class="access-gate" data-access-gate aria-labelledby="access-title" aria-describedby="access-intro" role="dialog" aria-modal="true">
+    <div class="access-gate__ambient" aria-hidden="true"><span></span><span></span><span></span><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="access-card" data-access-card>
+      <header class="access-brand">
+        <span class="access-brand__mark"><img src="${sitePath("/brand/tradevisionpro-mark-256.png")}" alt="" width="256" height="256" aria-hidden="true"></span>
+        <span><strong>${SITE_NAME}</strong><small>${SITE_TAGLINE}</small></span>
+      </header>
+      <div class="access-card__heading">
+        <p class="access-eyebrow"><span aria-hidden="true"></span> Accès protégé</p>
+        <h1 id="access-title">Entrez votre code d’accès</h1>
+        <p id="access-intro">Cette formation est réservée aux personnes disposant d’un code valide.</p>
+      </div>
+      <form class="access-form" data-access-form novalidate>
+        <label for="access-code">Code à 6 chiffres</label>
+        <div class="access-field">
+          <input id="access-code" data-access-input type="password" inputmode="numeric" autocomplete="off" minlength="6" maxlength="6" pattern="[0-9]{6}" aria-describedby="access-help access-status" aria-invalid="false" placeholder="••••••" required>
+          <button class="access-visibility" data-access-visibility type="button" aria-label="Afficher le code" aria-pressed="false">
+            <span data-access-visibility-icon aria-hidden="true">◉</span>
+          </button>
+        </div>
+        <p class="access-help" id="access-help">Saisissez les six chiffres communiqués avec votre accès.</p>
+        <button class="access-submit" data-access-submit type="submit"><span>Accéder à la formation</span><span aria-hidden="true">→</span></button>
+        <p class="access-status" id="access-status" data-access-status role="status" aria-live="polite">Votre accès restera actif pendant cette session.</p>
+      </form>
+      <footer class="access-card__footer"><span aria-hidden="true">◆</span> Espace de formation TradeVisionPro</footer>
+    </div>
+  </section>
   <a class="skip-link" href="#contenu">Aller au contenu</a>
   <div class="market-ambient" aria-hidden="true"><span></span><span></span><span></span></div>
   ${globalNav(volumes, activePage, showToc)}

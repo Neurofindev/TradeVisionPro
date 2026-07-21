@@ -2,6 +2,102 @@
   const root = document.documentElement;
   const basePath = root.dataset.basePath || "/";
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const accessSessionKey = "tradevisionpro-access-session-v1";
+  const accessCodeHash = "fa5d171c9280388b26a2569e9fccc7683ab3ec70b685b3f9cde7066eee987263";
+  const accessGate = document.querySelector("[data-access-gate]");
+  const accessCard = document.querySelector("[data-access-card]");
+  const accessForm = document.querySelector("[data-access-form]");
+  const accessInput = document.querySelector("[data-access-input]");
+  const accessSubmit = document.querySelector("[data-access-submit]");
+  const accessStatus = document.querySelector("[data-access-status]");
+  const accessVisibility = document.querySelector("[data-access-visibility]");
+  const accessVisibilityIcon = document.querySelector("[data-access-visibility-icon]");
+
+  async function digestAccessCode(value) {
+    const bytes = new TextEncoder().encode(value);
+    const digest = await crypto.subtle.digest("SHA-256", bytes);
+    return [...new Uint8Array(digest)].map((byte) => byte.toString(16).padStart(2, "0")).join("");
+  }
+
+  function updateAccessStatus(message, state = "neutral") {
+    if (!accessStatus || !accessCard || !accessInput) return;
+    accessStatus.textContent = message;
+    accessStatus.dataset.state = state;
+    accessCard.classList.remove("is-error", "is-success");
+    accessInput.setAttribute("aria-invalid", String(state === "error"));
+    if (state === "error") {
+      requestAnimationFrame(() => accessCard.classList.add("is-error"));
+    } else if (state === "success") {
+      accessCard.classList.add("is-success");
+    }
+  }
+
+  function grantAccess() {
+    root.classList.remove("access-locked");
+    root.classList.add("access-granted");
+    if (accessGate) accessGate.hidden = true;
+    document.querySelector(".brand, main a, main button, main")?.focus({ preventScroll: true });
+  }
+
+  if (root.classList.contains("access-granted")) {
+    if (accessGate) accessGate.hidden = true;
+  } else {
+    root.classList.add("access-locked");
+    if (accessGate) accessGate.hidden = false;
+    requestAnimationFrame(() => accessInput?.focus({ preventScroll: true }));
+  }
+
+  accessInput?.addEventListener("input", () => {
+    accessInput.value = accessInput.value.replace(/\D/g, "").slice(0, 6);
+    if (accessInput.getAttribute("aria-invalid") === "true") {
+      updateAccessStatus("Votre accès restera actif pendant cette session.");
+    }
+  });
+
+  accessVisibility?.addEventListener("click", () => {
+    if (!accessInput) return;
+    const show = accessInput.type === "password";
+    accessInput.type = show ? "text" : "password";
+    accessVisibility.setAttribute("aria-pressed", String(show));
+    accessVisibility.setAttribute("aria-label", show ? "Masquer le code" : "Afficher le code");
+    if (accessVisibilityIcon) accessVisibilityIcon.textContent = show ? "◌" : "◉";
+    accessInput.focus();
+  });
+
+  accessForm?.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    if (!accessInput || !accessSubmit) return;
+    const value = accessInput.value;
+    if (!/^\d{6}$/.test(value)) {
+      updateAccessStatus("Le code doit comporter exactement 6 chiffres.", "error");
+      accessInput.focus();
+      return;
+    }
+
+    accessSubmit.disabled = true;
+    accessSubmit.setAttribute("aria-busy", "true");
+    updateAccessStatus("Vérification du code…");
+    try {
+      const matches = (await digestAccessCode(value)) === accessCodeHash;
+      if (!matches) {
+        accessInput.value = "";
+        updateAccessStatus("Code incorrect. L’accès reste verrouillé.", "error");
+        accessInput.focus();
+        return;
+      }
+
+      sessionStorage.setItem(accessSessionKey, "granted");
+      updateAccessStatus("Code validé. Ouverture de votre espace…", "success");
+      window.setTimeout(grantAccess, reduceMotion ? 0 : 420);
+    } catch (error) {
+      updateAccessStatus("Validation momentanément indisponible. Réessayez.", "error");
+      accessInput.focus();
+    } finally {
+      accessSubmit.disabled = false;
+      accessSubmit.removeAttribute("aria-busy");
+    }
+  });
+
   root.classList.add("motion-ready");
   const themeButtons = document.querySelectorAll("[data-theme-toggle]");
   const preferredDark = window.matchMedia("(prefers-color-scheme: dark)");

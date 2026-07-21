@@ -54,6 +54,23 @@ test("TradeVisionPro identity and icon assets are published", async () => {
   }
 });
 
+test("every page is protected by the access gate without exposing the code", async () => {
+  for (const file of await htmlFiles()) {
+    const html = await readFile(file, "utf8");
+    assert.match(html, /<html lang="fr" class="access-locked"/);
+    assert.ok(html.includes("data-access-gate"), path.relative(DIST, file));
+    assert.ok(html.includes("data-access-form"), path.relative(DIST, file));
+    assert.ok(html.includes("data-access-input"), path.relative(DIST, file));
+  }
+
+  const client = await readFile(path.join(DIST, "assets", "client.js"), "utf8");
+  const styles = await readFile(path.join(DIST, "assets", "styles.css"), "utf8");
+  assert.ok(client.includes("fa5d171c9280388b26a2569e9fccc7683ab3ec70b685b3f9cde7066eee987263"));
+  assert.ok(client.includes('crypto.subtle.digest("SHA-256"'));
+  assert.ok(!client.includes("110930"));
+  assert.match(styles, /html\.access-locked body > :not\(\.access-gate\)/);
+});
+
 test("home accompaniment and dark primary action stay complete and legible", async () => {
   const home = await readFile(path.join(DIST, "index.html"), "utf8");
   const styles = await readFile(path.join(DIST, "assets", "styles.css"), "utf8");

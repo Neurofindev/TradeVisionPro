@@ -500,6 +500,11 @@ a {
   color: #17131a;
 }
 
+:root[data-theme="dark"] .button--primary {
+  color: #17131a;
+  text-shadow: none;
+}
+
 .button--secondary {
   border-color: rgba(255, 255, 255, 0.25);
   color: #f2f5f1;
@@ -778,7 +783,7 @@ a {
 
 .method-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1px;
   margin-top: 4rem;
   background: color-mix(in srgb, currentColor 18%, transparent);

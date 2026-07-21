@@ -397,8 +397,8 @@ export function renderHome(volumes) {
       <div class="volume-grid">${volumes.map((volume, index) => renderVolumeCard(volume, index === 0)).join("")}</div>
     </section>
     <section class="method-band">
-      <div><p class="eyebrow">Conçu pour durer</p><h2>Une bibliothèque qui grandit sans perdre sa clarté.</h2></div>
-      <div class="method-grid"><article><span>01</span><h3>Contenu natif</h3><p>Chaque cours devient du HTML accessible, indexable et agréable à lire.</p></article><article><span>02</span><h3>Blocs souples</h3><p>Concepts, dossiers, tableaux, figures et futurs formats cohabitent sans gabarit rigide.</p></article><article><span>03</span><h3>Repères stables</h3><p>Sommaire, recherche et navigation sont générés automatiquement à partir du contenu.</p></article></div>
+      <div><p class="eyebrow">Un accompagnement complet</p><h2>De la théorie à la pratique, avec les bonnes ressources et les bons échanges.</h2></div>
+      <div class="method-grid"><article><span>01</span><h3>Cours théoriques</h3><p>Des notions structurées pour comprendre les marchés, l’investissement, le trading et la gestion du risque.</p></article><article><span>02</span><h3>Cours pratiques</h3><p>Des exercices et des études de cas pour transformer les concepts en décisions concrètes.</p></article><article><span>03</span><h3>Sources d’apprentissage</h3><p>Un accompagnement vers les meilleures ressources pour approfondir chaque sujet avec méthode.</p></article><article><span>04</span><h3>Échanges constructifs</h3><p>Positions, aperçus des marchés, discussions productives et bien d’autres sujets pour progresser ensemble.</p></article></div>
     </section>
   </main>`;
 }

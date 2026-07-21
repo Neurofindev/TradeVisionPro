@@ -53,6 +53,17 @@ test("TradeVisionPro identity and icon assets are published", async () => {
   }
 });
 
+test("home accompaniment and dark primary action stay complete and legible", async () => {
+  const home = await readFile(path.join(DIST, "index.html"), "utf8");
+  const styles = await readFile(path.join(DIST, "assets", "styles.css"), "utf8");
+  const methodGrid = home.match(/<div class="method-grid">([\s\S]*?)<\/div>/)?.[1] || "";
+  assert.equal((methodGrid.match(/<article>/g) || []).length, 4);
+  for (const heading of ["Cours théoriques", "Cours pratiques", "Sources d’apprentissage", "Échanges constructifs"]) {
+    assert.ok(methodGrid.includes(heading), heading);
+  }
+  assert.match(styles, /:root\[data-theme="dark"\] \.button--primary\s*\{[^}]*color:\s*#17131a/s);
+});
+
 test("volume two renders every specialist component", async () => {
   const html = await readFile(path.join(DIST, "volumes/2-dossiers-historiques/index.html"), "utf8");
   assert.equal((html.match(/class="case-header"/g) || []).length, 5);

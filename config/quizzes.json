@@ -1,0 +1,410 @@
+{
+  "1-fondations-et-analyses": {
+    "title": "Valider les fondations",
+    "intro": "Vérifiez votre compréhension des notions essentielles avant de poursuivre vers les dossiers historiques.",
+    "questions": [
+      {
+        "id": "v1-q1",
+        "difficulty": "Facile",
+        "question": "À quelle question l’analyse fondamentale cherche-t-elle d’abord à répondre ?",
+        "options": [
+          "Quoi acheter et pourquoi ?",
+          "À quelle minute passer un ordre ?",
+          "Quel indicateur ajouter au graphique ?",
+          "Combien de transactions réaliser chaque jour ?"
+        ],
+        "answer": 0,
+        "explanation": "L’analyse fondamentale étudie la machine économique, sa qualité et sa valeur afin de comprendre ce que l’on achète et pourquoi."
+      },
+      {
+        "id": "v1-q2",
+        "difficulty": "Facile",
+        "question": "Quel est le rôle principal de l’analyse technique dans la chaîne de décision ?",
+        "options": [
+          "Garantir qu’une position sera gagnante",
+          "Déterminer quand agir et où le scénario s’invalide",
+          "Remplacer l’étude de l’entreprise",
+          "Calculer la fiscalité de l’investisseur"
+        ],
+        "answer": 1,
+        "explanation": "L’analyse technique aide à lire le comportement du marché, à travailler le timing et à définir des niveaux d’invalidation."
+      },
+      {
+        "id": "v1-q3",
+        "difficulty": "Facile",
+        "question": "Quels trois éléments faut-il définir avant de sélectionner un actif ?",
+        "options": [
+          "Objectif, horizon et risque acceptable",
+          "Rumeur, popularité et nombre d’abonnés",
+          "Prix rond, couleur des bougies et heure",
+          "Dividende, logo et secteur uniquement"
+        ],
+        "answer": 0,
+        "explanation": "Le volume recommande de partir de l’objectif, de l’horizon et du risque acceptable, puis de choisir les actifs compatibles."
+      },
+      {
+        "id": "v1-q4",
+        "difficulty": "Intermédiaire",
+        "question": "Quel calcul correspond au rendement total présenté dans le cours ?",
+        "options": [
+          "Valeur finale ÷ revenus encaissés",
+          "Valeur initiale − valeur finale",
+          "(Valeur finale − valeur initiale + revenus encaissés) ÷ valeur initiale",
+          "Revenus encaissés ÷ valeur finale"
+        ],
+        "answer": 2,
+        "explanation": "Le rendement total tient compte de l’évolution de valeur et des revenus encaissés, rapportés au capital initial."
+      },
+      {
+        "id": "v1-q5",
+        "difficulty": "Intermédiaire",
+        "question": "Pourquoi un PER faible ne suffit-il pas à conclure qu’une action est bon marché ?",
+        "options": [
+          "Parce que le PER ne contient jamais de bénéfices",
+          "Parce que le marché peut anticiper une baisse des bénéfices",
+          "Parce qu’un PER faible interdit toute hausse",
+          "Parce que seuls les volumes comptent"
+        ],
+        "answer": 1,
+        "explanation": "Un ratio s’interprète avec la qualité, la croissance, le cycle et l’historique : un PER bas peut refléter des bénéfices appelés à diminuer."
+      },
+      {
+        "id": "v1-q6",
+        "difficulty": "Intermédiaire",
+        "question": "Quels éléments suffisent pour commencer une analyse technique simple et structurée ?",
+        "options": [
+          "Douze indicateurs donnant tous le même signal",
+          "Uniquement une moyenne mobile",
+          "Structure des prix, niveaux, volume et volatilité",
+          "Seulement les nouvelles publiées sur les réseaux"
+        ],
+        "answer": 2,
+        "explanation": "Le cours privilégie une lecture sobre : structure des prix, niveaux, volume et volatilité avant d’empiler des indicateurs."
+      },
+      {
+        "id": "v1-q7",
+        "difficulty": "Intermédiaire",
+        "question": "Une excellente entreprise achetée à un prix excessif devient automatiquement un excellent investissement.",
+        "options": [
+          "Vrai, la qualité annule toujours le prix payé",
+          "Faux, le prix payé influence le rendement futur",
+          "Vrai, si l’entreprise est connue",
+          "Faux, mais uniquement pour le trading intraday"
+        ],
+        "answer": 1,
+        "explanation": "Une bonne entreprise peut constituer un investissement médiocre si les attentes intégrées dans son prix sont déjà excessives."
+      },
+      {
+        "id": "v1-q8",
+        "difficulty": "Approfondissement",
+        "question": "Que permet principalement de définir un niveau d’invalidation avant l’entrée ?",
+        "options": [
+          "Le moment où reconnaître que le scénario ne tient plus",
+          "Le bénéfice garanti de la position",
+          "La valeur comptable exacte de l’entreprise",
+          "Le nombre d’investisseurs présents"
+        ],
+        "answer": 0,
+        "explanation": "L’invalidation fixe à l’avance la condition qui contredit la thèse et permet d’organiser la sortie ainsi que le risque."
+      },
+      {
+        "id": "v1-q9",
+        "difficulty": "Approfondissement",
+        "question": "Quel énoncé combine correctement analyse et gestion du risque ?",
+        "options": [
+          "Une bonne analyse rend la taille de position inutile",
+          "Un beau graphique élimine le risque fondamental",
+          "Aucun outil d’analyse ne remplace la gestion du risque",
+          "Le risque disparaît lorsque plusieurs indicateurs concordent"
+        ],
+        "answer": 2,
+        "explanation": "Même une analyse cohérente reste incertaine : la taille engagée et le risque accepté demeurent indispensables."
+      },
+      {
+        "id": "v1-q10",
+        "difficulty": "Approfondissement",
+        "question": "Quelle séquence résume le mieux la méthode proposée à la fin du volume ?",
+        "options": [
+          "Acheter, chercher une justification, puis mesurer le risque",
+          "Comprendre l’actif, estimer potentiel et risques, définir l’invalidation, adapter la taille",
+          "Observer le prix, ignorer l’entreprise, augmenter la taille",
+          "Choisir l’actif le plus populaire et attendre"
+        ],
+        "answer": 1,
+        "explanation": "La méthode relie compréhension, potentiel, risques, invalidation et dimensionnement tout en acceptant l’incertitude."
+      }
+    ]
+  },
+  "2-dossiers-historiques": {
+    "title": "Relier les faits aux mécanismes",
+    "intro": "Mobilisez les cinq dossiers pour reconnaître les risques de financement, de gouvernance, de levier et de liquidité.",
+    "questions": [
+      {
+        "id": "v2-q1",
+        "difficulty": "Facile",
+        "question": "Quel mécanisme caractérise le mieux la réussite de Berkshire Hathaway ?",
+        "options": [
+          "Des transactions quotidiennes très fréquentes",
+          "Allocation rationnelle, financement durable et réinvestissement",
+          "Un recours permanent à la vente forcée",
+          "Une seule acquisition exceptionnelle"
+        ],
+        "answer": 1,
+        "explanation": "La capitalisation de Berkshire repose sur une succession de décisions cohérentes, le réinvestissement et l’absence de vente forcée."
+      },
+      {
+        "id": "v2-q2",
+        "difficulty": "Facile",
+        "question": "Quel compte a servi à dissimuler les pertes chez Barings ?",
+        "options": [
+          "Le compte 88888",
+          "Le compte 1965",
+          "Le compte LTCM",
+          "Le compte 1400"
+        ],
+        "answer": 0,
+        "explanation": "Le compte 88888 est le repère emblématique de la dissimulation des positions et pertes de Nick Leeson."
+      },
+      {
+        "id": "v2-q3",
+        "difficulty": "Intermédiaire",
+        "question": "Pourquoi la chute du cours d’Enron a-t-elle aggravé sa crise ?",
+        "options": [
+          "Le cours servait indirectement la confiance, le crédit et les garanties du système",
+          "L’entreprise ne possédait aucun actif physique",
+          "La baisse empêchait toute publication comptable",
+          "Le prix du gaz était fixé par l’action"
+        ],
+        "answer": 0,
+        "explanation": "Chez Enron, la confiance soutenait les financements et les garanties : la baisse du titre a donc alimenté une boucle prix–crédit–liquidité."
+      },
+      {
+        "id": "v2-q4",
+        "difficulty": "Intermédiaire",
+        "question": "Quelle faute de gouvernance a rendu le désastre de Barings possible ?",
+        "options": [
+          "Une séparation trop stricte des responsabilités",
+          "Une même personne pouvait prendre, mesurer et expliquer le risque",
+          "L’absence totale de produits dérivés",
+          "Des limites de position trop faibles"
+        ],
+        "answer": 1,
+        "explanation": "L’absence de contrôle indépendant entre front-office et back-office a permis au risque réel de rester caché pendant que le siège finançait les marges."
+      },
+      {
+        "id": "v2-q5",
+        "difficulty": "Intermédiaire",
+        "question": "Pourquoi une stratégie statistiquement pertinente comme celle de LTCM peut-elle échouer avant d’avoir raison ?",
+        "options": [
+          "Parce qu’une convergence finit toujours instantanément",
+          "Parce que collatéral, liquidité et financeurs peuvent interrompre la stratégie",
+          "Parce que le levier réduit tous les risques",
+          "Parce que les positions couvertes ne fluctuent jamais"
+        ],
+        "answer": 1,
+        "explanation": "Le chemin compte autant que l’issue : les appels de marge, la liquidité et le droit des financeurs peuvent forcer une liquidation prématurée."
+      },
+      {
+        "id": "v2-q6",
+        "difficulty": "Intermédiaire",
+        "question": "Quel risque les Total Return Swaps d’Archegos rendaient-ils difficile à voir ?",
+        "options": [
+          "Le taux d’imposition du family office",
+          "L’exposition économique totale répartie entre plusieurs banques",
+          "Le nombre d’employés du fonds",
+          "La date de publication des résultats"
+        ],
+        "answer": 1,
+        "explanation": "Chaque banque voyait sa relation bilatérale, mais pas nécessairement l’addition des expositions similaires conclues avec les autres contreparties."
+      },
+      {
+        "id": "v2-q7",
+        "difficulty": "Approfondissement",
+        "question": "Que signifie le levier d’environ 28× associé à LTCM fin 1997 ?",
+        "options": [
+          "Une petite variation défavorable pouvait fortement affecter le capital",
+          "Le fonds disposait de 28 années de liquidités",
+          "Chaque position gagnait 28 %",
+          "Le fonds ne pouvait subir aucun appel de marge"
+        ],
+        "answer": 0,
+        "explanation": "Un levier élevé amplifie les effets des variations et rend la stratégie plus dépendante du financement, du collatéral et de la liquidité."
+      },
+      {
+        "id": "v2-q8",
+        "difficulty": "Approfondissement",
+        "question": "Pourquoi la concentration a-t-elle amplifié l’effondrement d’Archegos ?",
+        "options": [
+          "Les positions étaient réparties sur trop d’actifs indépendants",
+          "Les ventes forcées de blocs importants ont pesé sur les mêmes titres",
+          "Aucune banque n’avait fourni de financement",
+          "Les titres concentrés ne pouvaient pas être vendus"
+        ],
+        "answer": 1,
+        "explanation": "Une exposition concentrée devient difficile à liquider : les ventes forcées font baisser les titres, aggravent les marges et accélèrent encore les ventes."
+      },
+      {
+        "id": "v2-q9",
+        "difficulty": "Approfondissement",
+        "question": "Quels quatre éléments faut-il relier pour comprendre un cas concret selon la conclusion ?",
+        "options": [
+          "Cours, logo, secteur et popularité",
+          "Exposition réelle, financement, qualité de l’information et mécanisme de sortie",
+          "PER, dividende, tendance et rumeur",
+          "Entrée, gain maximal, fiscalité et courtier"
+        ],
+        "answer": 1,
+        "explanation": "Cette grille permet de dépasser le récit et de comprendre comment un choc se transmet jusqu’à la liquidation ou à la survie."
+      },
+      {
+        "id": "v2-q10",
+        "difficulty": "Approfondissement",
+        "question": "Quelle leçon commune relie les cinq dossiers au Volume 1 ?",
+        "options": [
+          "Avoir raison dispense de mesurer les pertes possibles",
+          "La certitude est l’objectif principal de l’analyse",
+          "Il faut savoir ce que l’on détient, pourquoi, ce qui invalide la thèse et combien on peut perdre",
+          "Les graphiques expliquent seuls tous les mécanismes"
+        ],
+        "answer": 2,
+        "explanation": "La discipline consiste moins à prédire avec certitude qu’à connaître l’exposition, l’invalidation et la perte supportable."
+      }
+    ]
+  },
+  "3-analyse-technique": {
+    "title": "Maîtriser le contexte et le timing",
+    "intro": "Testez votre lecture multi-timeframe ainsi que votre compréhension des supports, résistances, ranges et cassures.",
+    "questions": [
+      {
+        "id": "v3-q1",
+        "difficulty": "Facile",
+        "question": "Par quelles unités de temps commence une analyse multi-timeframe structurée ?",
+        "options": [
+          "Les unités les plus courtes uniquement",
+          "Les unités larges comme Weekly et Daily",
+          "Une unité choisie au hasard",
+          "Le graphique en une minute"
+        ],
+        "answer": 1,
+        "explanation": "Les unités larges servent à identifier la tendance de fond avant de descendre progressivement vers des horizons plus courts."
+      },
+      {
+        "id": "v3-q2",
+        "difficulty": "Facile",
+        "question": "Que décrit une zone de support ?",
+        "options": [
+          "Une zone basse où le prix rebondit à la hausse",
+          "Une zone haute où le prix bloque toujours",
+          "Le niveau exact d’un indicateur économique",
+          "Une période sans aucune transaction"
+        ],
+        "answer": 0,
+        "explanation": "Un support correspond à une zone où la demande ou les réactions acheteuses ont plusieurs fois empêché le prix de poursuivre sa baisse."
+      },
+      {
+        "id": "v3-q3",
+        "difficulty": "Facile",
+        "question": "Que décrit une zone de résistance ?",
+        "options": [
+          "Une zone basse testée par les acheteurs",
+          "Une zone haute sur laquelle le prix bute",
+          "Une tendance sans correction",
+          "Le volume quotidien moyen"
+        ],
+        "answer": 1,
+        "explanation": "Une résistance est une zone haute où les réactions vendeuses ont plusieurs fois freiné ou repoussé le prix."
+      },
+      {
+        "id": "v3-q4",
+        "difficulty": "Intermédiaire",
+        "question": "Qu’est-ce qu’un range ?",
+        "options": [
+          "Une hausse verticale sans pause",
+          "Une consolidation entre support et résistance sans tendance claire",
+          "Une cassure accompagnée de volume",
+          "Un indicateur de volatilité"
+        ],
+        "answer": 1,
+        "explanation": "Dans un range, le prix oscille entre deux zones identifiables sans direction dominante claire."
+      },
+      {
+        "id": "v3-q5",
+        "difficulty": "Intermédiaire",
+        "question": "Pourquoi descend-on vers H8, H4, H1 puis éventuellement des unités plus courtes ?",
+        "options": [
+          "Pour oublier la tendance de fond",
+          "Pour affiner l’analyse, trouver des confluences et préciser le timing",
+          "Pour garantir une entrée au point le plus bas",
+          "Pour augmenter le nombre d’indicateurs"
+        ],
+        "answer": 1,
+        "explanation": "Les horizons inférieurs précisent les réactions du prix, mais doivent rester reliés au contexte établi sur les unités larges."
+      },
+      {
+        "id": "v3-q6",
+        "difficulty": "Intermédiaire",
+        "question": "Quelle limite importante présentent les timeframes très courts ?",
+        "options": [
+          "Ils ne montrent jamais les annonces",
+          "Ils sont moins fiables pour confirmer la tendance de fond",
+          "Ils empêchent de voir la volatilité",
+          "Ils ne contiennent aucun prix"
+        ],
+        "answer": 1,
+        "explanation": "Ils révèlent rapidement certaines réactions, mais comportent davantage de bruit et confirment moins solidement une tendance globale."
+      },
+      {
+        "id": "v3-q7",
+        "difficulty": "Intermédiaire",
+        "question": "Selon le chapitre, que suggèrent des tests répétés d’un support ou d’une résistance ?",
+        "options": [
+          "La zone devient invisible",
+          "Une cassure éventuelle peut être plus puissante",
+          "Le prix ne pourra jamais traverser la zone",
+          "La tendance est automatiquement terminée"
+        ],
+        "answer": 1,
+        "explanation": "Les tests accumulent des positions et des niveaux de protection autour de la zone, ce qui peut alimenter le mouvement lorsqu’elle cède."
+      },
+      {
+        "id": "v3-q8",
+        "difficulty": "Approfondissement",
+        "question": "Comment les stop-loss peuvent-ils amplifier une cassure ?",
+        "options": [
+          "Leur déclenchement ajoute des ordres dans le sens du mouvement",
+          "Ils suspendent toutes les transactions du marché",
+          "Ils ramènent toujours le prix dans le range",
+          "Ils suppriment la volatilité"
+        ],
+        "answer": 0,
+        "explanation": "Le déclenchement simultané de nombreux ordres de protection alimente le flux et peut accélérer le prix après la rupture d’une zone."
+      },
+      {
+        "id": "v3-q9",
+        "difficulty": "Approfondissement",
+        "question": "Quelle lecture combine correctement les différents horizons ?",
+        "options": [
+          "Le 15 minutes remplace toujours le Weekly",
+          "Le Weekly donne le contexte, les horizons intermédiaires confirment et les courts affinent",
+          "Chaque timeframe doit produire une conclusion indépendante",
+          "Seul le timeframe d’entrée doit être étudié"
+        ],
+        "answer": 1,
+        "explanation": "La confluence vient de la cohérence entre contexte, confirmations intermédiaires et réaction observée sur l’unité utilisée pour le timing."
+      },
+      {
+        "id": "v3-q10",
+        "difficulty": "Approfondissement",
+        "question": "Quelle synthèse décrit le mieux la méthode du Volume 3 ?",
+        "options": [
+          "La tendance donne la direction, les niveaux structurent le scénario et les horizons courts affinent le timing",
+          "Les niveaux remplacent toute gestion du risque",
+          "Une cassure suffit à garantir la poursuite du mouvement",
+          "Les prix ronds sont les seuls supports possibles"
+        ],
+        "answer": 0,
+        "explanation": "La méthode relie tendance, zones de réaction, timing et gestion du risque au lieu d’isoler un signal unique."
+      }
+    ]
+  }
+}

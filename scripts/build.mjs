@@ -30,6 +30,7 @@ async function main() {
   const basePathArgument = process.argv.find((argument) => argument.startsWith("--base-path="));
   const basePath = configureSite({ basePath: basePathArgument?.slice("--base-path=".length) || "/" });
   const manifest = await readJson(path.join(GENERATED, "index.json"));
+  const quizzes = await readJson(path.join(ROOT, "config", "quizzes.json"));
   const volumes = await Promise.all(
     manifest.volumes.map((entry) => readJson(path.join(GENERATED, entry.file))),
   );
@@ -81,7 +82,7 @@ async function main() {
       layout({
         title: `${volume.metadata.title} — Volume ${volume.metadata.volumeNumber || volume.metadata.order}`,
         description: volume.metadata.description,
-        body: renderVolumePage(volume, volumes),
+        body: renderVolumePage(volume, volumes, quizzes[volume.metadata.slug]),
         volumes,
         activePage: volume.metadata.slug,
         showToc: true,

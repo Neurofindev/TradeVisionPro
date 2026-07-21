@@ -2,8 +2,10 @@
   const root = document.documentElement;
   const basePath = root.dataset.basePath || "/";
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const accessSessionKey = "tradevisionpro-access-session-v1";
-  const accessCodeHash = "fa5d171c9280388b26a2569e9fccc7683ab3ec70b685b3f9cde7066eee987263";
+  const accessSessionKey = "tradevisionpro-access-session-v2";
+  const legacyAccessSessionKey = "tradevisionpro-access-session-v1";
+  const learnerAccessCodeHash = "fa5d171c9280388b26a2569e9fccc7683ab3ec70b685b3f9cde7066eee987263";
+  const adminAccessCodeHash = "4f8c5f5a97c0bbf84c176fda321365057b68cd8a135eaf003eae6584af3f77ba";
   const accessGate = document.querySelector("[data-access-gate]");
   const accessCard = document.querySelector("[data-access-card]");
   const accessForm = document.querySelector("[data-access-form]");
@@ -32,14 +34,17 @@
     }
   }
 
-  function grantAccess() {
+  function grantAccess(role = "learner") {
+    root.dataset.accessRole = role;
     root.classList.remove("access-locked");
     root.classList.add("access-granted");
     if (accessGate) accessGate.hidden = true;
+    updateCourseProgress();
     document.querySelector(".brand, main a, main button, main")?.focus({ preventScroll: true });
   }
 
   if (root.classList.contains("access-granted")) {
+    if (!root.dataset.accessRole) root.dataset.accessRole = "learner";
     if (accessGate) accessGate.hidden = true;
   } else {
     root.classList.add("access-locked");
@@ -78,17 +83,19 @@
     accessSubmit.setAttribute("aria-busy", "true");
     updateAccessStatus("Vérification du code…");
     try {
-      const matches = (await digestAccessCode(value)) === accessCodeHash;
-      if (!matches) {
+      const digest = await digestAccessCode(value);
+      const role = digest === adminAccessCodeHash ? "admin" : digest === learnerAccessCodeHash ? "learner" : "";
+      if (!role) {
         accessInput.value = "";
         updateAccessStatus("Code incorrect. L’accès reste verrouillé.", "error");
         accessInput.focus();
         return;
       }
 
-      sessionStorage.setItem(accessSessionKey, "granted");
+      sessionStorage.setItem(accessSessionKey, role);
+      sessionStorage.removeItem(legacyAccessSessionKey);
       updateAccessStatus("Code validé. Ouverture de votre espace…", "success");
-      window.setTimeout(grantAccess, reduceMotion ? 0 : 420);
+      window.setTimeout(() => grantAccess(role), reduceMotion ? 0 : 420);
     } catch (error) {
       updateAccessStatus("Validation momentanément indisponible. Réessayez.", "error");
       accessInput.focus();
@@ -96,6 +103,283 @@
       accessSubmit.disabled = false;
       accessSubmit.removeAttribute("aria-busy");
     }
+  });
+
+  const courseProgressKey = "tradevisionpro-course-progress-v1";
+  const passingScore = 8;
+
+  function readCourseProgress() {
+    try {
+      const parsed = JSON.parse(localStorage.getItem(courseProgressKey) || "{}");
+      return parsed && typeof parsed === "object" ? parsed : {};
+    } catch (error) {
+      return {};
+    }
+  }
+
+  function saveQuizScore(volumeOrder, score) {
+    const progressData = readCourseProgress();
+    const key = String(volumeOrder);
+    progressData[key] = Math.max(Number(progressData[key]) || 0, score);
+    localStorage.setItem(courseProgressKey, JSON.stringify(progressData));
+  }
+
+  function isAdminAccess() {
+    return root.dataset.accessRole === "admin";
+  }
+
+  function isVolumeUnlocked(volumeOrder, progressData = readCourseProgress()) {
+    return isAdminAccess() || volumeOrder <= 1 || Number(progressData[String(volumeOrder - 1)] || 0) >= passingScore;
+  }
+
+  function updateCourseProgress() {
+    const progressData = readCourseProgress();
+    document.querySelectorAll("[data-volume-card]").forEach((card) => {
+      const order = Number(card.dataset.volumeOrder || 1);
+      const unlocked = isVolumeUnlocked(order, progressData);
+      const score = Number(progressData[String(order)] || 0);
+      card.classList.toggle("is-locked", !unlocked);
+      card.classList.toggle("is-complete", score >= passingScore);
+      const stateIcon = card.querySelector("[data-volume-state-icon]");
+      const stateLabel = card.querySelector("[data-volume-state-label]");
+      if (stateIcon) stateIcon.textContent = !unlocked ? "◇" : score >= passingScore ? "✓" : "◆";
+      if (stateLabel) {
+        stateLabel.textContent = !unlocked
+          ? `À débloquer avec le Volume ${order - 1}`
+          : score >= passingScore
+            ? `Validé · ${score}/10`
+            : "Disponible";
+      }
+      card.querySelectorAll("[data-volume-link]").forEach((link) => {
+        link.dataset.locked = String(!unlocked);
+        if (!unlocked) link.setAttribute("aria-label", `Volume ${order} verrouillé — découvrir les conditions d’accès`);
+        else link.removeAttribute("aria-label");
+      });
+    });
+
+    document.querySelectorAll("[data-volume-link]").forEach((link) => {
+      const order = Number(link.dataset.volumeOrder || 1);
+      const unlocked = isVolumeUnlocked(order, progressData);
+      link.classList.toggle("is-locked", !unlocked);
+      link.dataset.locked = String(!unlocked);
+      if (link.classList.contains("nav-volume")) {
+        link.dataset.state = !unlocked ? "locked" : Number(progressData[String(order)] || 0) >= passingScore ? "complete" : "open";
+      }
+    });
+
+    const volumePage = document.querySelector("[data-volume-page]");
+    if (volumePage) {
+      const order = Number(volumePage.dataset.volumeOrder || 1);
+      const unlocked = isVolumeUnlocked(order, progressData);
+      const lockPanel = volumePage.querySelector("[data-volume-lock]");
+      const protectedContent = volumePage.querySelector("[data-volume-protected]");
+      const sidebar = volumePage.querySelector(".volume-sidebar");
+      volumePage.classList.toggle("is-locked", !unlocked);
+      if (lockPanel) lockPanel.hidden = unlocked;
+      if (protectedContent) protectedContent.hidden = !unlocked;
+      if (sidebar) {
+        sidebar.hidden = !unlocked;
+        sidebar.inert = !unlocked;
+      }
+      const score = Number(progressData[String(order)] || 0);
+      volumePage.querySelectorAll("[data-volume-score]").forEach((label) => {
+        label.textContent = score ? `${score}/10` : "À faire";
+        label.classList.toggle("is-complete", score >= passingScore);
+      });
+    }
+  }
+
+  const volumeTabs = [...document.querySelectorAll("[data-volume-tab]")];
+  const volumePanes = [...document.querySelectorAll("[data-volume-pane]")];
+
+  function setVolumeTab(tabName, { focus = false, updateHash = true } = {}) {
+    if (!volumeTabs.length || !volumePanes.length) return;
+    volumeTabs.forEach((tab) => {
+      const selected = tab.dataset.volumeTab === tabName;
+      tab.setAttribute("aria-selected", String(selected));
+      tab.tabIndex = selected ? 0 : -1;
+      if (selected && focus) tab.focus();
+    });
+    volumePanes.forEach((pane) => {
+      pane.hidden = pane.dataset.volumePane !== tabName;
+    });
+    if (updateHash) {
+      const url = new URL(window.location.href);
+      if (tabName === "exercises") url.hash = "exercices";
+      else if (url.hash === "#exercices") url.hash = "";
+      history.replaceState(null, "", url);
+    }
+    window.dispatchEvent(new Event("scroll"));
+  }
+
+  volumeTabs.forEach((tab, index) => {
+    tab.addEventListener("click", () => setVolumeTab(tab.dataset.volumeTab));
+    tab.addEventListener("keydown", (event) => {
+      if (!/ArrowLeft|ArrowRight|Home|End/.test(event.key)) return;
+      event.preventDefault();
+      const targetIndex = event.key === "Home"
+        ? 0
+        : event.key === "End"
+          ? volumeTabs.length - 1
+          : (index + (event.key === "ArrowRight" ? 1 : -1) + volumeTabs.length) % volumeTabs.length;
+      setVolumeTab(volumeTabs[targetIndex].dataset.volumeTab, { focus: true });
+    });
+  });
+
+  document.querySelectorAll("[data-open-exercise]").forEach((button) => {
+    button.addEventListener("click", () => {
+      setVolumeTab("exercises");
+      document.querySelector(".volume-tabs")?.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+      setDrawer(false);
+    });
+  });
+  document.querySelectorAll("[data-toc-link]").forEach((link) => {
+    link.addEventListener("click", () => setVolumeTab("course", { updateHash: false }));
+  });
+
+  document.querySelectorAll("[data-quiz]").forEach((quizForm) => {
+    const questions = [...quizForm.querySelectorAll("[data-quiz-question]")];
+    const previousButton = quizForm.querySelector("[data-quiz-previous]");
+    const nextButton = quizForm.querySelector("[data-quiz-next]");
+    const submitButton = quizForm.querySelector("[data-quiz-submit]");
+    const help = quizForm.querySelector("[data-quiz-help]");
+    const progressText = quizForm.querySelector("[data-quiz-progress-text]");
+    const answeredText = quizForm.querySelector("[data-quiz-answered]");
+    const progressBar = quizForm.querySelector("[data-quiz-progress-bar]");
+    const result = quizForm.parentElement.querySelector("[data-quiz-result]");
+    let currentQuestion = 0;
+    let reviewed = false;
+
+    function selectedAnswer(question) {
+      return question.querySelector('input[type="radio"]:checked');
+    }
+
+    function updateQuizView() {
+      questions.forEach((question, index) => {
+        question.hidden = index !== currentQuestion;
+      });
+      const selected = selectedAnswer(questions[currentQuestion]);
+      const answeredCount = questions.filter((question) => selectedAnswer(question)).length;
+      if (progressText) progressText.textContent = `Question ${currentQuestion + 1} sur ${questions.length}`;
+      if (answeredText) answeredText.textContent = `${answeredCount} réponse${answeredCount > 1 ? "s" : ""} sur ${questions.length}`;
+      if (progressBar) progressBar.style.transform = `scaleX(${(currentQuestion + 1) / questions.length})`;
+      if (previousButton) previousButton.disabled = currentQuestion === 0;
+      if (nextButton) {
+        nextButton.hidden = currentQuestion === questions.length - 1;
+        nextButton.disabled = !reviewed && !selected;
+      }
+      if (submitButton) {
+        submitButton.hidden = reviewed || currentQuestion !== questions.length - 1;
+        submitButton.disabled = !selected;
+      }
+      if (help) {
+        help.textContent = reviewed
+          ? "Parcourez les corrections pour consolider chaque notion."
+          : selected
+            ? currentQuestion === questions.length - 1
+              ? "Vous pouvez maintenant valider l’ensemble de vos réponses."
+              : "Réponse enregistrée. Vous pouvez poursuivre."
+            : "Choisissez une réponse pour poursuivre.";
+      }
+    }
+
+    questions.forEach((question) => {
+      question.addEventListener("change", updateQuizView);
+    });
+    previousButton?.addEventListener("click", () => {
+      currentQuestion = Math.max(0, currentQuestion - 1);
+      updateQuizView();
+      questions[currentQuestion].focus({ preventScroll: true });
+    });
+    nextButton?.addEventListener("click", () => {
+      if (!reviewed && !selectedAnswer(questions[currentQuestion])) return;
+      currentQuestion = Math.min(questions.length - 1, currentQuestion + 1);
+      updateQuizView();
+      questions[currentQuestion].focus({ preventScroll: true });
+    });
+
+    quizForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const firstMissing = questions.findIndex((question) => !selectedAnswer(question));
+      if (firstMissing >= 0) {
+        currentQuestion = firstMissing;
+        updateQuizView();
+        if (help) help.textContent = "Répondez à cette question avant de valider le QCM.";
+        return;
+      }
+
+      let score = 0;
+      questions.forEach((question) => {
+        const answer = Number(selectedAnswer(question).value);
+        const correctAnswer = Number(question.dataset.answer);
+        const correct = answer === correctAnswer;
+        if (correct) score += 1;
+        question.classList.toggle("is-correct", correct);
+        question.classList.toggle("is-incorrect", !correct);
+        question.querySelectorAll(".quiz-options label").forEach((label, index) => {
+          label.classList.toggle("is-correct-answer", index === correctAnswer);
+          label.classList.toggle("is-wrong-answer", index === answer && !correct);
+        });
+        const feedback = question.querySelector("[data-quiz-feedback]");
+        const feedbackTitle = question.querySelector("[data-quiz-feedback-title]");
+        if (feedback) feedback.hidden = false;
+        if (feedbackTitle) feedbackTitle.textContent = correct ? "Bonne réponse" : "À revoir";
+      });
+
+      reviewed = true;
+      const volumeOrder = Number(quizForm.dataset.volumeOrder || 1);
+      const passed = score >= passingScore;
+      saveQuizScore(volumeOrder, score);
+      updateCourseProgress();
+      quizForm.classList.add("is-reviewed");
+      if (result) {
+        result.hidden = false;
+        result.classList.toggle("is-success", passed);
+        result.classList.toggle("is-retry", !passed);
+        result.querySelector("[data-quiz-result-score]").textContent = String(score);
+        result.querySelector("[data-quiz-result-eyebrow]").textContent = passed ? "Volume validé" : "Objectif non atteint";
+        result.querySelector("[data-quiz-result-title]").textContent = passed ? "Bravo, votre parcours continue." : "Encore un effort pour débloquer la suite.";
+        result.querySelector("[data-quiz-result-message]").textContent = passed
+          ? score === 10
+            ? "Maîtrise parfaite : toutes les réponses sont correctes. Le volume suivant est maintenant accessible."
+            : `Vous obtenez ${score}/10. Le seuil est atteint et le volume suivant est maintenant accessible.`
+          : `Vous obtenez ${score}/10. Consultez les explications puis recommencez : il faut au moins 8/10 pour poursuivre.`;
+        const nextVolumeLink = result.querySelector("[data-quiz-next-volume]");
+        if (nextVolumeLink) {
+          nextVolumeLink.hidden = !passed;
+          nextVolumeLink.textContent = quizForm.dataset.nextVolumeTitle
+            ? `Accéder au Volume ${volumeOrder + 1} →`
+            : "Revenir à tous les volumes →";
+        }
+        result.focus({ preventScroll: true });
+        result.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "center" });
+      }
+      updateQuizView();
+    });
+
+    result?.querySelector("[data-quiz-retry]")?.addEventListener("click", () => {
+      reviewed = false;
+      currentQuestion = 0;
+      quizForm.reset();
+      quizForm.classList.remove("is-reviewed");
+      questions.forEach((question) => {
+        question.classList.remove("is-correct", "is-incorrect");
+        question.querySelectorAll(".quiz-options label").forEach((label) => label.classList.remove("is-correct-answer", "is-wrong-answer"));
+        const feedback = question.querySelector("[data-quiz-feedback]");
+        if (feedback) feedback.hidden = true;
+      });
+      result.hidden = true;
+      updateQuizView();
+      questions[0]?.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "center" });
+    });
+
+    updateQuizView();
+  });
+
+  updateCourseProgress();
+  if (window.location.hash === "#exercices") setVolumeTab("exercises", { updateHash: false });
+  window.addEventListener("hashchange", () => {
+    if (window.location.hash === "#exercices") setVolumeTab("exercises", { updateHash: false });
   });
 
   root.classList.add("motion-ready");

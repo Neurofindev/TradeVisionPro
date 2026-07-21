@@ -331,16 +331,18 @@ function archetypeLabel(volume) {
 
 export function renderVolumeCard(volume, featured = false) {
   const metadata = volume.metadata;
+  const order = metadata.volumeNumber || metadata.order;
   const count = volume.stats.dossierCount
     ? `${volume.stats.dossierCount} dossiers`
     : `${volume.stats.chapterCount} chapitre${volume.stats.chapterCount > 1 ? "s" : ""}`;
-  return `<article class="volume-card${featured ? " volume-card--featured" : ""}">
+  return `<article class="volume-card${featured ? " volume-card--featured" : ""}" data-volume-card data-volume-order="${order}">
     <div class="volume-card__top"><span>${volumeLabel(volume)}</span><span>${escapeHtml(archetypeLabel(volume))}</span></div>
+    <p class="volume-card__state" data-volume-state><span data-volume-state-icon aria-hidden="true">◇</span><span data-volume-state-label>Progression en cours</span></p>
     <h3><a href="${escapeHtml(sitePath(`/volumes/${metadata.slug}/`))}">${escapeHtml(metadata.title)}</a></h3>
     <p class="volume-card__subtitle">${escapeHtml(metadata.subtitle || "")}</p>
     <p>${escapeHtml(metadata.description || "")}</p>
     <div class="volume-card__meta"><span>${count}</span><span>${volume.stats.readingMinutes} min de lecture</span></div>
-    <a class="text-link" href="${escapeHtml(sitePath(`/volumes/${metadata.slug}/`))}">Explorer le volume <span aria-hidden="true">→</span></a>
+    <a class="text-link" data-volume-link data-volume-order="${order}" href="${escapeHtml(sitePath(`/volumes/${metadata.slug}/`))}">Explorer le volume <span aria-hidden="true">→</span></a>
   </article>`;
 }
 
@@ -353,7 +355,7 @@ function globalNav(volumes, activePage, showToc) {
         <a href="${sitePath("/volumes/")}"${activePage === "volumes" ? ' aria-current="page"' : ""}>Volumes</a>
         ${volumes
           .map(
-            (volume) => `<a class="nav-volume" href="${escapeHtml(sitePath(`/volumes/${volume.metadata.slug}/`))}"${
+            (volume) => `<a class="nav-volume" data-volume-link data-volume-order="${volume.metadata.volumeNumber || volume.metadata.order}" href="${escapeHtml(sitePath(`/volumes/${volume.metadata.slug}/`))}"${
               activePage === volume.metadata.slug ? ' aria-current="page"' : ""
             }>V${volume.metadata.volumeNumber || volume.metadata.order}</a>`,
           )
@@ -378,7 +380,7 @@ export function layout({ title, description, body, volumes, activePage, showToc 
   <meta name="description" content="${escapeHtml(description)}">
   <meta name="theme-color" content="#17151f">
   <title>${escapeHtml(title)} · ${SITE_NAME}</title>
-  <script>try{const s=localStorage.getItem('tradevisionpro-theme');const t=s||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dataset.theme=t}catch(e){}try{if(sessionStorage.getItem('tradevisionpro-access-session-v1')==='granted'){const r=document.documentElement;r.classList.remove('access-locked');r.classList.add('access-granted')}}catch(e){}</script>
+  <script>try{const s=localStorage.getItem('tradevisionpro-theme');const t=s||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dataset.theme=t}catch(e){}try{const o=sessionStorage.getItem('tradevisionpro-access-session-v2')||(sessionStorage.getItem('tradevisionpro-access-session-v1')==='granted'?'learner':'');if(o==='learner'||o==='admin'){const r=document.documentElement;r.dataset.accessRole=o;r.classList.remove('access-locked');r.classList.add('access-granted')}}catch(e){}</script>
   <link rel="icon" href="${sitePath("/brand/tradevisionpro-favicon.ico")}" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="${sitePath("/brand/tradevisionpro-favicon-32.png")}">
   <link rel="icon" type="image/png" sizes="64x64" href="${sitePath("/brand/tradevisionpro-favicon-64.png")}">
@@ -438,7 +440,7 @@ export function renderHome(volumes) {
         <p class="home-hero__lead">Une formation structurée pour relier analyse fondamentale, comportement des prix, gestion du risque et timing — des fondations jusqu’aux cas historiques et à l’analyse multi-timeframe.</p>
         <div class="hero-actions"><a class="button button--primary" href="${escapeHtml(
           sitePath(`/volumes/${first.metadata.slug}/`),
-        )}">Commencer le Volume 1</a><a class="button button--secondary" href="${sitePath("/volumes/")}">Voir le parcours</a></div>
+        )}" data-volume-link data-volume-order="1">Commencer le Volume 1</a><a class="button button--secondary" href="${sitePath("/volumes/")}">Voir le parcours</a></div>
         <div class="trust-row"><span><strong data-counter="${volumes.length}">${volumes.length}</strong> volumes disponibles</span><span><strong data-counter="${volumes.reduce(
           (sum, volume) => sum + volume.stats.wordCount,
           0,
@@ -484,28 +486,83 @@ function renderVolumeHighlights(highlights = []) {
   </section>`;
 }
 
-function renderToc(toc) {
+function renderToc(toc, volume) {
   return `<nav class="volume-toc" aria-label="Sommaire du volume"><p class="volume-toc__title">Dans ce volume</p><div class="reading-progress" aria-hidden="true"><span data-reading-progress></span></div><ol>${toc
     .map(
       (item) => `<li class="toc-depth-${item.depth}"><a href="#${escapeHtml(item.id)}" data-toc-link="${escapeHtml(
         item.id,
       )}">${item.kicker ? `<small>${escapeHtml(item.kicker)}</small>` : ""}<span>${escapeHtml(item.title)}</span></a></li>`,
     )
-    .join("")}</ol></nav>`;
+    .join("")}<li class="volume-toc__exercise"><button type="button" data-open-exercise><small>Validation</small><span>Exercices · QCM</span><em>10 questions · objectif 8/10</em></button></li></ol></nav>`;
 }
 
-export function renderVolumePage(volume, volumes) {
+function renderQuiz(volume, quiz, volumes) {
   const metadata = volume.metadata;
+  const order = metadata.volumeNumber || metadata.order;
+  const questions = quiz?.questions || [];
+  const nextVolume = volumes.find((candidate) => (candidate.metadata.volumeNumber || candidate.metadata.order) === order + 1);
+  if (!questions.length) return "";
+  return `<section class="quiz-workspace" aria-labelledby="quiz-title-${order}">
+    <header class="quiz-intro">
+      <div><p class="eyebrow">Exercices du ${volumeLabel(volume)}</p><h2 id="quiz-title-${order}">${escapeHtml(quiz.title)}</h2></div>
+      <span class="quiz-threshold"><strong>8/10</strong> pour valider</span>
+      <p>${escapeHtml(quiz.intro)}</p>
+    </header>
+    <div class="quiz-guidance" role="note"><span aria-hidden="true">◆</span><p><strong>Votre objectif</strong> Sélectionnez une réponse par question. Après validation, chaque correction sera expliquée et votre meilleur score sera conservé sur cet appareil.</p></div>
+    <form class="quiz" data-quiz data-volume-order="${order}" data-volume-title="${escapeHtml(metadata.title)}" data-next-volume-title="${escapeHtml(nextVolume?.metadata.title || "")}" data-next-volume-url="${nextVolume ? escapeHtml(sitePath(`/volumes/${nextVolume.metadata.slug}/`)) : escapeHtml(sitePath("/volumes/"))}">
+      <div class="quiz-progress" aria-label="Progression dans le questionnaire">
+        <div><span data-quiz-progress-text>Question 1 sur ${questions.length}</span><span data-quiz-answered>0 réponse sur ${questions.length}</span></div>
+        <span class="quiz-progress__track" aria-hidden="true"><i data-quiz-progress-bar></i></span>
+      </div>
+      <div class="quiz-questions">${questions
+        .map(
+          (question, questionIndex) => `<fieldset class="quiz-question" data-quiz-question data-answer="${Number(
+            question.answer,
+          )}" data-explanation="${escapeHtml(question.explanation)}"${questionIndex ? " hidden" : ""}>
+            <legend><span class="quiz-question__number">${String(questionIndex + 1).padStart(2, "0")}</span><span class="quiz-question__difficulty">${escapeHtml(question.difficulty || "Révision")}</span><span class="quiz-question__prompt">${escapeHtml(question.question)}</span></legend>
+            <div class="quiz-options">${question.options
+              .map(
+                (option, optionIndex) => `<label><input type="radio" name="${escapeHtml(
+                  question.id,
+                )}" value="${optionIndex}"><span class="quiz-option__letter" aria-hidden="true">${String.fromCharCode(
+                  65 + optionIndex,
+                )}</span><span>${escapeHtml(option)}</span><i aria-hidden="true"></i></label>`,
+              )
+              .join("")}</div>
+            <aside class="quiz-feedback" data-quiz-feedback hidden><strong data-quiz-feedback-title></strong><p>${escapeHtml(
+              question.explanation,
+            )}</p></aside>
+          </fieldset>`,
+        )
+        .join("")}</div>
+      <div class="quiz-navigation">
+        <button class="button button--secondary quiz-previous" type="button" data-quiz-previous disabled><span aria-hidden="true">←</span> Précédente</button>
+        <button class="button button--primary quiz-next" type="button" data-quiz-next>Question suivante <span aria-hidden="true">→</span></button>
+        <button class="button button--primary quiz-submit" type="submit" data-quiz-submit hidden>Valider mes réponses <span aria-hidden="true">✓</span></button>
+      </div>
+      <p class="quiz-navigation__help" data-quiz-help role="status" aria-live="polite">Choisissez une réponse pour poursuivre.</p>
+    </form>
+    <section class="quiz-result" data-quiz-result hidden tabindex="-1" aria-live="polite">
+      <div class="quiz-result__score"><span data-quiz-result-score>0</span><small>/ 10</small></div>
+      <div><p class="eyebrow" data-quiz-result-eyebrow>Résultat</p><h2 data-quiz-result-title></h2><p data-quiz-result-message></p><div class="quiz-result__actions"><a class="button button--primary" data-quiz-next-volume href="${nextVolume ? escapeHtml(sitePath(`/volumes/${nextVolume.metadata.slug}/`)) : escapeHtml(sitePath("/volumes/"))}"></a><button class="button button--secondary" type="button" data-quiz-retry>Revoir le QCM</button></div></div>
+    </section>
+  </section>`;
+}
+
+export function renderVolumePage(volume, volumes, quiz) {
+  const metadata = volume.metadata;
+  const order = metadata.volumeNumber || metadata.order;
+  const previousVolume = volumes.find((candidate) => (candidate.metadata.volumeNumber || candidate.metadata.order) === order - 1);
   const toc = buildToc(volume.blocks);
   const groups = sectionGroups(volume.blocks);
   const countLabel = volume.stats.dossierCount
     ? `${volume.stats.dossierCount} dossiers`
     : `${volume.stats.chapterCount} chapitre${volume.stats.chapterCount > 1 ? "s" : ""}`;
-  return `<main id="contenu" class="volume-page">
+  return `<main id="contenu" class="volume-page" data-volume-page data-volume-order="${order}">
     <div class="volume-shell">
       <aside class="volume-sidebar" id="volume-sidebar" aria-label="Navigation du volume">
         <button class="drawer-close" type="button" data-toc-close><span aria-hidden="true">×</span><span class="sr-only">Fermer le sommaire</span></button>
-        ${renderToc(toc)}
+        ${renderToc(toc, volume)}
       </aside>
       <article class="course-content">
         <nav class="breadcrumb" aria-label="Fil d’Ariane"><a href="${sitePath("/")}">Accueil</a><span>›</span><a href="${sitePath("/volumes/")}">Volumes</a><span>›</span><span aria-current="page">${escapeHtml(
@@ -521,14 +578,36 @@ export function renderVolumePage(volume, volumes) {
           )} mots</span>${volume.stats.figureCount ? `<span>${volume.stats.figureCount} figures</span>` : ""}</div>
         </header>
         <div class="mobile-toc-card"><button type="button" data-toc-toggle aria-expanded="false" aria-controls="volume-sidebar"><span>Ouvrir le sommaire</span><span aria-hidden="true">☰</span></button></div>
-        ${renderVolumeHighlights(metadata.highlights)}
-        <div class="course-body">${groups
-          .map(
-            (group, index) => `<section class="course-section" data-course-section="${escapeHtml(group.id)}">${group.blocks
-              .map(renderBlock)
-              .join("")}${renderPrevNext(groups, index)}</section>`,
-          )
-          .join("")}</div>
+        <section class="volume-lock" data-volume-lock hidden aria-labelledby="volume-lock-title-${order}">
+          <span class="volume-lock__icon" aria-hidden="true">◇</span>
+          <div><p class="eyebrow">Étape à valider</p><h2 id="volume-lock-title-${order}">Ce volume est encore verrouillé</h2><p>Obtenez au moins <strong>8/10</strong> au QCM du Volume ${Math.max(1, order - 1)} pour poursuivre votre parcours.</p>${
+            previousVolume
+              ? `<a class="button button--primary" href="${escapeHtml(
+                  sitePath(`/volumes/${previousVolume.metadata.slug}/#exercices`),
+                )}">Passer le QCM du Volume ${order - 1} <span aria-hidden="true">→</span></a>`
+              : ""
+          }</div>
+        </section>
+        <div data-volume-protected>
+          <nav class="volume-tabs" role="tablist" aria-label="Cours et exercices">
+            <button id="volume-tab-course-${order}" type="button" role="tab" aria-selected="true" aria-controls="volume-pane-course-${order}" data-volume-tab="course"><span aria-hidden="true">▤</span><span><strong>Le cours</strong><small>Lire et réviser</small></span></button>
+            <button id="volume-tab-exercises-${order}" type="button" role="tab" aria-selected="false" aria-controls="volume-pane-exercises-${order}" data-volume-tab="exercises"><span aria-hidden="true">✓</span><span><strong>Exercices</strong><small>QCM · objectif 8/10</small></span><em data-volume-score>À faire</em></button>
+          </nav>
+          <section id="volume-pane-course-${order}" class="volume-pane" role="tabpanel" aria-labelledby="volume-tab-course-${order}" data-volume-pane="course">
+            ${renderVolumeHighlights(metadata.highlights)}
+            <div class="course-body">${groups
+              .map(
+                (group, index) => `<section class="course-section" data-course-section="${escapeHtml(group.id)}">${group.blocks
+                  .map(renderBlock)
+                  .join("")}${renderPrevNext(groups, index)}</section>`,
+              )
+              .join("")}</div>
+          </section>
+          <section id="volume-pane-exercises-${order}" class="volume-pane volume-pane--exercises" role="tabpanel" aria-labelledby="volume-tab-exercises-${order}" data-volume-pane="exercises" hidden>
+            <span id="exercices" class="anchor-target" aria-hidden="true"></span>
+            ${renderQuiz(volume, quiz, volumes)}
+          </section>
+        </div>
       </article>
     </div>
   </main>`;

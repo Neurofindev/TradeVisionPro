@@ -66,9 +66,47 @@ test("every page is protected by the access gate without exposing the code", asy
   const client = await readFile(path.join(DIST, "assets", "client.js"), "utf8");
   const styles = await readFile(path.join(DIST, "assets", "styles.css"), "utf8");
   assert.ok(client.includes("fa5d171c9280388b26a2569e9fccc7683ab3ec70b685b3f9cde7066eee987263"));
+  assert.ok(client.includes("4f8c5f5a97c0bbf84c176fda321365057b68cd8a135eaf003eae6584af3f77ba"));
   assert.ok(client.includes('crypto.subtle.digest("SHA-256"'));
   assert.ok(!client.includes("110930"));
+  assert.ok(!client.includes("300402"));
   assert.match(styles, /html\.access-locked body > :not\(\.access-gate\)/);
+});
+
+test("every volume has a ten-question exercise tab and an enriching correction", async () => {
+  const quizzes = JSON.parse(await readFile(path.join(ROOT, "config", "quizzes.json"), "utf8"));
+  const slugs = ["1-fondations-et-analyses", "2-dossiers-historiques", "3-analyse-technique"];
+  for (const [index, slug] of slugs.entries()) {
+    const quiz = quizzes[slug];
+    assert.equal(quiz.questions.length, 10, slug);
+    for (const question of quiz.questions) {
+      assert.equal(question.options.length, 4, question.id);
+      assert.ok(Number.isInteger(question.answer) && question.answer >= 0 && question.answer < 4, question.id);
+      assert.ok(question.explanation.length >= 40, question.id);
+    }
+
+    const html = await readFile(path.join(DIST, `volumes/${slug}/index.html`), "utf8");
+    assert.ok(html.includes('data-volume-tab="course"'), slug);
+    assert.ok(html.includes('data-volume-tab="exercises"'), slug);
+    assert.ok(html.includes(`data-volume-order="${index + 1}"`), slug);
+    assert.equal((html.match(/class="quiz-question"/g) || []).length, 10, slug);
+    assert.equal((html.match(/data-quiz-feedback/g) || []).length, 20, slug);
+    assert.ok(html.includes("8/10"), slug);
+  }
+});
+
+test("course progression requires eight correct answers while admin access bypasses locks", async () => {
+  const client = await readFile(path.join(DIST, "assets", "client.js"), "utf8");
+  const home = await readFile(path.join(DIST, "index.html"), "utf8");
+  const volumeTwo = await readFile(path.join(DIST, "volumes/2-dossiers-historiques/index.html"), "utf8");
+  assert.ok(client.includes("const passingScore = 8"));
+  assert.ok(client.includes('root.dataset.accessRole === "admin"'));
+  assert.ok(client.includes("tradevisionpro-course-progress-v1"));
+  assert.ok(client.includes("score >= passingScore"));
+  assert.equal((home.match(/data-volume-card/g) || []).length, 3);
+  assert.ok(volumeTwo.includes("data-volume-lock"));
+  assert.ok(volumeTwo.includes("Ce volume est encore verrouillé"));
+  assert.ok(volumeTwo.includes("Passer le QCM du Volume 1"));
 });
 
 test("home accompaniment and dark primary action stay complete and legible", async () => {

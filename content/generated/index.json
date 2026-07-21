@@ -95,13 +95,16 @@
           "confluence",
           "supports",
           "résistances",
-          "range"
+          "range",
+          "tendances",
+          "tendance haussière",
+          "tendance baissière"
         ],
         "highlights": [
           {
             "number": "01",
             "title": "Contexte",
-            "text": "Lire la tendance dominante à travers plusieurs unités de temps."
+            "text": "Identifier une tendance haussière, baissière ou neutre à travers plusieurs unités de temps."
           },
           {
             "number": "02",
@@ -117,11 +120,11 @@
         "slug": "3-analyse-technique"
       },
       "stats": {
-        "wordCount": 753,
-        "readingMinutes": 3,
-        "chapterCount": 2,
+        "wordCount": 1009,
+        "readingMinutes": 5,
+        "chapterCount": 3,
         "dossierCount": 0,
-        "figureCount": 4
+        "figureCount": 7
       },
       "archetype": "technical_analysis"
     }

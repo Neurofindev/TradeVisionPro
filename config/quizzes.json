@@ -273,7 +273,7 @@
   },
   "3-analyse-technique": {
     "title": "Maîtriser le contexte et le timing",
-    "intro": "Testez votre lecture multi-timeframe ainsi que votre compréhension des supports, résistances, ranges et cassures.",
+    "intro": "Testez votre lecture multi-timeframe ainsi que votre compréhension des tendances, supports, résistances, ranges et cassures.",
     "questions": [
       {
         "id": "v3-q1",
@@ -317,7 +317,7 @@
       {
         "id": "v3-q4",
         "difficulty": "Intermédiaire",
-        "question": "Qu’est-ce qu’un range ?",
+        "question": "Que traduit un range, aussi appelé tendance neutre ?",
         "options": [
           "Une hausse verticale sans pause",
           "Une consolidation entre support et résistance sans tendance claire",
@@ -325,7 +325,7 @@
           "Un indicateur de volatilité"
         ],
         "answer": 1,
-        "explanation": "Dans un range, le prix oscille entre deux zones identifiables sans direction dominante claire."
+        "explanation": "Dans un range, le prix oscille entre deux bornes identifiables sans direction dominante claire, ce qui reflète l’indécision du marché."
       },
       {
         "id": "v3-q5",
@@ -382,15 +382,15 @@
       {
         "id": "v3-q9",
         "difficulty": "Approfondissement",
-        "question": "Quelle lecture combine correctement les différents horizons ?",
+        "question": "Comment reconnaît-on une tendance baissière ?",
         "options": [
-          "Le 15 minutes remplace toujours le Weekly",
-          "Le Weekly donne le contexte, les horizons intermédiaires confirment et les courts affinent",
-          "Chaque timeframe doit produire une conclusion indépendante",
-          "Seul le timeframe d’entrée doit être étudié"
+          "Les prix suivent une trajectoire descendante",
+          "Les prix restent entre deux bornes sans orientation",
+          "Les prix progressent continuellement",
+          "Le volume disparaît complètement"
         ],
-        "answer": 1,
-        "explanation": "La confluence vient de la cohérence entre contexte, confirmations intermédiaires et réaction observée sur l’unité utilisée pour le timing."
+        "answer": 0,
+        "explanation": "Une tendance baissière se caractérise par une trajectoire descendante des prix et traduit généralement un sentiment de marché pessimiste."
       },
       {
         "id": "v3-q10",

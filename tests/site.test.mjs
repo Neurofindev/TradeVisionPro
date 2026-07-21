@@ -182,21 +182,29 @@ test("volume two renders every specialist component", async () => {
   assert.ok(!html.includes("Unsupported content block"));
 });
 
-test("volume three renders both technical analysis chapters", async () => {
+test("volume three renders all three technical analysis chapters", async () => {
   const html = await readFile(path.join(DIST, "volumes/3-analyse-technique/index.html"), "utf8");
   assert.ok(html.includes("L’analyse technique"));
   assert.ok(html.includes("L’art du timing, un outil essentiel."));
   assert.ok(html.includes("📆 Multi-timeframe confluence"));
   assert.ok(html.includes("🔥 Les supports et résistances"));
-  assert.equal((html.match(/class="lesson-note /g) || []).length, 10);
-  assert.equal((html.match(/class="course-figure breakout"/g) || []).length, 4);
+  assert.ok(html.includes("🚨 Les tendances boursières"));
+  assert.equal((html.match(/class="lesson-note /g) || []).length, 13);
+  assert.equal((html.match(/class="course-figure breakout"/g) || []).length, 7);
   assert.ok(html.includes("class=\"chapter-highlights\""));
   assert.ok(html.includes("class=\"chapter-conclusion\""));
   assert.ok(html.includes("Ces timefraime offrent de nouvelles confluences"));
   assert.ok(html.includes("sur le titre AMAZON, on peut observer"));
   assert.ok(html.includes("Prenons l’exemple du titre NVIDIA :"));
+  assert.ok(html.includes("le cours de l’action GOOGLE affiche une progression continue"));
+  assert.ok(html.includes("l’évolution récente du Bitcoin (BTC) illustre une tendance baissière"));
+  assert.ok(html.includes("l’action C3.AI oscille entre 14,80 $ et 19,21 $"));
+  assert.ok(html.includes("Google — exemple de tendance haussière."));
+  assert.ok(html.includes("Bitcoin — exemple de tendance baissière sur l’unité 4 heures."));
+  assert.ok(html.includes("C3.AI — phase de range entre 14,80 $ et 19,21 $."));
   assert.ok(!html.includes("(image 1)"));
   assert.ok(!html.includes("(image 2)"));
+  assert.ok(!html.includes("(image 3)"));
   assert.ok(!html.includes("Unsupported content block"));
 });
 
@@ -206,6 +214,7 @@ test("search index covers all volumes and figure captions", async () => {
   assert.ok(index.some((entry) => entry.volume === "Volume 2" && /Archegos/i.test(entry.text)));
   assert.ok(index.some((entry) => /Figure 2.+Enron/is.test(entry.text)));
   assert.ok(index.some((entry) => entry.volume === "Volume 3" && /Multi-timeframe confluence/i.test(entry.text)));
+  assert.ok(index.some((entry) => entry.volume === "Volume 3" && /tendances boursières/i.test(entry.text)));
 });
 
 test("generated internal links resolve", async () => {

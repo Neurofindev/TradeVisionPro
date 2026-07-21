@@ -139,6 +139,134 @@
     {
       "type": "paragraph",
       "text": "Ces notions permettent d’anticiper les mouvements du marché et d’optimiser les prises de décision, renforçant ainsi la gestion du risque et la précision des entrées et sorties sur les actifs financiers."
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "tendances-boursieres",
+      "text": "🚨 Les tendances boursières"
+    },
+    {
+      "type": "paragraph",
+      "text": "Les tendances de marché désignent l’orientation générale des prix d’un actif sur une période donnée."
+    },
+    {
+      "type": "paragraph",
+      "text": "On distingue principalement trois types de tendances :"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "tendance-haussiere",
+      "text": "📈 Tendance haussière :"
+    },
+    {
+      "type": "paragraph",
+      "text": "Les prix évoluent à la hausse, traduisant un optimisme des investisseurs."
+    },
+    {
+      "type": "lesson_note",
+      "variant": "example",
+      "text": "🎯 Par exemple, le cours de l’action GOOGLE affiche une progression continue, portée par la confiance des acteurs du marché.",
+      "segments": [
+        {
+          "text": "🎯 Par exemple, ",
+          "bold": true
+        },
+        {
+          "text": "le cours de l’action GOOGLE affiche une progression continue, portée par la confiance des acteurs du marché."
+        }
+      ]
+    },
+    {
+      "type": "figure",
+      "src": "/media/3-analyse-technique/3-analyse-technique-tendances-google-a132d837d6ff.webp",
+      "originalName": "codex-clipboard-b1bd0201-e40c-4bf9-b95b-aa1beb5e112a.png",
+      "width": 1600,
+      "height": 900,
+      "optimized": true,
+      "caption": "Google — exemple de tendance haussière.",
+      "alt": "Graphique hebdomadaire de l’action Google montrant une progression durable des prix et une accélération de la hausse.",
+      "source": "",
+      "sourceLinks": []
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "tendance-baissiere",
+      "text": "📉 Tendance baissière :"
+    },
+    {
+      "type": "paragraph",
+      "text": "Les prix suivent une trajectoire descendante, souvent liée à une perception négative de la part des investisseurs."
+    },
+    {
+      "type": "lesson_note",
+      "variant": "example",
+      "text": "🎯 Ainsi, l’évolution récente du Bitcoin (BTC) illustre une tendance baissière, à cause d’un pessimisme des investisseurs.",
+      "segments": [
+        {
+          "text": "🎯 Ainsi, ",
+          "bold": true
+        },
+        {
+          "text": "l’évolution récente du Bitcoin (BTC) illustre une tendance baissière, à cause d’un pessimisme des investisseurs."
+        }
+      ]
+    },
+    {
+      "type": "figure",
+      "src": "/media/3-analyse-technique/3-analyse-technique-tendances-bitcoin-9b3d65534c72.webp",
+      "originalName": "codex-clipboard-f157cc6b-e3a2-4156-af34-34d609e1619f.png",
+      "width": 1600,
+      "height": 900,
+      "optimized": true,
+      "caption": "Bitcoin — exemple de tendance baissière sur l’unité 4 heures.",
+      "alt": "Graphique du Bitcoin en unité quatre heures montrant des sommets et des creux descendants.",
+      "source": "",
+      "sourceLinks": []
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "range-tendance-neutre",
+      "text": "⚡️ Range (ou tendance neutre) :"
+    },
+    {
+      "type": "paragraph",
+      "text": "Le prix fluctue entre deux bornes sans orientation claire, reflétant l’indécision du marché."
+    },
+    {
+      "type": "lesson_note",
+      "variant": "example",
+      "text": "🎯 Par exemple, l’action C3.AI oscille entre 14,80 $ et 19,21 $, signifiant qu’aucun camp, acheteurs ou vendeurs, ne parvient à prendre le dessus.",
+      "segments": [
+        {
+          "text": "🎯 Par exemple, ",
+          "bold": true
+        },
+        {
+          "text": "l’action C3.AI oscille entre 14,80 $ et 19,21 $, signifiant qu’aucun camp, acheteurs ou vendeurs, ne parvient à prendre le dessus."
+        }
+      ]
+    },
+    {
+      "type": "figure",
+      "src": "/media/3-analyse-technique/3-analyse-technique-tendances-c3ai-3b7e2b8b29c0.webp",
+      "originalName": "codex-clipboard-e5e66ed7-1830-4ee5-a893-3c3a08d2edac.png",
+      "width": 1600,
+      "height": 850,
+      "optimized": true,
+      "caption": "C3.AI — phase de range entre 14,80 $ et 19,21 $.",
+      "alt": "Graphique de l’action C3.AI montrant le prix oscillant entre une zone de support proche de 14,80 dollars et une résistance proche de 19,21 dollars.",
+      "source": "",
+      "sourceLinks": []
+    },
+    {
+      "type": "editorial_conclusion",
+      "id": "conclusion-tendances-boursieres",
+      "title": "🎓 Conclusions",
+      "text": "🚨 L’identification de ces tendances est fondamentale en analyse technique, car elle permet de cerner le sentiment dominant du marché et de repérer les opportunités d’investissement. Maîtriser l’analyse des tendances est donc indispensable pour prendre des décisions avisées en trading."
     }
   ]
 }

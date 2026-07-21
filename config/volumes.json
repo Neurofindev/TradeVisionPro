@@ -31,7 +31,7 @@
     "subtitle": "L’art du timing, un outil essentiel.",
     "description": "Relier les unités de temps et les niveaux clés pour lire la tendance, identifier supports et résistances, puis affiner le moment d’intervention.",
     "archetype": "technical_analysis",
-    "tags": ["analyse technique", "multi-timeframe", "timing", "unités de temps", "confluence", "supports", "résistances", "range"],
+    "tags": ["analyse technique", "multi-timeframe", "timing", "unités de temps", "confluence", "supports", "résistances", "range", "tendances", "tendance haussière", "tendance baissière"],
     "contentStartsImmediately": true,
     "firstParagraphHeadingLevel": 1,
     "supplementalContent": "content/supplemental/3-analyse-technique-supports-resistances.json",
@@ -39,7 +39,7 @@
       {
         "number": "01",
         "title": "Contexte",
-        "text": "Lire la tendance dominante à travers plusieurs unités de temps."
+        "text": "Identifier une tendance haussière, baissière ou neutre à travers plusieurs unités de temps."
       },
       {
         "number": "02",

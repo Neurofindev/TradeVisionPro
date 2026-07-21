@@ -83,7 +83,7 @@
         "volumeNumber": 3,
         "title": "L’analyse technique",
         "subtitle": "L’art du timing, un outil essentiel.",
-        "description": "Relier les unités de temps et les niveaux clés pour lire la tendance, identifier supports et résistances, puis affiner le moment d’intervention.",
+        "description": "Lire le contexte du marché, structurer les niveaux clés et comprendre le langage des bougies japonaises pour affiner le timing.",
         "edition": null,
         "format": null,
         "coverLines": [],
@@ -97,8 +97,10 @@
           "résistances",
           "range",
           "tendances",
-          "tendance haussière",
-          "tendance baissière"
+          "bougies japonaises",
+          "chandeliers",
+          "figures de retournement",
+          "figures de continuation"
         ],
         "highlights": [
           {
@@ -117,14 +119,52 @@
             "text": "Relier contexte, niveaux et timing pour préciser une intervention."
           }
         ],
+        "parts": [
+          {
+            "order": 1,
+            "id": "partie-1-contexte-niveaux-timing",
+            "startId": "multi-timeframe-confluence",
+            "title": "Contexte, niveaux et timing",
+            "subtitle": "De la confluence multi-timeframe à la lecture des tendances",
+            "description": "Construire une lecture descendante du marché, repérer ses zones psychologiques et distinguer tendance, range et cassure.",
+            "tocIds": [
+              "multi-timeframe-confluence",
+              "supports-et-resistances",
+              "tendances-boursieres",
+              "conclusion-generale"
+            ]
+          },
+          {
+            "order": 2,
+            "id": "partie-2-bougies-japonaises",
+            "startId": "ce-que-tu-sauras-faire",
+            "title": "L’essentiel des bougies japonaises",
+            "subtitle": "Anatomie · psychologie · contexte · figures essentielles",
+            "description": "Passer du dessin à la décision en lisant le rapport de force, le contexte, la confirmation et l’invalidation.",
+            "tocIds": [
+              "ce-que-tu-sauras-faire",
+              "origine",
+              "fonctionnement-l-anatomie-d-une-bougie",
+              "a-quoi-servent-les-bougies-japonaises",
+              "la-methode-des-cinq-filtres",
+              "doji-doji",
+              "limites-et-bonnes-pratiques",
+              "les-confusions-les-plus-frequentes",
+              "un-processus-simple-avant-d-agir",
+              "la-carte-mentale-des-figures",
+              "du-dessin-a-la-decision",
+              "sources-et-methode"
+            ]
+          }
+        ],
         "slug": "3-analyse-technique"
       },
       "stats": {
-        "wordCount": 1009,
-        "readingMinutes": 5,
-        "chapterCount": 3,
+        "wordCount": 5676,
+        "readingMinutes": 26,
+        "chapterCount": 32,
         "dossierCount": 0,
-        "figureCount": 7
+        "figureCount": 25
       },
       "archetype": "technical_analysis"
     }

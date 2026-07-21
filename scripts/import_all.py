@@ -51,10 +51,12 @@ def main() -> None:
         output = GENERATED_DIR / f"{slug}.json"
         media_dir = MEDIA_ROOT / slug
         supplemental_blocks: list[dict[str, Any]] = []
-        supplemental_path = config.get("supplementalContent")
-        if supplemental_path:
+        supplemental_paths = config.get("supplementalContent") or []
+        if isinstance(supplemental_paths, str):
+            supplemental_paths = [supplemental_paths]
+        for supplemental_path in supplemental_paths:
             supplemental_document = json.loads((ROOT / supplemental_path).read_text(encoding="utf-8"))
-            supplemental_blocks = supplemental_document.get("blocks", [])
+            supplemental_blocks.extend(supplemental_document.get("blocks", []))
         result = convert_file(
             source=source,
             output=output,

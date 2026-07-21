@@ -97,17 +97,20 @@ class ConverterOutputTests(unittest.TestCase):
         self.assertEqual(types.count("table"), 19)
         self.assertEqual(types.count("callout"), 15)
 
-    def test_volume_three_preserves_and_structures_the_original_chapter(self):
+    def test_volume_three_preserves_part_one_and_integrates_candlesticks_as_part_two(self):
         blocks = self.v3["blocks"]
         types = [block["type"] for block in blocks]
         self.assertEqual(self.v3["metadata"]["title"], "L’analyse technique")
         self.assertEqual(self.v3["metadata"]["subtitle"], "L’art du timing, un outil essentiel.")
         self.assertEqual(len(self.v3["metadata"]["highlights"]), 3)
-        self.assertEqual(types.count("heading"), 7)
+        self.assertEqual(len(self.v3["metadata"]["parts"]), 2)
+        self.assertEqual(self.v3["metadata"]["parts"][1]["title"], "L’essentiel des bougies japonaises")
+        self.assertEqual(types.count("heading"), 67)
         self.assertEqual(types.count("lesson_note"), 13)
-        self.assertEqual(types.count("figure"), 7)
+        self.assertEqual(types.count("figure"), 25)
+        self.assertEqual(types.count("table"), 2)
         self.assertEqual(types.count("editorial_conclusion"), 2)
-        self.assertEqual(self.v3["stats"]["chapterCount"], 3)
+        self.assertEqual(self.v3["stats"]["chapterCount"], 32)
         self.assertTrue(all(block["alt"] for block in blocks if block["type"] == "figure"))
         rendered_text = " ".join(all_strings(self.v3))
         self.assertIn("🔥 Les supports et résistances", rendered_text)
@@ -117,6 +120,12 @@ class ConverterOutputTests(unittest.TestCase):
         self.assertIn("le cours de l’action GOOGLE affiche une progression continue", rendered_text)
         self.assertIn("l’évolution récente du Bitcoin (BTC) illustre une tendance baissière", rendered_text)
         self.assertIn("l’action C3.AI oscille entre 14,80 $ et 19,21 $", rendered_text)
+        self.assertIn("L’essentiel des bougies japonaises", rendered_text)
+        self.assertIn("Du dessin à la décision", rendered_text)
+        self.assertIn("Trois méthodes ascendantes", rendered_text)
+        self.assertIn("Cette Partie 2 revient au langage premier du marché", rendered_text)
+        self.assertNotIn("VOLUME 4", rendered_text)
+        self.assertNotIn("Le Volume 3 ajoute RSI", rendered_text)
         self.assertNotIn("(image 1)", rendered_text.casefold())
         self.assertNotIn("(image 2)", rendered_text.casefold())
         self.assertNotIn("(image 3)", rendered_text.casefold())

@@ -91,24 +91,27 @@ test("every page is protected by the access gate without exposing the code", asy
   assert.match(styles, /html\.access-locked body > :not\(\.access-gate\)/);
 });
 
-test("every volume has a ten-question exercise tab and an enriching correction", async () => {
+test("every course stage has a ten-question exercise and an enriching correction", async () => {
   const quizzes = JSON.parse(await readFile(path.join(ROOT, "config", "quizzes.json"), "utf8"));
   const slugs = ["1-fondations-et-analyses", "2-dossiers-historiques", "3-analyse-technique"];
   for (const [index, slug] of slugs.entries()) {
     const quiz = quizzes[slug];
-    assert.equal(quiz.questions.length, 10, slug);
-    for (const question of quiz.questions) {
-      assert.equal(question.options.length, 4, question.id);
-      assert.ok(Number.isInteger(question.answer) && question.answer >= 0 && question.answer < 4, question.id);
-      assert.ok(question.explanation.length >= 40, question.id);
+    const quizStages = quiz.parts || [quiz];
+    for (const stage of quizStages) {
+      assert.equal(stage.questions.length, 10, `${slug} · ${stage.title}`);
+      for (const question of stage.questions) {
+        assert.equal(question.options.length, 4, question.id);
+        assert.ok(Number.isInteger(question.answer) && question.answer >= 0 && question.answer < 4, question.id);
+        assert.ok(question.explanation.length >= 40, question.id);
+      }
     }
 
     const html = await readFile(path.join(DIST, `volumes/${slug}/index.html`), "utf8");
     assert.ok(html.includes('data-volume-tab="course"'), slug);
     assert.ok(html.includes('data-volume-tab="exercises"'), slug);
     assert.ok(html.includes(`data-volume-order="${index + 1}"`), slug);
-    assert.equal((html.match(/class="quiz-question"/g) || []).length, 10, slug);
-    assert.equal((html.match(/data-quiz-feedback/g) || []).length, 20, slug);
+    assert.equal((html.match(/class="quiz-question"/g) || []).length, 10 * quizStages.length, slug);
+    assert.equal((html.match(/data-quiz-feedback/g) || []).length, 20 * quizStages.length, slug);
     assert.ok(html.includes("8/10"), slug);
     assert.ok(html.includes("data-quiz-review"), slug);
     assert.ok(html.includes("data-quiz-retry"), slug);
@@ -138,6 +141,9 @@ test("course progression is isolated by profile while admin access bypasses lock
   assert.ok(client.includes("${courseProgressPrefix}:${profile.id}"));
   assert.ok(client.includes("Math.max(Number(progressData[volumeKey]) || 0, score)"));
   assert.ok(client.includes("score >= passingScore"));
+  assert.ok(client.includes('parsed["3-part-1"] = parsed["3"]'));
+  assert.ok(client.includes("isPartUnlocked"));
+  assert.ok(client.includes("completesVolume"));
   assert.equal((home.match(/data-volume-card/g) || []).length, 3);
   assert.ok(volumeTwo.includes("data-volume-lock"));
   assert.ok(volumeTwo.includes("Ce volume est encore verrouillé"));
@@ -192,15 +198,24 @@ test("volume two renders every specialist component", async () => {
   assert.ok(!html.includes("Unsupported content block"));
 });
 
-test("volume three renders all three technical analysis chapters", async () => {
+test("volume three renders two distinct progressive parts", async () => {
   const html = await readFile(path.join(DIST, "volumes/3-analyse-technique/index.html"), "utf8");
   assert.ok(html.includes("L’analyse technique"));
   assert.ok(html.includes("L’art du timing, un outil essentiel."));
   assert.ok(html.includes("📆 Multi-timeframe confluence"));
   assert.ok(html.includes("🔥 Les supports et résistances"));
   assert.ok(html.includes("🚨 Les tendances boursières"));
+  assert.ok(html.includes("Deux parties, deux validations"));
+  assert.ok(html.includes("Contexte, niveaux et timing"));
+  assert.ok(html.includes("L’essentiel des bougies japonaises"));
+  assert.ok(html.includes("Du dessin à la décision"));
+  assert.ok(html.includes("Validez la Partie 1 pour continuer"));
+  assert.equal((html.match(/class="volume-part"/g) || []).length, 2);
+  assert.equal((html.match(/class="quiz-workspace"/g) || []).length, 2);
+  assert.equal((html.match(/class="quiz-question"/g) || []).length, 20);
   assert.equal((html.match(/class="lesson-note /g) || []).length, 13);
-  assert.equal((html.match(/class="course-figure breakout"/g) || []).length, 7);
+  assert.equal((html.match(/class="course-figure breakout"/g) || []).length, 25);
+  assert.equal((html.match(/class="data-table breakout"/g) || []).length, 2);
   assert.ok(html.includes("class=\"chapter-highlights\""));
   assert.ok(html.includes("class=\"chapter-conclusion\""));
   assert.ok(html.includes("Ces timefraime offrent de nouvelles confluences"));
@@ -215,6 +230,9 @@ test("volume three renders all three technical analysis chapters", async () => {
   assert.ok(!html.includes("(image 1)"));
   assert.ok(!html.includes("(image 2)"));
   assert.ok(!html.includes("(image 3)"));
+  assert.ok(!html.includes("VOLUME 4"));
+  assert.ok(!html.includes("Le Volume 3 ajoute RSI"));
+  assert.ok(!html.includes("Partie 3"));
   assert.ok(!html.includes("Unsupported content block"));
 });
 
@@ -225,6 +243,8 @@ test("search index covers all volumes and figure captions", async () => {
   assert.ok(index.some((entry) => /Figure 2.+Enron/is.test(entry.text)));
   assert.ok(index.some((entry) => entry.volume === "Volume 3" && /Multi-timeframe confluence/i.test(entry.text)));
   assert.ok(index.some((entry) => entry.volume === "Volume 3" && /tendances boursières/i.test(entry.text)));
+  assert.ok(index.some((entry) => entry.volume === "Volume 3" && /bougies japonaises/i.test(entry.text)));
+  assert.ok(index.some((entry) => entry.volume === "Volume 3" && /Trois méthodes ascendantes/i.test(entry.text)));
 });
 
 test("generated internal links resolve", async () => {

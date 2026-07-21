@@ -29,12 +29,53 @@
     "slug": "3-analyse-technique",
     "title": "L’analyse technique",
     "subtitle": "L’art du timing, un outil essentiel.",
-    "description": "Relier les unités de temps et les niveaux clés pour lire la tendance, identifier supports et résistances, puis affiner le moment d’intervention.",
+    "description": "Lire le contexte du marché, structurer les niveaux clés et comprendre le langage des bougies japonaises pour affiner le timing.",
     "archetype": "technical_analysis",
-    "tags": ["analyse technique", "multi-timeframe", "timing", "unités de temps", "confluence", "supports", "résistances", "range", "tendances", "tendance haussière", "tendance baissière"],
+    "tags": ["analyse technique", "multi-timeframe", "timing", "unités de temps", "confluence", "supports", "résistances", "range", "tendances", "bougies japonaises", "chandeliers", "figures de retournement", "figures de continuation"],
     "contentStartsImmediately": true,
     "firstParagraphHeadingLevel": 1,
-    "supplementalContent": "content/supplemental/3-analyse-technique-supports-resistances.json",
+    "supplementalContent": [
+      "content/supplemental/3-analyse-technique-supports-resistances.json",
+      "content/supplemental/3-analyse-technique-partie-2-bougies-japonaises.json"
+    ],
+    "parts": [
+      {
+        "order": 1,
+        "id": "partie-1-contexte-niveaux-timing",
+        "startId": "multi-timeframe-confluence",
+        "title": "Contexte, niveaux et timing",
+        "subtitle": "De la confluence multi-timeframe à la lecture des tendances",
+        "description": "Construire une lecture descendante du marché, repérer ses zones psychologiques et distinguer tendance, range et cassure.",
+        "tocIds": [
+          "multi-timeframe-confluence",
+          "supports-et-resistances",
+          "tendances-boursieres",
+          "conclusion-generale"
+        ]
+      },
+      {
+        "order": 2,
+        "id": "partie-2-bougies-japonaises",
+        "startId": "ce-que-tu-sauras-faire",
+        "title": "L’essentiel des bougies japonaises",
+        "subtitle": "Anatomie · psychologie · contexte · figures essentielles",
+        "description": "Passer du dessin à la décision en lisant le rapport de force, le contexte, la confirmation et l’invalidation.",
+        "tocIds": [
+          "ce-que-tu-sauras-faire",
+          "origine",
+          "fonctionnement-l-anatomie-d-une-bougie",
+          "a-quoi-servent-les-bougies-japonaises",
+          "la-methode-des-cinq-filtres",
+          "doji-doji",
+          "limites-et-bonnes-pratiques",
+          "les-confusions-les-plus-frequentes",
+          "un-processus-simple-avant-d-agir",
+          "la-carte-mentale-des-figures",
+          "du-dessin-a-la-decision",
+          "sources-et-methode"
+        ]
+      }
+    ],
     "highlights": [
       {
         "number": "01",
@@ -55,10 +96,6 @@
     "figureAlts": [
       "Comparaison du graphique NVIDIA en unité hebdomadaire et en unité de quinze minutes.",
       "Comparaison du graphique Lululemon en unité quotidienne et en unité de quatre heures."
-    ],
-    "editorialConclusion": {
-      "title": "Conclusion générale",
-      "text": "L’analyse technique gagne en précision lorsque le contexte des unités de temps est mis en relation avec les zones où le prix réagit. La tendance donne la direction, les supports et résistances structurent le scénario, puis les horizons plus courts affinent le timing et la gestion du risque."
-    }
+    ]
   }
 ]

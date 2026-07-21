@@ -132,18 +132,28 @@
       const key = courseProgressKey();
       if (!key) return {};
       const parsed = JSON.parse(localStorage.getItem(key) || "{}");
-      return parsed && typeof parsed === "object" ? parsed : {};
+      if (!parsed || typeof parsed !== "object") return {};
+      if (parsed["3"] && !parsed["3-part-1"] && !parsed["3-part-2"]) {
+        parsed["3-part-1"] = parsed["3"];
+        delete parsed["3"];
+        localStorage.setItem(key, JSON.stringify(parsed));
+      }
+      return parsed;
     } catch (error) {
       return {};
     }
   }
 
-  function saveQuizScore(volumeOrder, score) {
+  function saveQuizScore(volumeOrder, score, partOrder = 0, completesVolume = false) {
     const key = courseProgressKey();
     if (!key) return;
     const progressData = readCourseProgress();
-    const volumeKey = String(volumeOrder);
-    progressData[volumeKey] = Math.max(Number(progressData[volumeKey]) || 0, score);
+    const scoreKey = partOrder ? `${volumeOrder}-part-${partOrder}` : String(volumeOrder);
+    progressData[scoreKey] = Math.max(Number(progressData[scoreKey]) || 0, score);
+    if (completesVolume) {
+      const volumeKey = String(volumeOrder);
+      progressData[volumeKey] = Math.max(Number(progressData[volumeKey]) || 0, score);
+    }
     localStorage.setItem(key, JSON.stringify(progressData));
   }
 
@@ -155,12 +165,24 @@
     return isAdminAccess() || volumeOrder <= 1 || Number(progressData[String(volumeOrder - 1)] || 0) >= passingScore;
   }
 
+  function partScore(volumeOrder, partOrder, progressData = readCourseProgress()) {
+    return Number(progressData[`${volumeOrder}-part-${partOrder}`] || 0);
+  }
+
+  function isPartUnlocked(volumeOrder, partOrder, progressData = readCourseProgress()) {
+    return isAdminAccess() || partOrder <= 1 || partScore(volumeOrder, partOrder - 1, progressData) >= passingScore;
+  }
+
   function updateCourseProgress() {
     const progressData = readCourseProgress();
     document.querySelectorAll("[data-volume-card]").forEach((card) => {
       const order = Number(card.dataset.volumeOrder || 1);
+      const partCount = Number(card.dataset.volumePartCount || 1);
       const unlocked = isVolumeUnlocked(order, progressData);
       const score = Number(progressData[String(order)] || 0);
+      const validatedParts = Array.from({ length: partCount }, (_, index) => partScore(order, index + 1, progressData)).filter(
+        (partResult) => partResult >= passingScore,
+      ).length;
       card.classList.toggle("is-locked", !unlocked);
       card.classList.toggle("is-complete", score >= passingScore);
       const stateIcon = card.querySelector("[data-volume-state-icon]");
@@ -171,7 +193,9 @@
           ? `À débloquer avec le Volume ${order - 1}`
           : score >= passingScore
             ? `Validé · ${score}/10`
-            : "Disponible";
+            : partCount > 1
+              ? `${validatedParts}/${partCount} parties validées`
+              : "Disponible";
       }
       card.querySelectorAll("[data-volume-link]").forEach((link) => {
         link.dataset.locked = String(!unlocked);
@@ -205,9 +229,50 @@
         sidebar.inert = !unlocked;
       }
       const score = Number(progressData[String(order)] || 0);
+      const partCount = Number(volumePage.dataset.volumePartCount || 1);
+      const validatedParts = Array.from({ length: partCount }, (_, index) => partScore(order, index + 1, progressData)).filter(
+        (partResult) => partResult >= passingScore,
+      ).length;
       volumePage.querySelectorAll("[data-volume-score]").forEach((label) => {
-        label.textContent = score ? `${score}/10` : "À faire";
+        label.textContent = partCount > 1 ? `${validatedParts}/${partCount} validées` : score ? `${score}/10` : "À faire";
         label.classList.toggle("is-complete", score >= passingScore);
+      });
+
+      volumePage.querySelectorAll("[data-volume-part]").forEach((part) => {
+        const partOrder = Number(part.dataset.partOrder || 1);
+        const partResult = partScore(order, partOrder, progressData);
+        const partUnlocked = isPartUnlocked(order, partOrder, progressData);
+        const lock = part.querySelector("[data-part-lock]");
+        const protectedPart = part.querySelector("[data-part-protected]");
+        part.classList.toggle("is-locked", !partUnlocked);
+        part.classList.toggle("is-complete", partResult >= passingScore);
+        if (lock) lock.hidden = partUnlocked;
+        if (protectedPart) protectedPart.hidden = !partUnlocked;
+        part.querySelectorAll("[data-part-status]").forEach((status) => {
+          status.textContent = !partUnlocked ? "À débloquer" : partResult >= passingScore ? `Validée · ${partResult}/10` : "Disponible";
+        });
+      });
+
+      volumePage.querySelectorAll("[data-part-quiz]").forEach((partQuiz) => {
+        const partOrder = Number(partQuiz.dataset.partOrder || 1);
+        const partUnlocked = isPartUnlocked(order, partOrder, progressData);
+        const lock = partQuiz.querySelector("[data-part-quiz-lock]");
+        const protectedQuiz = partQuiz.querySelector("[data-part-quiz-protected]");
+        partQuiz.classList.toggle("is-locked", !partUnlocked);
+        if (lock) lock.hidden = partUnlocked;
+        if (protectedQuiz) protectedQuiz.hidden = !partUnlocked;
+      });
+
+      volumePage.querySelectorAll("[data-volume-part-link]").forEach((link) => {
+        const partOrder = Number(link.dataset.partOrder || 1);
+        const partResult = partScore(order, partOrder, progressData);
+        const partUnlocked = isPartUnlocked(order, partOrder, progressData);
+        link.classList.toggle("is-locked", !partUnlocked);
+        link.dataset.locked = String(!partUnlocked);
+        link.setAttribute("aria-disabled", String(!partUnlocked));
+        link.querySelectorAll("[data-part-status]").forEach((status) => {
+          status.textContent = !partUnlocked ? "À débloquer" : partResult >= passingScore ? `Validée · ${partResult}/10` : "Disponible";
+        });
       });
     }
 
@@ -248,21 +313,28 @@
 
     profileVolumes.forEach((card) => {
       const order = Number(card.dataset.volumeOrder || 1);
+      const partCount = Number(card.dataset.volumePartCount || 1);
       const score = Number(progressData[String(order)] || 0);
       const unlocked = isVolumeUnlocked(order, progressData);
       const complete = score >= passingScore;
+      const validatedParts = Array.from({ length: partCount }, (_, index) => partScore(order, index + 1, progressData)).filter(
+        (partResult) => partResult >= passingScore,
+      ).length;
       card.classList.toggle("is-locked", !unlocked);
       card.classList.toggle("is-complete", complete);
       const status = card.querySelector("[data-profile-volume-status]");
       const scoreLabel = card.querySelector("[data-profile-volume-score]");
       const link = card.querySelector("[data-profile-volume-link]");
-      if (status) status.textContent = !unlocked ? "Verrouillé" : complete ? "Validé" : "Disponible";
-      if (scoreLabel) scoreLabel.textContent = score ? `${score}/10` : "Non évalué";
+      if (status) status.textContent = !unlocked ? "Verrouillé" : complete ? "Validé" : partCount > 1 && validatedParts ? "En progression" : "Disponible";
+      if (scoreLabel) {
+        scoreLabel.textContent = partCount > 1 && !complete ? `${validatedParts}/${partCount} parties` : score ? `${score}/10` : "Non évalué";
+      }
       if (link) {
         const ownUrl = link.dataset.profileVolumeUrl || link.href;
         const previousUrl = profileVolumes[order - 2]?.querySelector("[data-profile-volume-link]")?.dataset.profileVolumeUrl;
-        link.href = !unlocked && previousUrl ? `${previousUrl}#exercices` : ownUrl;
-        link.textContent = !unlocked ? `Valider le Volume ${order - 1} →` : complete ? "Revoir le volume →" : "Ouvrir le volume →";
+        const nextPart = partCount > 1 && validatedParts < partCount ? validatedParts + 1 : 0;
+        link.href = !unlocked && previousUrl ? `${previousUrl}#exercices` : nextPart > 1 ? `${ownUrl}#partie-${nextPart}-bougies-japonaises` : ownUrl;
+        link.textContent = !unlocked ? `Valider le Volume ${order - 1} →` : complete ? "Revoir le volume →" : nextPart > 1 ? `Continuer avec la Partie ${nextPart} →` : "Ouvrir le volume →";
         link.classList.toggle("is-locked", !unlocked);
       }
     });
@@ -287,15 +359,22 @@
           return isVolumeUnlocked(order, progressData) && Number(progressData[String(order)] || 0) < passingScore;
         });
         const order = Number(nextCard?.dataset.volumeOrder || 1);
+        const partCount = Number(nextCard?.dataset.volumePartCount || 1);
+        const validatedParts = Array.from({ length: partCount }, (_, index) => partScore(order, index + 1, progressData)).filter(
+          (partResult) => partResult >= passingScore,
+        ).length;
         const title = nextCard?.querySelector("h3")?.textContent || `Volume ${order}`;
         const score = Number(progressData[String(order)] || 0);
         const target = nextCard?.querySelector("[data-profile-volume-link]")?.href || `${basePath}volumes/`;
-        nextTitle.textContent = score ? `Améliorer votre score au Volume ${order}` : `Commencer le Volume ${order}`;
-        nextText.textContent = score
-          ? `Votre meilleur résultat est ${score}/10. Atteignez 8/10 pour valider « ${title} ».`
-          : `Poursuivez avec « ${title} », puis validez son QCM pour débloquer la suite.`;
-        nextLink.href = score ? `${target.split("#")[0]}#exercices` : target;
-        nextLink.innerHTML = `${score ? "Reprendre le QCM" : "Continuer"} <span aria-hidden="true">→</span>`;
+        const nextPart = partCount > 1 ? validatedParts + 1 : 0;
+        nextTitle.textContent = nextPart > 1 ? `Continuer avec la Partie ${nextPart}` : score ? `Améliorer votre score au Volume ${order}` : `Commencer le Volume ${order}`;
+        nextText.textContent = nextPart > 1
+          ? `La Partie ${validatedParts} est validée. Vous pouvez maintenant poursuivre « ${title} » avec la Partie ${nextPart}.`
+          : score
+            ? `Votre meilleur résultat est ${score}/10. Atteignez 8/10 pour valider « ${title} ».`
+            : `Poursuivez avec « ${title} », puis validez son QCM pour débloquer la suite.`;
+        nextLink.href = nextPart > 1 ? `${target.split("#")[0]}#partie-${nextPart}-bougies-japonaises` : score ? `${target.split("#")[0]}#exercices` : target;
+        nextLink.innerHTML = `${nextPart > 1 ? `Ouvrir la Partie ${nextPart}` : score ? "Reprendre le QCM" : "Continuer"} <span aria-hidden="true">→</span>`;
       }
     }
 
@@ -336,7 +415,7 @@
     if (updateHash) {
       const url = new URL(window.location.href);
       if (tabName === "exercises") url.hash = "exercices";
-      else if (url.hash === "#exercices") url.hash = "";
+      else if (url.hash.startsWith("#exercices")) url.hash = "";
       history.replaceState(null, "", url);
     }
     window.dispatchEvent(new Event("scroll"));
@@ -365,6 +444,26 @@
   });
   document.querySelectorAll("[data-toc-link]").forEach((link) => {
     link.addEventListener("click", () => setVolumeTab("course", { updateHash: false }));
+  });
+  document.querySelectorAll("[data-volume-part-link]").forEach((link) => {
+    link.addEventListener("click", (event) => {
+      if (link.dataset.locked !== "true") {
+        setVolumeTab("course", { updateHash: false });
+        return;
+      }
+      event.preventDefault();
+      const requiredPart = Math.max(1, Number(link.dataset.partOrder || 2) - 1);
+      setVolumeTab("exercises", { updateHash: false });
+      document.querySelector(`#exercices-partie-${requiredPart}`)?.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+      setDrawer(false);
+    });
+  });
+  document.querySelectorAll("[data-open-part-quiz]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const targetPart = Number(button.dataset.targetPart || 1);
+      setVolumeTab("exercises", { updateHash: false });
+      document.querySelector(`#exercices-partie-${targetPart}`)?.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+    });
   });
 
   document.querySelectorAll("[data-quiz]").forEach((quizForm) => {
@@ -461,8 +560,10 @@
 
       reviewed = true;
       const volumeOrder = Number(quizForm.dataset.volumeOrder || 1);
+      const partOrder = Number(quizForm.dataset.partOrder || 0);
+      const completesVolume = quizForm.dataset.completesVolume === "true";
       const passed = score >= passingScore;
-      saveQuizScore(volumeOrder, score);
+      saveQuizScore(volumeOrder, score, partOrder, completesVolume);
       updateCourseProgress();
       quizForm.classList.add("is-reviewed");
       if (result) {
@@ -473,23 +574,29 @@
         result.classList.toggle("is-success", passed);
         result.classList.toggle("is-retry", !passed);
         result.querySelector("[data-quiz-result-score]").textContent = String(score);
-        result.querySelector("[data-quiz-result-eyebrow]").textContent = passed ? "Volume validé" : "Objectif non atteint";
-        result.querySelector("[data-quiz-result-title]").textContent = passed ? "Bravo, votre parcours continue." : "Encore un effort pour débloquer la suite.";
-        const hasNextVolume = Boolean(quizForm.dataset.nextVolumeTitle);
+        result.querySelector("[data-quiz-result-eyebrow]").textContent = passed
+          ? completesVolume || !partOrder ? "Volume validé" : "Partie validée"
+          : "Objectif non atteint";
+        result.querySelector("[data-quiz-result-title]").textContent = passed
+          ? completesVolume ? "Bravo, le Volume 3 est validé." : "Bravo, votre parcours continue."
+          : "Encore un effort pour débloquer la suite.";
+        const nextStepLabel = quizForm.dataset.nextStepLabel;
+        const nextStepKind = quizForm.dataset.nextStepKind;
+        const nextStepName = nextStepKind === "part" ? "la partie suivante" : "le volume suivant";
         result.querySelector("[data-quiz-result-message]").textContent = passed
           ? score === 10
-            ? hasNextVolume
-              ? "Maîtrise parfaite : toutes les réponses sont correctes. Le volume suivant est maintenant accessible."
+            ? nextStepLabel
+              ? `Maîtrise parfaite : toutes les réponses sont correctes. ${nextStepName[0].toUpperCase()}${nextStepName.slice(1)} est maintenant accessible.`
               : "Maîtrise parfaite : toutes les réponses sont correctes et ce volume est validé."
-            : hasNextVolume
-              ? `Vous obtenez ${score}/10. Le seuil est atteint et le volume suivant est maintenant accessible.`
+            : nextStepLabel
+              ? `Vous obtenez ${score}/10. Le seuil est atteint et ${nextStepName} est maintenant accessible.`
               : `Vous obtenez ${score}/10. Le seuil est atteint et ce volume est validé.`
           : `Vous obtenez ${score}/10. Consultez les explications puis recommencez : il faut au moins 8/10 pour poursuivre.`;
         const nextVolumeLink = result.querySelector("[data-quiz-next-volume]");
         if (nextVolumeLink) {
           nextVolumeLink.hidden = !passed;
-          nextVolumeLink.textContent = quizForm.dataset.nextVolumeTitle
-            ? `Accéder au Volume ${volumeOrder + 1} →`
+          nextVolumeLink.textContent = nextStepLabel
+            ? `Accéder ${nextStepKind === "part" ? "à la" : "au"} ${nextStepLabel} →`
             : "Revenir à tous les volumes →";
         }
         result.focus({ preventScroll: true });
@@ -506,6 +613,11 @@
       currentQuestion = 0;
       updateQuizView();
       questions[0]?.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "center" });
+    });
+
+    result?.querySelector("[data-quiz-next-volume]")?.addEventListener("click", (event) => {
+      if (event.currentTarget.dataset.nextStepKind !== "part") return;
+      setVolumeTab("course", { updateHash: false });
     });
 
     function resetQuiz() {
@@ -533,9 +645,9 @@
   });
 
   updateCourseProgress();
-  if (window.location.hash === "#exercices") setVolumeTab("exercises", { updateHash: false });
+  if (window.location.hash.startsWith("#exercices")) setVolumeTab("exercises", { updateHash: false });
   window.addEventListener("hashchange", () => {
-    if (window.location.hash === "#exercices") setVolumeTab("exercises", { updateHash: false });
+    if (window.location.hash.startsWith("#exercices")) setVolumeTab("exercises", { updateHash: false });
   });
 
   root.classList.add("motion-ready");

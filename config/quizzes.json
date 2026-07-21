@@ -272,9 +272,15 @@
     ]
   },
   "3-analyse-technique": {
-    "title": "Maîtriser le contexte et le timing",
-    "intro": "Testez votre lecture multi-timeframe ainsi que votre compréhension des tendances, supports, résistances, ranges et cassures.",
-    "questions": [
+    "title": "Valider les deux parties de l’analyse technique",
+    "intro": "Chaque partie possède son propre QCM de 10 questions. Une note d’au moins 8/10 débloque l’étape suivante.",
+    "parts": [
+      {
+        "order": 1,
+        "id": "partie-1",
+        "title": "Maîtriser le contexte et le timing",
+        "intro": "Testez votre lecture multi-timeframe ainsi que votre compréhension des tendances, supports, résistances, ranges et cassures.",
+        "questions": [
       {
         "id": "v3-q1",
         "difficulty": "Facile",
@@ -404,6 +410,146 @@
         ],
         "answer": 0,
         "explanation": "La méthode relie tendance, zones de réaction, timing et gestion du risque au lieu d’isoler un signal unique."
+      }
+        ]
+      },
+      {
+        "order": 2,
+        "id": "partie-2",
+        "title": "Lire les bougies japonaises avec méthode",
+        "intro": "Vérifiez votre compréhension de l’anatomie des bougies, des principales figures, de leur contexte et des confirmations nécessaires.",
+        "questions": [
+          {
+            "id": "v3-p2-q1",
+            "difficulty": "Facile",
+            "question": "Quelles sont les quatre informations condensées dans une bougie japonaise ?",
+            "options": [
+              "Ouverture, plus haut, plus bas et clôture",
+              "Volume, RSI, MACD et volatilité",
+              "Support, résistance, tendance et range",
+              "Capital, marge, levier et liquidité"
+            ],
+            "answer": 0,
+            "explanation": "Une bougie représente l’ouverture, le plus haut, le plus bas et la clôture d’une période donnée, quelle que soit l’unité de temps choisie."
+          },
+          {
+            "id": "v3-p2-q2",
+            "difficulty": "Facile",
+            "question": "Que montre principalement une longue mèche basse ?",
+            "options": [
+              "Des prix faibles ont été testés puis rejetés",
+              "Les acheteurs ont abandonné tous les prix élevés",
+              "Le marché n’a connu aucune variation",
+              "La prochaine bougie sera nécessairement haussière"
+            ],
+            "answer": 0,
+            "explanation": "La longue mèche basse matérialise une exploration vers le bas suivie d’un rejet. Elle décrit la réaction observée, sans prédire à elle seule la période suivante."
+          },
+          {
+            "id": "v3-p2-q3",
+            "difficulty": "Facile",
+            "question": "Quel message porte d’abord un doji ?",
+            "options": [
+              "Une certitude de retournement haussier",
+              "Une indécision entre acheteurs et vendeurs",
+              "Une continuation baissière garantie",
+              "Une absence complète d’échanges"
+            ],
+            "answer": 1,
+            "explanation": "L’ouverture et la clôture d’un doji sont presque identiques. Il exprime donc surtout une hésitation dont le contexte et la cassure de l’amplitude préciseront le sens."
+          },
+          {
+            "id": "v3-p2-q4",
+            "difficulty": "Intermédiaire",
+            "question": "Pourquoi un marteau n’a-t-il pas le même sens qu’un pendu malgré une forme proche ?",
+            "options": [
+              "Le marteau utilise toujours une autre couleur",
+              "Le marteau apparaît après une baisse, le pendu après une hausse",
+              "Le pendu ne possède jamais de mèche",
+              "Le marteau n’existe que sur les actions"
+            ],
+            "answer": 1,
+            "explanation": "La tendance préalable donne son sens à la silhouette : le marteau signale un rejet potentiel après une baisse, alors que le pendu alerte après une hausse."
+          },
+          {
+            "id": "v3-p2-q5",
+            "difficulty": "Intermédiaire",
+            "question": "Que caractérise un avalement haussier ?",
+            "options": [
+              "Une petite bougie verte contenue dans une grande rouge",
+              "Une bougie haussière dont le corps recouvre le corps baissier précédent",
+              "Trois bougies rouges clôturant près de leurs plus bas",
+              "Une ouverture et une clôture presque identiques"
+            ],
+            "answer": 1,
+            "explanation": "Dans l’avalement haussier, le corps de la seconde bougie verte recouvre celui de la première bougie rouge, ce qui traduit un changement rapide du contrôle."
+          },
+          {
+            "id": "v3-p2-q6",
+            "difficulty": "Intermédiaire",
+            "question": "Quelle différence essentielle sépare un harami d’un avalement ?",
+            "options": [
+              "Le harami se contracte dans le corps précédent, l’avalement l’englobe",
+              "Le harami comporte toujours cinq bougies",
+              "L’avalement ne dépend jamais du contexte",
+              "Aucune, ces deux noms désignent la même figure"
+            ],
+            "answer": 0,
+            "explanation": "Le harami montre une petite bougie contenue dans le grand corps précédent et suggère un ralentissement. L’avalement exprime au contraire une reprise de contrôle plus franche."
+          },
+          {
+            "id": "v3-p2-q7",
+            "difficulty": "Intermédiaire",
+            "question": "Quelle séquence décrit une étoile du matin ?",
+            "options": [
+              "Grande bougie rouge, petite hésitation, grande bougie verte",
+              "Trois grandes bougies rouges successives",
+              "Grande bougie verte suivie de petites bougies de repli",
+              "Deux dojis sans mouvement préalable"
+            ],
+            "answer": 0,
+            "explanation": "L’étoile du matin raconte une transition en trois temps : domination vendeuse, perte d’élan, puis reprise acheteuse suffisamment profonde pour envisager un retournement."
+          },
+          {
+            "id": "v3-p2-q8",
+            "difficulty": "Approfondissement",
+            "question": "Que racontent les trois méthodes ascendantes ?",
+            "options": [
+              "Un retournement baissier immédiat",
+              "Une pause contenue suivie d’une reprise de la tendance haussière",
+              "Une indécision durable sans tendance préalable",
+              "Une cassure de support confirmée par trois bougies rouges"
+            ],
+            "answer": 1,
+            "explanation": "La grande impulsion verte reste structurellement intacte pendant le petit repli, puis la dernière bougie confirme la continuation en reprenant le mouvement haussier."
+          },
+          {
+            "id": "v3-p2-q9",
+            "difficulty": "Approfondissement",
+            "question": "Quels sont les cinq filtres proposés avant d’interpréter une figure ?",
+            "options": [
+              "Tendance, zone, forme, volume et confirmation",
+              "Prix, logo, secteur, dividende et actualité",
+              "Ouverture, clôture, courtier, fiscalité et marge",
+              "Vitesse, couleur, taille, nom et popularité"
+            ],
+            "answer": 0,
+            "explanation": "La méthode relie la tendance préalable, la zone, la qualité de la forme, la participation mesurée par le volume et la confirmation apportée par le prix."
+          },
+          {
+            "id": "v3-p2-q10",
+            "difficulty": "Approfondissement",
+            "question": "Dans quel ordre faut-il construire une décision selon la synthèse du cours ?",
+            "options": [
+              "Nom de la figure, intuition, entrée, puis risque",
+              "Contexte, réaction, confirmation, puis gestion du risque",
+              "Volume, rumeur, levier, puis objectif de gain",
+              "Entrée immédiate, confirmation, zone, puis contexte"
+            ],
+            "answer": 1,
+            "explanation": "Le cours place le contexte avant la forme : on observe la réaction, on attend une confirmation, puis on définit l’invalidation et une taille de position supportable."
+          }
+        ]
       }
     ]
   }

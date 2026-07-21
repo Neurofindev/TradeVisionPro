@@ -267,6 +267,12 @@
       "id": "conclusion-tendances-boursieres",
       "title": "🎓 Conclusions",
       "text": "🚨 L’identification de ces tendances est fondamentale en analyse technique, car elle permet de cerner le sentiment dominant du marché et de repérer les opportunités d’investissement. Maîtriser l’analyse des tendances est donc indispensable pour prendre des décisions avisées en trading."
+    },
+    {
+      "type": "editorial_conclusion",
+      "id": "conclusion-generale",
+      "title": "Conclusion générale",
+      "text": "L’analyse technique gagne en précision lorsque le contexte des unités de temps est mis en relation avec les zones où le prix réagit. La tendance donne la direction, les supports et résistances structurent le scénario, puis les horizons plus courts affinent le timing et la gestion du risque."
     }
   ]
 }

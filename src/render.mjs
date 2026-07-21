@@ -360,9 +360,11 @@ function globalNav(volumes, activePage, showToc) {
             }>V${volume.metadata.volumeNumber || volume.metadata.order}</a>`,
           )
           .join("")}
+        <a class="profile-nav-link" href="${sitePath("/profil/")}"${activePage === "profile" ? ' aria-current="page"' : ""}>Profil</a>
       </nav>
       <div class="header-actions">
         ${showToc ? '<button class="icon-button toc-toggle" type="button" data-toc-toggle aria-expanded="false" aria-controls="volume-sidebar"><span aria-hidden="true">☰</span><span class="sr-only">Ouvrir le sommaire</span></button>' : ""}
+        <a class="profile-shortcut" href="${sitePath("/profil/")}" aria-label="Ouvrir mon profil"><span data-profile-initials aria-hidden="true">TV</span></a>
         <a class="icon-button" href="${sitePath("/recherche/")}" aria-label="Rechercher"><span aria-hidden="true">⌕</span></a>
         <button class="icon-button" type="button" data-theme-toggle aria-label="Changer de thème"><span data-theme-icon aria-hidden="true">◐</span></button>
       </div>
@@ -380,7 +382,7 @@ export function layout({ title, description, body, volumes, activePage, showToc 
   <meta name="description" content="${escapeHtml(description)}">
   <meta name="theme-color" content="#17151f">
   <title>${escapeHtml(title)} · ${SITE_NAME}</title>
-  <script>try{const s=localStorage.getItem('tradevisionpro-theme');const t=s||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dataset.theme=t}catch(e){}try{const o=sessionStorage.getItem('tradevisionpro-access-session-v2')||(sessionStorage.getItem('tradevisionpro-access-session-v1')==='granted'?'learner':'');if(o==='learner'||o==='admin'){const r=document.documentElement;r.dataset.accessRole=o;r.classList.remove('access-locked');r.classList.add('access-granted')}}catch(e){}</script>
+  <script>try{const s=localStorage.getItem('tradevisionpro-theme');const t=s||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dataset.theme=t}catch(e){}try{const p=sessionStorage.getItem('tradevisionpro-access-session-v3');const a={'aedan-dechavigny':'learner','yann':'learner','charly-labbetoul':'admin'};if(a[p]){const r=document.documentElement;r.dataset.accessProfile=p;r.dataset.accessRole=a[p];r.classList.remove('access-locked');r.classList.add('access-granted')}}catch(e){}</script>
   <link rel="icon" href="${sitePath("/brand/tradevisionpro-favicon.ico")}" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="${sitePath("/brand/tradevisionpro-favicon-32.png")}">
   <link rel="icon" type="image/png" sizes="64x64" href="${sitePath("/brand/tradevisionpro-favicon-64.png")}">
@@ -399,7 +401,7 @@ export function layout({ title, description, body, volumes, activePage, showToc 
       <div class="access-card__heading">
         <p class="access-eyebrow"><span aria-hidden="true"></span> Accès protégé</p>
         <h1 id="access-title">Entrez votre code d’accès</h1>
-        <p id="access-intro">Cette formation est réservée aux personnes disposant d’un code valide.</p>
+        <p id="access-intro">Cette formation est réservée aux personnes disposant de leur code personnel.</p>
       </div>
       <form class="access-form" data-access-form novalidate>
         <label for="access-code">Code à 6 chiffres</label>
@@ -422,7 +424,7 @@ export function layout({ title, description, body, volumes, activePage, showToc 
   ${body}
   <footer class="site-footer">
     <div class="footer-brand"><img src="${sitePath("/brand/tradevisionpro-mark-256.png")}" alt="" width="256" height="256" aria-hidden="true"><div><strong>${SITE_NAME}</strong><p>Voyez plus loin. Décidez avec méthode.</p></div></div>
-    <div><p>Support pédagogique public — pas un conseil en investissement.</p><a href="${sitePath("/volumes/")}">Voir tous les volumes</a></div>
+    <div><p>Espace pédagogique privé — pas un conseil en investissement.</p><a href="${sitePath("/volumes/")}">Voir tous les volumes</a></div>
   </footer>
   <div class="drawer-backdrop" data-drawer-backdrop hidden></div>
 </body>
@@ -469,6 +471,63 @@ export function renderVolumesIndex(volumes) {
     <section class="volume-grid volume-grid--index" aria-label="Tous les volumes">${volumes
       .map((volume) => renderVolumeCard(volume))
       .join("")}</section>
+  </main>`;
+}
+
+export function renderProfilePage(volumes) {
+  const volumeCards = volumes
+    .map((volume) => {
+      const metadata = volume.metadata;
+      const order = metadata.volumeNumber || metadata.order;
+      return `<article class="profile-volume" data-profile-volume data-volume-order="${order}">
+        <div class="profile-volume__number" aria-hidden="true">V${order}</div>
+        <div class="profile-volume__content">
+          <div class="profile-volume__heading"><div><p>${volumeLabel(volume)}</p><h3>${escapeHtml(metadata.title)}</h3></div><span class="profile-status" data-profile-volume-status>Disponible</span></div>
+          <p>${escapeHtml(metadata.subtitle || metadata.description || "")}</p>
+          <div class="profile-volume__footer"><span>Meilleur score <strong data-profile-volume-score>—</strong></span><a data-profile-volume-link data-profile-volume-url="${escapeHtml(sitePath(`/volumes/${metadata.slug}/`))}" href="${escapeHtml(sitePath(`/volumes/${metadata.slug}/`))}">Ouvrir le volume <span aria-hidden="true">→</span></a></div>
+        </div>
+      </article>`;
+    })
+    .join("");
+
+  return `<main id="contenu" class="page-shell profile-page">
+    <nav class="breadcrumb" aria-label="Fil d’Ariane"><a href="${sitePath("/")}">Accueil</a><span>›</span><span aria-current="page">Profil</span></nav>
+    <header class="profile-hero">
+      <div class="profile-identity">
+        <span class="profile-avatar" data-profile-initials aria-hidden="true">TV</span>
+        <div><p class="eyebrow">Mon espace</p><p class="profile-welcome">Bonjour,</p><h1 data-profile-name>Votre profil</h1><span class="profile-role" data-profile-role>Compte apprenant</span></div>
+      </div>
+      <div class="profile-session"><p><span aria-hidden="true">◆</span> Progression enregistrée sur cet appareil</p><button class="button button--secondary" type="button" data-profile-logout>Changer de compte</button></div>
+    </header>
+
+    <section class="profile-stats" aria-label="Résumé de votre parcours">
+      <article><span>Volumes validés</span><strong><b data-profile-validated>0</b> / ${volumes.length}</strong><small>Objectif : 8/10 par QCM</small></article>
+      <article><span>Volumes accessibles</span><strong data-profile-open>1</strong><small data-profile-access-note>Déblocage progressif</small></article>
+      <article><span>Meilleur score</span><strong data-profile-best>—</strong><small>Sur l’ensemble des QCM</small></article>
+      <article><span>Progression globale</span><strong data-profile-completion>0 %</strong><small>Volumes pédagogiques validés</small></article>
+    </section>
+
+    <section class="profile-dashboard">
+      <article class="profile-progress-card">
+        <div class="profile-section-heading"><div><p class="eyebrow">Votre parcours</p><h2>Progression de la formation</h2></div><strong data-profile-completion>0 %</strong></div>
+        <div class="profile-progress-track" role="progressbar" aria-label="Progression de la formation" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" data-profile-progress><i data-profile-progress-bar></i></div>
+        <div class="profile-volume-list">${volumeCards}</div>
+      </article>
+
+      <aside class="profile-sidebar">
+        <article class="profile-next-step">
+          <span class="profile-next-step__icon" aria-hidden="true">↗</span><p class="eyebrow">Prochaine étape</p>
+          <h2 data-profile-next-title>Commencer le Volume 1</h2>
+          <p data-profile-next-text>Découvrez les fondations, puis validez le QCM pour poursuivre.</p>
+          <a class="button button--primary" data-profile-next-link href="${escapeHtml(sitePath(`/volumes/${volumes[0]?.metadata.slug || ""}/`))}">Continuer <span aria-hidden="true">→</span></a>
+        </article>
+        <article class="profile-achievements">
+          <p class="eyebrow">Repères</p><h2>Vos accomplissements</h2>
+          <ul><li data-profile-achievement="start"><span aria-hidden="true">◆</span><div><strong>Parcours commencé</strong><small>Première étape franchie</small></div></li><li data-profile-achievement="half"><span aria-hidden="true">◆</span><div><strong>Fondations validées</strong><small>Volume 1 réussi</small></div></li><li data-profile-achievement="complete"><span aria-hidden="true">◆</span><div><strong>Parcours complété</strong><small>Tous les volumes validés</small></div></li></ul>
+        </article>
+        <p class="profile-device-note"><span aria-hidden="true">ⓘ</span><span><strong>Données locales</strong> Vos scores sont liés à ce profil sur ce navigateur. Changer de compte ne supprime pas votre progression.</span></p>
+      </aside>
+    </section>
   </main>`;
 }
 

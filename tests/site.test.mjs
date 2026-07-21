@@ -29,6 +29,7 @@ test("all expected pages are built", () => {
     "index.html",
     "volumes/index.html",
     "recherche/index.html",
+    "profil/index.html",
     "volumes/1-fondations-et-analyses/index.html",
     "volumes/2-dossiers-historiques/index.html",
     "volumes/3-analyse-technique/index.html",
@@ -65,10 +66,17 @@ test("every page is protected by the access gate without exposing the code", asy
 
   const client = await readFile(path.join(DIST, "assets", "client.js"), "utf8");
   const styles = await readFile(path.join(DIST, "assets", "styles.css"), "utf8");
-  assert.ok(client.includes("fa5d171c9280388b26a2569e9fccc7683ab3ec70b685b3f9cde7066eee987263"));
+  assert.ok(client.includes("9c6e9172266f90a10de4d8cc2a767e9815488ae926d39ee68b1fab34091d4235"));
+  assert.ok(client.includes("e5af42e35c3fb1fe989dee4acf652b81ef0dc956753926d6b22b705d110b01fc"));
   assert.ok(client.includes("4f8c5f5a97c0bbf84c176fda321365057b68cd8a135eaf003eae6584af3f77ba"));
+  assert.ok(client.includes('tradevisionpro-access-session-v3'));
+  assert.ok(!client.includes("fa5d171c9280388b26a2569e9fccc7683ab3ec70b685b3f9cde7066eee987263"));
+  assert.ok(!client.includes("tradevisionpro-access-session-v2"));
+  assert.ok(!client.includes("tradevisionpro-access-session-v1"));
   assert.ok(client.includes('crypto.subtle.digest("SHA-256"'));
   assert.ok(!client.includes("110930"));
+  assert.ok(!client.includes("020926"));
+  assert.ok(!client.includes("251126"));
   assert.ok(!client.includes("300402"));
   assert.match(styles, /html\.access-locked body > :not\(\.access-gate\)/);
 });
@@ -110,18 +118,39 @@ test("quiz results use a dedicated responsive screen and can be restarted", asyn
   assert.match(styles, /@media \(max-width: 46rem\)[\s\S]*?\.quiz-result\s*\{[^}]*width:\s*calc\(100% - 1\.7rem\)/);
 });
 
-test("course progression requires eight correct answers while admin access bypasses locks", async () => {
+test("course progression is isolated by profile while admin access bypasses locks", async () => {
   const client = await readFile(path.join(DIST, "assets", "client.js"), "utf8");
   const home = await readFile(path.join(DIST, "index.html"), "utf8");
   const volumeTwo = await readFile(path.join(DIST, "volumes/2-dossiers-historiques/index.html"), "utf8");
   assert.ok(client.includes("const passingScore = 8"));
   assert.ok(client.includes('root.dataset.accessRole === "admin"'));
-  assert.ok(client.includes("tradevisionpro-course-progress-v1"));
+  assert.ok(client.includes("tradevisionpro-course-progress-v2"));
+  assert.ok(client.includes("${courseProgressPrefix}:${profile.id}"));
+  assert.ok(client.includes("Math.max(Number(progressData[volumeKey]) || 0, score)"));
   assert.ok(client.includes("score >= passingScore"));
   assert.equal((home.match(/data-volume-card/g) || []).length, 3);
   assert.ok(volumeTwo.includes("data-volume-lock"));
   assert.ok(volumeTwo.includes("Ce volume est encore verrouillé"));
   assert.ok(volumeTwo.includes("Passer le QCM du Volume 1"));
+});
+
+test("profile page presents identity, useful progress and account controls", async () => {
+  const profile = await readFile(path.join(DIST, "profil/index.html"), "utf8");
+  const client = await readFile(path.join(DIST, "assets", "client.js"), "utf8");
+  const styles = await readFile(path.join(DIST, "assets", "styles.css"), "utf8");
+  assert.ok(profile.includes('aria-current="page">Profil</a>'));
+  assert.ok(profile.includes("data-profile-name"));
+  assert.ok(profile.includes("data-profile-role"));
+  assert.ok(profile.includes("data-profile-logout"));
+  assert.ok(profile.includes("Progression enregistrée sur cet appareil"));
+  assert.equal((profile.match(/data-profile-volume data-volume-order=/g) || []).length, 3);
+  assert.ok(profile.includes("data-profile-next-title"));
+  assert.ok(profile.includes("data-profile-progress-bar"));
+  assert.ok(profile.includes('data-profile-achievement="complete"'));
+  assert.ok(client.includes('sessionStorage.removeItem(accessSessionKey)'));
+  assert.ok(client.includes('profile.role === "admin" ? "Administrateur · accès intégral"'));
+  assert.match(styles, /\.profile-dashboard\s*\{/);
+  assert.match(styles, /@media \(max-width: 46rem\)[\s\S]*?\.profile-stats,/);
 });
 
 test("home accompaniment and dark primary action stay complete and legible", async () => {

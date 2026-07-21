@@ -7,6 +7,7 @@ import {
   configureSite,
   layout,
   renderHome,
+  renderProfilePage,
   renderSearchPage,
   renderVolumePage,
   renderVolumesIndex,
@@ -75,6 +76,17 @@ async function main() {
       bodyClass: "search-page-body",
     }),
   );
+  await writePage(
+    "profil",
+    layout({
+      title: "Mon profil",
+      description: "Consultez votre progression, vos résultats et les prochaines étapes de votre parcours TradeVisionPro.",
+      body: renderProfilePage(volumes),
+      volumes,
+      activePage: "profile",
+      bodyClass: "profile-page-body",
+    }),
+  );
 
   for (const volume of volumes) {
     await writePage(
@@ -100,7 +112,7 @@ async function main() {
     "utf8",
   );
   console.log(
-    `Built ${volumes.length + 3} pages at ${basePath}, ${searchEntries.length} searchable sections and ${(
+    `Built ${volumes.length + 4} pages at ${basePath}, ${searchEntries.length} searchable sections and ${(
       await readdir(path.join(DIST, "media"), { recursive: true })
     ).length} media entries.`,
   );

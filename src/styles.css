@@ -1878,6 +1878,42 @@ a {
   padding-bottom: 6rem;
 }
 
+@media (min-width: 60.01rem) {
+  .volume-page.is-locked .volume-shell {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .volume-page.is-locked .course-content {
+    width: 100%;
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(22rem, 0.8fr);
+    column-gap: clamp(3rem, 6vw, 6rem);
+    align-items: start;
+  }
+
+  .volume-page.is-locked .breadcrumb {
+    grid-column: 1 / -1;
+  }
+
+  .volume-page.is-locked .volume-hero {
+    width: 100%;
+    max-width: none;
+    grid-column: 1;
+  }
+
+  .volume-page.is-locked .mobile-toc-card {
+    display: none;
+  }
+
+  .volume-page.is-locked .volume-lock {
+    width: 100%;
+    max-width: none;
+    margin: clamp(4rem, 9vw, 7.5rem) 0 5rem;
+    grid-column: 2;
+    align-self: start;
+  }
+}
+
 .breadcrumb {
   display: flex;
   flex-wrap: wrap;

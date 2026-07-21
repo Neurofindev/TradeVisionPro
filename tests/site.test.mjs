@@ -134,6 +134,14 @@ test("course progression is isolated by profile while admin access bypasses lock
   assert.ok(volumeTwo.includes("Passer le QCM du Volume 1"));
 });
 
+test("locked volume layout stays readable on desktop", async () => {
+  const styles = await readFile(path.join(DIST, "assets", "styles.css"), "utf8");
+  assert.match(styles, /@media \(min-width: 60\.01rem\)[\s\S]*?\.volume-page\.is-locked \.volume-shell\s*\{[^}]*grid-template-columns:\s*minmax\(0, 1fr\)/);
+  assert.match(styles, /\.volume-page\.is-locked \.course-content\s*\{[^}]*display:\s*grid[^}]*grid-template-columns:\s*minmax\(0, 1\.35fr\) minmax\(22rem, 0\.8fr\)/s);
+  assert.match(styles, /\.volume-page\.is-locked \.volume-lock\s*\{[^}]*width:\s*100%[^}]*grid-column:\s*2/s);
+  assert.match(styles, /@media \(max-width: 60rem\)[\s\S]*?\.volume-shell\s*\{[^}]*display:\s*block/);
+});
+
 test("profile page presents identity, useful progress and account controls", async () => {
   const profile = await readFile(path.join(DIST, "profil/index.html"), "utf8");
   const client = await readFile(path.join(DIST, "assets", "client.js"), "utf8");

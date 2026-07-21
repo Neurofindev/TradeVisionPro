@@ -83,7 +83,7 @@
         "volumeNumber": 3,
         "title": "L’analyse technique",
         "subtitle": "L’art du timing, un outil essentiel.",
-        "description": "Apprendre à relier les unités de temps pour lire la tendance de fond, confirmer un scénario et affiner le moment d’intervention.",
+        "description": "Relier les unités de temps et les niveaux clés pour lire la tendance, identifier supports et résistances, puis affiner le moment d’intervention.",
         "edition": null,
         "format": null,
         "coverLines": [],
@@ -92,33 +92,36 @@
           "multi-timeframe",
           "timing",
           "unités de temps",
-          "confluence"
+          "confluence",
+          "supports",
+          "résistances",
+          "range"
         ],
         "highlights": [
           {
             "number": "01",
             "title": "Contexte",
-            "text": "Identifier la tendance dominante sur les unités de temps longues."
+            "text": "Lire la tendance dominante à travers plusieurs unités de temps."
           },
           {
             "number": "02",
-            "title": "Confluence",
-            "text": "Confirmer la lecture en descendant progressivement d’un horizon à l’autre."
+            "title": "Niveaux clés",
+            "text": "Identifier les supports, les résistances et les phases de range."
           },
           {
             "number": "03",
-            "title": "Timing",
-            "text": "Observer les unités courtes pour préciser le moment d’intervention."
+            "title": "Décision",
+            "text": "Relier contexte, niveaux et timing pour préciser une intervention."
           }
         ],
         "slug": "3-analyse-technique"
       },
       "stats": {
-        "wordCount": 370,
-        "readingMinutes": 2,
-        "chapterCount": 1,
+        "wordCount": 753,
+        "readingMinutes": 3,
+        "chapterCount": 2,
         "dossierCount": 0,
-        "figureCount": 2
+        "figureCount": 4
       },
       "archetype": "technical_analysis"
     }

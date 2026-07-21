@@ -1284,6 +1284,14 @@ a {
   --lesson-accent: #4f7c72;
 }
 
+.lesson-note--principle {
+  --lesson-accent: var(--gold);
+}
+
+.lesson-note--warning {
+  --lesson-accent: #c05b55;
+}
+
 .lesson-note--concrete {
   --lesson-accent: var(--gold);
   margin-bottom: -1.6rem;

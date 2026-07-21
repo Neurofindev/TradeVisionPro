@@ -10,7 +10,7 @@
     "volumeNumber": 3,
     "title": "L’analyse technique",
     "subtitle": "L’art du timing, un outil essentiel.",
-    "description": "Apprendre à relier les unités de temps pour lire la tendance de fond, confirmer un scénario et affiner le moment d’intervention.",
+    "description": "Relier les unités de temps et les niveaux clés pour lire la tendance, identifier supports et résistances, puis affiner le moment d’intervention.",
     "edition": null,
     "format": null,
     "coverLines": [],
@@ -19,34 +19,37 @@
       "multi-timeframe",
       "timing",
       "unités de temps",
-      "confluence"
+      "confluence",
+      "supports",
+      "résistances",
+      "range"
     ],
     "highlights": [
       {
         "number": "01",
         "title": "Contexte",
-        "text": "Identifier la tendance dominante sur les unités de temps longues."
+        "text": "Lire la tendance dominante à travers plusieurs unités de temps."
       },
       {
         "number": "02",
-        "title": "Confluence",
-        "text": "Confirmer la lecture en descendant progressivement d’un horizon à l’autre."
+        "title": "Niveaux clés",
+        "text": "Identifier les supports, les résistances et les phases de range."
       },
       {
         "number": "03",
-        "title": "Timing",
-        "text": "Observer les unités courtes pour préciser le moment d’intervention."
+        "title": "Décision",
+        "text": "Relier contexte, niveaux et timing pour préciser une intervention."
       }
     ],
     "slug": "3-analyse-technique"
   },
   "archetype": "technical_analysis",
   "stats": {
-    "wordCount": 370,
-    "readingMinutes": 2,
-    "chapterCount": 1,
+    "wordCount": 753,
+    "readingMinutes": 3,
+    "chapterCount": 2,
     "dossierCount": 0,
-    "figureCount": 2
+    "figureCount": 4
   },
   "blocks": [
     {
@@ -174,10 +177,149 @@
       ]
     },
     {
+      "type": "heading",
+      "level": 1,
+      "id": "supports-et-resistances",
+      "text": "🔥 Les supports et résistances"
+    },
+    {
+      "type": "paragraph",
+      "text": "Abordons le sujet des supports et résistances, aussi appelés zones psychologiques."
+    },
+    {
+      "type": "lesson_note",
+      "variant": "principle",
+      "text": "📈 Pour faire simple, les supports et résistances sont des zones que tu traces sur un graphique financier, où le prix d’un actif bute à plusieurs reprises.",
+      "segments": [
+        {
+          "text": "📈 Pour faire simple, ",
+          "bold": true
+        },
+        {
+          "text": "les supports et résistances sont des zones que tu traces sur un graphique financier, où le prix d’un actif bute à plusieurs reprises."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Si le prix rebondit à la hausse sur des points bas, c’est un support ; à l’inverse, si le prix bute sur des points hauts, c’est une résistance."
+    },
+    {
+      "type": "lesson_note",
+      "variant": "example",
+      "text": "🎯 Par exemple, sur le titre AMAZON, on peut observer qu’une zone de support et une zone de résistance se sont établies, créant un range.",
+      "segments": [
+        {
+          "text": "🎯 Par exemple, ",
+          "bold": true
+        },
+        {
+          "text": "sur le titre AMAZON, on peut observer qu’une zone de support et une zone de résistance se sont établies, créant un range."
+        }
+      ]
+    },
+    {
+      "type": "figure",
+      "src": "/media/3-analyse-technique/3-analyse-technique-supports-resistances-amazon-e0dcfdd4e9d7.webp",
+      "originalName": "codex-clipboard-897d688f-c829-49e2-bd50-444c35fba836.png",
+      "width": 1600,
+      "height": 900,
+      "optimized": true,
+      "caption": "Amazon — zones de support et de résistance formant un range.",
+      "alt": "Graphique quotidien Amazon montrant trois rebonds sur une zone de support et quatre contacts avec une zone de résistance.",
+      "source": "",
+      "sourceLinks": []
+    },
+    {
+      "type": "paragraph",
+      "text": "Un range désigne une phase de consolidation d’un actif où le prix oscille entre ces deux zones sans tendance claire."
+    },
+    {
+      "type": "paragraph",
+      "text": "On constate également que le support a été testé à trois reprises, tandis que la résistance a subi quatre touches. Plus une zone de support ou de résistance est testée, plus une cassure éventuelle sera puissante."
+    },
+    {
+      "type": "paragraph",
+      "text": "En effet, de nombreux traders sont positionnés à ces niveaux et ont confiance en leurs positions."
+    },
+    {
+      "type": "lesson_note",
+      "variant": "warning",
+      "text": "🛑 Ainsi, lorsqu’une cassure se produit, de nombreux stop-loss sont déclenchés, alimentant et amplifiant le mouvement du prix.",
+      "segments": [
+        {
+          "text": "🛑 Ainsi, ",
+          "bold": true
+        },
+        {
+          "text": "lorsqu’une cassure se produit, de nombreux stop-loss sont déclenchés, alimentant et amplifiant le mouvement du prix."
+        }
+      ]
+    },
+    {
+      "type": "lesson_note",
+      "variant": "principle",
+      "text": "🔥 Les supports et résistances constituent les fondements de l’analyse technique et peuvent être identifiés sur tous types d’actifs financiers, voire sur certains indicateurs.",
+      "segments": [
+        {
+          "text": "🔥 Les supports et résistances constituent les fondements de l’analyse technique et peuvent être identifiés sur tous types d’actifs financiers, voire sur certains indicateurs.",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "type": "lesson_note",
+      "variant": "example",
+      "text": "🎯 Prenons l’exemple du titre NVIDIA : le cours de l’action a souvent rebondi sur des niveaux de prix ronds.",
+      "segments": [
+        {
+          "text": "🎯 Prenons l’exemple du titre NVIDIA : ",
+          "bold": true
+        },
+        {
+          "text": "le cours de l’action a souvent rebondi sur des niveaux de prix ronds."
+        }
+      ]
+    },
+    {
+      "type": "figure",
+      "src": "/media/3-analyse-technique/3-analyse-technique-supports-resistances-nvidia-d27312fa655d.webp",
+      "originalName": "codex-clipboard-9ce1006b-2e1c-4d02-96c9-19686a101cbb.png",
+      "width": 1600,
+      "height": 900,
+      "optimized": true,
+      "caption": "NVIDIA — réactions répétées du cours autour de niveaux de prix ronds.",
+      "alt": "Graphique quotidien NVIDIA montrant plusieurs réactions du prix sur des niveaux ronds utilisés comme supports et résistances.",
+      "source": "",
+      "sourceLinks": []
+    },
+    {
+      "type": "paragraph",
+      "text": "On observe un rebond sur les 140 $, 130 $ (deux fois), 150 $ (deux fois), et sur les 120 $, qui ont agi comme zones de résistance."
+    },
+    {
+      "type": "paragraph",
+      "text": "À l’inverse, des niveaux comme les 130 $ (testé deux fois) et presque les 100 $ ont servi de zones de support, où le prix a rebondi."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "conclusion-supports-et-resistances",
+      "text": "🚨 Conclusion :"
+    },
+    {
+      "type": "paragraph",
+      "text": "Maîtriser les supports et résistances est une compétence essentielle à intégrer dans l’arsenal d’un trader."
+    },
+    {
+      "type": "paragraph",
+      "text": "Ces notions permettent d’anticiper les mouvements du marché et d’optimiser les prises de décision, renforçant ainsi la gestion du risque et la précision des entrées et sorties sur les actifs financiers."
+    },
+    {
       "type": "editorial_conclusion",
-      "id": "conclusion",
-      "title": "Conclusion",
-      "text": "L’analyse multi-timeframe permet de replacer chaque signal dans son contexte : les unités longues donnent la direction, les unités intermédiaires confirment le scénario et les unités courtes affinent le timing. L’essentiel reste de rechercher la cohérence entre ces horizons avant toute décision."
+      "id": "conclusion-generale",
+      "title": "Conclusion générale",
+      "text": "L’analyse technique gagne en précision lorsque le contexte des unités de temps est mis en relation avec les zones où le prix réagit. La tendance donne la direction, les supports et résistances structurent le scénario, puis les horizons plus courts affinent le timing et la gestion du risque."
     }
   ]
 }

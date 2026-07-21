@@ -103,12 +103,18 @@ class ConverterOutputTests(unittest.TestCase):
         self.assertEqual(self.v3["metadata"]["title"], "L’analyse technique")
         self.assertEqual(self.v3["metadata"]["subtitle"], "L’art du timing, un outil essentiel.")
         self.assertEqual(len(self.v3["metadata"]["highlights"]), 3)
-        self.assertEqual(types.count("heading"), 1)
-        self.assertEqual(types.count("lesson_note"), 5)
-        self.assertEqual(types.count("figure"), 2)
+        self.assertEqual(types.count("heading"), 3)
+        self.assertEqual(types.count("lesson_note"), 10)
+        self.assertEqual(types.count("figure"), 4)
         self.assertEqual(types.count("editorial_conclusion"), 1)
-        self.assertEqual(self.v3["stats"]["chapterCount"], 1)
+        self.assertEqual(self.v3["stats"]["chapterCount"], 2)
         self.assertTrue(all(block["alt"] for block in blocks if block["type"] == "figure"))
+        rendered_text = " ".join(all_strings(self.v3))
+        self.assertIn("🔥 Les supports et résistances", rendered_text)
+        self.assertIn("🎯 Par exemple, sur le titre AMAZON,", rendered_text)
+        self.assertIn("🎯 Prenons l’exemple du titre NVIDIA :", rendered_text)
+        self.assertNotIn("(image 1)", rendered_text.casefold())
+        self.assertNotIn("(image 2)", rendered_text.casefold())
 
     def test_figures_are_complete_and_optimized(self):
         figures = [block for block in self.v2["blocks"] if block["type"] == "figure"]

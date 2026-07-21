@@ -75,16 +75,21 @@ test("volume two renders every specialist component", async () => {
   assert.ok(!html.includes("Unsupported content block"));
 });
 
-test("volume three renders the complete multi-timeframe chapter", async () => {
+test("volume three renders both technical analysis chapters", async () => {
   const html = await readFile(path.join(DIST, "volumes/3-analyse-technique/index.html"), "utf8");
   assert.ok(html.includes("L’analyse technique"));
   assert.ok(html.includes("L’art du timing, un outil essentiel."));
   assert.ok(html.includes("📆 Multi-timeframe confluence"));
-  assert.equal((html.match(/class="lesson-note /g) || []).length, 5);
-  assert.equal((html.match(/class="course-figure breakout"/g) || []).length, 2);
+  assert.ok(html.includes("🔥 Les supports et résistances"));
+  assert.equal((html.match(/class="lesson-note /g) || []).length, 10);
+  assert.equal((html.match(/class="course-figure breakout"/g) || []).length, 4);
   assert.ok(html.includes("class=\"chapter-highlights\""));
   assert.ok(html.includes("class=\"chapter-conclusion\""));
   assert.ok(html.includes("Ces timefraime offrent de nouvelles confluences"));
+  assert.ok(html.includes("sur le titre AMAZON, on peut observer"));
+  assert.ok(html.includes("Prenons l’exemple du titre NVIDIA :"));
+  assert.ok(!html.includes("(image 1)"));
+  assert.ok(!html.includes("(image 2)"));
   assert.ok(!html.includes("Unsupported content block"));
 });
 

@@ -29,26 +29,27 @@
     "slug": "3-analyse-technique",
     "title": "L’analyse technique",
     "subtitle": "L’art du timing, un outil essentiel.",
-    "description": "Apprendre à relier les unités de temps pour lire la tendance de fond, confirmer un scénario et affiner le moment d’intervention.",
+    "description": "Relier les unités de temps et les niveaux clés pour lire la tendance, identifier supports et résistances, puis affiner le moment d’intervention.",
     "archetype": "technical_analysis",
-    "tags": ["analyse technique", "multi-timeframe", "timing", "unités de temps", "confluence"],
+    "tags": ["analyse technique", "multi-timeframe", "timing", "unités de temps", "confluence", "supports", "résistances", "range"],
     "contentStartsImmediately": true,
     "firstParagraphHeadingLevel": 1,
+    "supplementalContent": "content/supplemental/3-analyse-technique-supports-resistances.json",
     "highlights": [
       {
         "number": "01",
         "title": "Contexte",
-        "text": "Identifier la tendance dominante sur les unités de temps longues."
+        "text": "Lire la tendance dominante à travers plusieurs unités de temps."
       },
       {
         "number": "02",
-        "title": "Confluence",
-        "text": "Confirmer la lecture en descendant progressivement d’un horizon à l’autre."
+        "title": "Niveaux clés",
+        "text": "Identifier les supports, les résistances et les phases de range."
       },
       {
         "number": "03",
-        "title": "Timing",
-        "text": "Observer les unités courtes pour préciser le moment d’intervention."
+        "title": "Décision",
+        "text": "Relier contexte, niveaux et timing pour préciser une intervention."
       }
     ],
     "figureAlts": [
@@ -56,8 +57,8 @@
       "Comparaison du graphique Lululemon en unité quotidienne et en unité de quatre heures."
     ],
     "editorialConclusion": {
-      "title": "Conclusion",
-      "text": "L’analyse multi-timeframe permet de replacer chaque signal dans son contexte : les unités longues donnent la direction, les unités intermédiaires confirment le scénario et les unités courtes affinent le timing. L’essentiel reste de rechercher la cohérence entre ces horizons avant toute décision."
+      "title": "Conclusion générale",
+      "text": "L’analyse technique gagne en précision lorsque le contexte des unités de temps est mis en relation avec les zones où le prix réagit. La tendance donne la direction, les supports et résistances structurent le scénario, puis les horizons plus courts affinent le timing et la gestion du risque."
     }
   }
 ]

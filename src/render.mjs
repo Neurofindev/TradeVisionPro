@@ -446,7 +446,7 @@ export function renderVolumesIndex(volumes) {
 function renderVolumeHighlights(highlights = []) {
   if (!highlights.length) return "";
   return `<section class="chapter-highlights" aria-labelledby="chapter-highlights-title">
-    <div class="chapter-highlights__intro"><p class="eyebrow">Repères de lecture</p><h2 id="chapter-highlights-title">Du contexte au timing</h2></div>
+    <div class="chapter-highlights__intro"><p class="eyebrow">Repères de lecture</p><h2 id="chapter-highlights-title">Du contexte à la décision</h2></div>
     <ol>${highlights
       .map(
         (item) => `<li><span>${escapeHtml(item.number || "")}</span><div><strong>${escapeHtml(

@@ -50,6 +50,11 @@ def main() -> None:
         slug = config["slug"]
         output = GENERATED_DIR / f"{slug}.json"
         media_dir = MEDIA_ROOT / slug
+        supplemental_blocks: list[dict[str, Any]] = []
+        supplemental_path = config.get("supplementalContent")
+        if supplemental_path:
+            supplemental_document = json.loads((ROOT / supplemental_path).read_text(encoding="utf-8"))
+            supplemental_blocks = supplemental_document.get("blocks", [])
         result = convert_file(
             source=source,
             output=output,
@@ -57,6 +62,7 @@ def main() -> None:
             public_media_url=f"/media/{slug}",
             label_variants=labels,
             metadata_overrides=config,
+            supplemental_blocks=supplemental_blocks,
         )
         manifest.append(
             {

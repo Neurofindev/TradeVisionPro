@@ -17,6 +17,7 @@ import re
 import shutil
 import unicodedata
 import zipfile
+from copy import deepcopy
 from pathlib import Path, PurePosixPath
 from typing import Any, Iterable
 from xml.etree import ElementTree as ET
@@ -105,6 +106,7 @@ class DocxConverter:
         public_media_url: str,
         label_variants: dict[str, str],
         metadata_overrides: dict[str, Any] | None = None,
+        supplemental_blocks: list[dict[str, Any]] | None = None,
     ) -> None:
         self.source = source.resolve()
         self.media_dir = media_dir.resolve()
@@ -113,6 +115,7 @@ class DocxConverter:
             normalize_label(label): variant for label, variant in label_variants.items()
         }
         self.metadata_overrides = metadata_overrides or {}
+        self.supplemental_blocks = supplemental_blocks or []
         self.zip = zipfile.ZipFile(self.source)
         self.document = ET.fromstring(self.zip.read("word/document.xml"))
         self.relationships = self._load_relationships()
@@ -668,6 +671,10 @@ class DocxConverter:
                 last_figure_index = None
 
         blocks = self._postprocess_case_headers(blocks)
+        for supplemental_block in deepcopy(self.supplemental_blocks):
+            if supplemental_block.get("type") == "heading" and not supplemental_block.get("id"):
+                supplemental_block["id"] = self._unique_id(str(supplemental_block.get("text", "section")))
+            blocks.append(supplemental_block)
         editorial_conclusion = self.metadata_overrides.get("editorialConclusion")
         if editorial_conclusion:
             conclusion_title = clean_text(str(editorial_conclusion.get("title", "Conclusion")))
@@ -711,6 +718,7 @@ def convert_file(
     public_media_url: str,
     label_variants: dict[str, str],
     metadata_overrides: dict[str, Any] | None = None,
+    supplemental_blocks: list[dict[str, Any]] | None = None,
 ) -> dict[str, Any]:
     converter = DocxConverter(
         source=source,
@@ -718,6 +726,7 @@ def convert_file(
         public_media_url=public_media_url,
         label_variants=label_variants,
         metadata_overrides=metadata_overrides,
+        supplemental_blocks=supplemental_blocks,
     )
     try:
         result = converter.convert()

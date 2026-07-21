@@ -1,0 +1,144 @@
+{
+  "schemaVersion": 1,
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "supports-et-resistances",
+      "text": "🔥 Les supports et résistances"
+    },
+    {
+      "type": "paragraph",
+      "text": "Abordons le sujet des supports et résistances, aussi appelés zones psychologiques."
+    },
+    {
+      "type": "lesson_note",
+      "variant": "principle",
+      "text": "📈 Pour faire simple, les supports et résistances sont des zones que tu traces sur un graphique financier, où le prix d’un actif bute à plusieurs reprises.",
+      "segments": [
+        {
+          "text": "📈 Pour faire simple, ",
+          "bold": true
+        },
+        {
+          "text": "les supports et résistances sont des zones que tu traces sur un graphique financier, où le prix d’un actif bute à plusieurs reprises."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Si le prix rebondit à la hausse sur des points bas, c’est un support ; à l’inverse, si le prix bute sur des points hauts, c’est une résistance."
+    },
+    {
+      "type": "lesson_note",
+      "variant": "example",
+      "text": "🎯 Par exemple, sur le titre AMAZON, on peut observer qu’une zone de support et une zone de résistance se sont établies, créant un range.",
+      "segments": [
+        {
+          "text": "🎯 Par exemple, ",
+          "bold": true
+        },
+        {
+          "text": "sur le titre AMAZON, on peut observer qu’une zone de support et une zone de résistance se sont établies, créant un range."
+        }
+      ]
+    },
+    {
+      "type": "figure",
+      "src": "/media/3-analyse-technique/3-analyse-technique-supports-resistances-amazon-e0dcfdd4e9d7.webp",
+      "originalName": "codex-clipboard-897d688f-c829-49e2-bd50-444c35fba836.png",
+      "width": 1600,
+      "height": 900,
+      "optimized": true,
+      "caption": "Amazon — zones de support et de résistance formant un range.",
+      "alt": "Graphique quotidien Amazon montrant trois rebonds sur une zone de support et quatre contacts avec une zone de résistance.",
+      "source": "",
+      "sourceLinks": []
+    },
+    {
+      "type": "paragraph",
+      "text": "Un range désigne une phase de consolidation d’un actif où le prix oscille entre ces deux zones sans tendance claire."
+    },
+    {
+      "type": "paragraph",
+      "text": "On constate également que le support a été testé à trois reprises, tandis que la résistance a subi quatre touches. Plus une zone de support ou de résistance est testée, plus une cassure éventuelle sera puissante."
+    },
+    {
+      "type": "paragraph",
+      "text": "En effet, de nombreux traders sont positionnés à ces niveaux et ont confiance en leurs positions."
+    },
+    {
+      "type": "lesson_note",
+      "variant": "warning",
+      "text": "🛑 Ainsi, lorsqu’une cassure se produit, de nombreux stop-loss sont déclenchés, alimentant et amplifiant le mouvement du prix.",
+      "segments": [
+        {
+          "text": "🛑 Ainsi, ",
+          "bold": true
+        },
+        {
+          "text": "lorsqu’une cassure se produit, de nombreux stop-loss sont déclenchés, alimentant et amplifiant le mouvement du prix."
+        }
+      ]
+    },
+    {
+      "type": "lesson_note",
+      "variant": "principle",
+      "text": "🔥 Les supports et résistances constituent les fondements de l’analyse technique et peuvent être identifiés sur tous types d’actifs financiers, voire sur certains indicateurs.",
+      "segments": [
+        {
+          "text": "🔥 Les supports et résistances constituent les fondements de l’analyse technique et peuvent être identifiés sur tous types d’actifs financiers, voire sur certains indicateurs.",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "type": "lesson_note",
+      "variant": "example",
+      "text": "🎯 Prenons l’exemple du titre NVIDIA : le cours de l’action a souvent rebondi sur des niveaux de prix ronds.",
+      "segments": [
+        {
+          "text": "🎯 Prenons l’exemple du titre NVIDIA : ",
+          "bold": true
+        },
+        {
+          "text": "le cours de l’action a souvent rebondi sur des niveaux de prix ronds."
+        }
+      ]
+    },
+    {
+      "type": "figure",
+      "src": "/media/3-analyse-technique/3-analyse-technique-supports-resistances-nvidia-d27312fa655d.webp",
+      "originalName": "codex-clipboard-9ce1006b-2e1c-4d02-96c9-19686a101cbb.png",
+      "width": 1600,
+      "height": 900,
+      "optimized": true,
+      "caption": "NVIDIA — réactions répétées du cours autour de niveaux de prix ronds.",
+      "alt": "Graphique quotidien NVIDIA montrant plusieurs réactions du prix sur des niveaux ronds utilisés comme supports et résistances.",
+      "source": "",
+      "sourceLinks": []
+    },
+    {
+      "type": "paragraph",
+      "text": "On observe un rebond sur les 140 $, 130 $ (deux fois), 150 $ (deux fois), et sur les 120 $, qui ont agi comme zones de résistance."
+    },
+    {
+      "type": "paragraph",
+      "text": "À l’inverse, des niveaux comme les 130 $ (testé deux fois) et presque les 100 $ ont servi de zones de support, où le prix a rebondi."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "conclusion-supports-et-resistances",
+      "text": "🚨 Conclusion :"
+    },
+    {
+      "type": "paragraph",
+      "text": "Maîtriser les supports et résistances est une compétence essentielle à intégrer dans l’arsenal d’un trader."
+    },
+    {
+      "type": "paragraph",
+      "text": "Ces notions permettent d’anticiper les mouvements du marché et d’optimiser les prises de décision, renforçant ainsi la gestion du risque et la précision des entrées et sorties sur les actifs financiers."
+    }
+  ]
+}

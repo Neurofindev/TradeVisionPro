@@ -38,6 +38,7 @@
       "content/supplemental/3-analyse-technique-supports-resistances.json",
       "content/supplemental/3-analyse-technique-partie-2-bougies-japonaises.json"
     ],
+    "partSequenceComplete": false,
     "parts": [
       {
         "order": 1,

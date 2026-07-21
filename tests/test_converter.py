@@ -104,6 +104,7 @@ class ConverterOutputTests(unittest.TestCase):
         self.assertEqual(self.v3["metadata"]["subtitle"], "L’art du timing, un outil essentiel.")
         self.assertEqual(len(self.v3["metadata"]["highlights"]), 3)
         self.assertEqual(len(self.v3["metadata"]["parts"]), 2)
+        self.assertFalse(self.v3["metadata"]["partSequenceComplete"])
         self.assertEqual(self.v3["metadata"]["parts"][1]["title"], "L’essentiel des bougies japonaises")
         self.assertEqual(types.count("heading"), 67)
         self.assertEqual(types.count("lesson_note"), 13)

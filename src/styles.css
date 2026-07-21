@@ -4134,18 +4134,18 @@ a {
 }
 
 .volume-part + .volume-part {
-  margin-top: clamp(5rem, 10vw, 9rem);
-  padding-top: clamp(3rem, 7vw, 5.5rem);
+  margin-top: clamp(4rem, 8vw, 6.5rem);
+  padding-top: clamp(2.5rem, 5vw, 4rem);
   border-top: 2px solid color-mix(in srgb, var(--gold) 38%, var(--line));
 }
 
 .volume-part__hero {
   position: relative;
-  margin-bottom: 2.5rem;
-  padding: clamp(1.6rem, 4vw, 2.8rem);
+  margin-bottom: 2rem;
+  padding: clamp(1.35rem, 3vw, 2.1rem);
   display: grid;
-  grid-template-columns: clamp(4rem, 9vw, 7rem) minmax(0, 1fr) auto;
-  gap: clamp(1rem, 3vw, 2rem);
+  grid-template-columns: clamp(3.4rem, 7vw, 5.4rem) minmax(0, 1fr) auto;
+  gap: clamp(0.9rem, 2vw, 1.45rem);
   align-items: center;
   overflow: hidden;
   border: 1px solid color-mix(in srgb, var(--gold) 35%, var(--line));
@@ -4167,7 +4167,7 @@ a {
 .volume-part__index {
   color: color-mix(in srgb, var(--gold) 76%, transparent);
   font-family: var(--font-serif);
-  font-size: clamp(3.4rem, 8vw, 6.4rem);
+  font-size: clamp(2.8rem, 6vw, 4.65rem);
   line-height: 0.8;
 }
 
@@ -4178,25 +4178,25 @@ a {
 .volume-part__hero h2 {
   margin: 0;
   font-family: var(--font-serif);
-  font-size: clamp(2.3rem, 6vw, 4.8rem);
+  font-size: clamp(2rem, 4.5vw, 3.65rem);
   font-weight: 500;
   letter-spacing: -0.05em;
   line-height: 0.98;
 }
 
 .volume-part__subtitle {
-  margin: 0.8rem 0 0 !important;
+  margin: 0.65rem 0 0 !important;
   color: var(--brand-2) !important;
   font-family: var(--font-serif);
-  font-size: clamp(1.05rem, 2.5vw, 1.45rem) !important;
+  font-size: clamp(1rem, 2vw, 1.28rem) !important;
   line-height: 1.35 !important;
 }
 
 .volume-part__hero > div:nth-child(2) > p:last-child {
   max-width: 42rem;
-  margin: 0.8rem 0 0;
+  margin: 0.65rem 0 0;
   color: var(--ink-soft);
-  font-size: 0.88rem;
+  font-size: 0.83rem;
   line-height: 1.65;
 }
 
@@ -4287,16 +4287,20 @@ a {
 }
 
 @media (max-width: 60rem) {
-  .volume-parts-map > header,
-  .volume-part__hero {
+  .volume-parts-map > header {
     grid-template-columns: 1fr;
   }
 
+  .volume-part__hero {
+    grid-template-columns: 3.5rem minmax(0, 1fr);
+  }
+
   .volume-part__index {
-    font-size: 3.3rem;
+    font-size: 2.85rem;
   }
 
   .volume-part__state {
+    grid-column: 2;
     justify-self: start;
   }
 }
@@ -4322,12 +4326,17 @@ a {
   }
 
   .volume-part__hero {
-    padding: 1.35rem;
+    padding: 1.15rem;
+    grid-template-columns: 1fr;
     border-radius: var(--radius-md);
   }
 
   .volume-part__hero h2 {
-    font-size: 2.55rem;
+    font-size: 2.2rem;
+  }
+
+  .volume-part__state {
+    grid-column: 1;
   }
 
   .volume-part-lock {

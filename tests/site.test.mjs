@@ -200,6 +200,7 @@ test("volume two renders every specialist component", async () => {
 
 test("volume three renders two distinct progressive parts", async () => {
   const html = await readFile(path.join(DIST, "volumes/3-analyse-technique/index.html"), "utf8");
+  const quizzes = JSON.parse(await readFile(path.join(ROOT, "config", "quizzes.json"), "utf8"))["3-analyse-technique"].parts;
   assert.ok(html.includes("L’analyse technique"));
   assert.ok(html.includes("L’art du timing, un outil essentiel."));
   assert.ok(html.includes("📆 Multi-timeframe confluence"));
@@ -210,9 +211,20 @@ test("volume three renders two distinct progressive parts", async () => {
   assert.ok(html.includes("L’essentiel des bougies japonaises"));
   assert.ok(html.includes("Du dessin à la décision"));
   assert.ok(html.includes("Validez la Partie 1 pour continuer"));
+  assert.ok(html.includes("Deux QCM indépendants"));
+  assert.ok(html.includes("10 questions dans chaque QCM"));
+  assert.ok(html.includes("QCM de la Partie 1 — Contexte, niveaux et timing"));
+  assert.ok(html.includes("QCM de la Partie 2 — Bougies japonaises"));
+  assert.ok(!html.includes("20 questions"));
   assert.equal((html.match(/class="volume-part"/g) || []).length, 2);
   assert.equal((html.match(/class="quiz-workspace"/g) || []).length, 2);
   assert.equal((html.match(/class="quiz-question"/g) || []).length, 20);
+  assert.equal((html.match(/data-completes-volume="false"/g) || []).length, 2);
+  assert.equal((html.match(/data-awaits-next-part="true"/g) || []).length, 1);
+  assert.equal(quizzes[0].questions.length, 10);
+  assert.equal(quizzes[1].questions.length, 10);
+  assert.doesNotMatch(JSON.stringify(quizzes[0]), /Doji|Marteau|Avalement|bougies japonaises/i);
+  assert.doesNotMatch(JSON.stringify(quizzes[1]), /multi-timeframe|tendance de fond sur de larges unités/i);
   assert.equal((html.match(/class="lesson-note /g) || []).length, 13);
   assert.equal((html.match(/class="course-figure breakout"/g) || []).length, 25);
   assert.equal((html.match(/class="data-table breakout"/g) || []).length, 2);
@@ -234,6 +246,17 @@ test("volume three renders two distinct progressive parts", async () => {
   assert.ok(!html.includes("Le Volume 3 ajoute RSI"));
   assert.ok(!html.includes("Partie 3"));
   assert.ok(!html.includes("Unsupported content block"));
+
+  const client = await readFile(path.join(DIST, "assets", "client.js"), "utf8");
+  assert.ok(client.includes("il servira à débloquer la partie suivante lorsqu’elle sera publiée"));
+  assert.ok(client.includes('delete parsed["3"]'));
+});
+
+test("volume three part headers stay compact and homogeneous on desktop", async () => {
+  const styles = await readFile(path.join(DIST, "assets", "styles.css"), "utf8");
+  assert.match(styles, /\.volume-part__hero\s*\{[^}]*padding:\s*clamp\(1\.35rem, 3vw, 2\.1rem\)/s);
+  assert.match(styles, /\.volume-part__hero h2\s*\{[^}]*font-size:\s*clamp\(2rem, 4\.5vw, 3\.65rem\)/s);
+  assert.match(styles, /\.volume-part__index\s*\{[^}]*font-size:\s*clamp\(2\.8rem, 6vw, 4\.65rem\)/s);
 });
 
 test("search index covers all volumes and figure captions", async () => {

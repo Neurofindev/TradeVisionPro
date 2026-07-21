@@ -278,8 +278,8 @@
       {
         "order": 1,
         "id": "partie-1",
-        "title": "Maîtriser le contexte et le timing",
-        "intro": "Testez votre lecture multi-timeframe ainsi que votre compréhension des tendances, supports, résistances, ranges et cassures.",
+        "title": "QCM de la Partie 1 — Contexte, niveaux et timing",
+        "intro": "10 questions consacrées uniquement à la Partie 1 : lecture multi-timeframe, tendances, supports, résistances, ranges et cassures.",
         "questions": [
       {
         "id": "v3-q1",
@@ -401,7 +401,7 @@
       {
         "id": "v3-q10",
         "difficulty": "Approfondissement",
-        "question": "Quelle synthèse décrit le mieux la méthode du Volume 3 ?",
+        "question": "Quelle synthèse décrit le mieux la méthode de la Partie 1 ?",
         "options": [
           "La tendance donne la direction, les niveaux structurent le scénario et les horizons courts affinent le timing",
           "Les niveaux remplacent toute gestion du risque",
@@ -416,8 +416,8 @@
       {
         "order": 2,
         "id": "partie-2",
-        "title": "Lire les bougies japonaises avec méthode",
-        "intro": "Vérifiez votre compréhension de l’anatomie des bougies, des principales figures, de leur contexte et des confirmations nécessaires.",
+        "title": "QCM de la Partie 2 — Bougies japonaises",
+        "intro": "10 questions consacrées uniquement à la Partie 2 : anatomie des bougies, principales figures, contexte et confirmations nécessaires.",
         "questions": [
           {
             "id": "v3-p2-q1",

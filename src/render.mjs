@@ -593,7 +593,7 @@ function renderToc(toc, volume) {
         item.id,
       )}"${item.partOrder ? ` data-volume-part-link data-part-order="${item.partOrder}"` : ""}>${item.kicker ? `<small>${escapeHtml(item.kicker)}</small>` : ""}<span>${escapeHtml(item.title)}</span></a></li>`,
     )
-    .join("")}<li class="volume-toc__exercise"><button type="button" data-open-exercise><small>Validation</small><span>Exercices · QCM</span><em>${partCount ? `${partCount} QCM · ${partCount * 10} questions` : "10 questions"} · objectif 8/10</em></button></li></ol></nav>`;
+    .join("")}<li class="volume-toc__exercise"><button type="button" data-open-exercise><small>Validation</small><span>${partCount ? "QCM par partie" : "Exercices · QCM"}</span><em>${partCount ? "10 questions dans chaque QCM" : "10 questions"} · objectif 8/10</em></button></li></ol></nav>`;
 }
 
 function renderQuiz(volume, quiz, volumes, part = null, parts = []) {
@@ -602,9 +602,12 @@ function renderQuiz(volume, quiz, volumes, part = null, parts = []) {
   const questions = quiz?.questions || [];
   const nextVolume = volumes.find((candidate) => (candidate.metadata.volumeNumber || candidate.metadata.order) === order + 1);
   const nextPart = part ? parts.find((candidate) => Number(candidate.order) === Number(part.order) + 1) : null;
+  const awaitsNextPart = Boolean(part && !nextPart && metadata.partSequenceComplete === false);
   const nextStep = nextPart
     ? { kind: "part", label: `Partie ${nextPart.order}`, title: nextPart.title, url: `#${nextPart.id}` }
-    : nextVolume
+    : awaitsNextPart
+      ? { kind: "upcoming-part", label: "", title: "", url: `#${part.id}` }
+      : nextVolume
       ? {
           kind: "volume",
           label: `Volume ${order + 1}`,
@@ -614,7 +617,7 @@ function renderQuiz(volume, quiz, volumes, part = null, parts = []) {
       : { kind: "overview", label: "", title: "", url: sitePath("/volumes/") };
   const quizId = part ? `${order}-part-${part.order}` : String(order);
   const contextLabel = part ? `Partie ${part.order} · ${volumeLabel(volume)}` : `Exercices du ${volumeLabel(volume)}`;
-  const completesVolume = Boolean(part && !nextPart);
+  const completesVolume = Boolean(part && !nextPart && !awaitsNextPart);
   if (!questions.length) return "";
   return `<section class="quiz-workspace" aria-labelledby="quiz-title-${quizId}">
     <header class="quiz-intro">
@@ -623,7 +626,7 @@ function renderQuiz(volume, quiz, volumes, part = null, parts = []) {
       <p>${escapeHtml(quiz.intro)}</p>
     </header>
     <div class="quiz-guidance" role="note"><span aria-hidden="true">◆</span><p><strong>Votre objectif</strong> Sélectionnez une réponse par question. Après validation, chaque correction sera expliquée et votre meilleur score sera conservé sur cet appareil.</p></div>
-    <form class="quiz" data-quiz data-volume-order="${order}" data-part-order="${part?.order || ""}" data-completes-volume="${String(completesVolume)}" data-context-label="${escapeHtml(part ? `Partie ${part.order}` : volumeLabel(volume))}" data-next-step-kind="${nextStep.kind}" data-next-step-label="${escapeHtml(nextStep.label)}" data-next-step-title="${escapeHtml(nextStep.title)}" data-next-step-url="${escapeHtml(nextStep.url)}">
+    <form class="quiz" data-quiz data-volume-order="${order}" data-part-order="${part?.order || ""}" data-completes-volume="${String(completesVolume)}" data-awaits-next-part="${String(awaitsNextPart)}" data-context-label="${escapeHtml(part ? `Partie ${part.order}` : volumeLabel(volume))}" data-next-step-kind="${nextStep.kind}" data-next-step-label="${escapeHtml(nextStep.label)}" data-next-step-title="${escapeHtml(nextStep.title)}" data-next-step-url="${escapeHtml(nextStep.url)}">
       <div class="quiz-progress" aria-label="Progression dans le questionnaire">
         <div><span data-quiz-progress-text>Question 1 sur ${questions.length}</span><span data-quiz-answered>0 réponse sur ${questions.length}</span></div>
         <span class="quiz-progress__track" aria-hidden="true"><i data-quiz-progress-bar></i></span>
@@ -713,7 +716,7 @@ function renderVolumeParts(metadata, partGroups) {
 function renderPartQuizzes(volume, quiz, volumes, partGroups) {
   const quizzes = quiz?.parts || [];
   return `<section class="part-quizzes" aria-labelledby="part-quizzes-title">
-    <header class="part-quizzes__header"><p class="eyebrow">Validation progressive</p><h2 id="part-quizzes-title">Un QCM par partie</h2><p>Chaque questionnaire contient 10 questions. Votre meilleur score est conservé séparément pour chaque partie.</p></header>
+    <header class="part-quizzes__header"><p class="eyebrow">Validations séparées</p><h2 id="part-quizzes-title">Deux QCM indépendants</h2><p>Chaque partie se valide avec son propre questionnaire de 10 questions. Les questions ne sont pas cumulées et chaque meilleur score est conservé séparément.</p></header>
     ${partGroups
       .map((part) => {
         const partQuiz = quizzes.find((candidate) => Number(candidate.order) === Number(part.order));
@@ -773,7 +776,7 @@ export function renderVolumePage(volume, volumes, quiz) {
         <div data-volume-protected>
           <nav class="volume-tabs" role="tablist" aria-label="Cours et exercices">
             <button id="volume-tab-course-${order}" type="button" role="tab" aria-selected="true" aria-controls="volume-pane-course-${order}" data-volume-tab="course"><span aria-hidden="true">▤</span><span><strong>Le cours</strong><small>Lire et réviser</small></span></button>
-            <button id="volume-tab-exercises-${order}" type="button" role="tab" aria-selected="false" aria-controls="volume-pane-exercises-${order}" data-volume-tab="exercises"><span aria-hidden="true">✓</span><span><strong>Exercices</strong><small>${partGroups.length ? `${partGroups.length} QCM` : "QCM"} · objectif 8/10</small></span><em data-volume-score>À faire</em></button>
+            <button id="volume-tab-exercises-${order}" type="button" role="tab" aria-selected="false" aria-controls="volume-pane-exercises-${order}" data-volume-tab="exercises"><span aria-hidden="true">✓</span><span><strong>Exercices</strong><small>${partGroups.length ? "QCM propres à chaque partie" : "QCM"} · objectif 8/10</small></span><em data-volume-score>À faire</em></button>
           </nav>
           <section id="volume-pane-course-${order}" class="volume-pane" role="tabpanel" aria-labelledby="volume-tab-course-${order}" data-volume-pane="course">
             ${partGroups.length ? `${renderPartNavigation(partGroups)}${renderVolumeParts(metadata, partGroups)}` : `${renderVolumeHighlights(metadata.highlights)}<div class="course-body">${renderCourseGroups(groups)}</div>`}

@@ -504,6 +504,7 @@ class DocxConverter:
             "tags",
             "highlights",
             "parts",
+            "partSequenceComplete",
         ):
             if self.metadata_overrides.get(key) is not None:
                 metadata[key] = self.metadata_overrides[key]

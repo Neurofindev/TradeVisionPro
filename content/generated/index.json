@@ -157,6 +157,7 @@
             ]
           }
         ],
+        "partSequenceComplete": false,
         "slug": "3-analyse-technique"
       },
       "stats": {

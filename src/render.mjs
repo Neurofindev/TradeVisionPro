@@ -103,6 +103,11 @@ function formatNumber(value) {
 }
 
 function renderDefinitionItem(item) {
+  if (item.term || item.definition) {
+    const term = String(item.term || "").trim();
+    const definition = String(item.definition || "").trim();
+    return `<li>${term ? `<strong>${escapeHtml(term)} :</strong>` : ""}${term && definition ? " " : ""}${linkifyText(definition)}</li>`;
+  }
   const text = item.text || "";
   const match = text.match(/^([^:\n]{1,70})\s*:\s+(.+)$/s);
   if (match) {

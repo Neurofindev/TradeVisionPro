@@ -201,6 +201,10 @@ test("volume one presents two progressive parts and a detailed asset panorama", 
   assert.ok(html.includes("Panorama des principales familles d’actifs financiers"));
   assert.ok(html.includes("Neuf expositions à ne pas confondre"));
   assert.ok(html.includes("Validez la Partie 1 pour continuer"));
+  for (const criterion of ["Rôle", "Horizon", "Perte acceptable", "Liquidité et coûts", "Corrélation"]) {
+    assert.ok(html.includes(`<strong>${criterion} :</strong>`), criterion);
+  }
+  assert.doesNotMatch(html, /<ul class="course-list">\s*(?:<li>\s*<\/li>\s*)+<\/ul>/);
   assert.equal((html.match(/class="volume-part"/g) || []).length, 2);
   assert.equal((html.match(/class="asset-card"/g) || []).length, 9);
   assert.equal((html.match(/class="quiz-workspace"/g) || []).length, 2);

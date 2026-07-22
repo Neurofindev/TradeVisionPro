@@ -713,6 +713,20 @@ class DocxConverter:
 
         blocks = self._postprocess_case_headers(blocks)
         for supplemental_block in deepcopy(self.supplemental_blocks):
+            if supplemental_block.get("type") == "supplemental_insertion":
+                insert_before_id = str(supplemental_block.get("insertBeforeId", ""))
+                insertion_blocks = supplemental_block.get("blocks") or []
+                for insertion_block in insertion_blocks:
+                    if insertion_block.get("type") == "heading" and not insertion_block.get("id"):
+                        insertion_block["id"] = self._unique_id(str(insertion_block.get("text", "section")))
+                insert_at = next(
+                    (index for index, block in enumerate(blocks) if block.get("id") == insert_before_id),
+                    -1,
+                )
+                if insert_at < 0:
+                    raise ValueError(f"Supplemental insertion target not found: {insert_before_id}")
+                blocks[insert_at:insert_at] = insertion_blocks
+                continue
             if supplemental_block.get("type") == "heading" and not supplemental_block.get("id"):
                 supplemental_block["id"] = self._unique_id(str(supplemental_block.get("text", "section")))
             blocks.append(supplemental_block)

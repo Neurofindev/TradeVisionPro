@@ -175,6 +175,23 @@ function renderDataTable(block) {
   </div>`;
 }
 
+function renderAssetGrid(block) {
+  return `<section class="asset-grid breakout" aria-label="${escapeHtml(block.ariaLabel || block.title || "Panorama des actifs financiers")}">
+    <header class="asset-grid__header"><p class="eyebrow">${escapeHtml(block.eyebrow || "Panorama des marchés")}</p><h3>${escapeHtml(block.title || "Les principales familles d’actifs")}</h3><p>${escapeHtml(block.intro || "")}</p></header>
+    <div class="asset-grid__items">${(block.assets || [])
+      .map(
+        (asset) => `<article class="asset-card">
+          <p class="asset-card__tag">${escapeHtml(asset.tag || "Actif financier")}</p>
+          <h4>${escapeHtml(asset.name || "")}</h4>
+          <p class="asset-card__holding">${escapeHtml(asset.holding || "")}</p>
+          <dl><div><dt>Moteur de rendement</dt><dd>${escapeHtml(asset.returnDriver || "")}</dd></div><div><dt>Risques dominants</dt><dd>${escapeHtml(asset.risks || "")}</dd></div></dl>
+          <p class="asset-card__example"><strong>Exemple concret</strong>${escapeHtml(asset.example || "")}</p>
+        </article>`,
+      )
+      .join("")}</div>
+  </section>`;
+}
+
 function appendSourceLinks(text, links = []) {
   const uniqueLinks = [...new Set(links)].filter((href) => href && !String(text).includes(href));
   if (!uniqueLinks.length) return "";
@@ -239,6 +256,8 @@ export function renderBlock(block) {
       return renderStatRow(block);
     case "table":
       return renderDataTable(block);
+    case "asset_grid":
+      return renderAssetGrid(block);
     case "figure":
       return renderFigure(block);
     case "sources":

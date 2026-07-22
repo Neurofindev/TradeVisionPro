@@ -1,0 +1,237 @@
+{
+  "schemaVersion": 1,
+  "insertBeforeId": "2-les-deux-grandes-familles-d-analyse",
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "panorama-des-principales-familles-d-actifs-financiers",
+      "text": "Panorama des principales familles d’actifs financiers"
+    },
+    {
+      "type": "paragraph",
+      "text": "Un actif financier n’est pas seulement un symbole et un prix qui bouge. Il représente un droit, une créance, une exposition économique ou un contrat. Pour savoir ce que l’on peut gagner et perdre, il faut d’abord identifier ce que l’on détient réellement, d’où peut venir le rendement, ce qui fait varier le prix et dans quelles conditions la position peut être revendue."
+    },
+    {
+      "type": "callout",
+      "label": "CLÉ DE LECTURE",
+      "variant": "principle",
+      "text": "Avant de comparer deux performances, posez quatre questions : qu’est-ce que je détiens, qui me paie, pourquoi le prix peut-il évoluer et quel risque pourrait provoquer une perte durable ?"
+    },
+    {
+      "type": "asset_grid",
+      "ariaLabel": "Comparaison des neuf principales familles d’actifs et d’instruments financiers",
+      "eyebrow": "Carte des marchés",
+      "title": "Neuf expositions à ne pas confondre",
+      "intro": "Chaque famille répond à une logique différente. Les exemples expliquent le mécanisme ; ils ne constituent pas des recommandations.",
+      "assets": [
+        {
+          "tag": "Capital d’entreprise",
+          "name": "Actions",
+          "holding": "Une fraction du capital d’une société, avec des droits économiques et, selon le titre, un droit de vote.",
+          "returnDriver": "Hausse des bénéfices et de la valorisation, plus dividendes éventuels.",
+          "risks": "Baisse des résultats, prix excessif, dilution, faillite, volatilité et concentration.",
+          "example": "Acheter une action d’une entreprise cotée revient à devenir copropriétaire, pas à lui prêter de l’argent."
+        },
+        {
+          "tag": "Dette",
+          "name": "Obligations",
+          "holding": "Une créance sur un État, une collectivité ou une entreprise pour une durée et selon des conditions définies.",
+          "returnDriver": "Coupons, remboursement à l’échéance et variation du prix avant l’échéance.",
+          "risks": "Défaut de l’émetteur, hausse des taux, inflation, durée, change et liquidité.",
+          "example": "Une obligation à taux fixe devient généralement moins attractive si de nouvelles obligations offrent un taux supérieur."
+        },
+        {
+          "tag": "Trésorerie de court terme",
+          "name": "Instruments monétaires",
+          "holding": "Une dette de courte maturité, par exemple un bon du Trésor ou un titre de créance négociable, souvent détenue via un fonds monétaire.",
+          "returnDriver": "Intérêts proches des taux monétaires, avec une sensibilité généralement limitée aux variations de taux lointaines.",
+          "risks": "Inflation, réinvestissement à un taux plus faible, crédit, frais et absence de garantie selon le support.",
+          "example": "Un fonds monétaire cherche la stabilité et la disponibilité ; il ne doit pas être confondu avec un dépôt bancaire garanti."
+        },
+        {
+          "tag": "Véhicule collectif",
+          "name": "Fonds et ETF",
+          "holding": "Une part d’un portefeuille qui peut contenir des actions, des obligations ou d’autres instruments. L’ETF est une enveloppe, pas une classe d’actifs.",
+          "returnDriver": "Performance des actifs détenus, diminuée des frais et d’un éventuel écart de suivi.",
+          "risks": "Risques du sous-jacent, concentration de l’indice, change, liquidité, réplication et frais.",
+          "example": "Un ETF sur un indice mondial diversifie les sociétés détenues, mais reste principalement exposé au risque des actions."
+        },
+        {
+          "tag": "Actif réel coté",
+          "name": "Immobilier coté",
+          "holding": "Des actions de sociétés ou de fonds qui possèdent et exploitent des immeubles ; ce n’est pas la détention directe d’un appartement.",
+          "returnDriver": "Loyers, taux d’occupation, valeur des immeubles et dividendes distribués.",
+          "risks": "Hausse des taux, dette, vacance, baisse des loyers, cycle immobilier et volatilité boursière.",
+          "example": "Une foncière de bureaux peut verser des revenus réguliers tout en baissant si ses immeubles perdent de la valeur."
+        },
+        {
+          "tag": "Ressources physiques",
+          "name": "Matières premières",
+          "holding": "Une exposition à l’or, au pétrole, au gaz ou aux produits agricoles, souvent obtenue par contrats à terme ou produits indiciels plutôt que par stockage physique.",
+          "returnDriver": "Évolution de l’offre, de la demande, des stocks, du dollar, de la géopolitique et de la courbe des contrats à terme.",
+          "risks": "Forte volatilité, coût de portage, renouvellement des contrats, géopolitique et écart avec le prix au comptant.",
+          "example": "Un produit lié au pétrole peut évoluer différemment du baril lorsque ses contrats à terme doivent être renouvelés."
+        },
+        {
+          "tag": "Prix relatif",
+          "name": "Devises — Forex",
+          "holding": "Une devise achetée contre une autre : toute position exprime simultanément une opinion sur les deux monnaies de la paire.",
+          "returnDriver": "Écart de taux, inflation, croissance, flux internationaux et politique des banques centrales.",
+          "risks": "Levier, retournements rapides, taux de change, coût de financement et risque de contrepartie.",
+          "example": "Acheter EUR/USD revient à anticiper un euro plus fort face au dollar, et non une hausse absolue de l’euro."
+        },
+        {
+          "tag": "Actif numérique",
+          "name": "Cryptoactifs",
+          "holding": "Un jeton numérique dont les droits et l’utilité varient selon le protocole ; il ne représente pas automatiquement une action, une monnaie officielle ou une créance.",
+          "returnDriver": "Adoption, utilité du réseau, rareté programmée, liquidité et demande spéculative.",
+          "risks": "Volatilité extrême, perte totale, conservation des clés, fraude, technologie, liquidité et réglementation.",
+          "example": "Détenir du bitcoin donne accès à un actif du réseau Bitcoin, mais aucun droit sur les bénéfices d’une entreprise."
+        },
+        {
+          "tag": "Contrat sur sous-jacent",
+          "name": "Produits dérivés",
+          "holding": "Un contrat dont la valeur dépend d’un actif sous-jacent : option, future, swap ou produit à effet de levier.",
+          "returnDriver": "Variation du sous-jacent, volatilité, temps restant, taux et paramètres propres au contrat.",
+          "risks": "Levier, appels de marge, perte accélérée, échéance, complexité et, selon le produit, perte supérieure à la mise initiale.",
+          "example": "Une option peut servir à couvrir un portefeuille ; achetée sans comprendre l’échéance, elle peut perdre sa valeur même si l’idée générale était correcte."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "ce-que-l-on-detient-reellement",
+      "text": "Ce que l’on détient réellement"
+    },
+    {
+      "type": "paragraph",
+      "text": "Les actions et les obligations financent toutes deux une organisation, mais leur place dans la structure financière diffère. L’actionnaire possède une fraction du capital : son rendement dépend de la réussite de l’entreprise, mais il absorbe les pertes en premier si la société échoue. L’obligataire est un créancier : il attend des coupons et le remboursement prévu, sans participer automatiquement à toute la croissance de l’entreprise. En contrepartie, il est généralement prioritaire sur l’actionnaire lors d’une liquidation."
+    },
+    {
+      "type": "paragraph",
+      "text": "Le prix d’une obligation peut varier avant son échéance. Lorsque les taux du marché montent, une ancienne obligation à coupon fixe devient relativement moins attractive et son prix tend à baisser. Plus sa durée est longue, plus cette sensibilité peut être forte. Le rendement annoncé n’efface pas non plus le risque de crédit : un taux élevé peut rémunérer une probabilité de défaut plus importante."
+    },
+    {
+      "type": "paragraph",
+      "text": "Les instruments monétaires occupent l’extrémité courte du marché de la dette. Ils sont souvent utilisés pour gérer une trésorerie ou attendre une opportunité avec moins de variations que les actifs risqués. Leur stabilité relative ne signifie pas absence de risque : le rendement peut devenir inférieur à l’inflation, le taux servi peut baisser au renouvellement et la solidité de l’émetteur reste pertinente."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "indices-fonds-et-etf-comprendre-l-enveloppe",
+      "text": "Indices, fonds et ETF : comprendre l’enveloppe"
+    },
+    {
+      "type": "paragraph",
+      "text": "Un indice comme le CAC 40 ou le S&P 500 est une règle de mesure : il décrit la performance d’un panier, mais ne s’achète pas directement. Pour obtenir une exposition, l’investisseur utilise notamment un fonds, un ETF ou un produit dérivé. Un fonds regroupe l’argent de plusieurs investisseurs et le place selon une stratégie ; un ETF est un fonds négocié en bourse qui cherche souvent à reproduire un indice."
+    },
+    {
+      "type": "paragraph",
+      "text": "La diversification dépend du contenu réel du portefeuille. Un ETF comprenant cinq cents actions peut réduire le risque propre à une seule entreprise, mais il reste exposé à une baisse générale des actions. Il faut donc lire l’indice suivi, les pondérations, les pays et secteurs dominants, la devise, la méthode de réplication et les frais. Deux ETF portant un nom proche peuvent fournir des expositions sensiblement différentes."
+    },
+    {
+      "type": "callout",
+      "label": "À NE PAS CONFONDRE",
+      "variant": "info",
+      "text": "L’actif détermine le risque économique ; l’enveloppe détermine la façon d’y accéder. Un ETF obligataire reste exposé aux obligations, tandis qu’un ETF actions reste exposé aux actions."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "actifs-reels-devises-et-cryptoactifs",
+      "text": "Actifs réels, devises et cryptoactifs"
+    },
+    {
+      "type": "paragraph",
+      "text": "L’immobilier et les matières premières sont souvent qualifiés d’actifs réels, mais leurs mécanismes ne sont pas identiques. Un immeuble peut générer des loyers ; une matière première brute ne produit pas de flux de trésorerie par elle-même. Son rendement dépend surtout de sa variation de prix et, pour une exposition par futures, de la structure des échéances. Une foncière cotée ajoute pour sa part le risque de l’entreprise qui gère les immeubles, de sa dette et du marché boursier."
+    },
+    {
+      "type": "paragraph",
+      "text": "Sur le marché des devises, un prix est toujours relatif. Les mouvements d’une paire reflètent notamment les écarts de taux, les anticipations de croissance, la crédibilité des banques centrales et les flux de capitaux. Le Forex est très liquide sur les grandes paires, mais l’usage fréquent du levier peut transformer une variation faible du taux de change en perte importante sur le capital engagé."
+    },
+    {
+      "type": "paragraph",
+      "text": "Les cryptoactifs forment une catégorie hétérogène : moyens d’échange, jetons d’usage, actifs de réseaux ou instruments très spéculatifs. Leur valeur ne repose pas nécessairement sur un bénéfice, un coupon ou un actif tangible. Il faut analyser le protocole, l’émission, la gouvernance, la liquidité, la conservation, les intermédiaires et le cadre réglementaire. La possibilité de variations extrêmes et de perte totale doit rester centrale dans l’évaluation."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "produits-derives-un-contrat-pas-un-placement-ordinaire",
+      "text": "Produits dérivés : un contrat, pas un placement ordinaire"
+    },
+    {
+      "type": "paragraph",
+      "text": "Un produit dérivé tire sa valeur d’un sous-jacent. Un future engage à acheter ou vendre selon des conditions fixées ; une option donne à son acheteur un droit pendant une durée déterminée. Ces instruments permettent de couvrir un risque, d’obtenir rapidement une exposition ou de spéculer, mais leur résultat dépend aussi de l’échéance, de la volatilité et du financement. Comprendre le sous-jacent ne suffit donc pas : il faut comprendre le contrat."
+    },
+    {
+      "type": "callout",
+      "label": "RISQUE DE LEVIER",
+      "variant": "warning",
+      "text": "Le levier réduit le capital immédiatement mobilisé, pas le risque économique. Il amplifie les gains comme les pertes et peut provoquer un appel de marge ou une perte supérieure à la somme initialement déposée selon le produit."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "comparer-un-actif-avant-de-le-choisir",
+      "text": "Comparer un actif avant de le choisir"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Famille",
+        "Fonction principale",
+        "Source possible de rendement",
+        "Sensibilités majeures",
+        "Question prioritaire"
+      ],
+      "rows": [
+        ["Actions", "Participer à la valeur d’une entreprise", "Plus-value et dividendes", "Bénéfices, valorisation, cycle", "L’entreprise crée-t-elle durablement de la valeur au prix payé ?"],
+        ["Obligations", "Prêter à un émetteur", "Coupons et remboursement", "Taux, crédit, durée, inflation", "Le rendement compense-t-il le risque de taux et de défaut ?"],
+        ["Monétaire", "Gérer une trésorerie de court terme", "Intérêts courts", "Taux directeurs, inflation, crédit", "Le capital doit-il rester disponible et relativement stable ?"],
+        ["Fonds et ETF", "Accéder à un portefeuille", "Performance nette du panier", "Sous-jacent, frais, suivi, change", "Que contient réellement le fonds et comment réplique-t-il son indice ?"],
+        ["Immobilier coté", "S’exposer aux revenus immobiliers", "Loyers, dividendes, valorisation", "Taux, dette, occupation, cycle", "La qualité des actifs et le financement résistent-ils au scénario ?"],
+        ["Matières premières", "S’exposer à une ressource", "Variation du prix", "Offre, demande, stocks, contrats", "Le produit suit-il réellement le prix que j’observe ?"],
+        ["Devises", "Exprimer une valeur relative", "Variation de la paire et différentiel de taux", "Banques centrales, flux, levier", "Pourquoi une devise devrait-elle se renforcer face à l’autre ?"],
+        ["Cryptoactifs", "Accéder à un réseau ou un jeton", "Adoption et variation du prix", "Technologie, liquidité, conservation, règles", "Quel droit ou usage justifie la valeur du jeton ?"],
+        ["Dérivés", "Couvrir ou amplifier une exposition", "Variation du contrat", "Sous-jacent, levier, volatilité, échéance", "Quelle perte maximale et quelle obligation le contrat peuvent-ils créer ?"]
+      ]
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {"term": "Rôle", "definition": "Définir si l’actif sert à préserver une réserve, produire un revenu, rechercher une croissance, diversifier ou couvrir un risque."},
+        {"term": "Horizon", "definition": "Faire correspondre la durée possible de détention avec le moment où le capital pourrait être nécessaire."},
+        {"term": "Perte acceptable", "definition": "Évaluer la volatilité, la perte durable possible, le levier et le scénario de faillite ou de défaut."},
+        {"term": "Liquidité et coûts", "definition": "Vérifier les volumes, l’écart achat-vente, les frais, la fiscalité applicable et la facilité de sortie."},
+        {"term": "Corrélation", "definition": "Mesurer ce que l’actif apporte à l’ensemble du portefeuille, surtout lorsque plusieurs positions réagissent au même risque."}
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "EXEMPLE DE DÉCISION",
+      "variant": "summary",
+      "text": "Un capital nécessaire dans six mois n’a pas le même rôle qu’une épargne destinée à plusieurs années. Le premier exige d’abord disponibilité et maîtrise de la perte ; le second peut accepter davantage de fluctuations si le risque, les coûts et la diversification sont compris."
+    },
+    {
+      "type": "callout",
+      "label": "ÉTAPE SUIVANTE",
+      "variant": "mnemonic",
+      "text": "Le panorama des actifs répond à la question « qu’est-ce que je détiens ? ». L’analyse fondamentale et l’analyse technique vont maintenant aider à répondre à « que vaut cette exposition ? » et « comment le marché se comporte-t-il ? »."
+    },
+    {
+      "type": "sources",
+      "scope": "local",
+      "entries": [
+        {"text": "Autorité des marchés financiers — Investir en actions", "links": ["https://www.amf-france.org/fr/espace-epargnants/comprendre-les-produits-financiers/actions-obligations/actions"]},
+        {"text": "Autorité des marchés financiers — Comprendre les obligations avant d’investir", "links": ["https://www.amf-france.org/fr/espace-epargnants/comprendre-les-produits-financiers/actions-obligations/obligations/comprendre-les-obligations-avant-dinvestir"]},
+        {"text": "Autorité des marchés financiers — Ce qu’il faut savoir sur les ETF", "links": ["https://www.amf-france.org/fr/espace-epargnants/comprendre-les-produits-financiers/placements-collectifs/trackers-etf"]},
+        {"text": "Autorité des marchés financiers — Placements collectifs, fonds et Sicav", "links": ["https://www.amf-france.org/fr/espace-epargnants/comprendre-les-produits-financiers/placements-collectifs/ce-quil-faut-savoir-sur-les-placements-collectifs-fonds-et-sicav"]},
+        {"text": "Commodity Futures Trading Commission — Futures Market Basics", "links": ["https://www.cftc.gov/LearnAndProtect/AdvisoriesAndArticles/FuturesMarketBasics/index.htm"]},
+        {"text": "European Securities and Markets Authority — Warning on crypto-assets", "links": ["https://www.esma.europa.eu/sites/default/files/2024-12/ESMA35-1872330276-1971_Warning_on_crypto-assets.pdf"]}
+      ]
+    }
+  ]
+}

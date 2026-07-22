@@ -142,6 +142,8 @@ test("course progression is isolated by profile while admin access bypasses lock
   assert.ok(client.includes("${courseProgressPrefix}:${profile.id}"));
   assert.ok(client.includes("Math.max(Number(progressData[volumeKey]) || 0, score)"));
   assert.ok(client.includes("score >= passingScore"));
+  assert.ok(client.includes('parsed["1-part-1"] = parsed["1"]'));
+  assert.ok(client.includes('parsed["1-part-2"] = parsed["1"]'));
   assert.ok(client.includes('parsed["3-part-1"] = parsed["3"]'));
   assert.ok(client.includes("isPartUnlocked"));
   assert.ok(client.includes("completesVolume"));
@@ -187,6 +189,31 @@ test("home accompaniment and dark primary action stay complete and legible", asy
     assert.ok(methodGrid.includes(heading), heading);
   }
   assert.match(styles, /:root\[data-theme="dark"\] \.button--primary\s*\{[^}]*color:\s*#17131a/s);
+});
+
+test("volume one presents two progressive parts and a detailed asset panorama", async () => {
+  const html = await readFile(path.join(DIST, "volumes/1-fondations-et-analyses/index.html"), "utf8");
+  const styles = await readFile(path.join(DIST, "assets", "styles.css"), "utf8");
+  const quizzes = JSON.parse(await readFile(path.join(ROOT, "config", "quizzes.json"), "utf8"))["1-fondations-et-analyses"].parts;
+  assert.ok(html.includes("Deux parties, deux validations"));
+  assert.ok(html.includes("Comprendre l’investissement"));
+  assert.ok(html.includes("Choisir un actif et l’analyser"));
+  assert.ok(html.includes("Panorama des principales familles d’actifs financiers"));
+  assert.ok(html.includes("Neuf expositions à ne pas confondre"));
+  assert.ok(html.includes("Validez la Partie 1 pour continuer"));
+  assert.equal((html.match(/class="volume-part"/g) || []).length, 2);
+  assert.equal((html.match(/class="asset-card"/g) || []).length, 9);
+  assert.equal((html.match(/class="quiz-workspace"/g) || []).length, 2);
+  assert.equal((html.match(/class="quiz-question"/g) || []).length, 20);
+  assert.equal((html.match(/data-completes-volume="false"/g) || []).length, 1);
+  assert.equal((html.match(/data-completes-volume="true"/g) || []).length, 1);
+  assert.equal(quizzes[0].questions.length, 10);
+  assert.equal(quizzes[1].questions.length, 10);
+  assert.doesNotMatch(JSON.stringify(quizzes[0]), /ETF|Forex|cryptoactif|produit dérivé/i);
+  assert.match(JSON.stringify(quizzes[1]), /action|obligation|ETF|EUR\/USD|cryptoactif|dérivé/i);
+  assert.match(styles, /\.asset-grid__items\s*\{[^}]*grid-template-columns:\s*repeat\(3,/s);
+  assert.match(styles, /@media \(max-width: 40rem\)[\s\S]*?\.asset-grid__items\s*\{[^}]*grid-template-columns:\s*1fr/s);
+  assert.ok(!html.includes("Unsupported content block"));
 });
 
 test("volume two renders every specialist component", async () => {
@@ -304,6 +331,7 @@ test("volume three part headers stay compact and homogeneous on desktop", async 
 test("search index covers all volumes and figure captions", async () => {
   const index = JSON.parse(await readFile(path.join(DIST, "search-index.json"), "utf8"));
   assert.ok(index.some((entry) => entry.volume === "Volume 1" && /PER/i.test(entry.text)));
+  assert.ok(index.some((entry) => entry.volume === "Volume 1" && /ETF|cryptoactifs|produits dérivés/i.test(entry.text)));
   assert.ok(index.some((entry) => entry.volume === "Volume 2" && /Archegos/i.test(entry.text)));
   assert.ok(index.some((entry) => /Figure 2.+Enron/is.test(entry.text)));
   assert.ok(index.some((entry) => entry.volume === "Volume 3" && /Multi-timeframe confluence/i.test(entry.text)));

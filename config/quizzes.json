@@ -1,137 +1,281 @@
 {
   "1-fondations-et-analyses": {
-    "title": "Valider les fondations",
-    "intro": "Vérifiez votre compréhension des notions essentielles avant de poursuivre vers les dossiers historiques.",
-    "questions": [
+    "parts": [
       {
-        "id": "v1-q1",
-        "difficulty": "Facile",
-        "question": "À quelle question l’analyse fondamentale cherche-t-elle d’abord à répondre ?",
-        "options": [
-          "Quoi acheter et pourquoi ?",
-          "À quelle minute passer un ordre ?",
-          "Quel indicateur ajouter au graphique ?",
-          "Combien de transactions réaliser chaque jour ?"
-        ],
-        "answer": 0,
-        "explanation": "L’analyse fondamentale étudie la machine économique, sa qualité et sa valeur afin de comprendre ce que l’on achète et pourquoi."
+        "order": 1,
+        "id": "partie-1",
+        "title": "QCM de la Partie 1 — Comprendre l’investissement",
+        "intro": "10 questions sur les objectifs, l’horizon, les moteurs du rendement et la capacité de perte.",
+        "questions": [
+          {
+            "id": "v1-p1-q1",
+            "difficulty": "Facile",
+            "question": "Que signifie investir selon le cours ?",
+            "options": [
+              "Garantir un bénéfice en achetant au bon moment",
+              "Engager un capital dans un actif pour rechercher des revenus, une hausse de valeur ou les deux",
+              "Conserver uniquement des espèces sans objectif",
+              "Multiplier les transactions quotidiennes"
+            ],
+            "answer": 1,
+            "explanation": "Investir consiste à engager du capital pendant une durée donnée dans l’espoir d’un rendement, sans garantie de gain ni de récupération intégrale du capital."
+          },
+          {
+            "id": "v1-p1-q2",
+            "difficulty": "Facile",
+            "question": "Qu’est-ce qui distingue principalement investissement, spéculation et trading ?",
+            "options": [
+              "Le logo de l’actif",
+              "Le nombre de personnes qui le détiennent",
+              "L’objectif, l’horizon et la méthode employée",
+              "La devise dans laquelle il est coté"
+            ],
+            "answer": 2,
+            "explanation": "Un même produit peut servir à investir ou à spéculer. La frontière dépend surtout de la thèse, de l’horizon, du plan et du risque accepté."
+          },
+          {
+            "id": "v1-p1-q3",
+            "difficulty": "Facile",
+            "question": "Quel trio doit être défini avant de sélectionner un actif ?",
+            "options": [
+              "Objectif, horizon et capacité de perte",
+              "Popularité, rumeur et nombre d’abonnés",
+              "Prix rond, couleur du graphique et heure",
+              "Dividende, logo et pays uniquement"
+            ],
+            "answer": 0,
+            "explanation": "Le choix de l’actif vient après le cadrage du besoin : usage futur du capital, durée disponible et baisse réellement supportable."
+          },
+          {
+            "id": "v1-p1-q4",
+            "difficulty": "Intermédiaire",
+            "question": "1 000 € deviennent 1 080 € et produisent 20 € de revenus. Quel est le rendement total avant frais et fiscalité ?",
+            "options": [
+              "2 %",
+              "8 %",
+              "18 %",
+              "10 %"
+            ],
+            "answer": 3,
+            "explanation": "Le gain total est de 80 € de hausse plus 20 € de revenus, soit 100 € rapportés aux 1 000 € initiaux : 10 %."
+          },
+          {
+            "id": "v1-p1-q5",
+            "difficulty": "Intermédiaire",
+            "question": "Pourquoi un capital nécessaire dans quelques mois ne doit-il pas être traité comme une épargne de très long terme ?",
+            "options": [
+              "Parce qu’il ne peut produire aucun intérêt",
+              "Parce qu’une baisse temporaire peut obliger à vendre au mauvais moment",
+              "Parce que tous les marchés ferment à court terme",
+              "Parce que l’inflation disparaît sur quelques mois"
+            ],
+            "answer": 1,
+            "explanation": "Un horizon court laisse peu de temps pour absorber une baisse. La disponibilité et la maîtrise de la perte deviennent alors prioritaires."
+          },
+          {
+            "id": "v1-p1-q6",
+            "difficulty": "Intermédiaire",
+            "question": "Quel mécanisme permet aux revenus déjà obtenus de produire à leur tour des gains ?",
+            "options": [
+              "La dilution",
+              "La vente forcée",
+              "Le réinvestissement",
+              "La réduction de l’horizon"
+            ],
+            "answer": 2,
+            "explanation": "Le réinvestissement remet les revenus et gains au travail. Sur une longue durée, cet effet cumulatif peut devenir une composante importante du rendement."
+          },
+          {
+            "id": "v1-p1-q7",
+            "difficulty": "Intermédiaire",
+            "question": "Un rendement attendu élevé signifie-t-il que le capital est garanti ?",
+            "options": [
+              "Non, le rendement attendu rémunère notamment un risque accepté",
+              "Oui, dès que l’horizon dépasse cinq ans",
+              "Oui, si l’actif est coté",
+              "Non, mais uniquement pour les devises"
+            ],
+            "answer": 0,
+            "explanation": "Aucun rendement de marché ne supprime automatiquement le risque. La valeur peut fluctuer et le capital peut être partiellement ou totalement perdu."
+          },
+          {
+            "id": "v1-p1-q8",
+            "difficulty": "Approfondissement",
+            "question": "Quelle priorité est la plus cohérente pour une réserve destinée à une dépense proche ?",
+            "options": [
+              "Rechercher le levier maximal",
+              "Accepter une forte volatilité pour viser le meilleur rendement",
+              "Choisir l’actif le plus populaire",
+              "Préserver la disponibilité et limiter le risque de perte au moment du besoin"
+            ],
+            "answer": 3,
+            "explanation": "Lorsque la date du besoin est proche, la liquidité et la stabilité relative priment généralement sur la recherche d’un rendement incertain."
+          },
+          {
+            "id": "v1-p1-q9",
+            "difficulty": "Approfondissement",
+            "question": "Pourquoi le rendement affiché n’est-il pas toujours le rendement réellement conservé ?",
+            "options": [
+              "Parce que seuls les dividendes sont réels",
+              "Parce que les frais, la fiscalité et l’inflation peuvent le réduire",
+              "Parce que la valeur finale n’intervient jamais",
+              "Parce que le rendement ne se mesure qu’en dollars"
+            ],
+            "answer": 1,
+            "explanation": "Le rendement brut doit être distingué du résultat net. Les frais, les prélèvements applicables et la perte de pouvoir d’achat réduisent ce qui reste réellement."
+          },
+          {
+            "id": "v1-p1-q10",
+            "difficulty": "Approfondissement",
+            "question": "Quelle séquence respecte le principe professionnel du cours ?",
+            "options": [
+              "Choisir une action, puis inventer un objectif",
+              "Rechercher le rendement maximal, puis ignorer l’horizon",
+              "Définir le besoin, l’horizon et le risque, puis sélectionner les actifs compatibles",
+              "Copier un portefeuille, puis mesurer la perte après coup"
+            ],
+            "answer": 2,
+            "explanation": "La décision part de la situation et du rôle du capital. Le produit n’est sélectionné qu’une fois les contraintes essentielles rendues explicites."
+          }
+        ]
       },
       {
-        "id": "v1-q2",
-        "difficulty": "Facile",
-        "question": "Quel est le rôle principal de l’analyse technique dans la chaîne de décision ?",
-        "options": [
-          "Garantir qu’une position sera gagnante",
-          "Déterminer quand agir et où le scénario s’invalide",
-          "Remplacer l’étude de l’entreprise",
-          "Calculer la fiscalité de l’investisseur"
-        ],
-        "answer": 1,
-        "explanation": "L’analyse technique aide à lire le comportement du marché, à travailler le timing et à définir des niveaux d’invalidation."
-      },
-      {
-        "id": "v1-q3",
-        "difficulty": "Facile",
-        "question": "Quels trois éléments faut-il définir avant de sélectionner un actif ?",
-        "options": [
-          "Objectif, horizon et risque acceptable",
-          "Rumeur, popularité et nombre d’abonnés",
-          "Prix rond, couleur des bougies et heure",
-          "Dividende, logo et secteur uniquement"
-        ],
-        "answer": 0,
-        "explanation": "Le volume recommande de partir de l’objectif, de l’horizon et du risque acceptable, puis de choisir les actifs compatibles."
-      },
-      {
-        "id": "v1-q4",
-        "difficulty": "Intermédiaire",
-        "question": "Quel calcul correspond au rendement total présenté dans le cours ?",
-        "options": [
-          "Valeur finale ÷ revenus encaissés",
-          "Valeur initiale − valeur finale",
-          "(Valeur finale − valeur initiale + revenus encaissés) ÷ valeur initiale",
-          "Revenus encaissés ÷ valeur finale"
-        ],
-        "answer": 2,
-        "explanation": "Le rendement total tient compte de l’évolution de valeur et des revenus encaissés, rapportés au capital initial."
-      },
-      {
-        "id": "v1-q5",
-        "difficulty": "Intermédiaire",
-        "question": "Pourquoi un PER faible ne suffit-il pas à conclure qu’une action est bon marché ?",
-        "options": [
-          "Parce que le PER ne contient jamais de bénéfices",
-          "Parce que le marché peut anticiper une baisse des bénéfices",
-          "Parce qu’un PER faible interdit toute hausse",
-          "Parce que seuls les volumes comptent"
-        ],
-        "answer": 1,
-        "explanation": "Un ratio s’interprète avec la qualité, la croissance, le cycle et l’historique : un PER bas peut refléter des bénéfices appelés à diminuer."
-      },
-      {
-        "id": "v1-q6",
-        "difficulty": "Intermédiaire",
-        "question": "Quels éléments suffisent pour commencer une analyse technique simple et structurée ?",
-        "options": [
-          "Douze indicateurs donnant tous le même signal",
-          "Uniquement une moyenne mobile",
-          "Structure des prix, niveaux, volume et volatilité",
-          "Seulement les nouvelles publiées sur les réseaux"
-        ],
-        "answer": 2,
-        "explanation": "Le cours privilégie une lecture sobre : structure des prix, niveaux, volume et volatilité avant d’empiler des indicateurs."
-      },
-      {
-        "id": "v1-q7",
-        "difficulty": "Intermédiaire",
-        "question": "Une excellente entreprise achetée à un prix excessif devient automatiquement un excellent investissement.",
-        "options": [
-          "Vrai, la qualité annule toujours le prix payé",
-          "Faux, le prix payé influence le rendement futur",
-          "Vrai, si l’entreprise est connue",
-          "Faux, mais uniquement pour le trading intraday"
-        ],
-        "answer": 1,
-        "explanation": "Une bonne entreprise peut constituer un investissement médiocre si les attentes intégrées dans son prix sont déjà excessives."
-      },
-      {
-        "id": "v1-q8",
-        "difficulty": "Approfondissement",
-        "question": "Que permet principalement de définir un niveau d’invalidation avant l’entrée ?",
-        "options": [
-          "Le moment où reconnaître que le scénario ne tient plus",
-          "Le bénéfice garanti de la position",
-          "La valeur comptable exacte de l’entreprise",
-          "Le nombre d’investisseurs présents"
-        ],
-        "answer": 0,
-        "explanation": "L’invalidation fixe à l’avance la condition qui contredit la thèse et permet d’organiser la sortie ainsi que le risque."
-      },
-      {
-        "id": "v1-q9",
-        "difficulty": "Approfondissement",
-        "question": "Quel énoncé combine correctement analyse et gestion du risque ?",
-        "options": [
-          "Une bonne analyse rend la taille de position inutile",
-          "Un beau graphique élimine le risque fondamental",
-          "Aucun outil d’analyse ne remplace la gestion du risque",
-          "Le risque disparaît lorsque plusieurs indicateurs concordent"
-        ],
-        "answer": 2,
-        "explanation": "Même une analyse cohérente reste incertaine : la taille engagée et le risque accepté demeurent indispensables."
-      },
-      {
-        "id": "v1-q10",
-        "difficulty": "Approfondissement",
-        "question": "Quelle séquence résume le mieux la méthode proposée à la fin du volume ?",
-        "options": [
-          "Acheter, chercher une justification, puis mesurer le risque",
-          "Comprendre l’actif, estimer potentiel et risques, définir l’invalidation, adapter la taille",
-          "Observer le prix, ignorer l’entreprise, augmenter la taille",
-          "Choisir l’actif le plus populaire et attendre"
-        ],
-        "answer": 1,
-        "explanation": "La méthode relie compréhension, potentiel, risques, invalidation et dimensionnement tout en acceptant l’incertitude."
+        "order": 2,
+        "id": "partie-2",
+        "title": "QCM de la Partie 2 — Actifs et méthodes d’analyse",
+        "intro": "10 questions pour distinguer les actifs, leurs moteurs de rendement, leurs risques et les outils d’analyse adaptés.",
+        "questions": [
+          {
+            "id": "v1-p2-q1",
+            "difficulty": "Facile",
+            "question": "Que détient principalement l’acheteur d’une action ?",
+            "options": [
+              "Une créance prioritaire sur l’État",
+              "Une fraction du capital d’une entreprise",
+              "Un contrat à terme obligatoire",
+              "Une devise étrangère"
+            ],
+            "answer": 1,
+            "explanation": "Une action représente une part du capital. L’actionnaire participe au potentiel économique de l’entreprise mais supporte aussi le risque de baisse ou de faillite."
+          },
+          {
+            "id": "v1-p2-q2",
+            "difficulty": "Facile",
+            "question": "Que représente une obligation ?",
+            "options": [
+              "Une part d’un indice",
+              "Un droit automatique sur tous les bénéfices",
+              "Une part d’un emprunt émis par un État ou une entreprise",
+              "Un actif numérique sans émetteur"
+            ],
+            "answer": 2,
+            "explanation": "L’obligataire prête à un émetteur selon des conditions définies. Il attend des coupons et un remboursement, sous réserve notamment du risque de défaut."
+          },
+          {
+            "id": "v1-p2-q3",
+            "difficulty": "Intermédiaire",
+            "question": "Pourquoi dit-on qu’un ETF est une enveloppe plutôt qu’une classe d’actifs ?",
+            "options": [
+              "Parce que son risque dépend principalement des actifs qu’il détient ou réplique",
+              "Parce qu’il ne peut contenir qu’une seule action",
+              "Parce qu’il garantit toujours le capital",
+              "Parce qu’il ne se négocie jamais en bourse"
+            ],
+            "answer": 0,
+            "explanation": "Un ETF donne accès à un portefeuille. Un ETF actions conserve le risque des actions ; un ETF obligataire conserve les risques de taux et de crédit de ses obligations."
+          },
+          {
+            "id": "v1-p2-q4",
+            "difficulty": "Intermédiaire",
+            "question": "Quel énoncé décrit correctement un indice boursier ?",
+            "options": [
+              "C’est toujours un fonds géré activement",
+              "C’est une obligation émise par la bourse",
+              "C’est un compte bancaire garanti",
+              "C’est une règle de mesure d’un panier, accessible notamment via un fonds ou un dérivé"
+            ],
+            "answer": 3,
+            "explanation": "Un indice mesure un panier selon une méthodologie. Pour y être exposé, l’investisseur passe par un véhicule comme un ETF ou un contrat dérivé."
+          },
+          {
+            "id": "v1-p2-q5",
+            "difficulty": "Intermédiaire",
+            "question": "Pourquoi un produit lié au pétrole peut-il évoluer différemment du prix au comptant du baril ?",
+            "options": [
+              "Parce que le pétrole n’a jamais de prix",
+              "Parce que le produit peut utiliser des futures dont le renouvellement influence la performance",
+              "Parce que toutes les matières premières versent un dividende",
+              "Parce que l’or fixe le cours du pétrole"
+            ],
+            "answer": 1,
+            "explanation": "De nombreux produits utilisent des contrats à terme. La forme de la courbe des échéances et le coût de renouvellement peuvent créer un écart avec le prix au comptant."
+          },
+          {
+            "id": "v1-p2-q6",
+            "difficulty": "Intermédiaire",
+            "question": "Que signifie acheter la paire EUR/USD ?",
+            "options": [
+              "Acheter simultanément deux actions européennes",
+              "Parier uniquement sur l’économie américaine",
+              "Anticiper un euro plus fort face au dollar",
+              "Prêter directement à la Banque centrale européenne"
+            ],
+            "answer": 2,
+            "explanation": "Une paire de devises exprime un prix relatif. Acheter EUR/USD revient à acheter l’euro et vendre le dollar dans cette relation."
+          },
+          {
+            "id": "v1-p2-q7",
+            "difficulty": "Approfondissement",
+            "question": "Quel point distingue généralement un cryptoactif d’une action ?",
+            "options": [
+              "Un cryptoactif ne donne pas automatiquement un droit sur les bénéfices d’une entreprise",
+              "Un cryptoactif ne peut jamais perdre de valeur",
+              "Une action ne représente aucun droit économique",
+              "Une action fonctionne toujours sur une blockchain"
+            ],
+            "answer": 0,
+            "explanation": "Les droits attachés à un jeton varient selon le protocole. La détention d’un cryptoactif ne crée pas, par défaut, les droits économiques et de vote d’un actionnaire."
+          },
+          {
+            "id": "v1-p2-q8",
+            "difficulty": "Approfondissement",
+            "question": "Quel est le principal danger d’un produit dérivé à effet de levier mal maîtrisé ?",
+            "options": [
+              "Il empêche toute variation du sous-jacent",
+              "Il garantit une couverture parfaite",
+              "Il supprime l’échéance du contrat",
+              "Il amplifie les pertes et peut déclencher des appels de marge"
+            ],
+            "answer": 3,
+            "explanation": "Le levier réduit le capital mobilisé mais amplifie l’exposition économique. Une variation limitée du sous-jacent peut alors produire une perte très importante."
+          },
+          {
+            "id": "v1-p2-q9",
+            "difficulty": "Approfondissement",
+            "question": "Comment analyse fondamentale et analyse technique se complètent-elles ?",
+            "options": [
+              "Elles garantissent ensemble un résultat positif",
+              "La fondamentale étudie la qualité et la valeur ; la technique observe le comportement du marché et le timing",
+              "La technique remplace toutes les données économiques",
+              "La fondamentale fixe précisément le prix de demain"
+            ],
+            "answer": 1,
+            "explanation": "Les deux approches répondent à des questions différentes. Elles structurent un scénario, mais aucune ne supprime l’incertitude ni la nécessité de gérer le risque."
+          },
+          {
+            "id": "v1-p2-q10",
+            "difficulty": "Approfondissement",
+            "question": "Quelle méthode résume le mieux une décision complète ?",
+            "options": [
+              "Choisir l’actif le plus volatil et augmenter la taille",
+              "Regarder uniquement le rendement passé",
+              "Comprendre l’actif, évaluer potentiel et risques, définir l’invalidation puis adapter la taille",
+              "Acheter d’abord et analyser seulement en cas de baisse"
+            ],
+            "answer": 2,
+            "explanation": "Une décision défendable relie le mécanisme de l’actif, l’analyse, les scénarios, l’invalidation et le dimensionnement de la position."
+          }
+        ]
       }
     ]
   },

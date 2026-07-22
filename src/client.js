@@ -134,6 +134,11 @@
       const parsed = JSON.parse(localStorage.getItem(key) || "{}");
       if (!parsed || typeof parsed !== "object") return {};
       let progressChanged = false;
+      if (parsed["1"] && !parsed["1-part-1"] && !parsed["1-part-2"]) {
+        parsed["1-part-1"] = parsed["1"];
+        if (Number(parsed["1"]) >= passingScore) parsed["1-part-2"] = parsed["1"];
+        progressChanged = true;
+      }
       if (parsed["3"] && !parsed["3-part-3"]) {
         if (!parsed["3-part-1"] && !parsed["3-part-2"]) parsed["3-part-1"] = parsed["3"];
         delete parsed["3"];
@@ -761,6 +766,7 @@
     ".callout",
     ".lesson-note",
     ".chapter-conclusion",
+    ".asset-card",
     ".stat-row",
     ".course-figure",
     ".data-table",

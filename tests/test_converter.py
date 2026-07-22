@@ -84,10 +84,30 @@ class ConverterOutputTests(unittest.TestCase):
 
     def test_volume_one_structure(self):
         types = [block["type"] for block in self.v1["blocks"]]
-        self.assertEqual(types.count("table"), 3)
-        self.assertEqual(types.count("callout"), 8)
+        self.assertEqual(len(self.v1["metadata"]["parts"]), 2)
+        self.assertTrue(self.v1["metadata"]["partSequenceComplete"])
+        self.assertEqual(self.v1["metadata"]["parts"][0]["title"], "Comprendre l’investissement")
+        self.assertEqual(self.v1["metadata"]["parts"][1]["title"], "Choisir un actif et l’analyser")
+        self.assertEqual(types.count("table"), 4)
+        self.assertEqual(types.count("callout"), 13)
+        self.assertEqual(types.count("asset_grid"), 1)
         self.assertEqual(types.count("case_dossier_header"), 0)
-        self.assertGreaterEqual(types.count("list"), 5)
+        self.assertGreaterEqual(types.count("list"), 6)
+        rendered_text = " ".join(all_strings(self.v1))
+        for expected in (
+            "Panorama des principales familles d’actifs financiers",
+            "Actions",
+            "Obligations",
+            "Instruments monétaires",
+            "Fonds et ETF",
+            "Immobilier coté",
+            "Matières premières",
+            "Devises — Forex",
+            "Cryptoactifs",
+            "Produits dérivés",
+            "Le levier réduit le capital immédiatement mobilisé, pas le risque économique",
+        ):
+            self.assertIn(expected, rendered_text)
 
     def test_volume_two_structure(self):
         blocks = self.v2["blocks"]

@@ -22,16 +22,80 @@
         ],
         "tags": [
           "fondamentaux",
+          "actifs financiers",
+          "actions",
+          "obligations",
+          "ETF",
+          "devises",
+          "matières premières",
+          "cryptoactifs",
           "analyse fondamentale",
           "analyse technique",
           "risque"
         ],
+        "highlights": [
+          {
+            "number": "01",
+            "title": "Cadre",
+            "text": "Définir l’objectif, l’horizon et la perte acceptable avant de choisir un produit."
+          },
+          {
+            "number": "02",
+            "title": "Actif",
+            "text": "Identifier ce que l’on détient réellement, le moteur du rendement et les risques dominants."
+          },
+          {
+            "number": "03",
+            "title": "Analyse",
+            "text": "Relier valeur économique, comportement du marché et gestion du risque."
+          }
+        ],
+        "parts": [
+          {
+            "order": 1,
+            "id": "partie-1-comprendre-investissement",
+            "startId": "comment-lire-ce-volume",
+            "title": "Comprendre l’investissement",
+            "subtitle": "Objectif · horizon · rendement · risque",
+            "description": "Distinguer épargne, investissement, spéculation et trading, puis relier chaque décision à un objectif, une durée et une capacité de perte.",
+            "tocIds": [
+              "comment-lire-ce-volume",
+              "1-qu-est-ce-que-l-investissement",
+              "1-1-epargner-investir-speculer-et-trader",
+              "1-2-les-moteurs-du-rendement",
+              "1-3-le-triangle-avant-toute-decision"
+            ]
+          },
+          {
+            "order": 2,
+            "id": "partie-2-actifs-et-analyses",
+            "startId": "panorama-des-principales-familles-d-actifs-financiers",
+            "title": "Choisir un actif et l’analyser",
+            "subtitle": "Actions · obligations · ETF · marchés · méthodes d’analyse",
+            "description": "Comprendre ce que représente chaque actif, ses moteurs de rendement et ses risques, puis choisir les outils d’analyse adaptés à la décision.",
+            "tocIds": [
+              "panorama-des-principales-familles-d-actifs-financiers",
+              "ce-que-l-on-detient-reellement",
+              "indices-fonds-et-etf-comprendre-l-enveloppe",
+              "actifs-reels-devises-et-cryptoactifs",
+              "produits-derives-un-contrat-pas-un-placement-ordinaire",
+              "comparer-un-actif-avant-de-le-choisir",
+              "2-les-deux-grandes-familles-d-analyse",
+              "2-1-analyse-fondamentale-la-machine-economique",
+              "2-2-analyse-technique-le-comportement-du-marche",
+              "2-3-les-combiner-sans-les-confondre",
+              "conclusion-du-volume-1",
+              "sources"
+            ]
+          }
+        ],
+        "partSequenceComplete": true,
         "slug": "1-fondations-et-analyses"
       },
       "stats": {
-        "wordCount": 1364,
-        "readingMinutes": 6,
-        "chapterCount": 5,
+        "wordCount": 3288,
+        "readingMinutes": 15,
+        "chapterCount": 6,
         "dossierCount": 0,
         "figureCount": 0
       },

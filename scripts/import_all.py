@@ -56,7 +56,18 @@ def main() -> None:
             supplemental_paths = [supplemental_paths]
         for supplemental_path in supplemental_paths:
             supplemental_document = json.loads((ROOT / supplemental_path).read_text(encoding="utf-8"))
-            supplemental_blocks.extend(supplemental_document.get("blocks", []))
+            document_blocks = supplemental_document.get("blocks", [])
+            insert_before_id = supplemental_document.get("insertBeforeId")
+            if insert_before_id:
+                supplemental_blocks.append(
+                    {
+                        "type": "supplemental_insertion",
+                        "insertBeforeId": insert_before_id,
+                        "blocks": document_blocks,
+                    }
+                )
+            else:
+                supplemental_blocks.extend(document_blocks)
         result = convert_file(
             source=source,
             output=output,

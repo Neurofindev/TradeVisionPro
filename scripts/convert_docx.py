@@ -52,6 +52,29 @@ def normalize_block_text(value: str) -> str:
     return re.sub(r"\s+", " ", clean_text(value)).strip()
 
 
+def replace_text_values(value, match_text: str, replacement_text: str):
+    if isinstance(value, str):
+        replacement_count = value.count(match_text)
+        return value.replace(match_text, replacement_text), replacement_count
+    if isinstance(value, list):
+        replaced_items = []
+        replacement_count = 0
+        for item in value:
+            replaced_item, item_count = replace_text_values(item, match_text, replacement_text)
+            replaced_items.append(replaced_item)
+            replacement_count += item_count
+        return replaced_items, replacement_count
+    if isinstance(value, dict):
+        replaced_mapping = {}
+        replacement_count = 0
+        for key, item in value.items():
+            replaced_item, item_count = replace_text_values(item, match_text, replacement_text)
+            replaced_mapping[key] = replaced_item
+            replacement_count += item_count
+        return replaced_mapping, replacement_count
+    return value, 0
+
+
 def normalize_label(value: str) -> str:
     return re.sub(r"\s+", " ", clean_text(value).upper()).strip(" :—–-")
 
@@ -735,6 +758,16 @@ class DocxConverter:
                 **blocks[replacement_index],
                 **deepcopy(replacement_block),
             }
+
+        configured_text_replacements = self.metadata_overrides.get("textReplacements") or []
+        for configured_replacement in configured_text_replacements:
+            match_text = str(configured_replacement.get("match", ""))
+            replacement_text = str(configured_replacement.get("replacement", ""))
+            if not match_text:
+                continue
+            blocks, replacement_count = replace_text_values(blocks, match_text, replacement_text)
+            if replacement_count < 1:
+                raise ValueError(f"Configured text replacement target not found: {match_text}")
 
         blocks = self._postprocess_case_headers(blocks)
         for supplemental_block in deepcopy(self.supplemental_blocks):

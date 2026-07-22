@@ -220,6 +220,32 @@
     "tags": ["macroéconomie", "inflation", "CPI", "PCE", "PIB", "emploi", "NFP", "chômage", "JOLTS", "ventes au détail", "banques centrales", "taux", "obligations", "Forex"],
     "dropLeadingBlocks": 8,
     "promoteFirstBlockHeadingLevel": 1,
+    "textReplacements": [
+      {
+        "match": "Éviter les interprétations mécaniques et construire une direction dominante seulement après plusieurs confirmations.",
+        "replacement": "Éviter les interprétations mécaniques et construire une direction dominante à partir d’éléments complémentaires, sans compter plusieurs fois les réactions issues d’un même choc."
+      },
+      {
+        "match": "Ne pas conclure à partir de la première bougie : les algorithmes réagissent au titre, puis le marché humain analyse les détails.",
+        "replacement": "Ne pas conclure à partir de la première bougie : la réaction initiale peut provenir d’intervenants humains comme de systèmes automatisés capables d’analyser le titre, le communiqué, ses tableaux et ses composantes. L’interprétation se consolide ensuite à mesure que le marché intègre les détails, les révisions et les effets sur les différents actifs."
+      },
+      {
+        "match": "Réaction automatique à la surprise principale",
+        "replacement": "Réaction initiale rapide à la surprise principale, issue d’intervenants humains et de systèmes automatisés"
+      },
+      {
+        "match": "On recherche plutôt une direction dominante confirmée par plusieurs éléments.",
+        "replacement": "On recherche plutôt une direction dominante étayée par des éléments complémentaires."
+      },
+      {
+        "match": "Plus les confirmations sont nombreuses, plus l’interprétation est robuste.",
+        "replacement": "Une interprétation gagne en robustesse lorsque plusieurs éléments complémentaires et suffisamment indépendants convergent. Des réactions corrélées des obligations, du dollar et des valeurs de croissance peuvent provenir d’un même choc de taux et ne doivent pas être comptées comme trois preuves distinctes."
+      },
+      {
+        "match": "Écart qualitatif entre le chiffre réel et ce que le marché attendait.",
+        "replacement": "Écart mesurable entre la valeur publiée et le consensus. La composition de la donnée et ses révisions permettent ensuite d’en interpréter qualitativement la portée."
+      }
+    ],
     "partSequenceComplete": false,
     "parts": [
       {

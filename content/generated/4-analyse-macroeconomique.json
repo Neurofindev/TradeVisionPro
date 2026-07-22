@@ -77,7 +77,7 @@
   },
   "archetype": "macroeconomic_analysis",
   "stats": {
-    "wordCount": 6995,
+    "wordCount": 7090,
     "readingMinutes": 32,
     "chapterCount": 13,
     "dossierCount": 0,
@@ -142,10 +142,10 @@
           ]
         },
         {
-          "text": "Éviter les interprétations mécaniques et construire une direction dominante seulement après plusieurs confirmations.",
+          "text": "Éviter les interprétations mécaniques et construire une direction dominante à partir d’éléments complémentaires, sans compter plusieurs fois les réactions issues d’un même choc.",
           "segments": [
             {
-              "text": "Éviter les interprétations mécaniques et construire une direction dominante seulement après plusieurs confirmations."
+              "text": "Éviter les interprétations mécaniques et construire une direction dominante à partir d’éléments complémentaires, sans compter plusieurs fois les réactions issues d’un même choc."
             }
           ]
         }
@@ -2752,14 +2752,14 @@
     },
     {
       "type": "paragraph",
-      "text": "5. Ne pas conclure à partir de la première bougie : les algorithmes réagissent au titre, puis le marché humain analyse les détails.",
+      "text": "5. Ne pas conclure à partir de la première bougie : la réaction initiale peut provenir d’intervenants humains comme de systèmes automatisés capables d’analyser le titre, le communiqué, ses tableaux et ses composantes. L’interprétation se consolide ensuite à mesure que le marché intègre les détails, les révisions et les effets sur les différents actifs.",
       "segments": [
         {
           "text": "5. ",
           "bold": true
         },
         {
-          "text": "Ne pas conclure à partir de la première bougie : les algorithmes réagissent au titre, puis le marché humain analyse les détails."
+          "text": "Ne pas conclure à partir de la première bougie : la réaction initiale peut provenir d’intervenants humains comme de systèmes automatisés capables d’analyser le titre, le communiqué, ses tableaux et ses composantes. L’interprétation se consolide ensuite à mesure que le marché intègre les détails, les révisions et les effets sur les différents actifs."
         }
       ]
     },
@@ -2779,7 +2779,7 @@
       "rows": [
         [
           "0 à 2 minutes",
-          "Réaction automatique à la surprise principale",
+          "Réaction initiale rapide à la surprise principale, issue d’intervenants humains et de systèmes automatisés",
           "Forte volatilité, spreads, faux départs. Éviter de confondre vitesse et qualité du signal."
         ],
         [
@@ -2824,10 +2824,10 @@
     },
     {
       "type": "paragraph",
-      "text": "Il n’existe pas de méthode garantissant une direction « précise ». On recherche plutôt une direction dominante confirmée par plusieurs éléments. Plus les confirmations sont nombreuses, plus l’interprétation est robuste.",
+      "text": "Il n’existe pas de méthode garantissant une direction « précise ». On recherche plutôt une direction dominante étayée par des éléments complémentaires. Une interprétation gagne en robustesse lorsque plusieurs éléments complémentaires et suffisamment indépendants convergent. Des réactions corrélées des obligations, du dollar et des valeurs de croissance peuvent provenir d’un même choc de taux et ne doivent pas être comptées comme trois preuves distinctes.",
       "segments": [
         {
-          "text": "Il n’existe pas de méthode garantissant une direction « précise ». On recherche plutôt une direction dominante confirmée par plusieurs éléments. Plus les confirmations sont nombreuses, plus l’interprétation est robuste."
+          "text": "Il n’existe pas de méthode garantissant une direction « précise ». On recherche plutôt une direction dominante étayée par des éléments complémentaires. Une interprétation gagne en robustesse lorsque plusieurs éléments complémentaires et suffisamment indépendants convergent. Des réactions corrélées des obligations, du dollar et des valeurs de croissance peuvent provenir d’un même choc de taux et ne doivent pas être comptées comme trois preuves distinctes."
         }
       ]
     },
@@ -3615,7 +3615,7 @@
         ],
         [
           "Surprise",
-          "Écart qualitatif entre le chiffre réel et ce que le marché attendait."
+          "Écart mesurable entre la valeur publiée et le consensus. La composition de la donnée et ses révisions permettent ensuite d’en interpréter qualitativement la portée."
         ],
         [
           "Headline",

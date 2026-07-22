@@ -314,6 +314,12 @@ test("volume four integrates a clear progressive macroeconomic part", async () =
   assert.ok(html.includes("L’inflation : CPI, Core CPI, PCE et Core PCE"));
   assert.ok(html.includes("6. L’emploi : NFP, chômage, jobless claims et JOLTS"));
   assert.ok(html.includes("Figure 8 — Ventes au détail américaines, variation mensuelle"));
+  assert.ok(html.includes("la réaction initiale peut provenir d’intervenants humains"));
+  assert.ok(html.includes("éléments complémentaires et suffisamment indépendants"));
+  assert.ok(html.includes("Écart mesurable entre la valeur publiée et le consensus"));
+  assert.ok(!html.includes("les algorithmes réagissent au titre, puis le marché humain"));
+  assert.ok(!html.includes("Plus les confirmations sont nombreuses"));
+  assert.ok(!html.includes("Écart qualitatif entre le chiffre réel"));
   assert.equal((html.match(/class="volume-part"/g) || []).length, 1);
   assert.equal((html.match(/class="volume-part__hero volume-part__hero--compact"/g) || []).length, 1);
   assert.match(styles, /\.volume-part__hero--compact h2\s*\{[^}]*font-size:\s*clamp\(1\.8rem, 3\.45vw, 2\.85rem\)/s);

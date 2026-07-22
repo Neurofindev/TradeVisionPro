@@ -189,6 +189,12 @@ class ConverterOutputTests(unittest.TestCase):
         self.assertIn("NFP, chômage, jobless claims et JOLTS", rendered_text)
         self.assertIn("Méthode d’analyse avant, pendant et après une publication", rendered_text)
         self.assertIn("Figure 8 — Ventes au détail américaines, variation mensuelle", rendered_text)
+        self.assertIn("la réaction initiale peut provenir d’intervenants humains", rendered_text)
+        self.assertIn("éléments complémentaires et suffisamment indépendants", rendered_text)
+        self.assertIn("Écart mesurable entre la valeur publiée et le consensus", rendered_text)
+        self.assertNotIn("les algorithmes réagissent au titre, puis le marché humain", rendered_text)
+        self.assertNotIn("Plus les confirmations sont nombreuses", rendered_text)
+        self.assertNotIn("Écart qualitatif entre le chiffre réel", rendered_text)
 
     def test_figures_are_complete_and_optimized(self):
         figures = [
@@ -237,7 +243,18 @@ class ConverterOutputTests(unittest.TestCase):
                 if config.get("source") == f"content/source/{source.name}"
                 for replacement in config.get("blockReplacements", [])
             }
-            units = [unit for unit in units if unit not in replaced_units]
+            replaced_fragments = {
+                normalize(replacement["match"])
+                for config in VOLUME_CONFIG
+                if config.get("source") == f"content/source/{source.name}"
+                for replacement in config.get("textReplacements", [])
+            }
+            units = [
+                unit
+                for unit in units
+                if unit not in replaced_units
+                and not any(fragment in unit for fragment in replaced_fragments)
+            ]
             if start_marker:
                 units = units[units.index(start_marker) :]
             covered = 0

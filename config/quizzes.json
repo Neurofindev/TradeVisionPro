@@ -973,7 +973,7 @@
               "Comparer la surprise, lire les détails, évaluer les attentes de taux puis vérifier la cohérence entre rendements, dollar et actifs"
             ],
             "answer": 3,
-            "explanation": "La lecture complète relie le chiffre, ses composantes et ses révisions aux attentes de politique monétaire, puis observe si les marchés confirment durablement ce scénario."
+            "explanation": "La lecture complète relie le chiffre, ses composantes et ses révisions aux attentes de politique monétaire, puis vérifie la cohérence entre les marchés. Ces réactions croisées constituent un contrôle du scénario, mais pas nécessairement plusieurs confirmations indépendantes lorsqu’elles proviennent du même choc."
           }
         ]
       }

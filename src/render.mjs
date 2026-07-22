@@ -711,7 +711,7 @@ function renderVolumeParts(metadata, partGroups) {
   return `<div class="volume-parts">${partGroups
     .map(
       (part, index) => `<section class="volume-part" id="${escapeHtml(part.id)}" data-volume-part data-part-order="${part.order}">
-        <header class="volume-part__hero">
+        <header class="volume-part__hero${part.title.length > 36 ? " volume-part__hero--compact" : ""}">
           <div class="volume-part__index" aria-hidden="true">0${part.order}</div>
           <div><p class="eyebrow">Volume ${volumeNumber} · Partie ${part.order}</p><h2>${escapeHtml(part.title)}</h2><p class="volume-part__subtitle">${escapeHtml(part.subtitle)}</p><p>${escapeHtml(part.description)}</p></div>
           <span class="volume-part__state" data-part-status>${part.order === 1 ? "Disponible" : "À débloquer"}</span>

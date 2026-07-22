@@ -266,6 +266,7 @@ test("volume three renders three distinct progressive parts", async () => {
 
 test("volume four integrates a clear progressive macroeconomic part", async () => {
   const html = await readFile(path.join(DIST, "volumes/4-analyse-macroeconomique/index.html"), "utf8");
+  const styles = await readFile(path.join(DIST, "assets", "styles.css"), "utf8");
   const quiz = JSON.parse(await readFile(path.join(ROOT, "config", "quizzes.json"), "utf8"))["4-analyse-macroeconomique"].parts[0];
   assert.ok(html.includes("L’analyse macroéconomique"));
   assert.ok(html.includes("Les fondements de l’analyse macroéconomique"));
@@ -277,6 +278,8 @@ test("volume four integrates a clear progressive macroeconomic part", async () =
   assert.ok(html.includes("6. L’emploi : NFP, chômage, jobless claims et JOLTS"));
   assert.ok(html.includes("Figure 8 — Ventes au détail américaines, variation mensuelle"));
   assert.equal((html.match(/class="volume-part"/g) || []).length, 1);
+  assert.equal((html.match(/class="volume-part__hero volume-part__hero--compact"/g) || []).length, 1);
+  assert.match(styles, /\.volume-part__hero--compact h2\s*\{[^}]*font-size:\s*clamp\(1\.8rem, 3\.45vw, 2\.85rem\)/s);
   assert.equal((html.match(/class="quiz-workspace"/g) || []).length, 1);
   assert.equal((html.match(/class="quiz-question"/g) || []).length, 10);
   assert.equal((html.match(/class="course-figure breakout"/g) || []).length, 8);

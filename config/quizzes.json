@@ -475,7 +475,7 @@
           "Un indicateur de volatilité"
         ],
         "answer": 1,
-        "explanation": "Dans un range, le prix oscille entre deux bornes identifiables sans direction dominante claire, ce qui reflète l’indécision du marché."
+        "explanation": "Dans un range, le prix oscille entre deux bornes identifiables sans direction durable. Cette structure peut correspondre à une phase d’hésitation, mais le graphique seul n’en établit pas la cause."
       },
       {
         "id": "v3-q5",
@@ -493,28 +493,28 @@
       {
         "id": "v3-q6",
         "difficulty": "Intermédiaire",
-        "question": "Quelle limite importante présentent les timeframes très courts ?",
+        "question": "Comment utiliser les unités de temps très courtes dans une analyse multi-timeframe ?",
         "options": [
-          "Ils ne montrent jamais les annonces",
-          "Ils sont moins fiables pour confirmer la tendance de fond",
-          "Ils empêchent de voir la volatilité",
-          "Ils ne contiennent aucun prix"
+          "En leur attribuant toujours une fiabilité inférieure",
+          "Pour affiner le timing, en tenant compte du bruit, de la liquidité, de l’horizon et de la stratégie",
+          "En les utilisant sans consulter les unités plus larges",
+          "Uniquement pour déterminer la cause d’un mouvement"
         ],
         "answer": 1,
-        "explanation": "Ils révèlent rapidement certaines réactions, mais comportent davantage de bruit et confirment moins solidement une tendance globale."
+        "explanation": "Les unités très courtes montrent rapidement certaines réactions et peuvent affiner le timing. Leur utilité dépend toutefois de l’actif, de sa liquidité, de l’horizon, de la stratégie et des conditions d’exécution ; elles restent reliées au contexte des unités plus larges."
       },
       {
         "id": "v3-q7",
         "difficulty": "Intermédiaire",
-        "question": "Selon le chapitre, que suggèrent des tests répétés d’un support ou d’une résistance ?",
+        "question": "Que permettent d’affirmer des tests répétés d’un support ou d’une résistance ?",
         "options": [
           "La zone devient invisible",
-          "Une cassure éventuelle peut être plus puissante",
+          "Le niveau a été observé, sans que les tests déterminent à eux seuls la force d’une future cassure",
           "Le prix ne pourra jamais traverser la zone",
           "La tendance est automatiquement terminée"
         ],
         "answer": 1,
-        "explanation": "Les tests accumulent des positions et des niveaux de protection autour de la zone, ce qui peut alimenter le mouvement lorsqu’elle cède."
+        "explanation": "Les contacts répétés confirment que le marché a réagi à la zone. Selon le volume, la liquidité, la volatilité et le contexte, ils peuvent renforcer son importance, absorber des ordres ou ne fournir aucun signal exploitable."
       },
       {
         "id": "v3-q8",
@@ -527,7 +527,7 @@
           "Ils suppriment la volatilité"
         ],
         "answer": 0,
-        "explanation": "Le déclenchement simultané de nombreux ordres de protection alimente le flux et peut accélérer le prix après la rupture d’une zone."
+        "explanation": "Si des ordres stop sont présents autour du niveau, leur déclenchement peut ajouter du flux et accélérer temporairement le mouvement. Leur nombre n’est pas visible à l’avance et une cassure peut aussi être alimentée par d’autres types d’ordres ou par une baisse de liquidité."
       },
       {
         "id": "v3-q9",
@@ -540,7 +540,7 @@
           "Le volume disparaît complètement"
         ],
         "answer": 0,
-        "explanation": "Une tendance baissière se caractérise par une trajectoire descendante des prix et traduit généralement un sentiment de marché pessimiste."
+        "explanation": "Une tendance baissière se caractérise par une trajectoire descendante, souvent composée de sommets et de creux descendants. Cette structure décrit le prix, mais ne permet pas d’identifier à elle seule les motivations des intervenants."
       },
       {
         "id": "v3-q10",

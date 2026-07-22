@@ -21,16 +21,16 @@
   "blocks": [
     {
       "type": "heading",
-      "level": 1,
-      "id": "mode-d-emploi-de-ce-volume",
-      "text": "Mode d'emploi de ce volume"
+      "level": 2,
+      "id": "partie-3-lire-les-indicateurs-sans-predire",
+      "text": "Lire les indicateurs sans chercher à prédire"
     },
     {
       "type": "paragraph",
-      "text": "Le volume 1 a posé les fondations : l'analyse fondamentale répond à « quoi acheter et pourquoi », l'analyse technique à « quand agir et où le scénario s'invalide », puis la gestion du risque décide combien engager. Le volume 2 a montré, avec des cas historiques, qu'une bonne idée peut être détruite par la fraude, le levier, l'illiquidité ou un financement fragile. Ce troisième volume se concentre sur quatre outils de lecture du prix et de la participation du marché.",
+      "text": "Cette partie présente quatre outils de lecture : moyennes mobiles, RSI, MACD et volume. Ils résument la tendance, le momentum ou la participation, mais restent subordonnés au prix, à la structure du marché et à la gestion du risque.",
       "segments": [
         {
-          "text": "Le volume 1 a posé les fondations : l'analyse fondamentale répond à « quoi acheter et pourquoi », l'analyse technique à « quand agir et où le scénario s'invalide », puis la gestion du risque décide combien engager. Le volume 2 a montré, avec des cas historiques, qu'une bonne idée peut être détruite par la fraude, le levier, l'illiquidité ou un financement fragile. Ce troisième volume se concentre sur quatre outils de lecture du prix et de la participation du marché."
+          "text": "Cette partie présente quatre outils de lecture : moyennes mobiles, RSI, MACD et volume. Ils résument la tendance, le momentum ou la participation, mais restent subordonnés au prix, à la structure du marché et à la gestion du risque."
         }
       ]
     },
@@ -40,134 +40,6 @@
       "variant": "info",
       "text": "Le prix reste l'information principale. La moyenne mobile décrit la tendance, le RSI et le MACD décrivent le momentum, et le volume mesure la participation. Aucun ne remplace le contexte, la structure du marché, un niveau d'invalidation ou la taille de position.",
       "sourceFill": "EEF4FA"
-    },
-    {
-      "type": "heading",
-      "level": 2,
-      "id": "ce-que-tu-sauras-faire-a-la-fin",
-      "text": "Ce que tu sauras faire à la fin"
-    },
-    {
-      "type": "list",
-      "ordered": false,
-      "items": [
-        {
-          "text": "Reconnaître ce que mesure réellement chaque indicateur et ce qu'il ne mesure pas.",
-          "segments": [
-            {
-              "text": "Reconnaître ce que mesure réellement chaque indicateur et ce qu'il ne mesure pas."
-            }
-          ]
-        },
-        {
-          "text": "Reconnaître les réglages de départ : RSI 14, MACD 12-26-9, SMA/EMA et volume moyen, sans avoir à effectuer les calculs.",
-          "segments": [
-            {
-              "text": "Reconnaître les réglages de départ : RSI 14, MACD 12-26-9, SMA/EMA et volume moyen, sans avoir à effectuer les calculs."
-            }
-          ]
-        },
-        {
-          "text": "Lire les croisements, la ligne zéro, les zones 30/50/70 et la pente d'une moyenne.",
-          "segments": [
-            {
-              "text": "Lire les croisements, la ligne zéro, les zones 30/50/70 et la pente d'une moyenne."
-            }
-          ]
-        },
-        {
-          "text": "Repérer une divergence et utiliser avec prudence les niveaux tracés directement sur le RSI.",
-          "segments": [
-            {
-              "text": "Repérer une divergence et utiliser avec prudence les niveaux tracés directement sur le RSI."
-            }
-          ]
-        },
-        {
-          "text": "Interpréter une hausse ou une baisse en fonction du volume qui l'accompagne.",
-          "segments": [
-            {
-              "text": "Interpréter une hausse ou une baisse en fonction du volume qui l'accompagne."
-            }
-          ]
-        },
-        {
-          "text": "Combiner les quatre outils dans un ordre logique, sans chercher un signal magique.",
-          "segments": [
-            {
-              "text": "Combiner les quatre outils dans un ordre logique, sans chercher un signal magique."
-            }
-          ]
-        },
-        {
-          "text": "Éviter les erreurs fréquentes : vendre uniquement parce que le RSI dépasse 70, acheter chaque croisement MACD ou confondre corrélation et confirmation.",
-          "segments": [
-            {
-              "text": "Éviter les erreurs fréquentes : vendre uniquement parce que le RSI dépasse 70, acheter chaque croisement MACD ou confondre corrélation et confirmation."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "heading",
-      "level": 2,
-      "id": "plan-du-cours",
-      "text": "Plan du cours"
-    },
-    {
-      "type": "list",
-      "ordered": false,
-      "items": [
-        {
-          "text": "Les bases : prix, unités de temps, familles d'indicateurs et retard.",
-          "segments": [
-            {
-              "text": "Les bases : prix, unités de temps, familles d'indicateurs et retard."
-            }
-          ]
-        },
-        {
-          "text": "Le RSI : vitesse du mouvement, surachat, survente, neutralité, niveaux et divergences.",
-          "segments": [
-            {
-              "text": "Le RSI : vitesse du mouvement, surachat, survente, neutralité, niveaux et divergences."
-            }
-          ]
-        },
-        {
-          "text": "Le MACD : lignes, histogramme, ligne zéro, zone neutre et divergences.",
-          "segments": [
-            {
-              "text": "Le MACD : lignes, histogramme, ligne zéro, zone neutre et divergences."
-            }
-          ]
-        },
-        {
-          "text": "Les moyennes mobiles : tendance, lissage, SMA, EMA et croisements.",
-          "segments": [
-            {
-              "text": "Les moyennes mobiles : tendance, lissage, SMA, EMA et croisements."
-            }
-          ]
-        },
-        {
-          "text": "Le volume : participation, validation, essoufflement et fausses cassures.",
-          "segments": [
-            {
-              "text": "Le volume : participation, validation, essoufflement et fausses cassures."
-            }
-          ]
-        },
-        {
-          "text": "La confluence : méthode complète de lecture et réglages TradingView.",
-          "segments": [
-            {
-              "text": "La confluence : méthode complète de lecture et réglages TradingView."
-            }
-          ]
-        }
-      ]
     },
     {
       "type": "callout",

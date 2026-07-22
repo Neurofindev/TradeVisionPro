@@ -58,7 +58,7 @@
         "startId": "multi-timeframe-confluence",
         "title": "Contexte, niveaux et timing",
         "subtitle": "De la confluence multi-timeframe à la lecture des tendances",
-        "description": "Construire une lecture descendante du marché, repérer ses zones psychologiques et distinguer tendance, range et cassure.",
+        "description": "Construire une lecture descendante du marché, repérer ses zones de réaction et distinguer tendance, range et cassure.",
         "tocIds": [
           "multi-timeframe-confluence",
           "supports-et-resistances",
@@ -69,12 +69,11 @@
       {
         "order": 2,
         "id": "partie-2-bougies-japonaises",
-        "startId": "ce-que-tu-sauras-faire",
+        "startId": "partie-2-lire-les-bougies-dans-leur-contexte",
         "title": "L’essentiel des bougies japonaises",
         "subtitle": "Anatomie · psychologie · contexte · figures essentielles",
         "description": "Passer du dessin à la décision en lisant le rapport de force, le contexte, la confirmation et l’invalidation.",
         "tocIds": [
-          "ce-que-tu-sauras-faire",
           "origine",
           "fonctionnement-l-anatomie-d-une-bougie",
           "a-quoi-servent-les-bougies-japonaises",
@@ -91,12 +90,11 @@
       {
         "order": 3,
         "id": "partie-3-indicateurs-techniques",
-        "startId": "mode-d-emploi-de-ce-volume",
+        "startId": "partie-3-lire-les-indicateurs-sans-predire",
         "title": "Les indicateurs techniques",
         "subtitle": "RSI · MACD · moyennes mobiles · volume",
         "description": "Un indicateur ne prédit pas le marché : il transforme l’information déjà visible pour t’aider à mieux la lire.",
         "tocIds": [
-          "mode-d-emploi-de-ce-volume",
           "1-1-un-indicateur-est-une-transformation",
           "2-1-definition-simple",
           "3-1-ce-que-signifie-macd",
@@ -115,9 +113,9 @@
   },
   "archetype": "technical_analysis",
   "stats": {
-    "wordCount": 11943,
+    "wordCount": 11877,
     "readingMinutes": 54,
-    "chapterCount": 34,
+    "chapterCount": 32,
     "dossierCount": 0,
     "figureCount": 30
   },
@@ -189,14 +187,14 @@
     {
       "type": "lesson_note",
       "variant": "example",
-      "text": "🎯 exemple : en 15 minutes, on peut observer la façon dont le marché réagit à une annonce macroéconomique majeure : la réaction apparaît plus rapidement et de manière plus explicite sur les timefraime courts, ce qui donne une première idée du sentiment dominant. Toutefois, ces unités courtes sont moins fiables comparées aux timefraime moyens ou long terme pour confirmer la tendance.",
+      "text": "🎯 Exemple : en 15 minutes, la réaction à une annonce macroéconomique apparaît rapidement et aide à préciser le timing. Ces unités contiennent souvent davantage de fluctuations de court terme, mais leur utilité dépend de la liquidité de l’actif, de l’horizon, de la stratégie et des conditions d’exécution. Elles doivent donc être interprétées avec le contexte établi sur les unités plus larges, sans leur attribuer une fiabilité universellement inférieure.",
       "segments": [
         {
-          "text": "🎯 exemple : ",
+          "text": "🎯 Exemple : ",
           "bold": true
         },
         {
-          "text": "en 15 minutes, on peut observer la façon dont le marché réagit à une annonce macroéconomique majeure : la réaction apparaît plus rapidement et de manière plus explicite sur les timefraime courts, ce qui donne une première idée du sentiment dominant. Toutefois, ces unités courtes sont moins fiables comparées aux timefraime moyens ou long terme pour confirmer la tendance."
+          "text": "en 15 minutes, la réaction à une annonce macroéconomique apparaît rapidement et aide à préciser le timing. Ces unités contiennent souvent davantage de fluctuations de court terme, mais leur utilité dépend de la liquidité de l’actif, de l’horizon, de la stratégie et des conditions d’exécution. Elles doivent donc être interprétées avec le contexte établi sur les unités plus larges, sans leur attribuer une fiabilité universellement inférieure."
         }
       ]
     },
@@ -239,10 +237,10 @@
     },
     {
       "type": "paragraph",
-      "text": "Comme tu peux le constater, Lululemon affiche une tendance de fond baissière en Daily, accompagnée d’une légère correction.\nDe plus, en H4, la tendance devient de plus en plus nette, ce qui nous fournit des indications sur un potentiel retournement de tendance.",
+      "text": "Lululemon affiche une tendance de fond baissière en Daily, accompagnée d’une légère correction. Le graphique H4 précise la structure de cette correction et les réactions de court terme, mais il ne confirme pas à lui seul un retournement. Un tel scénario nécessiterait un élément observable supplémentaire, comme une cassure de structure, la reprise d’un sommet, une réaction nette sur un support ou une autre confirmation cohérente.",
       "segments": [
         {
-          "text": "Comme tu peux le constater, Lululemon affiche une tendance de fond baissière en Daily, accompagnée d’une légère correction.\nDe plus, en H4, la tendance devient de plus en plus nette, ce qui nous fournit des indications sur un potentiel retournement de tendance."
+          "text": "Lululemon affiche une tendance de fond baissière en Daily, accompagnée d’une légère correction. Le graphique H4 précise la structure de cette correction et les réactions de court terme, mais il ne confirme pas à lui seul un retournement. Un tel scénario nécessiterait un élément observable supplémentaire, comme une cassure de structure, la reprise d’un sommet, une réaction nette sur un support ou une autre confirmation cohérente."
         }
       ]
     },
@@ -254,7 +252,7 @@
     },
     {
       "type": "paragraph",
-      "text": "Abordons le sujet des supports et résistances, aussi appelés zones psychologiques."
+      "text": "Les supports et résistances sont des zones de prix où le marché a déjà réagi. Certaines peuvent aussi devenir psychologiques, notamment autour de prix ronds, mais les deux notions ne sont pas synonymes : un niveau peut également provenir d’un sommet, d’un creux, d’une zone de liquidité ou d’un repère technique."
     },
     {
       "type": "lesson_note",
@@ -306,23 +304,23 @@
     },
     {
       "type": "paragraph",
-      "text": "On constate également que le support a été testé à trois reprises, tandis que la résistance a subi quatre touches. Plus une zone de support ou de résistance est testée, plus une cassure éventuelle sera puissante."
+      "text": "On constate que le support a été testé à trois reprises et la résistance à quatre reprises. Ces contacts montrent que la zone a été observée, mais ils ne déterminent pas la force d’une future cassure. Selon le volume, la liquidité, la volatilité et la présence d’un catalyseur, des tests successifs peuvent confirmer l’importance du niveau, absorber progressivement les ordres disponibles et l’affaiblir, ou ne fournir aucun signal exploitable."
     },
     {
       "type": "paragraph",
-      "text": "En effet, de nombreux traders sont positionnés à ces niveaux et ont confiance en leurs positions."
+      "text": "Ces zones peuvent concentrer des ordres d’entrée, de sortie ou de protection. Leur quantité et leur emplacement exact ne sont toutefois pas visibles sur le graphique."
     },
     {
       "type": "lesson_note",
       "variant": "warning",
-      "text": "🛑 Ainsi, lorsqu’une cassure se produit, de nombreux stop-loss sont déclenchés, alimentant et amplifiant le mouvement du prix.",
+      "text": "🛑 Lorsqu’une cassure atteint des niveaux où des ordres stop ont été placés, ceux-ci peuvent se déclencher et accélérer temporairement le mouvement. Une cassure peut aussi être alimentée par des ordres au marché, des couvertures, des algorithmes ou une diminution de la liquidité. Le graphique seul ne permet pas de connaître à l’avance la contribution de chacun de ces flux.",
       "segments": [
         {
-          "text": "🛑 Ainsi, ",
+          "text": "🛑 ",
           "bold": true
         },
         {
-          "text": "lorsqu’une cassure se produit, de nombreux stop-loss sont déclenchés, alimentant et amplifiant le mouvement du prix."
+          "text": "Lorsqu’une cassure atteint des niveaux où des ordres stop ont été placés, ceux-ci peuvent se déclencher et accélérer temporairement le mouvement. Une cassure peut aussi être alimentée par des ordres au marché, des couvertures, des algorithmes ou une diminution de la liquidité. Le graphique seul ne permet pas de connaître à l’avance la contribution de chacun de ces flux."
         }
       ]
     },
@@ -365,11 +363,11 @@
     },
     {
       "type": "paragraph",
-      "text": "On observe un rebond sur les 140 $, 130 $ (deux fois), 150 $ (deux fois), et sur les 120 $, qui ont agi comme zones de résistance."
+      "text": "On observe des réactions vendeuses autour de 140 $, 150 $ et 120 $, niveaux qui ont temporairement joué le rôle de résistances."
     },
     {
       "type": "paragraph",
-      "text": "À l’inverse, des niveaux comme les 130 $ (testé deux fois) et presque les 100 $ ont servi de zones de support, où le prix a rebondi."
+      "text": "Le niveau des 130 $ illustre un changement de polarité : d’abord observé comme résistance, il a ensuite servi de support après son franchissement, avec deux nouvelles réactions du prix. La zone proche de 100 $ a également joué le rôle de support."
     },
     {
       "type": "heading",
@@ -383,7 +381,7 @@
     },
     {
       "type": "paragraph",
-      "text": "Ces notions permettent d’anticiper les mouvements du marché et d’optimiser les prises de décision, renforçant ainsi la gestion du risque et la précision des entrées et sorties sur les actifs financiers."
+      "text": "Ces zones ne prédisent pas le prochain mouvement. Elles servent à construire des scénarios, repérer des réactions possibles, définir une invalidation et organiser la gestion du risque. Toute décision nécessite encore le contexte, une confirmation et une taille de position adaptée."
     },
     {
       "type": "heading",
@@ -407,19 +405,19 @@
     },
     {
       "type": "paragraph",
-      "text": "Les prix évoluent à la hausse, traduisant un optimisme des investisseurs."
+      "text": "Les prix évoluent à la hausse et forment généralement des sommets et des creux ascendants. Cette structure peut être compatible avec une demande soutenue ou des anticipations favorables, mais le graphique seul n’en établit pas la cause."
     },
     {
       "type": "lesson_note",
       "variant": "example",
-      "text": "🎯 Par exemple, le cours de l’action GOOGLE affiche une progression continue, portée par la confiance des acteurs du marché.",
+      "text": "🎯 Par exemple, le cours de l’action GOOGLE affiche une progression continue. Le graphique montre une structure haussière, sans permettre d’attribuer à lui seul ce mouvement à une cause précise.",
       "segments": [
         {
           "text": "🎯 Par exemple, ",
           "bold": true
         },
         {
-          "text": "le cours de l’action GOOGLE affiche une progression continue, portée par la confiance des acteurs du marché."
+          "text": "le cours de l’action GOOGLE affiche une progression continue. Le graphique montre une structure haussière, sans permettre d’attribuer à lui seul ce mouvement à une cause précise."
         }
       ]
     },
@@ -443,19 +441,19 @@
     },
     {
       "type": "paragraph",
-      "text": "Les prix suivent une trajectoire descendante, souvent liée à une perception négative de la part des investisseurs."
+      "text": "Les prix suivent une trajectoire descendante et forment généralement des sommets et des creux descendants. Cette structure peut accompagner des flux vendeurs ou des anticipations défavorables, mais elle n’en révèle pas à elle seule l’origine."
     },
     {
       "type": "lesson_note",
       "variant": "example",
-      "text": "🎯 Ainsi, l’évolution récente du Bitcoin (BTC) illustre une tendance baissière, à cause d’un pessimisme des investisseurs.",
+      "text": "🎯 Ainsi, l’évolution récente du Bitcoin (BTC) illustre une tendance baissière. On constate la succession de sommets et de creux descendants sans pouvoir déduire du graphique seul les motivations des intervenants.",
       "segments": [
         {
           "text": "🎯 Ainsi, ",
           "bold": true
         },
         {
-          "text": "l’évolution récente du Bitcoin (BTC) illustre une tendance baissière, à cause d’un pessimisme des investisseurs."
+          "text": "l’évolution récente du Bitcoin (BTC) illustre une tendance baissière. On constate la succession de sommets et de creux descendants sans pouvoir déduire du graphique seul les motivations des intervenants."
         }
       ]
     },
@@ -479,19 +477,19 @@
     },
     {
       "type": "paragraph",
-      "text": "Le prix fluctue entre deux bornes sans orientation claire, reflétant l’indécision du marché."
+      "text": "Le prix fluctue entre deux bornes sans orientation durable. Cette structure peut correspondre à une phase d’hésitation, mais aussi à un équilibre temporaire des flux ou à une période d’attente."
     },
     {
       "type": "lesson_note",
       "variant": "example",
-      "text": "🎯 Par exemple, l’action C3.AI oscille entre 14,80 $ et 19,21 $, signifiant qu’aucun camp, acheteurs ou vendeurs, ne parvient à prendre le dessus.",
+      "text": "🎯 Par exemple, l’action C3.AI oscille entre 14,80 $ et 19,21 $. Sur la période observée, aucune direction durable ne s’impose entre ces deux bornes.",
       "segments": [
         {
           "text": "🎯 Par exemple, ",
           "bold": true
         },
         {
-          "text": "l’action C3.AI oscille entre 14,80 $ et 19,21 $, signifiant qu’aucun camp, acheteurs ou vendeurs, ne parvient à prendre le dessus."
+          "text": "l’action C3.AI oscille entre 14,80 $ et 19,21 $. Sur la période observée, aucune direction durable ne s’impose entre ces deux bornes."
         }
       ]
     },
@@ -511,7 +509,7 @@
       "type": "editorial_conclusion",
       "id": "conclusion-tendances-boursieres",
       "title": "🎓 Conclusions",
-      "text": "🚨 L’identification de ces tendances est fondamentale en analyse technique, car elle permet de cerner le sentiment dominant du marché et de repérer les opportunités d’investissement. Maîtriser l’analyse des tendances est donc indispensable pour prendre des décisions avisées en trading."
+      "text": "🚨 L’identification des tendances permet de décrire la structure dominante du prix et de construire des scénarios cohérents. Elle ne révèle pas avec certitude les intentions des intervenants et doit être associée aux niveaux, aux confirmations et à la gestion du risque."
     },
     {
       "type": "editorial_conclusion",
@@ -521,70 +519,16 @@
     },
     {
       "type": "heading",
-      "level": 1,
-      "id": "ce-que-tu-sauras-faire",
-      "text": "Ce que tu sauras faire"
+      "level": 2,
+      "id": "partie-2-lire-les-bougies-dans-leur-contexte",
+      "text": "Lire une bougie dans son contexte"
     },
     {
       "type": "paragraph",
-      "text": "À la fin de ce cours, tu ne chercheras plus seulement des formes. Tu sauras expliquer ce que les acheteurs et les vendeurs ont réellement fait, puis vérifier si le marché confirme ton interprétation.",
+      "text": "Cette partie relie l’anatomie d’une bougie au contexte du marché. L’objectif n’est pas de mémoriser des dessins isolés, mais de comprendre la réaction observée, d’attendre une confirmation et de définir l’invalidation du scénario.",
       "segments": [
         {
-          "text": "À la fin de ce cours, tu ne chercheras plus seulement des formes. Tu sauras expliquer ce que les acheteurs et les vendeurs ont réellement fait, puis vérifier si le marché confirme ton interprétation."
-        }
-      ]
-    },
-    {
-      "type": "list",
-      "ordered": false,
-      "items": [
-        {
-          "text": "Lire l’ouverture, la clôture, le plus haut et le plus bas d’une période.",
-          "segments": [
-            {
-              "text": "Lire l’ouverture, la clôture, le plus haut et le plus bas d’une période."
-            }
-          ]
-        },
-        {
-          "text": "Comprendre le corps, les mèches et le rapport de force qu’ils révèlent.",
-          "segments": [
-            {
-              "text": "Comprendre le corps, les mèches et le rapport de force qu’ils révèlent."
-            }
-          ]
-        },
-        {
-          "text": "Reconnaître les principales figures à une, deux ou trois bougies.",
-          "segments": [
-            {
-              "text": "Reconnaître les principales figures à une, deux ou trois bougies."
-            }
-          ]
-        },
-        {
-          "text": "Distinguer retournement potentiel, continuation et simple hésitation.",
-          "segments": [
-            {
-              "text": "Distinguer retournement potentiel, continuation et simple hésitation."
-            }
-          ]
-        },
-        {
-          "text": "Utiliser tendance, support/résistance et volume comme filtres.",
-          "segments": [
-            {
-              "text": "Utiliser tendance, support/résistance et volume comme filtres."
-            }
-          ]
-        },
-        {
-          "text": "Attendre une confirmation et définir clairement l’invalidation du scénario.",
-          "segments": [
-            {
-              "text": "Attendre une confirmation et définir clairement l’invalidation du scénario."
-            }
-          ]
+          "text": "Cette partie relie l’anatomie d’une bougie au contexte du marché. L’objectif n’est pas de mémoriser des dessins isolés, mais de comprendre la réaction observée, d’attendre une confirmation et de définir l’invalidation du scénario."
         }
       ]
     },
@@ -594,77 +538,6 @@
       "variant": "warning",
       "text": "Une figure n’est pas un ordre. Elle formule une hypothèse que le prix doit ensuite confirmer.",
       "sourceFill": "FCEDED"
-    },
-    {
-      "type": "heading",
-      "level": 2,
-      "id": "parcours-du-cours",
-      "text": "Parcours du cours"
-    },
-    {
-      "type": "paragraph",
-      "text": "1. Origine  D’où viennent les bougies japonaises.",
-      "segments": [
-        {
-          "text": "1. Origine  ",
-          "bold": true
-        },
-        {
-          "text": "D’où viennent les bougies japonaises."
-        }
-      ]
-    },
-    {
-      "type": "paragraph",
-      "text": "2. Fonctionnement  Comment une bougie transforme quatre prix en une histoire visuelle.",
-      "segments": [
-        {
-          "text": "2. Fonctionnement  ",
-          "bold": true
-        },
-        {
-          "text": "Comment une bougie transforme quatre prix en une histoire visuelle."
-        }
-      ]
-    },
-    {
-      "type": "paragraph",
-      "text": "3. Utilité  Comment lire le rapport de force et les zones importantes.",
-      "segments": [
-        {
-          "text": "3. Utilité  ",
-          "bold": true
-        },
-        {
-          "text": "Comment lire le rapport de force et les zones importantes."
-        }
-      ]
-    },
-    {
-      "type": "paragraph",
-      "text": "4. Figures essentielles  Dix-sept configurations expliquées avec le même protocole.",
-      "segments": [
-        {
-          "text": "4. Figures essentielles  ",
-          "bold": true
-        },
-        {
-          "text": "Dix-sept configurations expliquées avec le même protocole."
-        }
-      ]
-    },
-    {
-      "type": "paragraph",
-      "text": "5. Limites et bonnes pratiques  Comment éviter les faux signaux et construire une décision complète.",
-      "segments": [
-        {
-          "text": "5. Limites et bonnes pratiques  ",
-          "bold": true
-        },
-        {
-          "text": "Comment éviter les faux signaux et construire une décision complète."
-        }
-      ]
     },
     {
       "type": "paragraph",
@@ -3866,16 +3739,16 @@
     },
     {
       "type": "heading",
-      "level": 1,
-      "id": "mode-d-emploi-de-ce-volume",
-      "text": "Mode d'emploi de ce volume"
+      "level": 2,
+      "id": "partie-3-lire-les-indicateurs-sans-predire",
+      "text": "Lire les indicateurs sans chercher à prédire"
     },
     {
       "type": "paragraph",
-      "text": "Le volume 1 a posé les fondations : l'analyse fondamentale répond à « quoi acheter et pourquoi », l'analyse technique à « quand agir et où le scénario s'invalide », puis la gestion du risque décide combien engager. Le volume 2 a montré, avec des cas historiques, qu'une bonne idée peut être détruite par la fraude, le levier, l'illiquidité ou un financement fragile. Ce troisième volume se concentre sur quatre outils de lecture du prix et de la participation du marché.",
+      "text": "Cette partie présente quatre outils de lecture : moyennes mobiles, RSI, MACD et volume. Ils résument la tendance, le momentum ou la participation, mais restent subordonnés au prix, à la structure du marché et à la gestion du risque.",
       "segments": [
         {
-          "text": "Le volume 1 a posé les fondations : l'analyse fondamentale répond à « quoi acheter et pourquoi », l'analyse technique à « quand agir et où le scénario s'invalide », puis la gestion du risque décide combien engager. Le volume 2 a montré, avec des cas historiques, qu'une bonne idée peut être détruite par la fraude, le levier, l'illiquidité ou un financement fragile. Ce troisième volume se concentre sur quatre outils de lecture du prix et de la participation du marché."
+          "text": "Cette partie présente quatre outils de lecture : moyennes mobiles, RSI, MACD et volume. Ils résument la tendance, le momentum ou la participation, mais restent subordonnés au prix, à la structure du marché et à la gestion du risque."
         }
       ]
     },
@@ -3885,134 +3758,6 @@
       "variant": "info",
       "text": "Le prix reste l'information principale. La moyenne mobile décrit la tendance, le RSI et le MACD décrivent le momentum, et le volume mesure la participation. Aucun ne remplace le contexte, la structure du marché, un niveau d'invalidation ou la taille de position.",
       "sourceFill": "EEF4FA"
-    },
-    {
-      "type": "heading",
-      "level": 2,
-      "id": "ce-que-tu-sauras-faire-a-la-fin",
-      "text": "Ce que tu sauras faire à la fin"
-    },
-    {
-      "type": "list",
-      "ordered": false,
-      "items": [
-        {
-          "text": "Reconnaître ce que mesure réellement chaque indicateur et ce qu'il ne mesure pas.",
-          "segments": [
-            {
-              "text": "Reconnaître ce que mesure réellement chaque indicateur et ce qu'il ne mesure pas."
-            }
-          ]
-        },
-        {
-          "text": "Reconnaître les réglages de départ : RSI 14, MACD 12-26-9, SMA/EMA et volume moyen, sans avoir à effectuer les calculs.",
-          "segments": [
-            {
-              "text": "Reconnaître les réglages de départ : RSI 14, MACD 12-26-9, SMA/EMA et volume moyen, sans avoir à effectuer les calculs."
-            }
-          ]
-        },
-        {
-          "text": "Lire les croisements, la ligne zéro, les zones 30/50/70 et la pente d'une moyenne.",
-          "segments": [
-            {
-              "text": "Lire les croisements, la ligne zéro, les zones 30/50/70 et la pente d'une moyenne."
-            }
-          ]
-        },
-        {
-          "text": "Repérer une divergence et utiliser avec prudence les niveaux tracés directement sur le RSI.",
-          "segments": [
-            {
-              "text": "Repérer une divergence et utiliser avec prudence les niveaux tracés directement sur le RSI."
-            }
-          ]
-        },
-        {
-          "text": "Interpréter une hausse ou une baisse en fonction du volume qui l'accompagne.",
-          "segments": [
-            {
-              "text": "Interpréter une hausse ou une baisse en fonction du volume qui l'accompagne."
-            }
-          ]
-        },
-        {
-          "text": "Combiner les quatre outils dans un ordre logique, sans chercher un signal magique.",
-          "segments": [
-            {
-              "text": "Combiner les quatre outils dans un ordre logique, sans chercher un signal magique."
-            }
-          ]
-        },
-        {
-          "text": "Éviter les erreurs fréquentes : vendre uniquement parce que le RSI dépasse 70, acheter chaque croisement MACD ou confondre corrélation et confirmation.",
-          "segments": [
-            {
-              "text": "Éviter les erreurs fréquentes : vendre uniquement parce que le RSI dépasse 70, acheter chaque croisement MACD ou confondre corrélation et confirmation."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "heading",
-      "level": 2,
-      "id": "plan-du-cours",
-      "text": "Plan du cours"
-    },
-    {
-      "type": "list",
-      "ordered": false,
-      "items": [
-        {
-          "text": "Les bases : prix, unités de temps, familles d'indicateurs et retard.",
-          "segments": [
-            {
-              "text": "Les bases : prix, unités de temps, familles d'indicateurs et retard."
-            }
-          ]
-        },
-        {
-          "text": "Le RSI : vitesse du mouvement, surachat, survente, neutralité, niveaux et divergences.",
-          "segments": [
-            {
-              "text": "Le RSI : vitesse du mouvement, surachat, survente, neutralité, niveaux et divergences."
-            }
-          ]
-        },
-        {
-          "text": "Le MACD : lignes, histogramme, ligne zéro, zone neutre et divergences.",
-          "segments": [
-            {
-              "text": "Le MACD : lignes, histogramme, ligne zéro, zone neutre et divergences."
-            }
-          ]
-        },
-        {
-          "text": "Les moyennes mobiles : tendance, lissage, SMA, EMA et croisements.",
-          "segments": [
-            {
-              "text": "Les moyennes mobiles : tendance, lissage, SMA, EMA et croisements."
-            }
-          ]
-        },
-        {
-          "text": "Le volume : participation, validation, essoufflement et fausses cassures.",
-          "segments": [
-            {
-              "text": "Le volume : participation, validation, essoufflement et fausses cassures."
-            }
-          ]
-        },
-        {
-          "text": "La confluence : méthode complète de lecture et réglages TradingView.",
-          "segments": [
-            {
-              "text": "La confluence : méthode complète de lecture et réglages TradingView."
-            }
-          ]
-        }
-      ]
     },
     {
       "type": "callout",

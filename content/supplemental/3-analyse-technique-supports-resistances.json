@@ -9,7 +9,7 @@
     },
     {
       "type": "paragraph",
-      "text": "Abordons le sujet des supports et résistances, aussi appelés zones psychologiques."
+      "text": "Les supports et résistances sont des zones de prix où le marché a déjà réagi. Certaines peuvent aussi devenir psychologiques, notamment autour de prix ronds, mais les deux notions ne sont pas synonymes : un niveau peut également provenir d’un sommet, d’un creux, d’une zone de liquidité ou d’un repère technique."
     },
     {
       "type": "lesson_note",
@@ -61,23 +61,23 @@
     },
     {
       "type": "paragraph",
-      "text": "On constate également que le support a été testé à trois reprises, tandis que la résistance a subi quatre touches. Plus une zone de support ou de résistance est testée, plus une cassure éventuelle sera puissante."
+      "text": "On constate que le support a été testé à trois reprises et la résistance à quatre reprises. Ces contacts montrent que la zone a été observée, mais ils ne déterminent pas la force d’une future cassure. Selon le volume, la liquidité, la volatilité et la présence d’un catalyseur, des tests successifs peuvent confirmer l’importance du niveau, absorber progressivement les ordres disponibles et l’affaiblir, ou ne fournir aucun signal exploitable."
     },
     {
       "type": "paragraph",
-      "text": "En effet, de nombreux traders sont positionnés à ces niveaux et ont confiance en leurs positions."
+      "text": "Ces zones peuvent concentrer des ordres d’entrée, de sortie ou de protection. Leur quantité et leur emplacement exact ne sont toutefois pas visibles sur le graphique."
     },
     {
       "type": "lesson_note",
       "variant": "warning",
-      "text": "🛑 Ainsi, lorsqu’une cassure se produit, de nombreux stop-loss sont déclenchés, alimentant et amplifiant le mouvement du prix.",
+      "text": "🛑 Lorsqu’une cassure atteint des niveaux où des ordres stop ont été placés, ceux-ci peuvent se déclencher et accélérer temporairement le mouvement. Une cassure peut aussi être alimentée par des ordres au marché, des couvertures, des algorithmes ou une diminution de la liquidité. Le graphique seul ne permet pas de connaître à l’avance la contribution de chacun de ces flux.",
       "segments": [
         {
-          "text": "🛑 Ainsi, ",
+          "text": "🛑 ",
           "bold": true
         },
         {
-          "text": "lorsqu’une cassure se produit, de nombreux stop-loss sont déclenchés, alimentant et amplifiant le mouvement du prix."
+          "text": "Lorsqu’une cassure atteint des niveaux où des ordres stop ont été placés, ceux-ci peuvent se déclencher et accélérer temporairement le mouvement. Une cassure peut aussi être alimentée par des ordres au marché, des couvertures, des algorithmes ou une diminution de la liquidité. Le graphique seul ne permet pas de connaître à l’avance la contribution de chacun de ces flux."
         }
       ]
     },
@@ -120,11 +120,11 @@
     },
     {
       "type": "paragraph",
-      "text": "On observe un rebond sur les 140 $, 130 $ (deux fois), 150 $ (deux fois), et sur les 120 $, qui ont agi comme zones de résistance."
+      "text": "On observe des réactions vendeuses autour de 140 $, 150 $ et 120 $, niveaux qui ont temporairement joué le rôle de résistances."
     },
     {
       "type": "paragraph",
-      "text": "À l’inverse, des niveaux comme les 130 $ (testé deux fois) et presque les 100 $ ont servi de zones de support, où le prix a rebondi."
+      "text": "Le niveau des 130 $ illustre un changement de polarité : d’abord observé comme résistance, il a ensuite servi de support après son franchissement, avec deux nouvelles réactions du prix. La zone proche de 100 $ a également joué le rôle de support."
     },
     {
       "type": "heading",
@@ -138,7 +138,7 @@
     },
     {
       "type": "paragraph",
-      "text": "Ces notions permettent d’anticiper les mouvements du marché et d’optimiser les prises de décision, renforçant ainsi la gestion du risque et la précision des entrées et sorties sur les actifs financiers."
+      "text": "Ces zones ne prédisent pas le prochain mouvement. Elles servent à construire des scénarios, repérer des réactions possibles, définir une invalidation et organiser la gestion du risque. Toute décision nécessite encore le contexte, une confirmation et une taille de position adaptée."
     },
     {
       "type": "heading",
@@ -162,19 +162,19 @@
     },
     {
       "type": "paragraph",
-      "text": "Les prix évoluent à la hausse, traduisant un optimisme des investisseurs."
+      "text": "Les prix évoluent à la hausse et forment généralement des sommets et des creux ascendants. Cette structure peut être compatible avec une demande soutenue ou des anticipations favorables, mais le graphique seul n’en établit pas la cause."
     },
     {
       "type": "lesson_note",
       "variant": "example",
-      "text": "🎯 Par exemple, le cours de l’action GOOGLE affiche une progression continue, portée par la confiance des acteurs du marché.",
+      "text": "🎯 Par exemple, le cours de l’action GOOGLE affiche une progression continue. Le graphique montre une structure haussière, sans permettre d’attribuer à lui seul ce mouvement à une cause précise.",
       "segments": [
         {
           "text": "🎯 Par exemple, ",
           "bold": true
         },
         {
-          "text": "le cours de l’action GOOGLE affiche une progression continue, portée par la confiance des acteurs du marché."
+          "text": "le cours de l’action GOOGLE affiche une progression continue. Le graphique montre une structure haussière, sans permettre d’attribuer à lui seul ce mouvement à une cause précise."
         }
       ]
     },
@@ -198,19 +198,19 @@
     },
     {
       "type": "paragraph",
-      "text": "Les prix suivent une trajectoire descendante, souvent liée à une perception négative de la part des investisseurs."
+      "text": "Les prix suivent une trajectoire descendante et forment généralement des sommets et des creux descendants. Cette structure peut accompagner des flux vendeurs ou des anticipations défavorables, mais elle n’en révèle pas à elle seule l’origine."
     },
     {
       "type": "lesson_note",
       "variant": "example",
-      "text": "🎯 Ainsi, l’évolution récente du Bitcoin (BTC) illustre une tendance baissière, à cause d’un pessimisme des investisseurs.",
+      "text": "🎯 Ainsi, l’évolution récente du Bitcoin (BTC) illustre une tendance baissière. On constate la succession de sommets et de creux descendants sans pouvoir déduire du graphique seul les motivations des intervenants.",
       "segments": [
         {
           "text": "🎯 Ainsi, ",
           "bold": true
         },
         {
-          "text": "l’évolution récente du Bitcoin (BTC) illustre une tendance baissière, à cause d’un pessimisme des investisseurs."
+          "text": "l’évolution récente du Bitcoin (BTC) illustre une tendance baissière. On constate la succession de sommets et de creux descendants sans pouvoir déduire du graphique seul les motivations des intervenants."
         }
       ]
     },
@@ -234,19 +234,19 @@
     },
     {
       "type": "paragraph",
-      "text": "Le prix fluctue entre deux bornes sans orientation claire, reflétant l’indécision du marché."
+      "text": "Le prix fluctue entre deux bornes sans orientation durable. Cette structure peut correspondre à une phase d’hésitation, mais aussi à un équilibre temporaire des flux ou à une période d’attente."
     },
     {
       "type": "lesson_note",
       "variant": "example",
-      "text": "🎯 Par exemple, l’action C3.AI oscille entre 14,80 $ et 19,21 $, signifiant qu’aucun camp, acheteurs ou vendeurs, ne parvient à prendre le dessus.",
+      "text": "🎯 Par exemple, l’action C3.AI oscille entre 14,80 $ et 19,21 $. Sur la période observée, aucune direction durable ne s’impose entre ces deux bornes.",
       "segments": [
         {
           "text": "🎯 Par exemple, ",
           "bold": true
         },
         {
-          "text": "l’action C3.AI oscille entre 14,80 $ et 19,21 $, signifiant qu’aucun camp, acheteurs ou vendeurs, ne parvient à prendre le dessus."
+          "text": "l’action C3.AI oscille entre 14,80 $ et 19,21 $. Sur la période observée, aucune direction durable ne s’impose entre ces deux bornes."
         }
       ]
     },
@@ -266,7 +266,7 @@
       "type": "editorial_conclusion",
       "id": "conclusion-tendances-boursieres",
       "title": "🎓 Conclusions",
-      "text": "🚨 L’identification de ces tendances est fondamentale en analyse technique, car elle permet de cerner le sentiment dominant du marché et de repérer les opportunités d’investissement. Maîtriser l’analyse des tendances est donc indispensable pour prendre des décisions avisées en trading."
+      "text": "🚨 L’identification des tendances permet de décrire la structure dominante du prix et de construire des scénarios cohérents. Elle ne révèle pas avec certitude les intentions des intervenants et doit être associée aux niveaux, aux confirmations et à la gestion du risque."
     },
     {
       "type": "editorial_conclusion",

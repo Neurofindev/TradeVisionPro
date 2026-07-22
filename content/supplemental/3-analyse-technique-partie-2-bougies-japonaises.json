@@ -22,70 +22,16 @@
   "blocks": [
     {
       "type": "heading",
-      "level": 1,
-      "id": "ce-que-tu-sauras-faire",
-      "text": "Ce que tu sauras faire"
+      "level": 2,
+      "id": "partie-2-lire-les-bougies-dans-leur-contexte",
+      "text": "Lire une bougie dans son contexte"
     },
     {
       "type": "paragraph",
-      "text": "À la fin de ce cours, tu ne chercheras plus seulement des formes. Tu sauras expliquer ce que les acheteurs et les vendeurs ont réellement fait, puis vérifier si le marché confirme ton interprétation.",
+      "text": "Cette partie relie l’anatomie d’une bougie au contexte du marché. L’objectif n’est pas de mémoriser des dessins isolés, mais de comprendre la réaction observée, d’attendre une confirmation et de définir l’invalidation du scénario.",
       "segments": [
         {
-          "text": "À la fin de ce cours, tu ne chercheras plus seulement des formes. Tu sauras expliquer ce que les acheteurs et les vendeurs ont réellement fait, puis vérifier si le marché confirme ton interprétation."
-        }
-      ]
-    },
-    {
-      "type": "list",
-      "ordered": false,
-      "items": [
-        {
-          "text": "Lire l’ouverture, la clôture, le plus haut et le plus bas d’une période.",
-          "segments": [
-            {
-              "text": "Lire l’ouverture, la clôture, le plus haut et le plus bas d’une période."
-            }
-          ]
-        },
-        {
-          "text": "Comprendre le corps, les mèches et le rapport de force qu’ils révèlent.",
-          "segments": [
-            {
-              "text": "Comprendre le corps, les mèches et le rapport de force qu’ils révèlent."
-            }
-          ]
-        },
-        {
-          "text": "Reconnaître les principales figures à une, deux ou trois bougies.",
-          "segments": [
-            {
-              "text": "Reconnaître les principales figures à une, deux ou trois bougies."
-            }
-          ]
-        },
-        {
-          "text": "Distinguer retournement potentiel, continuation et simple hésitation.",
-          "segments": [
-            {
-              "text": "Distinguer retournement potentiel, continuation et simple hésitation."
-            }
-          ]
-        },
-        {
-          "text": "Utiliser tendance, support/résistance et volume comme filtres.",
-          "segments": [
-            {
-              "text": "Utiliser tendance, support/résistance et volume comme filtres."
-            }
-          ]
-        },
-        {
-          "text": "Attendre une confirmation et définir clairement l’invalidation du scénario.",
-          "segments": [
-            {
-              "text": "Attendre une confirmation et définir clairement l’invalidation du scénario."
-            }
-          ]
+          "text": "Cette partie relie l’anatomie d’une bougie au contexte du marché. L’objectif n’est pas de mémoriser des dessins isolés, mais de comprendre la réaction observée, d’attendre une confirmation et de définir l’invalidation du scénario."
         }
       ]
     },
@@ -95,77 +41,6 @@
       "variant": "warning",
       "text": "Une figure n’est pas un ordre. Elle formule une hypothèse que le prix doit ensuite confirmer.",
       "sourceFill": "FCEDED"
-    },
-    {
-      "type": "heading",
-      "level": 2,
-      "id": "parcours-du-cours",
-      "text": "Parcours du cours"
-    },
-    {
-      "type": "paragraph",
-      "text": "1. Origine  D’où viennent les bougies japonaises.",
-      "segments": [
-        {
-          "text": "1. Origine  ",
-          "bold": true
-        },
-        {
-          "text": "D’où viennent les bougies japonaises."
-        }
-      ]
-    },
-    {
-      "type": "paragraph",
-      "text": "2. Fonctionnement  Comment une bougie transforme quatre prix en une histoire visuelle.",
-      "segments": [
-        {
-          "text": "2. Fonctionnement  ",
-          "bold": true
-        },
-        {
-          "text": "Comment une bougie transforme quatre prix en une histoire visuelle."
-        }
-      ]
-    },
-    {
-      "type": "paragraph",
-      "text": "3. Utilité  Comment lire le rapport de force et les zones importantes.",
-      "segments": [
-        {
-          "text": "3. Utilité  ",
-          "bold": true
-        },
-        {
-          "text": "Comment lire le rapport de force et les zones importantes."
-        }
-      ]
-    },
-    {
-      "type": "paragraph",
-      "text": "4. Figures essentielles  Dix-sept configurations expliquées avec le même protocole.",
-      "segments": [
-        {
-          "text": "4. Figures essentielles  ",
-          "bold": true
-        },
-        {
-          "text": "Dix-sept configurations expliquées avec le même protocole."
-        }
-      ]
-    },
-    {
-      "type": "paragraph",
-      "text": "5. Limites et bonnes pratiques  Comment éviter les faux signaux et construire une décision complète.",
-      "segments": [
-        {
-          "text": "5. Limites et bonnes pratiques  ",
-          "bold": true
-        },
-        {
-          "text": "Comment éviter les faux signaux et construire une décision complète."
-        }
-      ]
     },
     {
       "type": "paragraph",

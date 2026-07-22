@@ -287,6 +287,12 @@ test("volume three renders three distinct progressive parts", async () => {
   assert.match(html, /href="[^"]*\/volumes\/4-analyse-macroeconomique\//);
   assert.ok(!html.includes("Le Volume 3 ajoute RSI"));
   assert.ok(html.includes("Un indicateur ne prédit pas le marché"));
+  assert.ok(html.includes("ils ne déterminent pas la force d’une future cassure"));
+  assert.ok(html.includes("il ne confirme pas à lui seul un retournement"));
+  assert.ok(html.includes("Le niveau des 130 $ illustre un changement de polarité"));
+  assert.ok(!html.includes("Plus une zone de support ou de résistance est testée"));
+  assert.ok(!html.includes("de nombreux stop-loss sont déclenchés"));
+  assert.ok(!html.includes("aussi appelés zones psychologiques"));
   assert.ok(html.includes("Figure 5 — NVIDIA : SMA 9, volume, MACD 12-26-9 et RSI 14"));
   assert.ok(!html.includes("Unsupported content block"));
 

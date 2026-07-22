@@ -48,6 +48,10 @@ def clean_text(value: str) -> str:
     return value.strip()
 
 
+def normalize_block_text(value: str) -> str:
+    return re.sub(r"\s+", " ", clean_text(value)).strip()
+
+
 def normalize_label(value: str) -> str:
     return re.sub(r"\s+", " ", clean_text(value).upper()).strip(" :—–-")
 
@@ -710,6 +714,27 @@ class DocxConverter:
                     and clean_text(str(block.get("text", ""))) in configured_figure_text
                 )
             ]
+
+        configured_block_replacements = self.metadata_overrides.get("blockReplacements") or []
+        for configured_replacement in configured_block_replacements:
+            match_text = normalize_block_text(str(configured_replacement.get("match", "")))
+            replacement_block = configured_replacement.get("block") or {}
+            if not match_text or not replacement_block:
+                continue
+            replacement_index = next(
+                (
+                    index
+                    for index, block in enumerate(blocks)
+                    if normalize_block_text(str(block.get("text", ""))) == match_text
+                ),
+                -1,
+            )
+            if replacement_index < 0:
+                raise ValueError(f"Configured block replacement target not found: {match_text}")
+            blocks[replacement_index] = {
+                **blocks[replacement_index],
+                **deepcopy(replacement_block),
+            }
 
         blocks = self._postprocess_case_headers(blocks)
         for supplemental_block in deepcopy(self.supplemental_blocks):

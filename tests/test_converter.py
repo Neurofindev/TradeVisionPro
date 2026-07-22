@@ -9,6 +9,7 @@ from xml.etree import ElementTree as ET
 ROOT = Path(__file__).resolve().parents[1]
 GENERATED = ROOT / "content" / "generated"
 SOURCE = ROOT / "content" / "source"
+VOLUME_CONFIG = json.loads((ROOT / "config" / "volumes.json").read_text(encoding="utf-8"))
 NS = {"w": "http://schemas.openxmlformats.org/wordprocessingml/2006/main"}
 W = f"{{{NS['w']}}}"
 
@@ -129,12 +130,12 @@ class ConverterOutputTests(unittest.TestCase):
         self.assertNotIn("futureVolumeNumber", self.v3["metadata"])
         self.assertEqual(self.v3["metadata"]["parts"][1]["title"], "L’essentiel des bougies japonaises")
         self.assertEqual(self.v3["metadata"]["parts"][2]["title"], "Les indicateurs techniques")
-        self.assertEqual(types.count("heading"), 128)
+        self.assertEqual(types.count("heading"), 125)
         self.assertEqual(types.count("lesson_note"), 13)
         self.assertEqual(types.count("figure"), 30)
         self.assertEqual(types.count("table"), 21)
         self.assertEqual(types.count("editorial_conclusion"), 2)
-        self.assertEqual(self.v3["stats"]["chapterCount"], 34)
+        self.assertEqual(self.v3["stats"]["chapterCount"], 32)
         self.assertTrue(all(block["alt"] for block in blocks if block["type"] == "figure"))
         rendered_text = " ".join(all_strings(self.v3))
         self.assertIn("🔥 Les supports et résistances", rendered_text)
@@ -153,6 +154,12 @@ class ConverterOutputTests(unittest.TestCase):
         self.assertIn("Un indicateur est une transformation", rendered_text)
         self.assertIn("La chaîne de décision complète", rendered_text)
         self.assertIn("Le RSI mesure la force relative des gains et pertes récents", rendered_text)
+        self.assertIn("ils ne déterminent pas la force d’une future cassure", rendered_text)
+        self.assertIn("il ne confirme pas à lui seul un retournement", rendered_text)
+        self.assertIn("Le niveau des 130 $ illustre un changement de polarité", rendered_text)
+        self.assertNotIn("Plus une zone de support ou de résistance est testée", rendered_text)
+        self.assertNotIn("de nombreux stop-loss sont déclenchés", rendered_text)
+        self.assertNotIn("aussi appelés zones psychologiques", rendered_text)
         self.assertNotIn("VOLUME 4", rendered_text)
         self.assertNotIn("Le Volume 3 ajoute RSI", rendered_text)
         self.assertNotIn("(image 1)", rendered_text.casefold())
@@ -224,6 +231,13 @@ class ConverterOutputTests(unittest.TestCase):
         for source, generated, start_marker in pairs:
             haystack = normalize(" ".join(all_strings(generated)))
             units = source_text_units(source)
+            replaced_units = {
+                normalize(replacement["match"])
+                for config in VOLUME_CONFIG
+                if config.get("source") == f"content/source/{source.name}"
+                for replacement in config.get("blockReplacements", [])
+            }
+            units = [unit for unit in units if unit not in replaced_units]
             if start_marker:
                 units = units[units.index(start_marker) :]
             covered = 0

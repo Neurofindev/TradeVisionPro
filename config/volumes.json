@@ -94,6 +94,34 @@
     "tags": ["analyse technique", "multi-timeframe", "timing", "unités de temps", "confluence", "supports", "résistances", "range", "tendances", "bougies japonaises", "chandeliers", "figures de retournement", "figures de continuation", "RSI", "MACD", "moyennes mobiles", "volume", "momentum"],
     "contentStartsImmediately": true,
     "firstParagraphHeadingLevel": 1,
+    "blockReplacements": [
+      {
+        "match": "🎯 exemple : en 15 minutes, on peut observer la façon dont le marché réagit à une annonce macroéconomique majeure : la réaction apparaît plus rapidement et de manière plus explicite sur les timefraime courts, ce qui donne une première idée du sentiment dominant. Toutefois, ces unités courtes sont moins fiables comparées aux timefraime moyens ou long terme pour confirmer la tendance.",
+        "block": {
+          "text": "🎯 Exemple : en 15 minutes, la réaction à une annonce macroéconomique apparaît rapidement et aide à préciser le timing. Ces unités contiennent souvent davantage de fluctuations de court terme, mais leur utilité dépend de la liquidité de l’actif, de l’horizon, de la stratégie et des conditions d’exécution. Elles doivent donc être interprétées avec le contexte établi sur les unités plus larges, sans leur attribuer une fiabilité universellement inférieure.",
+          "segments": [
+            {
+              "text": "🎯 Exemple : ",
+              "bold": true
+            },
+            {
+              "text": "en 15 minutes, la réaction à une annonce macroéconomique apparaît rapidement et aide à préciser le timing. Ces unités contiennent souvent davantage de fluctuations de court terme, mais leur utilité dépend de la liquidité de l’actif, de l’horizon, de la stratégie et des conditions d’exécution. Elles doivent donc être interprétées avec le contexte établi sur les unités plus larges, sans leur attribuer une fiabilité universellement inférieure."
+            }
+          ]
+        }
+      },
+      {
+        "match": "Comme tu peux le constater, Lululemon affiche une tendance de fond baissière en Daily, accompagnée d’une légère correction. De plus, en H4, la tendance devient de plus en plus nette, ce qui nous fournit des indications sur un potentiel retournement de tendance.",
+        "block": {
+          "text": "Lululemon affiche une tendance de fond baissière en Daily, accompagnée d’une légère correction. Le graphique H4 précise la structure de cette correction et les réactions de court terme, mais il ne confirme pas à lui seul un retournement. Un tel scénario nécessiterait un élément observable supplémentaire, comme une cassure de structure, la reprise d’un sommet, une réaction nette sur un support ou une autre confirmation cohérente.",
+          "segments": [
+            {
+              "text": "Lululemon affiche une tendance de fond baissière en Daily, accompagnée d’une légère correction. Le graphique H4 précise la structure de cette correction et les réactions de court terme, mais il ne confirme pas à lui seul un retournement. Un tel scénario nécessiterait un élément observable supplémentaire, comme une cassure de structure, la reprise d’un sommet, une réaction nette sur un support ou une autre confirmation cohérente."
+            }
+          ]
+        }
+      }
+    ],
     "supplementalContent": [
       "content/supplemental/3-analyse-technique-supports-resistances.json",
       "content/supplemental/3-analyse-technique-partie-2-bougies-japonaises.json",
@@ -107,7 +135,7 @@
         "startId": "multi-timeframe-confluence",
         "title": "Contexte, niveaux et timing",
         "subtitle": "De la confluence multi-timeframe à la lecture des tendances",
-        "description": "Construire une lecture descendante du marché, repérer ses zones psychologiques et distinguer tendance, range et cassure.",
+        "description": "Construire une lecture descendante du marché, repérer ses zones de réaction et distinguer tendance, range et cassure.",
         "tocIds": [
           "multi-timeframe-confluence",
           "supports-et-resistances",
@@ -118,12 +146,11 @@
       {
         "order": 2,
         "id": "partie-2-bougies-japonaises",
-        "startId": "ce-que-tu-sauras-faire",
+        "startId": "partie-2-lire-les-bougies-dans-leur-contexte",
         "title": "L’essentiel des bougies japonaises",
         "subtitle": "Anatomie · psychologie · contexte · figures essentielles",
         "description": "Passer du dessin à la décision en lisant le rapport de force, le contexte, la confirmation et l’invalidation.",
         "tocIds": [
-          "ce-que-tu-sauras-faire",
           "origine",
           "fonctionnement-l-anatomie-d-une-bougie",
           "a-quoi-servent-les-bougies-japonaises",
@@ -140,12 +167,11 @@
       {
         "order": 3,
         "id": "partie-3-indicateurs-techniques",
-        "startId": "mode-d-emploi-de-ce-volume",
+        "startId": "partie-3-lire-les-indicateurs-sans-predire",
         "title": "Les indicateurs techniques",
         "subtitle": "RSI · MACD · moyennes mobiles · volume",
         "description": "Un indicateur ne prédit pas le marché : il transforme l’information déjà visible pour t’aider à mieux la lire.",
         "tocIds": [
-          "mode-d-emploi-de-ce-volume",
           "1-1-un-indicateur-est-une-transformation",
           "2-1-definition-simple",
           "3-1-ce-que-signifie-macd",

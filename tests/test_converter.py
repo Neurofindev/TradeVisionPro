@@ -107,8 +107,12 @@ class ConverterOutputTests(unittest.TestCase):
             "Cryptoactifs",
             "Produits dérivés",
             "Le levier réduit le capital immédiatement mobilisé, pas le risque économique",
+            "Analyse fondamentale d’entreprise",
+            "Dans le cadre d’une action",
+            "Les données fondamentales de l’entreprise",
         ):
             self.assertIn(expected, rendered_text)
+        self.assertNotIn("2.1 Analyse fondamentale : la machine économique", rendered_text)
 
     def test_volume_two_structure(self):
         blocks = self.v2["blocks"]
@@ -169,7 +173,7 @@ class ConverterOutputTests(unittest.TestCase):
     def test_volume_four_integrates_the_first_macroeconomic_part(self):
         blocks = self.v4["blocks"]
         types = [block["type"] for block in blocks]
-        self.assertEqual(self.v4["metadata"]["title"], "L’analyse macroéconomique")
+        self.assertEqual(self.v4["metadata"]["title"], "L’analyse Fondamentale")
         self.assertEqual(self.v4["metadata"]["volumeNumber"], 4)
         self.assertEqual(len(self.v4["metadata"]["parts"]), 2)
         self.assertTrue(self.v4["metadata"]["partSequenceComplete"])

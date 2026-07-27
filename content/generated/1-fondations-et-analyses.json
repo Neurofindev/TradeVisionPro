@@ -30,7 +30,7 @@
       "devises",
       "matières premières",
       "cryptoactifs",
-      "analyse fondamentale",
+      "analyse fondamentale d’entreprise",
       "analyse technique",
       "risque"
     ],
@@ -95,7 +95,7 @@
   },
   "archetype": "conceptual",
   "stats": {
-    "wordCount": 3288,
+    "wordCount": 3300,
     "readingMinutes": 15,
     "chapterCount": 6,
     "dossierCount": 0,
@@ -707,13 +707,13 @@
       "type": "table",
       "headers": [
         "Angle",
-        "Analyse fondamentale",
+        "Analyse fondamentale d’entreprise",
         "Analyse technique"
       ],
       "rows": [
         [
           "Objet",
-          "Entreprise, secteur, économie et valorisation",
+          "Entreprise, secteur, résultats et valorisation",
           "Prix, volume, tendance et volatilité"
         ],
         [
@@ -774,14 +774,14 @@
       "type": "heading",
       "level": 2,
       "id": "2-1-analyse-fondamentale-la-machine-economique",
-      "text": "2.1 Analyse fondamentale : la machine économique"
+      "text": "2.1 Analyse fondamentale d’entreprise : la machine économique"
     },
     {
       "type": "paragraph",
-      "text": "L’analyse fondamentale cherche à estimer la valeur économique d’un actif à partir de ce qu’il peut produire dans le temps, puis à comparer cette valeur au prix demandé par le marché. Pour une action, elle étudie le modèle d’affaires, la croissance, les marges, les flux de trésorerie, la dette, la qualité de la direction, le secteur et les perspectives économiques.",
+      "text": "Dans le cadre d’une action, l’analyse fondamentale d’entreprise cherche à estimer la valeur économique de la société, puis à la comparer au prix demandé par le marché. Elle étudie le modèle d’affaires, la croissance, les résultats, les marges, les flux de trésorerie, la dette, la qualité de la direction, le secteur et les perspectives économiques.",
       "segments": [
         {
-          "text": "L’analyse fondamentale cherche à estimer la valeur économique d’un actif à partir de ce qu’il peut produire dans le temps, puis à comparer cette valeur au prix demandé par le marché. Pour une action, elle étudie le modèle d’affaires, la croissance, les marges, les flux de trésorerie, la dette, la qualité de la direction, le secteur et les perspectives économiques."
+          "text": "Dans le cadre d’une action, l’analyse fondamentale d’entreprise cherche à estimer la valeur économique de la société, puis à la comparer au prix demandé par le marché. Elle étudie le modèle d’affaires, la croissance, les résultats, les marges, les flux de trésorerie, la dette, la qualité de la direction, le secteur et les perspectives économiques."
         }
       ]
     },
@@ -852,7 +852,7 @@
       "type": "heading",
       "level": 2,
       "id": "les-donnees-fondamentales-a-apprendre-progressivement",
-      "text": "Les données fondamentales à apprendre progressivement"
+      "text": "Les données fondamentales de l’entreprise à apprendre progressivement"
     },
     {
       "type": "table",
@@ -1043,10 +1043,10 @@
     },
     {
       "type": "paragraph",
-      "text": "Imaginons l’entreprise fictive NovaCloud. Son chiffre d’affaires progresse de 20 %, son free cash-flow devient positif et sa dette diminue : la fondamentale produit une thèse intéressante. Pourtant, l’action reste sous une résistance et forme encore des sommets descendants : la technique montre que le marché ne valide pas encore cette thèse.",
+      "text": "Imaginons l’entreprise fictive NovaCloud. Son chiffre d’affaires progresse de 20 %, son free cash-flow devient positif et sa dette diminue : l’analyse fondamentale d’entreprise produit une thèse intéressante. Pourtant, l’action reste sous une résistance et forme encore des sommets descendants : la technique montre que le marché ne valide pas encore cette thèse.",
       "segments": [
         {
-          "text": "Imaginons l’entreprise fictive NovaCloud. Son chiffre d’affaires progresse de 20 %, son free cash-flow devient positif et sa dette diminue : la fondamentale produit une thèse intéressante. Pourtant, l’action reste sous une résistance et forme encore des sommets descendants : la technique montre que le marché ne valide pas encore cette thèse."
+          "text": "Imaginons l’entreprise fictive NovaCloud. Son chiffre d’affaires progresse de 20 %, son free cash-flow devient positif et sa dette diminue : l’analyse fondamentale d’entreprise produit une thèse intéressante. Pourtant, l’action reste sous une résistance et forme encore des sommets descendants : la technique montre que le marché ne valide pas encore cette thèse."
         }
       ]
     },
@@ -1055,7 +1055,7 @@
       "ordered": false,
       "items": [
         {
-          "text": "Fondamentale : placer NovaCloud sur une liste de surveillance avec une estimation de valeur et les risques clés.",
+          "text": "Étude fondamentale de l’entreprise : placer NovaCloud sur une liste de surveillance avec une estimation de valeur et les risques clés.",
           "segments": [
             {
               "text": "Fondamentale :",
@@ -1108,7 +1108,7 @@
       "type": "callout",
       "label": "FORMULE MENTALE",
       "variant": "mnemonic",
-      "text": "Bonne entreprise + prix excessif = investissement possiblement médiocre. Beau graphique + entreprise fragile = trade possible, mais risque fondamental élevé. Aucun outil ne remplace la gestion du risque.",
+      "text": "Bonne entreprise + prix excessif = investissement possiblement médiocre. Beau graphique + entreprise fragile = trade possible, mais risque lié aux fondamentaux de l’entreprise élevé. Aucun outil ne remplace la gestion du risque.",
       "sourceFill": "F4F6F9"
     },
     {
@@ -1119,10 +1119,10 @@
     },
     {
       "type": "paragraph",
-      "text": "Investir ne consiste pas à choisir le symbole qui montera demain. Il s’agit d’allouer un capital limité à des opportunités incertaines. La fondamentale étudie la réalité économique et le prix ; la technique étudie le comportement du marché ; la gestion du risque empêche une erreur normale de devenir une catastrophe.",
+      "text": "Investir ne consiste pas à choisir le symbole qui montera demain. Il s’agit d’allouer un capital limité à des opportunités incertaines. Pour une action, l’analyse fondamentale d’entreprise étudie la société, ses résultats et sa valorisation ; la technique étudie le comportement du marché ; la gestion du risque empêche une erreur normale de devenir une catastrophe.",
       "segments": [
         {
-          "text": "Investir ne consiste pas à choisir le symbole qui montera demain. Il s’agit d’allouer un capital limité à des opportunités incertaines. La fondamentale étudie la réalité économique et le prix ; la technique étudie le comportement du marché ; la gestion du risque empêche une erreur normale de devenir une catastrophe."
+          "text": "Investir ne consiste pas à choisir le symbole qui montera demain. Il s’agit d’allouer un capital limité à des opportunités incertaines. Pour une action, l’analyse fondamentale d’entreprise étudie la société, ses résultats et sa valorisation ; la technique étudie le comportement du marché ; la gestion du risque empêche une erreur normale de devenir une catastrophe."
         }
       ]
     },

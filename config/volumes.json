@@ -8,9 +8,43 @@
     "subtitle": "Comprendre ce que l’on achète — puis apprendre à l’analyser",
     "description": "Un premier volume progressif pour distinguer valeur économique, comportement du marché et gestion du risque.",
     "archetype": "conceptual",
-    "tags": ["fondamentaux", "actifs financiers", "actions", "obligations", "ETF", "devises", "matières premières", "cryptoactifs", "analyse fondamentale", "analyse technique", "risque"],
+    "tags": ["fondamentaux", "actifs financiers", "actions", "obligations", "ETF", "devises", "matières premières", "cryptoactifs", "analyse fondamentale d’entreprise", "analyse technique", "risque"],
     "supplementalContent": [
       "content/supplemental/1-fondations-et-analyses-actifs-financiers.json"
+    ],
+    "textReplacements": [
+      {
+        "match": "L’analyse fondamentale cherche à estimer la valeur économique d’un actif à partir de ce qu’il peut produire dans le temps, puis à comparer cette valeur au prix demandé par le marché. Pour une action, elle étudie le modèle d’affaires, la croissance, les marges, les flux de trésorerie, la dette, la qualité de la direction, le secteur et les perspectives économiques.",
+        "replacement": "Dans le cadre d’une action, l’analyse fondamentale d’entreprise cherche à estimer la valeur économique de la société, puis à la comparer au prix demandé par le marché. Elle étudie le modèle d’affaires, la croissance, les résultats, les marges, les flux de trésorerie, la dette, la qualité de la direction, le secteur et les perspectives économiques."
+      },
+      {
+        "match": "Les données fondamentales à apprendre progressivement",
+        "replacement": "Les données fondamentales de l’entreprise à apprendre progressivement"
+      },
+      {
+        "match": "Entreprise, secteur, économie et valorisation",
+        "replacement": "Entreprise, secteur, résultats et valorisation"
+      },
+      {
+        "match": "Imaginons l’entreprise fictive NovaCloud. Son chiffre d’affaires progresse de 20 %, son free cash-flow devient positif et sa dette diminue : la fondamentale produit une thèse intéressante. Pourtant, l’action reste sous une résistance et forme encore des sommets descendants : la technique montre que le marché ne valide pas encore cette thèse.",
+        "replacement": "Imaginons l’entreprise fictive NovaCloud. Son chiffre d’affaires progresse de 20 %, son free cash-flow devient positif et sa dette diminue : l’analyse fondamentale d’entreprise produit une thèse intéressante. Pourtant, l’action reste sous une résistance et forme encore des sommets descendants : la technique montre que le marché ne valide pas encore cette thèse."
+      },
+      {
+        "match": "Fondamentale : placer NovaCloud sur une liste de surveillance avec une estimation de valeur et les risques clés.",
+        "replacement": "Étude fondamentale de l’entreprise : placer NovaCloud sur une liste de surveillance avec une estimation de valeur et les risques clés."
+      },
+      {
+        "match": "Bonne entreprise + prix excessif = investissement possiblement médiocre. Beau graphique + entreprise fragile = trade possible, mais risque fondamental élevé. Aucun outil ne remplace la gestion du risque.",
+        "replacement": "Bonne entreprise + prix excessif = investissement possiblement médiocre. Beau graphique + entreprise fragile = trade possible, mais risque lié aux fondamentaux de l’entreprise élevé. Aucun outil ne remplace la gestion du risque."
+      },
+      {
+        "match": "Investir ne consiste pas à choisir le symbole qui montera demain. Il s’agit d’allouer un capital limité à des opportunités incertaines. La fondamentale étudie la réalité économique et le prix ; la technique étudie le comportement du marché ; la gestion du risque empêche une erreur normale de devenir une catastrophe.",
+        "replacement": "Investir ne consiste pas à choisir le symbole qui montera demain. Il s’agit d’allouer un capital limité à des opportunités incertaines. Pour une action, l’analyse fondamentale d’entreprise étudie la société, ses résultats et sa valorisation ; la technique étudie le comportement du marché ; la gestion du risque empêche une erreur normale de devenir une catastrophe."
+      },
+      {
+        "match": "Analyse fondamentale",
+        "replacement": "Analyse fondamentale d’entreprise"
+      }
     ],
     "partSequenceComplete": true,
     "parts": [
@@ -222,7 +256,7 @@
       }
     ],
     "slug": "4-analyse-macroeconomique",
-    "title": "L’analyse macroéconomique",
+    "title": "L’analyse Fondamentale",
     "subtitle": "Comprendre les banques centrales, puis interpréter les données qui orientent leurs décisions.",
     "description": "Étudier les mandats, les décisions et les outils des banques centrales avant d’analyser les publications économiques et leurs effets possibles sur les marchés.",
     "archetype": "macroeconomic_analysis",

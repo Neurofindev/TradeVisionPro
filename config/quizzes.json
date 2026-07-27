@@ -252,15 +252,15 @@
           {
             "id": "v1-p2-q9",
             "difficulty": "Approfondissement",
-            "question": "Comment analyse fondamentale et analyse technique se complètent-elles ?",
+            "question": "Pour une action, comment l’analyse fondamentale d’entreprise et l’analyse technique se complètent-elles ?",
             "options": [
               "Elles garantissent ensemble un résultat positif",
-              "La fondamentale étudie la qualité et la valeur ; la technique observe le comportement du marché et le timing",
+              "L’analyse fondamentale d’entreprise étudie la société, ses résultats et sa valorisation ; la technique observe le comportement du marché et le timing",
               "La technique remplace toutes les données économiques",
-              "La fondamentale fixe précisément le prix de demain"
+              "L’analyse fondamentale d’entreprise fixe précisément le prix de demain"
             ],
             "answer": 1,
-            "explanation": "Les deux approches répondent à des questions différentes. Elles structurent un scénario, mais aucune ne supprime l’incertitude ni la nécessité de gérer le risque."
+            "explanation": "Pour une action, l’analyse fondamentale d’entreprise étudie la société et sa valorisation. L’analyse technique étudie le comportement de son prix. Les deux structurent un scénario, sans supprimer l’incertitude ni la nécessité de gérer le risque."
           },
           {
             "id": "v1-p2-q10",

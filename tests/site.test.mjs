@@ -203,6 +203,10 @@ test("volume one presents two progressive parts and a detailed asset panorama", 
   assert.ok(html.includes("Choisir un actif et l’analyser"));
   assert.ok(html.includes("Panorama des principales familles d’actifs financiers"));
   assert.ok(html.includes("Neuf expositions à ne pas confondre"));
+  assert.ok(html.includes("Analyse fondamentale d’entreprise"));
+  assert.ok(html.includes("Dans le cadre d’une action"));
+  assert.ok(html.includes("Entreprise, secteur, résultats et valorisation"));
+  assert.ok(!html.includes("2.1 Analyse fondamentale : la machine économique"));
   assert.ok(html.includes("Validez la Partie 1 pour continuer"));
   for (const criterion of ["Rôle", "Horizon", "Perte acceptable", "Liquidité et coûts", "Corrélation"]) {
     assert.ok(html.includes(`<strong>${criterion} :</strong>`), criterion);
@@ -308,7 +312,7 @@ test("volume four separates central banks from macroeconomic publications", asyn
   const html = await readFile(path.join(DIST, "volumes/4-analyse-macroeconomique/index.html"), "utf8");
   const styles = await readFile(path.join(DIST, "assets", "styles.css"), "utf8");
   const quizzes = JSON.parse(await readFile(path.join(ROOT, "config", "quizzes.json"), "utf8"))["4-analyse-macroeconomique"].parts;
-  assert.ok(html.includes("L’analyse macroéconomique"));
+  assert.ok(html.includes("L’analyse Fondamentale"));
   assert.ok(html.includes("Les banques centrales"));
   assert.ok(html.includes("Les données macroéconomiques"));
   assert.ok(html.includes("Deux parties, deux validations"));

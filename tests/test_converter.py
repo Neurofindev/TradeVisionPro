@@ -170,21 +170,22 @@ class ConverterOutputTests(unittest.TestCase):
         self.assertNotIn("(image 2)", rendered_text.casefold())
         self.assertNotIn("(image 3)", rendered_text.casefold())
 
-    def test_volume_four_integrates_the_first_macroeconomic_part(self):
+    def test_volume_four_integrates_three_progressive_parts(self):
         blocks = self.v4["blocks"]
         types = [block["type"] for block in blocks]
         self.assertEqual(self.v4["metadata"]["title"], "L’analyse Fondamentale")
         self.assertEqual(self.v4["metadata"]["volumeNumber"], 4)
-        self.assertEqual(len(self.v4["metadata"]["parts"]), 2)
+        self.assertEqual(len(self.v4["metadata"]["parts"]), 3)
         self.assertTrue(self.v4["metadata"]["partSequenceComplete"])
         self.assertEqual(self.v4["metadata"]["parts"][0]["title"], "Les banques centrales")
         self.assertEqual(self.v4["metadata"]["parts"][1]["title"], "Les données macroéconomiques")
+        self.assertEqual(self.v4["metadata"]["parts"][2]["title"], "Géopolitique et marchés financiers")
         self.assertEqual(blocks[0]["id"], "mode-d-emploi-du-cours")
-        self.assertEqual(types.count("heading"), 136)
-        self.assertEqual(types.count("callout"), 35)
-        self.assertEqual(types.count("figure"), 11)
-        self.assertEqual(types.count("table"), 37)
-        self.assertEqual(self.v4["stats"]["chapterCount"], 23)
+        self.assertEqual(types.count("heading"), 213)
+        self.assertEqual(types.count("callout"), 85)
+        self.assertEqual(types.count("figure"), 22)
+        self.assertEqual(types.count("table"), 49)
+        self.assertEqual(self.v4["stats"]["chapterCount"], 38)
         figures = [block for block in blocks if block["type"] == "figure"]
         self.assertTrue(all(figure["caption"] and figure["source"] and figure["alt"] for figure in figures))
         rendered_text = " ".join(all_strings(self.v4))
@@ -204,10 +205,18 @@ class ConverterOutputTests(unittest.TestCase):
         self.assertIn("la réaction initiale peut provenir d’intervenants humains", rendered_text)
         self.assertIn("éléments complémentaires et suffisamment indépendants", rendered_text)
         self.assertIn("Écart mesurable entre la valeur publiée et le consensus", rendered_text)
+        self.assertIn("Objectifs de la Partie 3", rendered_text)
+        self.assertIn("Appliquer la chaîne de transmission aux chocs géopolitiques", rendered_text)
+        self.assertIn("Dossier 1 — Brexit", rendered_text)
+        self.assertIn("Dossier 2 — Abqaiq", rendered_text)
+        self.assertIn("Dossier 6 — Mer Rouge et routes maritimes", rendered_text)
+        self.assertIn("POSITION DANS LE VOLUME 4", rendered_text)
         self.assertNotIn("les algorithmes réagissent au titre, puis le marché humain", rendered_text)
         self.assertNotIn("Plus les confirmations sont nombreuses", rendered_text)
         self.assertNotIn("Écart qualitatif entre le chiffre réel", rendered_text)
         self.assertNotIn("Ces indicateurs influencent les décisions des banques centrales. Or, les taux directeurs", rendered_text)
+        self.assertNotIn("VOLUME 5", rendered_text)
+        self.assertNotIn("relier les cinq volumes", rendered_text.casefold())
 
     def test_figures_are_complete_and_optimized(self):
         figures = [
@@ -248,6 +257,11 @@ class ConverterOutputTests(unittest.TestCase):
             ),
             (
                 SOURCE / "volume-4" / "Formation_Investissement_Trading_Volume_4_Partie-1_Banques_Centrales.docx",
+                self.v4,
+                None,
+            ),
+            (
+                SOURCE / "volume-4" / "Formation_Investissement_Trading_Volume_4_Partie-3_Geopolitique_Marches.docx",
                 self.v4,
                 None,
             ),

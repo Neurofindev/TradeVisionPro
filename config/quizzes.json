@@ -836,8 +836,8 @@
     ]
   },
   "4-analyse-macroeconomique": {
-    "title": "Valider l’analyse macroéconomique",
-    "intro": "Deux QCM distincts accompagnent le Volume 4. Une note d’au moins 8/10 à la Partie 1 débloque la Partie 2 ; la validation de la Partie 2 achève le volume et préparera l’accès au Volume 5 lorsqu’il sera créé.",
+    "title": "Valider l’analyse fondamentale",
+    "intro": "Trois QCM distincts accompagnent le Volume 4. Une note d’au moins 8/10 débloque la partie suivante ; la validation de la Partie 3 achève le volume et préparera l’accès au Volume 5 lorsqu’il sera créé.",
     "parts": [
       {
         "order": 1,
@@ -1112,6 +1112,144 @@
             ],
             "answer": 3,
             "explanation": "La lecture complète relie le chiffre, ses composantes et ses révisions aux attentes de politique monétaire, puis vérifie la cohérence entre les marchés. Ces réactions croisées constituent un contrôle du scénario, mais pas nécessairement plusieurs confirmations indépendantes lorsqu’elles proviennent du même choc."
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "id": "partie-3",
+        "title": "QCM de la Partie 3 — Géopolitique et marchés financiers",
+        "intro": "10 questions sur les canaux de transmission, les points de passage, les sanctions, les classes d’actifs, les sources et la construction de scénarios.",
+        "questions": [
+          {
+            "id": "v4-p3-q1",
+            "difficulty": "Facile",
+            "question": "Quelle distinction décrit correctement géopolitique et géoéconomie ?",
+            "options": [
+              "La géopolitique étudie les rapports de pouvoir ; la géoéconomie désigne l’emploi d’instruments économiques à des fins stratégiques",
+              "La géopolitique concerne uniquement les frontières et la géoéconomie uniquement les entreprises cotées",
+              "La géopolitique mesure la volatilité tandis que la géoéconomie calcule l’inflation",
+              "Ces deux termes désignent exactement la même discipline"
+            ],
+            "answer": 0,
+            "explanation": "La géopolitique porte sur les rapports de pouvoir entre acteurs et territoires. La géoéconomie étudie notamment l’usage stratégique du commerce, de la finance, des technologies, des sanctions ou des ressources."
+          },
+          {
+            "id": "v4-p3-q2",
+            "difficulty": "Facile",
+            "question": "Quelle est la première étape d’une analyse géopolitique rigoureuse ?",
+            "options": [
+              "Choisir immédiatement l’actif qui devrait monter",
+              "Établir le fait, sa source, sa date et son degré de confirmation",
+              "Mesurer uniquement la première bougie",
+              "Supposer que tout événement politique devient un choc économique"
+            ],
+            "answer": 1,
+            "explanation": "Avant toute interprétation de marché, il faut distinguer le fait confirmé, l’annonce, la rumeur et le scénario. La qualité de la source et la chronologie conditionnent toute la suite de l’analyse."
+          },
+          {
+            "id": "v4-p3-q3",
+            "difficulty": "Intermédiaire",
+            "question": "Quelle question identifie le mieux le canal de transmission d’un choc géopolitique ?",
+            "options": [
+              "Quelle couleur domine le graphique ?",
+              "Quel indicateur technique est le plus populaire ?",
+              "Qu’est-ce qui devient plus rare, plus cher, plus lent ou juridiquement inaccessible ?",
+              "Quel actif a le prix nominal le plus élevé ?"
+            ],
+            "answer": 2,
+            "explanation": "Le canal précise le mécanisme concret : énergie, transport, commerce, technologie, financement, confiance ou accès juridique. Sans canal identifiable, le lien entre événement et actif reste fragile."
+          },
+          {
+            "id": "v4-p3-q4",
+            "difficulty": "Intermédiaire",
+            "question": "De quoi dépend principalement l’effet économique d’une perturbation sur un point de passage stratégique ?",
+            "options": [
+              "Uniquement du nombre d’articles publiés",
+              "Uniquement de la nationalité des navires",
+              "Uniquement du niveau du VIX avant l’événement",
+              "De sa durée, du volume concerné, des stocks, des routes alternatives et des possibilités de substitution"
+            ],
+            "answer": 3,
+            "explanation": "Un incident spectaculaire mais bref peut avoir un effet limité. L’ampleur et la persistance dépendent surtout des flux réellement empêchés, des réserves et des solutions de remplacement."
+          },
+          {
+            "id": "v4-p3-q5",
+            "difficulty": "Intermédiaire",
+            "question": "Pourquoi un choc géopolitique ne fait-il pas automatiquement monter toutes les obligations d’État ?",
+            "options": [
+              "Parce que la recherche de sécurité peut être compensée par un choc d’inflation, un risque budgétaire ou un risque propre à l’émetteur",
+              "Parce que le prix d’une obligation ne peut jamais varier",
+              "Parce que seules les actions réagissent aux événements internationaux",
+              "Parce que toutes les obligations ont la même échéance et le même risque"
+            ],
+            "answer": 0,
+            "explanation": "La recherche de sécurité peut soutenir certaines dettes, mais un choc énergétique inflationniste, une détérioration budgétaire ou l’exposition directe d’un pays peuvent produire une réaction différente."
+          },
+          {
+            "id": "v4-p3-q6",
+            "difficulty": "Intermédiaire",
+            "question": "Que mesure principalement le VIX ?",
+            "options": [
+              "La direction certaine du S&P 500 pour le mois suivant",
+              "La volatilité attendue du S&P 500 implicite dans les prix des options",
+              "Le volume mondial des échanges de pétrole",
+              "Le risque de défaut de toutes les entreprises américaines"
+            ],
+            "answer": 1,
+            "explanation": "Le VIX reflète une volatilité attendue extraite des options sur le S&P 500. Il renseigne sur le prix de la protection et l’incertitude perçue, pas sur une direction certaine du marché."
+          },
+          {
+            "id": "v4-p3-q7",
+            "difficulty": "Approfondissement",
+            "question": "Si USD/CNH progresse, quelle lecture de change est correcte ?",
+            "options": [
+              "Le dollar se déprécie nécessairement face à toutes les devises",
+              "Le yuan s’apprécie face au dollar",
+              "Il faut davantage de yuans offshore pour acheter un dollar : le yuan se déprécie face au dollar",
+              "Le taux de change ne transmet aucune information sur la relation entre les deux monnaies"
+            ],
+            "answer": 2,
+            "explanation": "Une hausse de USD/CNH signifie qu’un dollar achète davantage de yuans offshore. Dans cette cotation, elle correspond donc à une dépréciation du yuan face au dollar."
+          },
+          {
+            "id": "v4-p3-q8",
+            "difficulty": "Approfondissement",
+            "question": "Pourquoi le pic du pétrole après l’attaque d’Abqaiq pouvait-il se résorber rapidement ?",
+            "options": [
+              "Parce que les attaques sur une infrastructure n’influencent jamais l’offre",
+              "Parce que la première cotation est toujours annulée",
+              "Parce que le pétrole suit automatiquement les actions",
+              "Parce que le marché a révisé la durée attendue de l’interruption lorsque la restauration de la production s’est précisée"
+            ],
+            "answer": 3,
+            "explanation": "La réaction initiale intégrait un risque d’offre important. Lorsque les informations ont réduit la durée probable de la perturbation, une partie de la prime de risque a pu être retirée."
+          },
+          {
+            "id": "v4-p3-q9",
+            "difficulty": "Approfondissement",
+            "question": "Quelle hiérarchie de sources est la plus prudente pour confirmer un événement ?",
+            "options": [
+              "Document officiel ou source primaire, puis agences et médias reconnus, puis analyses secondaires",
+              "Réseaux sociaux anonymes, puis commentaire de marché, puis source officielle",
+              "Graphique de prix uniquement, sans vérifier l’événement",
+              "Opinion la plus partagée, quelle que soit sa source"
+            ],
+            "answer": 0,
+            "explanation": "Une source primaire établit au mieux la décision ou le fait officiel. Les agences et médias reconnus apportent ensuite le contexte ; les analyses secondaires servent à confronter les scénarios, pas à remplacer la vérification."
+          },
+          {
+            "id": "v4-p3-q10",
+            "difficulty": "Approfondissement",
+            "question": "Quelle séquence résume le mieux la méthode complète de la Partie 3 ?",
+            "options": [
+              "Rumeur, direction, levier maximal, justification après coup",
+              "Fait, canal, exposition, effets sur croissance et inflation, actifs concernés, scénarios, invalidation et risque",
+              "Première bougie, indicateur, prédiction certaine, taille fixe",
+              "Pays concerné, actif préféré, objectif de prix sans scénario contraire"
+            ],
+            "answer": 1,
+            "explanation": "La méthode relie un fait vérifié à un mécanisme économique, puis aux expositions et aux actifs. Elle conserve plusieurs scénarios, précise ce qui les invalide et adapte la taille à l’incertitude."
           }
         ]
       }

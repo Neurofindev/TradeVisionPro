@@ -147,6 +147,8 @@ test("course progression is isolated by profile while admin access bypasses lock
   assert.ok(client.includes('parsed["3-part-1"] = parsed["3"]'));
   assert.ok(client.includes("volume4-two-parts-migrated"));
   assert.ok(client.includes('parsed["4-part-2"]'));
+  assert.ok(client.includes("volume4-three-parts-migrated"));
+  assert.ok(client.includes('parsed["4-part-3"]'));
   assert.ok(client.includes("allPartsPassed"));
   assert.ok(client.includes("isPartUnlocked"));
   assert.ok(client.includes("completesVolume"));
@@ -308,17 +310,19 @@ test("volume three renders three distinct progressive parts", async () => {
   assert.ok(client.includes('parsed["3"] && !parsed["3-part-3"]'));
 });
 
-test("volume four separates central banks from macroeconomic publications", async () => {
+test("volume four progresses from central banks to macro data and geopolitics", async () => {
   const html = await readFile(path.join(DIST, "volumes/4-analyse-macroeconomique/index.html"), "utf8");
   const styles = await readFile(path.join(DIST, "assets", "styles.css"), "utf8");
   const quizzes = JSON.parse(await readFile(path.join(ROOT, "config", "quizzes.json"), "utf8"))["4-analyse-macroeconomique"].parts;
   assert.ok(html.includes("L’analyse Fondamentale"));
   assert.ok(html.includes("Les banques centrales"));
   assert.ok(html.includes("Les données macroéconomiques"));
-  assert.ok(html.includes("Deux parties, deux validations"));
+  assert.ok(html.includes("Géopolitique et marchés financiers"));
+  assert.ok(html.includes("Trois parties, trois validations"));
   assert.ok(html.includes("QCM par partie"));
   assert.ok(html.includes("QCM de la Partie 1 — Banques centrales"));
   assert.ok(html.includes("QCM de la Partie 2 — Données macroéconomiques"));
+  assert.ok(html.includes("QCM de la Partie 3 — Géopolitique et marchés financiers"));
   assert.ok(html.includes("Qu&#039;est-ce qu&#039;une banque centrale ?"));
   assert.ok(html.includes("Les outils de politique monétaire"));
   assert.ok(html.includes("Méthode d&#039;analyse d&#039;une décision monétaire"));
@@ -332,26 +336,33 @@ test("volume four separates central banks from macroeconomic publications", asyn
   assert.ok(html.includes("la réaction initiale peut provenir d’intervenants humains"));
   assert.ok(html.includes("éléments complémentaires et suffisamment indépendants"));
   assert.ok(html.includes("Écart mesurable entre la valeur publiée et le consensus"));
+  assert.ok(html.includes("Objectifs de la Partie 3"));
+  assert.ok(html.includes("Appliquer la chaîne de transmission aux chocs géopolitiques"));
+  assert.ok(html.includes("Dossier 1 — Brexit"));
+  assert.ok(html.includes("Dossier 2 — Abqaiq"));
+  assert.ok(html.includes("Dossier 6 — Mer Rouge et routes maritimes"));
+  assert.ok(html.includes("POSITION DANS LE VOLUME 4"));
   assert.ok(!html.includes("les algorithmes réagissent au titre, puis le marché humain"));
   assert.ok(!html.includes("Plus les confirmations sont nombreuses"));
   assert.ok(!html.includes("Écart qualitatif entre le chiffre réel"));
   assert.ok(!html.includes("Ces indicateurs influencent les décisions des banques centrales. Or, les taux directeurs"));
-  assert.equal((html.match(/class="volume-part"/g) || []).length, 2);
-  assert.equal((html.match(/class="volume-part__hero"/g) || []).length, 2);
+  assert.equal((html.match(/class="volume-part"/g) || []).length, 3);
+  assert.equal((html.match(/class="volume-part__hero"/g) || []).length, 3);
   assert.match(styles, /\.volume-part__hero--compact h2\s*\{[^}]*font-size:\s*clamp\(1\.8rem, 3\.45vw, 2\.85rem\)/s);
-  assert.equal((html.match(/class="quiz-workspace"/g) || []).length, 2);
-  assert.equal((html.match(/class="quiz-question"/g) || []).length, 20);
-  assert.equal((html.match(/class="course-figure breakout"/g) || []).length, 11);
-  assert.equal((html.match(/class="data-table breakout"/g) || []).length, 37);
+  assert.equal((html.match(/class="quiz-workspace"/g) || []).length, 3);
+  assert.equal((html.match(/class="quiz-question"/g) || []).length, 30);
+  assert.equal((html.match(/class="course-figure breakout"/g) || []).length, 22);
+  assert.equal((html.match(/class="data-table breakout"/g) || []).length, 49);
   assert.ok(html.includes('data-completes-volume="false"'));
   assert.ok(html.includes('data-completes-volume="true"'));
   assert.ok(!html.includes('data-awaits-next-part="true"'));
   assert.ok(html.includes('data-awaits-future-volume="true"'));
-  assert.equal(quizzes.length, 2);
+  assert.equal(quizzes.length, 3);
   assert.ok(quizzes.every((quiz) => quiz.questions.length === 10));
   assert.ok(quizzes.every((quiz) => new Set(quiz.questions.map((question) => question.answer)).size >= 3));
   assert.match(JSON.stringify(quizzes[0]), /mandat|QE|hawkish|YCC|Jackson Hole|communication/i);
   assert.match(JSON.stringify(quizzes[1]), /consensus|Core PCE|PIB réel|NFP|JOLTS|ventes au détail/i);
+  assert.match(JSON.stringify(quizzes[2]), /géopolitique|géoéconomie|VIX|USD\/CNH|Abqaiq|sources/i);
   assert.doesNotMatch(JSON.stringify(quizzes.flatMap((quiz) => quiz.questions.map((question) => question.question))), /Doji|MACD|moyenne mobile/i);
   assert.ok(!html.includes("Unsupported content block"));
 });
@@ -378,6 +389,7 @@ test("search index covers all volumes and figure captions", async () => {
   assert.ok(index.some((entry) => entry.volume === "Volume 4" && /consensus/i.test(entry.text)));
   assert.ok(index.some((entry) => entry.volume === "Volume 4" && /Core PCE/i.test(entry.text)));
   assert.ok(index.some((entry) => entry.volume === "Volume 4" && /JOLTS/i.test(entry.text)));
+  assert.ok(index.some((entry) => entry.volume === "Volume 4" && /Brexit|Abqaiq|Mer Rouge|semi-conducteurs/i.test(entry.text)));
 });
 
 test("generated internal links resolve", async () => {

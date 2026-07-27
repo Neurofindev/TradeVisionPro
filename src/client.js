@@ -153,6 +153,12 @@
         localStorage.setItem(volume4MigrationKey, "true");
         progressChanged = true;
       }
+      const volume4Part3MigrationKey = `${key}:volume4-three-parts-migrated`;
+      if (!localStorage.getItem(volume4Part3MigrationKey)) {
+        if (!parsed["4-part-3"]) delete parsed["4"];
+        localStorage.setItem(volume4Part3MigrationKey, "true");
+        progressChanged = true;
+      }
       if (progressChanged) localStorage.setItem(key, JSON.stringify(parsed));
       return parsed;
     } catch (error) {

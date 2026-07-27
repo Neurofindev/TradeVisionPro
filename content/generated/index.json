@@ -264,8 +264,8 @@
         "order": 4,
         "volumeNumber": 4,
         "title": "L’analyse Fondamentale",
-        "subtitle": "Comprendre les banques centrales, puis interpréter les données qui orientent leurs décisions.",
-        "description": "Étudier les mandats, les décisions et les outils des banques centrales avant d’analyser les publications économiques et leurs effets possibles sur les marchés.",
+        "subtitle": "Comprendre les banques centrales, interpréter les données et analyser les chocs géopolitiques.",
+        "description": "Étudier les banques centrales, les publications économiques et les chocs géopolitiques pour construire des scénarios de marché cohérents, conditionnels et maîtrisés.",
         "edition": null,
         "format": null,
         "coverLines": [],
@@ -286,8 +286,14 @@
           "chômage",
           "JOLTS",
           "ventes au détail",
+          "géopolitique",
+          "géoéconomie",
+          "sanctions",
+          "conflits",
+          "matières premières",
           "obligations",
-          "Forex"
+          "Forex",
+          "VIX"
         ],
         "highlights": [
           {
@@ -302,8 +308,8 @@
           },
           {
             "number": "03",
-            "title": "Transmission",
-            "text": "Relier les instruments monétaires aux conditions financières, à l’économie et aux différentes classes d’actifs."
+            "title": "Scénarios",
+            "text": "Relier décisions, données et chocs géopolitiques aux actifs sans transformer une relation possible en certitude."
           }
         ],
         "parts": [
@@ -349,6 +355,32 @@
               "11-erreurs-frequentes-et-checklist",
               "12-glossaire-et-sources-officielles"
             ]
+          },
+          {
+            "order": 3,
+            "id": "partie-3-geopolitique-marches",
+            "startId": "objectifs-de-la-partie-3",
+            "title": "Géopolitique et marchés financiers",
+            "subtitle": "Pouvoir · ressources · sanctions · conflits · flux de capitaux",
+            "description": "Relier un événement géopolitique à ses canaux économiques, identifier les expositions réellement concernées et construire des scénarios de marché avec leurs conditions d’invalidation.",
+            "tocIds": [
+              "objectifs-de-la-partie-3",
+              "1-comprendre-la-geopolitique",
+              "2-acteurs-ressources-et-instruments",
+              "3-appliquer-la-chaine-de-transmission-aux-chocs-geopolitiques",
+              "4-lire-l-effet-geopolitique-sur-chaque-classe-d-actifs",
+              "5-dossier-1-brexit",
+              "6-dossier-2-abqaiq",
+              "7-dossier-3-guerre-commerciale-etats-unis-chine",
+              "8-dossier-4-invasion-de-l-ukraine",
+              "9-dossier-5-semi-conducteurs",
+              "10-dossier-6-mer-rouge-et-routes-maritimes",
+              "11-methode-d-analyse-et-de-decision",
+              "12-limites-erreurs-et-discipline",
+              "conclusion-generale-relier-les-quatre-volumes",
+              "glossaire-essentiel",
+              "sources-et-methode"
+            ]
           }
         ],
         "partSequenceComplete": true,
@@ -356,11 +388,11 @@
         "slug": "4-analyse-macroeconomique"
       },
       "stats": {
-        "wordCount": 12627,
-        "readingMinutes": 57,
-        "chapterCount": 23,
+        "wordCount": 19354,
+        "readingMinutes": 88,
+        "chapterCount": 38,
         "dossierCount": 0,
-        "figureCount": 11
+        "figureCount": 22
       },
       "archetype": "macroeconomic_analysis"
     }

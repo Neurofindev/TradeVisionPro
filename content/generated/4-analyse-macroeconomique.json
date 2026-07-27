@@ -7,6 +7,10 @@
       {
         "file": "Formation_Investissement_Trading_Volume_4_Partie-1_Banques_Centrales.docx",
         "sha256": "177c644567be05cea4ada35b4a72bba5ed005ae65c6905e0cc03b6789c0339ab"
+      },
+      {
+        "file": "Formation_Investissement_Trading_Volume_4_Partie-3_Geopolitique_Marches.docx",
+        "sha256": "cc757b465ad94bc2aa20b0d9b1891400eed5d9d098db390c497c2ccbbcc49c52"
       }
     ]
   },
@@ -15,8 +19,8 @@
     "order": 4,
     "volumeNumber": 4,
     "title": "L’analyse Fondamentale",
-    "subtitle": "Comprendre les banques centrales, puis interpréter les données qui orientent leurs décisions.",
-    "description": "Étudier les mandats, les décisions et les outils des banques centrales avant d’analyser les publications économiques et leurs effets possibles sur les marchés.",
+    "subtitle": "Comprendre les banques centrales, interpréter les données et analyser les chocs géopolitiques.",
+    "description": "Étudier les banques centrales, les publications économiques et les chocs géopolitiques pour construire des scénarios de marché cohérents, conditionnels et maîtrisés.",
     "edition": null,
     "format": null,
     "coverLines": [],
@@ -37,8 +41,14 @@
       "chômage",
       "JOLTS",
       "ventes au détail",
+      "géopolitique",
+      "géoéconomie",
+      "sanctions",
+      "conflits",
+      "matières premières",
       "obligations",
-      "Forex"
+      "Forex",
+      "VIX"
     ],
     "highlights": [
       {
@@ -53,8 +63,8 @@
       },
       {
         "number": "03",
-        "title": "Transmission",
-        "text": "Relier les instruments monétaires aux conditions financières, à l’économie et aux différentes classes d’actifs."
+        "title": "Scénarios",
+        "text": "Relier décisions, données et chocs géopolitiques aux actifs sans transformer une relation possible en certitude."
       }
     ],
     "parts": [
@@ -100,6 +110,32 @@
           "11-erreurs-frequentes-et-checklist",
           "12-glossaire-et-sources-officielles"
         ]
+      },
+      {
+        "order": 3,
+        "id": "partie-3-geopolitique-marches",
+        "startId": "objectifs-de-la-partie-3",
+        "title": "Géopolitique et marchés financiers",
+        "subtitle": "Pouvoir · ressources · sanctions · conflits · flux de capitaux",
+        "description": "Relier un événement géopolitique à ses canaux économiques, identifier les expositions réellement concernées et construire des scénarios de marché avec leurs conditions d’invalidation.",
+        "tocIds": [
+          "objectifs-de-la-partie-3",
+          "1-comprendre-la-geopolitique",
+          "2-acteurs-ressources-et-instruments",
+          "3-appliquer-la-chaine-de-transmission-aux-chocs-geopolitiques",
+          "4-lire-l-effet-geopolitique-sur-chaque-classe-d-actifs",
+          "5-dossier-1-brexit",
+          "6-dossier-2-abqaiq",
+          "7-dossier-3-guerre-commerciale-etats-unis-chine",
+          "8-dossier-4-invasion-de-l-ukraine",
+          "9-dossier-5-semi-conducteurs",
+          "10-dossier-6-mer-rouge-et-routes-maritimes",
+          "11-methode-d-analyse-et-de-decision",
+          "12-limites-erreurs-et-discipline",
+          "conclusion-generale-relier-les-quatre-volumes",
+          "glossaire-essentiel",
+          "sources-et-methode"
+        ]
       }
     ],
     "partSequenceComplete": true,
@@ -108,11 +144,11 @@
   },
   "archetype": "macroeconomic_analysis",
   "stats": {
-    "wordCount": 12627,
-    "readingMinutes": 57,
-    "chapterCount": 23,
+    "wordCount": 19354,
+    "readingMinutes": 88,
+    "chapterCount": 38,
     "dossierCount": 0,
-    "figureCount": 11
+    "figureCount": 22
   },
   "blocks": [
     {
@@ -6827,6 +6863,3296 @@
       "variant": "default",
       "text": "La macroéconomie améliore les probabilités et la qualité du raisonnement ; elle ne supprime jamais l’incertitude. La gestion du risque reste indispensable.",
       "sourceFill": "FDECEC"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "objectifs-de-la-partie-3",
+      "text": "Objectifs de la Partie 3"
+    },
+    {
+      "type": "callout",
+      "label": "POSITION DANS LE VOLUME 4",
+      "variant": "info",
+      "text": "La Partie 1 a expliqué les banques centrales et la transmission monétaire ; la Partie 2, les publications macroéconomiques. Cette Partie 3 ajoute l'origine géopolitique de certains chocs et suit leur passage vers les flux réels, les coûts, les anticipations et les prix.",
+      "sourceFill": "EEF4FA"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Distinguer géopolitique, géoéconomie, risque politique et simple actualité.",
+          "segments": [
+            {
+              "text": "Distinguer géopolitique, géoéconomie, risque politique et simple actualité."
+            }
+          ]
+        },
+        {
+          "text": "Identifier le canal concret qui relie un événement à l'économie.",
+          "segments": [
+            {
+              "text": "Identifier le canal concret qui relie un événement à l'économie."
+            }
+          ]
+        },
+        {
+          "text": "Comprendre les effets des conflits, sanctions, tarifs, embargos, contrôles à l'exportation et blocages maritimes.",
+          "segments": [
+            {
+              "text": "Comprendre les effets des conflits, sanctions, tarifs, embargos, contrôles à l'exportation et blocages maritimes."
+            }
+          ]
+        },
+        {
+          "text": "Lire la réaction des matières premières, devises, obligations, actions, de l'or et du VIX sans appliquer de règle automatique.",
+          "segments": [
+            {
+              "text": "Lire la réaction des matières premières, devises, obligations, actions, de l'or et du VIX sans appliquer de règle automatique."
+            }
+          ]
+        },
+        {
+          "text": "Séparer un choc bref d'un changement structurel.",
+          "segments": [
+            {
+              "text": "Séparer un choc bref d'un changement structurel."
+            }
+          ]
+        },
+        {
+          "text": "Comparer plusieurs actifs afin de vérifier si le marché confirme réellement le récit dominant.",
+          "segments": [
+            {
+              "text": "Comparer plusieurs actifs afin de vérifier si le marché confirme réellement le récit dominant."
+            }
+          ]
+        },
+        {
+          "text": "Construire des scénarios, une invalidation et une taille de risque avant d'agir.",
+          "segments": [
+            {
+              "text": "Construire des scénarios, une invalidation et une taille de risque avant d'agir."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "parcours-de-la-partie-3",
+      "text": "Parcours de la Partie 3"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Comprendre la géopolitique et la géoéconomie.",
+          "segments": [
+            {
+              "text": "Comprendre la géopolitique et la géoéconomie."
+            }
+          ]
+        },
+        {
+          "text": "Reconnaître les acteurs, les instruments de puissance et les points de passage stratégiques.",
+          "segments": [
+            {
+              "text": "Reconnaître les acteurs, les instruments de puissance et les points de passage stratégiques."
+            }
+          ]
+        },
+        {
+          "text": "Suivre la chaîne de transmission vers l'économie et les marchés.",
+          "segments": [
+            {
+              "text": "Suivre la chaîne de transmission vers l'économie et les marchés."
+            }
+          ]
+        },
+        {
+          "text": "Lire chaque grande classe d'actifs.",
+          "segments": [
+            {
+              "text": "Lire chaque grande classe d'actifs."
+            }
+          ]
+        },
+        {
+          "text": "Étudier six dossiers historiques illustrés par TradingView.",
+          "segments": [
+            {
+              "text": "Étudier six dossiers historiques illustrés par TradingView."
+            }
+          ]
+        },
+        {
+          "text": "Appliquer une méthode de scénario, de vérification et de gestion du risque.",
+          "segments": [
+            {
+              "text": "Appliquer une méthode de scénario, de vérification et de gestion du risque."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "RÈGLE CENTRALE",
+      "variant": "warning",
+      "text": "Une guerre n'est pas automatiquement baissière pour toutes les actions. Une sanction n'est pas automatiquement haussière pour le dollar. Un détroit menacé ne fait pas toujours monter durablement le pétrole. Il faut toujours nommer le canal, la durée et la réponse possible.",
+      "sourceFill": "FCEDED"
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "1-comprendre-la-geopolitique",
+      "text": "1. Comprendre la géopolitique"
+    },
+    {
+      "type": "paragraph",
+      "text": "Étudier les rapports de puissance sans transformer chaque titre d'actualité en signal de trading.",
+      "segments": [
+        {
+          "text": "Étudier les rapports de puissance sans transformer chaque titre d'actualité en signal de trading.",
+          "italic": true
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "1-1-definition-simple",
+      "text": "1.1 Définition simple"
+    },
+    {
+      "type": "paragraph",
+      "text": "La géopolitique étudie la manière dont la géographie, les ressources, les frontières, les routes commerciales, la population et la technologie influencent la puissance d'un État et ses relations avec les autres acteurs. Elle ne se limite pas à la guerre : elle inclut aussi les alliances, la diplomatie, l'accès à l'énergie, les chaînes industrielles et la sécurité des infrastructures.",
+      "segments": [
+        {
+          "text": "La géopolitique étudie la manière dont la géographie, les ressources, les frontières, les routes commerciales, la population et la technologie influencent la puissance d'un État et ses relations avec les autres acteurs. Elle ne se limite pas à la guerre : elle inclut aussi les alliances, la diplomatie, l'accès à l'énergie, les chaînes industrielles et la sécurité des infrastructures."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Pour un investisseur, l'objectif n'est pas de juger moralement un événement. Il est de comprendre ce que cet événement peut modifier : un approvisionnement, un coût, un marché d'exportation, une devise, une prime de risque ou une règle juridique.",
+      "segments": [
+        {
+          "text": "Pour un investisseur, l'objectif n'est pas de juger moralement un événement. Il est de comprendre ce que cet événement peut modifier : un approvisionnement, un coût, un marché d'exportation, une devise, une prime de risque ou une règle juridique."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "1-2-la-geoeconomie",
+      "text": "1.2 La géoéconomie"
+    },
+    {
+      "type": "paragraph",
+      "text": "La géoéconomie apparaît lorsque des moyens économiques servent un objectif stratégique. Un État peut imposer des sanctions, limiter l'exportation d'une technologie, taxer des importations, subventionner une industrie, contrôler les investissements étrangers ou restreindre les mouvements de capitaux. L'économie devient alors un instrument de puissance.",
+      "segments": [
+        {
+          "text": "La géoéconomie apparaît lorsque des moyens économiques servent un objectif stratégique. Un État peut imposer des sanctions, limiter l'exportation d'une technologie, taxer des importations, subventionner une industrie, contrôler les investissements étrangers ou restreindre les mouvements de capitaux. L'économie devient alors un instrument de puissance."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "EXEMPLE",
+      "variant": "default",
+      "text": "Un contrôle sur l'exportation de puces avancées n'est pas seulement une décision commerciale. Il cherche aussi à ralentir l'accès d'un rival à des capacités de calcul utiles à l'intelligence artificielle, à l'industrie et à la défense.",
+      "sourceFill": "F5ECFA"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "1-3-quatre-notions-a-ne-pas-confondre",
+      "text": "1.3 Quatre notions à ne pas confondre"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Notion",
+        "Question centrale",
+        "Exemple"
+      ],
+      "rows": [
+        [
+          "Géopolitique",
+          "Comment l'espace et la puissance orientent-ils les décisions ?",
+          "Contrôle d'un détroit maritime."
+        ],
+        [
+          "Géoéconomie",
+          "Comment l'économie devient-elle un outil stratégique ?",
+          "Sanctions, tarifs ou contrôle des puces."
+        ],
+        [
+          "Risque politique",
+          "Une décision intérieure peut-elle modifier la valeur d'un actif ?",
+          "Élection, fiscalité ou nationalisation."
+        ],
+        [
+          "Risque pays",
+          "L'État, la devise ou le système financier peuvent-ils empêcher le paiement ?",
+          "Contrôle des capitaux ou défaut souverain."
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "1-4-une-nouvelle-n-est-pas-encore-un-scenario",
+      "text": "1.4 Une nouvelle n'est pas encore un scénario"
+    },
+    {
+      "type": "paragraph",
+      "text": "Une information devient exploitable seulement lorsque l'on sait ce qu'elle change. L'annonce d'une tension diplomatique peut rester symbolique. Une fermeture d'oléoduc, au contraire, réduit immédiatement une offre physique. Deux titres tout aussi spectaculaires peuvent donc produire des réactions opposées.",
+      "segments": [
+        {
+          "text": "Une information devient exploitable seulement lorsque l'on sait ce qu'elle change. L'annonce d'une tension diplomatique peut rester symbolique. Une fermeture d'oléoduc, au contraire, réduit immédiatement une offre physique. Deux titres tout aussi spectaculaires peuvent donc produire des réactions opposées."
+        }
+      ]
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Le fait : ce qui est confirmé par une source fiable.",
+          "segments": [
+            {
+              "text": "Le fait : ce qui est confirmé par une source fiable."
+            }
+          ]
+        },
+        {
+          "text": "Le mécanisme : le flux, la règle ou l'anticipation réellement modifiés.",
+          "segments": [
+            {
+              "text": "Le mécanisme : le flux, la règle ou l'anticipation réellement modifiés."
+            }
+          ]
+        },
+        {
+          "text": "Le scénario : la conséquence probable, avec une durée et une condition d'invalidation.",
+          "segments": [
+            {
+              "text": "Le scénario : la conséquence probable, avec une durée et une condition d'invalidation."
+            }
+          ]
+        },
+        {
+          "text": "Le prix : ce que le marché avait déjà anticipé avant la nouvelle.",
+          "segments": [
+            {
+              "text": "Le prix : ce que le marché avait déjà anticipé avant la nouvelle."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "À MÉMORISER",
+      "variant": "summary",
+      "text": "Le marché ne rémunère pas celui qui connaît le plus de nouvelles. Il rémunère parfois celui qui identifie plus vite la conséquence économique qui n'était pas encore intégrée dans les prix.",
+      "sourceFill": "FFF7DD"
+    },
+    {
+      "type": "paragraph",
+      "text": "Sources : FMI — Geopolitical Risks: Implications for Asset Prices and Financial Stability, 2025 · FMI — Geopolitics and its Impact on Global Trade and the Dollar, 2024",
+      "segments": [
+        {
+          "text": "Sources : ",
+          "italic": true
+        },
+        {
+          "text": "FMI — Geopolitical Risks: Implications for Asset Prices and Financial Stability, 2025",
+          "underline": true,
+          "href": "https://www.imf.org/-/media/files/publications/gfsr/2025/april/english/ch2.pdf"
+        },
+        {
+          "text": " · "
+        },
+        {
+          "text": "FMI — Geopolitics and its Impact on Global Trade and the Dollar, 2024",
+          "underline": true,
+          "href": "https://www.imf.org/en/news/articles/2024/05/07/sp-geopolitics-impact-global-trade-and-dollar-gita-gopinath"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "2-acteurs-ressources-et-instruments",
+      "text": "2. Acteurs, ressources et instruments"
+    },
+    {
+      "type": "paragraph",
+      "text": "Comprendre qui agit, avec quel moyen, contre quelle dépendance.",
+      "segments": [
+        {
+          "text": "Comprendre qui agit, avec quel moyen, contre quelle dépendance.",
+          "italic": true
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "2-1-les-principaux-acteurs",
+      "text": "2.1 Les principaux acteurs"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Acteur",
+        "Pouvoir principal",
+        "Ce que le marché surveille"
+      ],
+      "rows": [
+        [
+          "États",
+          "Armée, loi, fiscalité, diplomatie, monnaie et frontières.",
+          "Décisions officielles, capacité d'exécution, durée."
+        ],
+        [
+          "Alliances et organisations",
+          "Coordination, normes, défense collective, aide et sanctions.",
+          "Unité des membres et portée réelle des mesures."
+        ],
+        [
+          "Entreprises stratégiques",
+          "Énergie, puces, transport, télécoms, infrastructures.",
+          "Exposition géographique, dépendance et marges."
+        ],
+        [
+          "Acteurs non étatiques",
+          "Attaques, cyberrisque, perturbation de routes ou d'infrastructures.",
+          "Capacité à répéter l'action et à élargir le conflit."
+        ],
+        [
+          "Investisseurs et banques",
+          "Allocation du capital, liquidité, financement et couverture.",
+          "Flux, appels de marge, prime de risque et contagion."
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "2-2-les-ressources-qui-creent-une-dependance",
+      "text": "2.2 Les ressources qui créent une dépendance"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Énergie : pétrole, gaz, uranium, électricité et capacités de raffinage.",
+          "segments": [
+            {
+              "text": "Énergie : pétrole, gaz, uranium, électricité et capacités de raffinage."
+            }
+          ]
+        },
+        {
+          "text": "Alimentation : blé, maïs, huiles, engrais et routes d'exportation.",
+          "segments": [
+            {
+              "text": "Alimentation : blé, maïs, huiles, engrais et routes d'exportation."
+            }
+          ]
+        },
+        {
+          "text": "Technologie : semi-conducteurs, machines de fabrication, logiciels et données.",
+          "segments": [
+            {
+              "text": "Technologie : semi-conducteurs, machines de fabrication, logiciels et données."
+            }
+          ]
+        },
+        {
+          "text": "Métaux critiques : cuivre, lithium, nickel, terres rares et capacités de transformation.",
+          "segments": [
+            {
+              "text": "Métaux critiques : cuivre, lithium, nickel, terres rares et capacités de transformation."
+            }
+          ]
+        },
+        {
+          "text": "Finance : monnaie de réserve, systèmes de paiement, banques correspondantes et réserves de change.",
+          "segments": [
+            {
+              "text": "Finance : monnaie de réserve, systèmes de paiement, banques correspondantes et réserves de change."
+            }
+          ]
+        },
+        {
+          "text": "Transport : ports, détroits, canaux, pipelines, câbles sous-marins et satellites.",
+          "segments": [
+            {
+              "text": "Transport : ports, détroits, canaux, pipelines, câbles sous-marins et satellites."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Une dépendance n'est dangereuse que si elle est difficile à remplacer. Il faut donc rechercher les fournisseurs alternatifs, les stocks, la capacité inutilisée, les délais de transport et les technologies de substitution.",
+      "segments": [
+        {
+          "text": "Une dépendance n'est dangereuse que si elle est difficile à remplacer. Il faut donc rechercher les fournisseurs alternatifs, les stocks, la capacité inutilisée, les délais de transport et les technologies de substitution."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "2-3-les-instruments-de-puissance",
+      "text": "2.3 Les instruments de puissance"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Instrument",
+        "Mécanisme économique",
+        "Premiers actifs concernés"
+      ],
+      "rows": [
+        [
+          "Conflit ou attaque",
+          "Détruit, bloque ou menace une capacité physique.",
+          "Énergie, matières premières, défense, VIX, devises."
+        ],
+        [
+          "Sanction financière",
+          "Restreint le financement, le paiement ou l'accès aux réserves.",
+          "Devise, banques, dette souveraine, entreprises exposées."
+        ],
+        [
+          "Embargo",
+          "Interdit l'achat ou la vente d'un produit.",
+          "Produit visé, substituts, transport et inflation."
+        ],
+        [
+          "Tarif douanier",
+          "Augmente le coût d'une importation et modifie la compétitivité.",
+          "Devise, industriels, distributeurs et marges."
+        ],
+        [
+          "Contrôle à l'exportation",
+          "Limite l'accès à un bien stratégique ou à une technologie.",
+          "Semi-conducteurs, équipementiers, clients étrangers."
+        ],
+        [
+          "Contrôle des capitaux",
+          "Limite les achats, ventes ou transferts de monnaie.",
+          "Devise locale, liquidité, prix observables et convertibilité."
+        ],
+        [
+          "Subvention industrielle",
+          "Déplace l'investissement vers une capacité jugée stratégique.",
+          "Secteur aidé, concurrents étrangers, dette publique."
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "2-4-les-points-de-passage-strategiques",
+      "text": "2.4 Les points de passage stratégiques"
+    },
+    {
+      "type": "paragraph",
+      "text": "Un point de passage stratégique, ou chokepoint, concentre un grand volume de commerce dans un espace étroit. Le détroit d'Ormuz, Bab el-Mandeb, le canal de Suez, le détroit de Malacca et le canal de Panama en sont des exemples. Leur importance vient moins de leur taille que de la difficulté de détourner rapidement les flux.",
+      "segments": [
+        {
+          "text": "Un point de passage stratégique, ou chokepoint, concentre un grand volume de commerce dans un espace étroit. Le détroit d'Ormuz, Bab el-Mandeb, le canal de Suez, le détroit de Malacca et le canal de Panama en sont des exemples. Leur importance vient moins de leur taille que de la difficulté de détourner rapidement les flux."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "EXEMPLE ORMUZ",
+      "variant": "principle",
+      "text": "D'après l'EIA, environ 20 millions de barils par jour ont transité par le détroit d'Ormuz en 2024, soit près de 20 % de la consommation mondiale de liquides pétroliers. Une menace crédible sur ce passage peut donc affecter le prix du pétrole avant même qu'une fermeture complète ait lieu.",
+      "sourceFill": "FFF7DD"
+    },
+    {
+      "type": "paragraph",
+      "text": "Mais la réaction dépend encore de la durée attendue, des stocks, de la capacité de production ailleurs, des routes alternatives et de la réponse politique. Un chiffre d'exposition ne suffit pas à prévoir un prix.",
+      "segments": [
+        {
+          "text": "Mais la réaction dépend encore de la durée attendue, des stocks, de la capacité de production ailleurs, des routes alternatives et de la réponse politique. Un chiffre d'exposition ne suffit pas à prévoir un prix."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Sources : U.S. EIA — Le détroit d'Ormuz, point de passage critique du pétrole · FMI — Geopolitics and its Impact on Global Trade and the Dollar, 2024",
+      "segments": [
+        {
+          "text": "Sources : ",
+          "italic": true
+        },
+        {
+          "text": "U.S. EIA — Le détroit d'Ormuz, point de passage critique du pétrole",
+          "underline": true,
+          "href": "https://www.eia.gov/todayinenergy/detail.php?id=65504"
+        },
+        {
+          "text": " · "
+        },
+        {
+          "text": "FMI — Geopolitics and its Impact on Global Trade and the Dollar, 2024",
+          "underline": true,
+          "href": "https://www.imf.org/en/news/articles/2024/05/07/sp-geopolitics-impact-global-trade-and-dollar-gita-gopinath"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "3-appliquer-la-chaine-de-transmission-aux-chocs-geopolitiques",
+      "text": "3. Appliquer la chaîne de transmission aux chocs géopolitiques"
+    },
+    {
+      "type": "paragraph",
+      "text": "Passer du titre spectaculaire au mécanisme économique, étape par étape.",
+      "segments": [
+        {
+          "text": "Passer du titre spectaculaire au mécanisme économique, étape par étape.",
+          "italic": true
+        }
+      ]
+    },
+    {
+      "type": "figure",
+      "src": "/media/4-analyse-macroeconomique/4-analyse-macroeconomique-bbe4e6f35513.webp",
+      "originalName": "image1.png",
+      "width": 1600,
+      "height": 1450,
+      "optimized": true,
+      "caption": "Figure 1 — Les six étapes qui relient un événement géopolitique au prix d'un actif.",
+      "source": "FMI — Geopolitical Risks: Implications for Asset Prices and Financial Stability, 2025 · FMI — Geopolitics and its Impact on Global Trade and the Dollar, 2024",
+      "sourceLinks": [
+        "https://www.imf.org/-/media/files/publications/gfsr/2025/april/english/ch2.pdf",
+        "https://www.imf.org/en/news/articles/2024/05/07/sp-geopolitics-impact-global-trade-and-dollar-gita-gopinath"
+      ],
+      "alt": "Les six étapes qui relient un événement géopolitique au prix d'un actif."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "3-1-etape-1-identifier-le-fait",
+      "text": "3.1 Étape 1 — Identifier le fait"
+    },
+    {
+      "type": "paragraph",
+      "text": "Commence par séparer le fait, la déclaration et la rumeur. Une décision publiée dans un texte officiel n'a pas la même valeur qu'un commentaire anonyme. Une attaque revendiquée n'est pas encore la preuve d'une interruption durable. La première erreur du débutant consiste à trader la formulation la plus alarmante avant de connaître le détail opérationnel.",
+      "segments": [
+        {
+          "text": "Commence par séparer le fait, la déclaration et la rumeur. Une décision publiée dans un texte officiel n'a pas la même valeur qu'un commentaire anonyme. Une attaque revendiquée n'est pas encore la preuve d'une interruption durable. La première erreur du débutant consiste à trader la formulation la plus alarmante avant de connaître le détail opérationnel."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "3-2-etape-2-nommer-le-canal",
+      "text": "3.2 Étape 2 — Nommer le canal"
+    },
+    {
+      "type": "paragraph",
+      "text": "Pose une question concrète : qu'est-ce qui ne peut plus circuler, être vendu, être payé ou être produit comme avant ? Si aucune réponse précise n'apparaît, l'impact économique peut rester limité. Les canaux les plus importants sont l'offre physique, le commerce, le financement, la technologie, le transport et la confiance.",
+      "segments": [
+        {
+          "text": "Pose une question concrète : qu'est-ce qui ne peut plus circuler, être vendu, être payé ou être produit comme avant ? Si aucune réponse précise n'apparaît, l'impact économique peut rester limité. Les canaux les plus importants sont l'offre physique, le commerce, le financement, la technologie, le transport et la confiance."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "3-3-etape-3-mesurer-l-exposition",
+      "text": "3.3 Étape 3 — Mesurer l'exposition"
+    },
+    {
+      "type": "paragraph",
+      "text": "L'exposition directe concerne l'actif immédiatement touché : une compagnie aérienne face à un pétrole plus cher, par exemple. L'exposition indirecte passe par les clients, fournisseurs, devises, taux ou concurrents. Une entreprise peut bénéficier du choc sur ses revenus mais souffrir en Bourse parce que le marché avait déjà payé trop cher ce scénario.",
+      "segments": [
+        {
+          "text": "L'exposition directe concerne l'actif immédiatement touché : une compagnie aérienne face à un pétrole plus cher, par exemple. L'exposition indirecte passe par les clients, fournisseurs, devises, taux ou concurrents. Une entreprise peut bénéficier du choc sur ses revenus mais souffrir en Bourse parce que le marché avait déjà payé trop cher ce scénario."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "3-4-etape-4-traduire-en-croissance-et-inflation",
+      "text": "3.4 Étape 4 — Traduire en croissance et inflation"
+    },
+    {
+      "type": "paragraph",
+      "text": "La Partie 2 a présenté les régimes de croissance et d'inflation. Ici, applique ce cadre au choc géopolitique : un choc de demande pèse surtout sur l'activité, tandis qu'un choc d'offre réduit la production disponible et augmente les coûts. Ce dernier peut placer la banque centrale devant un arbitrage plus difficile.",
+      "segments": [
+        {
+          "text": "La Partie 2 a présenté les régimes de croissance et d'inflation. Ici, applique ce cadre au choc géopolitique : un choc de demande pèse surtout sur l'activité, tandis qu'un choc d'offre réduit la production disponible et augmente les coûts. Ce dernier peut placer la banque centrale devant un arbitrage plus difficile."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "3-5-etape-5-comprendre-les-taux-et-la-prime-de-risque",
+      "text": "3.5 Étape 5 — Comprendre les taux et la prime de risque"
+    },
+    {
+      "type": "paragraph",
+      "text": "La Partie 1 a expliqué comment les anticipations de taux atteignent les obligations et les actions. Dans un scénario géopolitique, détermine maintenant quelle force domine : recherche de sécurité, inflation importée, ralentissement de la croissance ou hausse du risque souverain. Il n'existe pas de réaction obligataire universelle.",
+      "segments": [
+        {
+          "text": "La Partie 1 a expliqué comment les anticipations de taux atteignent les obligations et les actions. Dans un scénario géopolitique, détermine maintenant quelle force domine : recherche de sécurité, inflation importée, ralentissement de la croissance ou hausse du risque souverain. Il n'existe pas de réaction obligataire universelle."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "3-6-etape-6-lire-le-prix-et-les-flux",
+      "text": "3.6 Étape 6 — Lire le prix et les flux"
+    },
+    {
+      "type": "paragraph",
+      "text": "Le Volume 3 a montré comment le prix et le volume matérialisent les anticipations. Ici, utilise-les pour vérifier le scénario géopolitique : une mauvaise nouvelle peut faire monter le marché si elle est moins grave que prévu, tandis qu'une nouvelle positive peut décevoir si un résultat parfait était déjà intégré.",
+      "segments": [
+        {
+          "text": "Le Volume 3 a montré comment le prix et le volume matérialisent les anticipations. Ici, utilise-les pour vérifier le scénario géopolitique : une mauvaise nouvelle peut faire monter le marché si elle est moins grave que prévu, tandis qu'une nouvelle positive peut décevoir si un résultat parfait était déjà intégré."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "FORMULE MENTALE",
+      "variant": "mnemonic",
+      "text": "Impact de marché = surprise utile + exposition réelle + durée attendue − capacité d'adaptation − part déjà intégrée dans le prix. Cette phrase n'est pas un calcul ; c'est une grille de réflexion.",
+      "sourceFill": "EEF4FA"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "3-7-six-filtres-qui-determinent-la-force-de-la-reaction",
+      "text": "3.7 Six filtres qui déterminent la force de la réaction"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Filtre",
+        "Question",
+        "Pourquoi il compte"
+      ],
+      "rows": [
+        [
+          "Surprise",
+          "Le marché attendait-il déjà l'événement ?",
+          "Une surprise impose un repricing plus brutal."
+        ],
+        [
+          "Taille",
+          "Quel volume, revenu ou financement est réellement touché ?",
+          "Un titre spectaculaire peut représenter une faible exposition."
+        ],
+        [
+          "Durée",
+          "Le choc dure-t-il des heures, des mois ou des années ?",
+          "La durée transforme un pic en tendance."
+        ],
+        [
+          "Substitution",
+          "Existe-t-il une autre route, un autre fournisseur ou un stock ?",
+          "L'adaptation limite le dommage."
+        ],
+        [
+          "Réponse publique",
+          "Les États, banques centrales ou producteurs peuvent-ils intervenir ?",
+          "La politique peut absorber ou amplifier le choc."
+        ],
+        [
+          "Positionnement",
+          "Les investisseurs sont-ils déjà couverts ou concentrés ?",
+          "Les rachats forcés et appels de marge amplifient les bougies."
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "3-8-les-effets-de-premier-deuxieme-et-troisieme-ordre",
+      "text": "3.8 Les effets de premier, deuxième et troisième ordre"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Ordre",
+        "Question",
+        "Exemple : pétrole plus cher"
+      ],
+      "rows": [
+        [
+          "Premier ordre",
+          "Quel prix bouge directement ?",
+          "Hausse du Brent et des producteurs d'énergie."
+        ],
+        [
+          "Deuxième ordre",
+          "Qui paie ou bénéficie de ce nouveau prix ?",
+          "Pression sur transport, chimie et revenu des ménages."
+        ],
+        [
+          "Troisième ordre",
+          "Quelle réponse macro ou politique apparaît ?",
+          "Inflation plus forte, taux plus élevés, consommation plus faible."
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "PIÈGE CLASSIQUE",
+      "variant": "warning",
+      "text": "S'arrêter au premier ordre. Les réactions les plus durables apparaissent souvent lorsque le choc atteint les marges, l'inflation, les taux et le crédit.",
+      "sourceFill": "FCEDED"
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "4-lire-l-effet-geopolitique-sur-chaque-classe-d-actifs",
+      "text": "4. Lire l'effet géopolitique sur chaque classe d'actifs"
+    },
+    {
+      "type": "paragraph",
+      "text": "Le même événement peut produire des signaux opposés selon le marché observé.",
+      "segments": [
+        {
+          "text": "Le même événement peut produire des signaux opposés selon le marché observé.",
+          "italic": true
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "4-1-petrole-gaz-et-matieres-premieres",
+      "text": "4.1 Pétrole, gaz et matières premières"
+    },
+    {
+      "type": "paragraph",
+      "text": "Les matières premières réagissent d'abord à l'équilibre physique entre offre, demande, stocks et capacité inutilisée. Une tension au Moyen-Orient ne suffit pas : le marché cherche à savoir si des barils sont réellement retirés, pendant combien de temps et avec quelles solutions de remplacement.",
+      "segments": [
+        {
+          "text": "Les matières premières réagissent d'abord à l'équilibre physique entre offre, demande, stocks et capacité inutilisée. Une tension au Moyen-Orient ne suffit pas : le marché cherche à savoir si des barils sont réellement retirés, pendant combien de temps et avec quelles solutions de remplacement."
+        }
+      ]
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Offre réellement interrompue : réaction généralement plus forte.",
+          "segments": [
+            {
+              "text": "Offre réellement interrompue : réaction généralement plus forte."
+            }
+          ]
+        },
+        {
+          "text": "Menace sans interruption : prime de risque possible, souvent instable.",
+          "segments": [
+            {
+              "text": "Menace sans interruption : prime de risque possible, souvent instable."
+            }
+          ]
+        },
+        {
+          "text": "Stocks élevés et demande faible : le choc peut être absorbé.",
+          "segments": [
+            {
+              "text": "Stocks élevés et demande faible : le choc peut être absorbé."
+            }
+          ]
+        },
+        {
+          "text": "Capacité de remplacement limitée : la durée devient décisive.",
+          "segments": [
+            {
+              "text": "Capacité de remplacement limitée : la durée devient décisive."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "4-2-devises",
+      "text": "4.2 Devises"
+    },
+    {
+      "type": "paragraph",
+      "text": "Rappel de la Partie 2 : une devise est un prix relatif entre deux économies. Pour un choc géopolitique, compare leur exposition directe, la réponse probable de leurs banques centrales, les flux de capitaux et le coût des importations d'énergie.",
+      "segments": [
+        {
+          "text": "Rappel de la Partie 2 : une devise est un prix relatif entre deux économies. Pour un choc géopolitique, compare leur exposition directe, la réponse probable de leurs banques centrales, les flux de capitaux et le coût des importations d'énergie."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "LECTURE DU SYMBOLE",
+      "variant": "info",
+      "text": "GBP/USD en baisse signifie qu'une livre achète moins de dollars. USD/CNH en hausse signifie qu'un dollar achète davantage de yuans offshore : le yuan se déprécie face au dollar.",
+      "sourceFill": "EEF4FA"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "4-3-actions-et-secteurs",
+      "text": "4.3 Actions et secteurs"
+    },
+    {
+      "type": "paragraph",
+      "text": "Un indice agrège des entreprises très différentes. Le choc doit être traduit en chiffre d'affaires, coûts, marges, financement et valorisation. Les producteurs d'énergie peuvent bénéficier d'un pétrole plus cher tandis que les transporteurs paient davantage. Les entreprises de défense peuvent recevoir plus de commandes, mais une valorisation déjà extrême peut limiter le rendement futur.",
+      "segments": [
+        {
+          "text": "Un indice agrège des entreprises très différentes. Le choc doit être traduit en chiffre d'affaires, coûts, marges, financement et valorisation. Les producteurs d'énergie peuvent bénéficier d'un pétrole plus cher tandis que les transporteurs paient davantage. Les entreprises de défense peuvent recevoir plus de commandes, mais une valorisation déjà extrême peut limiter le rendement futur."
+        }
+      ]
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Canal",
+        "Bénéficiaires possibles",
+        "Entreprises sous pression possible"
+      ],
+      "rows": [
+        [
+          "Énergie plus chère",
+          "Producteurs, services pétroliers.",
+          "Transport, chimie, industrie énergivore."
+        ],
+        [
+          "Réarmement",
+          "Défense, cybersécurité, certains équipementiers.",
+          "Budgets publics concurrents, secteurs civils évincés."
+        ],
+        [
+          "Tarifs",
+          "Producteurs locaux protégés.",
+          "Importateurs, distributeurs et chaînes mondiales."
+        ],
+        [
+          "Relocalisation",
+          "Automatisation, infrastructures, équipements.",
+          "Acteurs dépendants d'un fournisseur unique."
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "4-4-obligations-et-taux",
+      "text": "4.4 Obligations et taux"
+    },
+    {
+      "type": "paragraph",
+      "text": "Applique ici le cadre obligataire de la Partie 1 : une peur de récession peut faire baisser les rendements par recherche de sécurité, alors qu'un choc d'offre énergétique peut renforcer l'inflation et les faire monter. Identifie la force dominante : fuite vers la qualité, inflation ou risque souverain.",
+      "segments": [
+        {
+          "text": "Applique ici le cadre obligataire de la Partie 1 : une peur de récession peut faire baisser les rendements par recherche de sécurité, alors qu'un choc d'offre énergétique peut renforcer l'inflation et les faire monter. Identifie la force dominante : fuite vers la qualité, inflation ou risque souverain."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "4-5-or-et-actifs-dits-refuges",
+      "text": "4.5 Or et actifs dits refuges"
+    },
+    {
+      "type": "paragraph",
+      "text": "L'or peut être recherché lorsque l'incertitude augmente, mais il réagit aussi au dollar, aux taux réels, à la liquidité et aux prises de bénéfices. Le dollar, le franc suisse, le yen et les obligations américaines sont parfois traités comme refuges, mais leur comportement dépend du lieu du choc et de la politique monétaire.",
+      "segments": [
+        {
+          "text": "L'or peut être recherché lorsque l'incertitude augmente, mais il réagit aussi au dollar, aux taux réels, à la liquidité et aux prises de bénéfices. Le dollar, le franc suisse, le yen et les obligations américaines sont parfois traités comme refuges, mais leur comportement dépend du lieu du choc et de la politique monétaire."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "PRUDENCE",
+      "variant": "warning",
+      "text": "Un refuge n'est pas un actif qui monte à chaque crise. C'est un actif susceptible de recevoir des flux dans certains régimes. Son prix peut baisser si les investisseurs doivent vendre ce qui est liquide pour obtenir du cash.",
+      "sourceFill": "FCEDED"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "4-6-le-vix",
+      "text": "4.6 Le VIX"
+    },
+    {
+      "type": "paragraph",
+      "text": "Le VIX mesure les anticipations de volatilité à court terme du S&P 500 à partir des prix d'options. Il ne prédit pas la direction du marché et ne représente pas la peur de tous les actifs. Une hausse signifie surtout que les options intègrent une amplitude future plus importante.",
+      "segments": [
+        {
+          "text": "Le VIX mesure les anticipations de volatilité à court terme du S&P 500 à partir des prix d'options. Il ne prédit pas la direction du marché et ne représente pas la peur de tous les actifs. Une hausse signifie surtout que les options intègrent une amplitude future plus importante."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Sources : Cboe — Définition officielle du VIX · FMI — Geopolitical Risks: Implications for Asset Prices and Financial Stability, 2025",
+      "segments": [
+        {
+          "text": "Sources : ",
+          "italic": true
+        },
+        {
+          "text": "Cboe — Définition officielle du VIX",
+          "underline": true,
+          "href": "https://www.cboe.com/tradable-products/vix/"
+        },
+        {
+          "text": " · "
+        },
+        {
+          "text": "FMI — Geopolitical Risks: Implications for Asset Prices and Financial Stability, 2025",
+          "underline": true,
+          "href": "https://www.imf.org/-/media/files/publications/gfsr/2025/april/english/ch2.pdf"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "5-dossier-1-brexit",
+      "text": "5. Dossier 1 — Brexit"
+    },
+    {
+      "type": "paragraph",
+      "text": "Une décision politique produit un repricing immédiat de la devise, puis un long processus économique.",
+      "segments": [
+        {
+          "text": "Une décision politique produit un repricing immédiat de la devise, puis un long processus économique.",
+          "italic": true
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "5-1-le-contexte",
+      "text": "5.1 Le contexte"
+    },
+    {
+      "type": "paragraph",
+      "text": "Le 23 juin 2016, le Royaume-Uni vote sur son appartenance à l'Union européenne. Le résultat officiel donne 17 410 742 voix à Leave contre 16 141 241 à Remain, avec une participation de 72,2 %. Le résultat modifie brutalement les attentes sur le commerce, l'investissement, la croissance et la politique de la Bank of England.",
+      "segments": [
+        {
+          "text": "Le 23 juin 2016, le Royaume-Uni vote sur son appartenance à l'Union européenne. Le résultat officiel donne 17 410 742 voix à Leave contre 16 141 241 à Remain, avec une participation de 72,2 %. Le résultat modifie brutalement les attentes sur le commerce, l'investissement, la croissance et la politique de la Bank of England."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "5-2-le-mecanisme-de-marche",
+      "text": "5.2 Le mécanisme de marché"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Surprise politique : le résultat oblige à revoir rapidement les scénarios.",
+          "segments": [
+            {
+              "text": "Surprise politique : le résultat oblige à revoir rapidement les scénarios."
+            }
+          ]
+        },
+        {
+          "text": "Risque économique : l'accès futur au marché européen devient incertain.",
+          "segments": [
+            {
+              "text": "Risque économique : l'accès futur au marché européen devient incertain."
+            }
+          ]
+        },
+        {
+          "text": "Risque monétaire : le marché anticipe une réponse plus accommodante de la Bank of England.",
+          "segments": [
+            {
+              "text": "Risque monétaire : le marché anticipe une réponse plus accommodante de la Bank of England."
+            }
+          ]
+        },
+        {
+          "text": "Flux : certains investisseurs réduisent leur exposition aux actifs britanniques.",
+          "segments": [
+            {
+              "text": "Flux : certains investisseurs réduisent leur exposition aux actifs britanniques."
+            }
+          ]
+        },
+        {
+          "text": "Prix : la livre baisse immédiatement face au dollar.",
+          "segments": [
+            {
+              "text": "Prix : la livre baisse immédiatement face au dollar."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "figure",
+      "src": "/media/4-analyse-macroeconomique/4-analyse-macroeconomique-e2064028f176.webp",
+      "originalName": "image2.jpg",
+      "width": 960,
+      "height": 855,
+      "optimized": true,
+      "caption": "Figure 2 — GBP/USD en journalier, mai à août 2016. Le vote est suivi d'une bougie baissière exceptionnelle.",
+      "source": "TradingView — GBP/USD (FX:GBPUSD) · Electoral Commission — Résultats officiels du référendum de 2016 · Bank of England — EU withdrawal scenarios and monetary and financial stability",
+      "sourceLinks": [
+        "https://www.tradingview.com/chart/?symbol=FX%3AGBPUSD",
+        "https://www.electoralcommission.org.uk/research-reports-and-data/our-reports-and-data-past-elections-and-referendums/results-and-turnout-eu-referendum",
+        "https://www.bankofengland.co.uk/-/media/boe/files/report/2018/eu-withdrawal-scenarios-and-monetary-and-financial-stability.pdf"
+      ],
+      "alt": "GBP/USD en journalier, mai à août 2016. Le vote est suivi d'une bougie baissière exceptionnelle."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "lecture-guidee",
+      "text": "Lecture guidée"
+    },
+    {
+      "type": "callout",
+      "label": "CE QUE L'ON OBSERVE",
+      "variant": "info",
+      "text": "Le cours progressait juste avant le résultat, puis une très grande bougie rouge apparaît. La zone suivante reste nettement sous les prix antérieurs : il ne s'agit pas seulement d'une mèche intrajournalière.",
+      "sourceFill": "EEF4FA"
+    },
+    {
+      "type": "callout",
+      "label": "REPÈRE",
+      "variant": "summary",
+      "text": "CE QUE CELA SIGNIFIE Le marché a réévalué en quelques heures la valeur relative de la livre et le risque attaché au Royaume-Uni. L'ouverture, la clôture, la mèche et le volume relient ce dossier au Volume 3, consacré à la lecture technique du marché.",
+      "sourceFill": "EAF6EF"
+    },
+    {
+      "type": "callout",
+      "label": "CE QUE LE GRAPHIQUE NE PROUVE PAS",
+      "variant": "warning",
+      "text": "Il ne démontre pas que chaque variation ultérieure de la livre vient du Brexit. Les taux, l'inflation, le dollar et les négociations ont ensuite repris leur rôle.",
+      "sourceFill": "FCEDED"
+    },
+    {
+      "type": "callout",
+      "label": "LEÇON TRANSFÉRABLE",
+      "variant": "principle",
+      "text": "Lorsqu'un événement binaire est connu à l'avance mais que son résultat reste incertain, le risque principal est le gap. Un stop peut être exécuté bien plus loin que prévu. La taille doit être réduite avant l'événement, pas après.",
+      "sourceFill": "FFF7DD"
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "6-dossier-2-abqaiq",
+      "text": "6. Dossier 2 — Abqaiq"
+    },
+    {
+      "type": "paragraph",
+      "text": "Pourquoi une interruption gigantesque peut provoquer un pic bref plutôt qu'une tendance durable.",
+      "segments": [
+        {
+          "text": "Pourquoi une interruption gigantesque peut provoquer un pic bref plutôt qu'une tendance durable.",
+          "italic": true
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "6-1-le-fait",
+      "text": "6.1 Le fait"
+    },
+    {
+      "type": "paragraph",
+      "text": "Le 14 septembre 2019, une attaque endommage l'installation de traitement d'Abqaiq et le champ de Khurais en Arabie saoudite. L'EIA estime l'interruption initiale à environ 5,7 millions de barils par jour, soit près de 6 % de l'offre mondiale de pétrole de l'époque. Abqaiq est une infrastructure centrale du système pétrolier saoudien.",
+      "segments": [
+        {
+          "text": "Le 14 septembre 2019, une attaque endommage l'installation de traitement d'Abqaiq et le champ de Khurais en Arabie saoudite. L'EIA estime l'interruption initiale à environ 5,7 millions de barils par jour, soit près de 6 % de l'offre mondiale de pétrole de l'époque. Abqaiq est une infrastructure centrale du système pétrolier saoudien."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "6-2-pourquoi-le-prix-monte-puis-retombe",
+      "text": "6.2 Pourquoi le prix monte puis retombe"
+    },
+    {
+      "type": "paragraph",
+      "text": "À la réouverture du marché, le Brent intègre une perte potentiellement massive. Mais le marché ne valorise pas seulement la taille initiale : il réévalue rapidement la durée. Les annonces sur le rétablissement de la production, l'utilisation des stocks et l'absence d'une escalade immédiate réduisent la prime de risque.",
+      "segments": [
+        {
+          "text": "À la réouverture du marché, le Brent intègre une perte potentiellement massive. Mais le marché ne valorise pas seulement la taille initiale : il réévalue rapidement la durée. Les annonces sur le rétablissement de la production, l'utilisation des stocks et l'absence d'une escalade immédiate réduisent la prime de risque."
+        }
+      ]
+    },
+    {
+      "type": "figure",
+      "src": "/media/4-analyse-macroeconomique/4-analyse-macroeconomique-ecd1f4a6c08d.webp",
+      "originalName": "image3.jpg",
+      "width": 960,
+      "height": 855,
+      "optimized": true,
+      "caption": "Figure 3 — Brent en journalier autour de l'attaque d'Abqaiq, août à octobre 2019.",
+      "source": "TradingView — Brent (TVC:UKOIL) · U.S. EIA — Saudi Arabia crude oil production outage, 23 septembre 2019",
+      "sourceLinks": [
+        "https://www.tradingview.com/chart/?symbol=TVC%3AUKOIL",
+        "https://www.eia.gov/todayinenergy/detail.php?id=41413"
+      ],
+      "alt": "Brent en journalier autour de l'attaque d'Abqaiq, août à octobre 2019."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "lecture-guidee-2",
+      "text": "Lecture guidée"
+    },
+    {
+      "type": "callout",
+      "label": "CE QUE L'ON OBSERVE",
+      "variant": "info",
+      "text": "Une forte bougie haussière et une grande amplitude apparaissent à la séance suivant l'attaque. Les séances suivantes effacent progressivement l'essentiel du mouvement.",
+      "sourceFill": "EEF4FA"
+    },
+    {
+      "type": "callout",
+      "label": "CE QUE CELA SIGNIFIE",
+      "variant": "summary",
+      "text": "Le marché a d'abord payé le pire scénario, puis a réduit la prime lorsque le risque d'une interruption longue a diminué. La durée attendue a dominé la taille initiale.",
+      "sourceFill": "EAF6EF"
+    },
+    {
+      "type": "callout",
+      "label": "CE QUE LE GRAPHIQUE NE PROUVE PAS",
+      "variant": "warning",
+      "text": "Le graphique TradingView utilise ici un CFD sur le Brent ; le volume affiché n'est pas un volume centralisé du marché pétrolier. La lecture repose surtout sur le prix et l'amplitude.",
+      "sourceFill": "FCEDED"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Question",
+        "Réponse au départ",
+        "Réponse après les annonces"
+      ],
+      "rows": [
+        [
+          "Taille du choc",
+          "Très grande.",
+          "Toujours connue."
+        ],
+        [
+          "Durée attendue",
+          "Potentiellement longue.",
+          "Révisée à la baisse."
+        ],
+        [
+          "Substitution",
+          "Incertaine.",
+          "Stocks et restauration rassurent."
+        ],
+        [
+          "Prime de risque",
+          "Hausse immédiate.",
+          "Retrait partiel."
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "LEÇON TRANSFÉRABLE",
+      "variant": "principle",
+      "text": "Le prix d'une matière première dépend de la quantité indisponible multipliée par le temps pendant lequel elle manque. Un choc gigantesque mais très bref peut être moins haussier qu'un petit déficit persistant.",
+      "sourceFill": "FFF7DD"
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "7-dossier-3-guerre-commerciale-etats-unis-chine",
+      "text": "7. Dossier 3 — Guerre commerciale États-Unis–Chine"
+    },
+    {
+      "type": "paragraph",
+      "text": "Une succession de décisions transforme une tension politique en tendance macrofinancière.",
+      "segments": [
+        {
+          "text": "Une succession de décisions transforme une tension politique en tendance macrofinancière.",
+          "italic": true
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "7-1-la-chronologie-utile",
+      "text": "7.1 La chronologie utile"
+    },
+    {
+      "type": "paragraph",
+      "text": "En 2018, les États-Unis utilisent la section 301 pour imposer des droits supplémentaires sur des importations chinoises. Une première tranche de 25 % sur environ 34 milliards de dollars entre en vigueur le 6 juillet. D'autres listes suivent, dont une portant sur 200 milliards de dollars d'importations annoncée en septembre. Le marché doit alors réévaluer plusieurs fois la croissance, les chaînes d'approvisionnement et la politique de change.",
+      "segments": [
+        {
+          "text": "En 2018, les États-Unis utilisent la section 301 pour imposer des droits supplémentaires sur des importations chinoises. Une première tranche de 25 % sur environ 34 milliards de dollars entre en vigueur le 6 juillet. D'autres listes suivent, dont une portant sur 200 milliards de dollars d'importations annoncée en septembre. Le marché doit alors réévaluer plusieurs fois la croissance, les chaînes d'approvisionnement et la politique de change."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "7-2-pourquoi-observer-usd-cnh",
+      "text": "7.2 Pourquoi observer USD/CNH"
+    },
+    {
+      "type": "paragraph",
+      "text": "Le CNH est le yuan négocié offshore. Quand USD/CNH monte, il faut davantage de yuans pour acheter un dollar : le yuan se déprécie. Une monnaie plus faible peut amortir une partie du choc tarifaire pour les exportateurs chinois, mais elle augmente aussi le coût des importations et peut signaler une recherche de sécurité en dollar.",
+      "segments": [
+        {
+          "text": "Le CNH est le yuan négocié offshore. Quand USD/CNH monte, il faut davantage de yuans pour acheter un dollar : le yuan se déprécie. Une monnaie plus faible peut amortir une partie du choc tarifaire pour les exportateurs chinois, mais elle augmente aussi le coût des importations et peut signaler une recherche de sécurité en dollar."
+        }
+      ]
+    },
+    {
+      "type": "figure",
+      "src": "/media/4-analyse-macroeconomique/4-analyse-macroeconomique-1d2d3a62bc3f.webp",
+      "originalName": "image4.jpg",
+      "width": 960,
+      "height": 855,
+      "optimized": true,
+      "caption": "Figure 4 — USD/CNH en hebdomadaire pendant les escalades tarifaires de 2018–2019.",
+      "source": "TradingView — USD/CNH (FX_IDC:USDCNH) · USTR — Tarifs sur les produits chinois, 15 juin 2018 · USTR — Début des tarifs de 25 % sur 34 milliards de dollars d'importations, 10 juillet 2018 · USTR — Tarifs sur 200 milliards de dollars d'importations, 18 septembre 2018",
+      "sourceLinks": [
+        "https://www.tradingview.com/chart/?symbol=FX_IDC%3AUSDCNH",
+        "https://ustr.gov/about-us/policy-offices/press-office/press-releases/2018/june/ustr-issues-tariffs-chinese-products",
+        "https://ustr.gov/about-us/policy-offices/press-office/press-releases/2018/july/statement-us-trade-representative",
+        "https://ustr.gov/about-us/policy-offices/press-office/press-releases/2018/september/ustr-finalizes-tariffs-200"
+      ],
+      "alt": "USD/CNH en hebdomadaire pendant les escalades tarifaires de 2018–2019."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "lecture-guidee-3",
+      "text": "Lecture guidée"
+    },
+    {
+      "type": "callout",
+      "label": "CE QUE L'ON OBSERVE",
+      "variant": "info",
+      "text": "La paire monte fortement durant l'été 2018, se détend au début de 2019, puis repart lors d'une nouvelle escalade. La réaction se construit par vagues plutôt que par une seule bougie.",
+      "sourceFill": "EEF4FA"
+    },
+    {
+      "type": "callout",
+      "label": "CE QUE CELA SIGNIFIE",
+      "variant": "summary",
+      "text": "Le marché réévalue à chaque étape le différentiel de croissance, le risque commercial et la réponse des autorités. La géopolitique devient ici un processus cumulatif.",
+      "sourceFill": "EAF6EF"
+    },
+    {
+      "type": "callout",
+      "label": "CE QUE LE GRAPHIQUE NE PROUVE PAS",
+      "variant": "warning",
+      "text": "La Banque populaire de Chine influence le taux de change et d'autres facteurs macroéconomiques agissent simultanément. Il serait faux d'attribuer chaque bougie aux tarifs.",
+      "sourceFill": "FCEDED"
+    },
+    {
+      "type": "callout",
+      "label": "LEÇON TRANSFÉRABLE",
+      "variant": "principle",
+      "text": "Pour un conflit commercial, construis une chronologie : annonce, entrée en vigueur, réponse adverse, négociation et report éventuel. La date juridique compte parfois davantage que la conférence de presse.",
+      "sourceFill": "FFF7DD"
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "8-dossier-4-invasion-de-l-ukraine",
+      "text": "8. Dossier 4 — Invasion de l'Ukraine"
+    },
+    {
+      "type": "paragraph",
+      "text": "Un même choc se transmet à l'énergie, à l'alimentation, à la volatilité, à l'or et aux devises.",
+      "segments": [
+        {
+          "text": "Un même choc se transmet à l'énergie, à l'alimentation, à la volatilité, à l'or et aux devises.",
+          "italic": true
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "8-1-le-contexte-et-les-canaux",
+      "text": "8.1 Le contexte et les canaux"
+    },
+    {
+      "type": "paragraph",
+      "text": "L'invasion à grande échelle commence le 24 février 2022. Les conséquences de marché ne viennent pas d'un seul mécanisme : risque sur les exportations d'énergie et de céréales, sanctions financières, perturbation des transports, recherche de liquidité et nouvelle pression sur une inflation déjà élevée.",
+      "segments": [
+        {
+          "text": "L'invasion à grande échelle commence le 24 février 2022. Les conséquences de marché ne viennent pas d'un seul mécanisme : risque sur les exportations d'énergie et de céréales, sanctions financières, perturbation des transports, recherche de liquidité et nouvelle pression sur une inflation déjà élevée."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "POINT ESSENTIEL",
+      "variant": "warning",
+      "text": "Le pétrole et plusieurs matières premières montaient déjà avant l'invasion. Le graphique doit donc séparer la tendance précédente du choc nouveau. Une date d'événement ne transforme pas tout le mouvement antérieur en conséquence de cet événement.",
+      "sourceFill": "FCEDED"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "8-2-petrole-le-risque-d-offre",
+      "text": "8.2 Pétrole : le risque d'offre"
+    },
+    {
+      "type": "figure",
+      "src": "/media/4-analyse-macroeconomique/4-analyse-macroeconomique-e7175a05c9cb.webp",
+      "originalName": "image5.jpg",
+      "width": 960,
+      "height": 855,
+      "optimized": true,
+      "caption": "Figure 5 — Brent en journalier, janvier à juin 2022.",
+      "source": "TradingView — Brent (TVC:UKOIL) · Nations unies — Résolution de l'Assemblée générale sur l'invasion de l'Ukraine, 2 mars 2022 · Banque mondiale — Food and Energy Price Shocks from Ukraine War, 26 avril 2022",
+      "sourceLinks": [
+        "https://www.tradingview.com/chart/?symbol=TVC%3AUKOIL",
+        "https://press.un.org/en/2022/ga12407.doc.htm",
+        "https://www.worldbank.org/en/news/press-release/2022/04/26/food-and-energy-price-shocks-from-ukraine-war"
+      ],
+      "alt": "Brent en journalier, janvier à juin 2022."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "lecture-guidee-4",
+      "text": "Lecture guidée"
+    },
+    {
+      "type": "callout",
+      "label": "CE QUE L'ON OBSERVE",
+      "variant": "info",
+      "text": "La tendance est déjà haussière en janvier et février. Après le 24 février, l'amplitude s'élargit et le prix accélère fortement avant de devenir très volatil.",
+      "sourceFill": "EEF4FA"
+    },
+    {
+      "type": "callout",
+      "label": "CE QUE CELA SIGNIFIE",
+      "variant": "summary",
+      "text": "Le marché ajoute une prime liée aux sanctions, aux exportations russes et au risque de pénurie. Il réévalue ensuite la demande, les flux détournés et la réponse des autres producteurs.",
+      "sourceFill": "EAF6EF"
+    },
+    {
+      "type": "callout",
+      "label": "CE QUE LE GRAPHIQUE NE PROUVE PAS",
+      "variant": "warning",
+      "text": "La hausse entière de 2022 ne vient pas de l'invasion : reprise post-pandémie, stocks, OPEP+ et inflation étaient déjà présents.",
+      "sourceFill": "FCEDED"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "8-3-ble-la-securite-alimentaire",
+      "text": "8.3 Blé : la sécurité alimentaire"
+    },
+    {
+      "type": "figure",
+      "src": "/media/4-analyse-macroeconomique/4-analyse-macroeconomique-e28172419c81.webp",
+      "originalName": "image6.jpg",
+      "width": 960,
+      "height": 855,
+      "optimized": true,
+      "caption": "Figure 6 — Contrat à terme sur le blé en journalier, janvier à juin 2022.",
+      "source": "TradingView — Wheat Futures (CBOT:ZW1!) · Banque mondiale — Food and Energy Price Shocks from Ukraine War, 26 avril 2022",
+      "sourceLinks": [
+        "https://www.tradingview.com/chart/?symbol=CBOT%3AZW1%21",
+        "https://www.worldbank.org/en/news/press-release/2022/04/26/food-and-energy-price-shocks-from-ukraine-war"
+      ],
+      "alt": "Contrat à terme sur le blé en journalier, janvier à juin 2022."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "lecture-guidee-5",
+      "text": "Lecture guidée"
+    },
+    {
+      "type": "callout",
+      "label": "CE QUE L'ON OBSERVE",
+      "variant": "info",
+      "text": "Le prix et le volume augmentent brutalement autour du début de mars. Les grandes bougies et les gaps montrent un marché qui peine à trouver un nouvel équilibre.",
+      "sourceFill": "EEF4FA"
+    },
+    {
+      "type": "callout",
+      "label": "CE QUE CELA SIGNIFIE",
+      "variant": "summary",
+      "text": "Le risque concerne les exportations, les ports, les récoltes, l'énergie et les engrais. Le choc alimentaire touche ensuite l'inflation et le pouvoir d'achat, surtout dans les pays importateurs.",
+      "sourceFill": "EAF6EF"
+    },
+    {
+      "type": "callout",
+      "label": "CE QUE LE GRAPHIQUE NE PROUVE PAS",
+      "variant": "warning",
+      "text": "Un contrat à terme inclut aussi l'échéance, la liquidité et des règles de marché. Le graphique ne mesure pas directement le prix payé par tous les consommateurs.",
+      "sourceFill": "FCEDED"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "8-4-or-et-vix-deux-outils-differents",
+      "text": "8.4 Or et VIX : deux outils différents"
+    },
+    {
+      "type": "paragraph",
+      "text": "L'or représente un actif mondial sans risque de crédit direct, mais son prix dépend aussi du dollar et des taux réels. Le VIX, lui, mesure la volatilité anticipée du S&P 500 par les options. Ils ne racontent donc pas la même chose.",
+      "segments": [
+        {
+          "text": "L'or représente un actif mondial sans risque de crédit direct, mais son prix dépend aussi du dollar et des taux réels. Le VIX, lui, mesure la volatilité anticipée du S&P 500 par les options. Ils ne racontent donc pas la même chose."
+        }
+      ]
+    },
+    {
+      "type": "figure",
+      "src": "/media/4-analyse-macroeconomique/4-analyse-macroeconomique-9f73006bf8e2.webp",
+      "originalName": "image7.jpg",
+      "width": 960,
+      "height": 855,
+      "optimized": true,
+      "caption": "Figure 7 — Or contre dollar en journalier, décembre 2021 à avril 2022.",
+      "source": "TradingView — Gold Spot / U.S. Dollar (OANDA:XAUUSD) · FMI — Geopolitical Risks: Implications for Asset Prices and Financial Stability, 2025",
+      "sourceLinks": [
+        "https://www.tradingview.com/chart/?symbol=OANDA%3AXAUUSD",
+        "https://www.imf.org/-/media/files/publications/gfsr/2025/april/english/ch2.pdf"
+      ],
+      "alt": "Or contre dollar en journalier, décembre 2021 à avril 2022."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "lecture-guidee-6",
+      "text": "Lecture guidée"
+    },
+    {
+      "type": "callout",
+      "label": "CE QUE L'ON OBSERVE",
+      "variant": "info",
+      "text": "L'or monte avant l'invasion, accélère jusqu'au début de mars, puis rend une partie de sa hausse.",
+      "sourceFill": "EEF4FA"
+    },
+    {
+      "type": "callout",
+      "label": "CE QUE CELA SIGNIFIE",
+      "variant": "summary",
+      "text": "La recherche de protection soutient le prix, mais les anticipations de taux, le dollar et les prises de bénéfices limitent ensuite le mouvement.",
+      "sourceFill": "EAF6EF"
+    },
+    {
+      "type": "callout",
+      "label": "CE QUE LE GRAPHIQUE NE PROUVE PAS",
+      "variant": "warning",
+      "text": "Le graphique ne permet pas d'affirmer que l'or protège toujours un portefeuille ni qu'il monte à chaque conflit.",
+      "sourceFill": "FCEDED"
+    },
+    {
+      "type": "figure",
+      "src": "/media/4-analyse-macroeconomique/4-analyse-macroeconomique-36d9f6be64ec.webp",
+      "originalName": "image8.jpg",
+      "width": 960,
+      "height": 855,
+      "optimized": true,
+      "caption": "Figure 8 — VIX en journalier, décembre 2021 à avril 2022.",
+      "source": "TradingView — Cboe Volatility Index (CBOE:VIX) · Cboe — Définition officielle du VIX · FMI — Geopolitical Risks: Implications for Asset Prices and Financial Stability, 2025",
+      "sourceLinks": [
+        "https://www.tradingview.com/chart/?symbol=CBOE%3AVIX",
+        "https://www.cboe.com/tradable-products/vix/",
+        "https://www.imf.org/-/media/files/publications/gfsr/2025/april/english/ch2.pdf"
+      ],
+      "alt": "VIX en journalier, décembre 2021 à avril 2022."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "lecture-guidee-7",
+      "text": "Lecture guidée"
+    },
+    {
+      "type": "callout",
+      "label": "CE QUE L'ON OBSERVE",
+      "variant": "info",
+      "text": "Le VIX est déjà instable avant le 24 février et atteint plusieurs pics. Il recule ensuite alors que la guerre continue.",
+      "sourceFill": "EEF4FA"
+    },
+    {
+      "type": "callout",
+      "label": "CE QUE CELA SIGNIFIE",
+      "variant": "summary",
+      "text": "La volatilité dépend de la surprise et de l'incertitude marginale, pas seulement de la gravité humaine de l'événement. Quand le scénario devient plus connu, la volatilité peut baisser.",
+      "sourceFill": "EAF6EF"
+    },
+    {
+      "type": "callout",
+      "label": "CE QUE LE GRAPHIQUE NE PROUVE PAS",
+      "variant": "warning",
+      "text": "Le VIX ne dit pas si le S&P 500 va monter ou baisser. Il ne mesure pas non plus la volatilité du pétrole, de l'or ou des devises.",
+      "sourceFill": "FCEDED"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "8-5-sanctions-et-rouble-un-prix-sous-contraintes",
+      "text": "8.5 Sanctions et rouble : un prix sous contraintes"
+    },
+    {
+      "type": "paragraph",
+      "text": "Les sanctions financières limitent l'accès de certaines banques au système international et visent aussi la capacité de la Banque centrale de Russie à mobiliser une partie de ses réserves. En parallèle, les autorités russes relèvent les taux, imposent des contrôles de capitaux et exigent des conversions de recettes d'exportation.",
+      "segments": [
+        {
+          "text": "Les sanctions financières limitent l'accès de certaines banques au système international et visent aussi la capacité de la Banque centrale de Russie à mobiliser une partie de ses réserves. En parallèle, les autorités russes relèvent les taux, imposent des contrôles de capitaux et exigent des conversions de recettes d'exportation."
+        }
+      ]
+    },
+    {
+      "type": "figure",
+      "src": "/media/4-analyse-macroeconomique/4-analyse-macroeconomique-3af4708afa48.webp",
+      "originalName": "image9.jpg",
+      "width": 960,
+      "height": 855,
+      "optimized": true,
+      "caption": "Figure 9 — USD/RUB en journalier, janvier à juin 2022.",
+      "source": "TradingView — USD/RUB (FX_IDC:USDRUB) · U.S. Treasury — Sanctions contre la Russie, 24 février 2022 · U.S. Treasury — Restrictions visant la Banque centrale de Russie, 28 février 2022",
+      "sourceLinks": [
+        "https://www.tradingview.com/chart/?symbol=FX_IDC%3AUSDRUB",
+        "https://home.treasury.gov/news/press-releases/jy0608",
+        "https://home.treasury.gov/news/press-releases/jy0612"
+      ],
+      "alt": "USD/RUB en journalier, janvier à juin 2022."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "lecture-guidee-8",
+      "text": "Lecture guidée"
+    },
+    {
+      "type": "callout",
+      "label": "CE QUE L'ON OBSERVE",
+      "variant": "info",
+      "text": "USD/RUB monte brutalement : le rouble se déprécie. La paire se retourne ensuite et passe sous ses niveaux d'avant-guerre.",
+      "sourceFill": "EEF4FA"
+    },
+    {
+      "type": "callout",
+      "label": "CE QUE CELA SIGNIFIE",
+      "variant": "summary",
+      "text": "La hausse initiale reflète la fuite vers le dollar, les sanctions et l'incertitude. Le retournement reflète ensuite taux élevés, recettes d'exportation, conversions forcées et contrôles.",
+      "sourceFill": "EAF6EF"
+    },
+    {
+      "type": "callout",
+      "label": "CE QUE LE GRAPHIQUE NE PROUVE PAS",
+      "variant": "warning",
+      "text": "Un rouble plus fort dans un marché peu liquide et soumis à des restrictions ne prouve pas que l'économie est devenue plus solide. La convertibilité et la qualité du prix comptent.",
+      "sourceFill": "FCEDED"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "8-6-la-chaine-complete",
+      "text": "8.6 La chaîne complète"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Choc",
+        "Transmission",
+        "Marchés observés"
+      ],
+      "rows": [
+        [
+          "Énergie",
+          "Offre menacée → coûts → inflation → taux.",
+          "Brent, gaz, obligations, actions."
+        ],
+        [
+          "Céréales",
+          "Exportations perturbées → alimentation → pouvoir d'achat.",
+          "Blé, devises importatrices, consommation."
+        ],
+        [
+          "Sanctions",
+          "Paiements et financement limités → liquidité et change.",
+          "Rouble, banques, dette, or."
+        ],
+        [
+          "Incertitude",
+          "Couverture et réduction du risque → options plus chères.",
+          "VIX, indices, dollar, or."
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "LEÇON TRANSFÉRABLE",
+      "variant": "principle",
+      "text": "Un grand événement doit être lu en panier d'actifs. Si pétrole et blé montent, que les devises exposées baissent et que les taux d'inflation anticipée progressent, la chaîne est plus crédible qu'un mouvement isolé.",
+      "sourceFill": "FFF7DD"
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "9-dossier-5-semi-conducteurs",
+      "text": "9. Dossier 5 — Semi-conducteurs"
+    },
+    {
+      "type": "paragraph",
+      "text": "Quand la technologie devient un instrument de sécurité nationale.",
+      "segments": [
+        {
+          "text": "Quand la technologie devient un instrument de sécurité nationale.",
+          "italic": true
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "9-1-pourquoi-les-puces-sont-geopolitiques",
+      "text": "9.1 Pourquoi les puces sont géopolitiques"
+    },
+    {
+      "type": "paragraph",
+      "text": "Les semi-conducteurs sont utilisés dans les centres de données, les télécommunications, l'automobile, l'industrie et la défense. Leur chaîne de valeur est spécialisée : conception, logiciels, machines, matériaux, fabrication et assemblage peuvent dépendre de pays différents. Une restriction à un seul maillon peut donc toucher plusieurs entreprises.",
+      "segments": [
+        {
+          "text": "Les semi-conducteurs sont utilisés dans les centres de données, les télécommunications, l'automobile, l'industrie et la défense. Leur chaîne de valeur est spécialisée : conception, logiciels, machines, matériaux, fabrication et assemblage peuvent dépendre de pays différents. Une restriction à un seul maillon peut donc toucher plusieurs entreprises."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "9-2-les-controles-du-7-octobre-2022",
+      "text": "9.2 Les contrôles du 7 octobre 2022"
+    },
+    {
+      "type": "paragraph",
+      "text": "Le Bureau of Industry and Security américain annonce le 7 octobre 2022 de nouveaux contrôles visant certains composants de calcul avancé, les supercalculateurs, des équipements de fabrication et certaines activités de personnes américaines. Le but déclaré est de limiter l'accès de la Chine à des capacités avancées présentant un enjeu de sécurité nationale.",
+      "segments": [
+        {
+          "text": "Le Bureau of Industry and Security américain annonce le 7 octobre 2022 de nouveaux contrôles visant certains composants de calcul avancé, les supercalculateurs, des équipements de fabrication et certaines activités de personnes américaines. Le but déclaré est de limiter l'accès de la Chine à des capacités avancées présentant un enjeu de sécurité nationale."
+        }
+      ]
+    },
+    {
+      "type": "figure",
+      "src": "/media/4-analyse-macroeconomique/4-analyse-macroeconomique-4716aad03357.webp",
+      "originalName": "image10.jpg",
+      "width": 960,
+      "height": 855,
+      "optimized": true,
+      "caption": "Figure 10 — Philadelphia Semiconductor Index en journalier, août à décembre 2022.",
+      "source": "TradingView — Philadelphia Semiconductor Index (NASDAQ:SOX) · U.S. BIS — Contrôles sur les semi-conducteurs avancés, 7 octobre 2022",
+      "sourceLinks": [
+        "https://www.tradingview.com/chart/?symbol=NASDAQ%3ASOX",
+        "https://www.bis.gov/press-release/commerce-implements-new-export-controls-advanced-computing-semiconductor-manufacturing-items-peoples"
+      ],
+      "alt": "Philadelphia Semiconductor Index en journalier, août à décembre 2022."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "lecture-guidee-9",
+      "text": "Lecture guidée"
+    },
+    {
+      "type": "callout",
+      "label": "CE QUE L'ON OBSERVE",
+      "variant": "info",
+      "text": "L'indice baisse fortement avant le 7 octobre, atteint un creux autour de la publication, puis rebondit en novembre.",
+      "sourceFill": "EEF4FA"
+    },
+    {
+      "type": "callout",
+      "label": "CE QUE CELA SIGNIFIE",
+      "variant": "summary",
+      "text": "Les contrôles ajoutent un risque sur certains revenus et certaines chaînes d'approvisionnement, mais le prix intègre aussi le cycle des puces, les taux et la valorisation des valeurs technologiques.",
+      "sourceFill": "EAF6EF"
+    },
+    {
+      "type": "callout",
+      "label": "CE QUE LE GRAPHIQUE NE PROUVE PAS",
+      "variant": "warning",
+      "text": "La coïncidence entre un creux et une annonce ne prouve pas que l'annonce a causé l'ensemble de la baisse. Une étude causale exigerait de comparer entreprises exposées et peu exposées, ainsi que les autres facteurs.",
+      "sourceFill": "FCEDED"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "9-3-analyser-une-entreprise-exposee",
+      "text": "9.3 Analyser une entreprise exposée"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Quelle part du chiffre d'affaires dépend du pays visé ?",
+          "segments": [
+            {
+              "text": "Quelle part du chiffre d'affaires dépend du pays visé ?"
+            }
+          ]
+        },
+        {
+          "text": "Quels produits sont réellement soumis à licence ?",
+          "segments": [
+            {
+              "text": "Quels produits sont réellement soumis à licence ?"
+            }
+          ]
+        },
+        {
+          "text": "L'entreprise peut-elle modifier le produit ou trouver d'autres clients ?",
+          "segments": [
+            {
+              "text": "L'entreprise peut-elle modifier le produit ou trouver d'autres clients ?"
+            }
+          ]
+        },
+        {
+          "text": "Combien de temps faudra-t-il avant que la règle affecte les ventes et les marges ?",
+          "segments": [
+            {
+              "text": "Combien de temps faudra-t-il avant que la règle affecte les ventes et les marges ?"
+            }
+          ]
+        },
+        {
+          "text": "Le cours a-t-il déjà baissé avant l'entrée en vigueur ?",
+          "segments": [
+            {
+              "text": "Le cours a-t-il déjà baissé avant l'entrée en vigueur ?"
+            }
+          ]
+        },
+        {
+          "text": "Le secteur entier est-il faible pour une raison macroéconomique indépendante ?",
+          "segments": [
+            {
+              "text": "Le secteur entier est-il faible pour une raison macroéconomique indépendante ?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "LEÇON TRANSFÉRABLE",
+      "variant": "principle",
+      "text": "Pour une sanction technologique, le titre de presse est trop large. L'analyse utile descend jusqu'au produit, au client, à la licence, au délai et à la part de revenu réellement exposée.",
+      "sourceFill": "FFF7DD"
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "10-dossier-6-mer-rouge-et-routes-maritimes",
+      "text": "10. Dossier 6 — Mer Rouge et routes maritimes"
+    },
+    {
+      "type": "paragraph",
+      "text": "Un choc géographique rallonge les trajets, mobilise plus de navires et augmente les coûts.",
+      "segments": [
+        {
+          "text": "Un choc géographique rallonge les trajets, mobilise plus de navires et augmente les coûts.",
+          "italic": true
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "10-1-le-mecanisme",
+      "text": "10.1 Le mécanisme"
+    },
+    {
+      "type": "paragraph",
+      "text": "À partir de novembre 2023, les attaques contre des navires en mer Rouge conduisent plusieurs compagnies à éviter Bab el-Mandeb et le canal de Suez. Le détour par le cap de Bonne-Espérance rallonge le voyage. Un trajet plus long consomme davantage de carburant, immobilise le navire plus longtemps et augmente les besoins d'assurance, de personnel et de capacité.",
+      "segments": [
+        {
+          "text": "À partir de novembre 2023, les attaques contre des navires en mer Rouge conduisent plusieurs compagnies à éviter Bab el-Mandeb et le canal de Suez. Le détour par le cap de Bonne-Espérance rallonge le voyage. Un trajet plus long consomme davantage de carburant, immobilise le navire plus longtemps et augmente les besoins d'assurance, de personnel et de capacité."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "La CNUCED observe une forte baisse des transits et une hausse des coûts de transport. Mais les effets diffèrent selon les marchandises : conteneurs, vrac sec, pétrole et gaz utilisent des navires et des indices différents.",
+      "segments": [
+        {
+          "text": "La CNUCED observe une forte baisse des transits et une hausse des coûts de transport. Mais les effets diffèrent selon les marchandises : conteneurs, vrac sec, pétrole et gaz utilisent des navires et des indices différents."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "10-2-le-baltic-dry-index-comme-proxy-imparfait",
+      "text": "10.2 Le Baltic Dry Index comme proxy imparfait"
+    },
+    {
+      "type": "paragraph",
+      "text": "Le Baltic Dry Index est un indice de fret pour le vrac sec, construit à partir de moyennes de revenus de navires Capesize, Panamax et Supramax. Il concerne notamment le minerai de fer, le charbon et les céréales. Il ne mesure pas directement le prix des conteneurs ni le coût de tous les trajets passant par Suez.",
+      "segments": [
+        {
+          "text": "Le Baltic Dry Index est un indice de fret pour le vrac sec, construit à partir de moyennes de revenus de navires Capesize, Panamax et Supramax. Il concerne notamment le minerai de fer, le charbon et les céréales. Il ne mesure pas directement le prix des conteneurs ni le coût de tous les trajets passant par Suez."
+        }
+      ]
+    },
+    {
+      "type": "figure",
+      "src": "/media/4-analyse-macroeconomique/4-analyse-macroeconomique-e241fdbc3b29.webp",
+      "originalName": "image11.jpg",
+      "width": 960,
+      "height": 855,
+      "optimized": true,
+      "caption": "Figure 11 — Baltic Dry Index en hebdomadaire, septembre 2023 à juin 2024.",
+      "source": "TradingView — Baltic Dry Index (INDEX:BDI) · Baltic Exchange — Définition officielle du Baltic Dry Index · CNUCED — Navigating troubled waters: Red Sea, Black Sea and Panama Canal, 2024 · CNUCED — Suez and Panama Canal disruptions threaten global trade, 22 octobre 2024",
+      "sourceLinks": [
+        "https://www.tradingview.com/chart/?symbol=INDEX%3ABDI",
+        "https://www.balticexchange.com/en/data-services/market-information0/indices.html",
+        "https://unctad.org/system/files/official-document/osginf2024d2_en.pdf",
+        "https://unctad.org/news/suez-and-panama-canal-disruptions-threaten-global-trade-and-development"
+      ],
+      "alt": "Baltic Dry Index en hebdomadaire, septembre 2023 à juin 2024."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "lecture-guidee-10",
+      "text": "Lecture guidée"
+    },
+    {
+      "type": "callout",
+      "label": "CE QUE L'ON OBSERVE",
+      "variant": "info",
+      "text": "L'indice accélère fortement vers décembre 2023, puis retombe et connaît une nouvelle phase de hausse au début de 2024.",
+      "sourceFill": "EEF4FA"
+    },
+    {
+      "type": "callout",
+      "label": "CE QUE CELA SIGNIFIE",
+      "variant": "summary",
+      "text": "Les perturbations et les distances supplémentaires peuvent soutenir les coûts de fret, mais la demande de minerai, charbon et céréales ainsi que la disponibilité des navires restent essentielles.",
+      "sourceFill": "EAF6EF"
+    },
+    {
+      "type": "callout",
+      "label": "CE QUE LE GRAPHIQUE NE PROUVE PAS",
+      "variant": "warning",
+      "text": "Le BDI n'est pas un indice de conteneurs et le canal de Suez n'est pas son seul moteur. L'utiliser comme preuve unique de la crise de la mer Rouge serait incorrect.",
+      "sourceFill": "FCEDED"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "10-3-de-la-route-maritime-a-l-inflation",
+      "text": "10.3 De la route maritime à l'inflation"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Détour plus long : plus de carburant et plus de jours de transport.",
+          "segments": [
+            {
+              "text": "Détour plus long : plus de carburant et plus de jours de transport."
+            }
+          ]
+        },
+        {
+          "text": "Capacité immobilisée : moins de navires disponibles pour le même volume annuel.",
+          "segments": [
+            {
+              "text": "Capacité immobilisée : moins de navires disponibles pour le même volume annuel."
+            }
+          ]
+        },
+        {
+          "text": "Assurance et sécurité : prime supplémentaire sur certaines zones.",
+          "segments": [
+            {
+              "text": "Assurance et sécurité : prime supplémentaire sur certaines zones."
+            }
+          ]
+        },
+        {
+          "text": "Délais : stocks de sécurité plus élevés pour les entreprises.",
+          "segments": [
+            {
+              "text": "Délais : stocks de sécurité plus élevés pour les entreprises."
+            }
+          ]
+        },
+        {
+          "text": "Prix final : une partie du surcoût peut être transmise au client.",
+          "segments": [
+            {
+              "text": "Prix final : une partie du surcoût peut être transmise au client."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "LEÇON TRANSFÉRABLE",
+      "variant": "principle",
+      "text": "Choisis l'indicateur qui correspond au flux étudié. Un mauvais proxy peut produire une histoire convaincante mais fausse. Le graphique doit confirmer le mécanisme exact, pas seulement ressembler au récit.",
+      "sourceFill": "FFF7DD"
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "11-methode-d-analyse-et-de-decision",
+      "text": "11. Méthode d'analyse et de décision"
+    },
+    {
+      "type": "paragraph",
+      "text": "Construire plusieurs scénarios avant que le marché ne force une décision émotionnelle.",
+      "segments": [
+        {
+          "text": "Construire plusieurs scénarios avant que le marché ne force une décision émotionnelle.",
+          "italic": true
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "11-1-les-huit-questions-indispensables",
+      "text": "11.1 Les huit questions indispensables"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Que s'est-il réellement passé, et quelle source primaire le confirme ?",
+          "segments": [
+            {
+              "text": "Que s'est-il réellement passé, et quelle source primaire le confirme ?"
+            }
+          ]
+        },
+        {
+          "text": "Quel flux physique, juridique, financier ou technologique change ?",
+          "segments": [
+            {
+              "text": "Quel flux physique, juridique, financier ou technologique change ?"
+            }
+          ]
+        },
+        {
+          "text": "Quels pays, secteurs et entreprises sont directement exposés ?",
+          "segments": [
+            {
+              "text": "Quels pays, secteurs et entreprises sont directement exposés ?"
+            }
+          ]
+        },
+        {
+          "text": "Quelle part du scénario était déjà anticipée par le marché ?",
+          "segments": [
+            {
+              "text": "Quelle part du scénario était déjà anticipée par le marché ?"
+            }
+          ]
+        },
+        {
+          "text": "Le choc concerne-t-il surtout la croissance, l'inflation ou la liquidité ?",
+          "segments": [
+            {
+              "text": "Le choc concerne-t-il surtout la croissance, l'inflation ou la liquidité ?"
+            }
+          ]
+        },
+        {
+          "text": "Quelle est sa durée probable et quelles substitutions existent ?",
+          "segments": [
+            {
+              "text": "Quelle est sa durée probable et quelles substitutions existent ?"
+            }
+          ]
+        },
+        {
+          "text": "Quels autres actifs confirment ou contredisent le scénario ?",
+          "segments": [
+            {
+              "text": "Quels autres actifs confirment ou contredisent le scénario ?"
+            }
+          ]
+        },
+        {
+          "text": "Quel fait ou niveau invalidera l'analyse, et quelle perte reste acceptable ?",
+          "segments": [
+            {
+              "text": "Quel fait ou niveau invalidera l'analyse, et quelle perte reste acceptable ?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "11-2-construire-trois-scenarios",
+      "text": "11.2 Construire trois scénarios"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Scénario",
+        "Description",
+        "Ce qui le confirme",
+        "Réaction possible"
+      ],
+      "rows": [
+        [
+          "Limité",
+          "Tension sans interruption durable.",
+          "Flux maintenus, réponse rapide, négociation.",
+          "Pic de volatilité puis retour partiel."
+        ],
+        [
+          "Central",
+          "Perturbation réelle mais absorbable.",
+          "Coûts plus élevés, substitution partielle.",
+          "Repricing sectoriel et macro modéré."
+        ],
+        [
+          "Sévère",
+          "Blocage prolongé ou contagion.",
+          "Stocks en baisse, routes fermées, sanctions élargies.",
+          "Inflation, croissance faible, primes de risque élevées."
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "POURQUOI TROIS SCÉNARIOS ?",
+      "variant": "summary",
+      "text": "Parce qu'une prévision unique pousse à défendre son opinion. Trois scénarios obligent à préciser les preuves et permettent de changer d'avis sans improviser.",
+      "sourceFill": "EAF6EF"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "11-3-la-hierarchie-des-sources",
+      "text": "11.3 La hiérarchie des sources"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Texte officiel, communiqué d'autorité, données d'agence ou document juridique.",
+          "segments": [
+            {
+              "text": "Texte officiel, communiqué d'autorité, données d'agence ou document juridique."
+            }
+          ]
+        },
+        {
+          "text": "Agence de presse reconnue citant des responsables identifiables.",
+          "segments": [
+            {
+              "text": "Agence de presse reconnue citant des responsables identifiables."
+            }
+          ]
+        },
+        {
+          "text": "Média spécialisé qui distingue clairement faits et analyse.",
+          "segments": [
+            {
+              "text": "Média spécialisé qui distingue clairement faits et analyse."
+            }
+          ]
+        },
+        {
+          "text": "Réseaux sociaux et images non vérifiées : seulement comme alerte, jamais comme preuve suffisante.",
+          "segments": [
+            {
+              "text": "Réseaux sociaux et images non vérifiées : seulement comme alerte, jamais comme preuve suffisante."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Les sources officielles peuvent être incomplètes ou orientées, mais elles fixent ce qui a réellement été décidé. Il faut ensuite comparer l'exécution observée : navires détournés, volumes exportés, licences accordées, paiements bloqués ou production restaurée.",
+      "segments": [
+        {
+          "text": "Les sources officielles peuvent être incomplètes ou orientées, mais elles fixent ce qui a réellement été décidé. Il faut ensuite comparer l'exécution observée : navires détournés, volumes exportés, licences accordées, paiements bloqués ou production restaurée."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "11-4-lire-tradingview-apres-l-analyse-geopolitique",
+      "text": "11.4 Lire TradingView après l'analyse géopolitique"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Commencer par l'unité de temps large pour voir la tendance antérieure.",
+          "segments": [
+            {
+              "text": "Commencer par l'unité de temps large pour voir la tendance antérieure."
+            }
+          ]
+        },
+        {
+          "text": "Placer la date de l'événement sans supposer que tout part de cette date.",
+          "segments": [
+            {
+              "text": "Placer la date de l'événement sans supposer que tout part de cette date."
+            }
+          ]
+        },
+        {
+          "text": "Observer gap, amplitude, clôture, volume et poursuite les jours suivants.",
+          "segments": [
+            {
+              "text": "Observer gap, amplitude, clôture, volume et poursuite les jours suivants."
+            }
+          ]
+        },
+        {
+          "text": "Comparer l'actif direct avec un second actif : pétrole et devise importatrice, par exemple.",
+          "segments": [
+            {
+              "text": "Comparer l'actif direct avec un second actif : pétrole et devise importatrice, par exemple."
+            }
+          ]
+        },
+        {
+          "text": "Utiliser RSI ou MACD seulement pour décrire le momentum, pas pour prouver la cause géopolitique.",
+          "segments": [
+            {
+              "text": "Utiliser RSI ou MACD seulement pour décrire le momentum, pas pour prouver la cause géopolitique."
+            }
+          ]
+        },
+        {
+          "text": "Définir le niveau ou le fait qui invalide le scénario avant l'entrée.",
+          "segments": [
+            {
+              "text": "Définir le niveau ou le fait qui invalide le scénario avant l'entrée."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "LIEN AVEC LES BOUGIES",
+      "variant": "info",
+      "text": "Une grande bougie raconte une urgence de repricing. La clôture indique où le marché accepte finalement le prix. Les séances suivantes disent si le choc devient une tendance ou s'il est absorbé.",
+      "sourceFill": "EEF4FA"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "11-5-exemple-guide-menace-sur-un-detroit-petrolier",
+      "text": "11.5 Exemple guidé : menace sur un détroit pétrolier"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Étape",
+        "Question",
+        "Lecture possible"
+      ],
+      "rows": [
+        [
+          "Fait",
+          "Les flux sont-ils réellement interrompus ?",
+          "Une menace seule vaut moins qu'une baisse mesurée des passages."
+        ],
+        [
+          "Taille",
+          "Quel volume est concerné ?",
+          "Comparer au marché mondial, aux stocks et à la capacité inutilisée."
+        ],
+        [
+          "Durée",
+          "Combien de jours ?",
+          "Une durée incertaine crée une forte prime de risque."
+        ],
+        [
+          "Substitution",
+          "Autres routes ou producteurs ?",
+          "La substitution lente soutient davantage le prix."
+        ],
+        [
+          "Macro",
+          "Inflation ou croissance ?",
+          "Pétrole plus cher peut renforcer l'inflation et affaiblir la demande."
+        ],
+        [
+          "Marchés",
+          "Qui confirme ?",
+          "Brent, courbes de futures, devises importatrices et transport."
+        ],
+        [
+          "Invalidation",
+          "Quel fait détruit le scénario ?",
+          "Réouverture vérifiée, reprise des flux ou chute de la demande."
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Sources : U.S. EIA — Le détroit d'Ormuz, point de passage critique du pétrole",
+      "segments": [
+        {
+          "text": "Sources : ",
+          "italic": true
+        },
+        {
+          "text": "U.S. EIA — Le détroit d'Ormuz, point de passage critique du pétrole",
+          "underline": true,
+          "href": "https://www.eia.gov/todayinenergy/detail.php?id=65504"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "12-limites-erreurs-et-discipline",
+      "text": "12. Limites, erreurs et discipline"
+    },
+    {
+      "type": "paragraph",
+      "text": "La géopolitique augmente l'incertitude ; elle ne supprime jamais le besoin de gérer le risque.",
+      "segments": [
+        {
+          "text": "La géopolitique augmente l'incertitude ; elle ne supprime jamais le besoin de gérer le risque.",
+          "italic": true
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "12-1-les-douze-erreurs-du-debutant",
+      "text": "12.1 Les douze erreurs du débutant"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Trader un titre avant de lire le détail.",
+          "segments": [
+            {
+              "text": "Trader un titre avant de lire le détail."
+            }
+          ]
+        },
+        {
+          "text": "Confondre gravité humaine et impact financier.",
+          "segments": [
+            {
+              "text": "Confondre gravité humaine et impact financier."
+            }
+          ]
+        },
+        {
+          "text": "Supposer que guerre signifie automatiquement actions en baisse.",
+          "segments": [
+            {
+              "text": "Supposer que guerre signifie automatiquement actions en baisse."
+            }
+          ]
+        },
+        {
+          "text": "Oublier que l'événement était peut-être déjà anticipé.",
+          "segments": [
+            {
+              "text": "Oublier que l'événement était peut-être déjà anticipé."
+            }
+          ]
+        },
+        {
+          "text": "Attribuer toute la tendance à une seule date.",
+          "segments": [
+            {
+              "text": "Attribuer toute la tendance à une seule date."
+            }
+          ]
+        },
+        {
+          "text": "Ignorer la durée et la capacité de substitution.",
+          "segments": [
+            {
+              "text": "Ignorer la durée et la capacité de substitution."
+            }
+          ]
+        },
+        {
+          "text": "Utiliser un mauvais proxy, comme un indice de vrac pour prouver le prix des conteneurs.",
+          "segments": [
+            {
+              "text": "Utiliser un mauvais proxy, comme un indice de vrac pour prouver le prix des conteneurs."
+            }
+          ]
+        },
+        {
+          "text": "Croire qu'un refuge monte dans toutes les crises.",
+          "segments": [
+            {
+              "text": "Croire qu'un refuge monte dans toutes les crises."
+            }
+          ]
+        },
+        {
+          "text": "Lire le VIX comme une prévision de baisse.",
+          "segments": [
+            {
+              "text": "Lire le VIX comme une prévision de baisse."
+            }
+          ]
+        },
+        {
+          "text": "Faire confiance à un prix rendu artificiel par des contrôles de capitaux.",
+          "segments": [
+            {
+              "text": "Faire confiance à un prix rendu artificiel par des contrôles de capitaux."
+            }
+          ]
+        },
+        {
+          "text": "Augmenter la taille parce que le récit paraît évident.",
+          "segments": [
+            {
+              "text": "Augmenter la taille parce que le récit paraît évident."
+            }
+          ]
+        },
+        {
+          "text": "Entrer pendant un gap sans accepter le slippage possible.",
+          "segments": [
+            {
+              "text": "Entrer pendant un gap sans accepter le slippage possible."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "12-2-checklist-avant-d-agir",
+      "text": "12.2 Checklist avant d'agir"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Le fait est confirmé par au moins une source primaire.",
+          "segments": [
+            {
+              "text": "Le fait est confirmé par au moins une source primaire."
+            }
+          ]
+        },
+        {
+          "text": "Le canal économique est formulé en une phrase concrète.",
+          "segments": [
+            {
+              "text": "Le canal économique est formulé en une phrase concrète."
+            }
+          ]
+        },
+        {
+          "text": "Les actifs directement et indirectement exposés sont séparés.",
+          "segments": [
+            {
+              "text": "Les actifs directement et indirectement exposés sont séparés."
+            }
+          ]
+        },
+        {
+          "text": "La tendance antérieure et la part déjà intégrée sont identifiées.",
+          "segments": [
+            {
+              "text": "La tendance antérieure et la part déjà intégrée sont identifiées."
+            }
+          ]
+        },
+        {
+          "text": "La durée, la taille et les substitutions sont estimées.",
+          "segments": [
+            {
+              "text": "La durée, la taille et les substitutions sont estimées."
+            }
+          ]
+        },
+        {
+          "text": "La réponse des États, banques centrales ou producteurs est envisagée.",
+          "segments": [
+            {
+              "text": "La réponse des États, banques centrales ou producteurs est envisagée."
+            }
+          ]
+        },
+        {
+          "text": "Un second marché confirme le scénario.",
+          "segments": [
+            {
+              "text": "Un second marché confirme le scénario."
+            }
+          ]
+        },
+        {
+          "text": "L'invalidation fondamentale et technique est écrite.",
+          "segments": [
+            {
+              "text": "L'invalidation fondamentale et technique est écrite."
+            }
+          ]
+        },
+        {
+          "text": "La taille tient compte des gaps, de la volatilité et du slippage.",
+          "segments": [
+            {
+              "text": "La taille tient compte des gaps, de la volatilité et du slippage."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "12-3-ce-que-les-graphiques-de-cette-partie-3-enseignent",
+      "text": "12.3 Ce que les graphiques de cette Partie 3 enseignent"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Cas",
+        "Mécanisme principal",
+        "Leçon"
+      ],
+      "rows": [
+        [
+          "Brexit",
+          "Surprise politique et devise.",
+          "Un résultat binaire peut créer un gap durable."
+        ],
+        [
+          "Abqaiq",
+          "Interruption pétrolière.",
+          "La durée attendue peut dominer la taille initiale."
+        ],
+        [
+          "Tarifs US–Chine",
+          "Géoéconomie et change.",
+          "Une escalade se lit comme une chronologie."
+        ],
+        [
+          "Ukraine",
+          "Énergie, blé, sanctions, volatilité.",
+          "Comparer plusieurs actifs et la tendance précédente."
+        ],
+        [
+          "Semi-conducteurs",
+          "Contrôle technologique.",
+          "Mesurer l'exposition réelle et éviter la fausse causalité."
+        ],
+        [
+          "Mer Rouge",
+          "Détour maritime et fret.",
+          "Choisir un proxy correspondant au flux étudié."
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "conclusion-generale-relier-les-quatre-volumes",
+      "text": "Conclusion générale — relier les quatre volumes"
+    },
+    {
+      "type": "paragraph",
+      "text": "Le Volume 1 apprend à comprendre un actif et à distinguer l'analyse d'entreprise, le comportement du prix et la gestion du risque. Le Volume 2 montre, à travers des cas historiques, comment exposition, financement, gouvernance et liquidité transforment une thèse. Le Volume 3 fournit les outils de lecture technique. Dans le Volume 4, les banques centrales forment la Partie 1, les données macroéconomiques la Partie 2 et les rapports de puissance capables de modifier les flux, les coûts et les primes de risque la Partie 3.",
+      "segments": [
+        {
+          "text": "Le Volume 1 apprend à comprendre un actif et à distinguer l'analyse d'entreprise, le comportement du prix et la gestion du risque. Le Volume 2 montre, à travers des cas historiques, comment exposition, financement, gouvernance et liquidité transforment une thèse. Le Volume 3 fournit les outils de lecture technique. Dans le Volume 4, les banques centrales forment la Partie 1, les données macroéconomiques la Partie 2 et les rapports de puissance capables de modifier les flux, les coûts et les primes de risque la Partie 3."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "La Partie 2 mesure les conséquences qui peuvent finir par apparaître dans le CPI, le PCE, l'emploi, le PIB, les ventes au détail et les décisions des banques centrales. La géopolitique ne répète ni ne remplace ces analyses : elle ajoute un scénario fondamental dont le canal économique, les données et le comportement du marché doivent confirmer la portée.",
+      "segments": [
+        {
+          "text": "La Partie 2 mesure les conséquences qui peuvent finir par apparaître dans le CPI, le PCE, l'emploi, le PIB, les ventes au détail et les décisions des banques centrales. La géopolitique ne répète ni ne remplace ces analyses : elle ajoute un scénario fondamental dont le canal économique, les données et le comportement du marché doivent confirmer la portée."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "CHAÎNE FINALE",
+      "variant": "info",
+      "text": "Vérifier le fait → identifier le canal → mesurer l'exposition → traduire en croissance et inflation → observer plusieurs marchés → attendre une confirmation → définir l'invalidation → dimensionner le risque.",
+      "sourceFill": "EEF4FA"
+    },
+    {
+      "type": "paragraph",
+      "text": "Le bon analyste géopolitique n'est pas celui qui prédit toutes les crises. C'est celui qui sait distinguer une menace d'une interruption réelle, un pic d'une tendance, un prix libre d'un prix contrôlé et une corrélation d'un mécanisme. Son objectif n'est pas d'avoir raison sur le récit ; il est de construire une décision qui reste défendable lorsque les faits changent.",
+      "segments": [
+        {
+          "text": "Le bon analyste géopolitique n'est pas celui qui prédit toutes les crises. C'est celui qui sait distinguer une menace d'une interruption réelle, un pic d'une tendance, un prix libre d'un prix contrôlé et une corrélation d'un mécanisme. Son objectif n'est pas d'avoir raison sur le récit ; il est de construire une décision qui reste défendable lorsque les faits changent."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "glossaire-essentiel",
+      "text": "Glossaire essentiel"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Terme",
+        "Définition simple"
+      ],
+      "rows": [
+        [
+          "Alliance",
+          "Engagement de coopération entre plusieurs acteurs, parfois militaire."
+        ],
+        [
+          "Embargo",
+          "Interdiction d'acheter, vendre ou transporter un produit ou vers un pays."
+        ],
+        [
+          "Géoéconomie",
+          "Utilisation d'instruments économiques pour atteindre un objectif stratégique."
+        ],
+        [
+          "Gap",
+          "Espace entre deux prix lorsque le marché ouvre loin de la clôture précédente."
+        ],
+        [
+          "Hedge / couverture",
+          "Position destinée à réduire l'effet d'un risque sur un portefeuille."
+        ],
+        [
+          "Liquidité",
+          "Capacité à acheter ou vendre sans déplacer fortement le prix."
+        ],
+        [
+          "Prime de risque",
+          "Rendement ou décote supplémentaire exigé face à une incertitude."
+        ],
+        [
+          "Proxy",
+          "Indicateur utilisé pour représenter imparfaitement un phénomène difficile à mesurer."
+        ],
+        [
+          "Sanction",
+          "Restriction juridique ou financière imposée à un pays, une entreprise ou une personne."
+        ],
+        [
+          "Slippage",
+          "Écart entre le prix prévu et le prix réel d'exécution."
+        ],
+        [
+          "Tarif douanier",
+          "Taxe supplémentaire appliquée à une importation."
+        ],
+        [
+          "Contrôle à l'exportation",
+          "Autorisation ou interdiction visant la vente d'un bien stratégique à l'étranger."
+        ],
+        [
+          "Contrôle des capitaux",
+          "Règles limitant les transferts, achats ou ventes de monnaie et d'actifs."
+        ],
+        [
+          "Chokepoint",
+          "Point de passage étroit où se concentre une part importante des flux."
+        ],
+        [
+          "VIX",
+          "Indice Cboe de volatilité attendue à trente jours du S&P 500 à partir des options."
+        ]
+      ],
+      "links": [
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "sources-et-methode",
+      "text": "Sources et méthode"
+    },
+    {
+      "type": "paragraph",
+      "text": "Les événements, dates et mécanismes ont été recoupés avec des sources officielles ou institutionnelles. Les dix graphiques de marché proviennent de captures du graphique public TradingView, réalisées le 22 juillet 2026. Le schéma de transmission est un visuel pédagogique original. Les traits et étiquettes orange ont été ajoutés uniquement pour repérer les dates étudiées ; les bougies et les données visibles restent celles de TradingView.",
+      "segments": [
+        {
+          "text": "Les événements, dates et mécanismes ont été recoupés avec des sources officielles ou institutionnelles. Les dix graphiques de marché proviennent de captures du graphique public TradingView, réalisées le 22 juillet 2026. Le schéma de transmission est un visuel pédagogique original. Les traits et étiquettes orange ont été ajoutés uniquement pour repérer les dates étudiées ; les bougies et les données visibles restent celles de TradingView."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "institutions-et-documents-de-reference",
+      "text": "Institutions et documents de référence"
+    },
+    {
+      "type": "sources",
+      "scope": "global",
+      "entries": [
+        {
+          "text": "FMI — Geopolitical Risks: Implications for Asset Prices and Financial Stability, 2025",
+          "links": [
+            "https://www.imf.org/-/media/files/publications/gfsr/2025/april/english/ch2.pdf"
+          ]
+        },
+        {
+          "text": "FMI — Geopolitics and its Impact on Global Trade and the Dollar, 2024",
+          "links": [
+            "https://www.imf.org/en/news/articles/2024/05/07/sp-geopolitics-impact-global-trade-and-dollar-gita-gopinath"
+          ]
+        },
+        {
+          "text": "U.S. EIA — Le détroit d'Ormuz, point de passage critique du pétrole",
+          "links": [
+            "https://www.eia.gov/todayinenergy/detail.php?id=65504"
+          ]
+        },
+        {
+          "text": "U.S. EIA — Saudi Arabia crude oil production outage, 23 septembre 2019",
+          "links": [
+            "https://www.eia.gov/todayinenergy/detail.php?id=41413"
+          ]
+        },
+        {
+          "text": "Electoral Commission — Résultats officiels du référendum de 2016",
+          "links": [
+            "https://www.electoralcommission.org.uk/research-reports-and-data/our-reports-and-data-past-elections-and-referendums/results-and-turnout-eu-referendum"
+          ]
+        },
+        {
+          "text": "Bank of England — EU withdrawal scenarios and monetary and financial stability",
+          "links": [
+            "https://www.bankofengland.co.uk/-/media/boe/files/report/2018/eu-withdrawal-scenarios-and-monetary-and-financial-stability.pdf"
+          ]
+        },
+        {
+          "text": "USTR — Tarifs sur les produits chinois, 15 juin 2018",
+          "links": [
+            "https://ustr.gov/about-us/policy-offices/press-office/press-releases/2018/june/ustr-issues-tariffs-chinese-products"
+          ]
+        },
+        {
+          "text": "USTR — Début des tarifs de 25 % sur 34 milliards de dollars d'importations, 10 juillet 2018",
+          "links": [
+            "https://ustr.gov/about-us/policy-offices/press-office/press-releases/2018/july/statement-us-trade-representative"
+          ]
+        },
+        {
+          "text": "USTR — Tarifs sur 200 milliards de dollars d'importations, 18 septembre 2018",
+          "links": [
+            "https://ustr.gov/about-us/policy-offices/press-office/press-releases/2018/september/ustr-finalizes-tariffs-200"
+          ]
+        },
+        {
+          "text": "Nations unies — Résolution de l'Assemblée générale sur l'invasion de l'Ukraine, 2 mars 2022",
+          "links": [
+            "https://press.un.org/en/2022/ga12407.doc.htm"
+          ]
+        },
+        {
+          "text": "Banque mondiale — Food and Energy Price Shocks from Ukraine War, 26 avril 2022",
+          "links": [
+            "https://www.worldbank.org/en/news/press-release/2022/04/26/food-and-energy-price-shocks-from-ukraine-war"
+          ]
+        },
+        {
+          "text": "U.S. Treasury — Sanctions contre la Russie, 24 février 2022",
+          "links": [
+            "https://home.treasury.gov/news/press-releases/jy0608"
+          ]
+        },
+        {
+          "text": "U.S. Treasury — Restrictions visant la Banque centrale de Russie, 28 février 2022",
+          "links": [
+            "https://home.treasury.gov/news/press-releases/jy0612"
+          ]
+        },
+        {
+          "text": "U.S. BIS — Contrôles sur les semi-conducteurs avancés, 7 octobre 2022",
+          "links": [
+            "https://www.bis.gov/press-release/commerce-implements-new-export-controls-advanced-computing-semiconductor-manufacturing-items-peoples"
+          ]
+        },
+        {
+          "text": "CNUCED — Navigating troubled waters: Red Sea, Black Sea and Panama Canal, 2024",
+          "links": [
+            "https://unctad.org/system/files/official-document/osginf2024d2_en.pdf"
+          ]
+        },
+        {
+          "text": "CNUCED — Suez and Panama Canal disruptions threaten global trade, 22 octobre 2024",
+          "links": [
+            "https://unctad.org/news/suez-and-panama-canal-disruptions-threaten-global-trade-and-development"
+          ]
+        },
+        {
+          "text": "Baltic Exchange — Définition officielle du Baltic Dry Index",
+          "links": [
+            "https://www.balticexchange.com/en/data-services/market-information0/indices.html"
+          ]
+        },
+        {
+          "text": "Cboe — Définition officielle du VIX",
+          "links": [
+            "https://www.cboe.com/tradable-products/vix/"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "graphiques-tradingview",
+      "text": "Graphiques TradingView"
+    },
+    {
+      "type": "sources",
+      "scope": "global",
+      "entries": [
+        {
+          "text": "TradingView — GBP/USD (FX:GBPUSD)",
+          "links": [
+            "https://www.tradingview.com/chart/?symbol=FX%3AGBPUSD"
+          ]
+        },
+        {
+          "text": "TradingView — Brent (TVC:UKOIL)",
+          "links": [
+            "https://www.tradingview.com/chart/?symbol=TVC%3AUKOIL"
+          ]
+        },
+        {
+          "text": "TradingView — USD/CNH (FX_IDC:USDCNH)",
+          "links": [
+            "https://www.tradingview.com/chart/?symbol=FX_IDC%3AUSDCNH"
+          ]
+        },
+        {
+          "text": "TradingView — Wheat Futures (CBOT:ZW1!)",
+          "links": [
+            "https://www.tradingview.com/chart/?symbol=CBOT%3AZW1%21"
+          ]
+        },
+        {
+          "text": "TradingView — Gold Spot / U.S. Dollar (OANDA:XAUUSD)",
+          "links": [
+            "https://www.tradingview.com/chart/?symbol=OANDA%3AXAUUSD"
+          ]
+        },
+        {
+          "text": "TradingView — Cboe Volatility Index (CBOE:VIX)",
+          "links": [
+            "https://www.tradingview.com/chart/?symbol=CBOE%3AVIX"
+          ]
+        },
+        {
+          "text": "TradingView — USD/RUB (FX_IDC:USDRUB)",
+          "links": [
+            "https://www.tradingview.com/chart/?symbol=FX_IDC%3AUSDRUB"
+          ]
+        },
+        {
+          "text": "TradingView — Philadelphia Semiconductor Index (NASDAQ:SOX)",
+          "links": [
+            "https://www.tradingview.com/chart/?symbol=NASDAQ%3ASOX"
+          ]
+        },
+        {
+          "text": "TradingView — Baltic Dry Index (INDEX:BDI)",
+          "links": [
+            "https://www.tradingview.com/chart/?symbol=INDEX%3ABDI"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "AVERTISSEMENT PÉDAGOGIQUE",
+      "variant": "disclaimer",
+      "text": "Ce document explique des mécanismes généraux et des cas historiques. Il ne tient pas compte de la situation financière, de la fiscalité ou de la tolérance au risque d'une personne et ne constitue pas une recommandation d'achat ou de vente.",
+      "sourceFill": "FCEDED"
     }
   ]
 }

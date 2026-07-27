@@ -212,12 +212,21 @@
     "order": 4,
     "volumeNumber": 4,
     "source": "content/source/Fondements_analyse_macroeconomique_Volume-4_Partie_1.docx",
+    "supplementalDocx": [
+      {
+        "source": "content/source/volume-4/Formation_Investissement_Trading_Volume_4_Partie-1_Banques_Centrales.docx",
+        "insertBeforeId": "comment-utiliser-ce-cours",
+        "metadataOverrides": {
+          "slug": "4-analyse-macroeconomique"
+        }
+      }
+    ],
     "slug": "4-analyse-macroeconomique",
     "title": "L’analyse macroéconomique",
-    "subtitle": "Comprendre les données, les attentes et leur transmission aux marchés.",
-    "description": "Lire les publications économiques avec méthode et comprendre leurs effets sur les taux, les obligations, les devises, les actions et l’or.",
+    "subtitle": "Comprendre les banques centrales, puis interpréter les données qui orientent leurs décisions.",
+    "description": "Étudier les mandats, les décisions et les outils des banques centrales avant d’analyser les publications économiques et leurs effets possibles sur les marchés.",
     "archetype": "macroeconomic_analysis",
-    "tags": ["macroéconomie", "inflation", "CPI", "PCE", "PIB", "emploi", "NFP", "chômage", "JOLTS", "ventes au détail", "banques centrales", "taux", "obligations", "Forex"],
+    "tags": ["macroéconomie", "banques centrales", "politique monétaire", "taux directeurs", "QE", "QT", "YCC", "inflation", "CPI", "PCE", "PIB", "emploi", "NFP", "chômage", "JOLTS", "ventes au détail", "obligations", "Forex"],
     "dropLeadingBlocks": 8,
     "promoteFirstBlockHeadingLevel": 1,
     "textReplacements": [
@@ -244,17 +253,134 @@
       {
         "match": "Écart qualitatif entre le chiffre réel et ce que le marché attendait.",
         "replacement": "Écart mesurable entre la valeur publiée et le consensus. La composition de la donnée et ses révisions permettent ensuite d’en interpréter qualitativement la portée."
+      },
+      {
+        "match": "Comment utiliser ce cours",
+        "replacement": "Comment utiliser cette Partie 2"
+      },
+      {
+        "match": "Ce cours part d’une idée simple : les données macroéconomiques décrivent une économie, mais les marchés réagissent surtout à ce que ces données changent dans les attentes des investisseurs. Il faut donc apprendre à lire à la fois le chiffre, le contexte et la réaction des autres marchés.",
+        "replacement": "La Partie 1 a posé le cadre des banques centrales, de leurs outils et de leurs canaux de transmission. Cette Partie 2 l’applique aux publications macroéconomiques : lire le chiffre, mesurer sa surprise, examiner ses composantes et déterminer ce qu’il change réellement dans les anticipations du marché."
+      },
+      {
+        "match": "Objectifs pédagogiques",
+        "replacement": "Objectifs de la Partie 2"
+      },
+      {
+        "match": "Sommaire",
+        "replacement": "Parcours de la Partie 2"
+      },
+      {
+        "match": "PARTIE",
+        "replacement": "CHAPITRE"
+      },
+      {
+        "match": "Ces indicateurs influencent les décisions des banques centrales. Or, les taux directeurs et les anticipations de taux influencent à leur tour le coût du crédit, les rendements obligataires, la valeur des devises, la valorisation des entreprises et l’appétit pour le risque. Une donnée peut donc provoquer un mouvement sur plusieurs marchés en quelques secondes.",
+        "replacement": "Comme l’a montré la Partie 1, les marchés réagissent aux changements de trajectoire monétaire attendue, pas seulement au niveau actuel des taux. Une publication compte donc lorsqu’elle modifie le diagnostic d’inflation, d’emploi ou de croissance que les investisseurs prêtent à la banque centrale."
+      },
+      {
+        "match": "3. La chaîne de transmission vers les marchés",
+        "replacement": "3. Du chiffre publié au changement d’anticipations"
+      },
+      {
+        "match": "Passer du chiffre publié à une interprétation cohérente des actifs.",
+        "replacement": "Appliquer au chiffre publié les mécanismes étudiés dans la Partie 1."
+      },
+      {
+        "match": "La donnée n’agit pas directement sur chaque actif. Elle modifie d’abord le scénario économique et les anticipations de politique monétaire. C’est cette chaîne qui explique une grande partie des mouvements de marché.",
+        "replacement": "La Partie 1 a expliqué les canaux qui relient la politique monétaire à l’économie et aux actifs. Ici, l’objectif est plus précis : suivre le chemin publication, surprise, diagnostic économique, trajectoire de taux attendue, puis ajustement des prix."
+      },
+      {
+        "match": "Le rôle central des banques centrales",
+        "replacement": "Appliquer le cadre de la Partie 1"
+      },
+      {
+        "match": "Aux États-Unis, la Réserve fédérale poursuit deux grands objectifs : la stabilité des prix et un niveau d’emploi maximal soutenable. Elle observe donc particulièrement l’inflation et le marché du travail. Si les données montrent une inflation persistante ou une économie trop tendue, le marché peut anticiper des taux plus élevés pendant plus longtemps. Si l’activité et l’inflation ralentissent, il peut anticiper des baisses de taux.",
+        "replacement": "Il n’est pas nécessaire de réapprendre ici les mandats et les outils. Pour chaque publication, la question utile est la suivante : le chiffre et ses détails changent-ils la manière dont le marché anticipe la fonction de réaction de la banque centrale ? Une inflation persistante, un emploi très tendu ou un ralentissement marqué n’ont d’effet durable que s’ils modifient ce scénario."
+      },
+      {
+        "match": "Pourquoi les rendements obligataires sont essentiels",
+        "replacement": "Quels rendements observer après une publication ?"
+      },
+      {
+        "match": "Les rendements des obligations d’État, notamment à court terme, reflètent rapidement les anticipations de taux directeurs. Lorsque les rendements montent, le prix des obligations déjà émises baisse généralement. Des rendements plus élevés rendent aussi les placements sans risque relativement plus attractifs et augmentent le taux utilisé par les investisseurs pour valoriser les bénéfices futurs des entreprises.",
+        "replacement": "Les échéances courtes, notamment le rendement américain à deux ans, réagissent fortement aux anticipations de taux directeurs. Les échéances longues intègrent aussi les perspectives de croissance et d’inflation ainsi que la prime de terme. Les observer ensemble aide à distinguer un simple ajustement de politique monétaire d’un changement plus large du scénario économique."
+      },
+      {
+        "match": "Le rendement d’une obligation et son prix évoluent généralement en sens opposé. Dire « les obligations montent » signifie que leur prix progresse, souvent parce que leur rendement recule.",
+        "replacement": "Rappel de la Partie 1 : prix et rendement d’une obligation évoluent généralement en sens opposé. Dans cette Partie 2, l’enjeu est surtout d’identifier ce que la variation des rendements révèle sur le scénario de taux, de croissance et d’inflation."
+      },
+      {
+        "match": "8. Comprendre l’impact selon chaque marché",
+        "replacement": "8. Appliquer le cadre aux publications macroéconomiques"
+      },
+      {
+        "match": "Une même donnée traverse plusieurs canaux et ne produit jamais une réaction certaine.",
+        "replacement": "La Partie 1 a décrit les canaux ; cette grille permet maintenant de vérifier ce que la publication a réellement modifié."
+      },
+      {
+        "match": "CANAL PRINCIPAL",
+        "replacement": "QUESTION APRÈS LA PUBLICATION"
+      },
+      {
+        "match": "LECTURE FRÉQUENTE",
+        "replacement": "LECTURE CONDITIONNELLE"
+      },
+      {
+        "match": "Attentes de taux, inflation, croissance et recherche de sécurité",
+        "replacement": "La surprise change-t-elle les attentes de taux, d’inflation ou de croissance ?"
+      },
+      {
+        "match": "Différentiel de taux attendu entre deux pays",
+        "replacement": "Le différentiel de taux attendu entre les deux zones monétaires évolue-t-il ?"
+      },
+      {
+        "match": "Valeur actuelle de bénéfices attendus loin dans le futur",
+        "replacement": "La publication modifie-t-elle les rendements longs ou les perspectives de bénéfices ?"
+      },
+      {
+        "match": "Demande économique, crédit et bénéfices",
+        "replacement": "Le scénario de demande, de crédit ou de marges est-il révisé ?"
+      },
+      {
+        "match": "Taux réels, dollar, inflation et demande de sécurité",
+        "replacement": "La publication agit-elle surtout par les taux réels, le dollar ou la recherche de sécurité ?"
+      },
+      {
+        "match": "Observer d’abord le marché obligataire et la devise aide à comprendre l’interprétation dominante. Si les rendements montent fortement après une annonce, le marché lit généralement la donnée comme plus inflationniste ou plus restrictive pour la banque centrale.",
+        "replacement": "Après une publication, comparer les rendements, la devise et les actifs risqués aide à tester le scénario dominant. Ces réactions restent toutefois corrélées : lorsqu’elles proviennent du même choc de taux, elles constituent une seule famille d’information et non plusieurs confirmations indépendantes."
       }
     ],
-    "partSequenceComplete": false,
+    "partSequenceComplete": true,
+    "futureVolumeNumber": 5,
     "parts": [
       {
         "order": 1,
-        "id": "partie-1-fondements-macroeconomiques",
+        "id": "partie-1-banques-centrales",
+        "startId": "mode-d-emploi-du-cours",
+        "title": "Les banques centrales",
+        "subtitle": "Mandats · décisions · outils · transmission",
+        "description": "Comprendre ce qu’est une banque centrale, comment elle décide, quels instruments elle utilise et par quels canaux ses décisions atteignent l’économie et les marchés.",
+        "tocIds": [
+          "mode-d-emploi-du-cours",
+          "1-qu-est-ce-qu-une-banque-centrale",
+          "2-comment-une-decision-est-elle-prise",
+          "3-les-outils-de-politique-monetaire",
+          "4-la-transmission-vers-l-economie",
+          "5-l-impact-sur-les-marches-financiers",
+          "6-cas-1-fed-et-jackson-hole-2022",
+          "7-cas-2-banque-du-japon-et-ycc",
+          "8-methode-d-analyse-d-une-decision-monetaire",
+          "conclusion-generale"
+        ]
+      },
+      {
+        "order": 2,
+        "id": "partie-2-donnees-macroeconomiques",
         "startId": "comment-utiliser-ce-cours",
-        "title": "Les fondements de l’analyse macroéconomique",
-        "subtitle": "Données · attentes · transmission · réaction des marchés",
-        "description": "Apprendre à lire une publication macroéconomique avec méthode, sans réduire une donnée à « bonne » ou « mauvaise », puis comprendre pourquoi les obligations, les devises, les actions et l’or peuvent réagir différemment.",
+        "title": "Les données macroéconomiques",
+        "subtitle": "Inflation · croissance · emploi · consommation",
+        "description": "Appliquer le cadre de la Partie 1 aux publications : mesurer la surprise, lire les composantes et les révisions, puis déterminer si les anticipations de politique monétaire ont réellement changé.",
         "tocIds": [
           "comment-utiliser-ce-cours",
           "1-le-role-de-l-analyse-macroeconomique",
@@ -275,18 +401,18 @@
     "highlights": [
       {
         "number": "01",
-        "title": "Contexte",
-        "text": "Identifier le régime de croissance et d’inflation avant d’interpréter une publication."
+        "title": "Mandat",
+        "text": "Distinguer les objectifs, les contraintes et la crédibilité propres à chaque banque centrale."
       },
       {
         "number": "02",
-        "title": "Anticipations",
-        "text": "Comparer le chiffre réel au consensus, au précédent révisé et aux composantes du rapport."
+        "title": "Décision",
+        "text": "Comparer la décision annoncée à ce que le marché avait déjà intégré dans les prix."
       },
       {
         "number": "03",
         "title": "Transmission",
-        "text": "Relier les attentes de taux aux rendements, aux devises, aux actions, aux obligations et à l’or."
+        "text": "Relier les instruments monétaires aux conditions financières, à l’économie et aux différentes classes d’actifs."
       }
     ],
     "figureCaptions": [

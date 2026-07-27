@@ -8,7 +8,7 @@ import re
 from pathlib import Path
 from typing import Any
 
-from convert_docx import convert_file, slugify
+from convert_docx import DocxConverter, convert_file, slugify
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -51,6 +51,39 @@ def main() -> None:
         output = GENERATED_DIR / f"{slug}.json"
         media_dir = MEDIA_ROOT / slug
         supplemental_blocks: list[dict[str, Any]] = []
+        supplemental_source_records: list[dict[str, str]] = []
+        supplemental_docx_configs = config.get("supplementalDocx") or []
+        if isinstance(supplemental_docx_configs, dict):
+            supplemental_docx_configs = [supplemental_docx_configs]
+        for supplemental_config in supplemental_docx_configs:
+            supplemental_source = ROOT / supplemental_config["source"]
+            supplemental_overrides = dict(supplemental_config.get("metadataOverrides") or {})
+            supplemental_overrides.setdefault("slug", slug)
+            converter = DocxConverter(
+                source=supplemental_source,
+                media_dir=media_dir,
+                public_media_url=f"/media/{slug}",
+                label_variants=labels,
+                metadata_overrides=supplemental_overrides,
+            )
+            try:
+                supplemental_result = converter.convert()
+            finally:
+                converter.close()
+            document_blocks = supplemental_result.get("blocks", [])
+            insert_before_id = supplemental_config.get("insertBeforeId")
+            if insert_before_id:
+                supplemental_blocks.append(
+                    {
+                        "type": "supplemental_insertion",
+                        "insertBeforeId": insert_before_id,
+                        "blocks": document_blocks,
+                    }
+                )
+            else:
+                supplemental_blocks.extend(document_blocks)
+            supplemental_source_records.append(supplemental_result["source"])
+
         supplemental_paths = config.get("supplementalContent") or []
         if isinstance(supplemental_paths, str):
             supplemental_paths = [supplemental_paths]
@@ -77,6 +110,12 @@ def main() -> None:
             metadata_overrides=config,
             supplemental_blocks=supplemental_blocks,
         )
+        if supplemental_source_records:
+            result["source"]["supplemental"] = supplemental_source_records
+            output.write_text(
+                json.dumps(result, ensure_ascii=False, indent=2) + "\n",
+                encoding="utf-8",
+            )
         manifest.append(
             {
                 "file": output.name,

@@ -171,18 +171,26 @@ class ConverterOutputTests(unittest.TestCase):
         types = [block["type"] for block in blocks]
         self.assertEqual(self.v4["metadata"]["title"], "L’analyse macroéconomique")
         self.assertEqual(self.v4["metadata"]["volumeNumber"], 4)
-        self.assertEqual(len(self.v4["metadata"]["parts"]), 1)
-        self.assertFalse(self.v4["metadata"]["partSequenceComplete"])
-        self.assertEqual(self.v4["metadata"]["parts"][0]["title"], "Les fondements de l’analyse macroéconomique")
-        self.assertEqual(blocks[0]["id"], "comment-utiliser-ce-cours")
-        self.assertEqual(types.count("heading"), 72)
-        self.assertEqual(types.count("callout"), 15)
-        self.assertEqual(types.count("figure"), 8)
-        self.assertEqual(types.count("table"), 20)
-        self.assertEqual(self.v4["stats"]["chapterCount"], 13)
+        self.assertEqual(len(self.v4["metadata"]["parts"]), 2)
+        self.assertTrue(self.v4["metadata"]["partSequenceComplete"])
+        self.assertEqual(self.v4["metadata"]["parts"][0]["title"], "Les banques centrales")
+        self.assertEqual(self.v4["metadata"]["parts"][1]["title"], "Les données macroéconomiques")
+        self.assertEqual(blocks[0]["id"], "mode-d-emploi-du-cours")
+        self.assertEqual(types.count("heading"), 136)
+        self.assertEqual(types.count("callout"), 35)
+        self.assertEqual(types.count("figure"), 11)
+        self.assertEqual(types.count("table"), 37)
+        self.assertEqual(self.v4["stats"]["chapterCount"], 23)
         figures = [block for block in blocks if block["type"] == "figure"]
         self.assertTrue(all(figure["caption"] and figure["source"] and figure["alt"] for figure in figures))
         rendered_text = " ".join(all_strings(self.v4))
+        self.assertIn("Qu'est-ce qu'une banque centrale ?", rendered_text)
+        self.assertIn("Les outils de politique monétaire", rendered_text)
+        self.assertIn("Méthode d'analyse d'une décision monétaire", rendered_text)
+        self.assertIn("PASSAGE À LA PARTIE 2", rendered_text)
+        self.assertIn("Comment utiliser cette Partie 2", rendered_text)
+        self.assertIn("La Partie 1 a expliqué les canaux", rendered_text)
+        self.assertIn("Il n’est pas nécessaire de réapprendre ici les mandats et les outils", rendered_text)
         self.assertIn("Les quatre régimes à reconnaître", rendered_text)
         self.assertIn("Pourquoi le consensus domine souvent la première réaction", rendered_text)
         self.assertIn("L’inflation : CPI, Core CPI, PCE et Core PCE", rendered_text)
@@ -195,6 +203,7 @@ class ConverterOutputTests(unittest.TestCase):
         self.assertNotIn("les algorithmes réagissent au titre, puis le marché humain", rendered_text)
         self.assertNotIn("Plus les confirmations sont nombreuses", rendered_text)
         self.assertNotIn("Écart qualitatif entre le chiffre réel", rendered_text)
+        self.assertNotIn("Ces indicateurs influencent les décisions des banques centrales. Or, les taux directeurs", rendered_text)
 
     def test_figures_are_complete_and_optimized(self):
         figures = [
@@ -231,7 +240,12 @@ class ConverterOutputTests(unittest.TestCase):
             (
                 SOURCE / "Fondements_analyse_macroeconomique_Volume-4_Partie_1.docx",
                 self.v4,
-                "comment utiliser ce cours",
+                "ce document est un support éducatif. une publication peut provoquer des écarts de prix, une forte volatilité, du slippage et des mouvements contradictoires. aucune lecture macroéconomique ne garantit un résultat de marché.",
+            ),
+            (
+                SOURCE / "volume-4" / "Formation_Investissement_Trading_Volume_4_Partie-1_Banques_Centrales.docx",
+                self.v4,
+                None,
             ),
         ]
         for source, generated, start_marker in pairs:

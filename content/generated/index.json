@@ -264,13 +264,19 @@
         "order": 4,
         "volumeNumber": 4,
         "title": "L’analyse macroéconomique",
-        "subtitle": "Comprendre les données, les attentes et leur transmission aux marchés.",
-        "description": "Lire les publications économiques avec méthode et comprendre leurs effets sur les taux, les obligations, les devises, les actions et l’or.",
+        "subtitle": "Comprendre les banques centrales, puis interpréter les données qui orientent leurs décisions.",
+        "description": "Étudier les mandats, les décisions et les outils des banques centrales avant d’analyser les publications économiques et leurs effets possibles sur les marchés.",
         "edition": null,
         "format": null,
         "coverLines": [],
         "tags": [
           "macroéconomie",
+          "banques centrales",
+          "politique monétaire",
+          "taux directeurs",
+          "QE",
+          "QT",
+          "YCC",
           "inflation",
           "CPI",
           "PCE",
@@ -280,36 +286,54 @@
           "chômage",
           "JOLTS",
           "ventes au détail",
-          "banques centrales",
-          "taux",
           "obligations",
           "Forex"
         ],
         "highlights": [
           {
             "number": "01",
-            "title": "Contexte",
-            "text": "Identifier le régime de croissance et d’inflation avant d’interpréter une publication."
+            "title": "Mandat",
+            "text": "Distinguer les objectifs, les contraintes et la crédibilité propres à chaque banque centrale."
           },
           {
             "number": "02",
-            "title": "Anticipations",
-            "text": "Comparer le chiffre réel au consensus, au précédent révisé et aux composantes du rapport."
+            "title": "Décision",
+            "text": "Comparer la décision annoncée à ce que le marché avait déjà intégré dans les prix."
           },
           {
             "number": "03",
             "title": "Transmission",
-            "text": "Relier les attentes de taux aux rendements, aux devises, aux actions, aux obligations et à l’or."
+            "text": "Relier les instruments monétaires aux conditions financières, à l’économie et aux différentes classes d’actifs."
           }
         ],
         "parts": [
           {
             "order": 1,
-            "id": "partie-1-fondements-macroeconomiques",
+            "id": "partie-1-banques-centrales",
+            "startId": "mode-d-emploi-du-cours",
+            "title": "Les banques centrales",
+            "subtitle": "Mandats · décisions · outils · transmission",
+            "description": "Comprendre ce qu’est une banque centrale, comment elle décide, quels instruments elle utilise et par quels canaux ses décisions atteignent l’économie et les marchés.",
+            "tocIds": [
+              "mode-d-emploi-du-cours",
+              "1-qu-est-ce-qu-une-banque-centrale",
+              "2-comment-une-decision-est-elle-prise",
+              "3-les-outils-de-politique-monetaire",
+              "4-la-transmission-vers-l-economie",
+              "5-l-impact-sur-les-marches-financiers",
+              "6-cas-1-fed-et-jackson-hole-2022",
+              "7-cas-2-banque-du-japon-et-ycc",
+              "8-methode-d-analyse-d-une-decision-monetaire",
+              "conclusion-generale"
+            ]
+          },
+          {
+            "order": 2,
+            "id": "partie-2-donnees-macroeconomiques",
             "startId": "comment-utiliser-ce-cours",
-            "title": "Les fondements de l’analyse macroéconomique",
-            "subtitle": "Données · attentes · transmission · réaction des marchés",
-            "description": "Apprendre à lire une publication macroéconomique avec méthode, sans réduire une donnée à « bonne » ou « mauvaise », puis comprendre pourquoi les obligations, les devises, les actions et l’or peuvent réagir différemment.",
+            "title": "Les données macroéconomiques",
+            "subtitle": "Inflation · croissance · emploi · consommation",
+            "description": "Appliquer le cadre de la Partie 1 aux publications : mesurer la surprise, lire les composantes et les révisions, puis déterminer si les anticipations de politique monétaire ont réellement changé.",
             "tocIds": [
               "comment-utiliser-ce-cours",
               "1-le-role-de-l-analyse-macroeconomique",
@@ -327,15 +351,16 @@
             ]
           }
         ],
-        "partSequenceComplete": false,
+        "partSequenceComplete": true,
+        "futureVolumeNumber": 5,
         "slug": "4-analyse-macroeconomique"
       },
       "stats": {
-        "wordCount": 7090,
-        "readingMinutes": 32,
-        "chapterCount": 13,
+        "wordCount": 12627,
+        "readingMinutes": 57,
+        "chapterCount": 23,
         "dossierCount": 0,
-        "figureCount": 8
+        "figureCount": 11
       },
       "archetype": "macroeconomic_analysis"
     }

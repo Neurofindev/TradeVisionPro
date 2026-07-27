@@ -145,6 +145,9 @@ test("course progression is isolated by profile while admin access bypasses lock
   assert.ok(client.includes('parsed["1-part-1"] = parsed["1"]'));
   assert.ok(client.includes('parsed["1-part-2"] = parsed["1"]'));
   assert.ok(client.includes('parsed["3-part-1"] = parsed["3"]'));
+  assert.ok(client.includes("volume4-two-parts-migrated"));
+  assert.ok(client.includes('parsed["4-part-2"]'));
+  assert.ok(client.includes("allPartsPassed"));
   assert.ok(client.includes("isPartUnlocked"));
   assert.ok(client.includes("completesVolume"));
   assert.equal((home.match(/data-volume-card/g) || []).length, 4);
@@ -301,15 +304,23 @@ test("volume three renders three distinct progressive parts", async () => {
   assert.ok(client.includes('parsed["3"] && !parsed["3-part-3"]'));
 });
 
-test("volume four integrates a clear progressive macroeconomic part", async () => {
+test("volume four separates central banks from macroeconomic publications", async () => {
   const html = await readFile(path.join(DIST, "volumes/4-analyse-macroeconomique/index.html"), "utf8");
   const styles = await readFile(path.join(DIST, "assets", "styles.css"), "utf8");
-  const quiz = JSON.parse(await readFile(path.join(ROOT, "config", "quizzes.json"), "utf8"))["4-analyse-macroeconomique"].parts[0];
+  const quizzes = JSON.parse(await readFile(path.join(ROOT, "config", "quizzes.json"), "utf8"))["4-analyse-macroeconomique"].parts;
   assert.ok(html.includes("L’analyse macroéconomique"));
-  assert.ok(html.includes("Les fondements de l’analyse macroéconomique"));
-  assert.ok(html.includes("Une partie, une validation"));
-  assert.ok(html.includes("Un QCM indépendant"));
-  assert.ok(html.includes("QCM de la Partie 1 — Fondements macroéconomiques"));
+  assert.ok(html.includes("Les banques centrales"));
+  assert.ok(html.includes("Les données macroéconomiques"));
+  assert.ok(html.includes("Deux parties, deux validations"));
+  assert.ok(html.includes("QCM par partie"));
+  assert.ok(html.includes("QCM de la Partie 1 — Banques centrales"));
+  assert.ok(html.includes("QCM de la Partie 2 — Données macroéconomiques"));
+  assert.ok(html.includes("Qu&#039;est-ce qu&#039;une banque centrale ?"));
+  assert.ok(html.includes("Les outils de politique monétaire"));
+  assert.ok(html.includes("Méthode d&#039;analyse d&#039;une décision monétaire"));
+  assert.ok(html.includes("Comment utiliser cette Partie 2"));
+  assert.ok(html.includes("Du chiffre publié au changement d’anticipations"));
+  assert.ok(html.includes("Il n’est pas nécessaire de réapprendre ici les mandats et les outils"));
   assert.ok(html.includes("Pourquoi le consensus domine souvent la première réaction"));
   assert.ok(html.includes("L’inflation : CPI, Core CPI, PCE et Core PCE"));
   assert.ok(html.includes("6. L’emploi : NFP, chômage, jobless claims et JOLTS"));
@@ -320,20 +331,24 @@ test("volume four integrates a clear progressive macroeconomic part", async () =
   assert.ok(!html.includes("les algorithmes réagissent au titre, puis le marché humain"));
   assert.ok(!html.includes("Plus les confirmations sont nombreuses"));
   assert.ok(!html.includes("Écart qualitatif entre le chiffre réel"));
-  assert.equal((html.match(/class="volume-part"/g) || []).length, 1);
-  assert.equal((html.match(/class="volume-part__hero volume-part__hero--compact"/g) || []).length, 1);
+  assert.ok(!html.includes("Ces indicateurs influencent les décisions des banques centrales. Or, les taux directeurs"));
+  assert.equal((html.match(/class="volume-part"/g) || []).length, 2);
+  assert.equal((html.match(/class="volume-part__hero"/g) || []).length, 2);
   assert.match(styles, /\.volume-part__hero--compact h2\s*\{[^}]*font-size:\s*clamp\(1\.8rem, 3\.45vw, 2\.85rem\)/s);
-  assert.equal((html.match(/class="quiz-workspace"/g) || []).length, 1);
-  assert.equal((html.match(/class="quiz-question"/g) || []).length, 10);
-  assert.equal((html.match(/class="course-figure breakout"/g) || []).length, 8);
-  assert.equal((html.match(/class="data-table breakout"/g) || []).length, 20);
+  assert.equal((html.match(/class="quiz-workspace"/g) || []).length, 2);
+  assert.equal((html.match(/class="quiz-question"/g) || []).length, 20);
+  assert.equal((html.match(/class="course-figure breakout"/g) || []).length, 11);
+  assert.equal((html.match(/class="data-table breakout"/g) || []).length, 37);
   assert.ok(html.includes('data-completes-volume="false"'));
-  assert.ok(html.includes('data-awaits-next-part="true"'));
-  assert.equal(quiz.questions.length, 10);
-  assert.ok(new Set(quiz.questions.map((question) => question.answer)).size >= 3);
-  assert.match(JSON.stringify(quiz), /consensus|Core PCE|PIB réel|NFP|JOLTS|ventes au détail/i);
-  assert.doesNotMatch(JSON.stringify(quiz.questions.map((question) => question.question)), /Doji|MACD|moyenne mobile/i);
-  assert.ok(!html.includes("Volume 5"));
+  assert.ok(html.includes('data-completes-volume="true"'));
+  assert.ok(!html.includes('data-awaits-next-part="true"'));
+  assert.ok(html.includes('data-awaits-future-volume="true"'));
+  assert.equal(quizzes.length, 2);
+  assert.ok(quizzes.every((quiz) => quiz.questions.length === 10));
+  assert.ok(quizzes.every((quiz) => new Set(quiz.questions.map((question) => question.answer)).size >= 3));
+  assert.match(JSON.stringify(quizzes[0]), /mandat|QE|hawkish|YCC|Jackson Hole|communication/i);
+  assert.match(JSON.stringify(quizzes[1]), /consensus|Core PCE|PIB réel|NFP|JOLTS|ventes au détail/i);
+  assert.doesNotMatch(JSON.stringify(quizzes.flatMap((quiz) => quiz.questions.map((question) => question.question))), /Doji|MACD|moyenne mobile/i);
   assert.ok(!html.includes("Unsupported content block"));
 });
 

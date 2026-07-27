@@ -2,20 +2,32 @@
   "schemaVersion": 1,
   "source": {
     "file": "Fondements_analyse_macroeconomique_Volume-4_Partie_1.docx",
-    "sha256": "fd97c38dd32b616dd9b3b2a67bfb2b36366781fb693a6894ad728237963bfdea"
+    "sha256": "fd97c38dd32b616dd9b3b2a67bfb2b36366781fb693a6894ad728237963bfdea",
+    "supplemental": [
+      {
+        "file": "Formation_Investissement_Trading_Volume_4_Partie-1_Banques_Centrales.docx",
+        "sha256": "177c644567be05cea4ada35b4a72bba5ed005ae65c6905e0cc03b6789c0339ab"
+      }
+    ]
   },
   "metadata": {
     "id": "volume-4",
     "order": 4,
     "volumeNumber": 4,
     "title": "L’analyse macroéconomique",
-    "subtitle": "Comprendre les données, les attentes et leur transmission aux marchés.",
-    "description": "Lire les publications économiques avec méthode et comprendre leurs effets sur les taux, les obligations, les devises, les actions et l’or.",
+    "subtitle": "Comprendre les banques centrales, puis interpréter les données qui orientent leurs décisions.",
+    "description": "Étudier les mandats, les décisions et les outils des banques centrales avant d’analyser les publications économiques et leurs effets possibles sur les marchés.",
     "edition": null,
     "format": null,
     "coverLines": [],
     "tags": [
       "macroéconomie",
+      "banques centrales",
+      "politique monétaire",
+      "taux directeurs",
+      "QE",
+      "QT",
+      "YCC",
       "inflation",
       "CPI",
       "PCE",
@@ -25,36 +37,54 @@
       "chômage",
       "JOLTS",
       "ventes au détail",
-      "banques centrales",
-      "taux",
       "obligations",
       "Forex"
     ],
     "highlights": [
       {
         "number": "01",
-        "title": "Contexte",
-        "text": "Identifier le régime de croissance et d’inflation avant d’interpréter une publication."
+        "title": "Mandat",
+        "text": "Distinguer les objectifs, les contraintes et la crédibilité propres à chaque banque centrale."
       },
       {
         "number": "02",
-        "title": "Anticipations",
-        "text": "Comparer le chiffre réel au consensus, au précédent révisé et aux composantes du rapport."
+        "title": "Décision",
+        "text": "Comparer la décision annoncée à ce que le marché avait déjà intégré dans les prix."
       },
       {
         "number": "03",
         "title": "Transmission",
-        "text": "Relier les attentes de taux aux rendements, aux devises, aux actions, aux obligations et à l’or."
+        "text": "Relier les instruments monétaires aux conditions financières, à l’économie et aux différentes classes d’actifs."
       }
     ],
     "parts": [
       {
         "order": 1,
-        "id": "partie-1-fondements-macroeconomiques",
+        "id": "partie-1-banques-centrales",
+        "startId": "mode-d-emploi-du-cours",
+        "title": "Les banques centrales",
+        "subtitle": "Mandats · décisions · outils · transmission",
+        "description": "Comprendre ce qu’est une banque centrale, comment elle décide, quels instruments elle utilise et par quels canaux ses décisions atteignent l’économie et les marchés.",
+        "tocIds": [
+          "mode-d-emploi-du-cours",
+          "1-qu-est-ce-qu-une-banque-centrale",
+          "2-comment-une-decision-est-elle-prise",
+          "3-les-outils-de-politique-monetaire",
+          "4-la-transmission-vers-l-economie",
+          "5-l-impact-sur-les-marches-financiers",
+          "6-cas-1-fed-et-jackson-hole-2022",
+          "7-cas-2-banque-du-japon-et-ycc",
+          "8-methode-d-analyse-d-une-decision-monetaire",
+          "conclusion-generale"
+        ]
+      },
+      {
+        "order": 2,
+        "id": "partie-2-donnees-macroeconomiques",
         "startId": "comment-utiliser-ce-cours",
-        "title": "Les fondements de l’analyse macroéconomique",
-        "subtitle": "Données · attentes · transmission · réaction des marchés",
-        "description": "Apprendre à lire une publication macroéconomique avec méthode, sans réduire une donnée à « bonne » ou « mauvaise », puis comprendre pourquoi les obligations, les devises, les actions et l’or peuvent réagir différemment.",
+        "title": "Les données macroéconomiques",
+        "subtitle": "Inflation · croissance · emploi · consommation",
+        "description": "Appliquer le cadre de la Partie 1 aux publications : mesurer la surprise, lire les composantes et les révisions, puis déterminer si les anticipations de politique monétaire ont réellement changé.",
         "tocIds": [
           "comment-utiliser-ce-cours",
           "1-le-role-de-l-analyse-macroeconomique",
@@ -72,30 +102,2918 @@
         ]
       }
     ],
-    "partSequenceComplete": false,
+    "partSequenceComplete": true,
+    "futureVolumeNumber": 5,
     "slug": "4-analyse-macroeconomique"
   },
   "archetype": "macroeconomic_analysis",
   "stats": {
-    "wordCount": 7090,
-    "readingMinutes": 32,
-    "chapterCount": 13,
+    "wordCount": 12627,
+    "readingMinutes": 57,
+    "chapterCount": 23,
     "dossierCount": 0,
-    "figureCount": 8
+    "figureCount": 11
   },
   "blocks": [
     {
       "type": "heading",
       "level": 1,
-      "id": "comment-utiliser-ce-cours",
-      "text": "Comment utiliser ce cours"
+      "id": "mode-d-emploi-du-cours",
+      "text": "Mode d'emploi du cours"
     },
     {
       "type": "paragraph",
-      "text": "Ce cours part d’une idée simple : les données macroéconomiques décrivent une économie, mais les marchés réagissent surtout à ce que ces données changent dans les attentes des investisseurs. Il faut donc apprendre à lire à la fois le chiffre, le contexte et la réaction des autres marchés.",
+      "text": "Cette Partie 1 ouvre le Volume 4. Les volumes précédents ont posé les bases de l'investissement, du risque et de la lecture du marché. Ici, tu vas comprendre l'institution qui fixe l'orientation monétaire. La Partie 2 appliquera ensuite ce cadre aux données d'inflation, d'emploi, de croissance et de consommation.",
       "segments": [
         {
-          "text": "Ce cours part d’une idée simple : les données macroéconomiques décrivent une économie, mais les marchés réagissent surtout à ce que ces données changent dans les attentes des investisseurs. Il faut donc apprendre à lire à la fois le chiffre, le contexte et la réaction des autres marchés."
+          "text": "Cette Partie 1 ouvre le Volume 4. Les volumes précédents ont posé les bases de l'investissement, du risque et de la lecture du marché. Ici, tu vas comprendre l'institution qui fixe l'orientation monétaire. La Partie 2 appliquera ensuite ce cadre aux données d'inflation, d'emploi, de croissance et de consommation."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "IDÉE CENTRALE",
+      "variant": "info",
+      "text": "Le marché ne réagit pas seulement à une hausse ou à une baisse de taux. Il compare la décision, le communiqué, les prévisions et le discours à ce qu'il avait déjà anticipé.",
+      "sourceFill": "EEF4FA"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "objectifs-de-la-partie-1",
+      "text": "Objectifs de la Partie 1"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Distinguer une banque centrale d'une banque commerciale et d'un gouvernement.",
+          "segments": [
+            {
+              "text": "Distinguer une banque centrale d'une banque commerciale et d'un gouvernement."
+            }
+          ]
+        },
+        {
+          "text": "Expliquer ses objectifs : stabilité des prix, emploi selon le mandat, stabilité financière et bon fonctionnement des paiements.",
+          "segments": [
+            {
+              "text": "Expliquer ses objectifs : stabilité des prix, emploi selon le mandat, stabilité financière et bon fonctionnement des paiements."
+            }
+          ]
+        },
+        {
+          "text": "Comprendre d'abord les taux directeurs, les réserves et les opérations de marché, puis situer le QE, le QT et le YCC comme outils d'approfondissement.",
+          "segments": [
+            {
+              "text": "Comprendre d'abord les taux directeurs, les réserves et les opérations de marché, puis situer le QE, le QT et le YCC comme outils d'approfondissement."
+            }
+          ]
+        },
+        {
+          "text": "Suivre la chaîne de transmission vers le crédit, la demande, l'emploi et l'inflation.",
+          "segments": [
+            {
+              "text": "Suivre la chaîne de transmission vers le crédit, la demande, l'emploi et l'inflation."
+            }
+          ]
+        },
+        {
+          "text": "Lire l'effet probable d'une décision sur les obligations, les actions, les devises, l'or et les actifs risqués.",
+          "segments": [
+            {
+              "text": "Lire l'effet probable d'une décision sur les obligations, les actions, les devises, l'or et les actifs risqués."
+            }
+          ]
+        },
+        {
+          "text": "Distinguer le niveau des taux, leur direction, leur vitesse et surtout l'écart avec les attentes.",
+          "segments": [
+            {
+              "text": "Distinguer le niveau des taux, leur direction, leur vitesse et surtout l'écart avec les attentes."
+            }
+          ]
+        },
+        {
+          "text": "Analyser une décision avec une méthode simple sans confondre réaction immédiate et effet durable.",
+          "segments": [
+            {
+              "text": "Analyser une décision avec une méthode simple sans confondre réaction immédiate et effet durable."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "parcours-de-la-partie-1",
+      "text": "Parcours de la Partie 1"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Rôle et importance des banques centrales.",
+          "segments": [
+            {
+              "text": "Rôle et importance des banques centrales."
+            }
+          ]
+        },
+        {
+          "text": "Organisation d'une décision de politique monétaire.",
+          "segments": [
+            {
+              "text": "Organisation d'une décision de politique monétaire."
+            }
+          ]
+        },
+        {
+          "text": "Outils conventionnels et non conventionnels.",
+          "segments": [
+            {
+              "text": "Outils conventionnels et non conventionnels."
+            }
+          ]
+        },
+        {
+          "text": "Transmission vers l'économie réelle.",
+          "segments": [
+            {
+              "text": "Transmission vers l'économie réelle."
+            }
+          ]
+        },
+        {
+          "text": "Réactions des différents marchés.",
+          "segments": [
+            {
+              "text": "Réactions des différents marchés."
+            }
+          ]
+        },
+        {
+          "text": "Deux cas réels : Fed en août 2022 et Banque du Japon en décembre 2022.",
+          "segments": [
+            {
+              "text": "Deux cas réels : Fed en août 2022 et Banque du Japon en décembre 2022."
+            }
+          ]
+        },
+        {
+          "text": "Méthode d'analyse, erreurs fréquentes et glossaire.",
+          "segments": [
+            {
+              "text": "Méthode d'analyse, erreurs fréquentes et glossaire."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "CADRE PÉDAGOGIQUE",
+      "variant": "warning",
+      "text": "Les exemples expliquent des mécanismes historiques. Ils ne constituent ni une recommandation d'achat ou de vente, ni une prévision de la prochaine décision.",
+      "sourceFill": "FCEDED"
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "1-qu-est-ce-qu-une-banque-centrale",
+      "text": "1. Qu'est-ce qu'une banque centrale ?"
+    },
+    {
+      "type": "paragraph",
+      "text": "L'institution qui protège la monnaie et organise les conditions monétaires.",
+      "segments": [
+        {
+          "text": "L'institution qui protège la monnaie et organise les conditions monétaires.",
+          "italic": true
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "1-1-definition-simple",
+      "text": "1.1 Définition simple"
+    },
+    {
+      "type": "paragraph",
+      "text": "Une banque centrale est l'institution au centre du système monétaire d'un pays ou d'une zone monétaire. Elle émet la monnaie centrale, tient les comptes de réserve des banques, contribue au fonctionnement des paiements et conduit la politique monétaire. Son objectif n'est pas de vendre des crédits au public ni de maximiser un bénéfice.",
+      "segments": [
+        {
+          "text": "Une banque centrale est l'institution au centre du système monétaire d'un pays ou d'une zone monétaire. Elle émet la monnaie centrale, tient les comptes de réserve des banques, contribue au fonctionnement des paiements et conduit la politique monétaire. Son objectif n'est pas de vendre des crédits au public ni de maximiser un bénéfice."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "IMAGE MENTALE",
+      "variant": "principle",
+      "text": "Les banques commerciales sont les véhicules qui distribuent le crédit. La banque centrale règle une partie des conditions de circulation : coût du financement, quantité de réserves et sécurité du réseau de paiements.",
+      "sourceFill": "FFF7DD"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "1-2-trois-institutions-a-ne-pas-confondre",
+      "text": "1.2 Trois institutions à ne pas confondre"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Institution",
+        "Rôle principal",
+        "Ce qu'elle décide",
+        "Ce qu'elle ne fait pas directement"
+      ],
+      "rows": [
+        [
+          "Banque centrale",
+          "Politique monétaire et monnaie centrale",
+          "Taux directeurs, opérations, bilan, liquidité",
+          "Budget de l'État et impôts"
+        ],
+        [
+          "Banque commerciale",
+          "Dépôts, paiements et crédits aux clients",
+          "Conditions de crédit selon ses coûts et ses risques",
+          "Objectif national d'inflation"
+        ],
+        [
+          "Gouvernement / Trésor",
+          "Politique budgétaire et dépenses publiques",
+          "Impôts, dépenses, déficit, émissions de dette",
+          "Taux directeur indépendant"
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "La politique monétaire agit surtout sur le coût et la disponibilité de la monnaie. La politique budgétaire agit directement par les dépenses, les transferts et les impôts. Les deux peuvent aller dans le même sens ou se contrarier.",
+      "segments": [
+        {
+          "text": "La politique monétaire agit surtout sur le coût et la disponibilité de la monnaie. La politique budgétaire agit directement par les dépenses, les transferts et les impôts. Les deux peuvent aller dans le même sens ou se contrarier."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "1-3-les-missions-principales",
+      "text": "1.3 Les missions principales"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Stabilité des prix. Éviter une inflation durablement trop forte, mais aussi une inflation trop faible ou une déflation persistante.",
+          "segments": [
+            {
+              "text": "Stabilité des prix. Éviter une inflation durablement trop forte, mais aussi une inflation trop faible ou une déflation persistante."
+            }
+          ]
+        },
+        {
+          "text": "Activité et emploi. Certaines banques ont un mandat explicite sur l'emploi ; d'autres soutiennent l'économie sous réserve de leur objectif principal de prix.",
+          "segments": [
+            {
+              "text": "Activité et emploi. Certaines banques ont un mandat explicite sur l'emploi ; d'autres soutiennent l'économie sous réserve de leur objectif principal de prix."
+            }
+          ]
+        },
+        {
+          "text": "Stabilité financière. Surveiller les risques systémiques et fournir de la liquidité en crise lorsque les conditions sont réunies.",
+          "segments": [
+            {
+              "text": "Stabilité financière. Surveiller les risques systémiques et fournir de la liquidité en crise lorsque les conditions sont réunies."
+            }
+          ]
+        },
+        {
+          "text": "Système de paiements. Permettre aux banques de régler définitivement leurs dettes entre elles en monnaie de banque centrale.",
+          "segments": [
+            {
+              "text": "Système de paiements. Permettre aux banques de régler définitivement leurs dettes entre elles en monnaie de banque centrale."
+            }
+          ]
+        },
+        {
+          "text": "Supervision bancaire. Cette mission appartient à la banque centrale dans certains systèmes, totalement ou partiellement, mais pas partout.",
+          "segments": [
+            {
+              "text": "Supervision bancaire. Cette mission appartient à la banque centrale dans certains systèmes, totalement ou partiellement, mais pas partout."
+            }
+          ]
+        },
+        {
+          "text": "Gestion des réserves de change et services à l'État. Le périmètre exact dépend de la loi et du pays.",
+          "segments": [
+            {
+              "text": "Gestion des réserves de change et services à l'État. Le périmètre exact dépend de la loi et du pays."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Source : BCE — Qu'est-ce que la politique monétaire ? · BRI — Rôles et objectifs des banques centrales modernes · BRI — Les banques centrales au cœur du système monétaire",
+      "segments": [
+        {
+          "text": "Source : ",
+          "italic": true
+        },
+        {
+          "text": "BCE — Qu'est-ce que la politique monétaire ?",
+          "underline": true,
+          "href": "https://www.ecb.europa.eu/ecb-and-you/explainers/tell-me/html/what-is-monetary-policy.en.html"
+        },
+        {
+          "text": " · "
+        },
+        {
+          "text": "BRI — Rôles et objectifs des banques centrales modernes",
+          "underline": true,
+          "href": "https://www.bis.org/publ/othp04_2.pdf"
+        },
+        {
+          "text": " · "
+        },
+        {
+          "text": "BRI — Les banques centrales au cœur du système monétaire",
+          "underline": true,
+          "href": "https://www.bis.org/publ/arpdf/ar2025e3.htm"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "1-4-mandat-pourquoi-toutes-les-banques-centrales-ne-reagissent-pas-pareil",
+      "text": "1.4 Mandat : pourquoi toutes les banques centrales ne réagissent pas pareil"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Institution",
+        "Zone",
+        "Organe de décision",
+        "Priorité simplifiée"
+      ],
+      "rows": [
+        [
+          "Réserve fédérale (Fed)",
+          "États-Unis",
+          "FOMC",
+          "Stabilité des prix et emploi maximal"
+        ],
+        [
+          "Banque centrale européenne (BCE)",
+          "Zone euro",
+          "Conseil des gouverneurs",
+          "Stabilité des prix ; soutien aux objectifs économiques sans la compromettre"
+        ],
+        [
+          "Banque d'Angleterre (BoE)",
+          "Royaume-Uni",
+          "Monetary Policy Committee",
+          "Objectif d'inflation fixé par le gouvernement"
+        ],
+        [
+          "Banque du Japon (BoJ)",
+          "Japon",
+          "Policy Board",
+          "Stabilité des prix et stabilité du système financier"
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "CONSÉQUENCE POUR LE MARCHÉ",
+      "variant": "info",
+      "text": "Une même inflation peut provoquer des réponses différentes si la croissance, l'emploi, la structure du crédit ou le mandat ne sont pas identiques.",
+      "sourceFill": "EEF4FA"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "1-5-independance-credibilite-et-responsabilite",
+      "text": "1.5 Indépendance, crédibilité et responsabilité"
+    },
+    {
+      "type": "paragraph",
+      "text": "L'indépendance signifie que les responsables peuvent prendre une décision impopulaire, par exemple maintenir des taux élevés, sans devoir suivre l'intérêt électoral immédiat. Elle ne signifie pas absence de contrôle : le mandat vient de la loi, les décisions sont publiées et les dirigeants rendent des comptes.",
+      "segments": [
+        {
+          "text": "L'indépendance signifie que les responsables peuvent prendre une décision impopulaire, par exemple maintenir des taux élevés, sans devoir suivre l'intérêt électoral immédiat. Elle ne signifie pas absence de contrôle : le mandat vient de la loi, les décisions sont publiées et les dirigeants rendent des comptes."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "La crédibilité compte parce que l'inflation dépend aussi des anticipations. Si ménages, entreprises et investisseurs croient que la banque ramènera l'inflation vers sa cible, ils adaptent plus modérément salaires, prix et taux exigés. Si cette confiance disparaît, la banque peut devoir resserrer davantage.",
+      "segments": [
+        {
+          "text": "La crédibilité compte parce que l'inflation dépend aussi des anticipations. Si ménages, entreprises et investisseurs croient que la banque ramènera l'inflation vers sa cible, ils adaptent plus modérément salaires, prix et taux exigés. Si cette confiance disparaît, la banque peut devoir resserrer davantage."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "À RETENIR",
+      "variant": "summary",
+      "text": "Une banque centrale crédible peut influencer l'économie par ses paroles avant même de modifier réellement son taux ou son bilan.",
+      "sourceFill": "EAF6EF"
+    },
+    {
+      "type": "paragraph",
+      "text": "Source : Réserve fédérale — Objectifs et fonctionnement de la politique monétaire · BCE — Objectif d'inflation de 2 % · FMI — Pourquoi l'indépendance des banques centrales est nécessaire",
+      "segments": [
+        {
+          "text": "Source : ",
+          "italic": true
+        },
+        {
+          "text": "Réserve fédérale — Objectifs et fonctionnement de la politique monétaire",
+          "underline": true,
+          "href": "https://www.federalreserve.gov/monetarypolicy/monetary-policy-what-are-its-goals-how-does-it-work.htm"
+        },
+        {
+          "text": " · "
+        },
+        {
+          "text": "BCE — Objectif d'inflation de 2 %",
+          "underline": true,
+          "href": "https://www.ecb.europa.eu/mopo/strategy/pricestab/html/index.en.html"
+        },
+        {
+          "text": " · "
+        },
+        {
+          "text": "FMI — Pourquoi l'indépendance des banques centrales est nécessaire",
+          "underline": true,
+          "href": "https://www.imf.org/en/news/articles/2024/06/17/sp061424-central-bank-independence"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "2-comment-une-decision-est-elle-prise",
+      "text": "2. Comment une décision est-elle prise ?"
+    },
+    {
+      "type": "paragraph",
+      "text": "Des données au communiqué : un processus, pas un simple bouton de taux.",
+      "segments": [
+        {
+          "text": "Des données au communiqué : un processus, pas un simple bouton de taux.",
+          "italic": true
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "2-1-le-cycle-d-une-reunion",
+      "text": "2.1 Le cycle d'une réunion"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Observer les données : inflation, salaires, emploi, consommation, crédit, logement, activité, conditions financières et risques mondiaux.",
+          "segments": [
+            {
+              "text": "Observer les données : inflation, salaires, emploi, consommation, crédit, logement, activité, conditions financières et risques mondiaux."
+            }
+          ]
+        },
+        {
+          "text": "Construire des prévisions : scénario central, incertitudes et risques orientés à la hausse ou à la baisse.",
+          "segments": [
+            {
+              "text": "Construire des prévisions : scénario central, incertitudes et risques orientés à la hausse ou à la baisse."
+            }
+          ]
+        },
+        {
+          "text": "Comparer l'économie au mandat : inflation trop forte, demande trop faible, emploi qui se détériore ou tensions financières.",
+          "segments": [
+            {
+              "text": "Comparer l'économie au mandat : inflation trop forte, demande trop faible, emploi qui se détériore ou tensions financières."
+            }
+          ]
+        },
+        {
+          "text": "Débattre puis voter : le comité choisit la combinaison d'outils et le degré de fermeté du message.",
+          "segments": [
+            {
+              "text": "Débattre puis voter : le comité choisit la combinaison d'outils et le degré de fermeté du message."
+            }
+          ]
+        },
+        {
+          "text": "Publier la décision : communiqué, projections éventuelles, conférence de presse, minutes puis discours ultérieurs.",
+          "segments": [
+            {
+              "text": "Publier la décision : communiqué, projections éventuelles, conférence de presse, minutes puis discours ultérieurs."
+            }
+          ]
+        },
+        {
+          "text": "Mettre en œuvre : les opérations de la banque centrale maintiennent les taux de marché à très court terme autour de la zone souhaitée.",
+          "segments": [
+            {
+              "text": "Mettre en œuvre : les opérations de la banque centrale maintiennent les taux de marché à très court terme autour de la zone souhaitée."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "2-2-la-banque-centrale-est-tournee-vers-l-avenir",
+      "text": "2.2 La banque centrale est tournée vers l'avenir"
+    },
+    {
+      "type": "paragraph",
+      "text": "L'inflation publiée aujourd'hui décrit surtout le passé récent, alors que les décisions mettent du temps à atteindre l'économie. Le comité cherche donc à savoir où seront la demande, l'emploi et l'inflation dans plusieurs trimestres. Une banque peut réduire ses taux alors que l'inflation est encore élevée si elle juge le ralentissement futur suffisant ; elle peut aussi les maintenir élevés alors que l'inflation baisse si les pressions sous-jacentes restent fortes.",
+      "segments": [
+        {
+          "text": "L'inflation publiée aujourd'hui décrit surtout le passé récent, alors que les décisions mettent du temps à atteindre l'économie. Le comité cherche donc à savoir où seront la demande, l'emploi et l'inflation dans plusieurs trimestres. Une banque peut réduire ses taux alors que l'inflation est encore élevée si elle juge le ralentissement futur suffisant ; elle peut aussi les maintenir élevés alors que l'inflation baisse si les pressions sous-jacentes restent fortes."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "2-3-les-quatre-dimensions-d-une-decision",
+      "text": "2.3 Les quatre dimensions d'une décision"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Dimension",
+        "Question",
+        "Pourquoi le marché la suit"
+      ],
+      "rows": [
+        [
+          "Niveau",
+          "Où se situe le taux aujourd'hui ?",
+          "Il influence directement le financement très court et le régime monétaire."
+        ],
+        [
+          "Direction",
+          "La prochaine étape est-elle hausse, pause ou baisse ?",
+          "Les actifs évaluent surtout la trajectoire future."
+        ],
+        [
+          "Vitesse",
+          "Le mouvement sera-t-il rapide ou graduel ?",
+          "Une variation brutale modifie plus fortement les conditions financières."
+        ],
+        [
+          "Durée",
+          "Combien de temps la politique restera-t-elle restrictive ou souple ?",
+          "Les taux longs et les valorisations dépendent de plusieurs années d'anticipations."
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "2-4-hawkish-dovish-et-neutre",
+      "text": "2.4 Hawkish, dovish et neutre"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Terme",
+        "Sens",
+        "Message typique"
+      ],
+      "rows": [
+        [
+          "Hawkish / restrictif",
+          "Priorité plus forte à la lutte contre l'inflation",
+          "Taux plus hauts, plus longtemps, ou réduction du bilan plus ferme"
+        ],
+        [
+          "Dovish / accommodant",
+          "Priorité plus forte au soutien de l'activité et de l'emploi",
+          "Baisses possibles, liquidité accrue ou bilan plus souple"
+        ],
+        [
+          "Neutre / équilibré",
+          "Pas de direction fortement signalée",
+          "Décisions dépendantes des données et risques jugés équilibrés"
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "NUANCE",
+      "variant": "principle",
+      "text": "Un taux inchangé peut être hawkish si la banque promet de le maintenir élevé plus longtemps. Une hausse peut être dovish si elle est accompagnée de la fin probable du cycle.",
+      "sourceFill": "FFF7DD"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "2-5-ce-que-le-marche-lit-le-jour-j",
+      "text": "2.5 Ce que le marché lit le jour J"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Élément",
+        "Question utile"
+      ],
+      "rows": [
+        [
+          "Décision",
+          "Était-elle conforme au consensus et aux prix des marchés à terme ?"
+        ],
+        [
+          "Communiqué",
+          "Quels mots ont changé sur l'inflation, l'emploi, les risques et les prochaines étapes ?"
+        ],
+        [
+          "Prévisions",
+          "Croissance, inflation, chômage et taux projetés ont-ils été révisés ?"
+        ],
+        [
+          "Vote",
+          "Le comité est-il uni ou plusieurs membres préfèrent-ils une autre décision ?"
+        ],
+        [
+          "Conférence",
+          "Le dirigeant confirme-t-il le communiqué ou ajoute-t-il une nuance ?"
+        ],
+        [
+          "Fonction de réaction",
+          "Quelles données pourraient faire changer la banque de trajectoire ?"
+        ]
+      ],
+      "links": [
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "LA VRAIE SURPRISE",
+      "variant": "info",
+      "text": "La surprise monétaire est l'écart entre ce qui est annoncé et ce qui était déjà intégré dans les prix. Une décision spectaculaire mais totalement attendue peut produire peu de mouvement.",
+      "sourceFill": "EEF4FA"
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "3-les-outils-de-politique-monetaire",
+      "text": "3. Les outils de politique monétaire"
+    },
+    {
+      "type": "paragraph",
+      "text": "Du taux directeur au bilan : l'essentiel d'abord, les outils exceptionnels ensuite.",
+      "segments": [
+        {
+          "text": "Du taux directeur au bilan : l'essentiel d'abord, les outils exceptionnels ensuite.",
+          "italic": true
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "PARCOURS DÉBUTANT",
+      "variant": "info",
+      "text": "Pour une première lecture, maîtrise les sections 3.1 à 3.3 et 3.6. Les sections consacrées au QE, au QT, au YCC, au prêteur en dernier ressort et aux interventions de change sont des approfondissements : elles peuvent être relues dans un second temps.",
+      "sourceFill": "EEF4FA"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "3-1-les-taux-directeurs",
+      "text": "3.1 Les taux directeurs"
+    },
+    {
+      "type": "paragraph",
+      "text": "Le taux directeur est le principal repère du coût de la monnaie à très court terme. Selon le système, la banque centrale fixe une cible ou plusieurs taux administrés : rémunération des réserves, facilité de dépôt, taux de prêt ou corridor autour du marché monétaire.",
+      "segments": [
+        {
+          "text": "Le taux directeur est le principal repère du coût de la monnaie à très court terme. Selon le système, la banque centrale fixe une cible ou plusieurs taux administrés : rémunération des réserves, facilité de dépôt, taux de prêt ou corridor autour du marché monétaire."
+        }
+      ]
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Action",
+        "Effet recherché",
+        "Transmission habituelle"
+      ],
+      "rows": [
+        [
+          "Hausse des taux",
+          "Ralentir la demande et réduire les pressions inflationnistes",
+          "Crédit plus cher, épargne plus attractive, valorisations sous pression, monnaie souvent soutenue"
+        ],
+        [
+          "Baisse des taux",
+          "Soutenir la demande et éviter une inflation trop faible",
+          "Crédit moins cher, épargne moins rémunérée, actifs risqués souvent soutenus, monnaie parfois affaiblie"
+        ],
+        [
+          "Maintien",
+          "Observer les effets déjà engagés",
+          "Le message sur la durée devient souvent plus important que l'absence de changement"
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "3-2-comment-le-taux-de-marche-est-maintenu",
+      "text": "3.2 Comment le taux de marché est maintenu"
+    },
+    {
+      "type": "paragraph",
+      "text": "Les banques règlent leurs paiements avec des réserves détenues à la banque centrale. En rémunérant ces réserves, en prêtant à certaines conditions et en réalisant des opérations de marché, la banque centrale encadre le taux auquel la liquidité s'échange au jour le jour. Elle ne décrète pas directement chaque taux de crédit immobilier, mais elle influence le point de départ de toute la courbe.",
+      "segments": [
+        {
+          "text": "Les banques règlent leurs paiements avec des réserves détenues à la banque centrale. En rémunérant ces réserves, en prêtant à certaines conditions et en réalisant des opérations de marché, la banque centrale encadre le taux auquel la liquidité s'échange au jour le jour. Elle ne décrète pas directement chaque taux de crédit immobilier, mais elle influence le point de départ de toute la courbe."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "EXEMPLE INTUITIF",
+      "variant": "summary",
+      "text": "Si une banque peut placer sans risque ses réserves à un taux plus élevé auprès de la banque centrale, elle acceptera moins facilement de prêter à un taux inférieur ailleurs. Les taux courts du marché se réajustent.",
+      "sourceFill": "EAF6EF"
+    },
+    {
+      "type": "paragraph",
+      "text": "Source : Réserve fédérale — Implementation and Transmission of Monetary Policy · BCE — Mise en œuvre et instruments de politique monétaire",
+      "segments": [
+        {
+          "text": "Source : ",
+          "italic": true
+        },
+        {
+          "text": "Réserve fédérale — Implementation and Transmission of Monetary Policy",
+          "underline": true,
+          "href": "https://www.federalreserve.gov/newsevents/speech/jefferson20230327a.htm"
+        },
+        {
+          "text": " · "
+        },
+        {
+          "text": "BCE — Mise en œuvre et instruments de politique monétaire",
+          "underline": true,
+          "href": "https://www.ecb.europa.eu/mopo/implement/html/index.en.html"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "3-3-operations-d-open-market-et-reserves",
+      "text": "3.3 Opérations d'open market et réserves"
+    },
+    {
+      "type": "paragraph",
+      "text": "Les opérations d'open market sont des achats, ventes, prises en pension ou prêts contre garanties réalisés avec des institutions éligibles. Elles servent à fournir ou retirer de la liquidité, à maintenir les taux courts dans la zone voulue et à stabiliser le marché monétaire. Les réserves obligatoires peuvent aussi influencer la demande de liquidité bancaire, mais leur rôle varie fortement selon le système.",
+      "segments": [
+        {
+          "text": "Les opérations d'open market sont des achats, ventes, prises en pension ou prêts contre garanties réalisés avec des institutions éligibles. Elles servent à fournir ou retirer de la liquidité, à maintenir les taux courts dans la zone voulue et à stabiliser le marché monétaire. Les réserves obligatoires peuvent aussi influencer la demande de liquidité bancaire, mais leur rôle varie fortement selon le système."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "3-4-approfondissement-quantitative-easing-qe",
+      "text": "3.4 Approfondissement — Quantitative easing (QE)"
+    },
+    {
+      "type": "paragraph",
+      "text": "Lorsque les taux courts sont très bas ou que les marchés fonctionnent mal, une banque centrale peut acheter massivement des obligations. Ces achats augmentent son bilan et les réserves bancaires. En retirant des titres du marché, ils cherchent généralement à faire baisser les rendements plus longs, à améliorer la liquidité et à assouplir les conditions financières.",
+      "segments": [
+        {
+          "text": "Lorsque les taux courts sont très bas ou que les marchés fonctionnent mal, une banque centrale peut acheter massivement des obligations. Ces achats augmentent son bilan et les réserves bancaires. En retirant des titres du marché, ils cherchent généralement à faire baisser les rendements plus longs, à améliorer la liquidité et à assouplir les conditions financières."
+        }
+      ]
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Ce que le QE peut faire : abaisser certains rendements, soutenir la liquidité, réduire les primes de terme et signaler une politique durablement souple.",
+          "segments": [
+            {
+              "text": "Ce que le QE peut faire : abaisser certains rendements, soutenir la liquidité, réduire les primes de terme et signaler une politique durablement souple."
+            }
+          ]
+        },
+        {
+          "text": "Ce qu'il ne garantit pas : une hausse permanente des actions, une explosion automatique du crédit ou une inflation immédiate.",
+          "segments": [
+            {
+              "text": "Ce qu'il ne garantit pas : une hausse permanente des actions, une explosion automatique du crédit ou une inflation immédiate."
+            }
+          ]
+        },
+        {
+          "text": "Pourquoi : les banques prêtent seulement si elles trouvent des emprunteurs solvables et si la demande de crédit existe.",
+          "segments": [
+            {
+              "text": "Pourquoi : les banques prêtent seulement si elles trouvent des emprunteurs solvables et si la demande de crédit existe."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "3-5-approfondissement-quantitative-tightening-qt",
+      "text": "3.5 Approfondissement — Quantitative tightening (QT)"
+    },
+    {
+      "type": "paragraph",
+      "text": "Le QT réduit progressivement le bilan. La banque laisse des titres arriver à échéance sans tout réinvestir, ou plus rarement en vend. Cela retire une partie du soutien apporté par les achats, réduit les réserves au fil du temps et peut exercer une pression haussière sur les rendements ou les primes de terme. L'effet dépend du rythme annoncé, de la liquidité disponible et de ce qui était anticipé.",
+      "segments": [
+        {
+          "text": "Le QT réduit progressivement le bilan. La banque laisse des titres arriver à échéance sans tout réinvestir, ou plus rarement en vend. Cela retire une partie du soutien apporté par les achats, réduit les réserves au fil du temps et peut exercer une pression haussière sur les rendements ou les primes de terme. L'effet dépend du rythme annoncé, de la liquidité disponible et de ce qui était anticipé."
+        }
+      ]
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Outil",
+        "Bilan de la banque centrale",
+        "Orientation générale",
+        "Risque d'interprétation"
+      ],
+      "rows": [
+        [
+          "QE",
+          "Augmente",
+          "Assouplissement",
+          "Croire que toute monnaie centrale devient immédiatement du crédit ou de la consommation"
+        ],
+        [
+          "QT",
+          "Diminue",
+          "Resserrement",
+          "Croire que son effet est identique à une hausse de taux de même ampleur"
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Source : Banque d'Angleterre — Quantitative easing · BCE — Mise en œuvre et instruments de politique monétaire",
+      "segments": [
+        {
+          "text": "Source : ",
+          "italic": true
+        },
+        {
+          "text": "Banque d'Angleterre — Quantitative easing",
+          "underline": true,
+          "href": "https://www.bankofengland.co.uk/monetary-policy/quantitative-easing"
+        },
+        {
+          "text": " · "
+        },
+        {
+          "text": "BCE — Mise en œuvre et instruments de politique monétaire",
+          "underline": true,
+          "href": "https://www.ecb.europa.eu/mopo/implement/html/index.en.html"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "3-6-forward-guidance",
+      "text": "3.6 Forward guidance"
+    },
+    {
+      "type": "paragraph",
+      "text": "La forward guidance est l'indication donnée sur les décisions futures. Elle peut être liée à une date, à des seuils économiques ou rester qualitative. Son but est d'influencer les taux à plusieurs échéances dès aujourd'hui. Une phrase crédible sur des taux élevés plus longtemps peut resserrer les conditions financières sans hausse immédiate.",
+      "segments": [
+        {
+          "text": "La forward guidance est l'indication donnée sur les décisions futures. Elle peut être liée à une date, à des seuils économiques ou rester qualitative. Son but est d'influencer les taux à plusieurs échéances dès aujourd'hui. Une phrase crédible sur des taux élevés plus longtemps peut resserrer les conditions financières sans hausse immédiate."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "3-7-approfondissement-controle-de-la-courbe-des-taux-ycc",
+      "text": "3.7 Approfondissement — Contrôle de la courbe des taux (YCC)"
+    },
+    {
+      "type": "paragraph",
+      "text": "Avec le yield curve control, la banque vise un niveau ou une zone de rendement sur une maturité précise et se tient prête à acheter des obligations pour défendre cette zone. Cet outil agit directement sur un segment de la courbe, mais il peut exiger des achats très importants si le marché teste la crédibilité de la cible.",
+      "segments": [
+        {
+          "text": "Avec le yield curve control, la banque vise un niveau ou une zone de rendement sur une maturité précise et se tient prête à acheter des obligations pour défendre cette zone. Cet outil agit directement sur un segment de la courbe, mais il peut exiger des achats très importants si le marché teste la crédibilité de la cible."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "3-8-approfondissement-preteur-en-dernier-ressort",
+      "text": "3.8 Approfondissement — Prêteur en dernier ressort"
+    },
+    {
+      "type": "paragraph",
+      "text": "En crise de liquidité, une institution solvable peut manquer temporairement de financement parce que tout le marché se fige. La banque centrale peut alors prêter contre garanties afin d'éviter qu'un problème de liquidité ne détruise le système de paiements. Ce rôle ne doit pas être confondu avec le sauvetage automatique d'une institution insolvable.",
+      "segments": [
+        {
+          "text": "En crise de liquidité, une institution solvable peut manquer temporairement de financement parce que tout le marché se fige. La banque centrale peut alors prêter contre garanties afin d'éviter qu'un problème de liquidité ne détruise le système de paiements. Ce rôle ne doit pas être confondu avec le sauvetage automatique d'une institution insolvable."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "DIFFÉRENCE ESSENTIELLE",
+      "variant": "warning",
+      "text": "Liquidité : l'argent n'est pas disponible au bon moment. Solvabilité : la valeur des actifs ne couvre plus les dettes. Fournir du temps peut résoudre le premier problème, pas forcément le second.",
+      "sourceFill": "FCEDED"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "3-9-approfondissement-interventions-de-change",
+      "text": "3.9 Approfondissement — Interventions de change"
+    },
+    {
+      "type": "paragraph",
+      "text": "Une autorité peut acheter ou vendre des devises afin de limiter un mouvement jugé excessif. Selon le pays, la décision appartient à la banque centrale, au gouvernement ou aux deux. Une intervention stérilisée cherche à agir sur le change sans modifier durablement la quantité de monnaie centrale ; une intervention non stérilisée modifie aussi la liquidité domestique.",
+      "segments": [
+        {
+          "text": "Une autorité peut acheter ou vendre des devises afin de limiter un mouvement jugé excessif. Selon le pays, la décision appartient à la banque centrale, au gouvernement ou aux deux. Une intervention stérilisée cherche à agir sur le change sans modifier durablement la quantité de monnaie centrale ; une intervention non stérilisée modifie aussi la liquidité domestique."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "3-10-tableau-de-synthese",
+      "text": "3.10 Tableau de synthèse"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Outil",
+        "Cible immédiate",
+        "Quand il est surtout utilisé"
+      ],
+      "rows": [
+        [
+          "Taux directeur",
+          "Taux monétaires courts",
+          "Outil principal en régime normal"
+        ],
+        [
+          "Opérations / facilités",
+          "Liquidité et mise en œuvre",
+          "Chaque jour et lors de tensions"
+        ],
+        [
+          "QE / QT",
+          "Rendements longs, primes et bilan",
+          "Taux très bas, crise ou normalisation"
+        ],
+        [
+          "Forward guidance",
+          "Anticipations de taux",
+          "Quand le chemin futur compte autant que la décision actuelle"
+        ],
+        [
+          "YCC",
+          "Rendement d'une maturité",
+          "Quand la banque veut plafonner ou guider un segment de courbe"
+        ],
+        [
+          "Prêts d'urgence",
+          "Liquidité du système",
+          "Crise bancaire ou blocage des marchés"
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "4-la-transmission-vers-l-economie",
+      "text": "4. La transmission vers l'économie"
+    },
+    {
+      "type": "paragraph",
+      "text": "Une décision immédiate, des effets progressifs et incertains.",
+      "segments": [
+        {
+          "text": "Une décision immédiate, des effets progressifs et incertains.",
+          "italic": true
+        }
+      ]
+    },
+    {
+      "type": "figure",
+      "src": "/media/4-analyse-macroeconomique/4-analyse-macroeconomique-47a8e58280f3.webp",
+      "originalName": "image1.png",
+      "width": 1500,
+      "height": 1370,
+      "optimized": true,
+      "caption": "Figure 1 — Chaîne simplifiée de transmission de la politique monétaire.",
+      "source": "BCE — Mécanisme de transmission de la politique monétaire",
+      "sourceLinks": [
+        "https://www.ecb.europa.eu/mopo/intro/transmission/html/index.en.html"
+      ],
+      "alt": "Chaîne simplifiée de transmission de la politique monétaire."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "4-1-canal-des-taux-d-interet",
+      "text": "4.1 Canal des taux d'intérêt"
+    },
+    {
+      "type": "paragraph",
+      "text": "Une hausse du taux directeur se transmet d'abord aux taux courts, puis aux obligations, prêts et dépôts selon leur durée et leur structure. Un crédit plus coûteux réduit certains achats à crédit et rend des investissements moins rentables. Une baisse produit généralement l'effet inverse.",
+      "segments": [
+        {
+          "text": "Une hausse du taux directeur se transmet d'abord aux taux courts, puis aux obligations, prêts et dépôts selon leur durée et leur structure. Un crédit plus coûteux réduit certains achats à crédit et rend des investissements moins rentables. Une baisse produit généralement l'effet inverse."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "4-2-canal-du-credit-bancaire",
+      "text": "4.2 Canal du crédit bancaire"
+    },
+    {
+      "type": "paragraph",
+      "text": "Les banques ne changent pas seulement leurs taux : elles peuvent aussi durcir leurs critères, demander davantage de garanties ou réduire les montants accordés. Deux économies ayant le même taux directeur peuvent donc connaître une transmission différente selon la santé de leurs banques et la part du financement bancaire.",
+      "segments": [
+        {
+          "text": "Les banques ne changent pas seulement leurs taux : elles peuvent aussi durcir leurs critères, demander davantage de garanties ou réduire les montants accordés. Deux économies ayant le même taux directeur peuvent donc connaître une transmission différente selon la santé de leurs banques et la part du financement bancaire."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "4-3-canal-du-prix-des-actifs-et-des-garanties",
+      "text": "4.3 Canal du prix des actifs et des garanties"
+    },
+    {
+      "type": "paragraph",
+      "text": "Des taux plus bas peuvent augmenter la valeur actuelle des revenus futurs, soutenir les obligations et les actions, et relever la valeur des garanties immobilières ou financières. Cela facilite parfois l'emprunt et augmente la confiance. Des taux plus élevés peuvent inverser ce mécanisme.",
+      "segments": [
+        {
+          "text": "Des taux plus bas peuvent augmenter la valeur actuelle des revenus futurs, soutenir les obligations et les actions, et relever la valeur des garanties immobilières ou financières. Cela facilite parfois l'emprunt et augmente la confiance. Des taux plus élevés peuvent inverser ce mécanisme."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "4-4-canal-du-taux-de-change",
+      "text": "4.4 Canal du taux de change"
+    },
+    {
+      "type": "paragraph",
+      "text": "Si les rendements d'un pays deviennent plus attractifs par rapport à ceux des autres, sa monnaie peut se renforcer. Cela réduit le prix des importations mais pénalise parfois les exportateurs. Une monnaie plus faible renchérit les importations et peut nourrir l'inflation, surtout dans les économies dépendantes de l'énergie ou des biens étrangers.",
+      "segments": [
+        {
+          "text": "Si les rendements d'un pays deviennent plus attractifs par rapport à ceux des autres, sa monnaie peut se renforcer. Cela réduit le prix des importations mais pénalise parfois les exportateurs. Une monnaie plus faible renchérit les importations et peut nourrir l'inflation, surtout dans les économies dépendantes de l'énergie ou des biens étrangers."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "4-5-canal-des-anticipations",
+      "text": "4.5 Canal des anticipations"
+    },
+    {
+      "type": "paragraph",
+      "text": "Les décisions de prix et de salaires dépendent de ce que chacun prévoit. Si une banque crédible convainc que l'inflation reviendra vers sa cible, elle limite les comportements qui entretiennent l'inflation. Si le message est confus ou peu crédible, les taux longs et les négociations salariales peuvent rester élevés malgré une décision officielle.",
+      "segments": [
+        {
+          "text": "Les décisions de prix et de salaires dépendent de ce que chacun prévoit. Si une banque crédible convainc que l'inflation reviendra vers sa cible, elle limite les comportements qui entretiennent l'inflation. Si le message est confus ou peu crédible, les taux longs et les négociations salariales peuvent rester élevés malgré une décision officielle."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "4-6-pourquoi-l-effet-est-lent",
+      "text": "4.6 Pourquoi l'effet est lent"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Étape",
+        "Vitesse habituelle",
+        "Pourquoi"
+      ],
+      "rows": [
+        [
+          "Marchés financiers",
+          "Secondes à jours",
+          "Les prix intègrent immédiatement les nouvelles anticipations"
+        ],
+        [
+          "Taux bancaires",
+          "Semaines à mois",
+          "Contrats, concurrence et financement des banques s'ajustent progressivement"
+        ],
+        [
+          "Consommation et investissement",
+          "Mois à trimestres",
+          "Les ménages et entreprises révisent leurs projets"
+        ],
+        [
+          "Emploi et salaires",
+          "Plusieurs trimestres",
+          "Les embauches et licenciements réagissent avec retard"
+        ],
+        [
+          "Inflation",
+          "Variable et incertain",
+          "Les loyers, salaires, contrats et chaînes de prix se renouvellent lentement"
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "LIMITE FONDAMENTALE",
+      "variant": "warning",
+      "text": "La banque centrale peut refroidir la demande, mais elle ne produit pas de pétrole, ne débloque pas un port et ne construit pas immédiatement des logements. Face à un choc d'offre, elle limite surtout les effets persistants et les anticipations.",
+      "sourceFill": "FCEDED"
+    },
+    {
+      "type": "paragraph",
+      "text": "Source : BCE — Mécanisme de transmission de la politique monétaire",
+      "segments": [
+        {
+          "text": "Source : ",
+          "italic": true
+        },
+        {
+          "text": "BCE — Mécanisme de transmission de la politique monétaire",
+          "underline": true,
+          "href": "https://www.ecb.europa.eu/mopo/intro/transmission/html/index.en.html"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "4-7-politique-accommodante-restrictive-ou-neutre",
+      "text": "4.7 Politique accommodante, restrictive ou neutre"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Orientation",
+        "Objectif",
+        "Signes possibles",
+        "Risque"
+      ],
+      "rows": [
+        [
+          "Accommodante",
+          "Soutenir demande et inflation",
+          "Taux bas ou baisses, bilan en hausse, message souple",
+          "Bulles, levier ou inflation future"
+        ],
+        [
+          "Restrictive",
+          "Ralentir demande et inflation",
+          "Taux élevés ou hausses, QT, message ferme",
+          "Récession, chômage ou stress financier"
+        ],
+        [
+          "Neutre",
+          "Ni stimuler ni freiner fortement",
+          "Taux proche d'un équilibre estimé",
+          "Le taux neutre n'est pas directement observable"
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "L'orientation dépend du taux réel, de l'économie et des anticipations, pas seulement du chiffre affiché. Un taux de 4 % peut être très restrictif lorsque l'inflation attendue est faible, mais moins restrictif lorsque l'inflation attendue est élevée.",
+      "segments": [
+        {
+          "text": "L'orientation dépend du taux réel, de l'économie et des anticipations, pas seulement du chiffre affiché. Un taux de 4 % peut être très restrictif lorsque l'inflation attendue est faible, mais moins restrictif lorsque l'inflation attendue est élevée."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "5-l-impact-sur-les-marches-financiers",
+      "text": "5. L'impact sur les marchés financiers"
+    },
+    {
+      "type": "paragraph",
+      "text": "Chaque actif traduit un canal différent de la même décision.",
+      "segments": [
+        {
+          "text": "Chaque actif traduit un canal différent de la même décision.",
+          "italic": true
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "5-1-obligations-le-marche-le-plus-directement-concerne",
+      "text": "5.1 Obligations : le marché le plus directement concerné"
+    },
+    {
+      "type": "paragraph",
+      "text": "Une obligation existante verse des paiements fixés à l'avance. Si les nouveaux taux montent, son rendement doit devenir compétitif : son prix baisse généralement. Si les taux baissent, son prix monte généralement. Plus l'échéance est longue, plus le prix est sensible aux changements de taux et d'anticipations.",
+      "segments": [
+        {
+          "text": "Une obligation existante verse des paiements fixés à l'avance. Si les nouveaux taux montent, son rendement doit devenir compétitif : son prix baisse généralement. Si les taux baissent, son prix monte généralement. Plus l'échéance est longue, plus le prix est sensible aux changements de taux et d'anticipations."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "RELATION ESSENTIELLE",
+      "variant": "info",
+      "text": "Prix obligataire et rendement évoluent généralement en sens inverse. C'est l'une des relations les plus importantes du cours.",
+      "sourceFill": "EEF4FA"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "5-2-la-courbe-des-taux",
+      "text": "5.2 La courbe des taux"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Mouvement",
+        "Lecture possible",
+        "Prudence"
+      ],
+      "rows": [
+        [
+          "Taux courts en hausse",
+          "Politique plus restrictive attendue",
+          "Peut déjà être intégré avant la réunion"
+        ],
+        [
+          "Taux longs en hausse",
+          "Inflation, croissance, prime de terme ou offre de dette plus élevée",
+          "La cause n'est pas toujours la banque centrale"
+        ],
+        [
+          "Courbe qui s'inverse",
+          "Taux courts supérieurs aux taux longs ; anticipation de ralentissement ou de baisses futures",
+          "Ce n'est pas un chronomètre exact de récession"
+        ],
+        [
+          "Courbe qui se pentifie",
+          "Écart long-court augmente",
+          "Peut venir d'espoirs de croissance ou de craintes inflationnistes"
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "5-3-actions",
+      "text": "5.3 Actions"
+    },
+    {
+      "type": "paragraph",
+      "text": "Les actions réagissent par deux voies. Premièrement, des taux plus élevés réduisent la valeur actuelle des bénéfices futurs, surtout pour les entreprises dont les profits sont attendus loin dans le futur. Deuxièmement, ils peuvent ralentir les ventes, augmenter le coût de la dette et réduire les marges. Mais les banques peuvent parfois bénéficier d'écarts de taux plus favorables, jusqu'au point où défauts et ralentissement dominent.",
+      "segments": [
+        {
+          "text": "Les actions réagissent par deux voies. Premièrement, des taux plus élevés réduisent la valeur actuelle des bénéfices futurs, surtout pour les entreprises dont les profits sont attendus loin dans le futur. Deuxièmement, ils peuvent ralentir les ventes, augmenter le coût de la dette et réduire les marges. Mais les banques peuvent parfois bénéficier d'écarts de taux plus favorables, jusqu'au point où défauts et ralentissement dominent."
+        }
+      ]
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Type d'entreprise",
+        "Sensibilité fréquente",
+        "Facteur décisif"
+      ],
+      "rows": [
+        [
+          "Croissance / technologie",
+          "Forte aux taux longs",
+          "Durée des bénéfices, valorisation et financement"
+        ],
+        [
+          "Banques",
+          "Réaction mixte",
+          "Marge d'intérêt, forme de la courbe, dépôts et défauts"
+        ],
+        [
+          "Immobilier / utilities",
+          "Souvent sensible",
+          "Dette élevée et concurrence des rendements obligataires"
+        ],
+        [
+          "Cycliques",
+          "Sensibles au ralentissement",
+          "Demande, crédit et confiance"
+        ],
+        [
+          "Défensives",
+          "Parfois plus résistantes",
+          "Stabilité des revenus, mais valorisation toujours exposée"
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "5-4-devises",
+      "text": "5.4 Devises"
+    },
+    {
+      "type": "paragraph",
+      "text": "Une devise est toujours cotée contre une autre. Elle dépend donc surtout de la politique relative. Une banque plus restrictive que prévu peut soutenir sa monnaie si le différentiel de rendement devient plus favorable. Mais une hausse motivée par une crise grave peut produire l'effet inverse si les capitaux fuient le pays.",
+      "segments": [
+        {
+          "text": "Une devise est toujours cotée contre une autre. Elle dépend donc surtout de la politique relative. Une banque plus restrictive que prévu peut soutenir sa monnaie si le différentiel de rendement devient plus favorable. Mais une hausse motivée par une crise grave peut produire l'effet inverse si les capitaux fuient le pays."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "RÈGLE DE LECTURE",
+      "variant": "summary",
+      "text": "Pour une paire comme EUR/USD ou USD/JPY, analyse les deux banques centrales. Une devise ne se renforce pas dans le vide : elle se renforce par rapport à une autre.",
+      "sourceFill": "EAF6EF"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "5-5-or-matieres-premieres-et-cryptoactifs",
+      "text": "5.5 Or, matières premières et cryptoactifs"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Actif",
+        "Canal monétaire important",
+        "Pourquoi la réaction peut différer"
+      ],
+      "rows": [
+        [
+          "Or",
+          "Taux réels et dollar",
+          "Risque géopolitique, inflation et demande de refuge peuvent dominer"
+        ],
+        [
+          "Pétrole / matières premières",
+          "Dollar, croissance et financement",
+          "L'offre physique et la géopolitique dominent souvent"
+        ],
+        [
+          "Cryptoactifs",
+          "Liquidité mondiale et appétit pour le risque",
+          "Structure propre du marché, réglementation et levier amplifient les mouvements"
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "5-6-pourquoi-une-baisse-de-taux-peut-faire-baisser-les-actions",
+      "text": "5.6 Pourquoi une baisse de taux peut faire baisser les actions"
+    },
+    {
+      "type": "paragraph",
+      "text": "Si la baisse était attendue, elle est déjà intégrée. Si elle est plus faible que prévu, le marché peut être déçu. Si elle est décidée en urgence, elle peut signaler que la banque centrale voit un danger plus grave que les investisseurs. Enfin, une baisse peut faire monter les rendements longs si elle alimente les craintes d'inflation.",
+      "segments": [
+        {
+          "text": "Si la baisse était attendue, elle est déjà intégrée. Si elle est plus faible que prévu, le marché peut être déçu. Si elle est décidée en urgence, elle peut signaler que la banque centrale voit un danger plus grave que les investisseurs. Enfin, une baisse peut faire monter les rendements longs si elle alimente les craintes d'inflation."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "CONCLUSION DE MARCHÉ",
+      "variant": "summary",
+      "text": "Ne mémorise pas « baisse des taux = hausse des actions ». Demande : pourquoi la banque agit-elle, qu'attendait le marché et quelle trajectoire est désormais intégrée ?",
+      "sourceFill": "FFF7DD"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "5-7-reaction-immediate-et-tendance-durable",
+      "text": "5.7 Réaction immédiate et tendance durable"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Horizon",
+        "Ce qui domine",
+        "Erreur typique"
+      ],
+      "rows": [
+        [
+          "Premières secondes",
+          "Algorithmes, titre de décision et écart au consensus",
+          "Croire que le premier mouvement est définitif"
+        ],
+        [
+          "Conférence de presse",
+          "Nuances, questions et fonction de réaction",
+          "Ignorer un retournement après le communiqué"
+        ],
+        [
+          "Jours suivants",
+          "Relecture, données et repositionnement",
+          "Attribuer tout le mouvement à un seul événement"
+        ],
+        [
+          "Mois suivants",
+          "Inflation, emploi, croissance, bénéfices et nouvelle trajectoire",
+          "Confondre corrélation et causalité"
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "6-cas-1-fed-et-jackson-hole-2022",
+      "text": "6. Cas 1 — Fed et Jackson Hole 2022"
+    },
+    {
+      "type": "paragraph",
+      "text": "Quand le chemin futur des taux compte plus qu'une décision immédiate.",
+      "segments": [
+        {
+          "text": "Quand le chemin futur des taux compte plus qu'une décision immédiate.",
+          "italic": true
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "6-1-le-contexte",
+      "text": "6.1 Le contexte"
+    },
+    {
+      "type": "paragraph",
+      "text": "En 2022, l'inflation américaine est très élevée et la Fed a déjà commencé à relever rapidement ses taux. Pendant l'été, une partie du marché espère qu'un ralentissement économique conduira bientôt à un assouplissement. Cette anticipation soutient le rebond des actions avant le discours de Jackson Hole.",
+      "segments": [
+        {
+          "text": "En 2022, l'inflation américaine est très élevée et la Fed a déjà commencé à relever rapidement ses taux. Pendant l'été, une partie du marché espère qu'un ralentissement économique conduira bientôt à un assouplissement. Cette anticipation soutient le rebond des actions avant le discours de Jackson Hole."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "6-2-le-message-du-26-aout",
+      "text": "6.2 Le message du 26 août"
+    },
+    {
+      "type": "paragraph",
+      "text": "Jerome Powell recentre le débat sur le retour de l'inflation vers 2 %. Il explique que restaurer la stabilité des prix demandera du temps, une croissance inférieure à la tendance et probablement un affaiblissement du marché du travail. Le message essentiel n'est pas une nouvelle hausse annoncée ce jour-là : c'est le refus de promettre un pivot rapide.",
+      "segments": [
+        {
+          "text": "Jerome Powell recentre le débat sur le retour de l'inflation vers 2 %. Il explique que restaurer la stabilité des prix demandera du temps, une croissance inférieure à la tendance et probablement un affaiblissement du marché du travail. Le message essentiel n'est pas une nouvelle hausse annoncée ce jour-là : c'est le refus de promettre un pivot rapide."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "SURPRISE DE MARCHÉ",
+      "variant": "warning",
+      "text": "Les investisseurs espéraient un signal plus souple. Le discours augmente la probabilité de taux élevés plus longtemps et réduit la valeur attribuée aux bénéfices futurs.",
+      "sourceFill": "FCEDED"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "6-3-reaction",
+      "text": "6.3 Réaction"
+    },
+    {
+      "type": "paragraph",
+      "text": "Le S&P 500 perd 3,37 % pendant la séance du 26 août 2022 ; le Nasdaq recule davantage. Le mouvement illustre la sensibilité des actions de croissance aux taux attendus et montre qu'un discours peut déplacer les marchés sans modification immédiate du taux directeur.",
+      "segments": [
+        {
+          "text": "Le S&P 500 perd 3,37 % pendant la séance du 26 août 2022 ; le Nasdaq recule davantage. Le mouvement illustre la sensibilité des actions de croissance aux taux attendus et montre qu'un discours peut déplacer les marchés sans modification immédiate du taux directeur."
+        }
+      ]
+    },
+    {
+      "type": "figure",
+      "src": "/media/4-analyse-macroeconomique/4-analyse-macroeconomique-42fcc00bc709.webp",
+      "originalName": "image2.jpg",
+      "width": 1363,
+      "height": 936,
+      "optimized": true,
+      "caption": "Figure 2 — S&P 500, bougies journalières et volume. Fenêtre historique centrée sur le discours du 26 août 2022.",
+      "source": "TradingView — S&P 500 Index (SP:SPX) · Réserve fédérale — Discours de Jerome Powell à Jackson Hole, 26 août 2022 · Reuters — Réaction de Wall Street au discours de Jackson Hole, 26 août 2022",
+      "sourceLinks": [
+        "https://www.tradingview.com/chart/?symbol=SP%3ASPX",
+        "https://www.federalreserve.gov/newsevents/speech/powell20220826a.htm",
+        "https://www.reuters.com/markets/europe/futures-ebb-powells-speech-nears-2022-08-26/"
+      ],
+      "alt": "S&P 500, bougies journalières et volume. Fenêtre historique centrée sur le discours du 26 août 2022."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "lecture-guidee",
+      "text": "Lecture guidée"
+    },
+    {
+      "type": "paragraph",
+      "text": "Ce que l'on observe. La séance du 26 août forme une grande bougie rouge après un rebond de plusieurs semaines. La baisse ne s'arrête pas à la journée : le marché reste sous pression pendant septembre, même si d'autres données contribuent ensuite au mouvement.",
+      "segments": [
+        {
+          "text": "Ce que l'on observe. ",
+          "bold": true
+        },
+        {
+          "text": "La séance du 26 août forme une grande bougie rouge après un rebond de plusieurs semaines. La baisse ne s'arrête pas à la journée : le marché reste sous pression pendant septembre, même si d'autres données contribuent ensuite au mouvement."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Mécanisme. Le discours repousse l'idée de baisses rapides. Des taux futurs plus élevés augmentent le taux d'actualisation, rendent les obligations plus compétitives et réduisent l'appétit pour les valorisations élevées.",
+      "segments": [
+        {
+          "text": "Mécanisme. ",
+          "bold": true
+        },
+        {
+          "text": "Le discours repousse l'idée de baisses rapides. Des taux futurs plus élevés augmentent le taux d'actualisation, rendent les obligations plus compétitives et réduisent l'appétit pour les valorisations élevées."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Limite. Le graphique prouve la coïncidence temporelle et montre l'ampleur du mouvement, mais il ne permet pas d'attribuer chaque baisse ultérieure au seul discours. Inflation, emploi, bénéfices et positionnement ont continué d'évoluer.",
+      "segments": [
+        {
+          "text": "Limite. ",
+          "bold": true
+        },
+        {
+          "text": "Le graphique prouve la coïncidence temporelle et montre l'ampleur du mouvement, mais il ne permet pas d'attribuer chaque baisse ultérieure au seul discours. Inflation, emploi, bénéfices et positionnement ont continué d'évoluer."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "6-4-lecons",
+      "text": "6.4 Leçons"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "La communication est un outil de politique monétaire.",
+          "segments": [
+            {
+              "text": "La communication est un outil de politique monétaire."
+            }
+          ]
+        },
+        {
+          "text": "Le marché évalue la durée du resserrement, pas seulement le prochain mouvement de taux.",
+          "segments": [
+            {
+              "text": "Le marché évalue la durée du resserrement, pas seulement le prochain mouvement de taux."
+            }
+          ]
+        },
+        {
+          "text": "Un message déjà attendu aurait produit une réaction plus faible.",
+          "segments": [
+            {
+              "text": "Un message déjà attendu aurait produit une réaction plus faible."
+            }
+          ]
+        },
+        {
+          "text": "La grande bougie confirme un changement d'anticipations, mais la gestion du risque reste indispensable après le premier mouvement.",
+          "segments": [
+            {
+              "text": "La grande bougie confirme un changement d'anticipations, mais la gestion du risque reste indispensable après le premier mouvement."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "7-cas-2-banque-du-japon-et-ycc",
+      "text": "7. Cas 2 — Banque du Japon et YCC"
+    },
+    {
+      "type": "paragraph",
+      "text": "Quand une modification technique déplace immédiatement une devise.",
+      "segments": [
+        {
+          "text": "Quand une modification technique déplace immédiatement une devise.",
+          "italic": true
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "7-1-le-contexte",
+      "text": "7.1 Le contexte"
+    },
+    {
+      "type": "paragraph",
+      "text": "En 2022, la Fed resserre fortement sa politique tandis que la Banque du Japon conserve une politique très accommodante. L'écart de rendement favorise le dollar et affaiblit le yen. La BoJ contrôle alors la courbe des taux et limite le rendement de l'obligation japonaise à dix ans autour d'une zone étroite.",
+      "segments": [
+        {
+          "text": "En 2022, la Fed resserre fortement sa politique tandis que la Banque du Japon conserve une politique très accommodante. L'écart de rendement favorise le dollar et affaiblit le yen. La BoJ contrôle alors la courbe des taux et limite le rendement de l'obligation japonaise à dix ans autour d'une zone étroite."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "7-2-la-decision-du-20-decembre",
+      "text": "7.2 La décision du 20 décembre"
+    },
+    {
+      "type": "paragraph",
+      "text": "La BoJ élargit la bande admise autour du rendement à dix ans, d'environ plus ou moins 0,25 point à environ plus ou moins 0,50 point, tout en affirmant maintenir des conditions accommodantes. Officiellement, l'objectif est d'améliorer le fonctionnement du marché obligataire. Pour les investisseurs, la mesure ressemble toutefois à un premier pas vers une politique moins extrême.",
+      "segments": [
+        {
+          "text": "La BoJ élargit la bande admise autour du rendement à dix ans, d'environ plus ou moins 0,25 point à environ plus ou moins 0,50 point, tout en affirmant maintenir des conditions accommodantes. Officiellement, l'objectif est d'améliorer le fonctionnement du marché obligataire. Pour les investisseurs, la mesure ressemble toutefois à un premier pas vers une politique moins extrême."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "POURQUOI LA SURPRISE EST FORTE",
+      "variant": "warning",
+      "text": "Le changement n'était pas largement anticipé. Il permet aux rendements japonais de monter davantage et réduit brutalement l'avantage relatif de certaines positions vendeuses de yen.",
+      "sourceFill": "FCEDED"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "7-3-reaction",
+      "text": "7.3 Réaction"
+    },
+    {
+      "type": "paragraph",
+      "text": "Le yen se renforce fortement et l'USD/JPY chute de plusieurs pourcents. Une baisse de cette paire signifie qu'il faut moins de yens pour acheter un dollar : le yen s'apprécie. Le mouvement est amplifié par le débouclage de positions construites sur la divergence durable entre la Fed et la BoJ.",
+      "segments": [
+        {
+          "text": "Le yen se renforce fortement et l'USD/JPY chute de plusieurs pourcents. Une baisse de cette paire signifie qu'il faut moins de yens pour acheter un dollar : le yen s'apprécie. Le mouvement est amplifié par le débouclage de positions construites sur la divergence durable entre la Fed et la BoJ."
+        }
+      ]
+    },
+    {
+      "type": "figure",
+      "src": "/media/4-analyse-macroeconomique/4-analyse-macroeconomique-89b00b50a035.webp",
+      "originalName": "image3.jpg",
+      "width": 1363,
+      "height": 936,
+      "optimized": true,
+      "caption": "Figure 3 — USD/JPY, bougies journalières et tick volume. Fenêtre historique centrée sur la décision du 20 décembre 2022.",
+      "source": "TradingView — U.S. Dollar / Japanese Yen (FX:USDJPY) · Banque du Japon — Modification du contrôle de la courbe des taux, 20 décembre 2022 · Reuters — Hausse du yen après la décision surprise de la Banque du Japon",
+      "sourceLinks": [
+        "https://www.tradingview.com/chart/?symbol=FX%3AUSDJPY",
+        "https://www.boj.or.jp/en/mopo/mpmdeci/mpr_2022/k221220a.pdf",
+        "https://www.reuters.com/markets/currencies/yen-defensive-before-boj-nz-dollar-sinks-2022-12-20/"
+      ],
+      "alt": "USD/JPY, bougies journalières et tick volume. Fenêtre historique centrée sur la décision du 20 décembre 2022."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "lecture-guidee-2",
+      "text": "Lecture guidée"
+    },
+    {
+      "type": "paragraph",
+      "text": "Ce que l'on observe. La bougie du 20 décembre est nettement baissière sur USD/JPY. Le prix passe rapidement de la zone proche de 137 vers la zone 132, avant de rester volatil dans les semaines suivantes.",
+      "segments": [
+        {
+          "text": "Ce que l'on observe. ",
+          "bold": true
+        },
+        {
+          "text": "La bougie du 20 décembre est nettement baissière sur USD/JPY. Le prix passe rapidement de la zone proche de 137 vers la zone 132, avant de rester volatil dans les semaines suivantes."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Mécanisme. Une bande de rendement plus large permet au dix ans japonais de monter. Le différentiel de taux anticipé devient moins favorable au dollar et les positions vendeuses de yen sont réduites.",
+      "segments": [
+        {
+          "text": "Mécanisme. ",
+          "bold": true
+        },
+        {
+          "text": "Une bande de rendement plus large permet au dix ans japonais de monter. Le différentiel de taux anticipé devient moins favorable au dollar et les positions vendeuses de yen sont réduites."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Limite. Le volume du Forex au comptant affiché par la plateforme est un tick volume lié au fournisseur, pas le volume mondial complet. De plus, le dollar dépend aussi de la Fed : la paire traduit deux politiques monétaires.",
+      "segments": [
+        {
+          "text": "Limite. ",
+          "bold": true
+        },
+        {
+          "text": "Le volume du Forex au comptant affiché par la plateforme est un tick volume lié au fournisseur, pas le volume mondial complet. De plus, le dollar dépend aussi de la Fed : la paire traduit deux politiques monétaires."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "7-4-lecons",
+      "text": "7.4 Leçons"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Une décision présentée comme technique peut modifier fortement les anticipations.",
+          "segments": [
+            {
+              "text": "Une décision présentée comme technique peut modifier fortement les anticipations."
+            }
+          ]
+        },
+        {
+          "text": "Sur le Forex, le différentiel de politique monétaire est central.",
+          "segments": [
+            {
+              "text": "Sur le Forex, le différentiel de politique monétaire est central."
+            }
+          ]
+        },
+        {
+          "text": "USD/JPY en baisse signifie yen plus fort ; il faut toujours vérifier le sens de cotation.",
+          "segments": [
+            {
+              "text": "USD/JPY en baisse signifie yen plus fort ; il faut toujours vérifier le sens de cotation."
+            }
+          ]
+        },
+        {
+          "text": "Les positions de carry trade peuvent amplifier un mouvement lorsque leur logique se retourne.",
+          "segments": [
+            {
+              "text": "Les positions de carry trade peuvent amplifier un mouvement lorsque leur logique se retourne."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "8-methode-d-analyse-d-une-decision-monetaire",
+      "text": "8. Méthode d'analyse d'une décision monétaire"
+    },
+    {
+      "type": "paragraph",
+      "text": "Lire la réunion dans le bon ordre, sans deviner le marché.",
+      "segments": [
+        {
+          "text": "Lire la réunion dans le bon ordre, sans deviner le marché.",
+          "italic": true
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "8-1-avant-la-reunion",
+      "text": "8.1 Avant la réunion"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Identifier le mandat et le principal problème : inflation, emploi, croissance ou stabilité financière.",
+          "segments": [
+            {
+              "text": "Identifier le mandat et le principal problème : inflation, emploi, croissance ou stabilité financière."
+            }
+          ]
+        },
+        {
+          "text": "Connaître la décision attendue par le consensus et, si possible, la trajectoire déjà intégrée dans les taux de marché.",
+          "segments": [
+            {
+              "text": "Connaître la décision attendue par le consensus et, si possible, la trajectoire déjà intégrée dans les taux de marché."
+            }
+          ]
+        },
+        {
+          "text": "Repérer les dernières données importantes et leur tendance, pas seulement une publication isolée.",
+          "segments": [
+            {
+              "text": "Repérer les dernières données importantes et leur tendance, pas seulement une publication isolée."
+            }
+          ]
+        },
+        {
+          "text": "Lister deux scénarios : plus restrictif que prévu et plus accommodant que prévu.",
+          "segments": [
+            {
+              "text": "Lister deux scénarios : plus restrictif que prévu et plus accommodant que prévu."
+            }
+          ]
+        },
+        {
+          "text": "Choisir les actifs directement liés : taux courts, obligations, devise, indice actions et secteurs sensibles.",
+          "segments": [
+            {
+              "text": "Choisir les actifs directement liés : taux courts, obligations, devise, indice actions et secteurs sensibles."
+            }
+          ]
+        },
+        {
+          "text": "Réduire le risque si la volatilité potentielle dépasse ce que le plan peut supporter.",
+          "segments": [
+            {
+              "text": "Réduire le risque si la volatilité potentielle dépasse ce que le plan peut supporter."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "8-2-pendant-la-publication",
+      "text": "8.2 Pendant la publication"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Lire la décision avant d'interpréter la première bougie.",
+          "segments": [
+            {
+              "text": "Lire la décision avant d'interpréter la première bougie."
+            }
+          ]
+        },
+        {
+          "text": "Comparer au consensus : taux, bilan, projections et vote.",
+          "segments": [
+            {
+              "text": "Comparer au consensus : taux, bilan, projections et vote."
+            }
+          ]
+        },
+        {
+          "text": "Observer les rendements obligataires et la devise avant de conclure sur les actions.",
+          "segments": [
+            {
+              "text": "Observer les rendements obligataires et la devise avant de conclure sur les actions."
+            }
+          ]
+        },
+        {
+          "text": "Attendre la conférence de presse si elle fait partie de l'événement.",
+          "segments": [
+            {
+              "text": "Attendre la conférence de presse si elle fait partie de l'événement."
+            }
+          ]
+        },
+        {
+          "text": "Accepter qu'un premier mouvement puisse être inversé quelques minutes plus tard.",
+          "segments": [
+            {
+              "text": "Accepter qu'un premier mouvement puisse être inversé quelques minutes plus tard."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "8-3-apres-la-reunion",
+      "text": "8.3 Après la réunion"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Vérifier ce qui a réellement changé dans la trajectoire future.",
+          "segments": [
+            {
+              "text": "Vérifier ce qui a réellement changé dans la trajectoire future."
+            }
+          ]
+        },
+        {
+          "text": "Distinguer la réaction d'une séance de la tendance des semaines suivantes.",
+          "segments": [
+            {
+              "text": "Distinguer la réaction d'une séance de la tendance des semaines suivantes."
+            }
+          ]
+        },
+        {
+          "text": "Relier le mouvement à la structure technique : support, résistance, bougie, volume et invalidation.",
+          "segments": [
+            {
+              "text": "Relier le mouvement à la structure technique : support, résistance, bougie, volume et invalidation."
+            }
+          ]
+        },
+        {
+          "text": "Mettre à jour le scénario avec les prochaines données d'inflation et d'emploi.",
+          "segments": [
+            {
+              "text": "Mettre à jour le scénario avec les prochaines données d'inflation et d'emploi."
+            }
+          ]
+        },
+        {
+          "text": "Documenter l'erreur éventuelle : mauvaise lecture du consensus, sens de cotation ou horizon confondu.",
+          "segments": [
+            {
+              "text": "Documenter l'erreur éventuelle : mauvaise lecture du consensus, sens de cotation ou horizon confondu."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "8-4-matrice-de-reaction",
+      "text": "8.4 Matrice de réaction"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Résultat",
+        "Taux / obligations",
+        "Devise",
+        "Actions"
+      ],
+      "rows": [
+        [
+          "Plus hawkish que prévu",
+          "Rendements souvent en hausse ; prix obligataires sous pression",
+          "Souvent soutenue",
+          "Souvent sous pression, surtout croissance"
+        ],
+        [
+          "Conforme aux attentes",
+          "Réaction limitée ou guidée par les détails",
+          "Dépend du message futur",
+          "Dépend du positionnement"
+        ],
+        [
+          "Plus dovish que prévu",
+          "Rendements souvent en baisse ; obligations soutenues",
+          "Souvent affaiblie",
+          "Souvent soutenues si le message ne révèle pas une crise"
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "CETTE MATRICE N'EST PAS UNE STRATÉGIE",
+      "variant": "warning",
+      "text": "Elle décrit des réactions fréquentes. Le contexte, la valorisation, la cause de la décision, le positionnement et la crédibilité peuvent inverser le résultat.",
+      "sourceFill": "FCEDED"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "8-5-les-erreurs-les-plus-frequentes",
+      "text": "8.5 Les erreurs les plus fréquentes"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Regarder uniquement la hausse ou la baisse de taux sans comparer aux attentes.",
+          "segments": [
+            {
+              "text": "Regarder uniquement la hausse ou la baisse de taux sans comparer aux attentes."
+            }
+          ]
+        },
+        {
+          "text": "Ignorer le communiqué, les projections et la conférence de presse.",
+          "segments": [
+            {
+              "text": "Ignorer le communiqué, les projections et la conférence de presse."
+            }
+          ]
+        },
+        {
+          "text": "Confondre taux directeur, rendement obligataire et taux d'un crédit bancaire.",
+          "segments": [
+            {
+              "text": "Confondre taux directeur, rendement obligataire et taux d'un crédit bancaire."
+            }
+          ]
+        },
+        {
+          "text": "Penser que le QE correspond à de l'argent distribué directement aux ménages.",
+          "segments": [
+            {
+              "text": "Penser que le QE correspond à de l'argent distribué directement aux ménages."
+            }
+          ]
+        },
+        {
+          "text": "Croire que toute hausse de taux renforce automatiquement la devise.",
+          "segments": [
+            {
+              "text": "Croire que toute hausse de taux renforce automatiquement la devise."
+            }
+          ]
+        },
+        {
+          "text": "Oublier qu'une paire de devises dépend de deux banques centrales.",
+          "segments": [
+            {
+              "text": "Oublier qu'une paire de devises dépend de deux banques centrales."
+            }
+          ]
+        },
+        {
+          "text": "Acheter une baisse de taux sans se demander si elle répond à une crise.",
+          "segments": [
+            {
+              "text": "Acheter une baisse de taux sans se demander si elle répond à une crise."
+            }
+          ]
+        },
+        {
+          "text": "Prendre la première bougie comme confirmation définitive.",
+          "segments": [
+            {
+              "text": "Prendre la première bougie comme confirmation définitive."
+            }
+          ]
+        },
+        {
+          "text": "Expliquer un mouvement de plusieurs mois par une seule réunion.",
+          "segments": [
+            {
+              "text": "Expliquer un mouvement de plusieurs mois par une seule réunion."
+            }
+          ]
+        },
+        {
+          "text": "Augmenter le levier pendant une annonce parce que la direction semble évidente.",
+          "segments": [
+            {
+              "text": "Augmenter le levier pendant une annonce parce que la direction semble évidente."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "8-6-fiche-de-decision-en-dix-questions",
+      "text": "8.6 Fiche de décision en dix questions"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Quel est le mandat de la banque centrale ?",
+          "segments": [
+            {
+              "text": "Quel est le mandat de la banque centrale ?"
+            }
+          ]
+        },
+        {
+          "text": "Quel problème domine aujourd'hui ?",
+          "segments": [
+            {
+              "text": "Quel problème domine aujourd'hui ?"
+            }
+          ]
+        },
+        {
+          "text": "Qu'attendait précisément le marché ?",
+          "segments": [
+            {
+              "text": "Qu'attendait précisément le marché ?"
+            }
+          ]
+        },
+        {
+          "text": "Quelle décision a été prise ?",
+          "segments": [
+            {
+              "text": "Quelle décision a été prise ?"
+            }
+          ]
+        },
+        {
+          "text": "Quels mots ou prévisions ont changé ?",
+          "segments": [
+            {
+              "text": "Quels mots ou prévisions ont changé ?"
+            }
+          ]
+        },
+        {
+          "text": "La trajectoire future est-elle plus hawkish ou plus dovish ?",
+          "segments": [
+            {
+              "text": "La trajectoire future est-elle plus hawkish ou plus dovish ?"
+            }
+          ]
+        },
+        {
+          "text": "Comment réagissent les taux courts et longs ?",
+          "segments": [
+            {
+              "text": "Comment réagissent les taux courts et longs ?"
+            }
+          ]
+        },
+        {
+          "text": "La devise confirme-t-elle cette lecture ?",
+          "segments": [
+            {
+              "text": "La devise confirme-t-elle cette lecture ?"
+            }
+          ]
+        },
+        {
+          "text": "Le mouvement technique est-il confirmé par le prix et le volume ?",
+          "segments": [
+            {
+              "text": "Le mouvement technique est-il confirmé par le prix et le volume ?"
+            }
+          ]
+        },
+        {
+          "text": "Où le scénario est-il invalidé et quelle perte maximale est acceptable ?",
+          "segments": [
+            {
+              "text": " Où le scénario est-il invalidé et quelle perte maximale est acceptable ?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "8-7-glossaire-essentiel",
+      "text": "8.7 Glossaire essentiel"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Terme",
+        "Définition courte"
+      ],
+      "rows": [
+        [
+          "Taux directeur",
+          "Taux ou ensemble de taux utilisés pour guider les conditions monétaires à court terme."
+        ],
+        [
+          "Réserves",
+          "Dépôts des banques auprès de la banque centrale, utilisés notamment pour les règlements."
+        ],
+        [
+          "Rendement",
+          "Rémunération obtenue par rapport au prix d'une obligation."
+        ],
+        [
+          "Hawkish",
+          "Message ou décision plus orienté vers la lutte contre l'inflation."
+        ],
+        [
+          "Dovish",
+          "Message ou décision plus orienté vers le soutien de l'activité et de l'emploi."
+        ],
+        [
+          "QE",
+          "Achats d'actifs destinés à assouplir les conditions financières."
+        ],
+        [
+          "QT",
+          "Réduction progressive du bilan de la banque centrale."
+        ],
+        [
+          "Forward guidance",
+          "Indications sur la trajectoire future de la politique monétaire."
+        ],
+        [
+          "YCC",
+          "Politique visant un rendement ou une bande sur une maturité déterminée."
+        ],
+        [
+          "Prime de terme",
+          "Compensation demandée pour détenir une obligation longue plutôt que renouveler des placements courts."
+        ],
+        [
+          "Carry trade",
+          "Financement dans une monnaie à faible rendement pour investir dans une monnaie ou un actif plus rémunérateur."
+        ],
+        [
+          "Pivot",
+          "Passage anticipé d'un resserrement vers une pause puis un assouplissement."
+        ]
+      ],
+      "links": [
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "conclusion-generale",
+      "text": "Conclusion générale"
+    },
+    {
+      "type": "paragraph",
+      "text": "Une banque centrale influence l'économie en modifiant les conditions auxquelles la monnaie, le crédit et le risque sont échangés. Son action part des taux courts et de son bilan, traverse les obligations, les banques, le change et les prix d'actifs, puis atteint progressivement la consommation, l'investissement, l'emploi et l'inflation.",
+      "segments": [
+        {
+          "text": "Une banque centrale influence l'économie en modifiant les conditions auxquelles la monnaie, le crédit et le risque sont échangés. Son action part des taux courts et de son bilan, traverse les obligations, les banques, le change et les prix d'actifs, puis atteint progressivement la consommation, l'investissement, l'emploi et l'inflation."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Pour le trader ou l'investisseur, la compétence essentielle n'est pas de deviner chaque décision. Elle consiste à reconstruire la chaîne : mandat, données, attentes, décision, communication, taux de marché, actifs, puis économie réelle. Les deux cas étudiés le montrent : un discours de la Fed peut faire chuter les actions sans hausse immédiate, et une modification technique de la BoJ peut renforcer brutalement le yen.",
+      "segments": [
+        {
+          "text": "Pour le trader ou l'investisseur, la compétence essentielle n'est pas de deviner chaque décision. Elle consiste à reconstruire la chaîne : mandat, données, attentes, décision, communication, taux de marché, actifs, puis économie réelle. Les deux cas étudiés le montrent : un discours de la Fed peut faire chuter les actions sans hausse immédiate, et une modification technique de la BoJ peut renforcer brutalement le yen."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "PASSAGE À LA PARTIE 2",
+      "variant": "summary",
+      "text": "Tu connais maintenant le mandat, les outils et les canaux de transmission des banques centrales. La Partie 2 ne répétera pas ces mécanismes : elle montrera comment chaque publication d'inflation, d'emploi, de croissance ou de consommation peut modifier les anticipations de politique monétaire et les scénarios de marché.",
+      "sourceFill": "EAF6EF"
+    },
+    {
+      "type": "callout",
+      "label": "LA RÈGLE FINALE",
+      "variant": "principle",
+      "text": "Ne trade pas le mot « hausse » ou « baisse ». Trade seulement un scénario compris, comparé aux attentes, confirmé par le marché et limité par un risque défini.",
+      "sourceFill": "FFF7DD"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "references-institutionnelles-et-de-marche",
+      "text": "Références institutionnelles et de marché"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Institutions et politique",
+        "Cas, données et graphiques"
+      ],
+      "rows": [
+        [
+          "Réserve fédérale — Objectifs et fonctionnement de la politique monétaire",
+          "Banque du Japon — Modification du contrôle de la courbe des taux, 20 décembre 2022"
+        ],
+        [
+          "Réserve fédérale — Implementation and Transmission of Monetary Policy",
+          "BRI — Rôles et objectifs des banques centrales modernes"
+        ],
+        [
+          "BCE — Qu'est-ce que la politique monétaire ?",
+          "BRI — Les banques centrales au cœur du système monétaire"
+        ],
+        [
+          "BCE — Objectif d'inflation de 2 %",
+          "Réserve fédérale — Discours de Jerome Powell à Jackson Hole, 26 août 2022"
+        ],
+        [
+          "BCE — Mécanisme de transmission de la politique monétaire",
+          "Reuters — Réaction de Wall Street au discours de Jackson Hole, 26 août 2022"
+        ],
+        [
+          "BCE — Mise en œuvre et instruments de politique monétaire",
+          "Reuters — Hausse du yen après la décision surprise de la Banque du Japon"
+        ],
+        [
+          "Banque d'Angleterre — Quantitative easing",
+          "TradingView — S&P 500 Index (SP:SPX)"
+        ],
+        [
+          "FMI — Pourquoi l'indépendance des banques centrales est nécessaire",
+          "TradingView — U.S. Dollar / Japanese Yen (FX:USDJPY)"
+        ]
+      ],
+      "links": [
+        [
+          [],
+          []
+        ],
+        [
+          [
+            "https://www.federalreserve.gov/monetarypolicy/monetary-policy-what-are-its-goals-how-does-it-work.htm"
+          ],
+          [
+            "https://www.boj.or.jp/en/mopo/mpmdeci/mpr_2022/k221220a.pdf"
+          ]
+        ],
+        [
+          [
+            "https://www.federalreserve.gov/newsevents/speech/jefferson20230327a.htm"
+          ],
+          [
+            "https://www.bis.org/publ/othp04_2.pdf"
+          ]
+        ],
+        [
+          [
+            "https://www.ecb.europa.eu/ecb-and-you/explainers/tell-me/html/what-is-monetary-policy.en.html"
+          ],
+          [
+            "https://www.bis.org/publ/arpdf/ar2025e3.htm"
+          ]
+        ],
+        [
+          [
+            "https://www.ecb.europa.eu/mopo/strategy/pricestab/html/index.en.html"
+          ],
+          [
+            "https://www.federalreserve.gov/newsevents/speech/powell20220826a.htm"
+          ]
+        ],
+        [
+          [
+            "https://www.ecb.europa.eu/mopo/intro/transmission/html/index.en.html"
+          ],
+          [
+            "https://www.reuters.com/markets/europe/futures-ebb-powells-speech-nears-2022-08-26/"
+          ]
+        ],
+        [
+          [
+            "https://www.ecb.europa.eu/mopo/implement/html/index.en.html"
+          ],
+          [
+            "https://www.reuters.com/markets/currencies/yen-defensive-before-boj-nz-dollar-sinks-2022-12-20/"
+          ]
+        ],
+        [
+          [
+            "https://www.bankofengland.co.uk/monetary-policy/quantitative-easing"
+          ],
+          [
+            "https://www.tradingview.com/chart/?symbol=SP%3ASPX"
+          ]
+        ],
+        [
+          [
+            "https://www.imf.org/en/news/articles/2024/06/17/sp061424-central-bank-independence"
+          ],
+          [
+            "https://www.tradingview.com/chart/?symbol=FX%3AUSDJPY"
+          ]
+        ]
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "AVERTISSEMENT PÉDAGOGIQUE",
+      "variant": "disclaimer",
+      "text": "Ce cours présente des mécanismes généraux et des cas historiques. Il ne tient pas compte de la situation financière, de la fiscalité ou de la tolérance au risque d'une personne.",
+      "sourceFill": "FCEDED"
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "comment-utiliser-ce-cours",
+      "text": "Comment utiliser cette Partie 2"
+    },
+    {
+      "type": "paragraph",
+      "text": "La Partie 1 a posé le cadre des banques centrales, de leurs outils et de leurs canaux de transmission. Cette Partie 2 l’applique aux publications macroéconomiques : lire le chiffre, mesurer sa surprise, examiner ses composantes et déterminer ce qu’il change réellement dans les anticipations du marché.",
+      "segments": [
+        {
+          "text": "La Partie 1 a posé le cadre des banques centrales, de leurs outils et de leurs canaux de transmission. Cette Partie 2 l’applique aux publications macroéconomiques : lire le chiffre, mesurer sa surprise, examiner ses composantes et déterminer ce qu’il change réellement dans les anticipations du marché."
         }
       ]
     },
@@ -103,7 +3021,7 @@
       "type": "heading",
       "level": 2,
       "id": "objectifs-pedagogiques",
-      "text": "Objectifs pédagogiques"
+      "text": "Objectifs de la Partie 2"
     },
     {
       "type": "list",
@@ -155,12 +3073,12 @@
       "type": "heading",
       "level": 2,
       "id": "sommaire",
-      "text": "Sommaire"
+      "text": "Parcours de la Partie 2"
     },
     {
       "type": "table",
       "headers": [
-        "PARTIE",
+        "CHAPITRE",
         "CONTENU"
       ],
       "rows": [
@@ -355,10 +3273,10 @@
     },
     {
       "type": "paragraph",
-      "text": "Ces indicateurs influencent les décisions des banques centrales. Or, les taux directeurs et les anticipations de taux influencent à leur tour le coût du crédit, les rendements obligataires, la valeur des devises, la valorisation des entreprises et l’appétit pour le risque. Une donnée peut donc provoquer un mouvement sur plusieurs marchés en quelques secondes.",
+      "text": "Comme l’a montré la Partie 1, les marchés réagissent aux changements de trajectoire monétaire attendue, pas seulement au niveau actuel des taux. Une publication compte donc lorsqu’elle modifie le diagnostic d’inflation, d’emploi ou de croissance que les investisseurs prêtent à la banque centrale.",
       "segments": [
         {
-          "text": "Ces indicateurs influencent les décisions des banques centrales. Or, les taux directeurs et les anticipations de taux influencent à leur tour le coût du crédit, les rendements obligataires, la valeur des devises, la valorisation des entreprises et l’appétit pour le risque. Une donnée peut donc provoquer un mouvement sur plusieurs marchés en quelques secondes."
+          "text": "Comme l’a montré la Partie 1, les marchés réagissent aux changements de trajectoire monétaire attendue, pas seulement au niveau actuel des taux. Une publication compte donc lorsqu’elle modifie le diagnostic d’inflation, d’emploi ou de croissance que les investisseurs prêtent à la banque centrale."
         }
       ]
     },
@@ -690,24 +3608,24 @@
       "type": "heading",
       "level": 1,
       "id": "3-la-chaine-de-transmission-vers-les-marches",
-      "text": "3. La chaîne de transmission vers les marchés"
+      "text": "3. Du chiffre publié au changement d’anticipations"
     },
     {
       "type": "paragraph",
-      "text": "Passer du chiffre publié à une interprétation cohérente des actifs.",
+      "text": "Appliquer au chiffre publié les mécanismes étudiés dans la Partie 1.",
       "segments": [
         {
-          "text": "Passer du chiffre publié à une interprétation cohérente des actifs.",
+          "text": "Appliquer au chiffre publié les mécanismes étudiés dans la Partie 1.",
           "italic": true
         }
       ]
     },
     {
       "type": "paragraph",
-      "text": "La donnée n’agit pas directement sur chaque actif. Elle modifie d’abord le scénario économique et les anticipations de politique monétaire. C’est cette chaîne qui explique une grande partie des mouvements de marché.",
+      "text": "La Partie 1 a expliqué les canaux qui relient la politique monétaire à l’économie et aux actifs. Ici, l’objectif est plus précis : suivre le chemin publication, surprise, diagnostic économique, trajectoire de taux attendue, puis ajustement des prix.",
       "segments": [
         {
-          "text": "La donnée n’agit pas directement sur chaque actif. Elle modifie d’abord le scénario économique et les anticipations de politique monétaire. C’est cette chaîne qui explique une grande partie des mouvements de marché."
+          "text": "La Partie 1 a expliqué les canaux qui relient la politique monétaire à l’économie et aux actifs. Ici, l’objectif est plus précis : suivre le chemin publication, surprise, diagnostic économique, trajectoire de taux attendue, puis ajustement des prix."
         }
       ]
     },
@@ -791,14 +3709,14 @@
       "type": "heading",
       "level": 2,
       "id": "le-role-central-des-banques-centrales",
-      "text": "Le rôle central des banques centrales"
+      "text": "Appliquer le cadre de la Partie 1"
     },
     {
       "type": "paragraph",
-      "text": "Aux États-Unis, la Réserve fédérale poursuit deux grands objectifs : la stabilité des prix et un niveau d’emploi maximal soutenable. Elle observe donc particulièrement l’inflation et le marché du travail. Si les données montrent une inflation persistante ou une économie trop tendue, le marché peut anticiper des taux plus élevés pendant plus longtemps. Si l’activité et l’inflation ralentissent, il peut anticiper des baisses de taux.",
+      "text": "Il n’est pas nécessaire de réapprendre ici les mandats et les outils. Pour chaque publication, la question utile est la suivante : le chiffre et ses détails changent-ils la manière dont le marché anticipe la fonction de réaction de la banque centrale ? Une inflation persistante, un emploi très tendu ou un ralentissement marqué n’ont d’effet durable que s’ils modifient ce scénario.",
       "segments": [
         {
-          "text": "Aux États-Unis, la Réserve fédérale poursuit deux grands objectifs : la stabilité des prix et un niveau d’emploi maximal soutenable. Elle observe donc particulièrement l’inflation et le marché du travail. Si les données montrent une inflation persistante ou une économie trop tendue, le marché peut anticiper des taux plus élevés pendant plus longtemps. Si l’activité et l’inflation ralentissent, il peut anticiper des baisses de taux."
+          "text": "Il n’est pas nécessaire de réapprendre ici les mandats et les outils. Pour chaque publication, la question utile est la suivante : le chiffre et ses détails changent-ils la manière dont le marché anticipe la fonction de réaction de la banque centrale ? Une inflation persistante, un emploi très tendu ou un ralentissement marqué n’ont d’effet durable que s’ils modifient ce scénario."
         }
       ]
     },
@@ -806,14 +3724,14 @@
       "type": "heading",
       "level": 2,
       "id": "pourquoi-les-rendements-obligataires-sont-essentiels",
-      "text": "Pourquoi les rendements obligataires sont essentiels"
+      "text": "Quels rendements observer après une publication ?"
     },
     {
       "type": "paragraph",
-      "text": "Les rendements des obligations d’État, notamment à court terme, reflètent rapidement les anticipations de taux directeurs. Lorsque les rendements montent, le prix des obligations déjà émises baisse généralement. Des rendements plus élevés rendent aussi les placements sans risque relativement plus attractifs et augmentent le taux utilisé par les investisseurs pour valoriser les bénéfices futurs des entreprises.",
+      "text": "Les échéances courtes, notamment le rendement américain à deux ans, réagissent fortement aux anticipations de taux directeurs. Les échéances longues intègrent aussi les perspectives de croissance et d’inflation ainsi que la prime de terme. Les observer ensemble aide à distinguer un simple ajustement de politique monétaire d’un changement plus large du scénario économique.",
       "segments": [
         {
-          "text": "Les rendements des obligations d’État, notamment à court terme, reflètent rapidement les anticipations de taux directeurs. Lorsque les rendements montent, le prix des obligations déjà émises baisse généralement. Des rendements plus élevés rendent aussi les placements sans risque relativement plus attractifs et augmentent le taux utilisé par les investisseurs pour valoriser les bénéfices futurs des entreprises."
+          "text": "Les échéances courtes, notamment le rendement américain à deux ans, réagissent fortement aux anticipations de taux directeurs. Les échéances longues intègrent aussi les perspectives de croissance et d’inflation ainsi que la prime de terme. Les observer ensemble aide à distinguer un simple ajustement de politique monétaire d’un changement plus large du scénario économique."
         }
       ]
     },
@@ -868,7 +3786,7 @@
       "type": "callout",
       "label": "RÈGLE DE PRUDENCE",
       "variant": "default",
-      "text": "Le rendement d’une obligation et son prix évoluent généralement en sens opposé. Dire « les obligations montent » signifie que leur prix progresse, souvent parce que leur rendement recule.",
+      "text": "Rappel de la Partie 1 : prix et rendement d’une obligation évoluent généralement en sens opposé. Dans cette Partie 2, l’enjeu est surtout d’identifier ce que la variation des rendements révèle sur le scénario de taux, de croissance et d’inflation.",
       "sourceFill": "EAF2F8"
     },
     {
@@ -2461,14 +5379,14 @@
       "type": "heading",
       "level": 1,
       "id": "8-comprendre-l-impact-selon-chaque-marche",
-      "text": "8. Comprendre l’impact selon chaque marché"
+      "text": "8. Appliquer le cadre aux publications macroéconomiques"
     },
     {
       "type": "paragraph",
-      "text": "Une même donnée traverse plusieurs canaux et ne produit jamais une réaction certaine.",
+      "text": "La Partie 1 a décrit les canaux ; cette grille permet maintenant de vérifier ce que la publication a réellement modifié.",
       "segments": [
         {
-          "text": "Une même donnée traverse plusieurs canaux et ne produit jamais une réaction certaine.",
+          "text": "La Partie 1 a décrit les canaux ; cette grille permet maintenant de vérifier ce que la publication a réellement modifié.",
           "italic": true
         }
       ]
@@ -2477,33 +5395,33 @@
       "type": "table",
       "headers": [
         "MARCHÉ",
-        "CANAL PRINCIPAL",
-        "LECTURE FRÉQUENTE"
+        "QUESTION APRÈS LA PUBLICATION",
+        "LECTURE CONDITIONNELLE"
       ],
       "rows": [
         [
           "Obligations souveraines",
-          "Attentes de taux, inflation, croissance et recherche de sécurité",
+          "La surprise change-t-elle les attentes de taux, d’inflation ou de croissance ?",
           "Inflation ou activité plus forte : rendements souvent en hausse et prix en baisse. Faiblesse ou désinflation : mouvement souvent inverse."
         ],
         [
           "Devises — Forex",
-          "Différentiel de taux attendu entre deux pays",
+          "Le différentiel de taux attendu entre les deux zones monétaires évolue-t-il ?",
           "Une donnée américaine forte ne soutient le dollar que si elle rend la politique de la Fed relativement plus restrictive que celle des autres banques centrales."
         ],
         [
           "Actions de croissance",
-          "Valeur actuelle de bénéfices attendus loin dans le futur",
+          "La publication modifie-t-elle les rendements longs ou les perspectives de bénéfices ?",
           "Très sensibles aux rendements. Des taux attendus plus élevés peuvent réduire les valorisations, même si l’économie reste solide."
         ],
         [
           "Actions cycliques",
-          "Demande économique, crédit et bénéfices",
+          "Le scénario de demande, de crédit ou de marges est-il révisé ?",
           "Profitent souvent d’une croissance solide, mais souffrent lorsque le ralentissement menace les ventes et les marges."
         ],
         [
           "Or",
-          "Taux réels, dollar, inflation et demande de sécurité",
+          "La publication agit-elle surtout par les taux réels, le dollar ou la recherche de sécurité ?",
           "Peut profiter de la peur ou de taux réels en baisse ; peut souffrir d’un dollar et de rendements réels en hausse. Son statut de protection contre l’inflation ne suffit pas à prévoir le court terme."
         ]
       ],
@@ -2589,7 +5507,7 @@
       "type": "callout",
       "label": "RÉFLEXE PROFESSIONNEL",
       "variant": "default",
-      "text": "Observer d’abord le marché obligataire et la devise aide à comprendre l’interprétation dominante. Si les rendements montent fortement après une annonce, le marché lit généralement la donnée comme plus inflationniste ou plus restrictive pour la banque centrale.",
+      "text": "Après une publication, comparer les rendements, la devise et les actifs risqués aide à tester le scénario dominant. Ces réactions restent toutefois corrélées : lorsqu’elles proviennent du même choc de taux, elles constituent une seule famille d’information et non plusieurs confirmations indépendantes.",
       "sourceFill": "E7F5F3"
     },
     {

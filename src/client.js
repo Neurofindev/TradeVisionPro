@@ -144,6 +144,15 @@
         delete parsed["3"];
         progressChanged = true;
       }
+      const volume4MigrationKey = `${key}:volume4-two-parts-migrated`;
+      if (!localStorage.getItem(volume4MigrationKey)) {
+        const formerMacroScore = Math.max(Number(parsed["4-part-1"] || 0), Number(parsed["4"] || 0));
+        if (formerMacroScore) parsed["4-part-2"] = Math.max(Number(parsed["4-part-2"] || 0), formerMacroScore);
+        delete parsed["4-part-1"];
+        delete parsed["4"];
+        localStorage.setItem(volume4MigrationKey, "true");
+        progressChanged = true;
+      }
       if (progressChanged) localStorage.setItem(key, JSON.stringify(parsed));
       return parsed;
     } catch (error) {
@@ -157,9 +166,19 @@
     const progressData = readCourseProgress();
     const scoreKey = partOrder ? `${volumeOrder}-part-${partOrder}` : String(volumeOrder);
     progressData[scoreKey] = Math.max(Number(progressData[scoreKey]) || 0, score);
-    if (completesVolume) {
+    const volumePage = document.querySelector(`[data-volume-page][data-volume-order="${volumeOrder}"]`);
+    const partCount = Number(volumePage?.dataset.volumePartCount || 0);
+    const allPartsPassed = partCount > 0 && Array.from(
+      { length: partCount },
+      (_, index) => Number(progressData[`${volumeOrder}-part-${index + 1}`] || 0),
+    ).every((partResult) => partResult >= passingScore);
+    if (completesVolume && (partCount <= 1 || allPartsPassed)) {
       const volumeKey = String(volumeOrder);
       progressData[volumeKey] = Math.max(Number(progressData[volumeKey]) || 0, score);
+    } else if (allPartsPassed) {
+      progressData[String(volumeOrder)] = Math.max(
+        ...Array.from({ length: partCount }, (_, index) => Number(progressData[`${volumeOrder}-part-${index + 1}`] || 0)),
+      );
     }
     localStorage.setItem(key, JSON.stringify(progressData));
   }

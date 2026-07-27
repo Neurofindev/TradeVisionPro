@@ -836,17 +836,155 @@
     ]
   },
   "4-analyse-macroeconomique": {
-    "title": "Valider les fondements macroéconomiques",
-    "intro": "La Partie 1 possède un QCM de 10 questions. Une note d’au moins 8/10 enregistrera sa validation et préparera l’accès à la prochaine partie lorsqu’elle sera publiée.",
+    "title": "Valider l’analyse macroéconomique",
+    "intro": "Deux QCM distincts accompagnent le Volume 4. Une note d’au moins 8/10 à la Partie 1 débloque la Partie 2 ; la validation de la Partie 2 achève le volume et préparera l’accès au Volume 5 lorsqu’il sera créé.",
     "parts": [
       {
         "order": 1,
         "id": "partie-1",
-        "title": "QCM de la Partie 1 — Fondements macroéconomiques",
-        "intro": "10 questions consacrées au calendrier économique, à l’inflation, au PIB, à l’emploi, à la consommation et à la transmission des données vers les marchés.",
+        "title": "QCM de la Partie 1 — Banques centrales",
+        "intro": "10 questions sur les mandats, la prise de décision, les instruments monétaires, la transmission et la lecture d’une réunion de banque centrale.",
         "questions": [
           {
             "id": "v4-p1-q1",
+            "difficulty": "Facile",
+            "question": "Quelle fonction distingue d’abord une banque centrale d’une banque commerciale ?",
+            "options": [
+              "Elle conduit la politique monétaire et veille au fonctionnement du système monétaire",
+              "Elle accorde principalement des prêts immobiliers aux particuliers",
+              "Elle sélectionne les actions composant les indices boursiers",
+              "Elle fixe directement les prix de tous les biens"
+            ],
+            "answer": 0,
+            "explanation": "Une banque centrale conduit la politique monétaire, émet généralement la monnaie et contribue à la stabilité du système financier. Elle ne remplit pas le même rôle qu’une banque commerciale."
+          },
+          {
+            "id": "v4-p1-q2",
+            "difficulty": "Facile",
+            "question": "Pourquoi faut-il vérifier le mandat propre à chaque banque centrale ?",
+            "options": [
+              "Parce qu’elles utilisent toutes une devise identique",
+              "Parce que leurs objectifs et leur hiérarchie peuvent différer",
+              "Parce que leur mandat change après chaque séance boursière",
+              "Parce qu’aucune banque centrale ne vise la stabilité des prix"
+            ],
+            "answer": 1,
+            "explanation": "La stabilité des prix est centrale, mais les textes, la hiérarchie des objectifs et les responsabilités complémentaires ne sont pas identiques partout."
+          },
+          {
+            "id": "v4-p1-q3",
+            "difficulty": "Intermédiaire",
+            "question": "Que comparent principalement les marchés lors d’une décision monétaire ?",
+            "options": [
+              "Le niveau du taux à celui d’il y a exactement dix ans",
+              "Le communiqué au prix de l’or uniquement",
+              "La décision et la communication à ce qui était déjà anticipé",
+              "La décision au bénéfice trimestriel d’une seule entreprise"
+            ],
+            "answer": 2,
+            "explanation": "La réaction dépend surtout de l’écart entre ce qui est annoncé et ce que les prix intégraient déjà, y compris les indications sur la trajectoire future."
+          },
+          {
+            "id": "v4-p1-q4",
+            "difficulty": "Intermédiaire",
+            "question": "Pourquoi une hausse de taux directeur ne ralentit-elle pas instantanément toute l’économie ?",
+            "options": [
+              "Les taux directeurs n’influencent jamais le crédit",
+              "Tous les contrats financiers sont renégociés le jour même",
+              "Les ménages ignorent toujours les conditions de financement",
+              "La transmission passe par plusieurs canaux et agit avec des délais variables"
+            ],
+            "answer": 3,
+            "explanation": "Les conditions bancaires, les taux de marché, le crédit, la demande et l’inflation réagissent par étapes. L’intensité et le délai varient selon le contexte."
+          },
+          {
+            "id": "v4-p1-q5",
+            "difficulty": "Intermédiaire",
+            "question": "Que désigne l’assouplissement quantitatif, ou QE ?",
+            "options": [
+              "Des achats d’actifs destinés notamment à assouplir les conditions financières",
+              "Une hausse automatique de tous les impôts",
+              "L’interdiction des échanges obligataires",
+              "La fixation permanente du cours de toutes les devises"
+            ],
+            "answer": 0,
+            "explanation": "Le QE consiste en des achats d’actifs par la banque centrale. Il vise notamment à peser sur certains rendements et à soutenir la transmission monétaire, sans résultat mécanique garanti."
+          },
+          {
+            "id": "v4-p1-q6",
+            "difficulty": "Intermédiaire",
+            "question": "Dans la communication monétaire, que suggère généralement une orientation hawkish ?",
+            "options": [
+              "La promesse certaine d’une baisse immédiate des taux",
+              "Une priorité accrue au risque d’inflation et une politique potentiellement plus restrictive",
+              "L’abandon de tout objectif de stabilité des prix",
+              "Une opinion obligatoirement favorable aux actions"
+            ],
+            "answer": 1,
+            "explanation": "Hawkish décrit une orientation relativement plus attentive à l’inflation et compatible avec des taux plus élevés ou maintenus plus longtemps. Le terme reste relatif au contexte et aux attentes."
+          },
+          {
+            "id": "v4-p1-q7",
+            "difficulty": "Intermédiaire",
+            "question": "Quelle relation existe généralement entre le prix d’une obligation existante et son rendement ?",
+            "options": [
+              "Ils évoluent en sens opposé",
+              "Ils sont toujours identiques",
+              "Ils évoluent toujours dans le même sens",
+              "Ils ne dépendent jamais des taux de marché"
+            ],
+            "answer": 0,
+            "explanation": "Lorsque les rendements exigés montent, le prix d’une obligation existante baisse généralement pour s’ajuster, et inversement."
+          },
+          {
+            "id": "v4-p1-q8",
+            "difficulty": "Approfondissement",
+            "question": "Quel est le principe du contrôle de la courbe des taux, ou YCC ?",
+            "options": [
+              "Garantir une hausse permanente de la Bourse",
+              "Supprimer toutes les obligations d’État",
+              "Cibler un niveau ou une zone de rendement sur une échéance déterminée",
+              "Remplacer la monnaie nationale par une action"
+            ],
+            "answer": 2,
+            "explanation": "Le YCC cherche à maintenir un rendement donné autour d’une cible ou dans une bande, au moyen d’interventions et d’une communication crédible."
+          },
+          {
+            "id": "v4-p1-q9",
+            "difficulty": "Approfondissement",
+            "question": "Quelle préparation est la plus rigoureuse avant une réunion de banque centrale ?",
+            "options": [
+              "Identifier le mandat, le contexte, les attentes intégrées et les scénarios possibles",
+              "Choisir une direction sans consulter les anticipations",
+              "Se fier uniquement au dernier mouvement d’une action",
+              "Supposer que la décision annoncée détermine seule la réaction"
+            ],
+            "answer": 0,
+            "explanation": "Une analyse solide prépare plusieurs scénarios et distingue la décision, la communication et les attentes déjà incorporées dans les prix."
+          },
+          {
+            "id": "v4-p1-q10",
+            "difficulty": "Approfondissement",
+            "question": "Pourquoi la communication peut-elle compter autant que la décision de taux ?",
+            "options": [
+              "Elle annule toujours les décisions précédentes",
+              "Elle rend les données économiques inutiles",
+              "Elle garantit la direction de chaque classe d’actifs",
+              "Elle aide le marché à réviser la trajectoire future attendue de la politique monétaire"
+            ],
+            "answer": 3,
+            "explanation": "Le communiqué, les projections et la conférence de presse peuvent modifier les anticipations sur les prochaines décisions, même lorsque le taux du jour était attendu."
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "id": "partie-2",
+        "title": "QCM de la Partie 2 — Données macroéconomiques",
+        "intro": "10 questions sur le calendrier économique, la surprise, l’inflation, le PIB, l’emploi, la consommation et l’interprétation des réactions de marché.",
+        "questions": [
+          {
+            "id": "v4-p2-q1",
             "difficulty": "Facile",
             "question": "Quel est le rôle principal de l’analyse macroéconomique pour un investisseur ou un trader ?",
             "options": [
@@ -859,7 +997,7 @@
             "explanation": "L’analyse macroéconomique étudie notamment l’activité, les prix, l’emploi, la consommation et les taux afin d’identifier le régime dominant et ses conséquences possibles."
           },
           {
-            "id": "v4-p1-q2",
+            "id": "v4-p2-q2",
             "difficulty": "Facile",
             "question": "Quelles sont les trois valeurs indispensables d’un calendrier économique ?",
             "options": [
@@ -872,7 +1010,7 @@
             "explanation": "Le précédent décrit la dernière publication, le consensus représente l’attente centrale et le réel correspond à la nouvelle valeur publiée."
           },
           {
-            "id": "v4-p1-q3",
+            "id": "v4-p2-q3",
             "difficulty": "Intermédiaire",
             "question": "Pourquoi le consensus influence-t-il souvent davantage la première réaction que le chiffre précédent ?",
             "options": [
@@ -885,7 +1023,7 @@
             "explanation": "Les investisseurs se positionnent à partir des informations disponibles. L’écart entre le réel et l’attente crée donc la surprise qui impose un ajustement rapide des positions."
           },
           {
-            "id": "v4-p1-q4",
+            "id": "v4-p2-q4",
             "difficulty": "Intermédiaire",
             "question": "Quel régime limite le plus la liberté d’une banque centrale pour soutenir l’activité ?",
             "options": [
@@ -898,7 +1036,7 @@
             "explanation": "Une activité faible accompagnée d’une inflation élevée combine perte de pouvoir d’achat et faible marge de manœuvre monétaire : baisser les taux pourrait entretenir l’inflation."
           },
           {
-            "id": "v4-p1-q5",
+            "id": "v4-p2-q5",
             "difficulty": "Intermédiaire",
             "question": "Quelle affirmation distingue correctement le Core CPI du Core PCE ?",
             "options": [
@@ -911,7 +1049,7 @@
             "explanation": "Les versions sous-jacentes cherchent à mieux observer la persistance de l’inflation. Le PCE, publié par le BEA, est la mesure privilégiée par la Réserve fédérale."
           },
           {
-            "id": "v4-p1-q6",
+            "id": "v4-p2-q6",
             "difficulty": "Intermédiaire",
             "question": "Pourquoi le PIB réel est-il généralement plus utile que le PIB nominal pour analyser la croissance ?",
             "options": [
@@ -924,7 +1062,7 @@
             "explanation": "Le PIB nominal peut augmenter simplement parce que les prix montent. Le PIB réel corrige cet effet afin de mieux mesurer l’évolution des quantités produites."
           },
           {
-            "id": "v4-p1-q7",
+            "id": "v4-p2-q7",
             "difficulty": "Approfondissement",
             "question": "Pourquoi un NFP supérieur au consensus ne suffit-il pas à conclure que le rapport d’emploi est solide ?",
             "options": [
@@ -937,7 +1075,7 @@
             "explanation": "Le chiffre principal peut masquer des révisions négatives, une concentration des créations, des heures en baisse ou des pressions salariales différentes de la première impression."
           },
           {
-            "id": "v4-p1-q8",
+            "id": "v4-p2-q8",
             "difficulty": "Approfondissement",
             "question": "Quel ensemble signale le plus clairement une détérioration du marché du travail ?",
             "options": [
@@ -950,7 +1088,7 @@
             "explanation": "Une hausse persistante des demandes, confirmée par davantage de licenciements, est plus préoccupante qu’un chiffre isolé ou qu’un simple refroidissement des postes vacants."
           },
           {
-            "id": "v4-p1-q9",
+            "id": "v4-p2-q9",
             "difficulty": "Approfondissement",
             "question": "Pourquoi une hausse des ventes au détail ne prouve-t-elle pas toujours que les ménages achètent davantage de produits ?",
             "options": [
@@ -963,7 +1101,7 @@
             "explanation": "Une hausse des prix, notamment de l’essence, peut gonfler la valeur des ventes sans augmentation des quantités. Les catégories et le groupe de contrôle complètent la lecture."
           },
           {
-            "id": "v4-p1-q10",
+            "id": "v4-p2-q10",
             "difficulty": "Approfondissement",
             "question": "Quelle méthode décrit le mieux une analyse rigoureuse après une publication ?",
             "options": [

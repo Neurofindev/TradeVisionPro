@@ -650,10 +650,31 @@ a {
   border: 1px solid var(--line);
 }
 
+.nav-volume__lock {
+  display: none;
+  position: absolute;
+  top: -0.42rem;
+  right: -0.34rem;
+  width: 1.12rem;
+  aspect-ratio: 1;
+  place-items: center;
+  border: 1px solid color-mix(in srgb, var(--gold) 50%, var(--line));
+  border-radius: 50%;
+  background: var(--surface);
+  box-shadow: 0 4px 10px rgba(10, 8, 16, 0.18);
+  color: var(--gold);
+  font-size: 0.56rem;
+  line-height: 1;
+}
+
 .main-nav .nav-volume[data-state="locked"] {
   border-style: dashed;
   color: var(--ink-faint);
   opacity: 0.72;
+}
+
+.main-nav .nav-volume[data-state="locked"] .nav-volume__lock {
+  display: grid;
 }
 
 .main-nav .nav-volume[data-state="complete"] {

@@ -29,6 +29,7 @@
       "gouvernance",
       "liquidité"
     ],
+    "optional": true,
     "slug": "2-dossiers-historiques"
   },
   "archetype": "case_dossiers",

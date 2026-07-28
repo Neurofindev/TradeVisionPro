@@ -102,6 +102,12 @@ function formatNumber(value) {
   return new Intl.NumberFormat("fr-FR").format(value || 0);
 }
 
+const VOLUME_PREREQUISITES = { 2: 1, 3: 1, 4: 3 };
+
+function prerequisiteVolumeOrder(volumeOrder) {
+  return Number(VOLUME_PREREQUISITES[volumeOrder] || Math.max(1, volumeOrder - 1));
+}
+
 function renderDefinitionItem(item) {
   if (item.term || item.definition) {
     const term = String(item.term || "").trim();
@@ -400,8 +406,8 @@ export function renderVolumeCard(volume, featured = false) {
   const count = volume.stats.dossierCount
     ? `${volume.stats.dossierCount} dossiers`
     : `${volume.stats.chapterCount} chapitre${volume.stats.chapterCount > 1 ? "s" : ""}`;
-  return `<article class="volume-card${featured ? " volume-card--featured" : ""}" data-volume-card data-volume-order="${order}" data-volume-part-count="${metadata.parts?.length || 1}" data-volume-has-parts="${String(Boolean(metadata.parts?.length))}">
-    <div class="volume-card__top"><span>${volumeLabel(volume)}</span><span>${escapeHtml(archetypeLabel(volume))}</span></div>
+  return `<article class="volume-card${featured ? " volume-card--featured" : ""}" data-volume-card data-volume-order="${order}" data-volume-part-count="${metadata.parts?.length || 1}" data-volume-has-parts="${String(Boolean(metadata.parts?.length))}" data-volume-optional="${String(Boolean(metadata.optional))}">
+    <div class="volume-card__top"><span>${volumeLabel(volume)}</span><span>${metadata.optional ? "Optionnel · " : ""}${escapeHtml(archetypeLabel(volume))}</span></div>
     <p class="volume-card__state" data-volume-state><span data-volume-state-icon aria-hidden="true">◇</span><span data-volume-state-label>Progression en cours</span></p>
     <h3><a href="${escapeHtml(sitePath(`/volumes/${metadata.slug}/`))}">${escapeHtml(metadata.title)}</a></h3>
     <p class="volume-card__subtitle">${escapeHtml(metadata.subtitle || "")}</p>
@@ -422,7 +428,7 @@ function globalNav(volumes, activePage, showToc) {
           .map(
             (volume) => `<a class="nav-volume" data-volume-link data-volume-order="${volume.metadata.volumeNumber || volume.metadata.order}" href="${escapeHtml(sitePath(`/volumes/${volume.metadata.slug}/`))}"${
               activePage === volume.metadata.slug ? ' aria-current="page"' : ""
-            }>V${volume.metadata.volumeNumber || volume.metadata.order}</a>`,
+            }><span>V${volume.metadata.volumeNumber || volume.metadata.order}</span><span class="nav-volume__lock" data-volume-nav-lock hidden aria-hidden="true">🔒</span></a>`,
           )
           .join("")}
         <a class="profile-nav-link" href="${sitePath("/profil/")}"${activePage === "profile" ? ' aria-current="page"' : ""}>Profil</a>
@@ -540,11 +546,12 @@ export function renderVolumesIndex(volumes) {
 }
 
 export function renderProfilePage(volumes) {
+  const requiredVolumeCount = volumes.filter((volume) => !volume.metadata.optional).length;
   const volumeCards = volumes
     .map((volume) => {
       const metadata = volume.metadata;
       const order = metadata.volumeNumber || metadata.order;
-      return `<article class="profile-volume" data-profile-volume data-volume-order="${order}" data-volume-part-count="${metadata.parts?.length || 1}" data-volume-has-parts="${String(Boolean(metadata.parts?.length))}" data-volume-part-ids="${escapeHtml((metadata.parts || []).map((part) => part.id).join(","))}">
+      return `<article class="profile-volume" data-profile-volume data-volume-order="${order}" data-volume-part-count="${metadata.parts?.length || 1}" data-volume-has-parts="${String(Boolean(metadata.parts?.length))}" data-volume-optional="${String(Boolean(metadata.optional))}" data-volume-part-ids="${escapeHtml((metadata.parts || []).map((part) => part.id).join(","))}">
         <div class="profile-volume__number" aria-hidden="true">V${order}</div>
         <div class="profile-volume__content">
           <div class="profile-volume__heading"><div><p>${volumeLabel(volume)}</p><h3>${escapeHtml(metadata.title)}</h3></div><span class="profile-status" data-profile-volume-status>Disponible</span></div>
@@ -566,7 +573,7 @@ export function renderProfilePage(volumes) {
     </header>
 
     <section class="profile-stats" aria-label="Résumé de votre parcours">
-      <article><span>Volumes validés</span><strong><b data-profile-validated>0</b> / ${volumes.length}</strong><small>Objectif : 8/10 par QCM</small></article>
+      <article><span>Volumes requis validés</span><strong><b data-profile-validated>0</b> / ${requiredVolumeCount}</strong><small>Le Volume 2 reste facultatif</small></article>
       <article><span>Volumes accessibles</span><strong data-profile-open>1</strong><small data-profile-access-note>Déblocage progressif</small></article>
       <article><span>Meilleur score</span><strong data-profile-best>—</strong><small>Sur l’ensemble des QCM</small></article>
       <article><span>Progression globale</span><strong data-profile-completion>0 %</strong><small>Volumes pédagogiques validés</small></article>
@@ -775,7 +782,8 @@ function renderPartQuizzes(volume, quiz, volumes, partGroups) {
 export function renderVolumePage(volume, volumes, quiz) {
   const metadata = volume.metadata;
   const order = metadata.volumeNumber || metadata.order;
-  const previousVolume = volumes.find((candidate) => (candidate.metadata.volumeNumber || candidate.metadata.order) === order - 1);
+  const prerequisiteOrder = prerequisiteVolumeOrder(order);
+  const prerequisiteVolume = volumes.find((candidate) => (candidate.metadata.volumeNumber || candidate.metadata.order) === prerequisiteOrder);
   const partGroups = volumePartGroups(volume);
   const toc = partGroups.length ? buildPartsToc(volume, partGroups) : buildToc(volume.blocks);
   const groups = sectionGroups(volume.blocks);
@@ -806,11 +814,11 @@ export function renderVolumePage(volume, volumes, quiz) {
         <div class="mobile-toc-card"><button type="button" data-toc-toggle aria-expanded="false" aria-controls="volume-sidebar"><span>Ouvrir le sommaire</span><span aria-hidden="true">☰</span></button></div>
         <section class="volume-lock" data-volume-lock hidden aria-labelledby="volume-lock-title-${order}">
           <span class="volume-lock__icon" aria-hidden="true">◇</span>
-          <div><p class="eyebrow">Étape à valider</p><h2 id="volume-lock-title-${order}">Ce volume est encore verrouillé</h2><p>Obtenez au moins <strong>8/10</strong> au QCM du Volume ${Math.max(1, order - 1)} pour poursuivre votre parcours.</p>${
-            previousVolume
+          <div><p class="eyebrow">Étape à valider</p><h2 id="volume-lock-title-${order}">Ce volume est encore verrouillé</h2><p>Obtenez au moins <strong>8/10</strong> au QCM du Volume ${prerequisiteOrder} pour poursuivre votre parcours.</p>${
+            prerequisiteVolume
               ? `<a class="button button--primary" href="${escapeHtml(
-                  sitePath(`/volumes/${previousVolume.metadata.slug}/#exercices`),
-                )}">Passer le QCM du Volume ${order - 1} <span aria-hidden="true">→</span></a>`
+                  sitePath(`/volumes/${prerequisiteVolume.metadata.slug}/#exercices`),
+                )}">Passer le QCM du Volume ${prerequisiteOrder} <span aria-hidden="true">→</span></a>`
               : ""
           }</div>
         </section>

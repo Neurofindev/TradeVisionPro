@@ -136,8 +136,12 @@ test("course progression is isolated by profile while admin access bypasses lock
   const client = await readFile(path.join(DIST, "assets", "client.js"), "utf8");
   const home = await readFile(path.join(DIST, "index.html"), "utf8");
   const volumeTwo = await readFile(path.join(DIST, "volumes/2-dossiers-historiques/index.html"), "utf8");
+  const volumeThree = await readFile(path.join(DIST, "volumes/3-analyse-technique/index.html"), "utf8");
+  const volumeFour = await readFile(path.join(DIST, "volumes/4-analyse-macroeconomique/index.html"), "utf8");
   assert.ok(client.includes("const passingScore = 8"));
   assert.ok(client.includes('root.dataset.accessRole === "admin"'));
+  assert.ok(client.includes("const volumePrerequisites = { 2: 1, 3: 1, 4: 3 }"));
+  assert.ok(client.includes("prerequisiteVolumeOrder"));
   assert.ok(client.includes("tradevisionpro-course-progress-v2"));
   assert.ok(client.includes("${courseProgressPrefix}:${profile.id}"));
   assert.ok(client.includes("Math.max(Number(progressData[volumeKey]) || 0, score)"));
@@ -156,6 +160,22 @@ test("course progression is isolated by profile while admin access bypasses lock
   assert.ok(volumeTwo.includes("data-volume-lock"));
   assert.ok(volumeTwo.includes("Ce volume est encore verrouillé"));
   assert.ok(volumeTwo.includes("Passer le QCM du Volume 1"));
+  assert.ok(volumeThree.includes("Passer le QCM du Volume 1"));
+  assert.ok(volumeFour.includes("Passer le QCM du Volume 3"));
+  assert.equal((home.match(/data-volume-nav-lock/g) || []).length, 4);
+  assert.ok(home.includes('data-volume-optional="true"'));
+  assert.ok(home.includes("Optionnel · Cas historiques"));
+});
+
+test("locked volume shortcuts display a padlock and volume two stays optional", async () => {
+  const styles = await readFile(path.join(DIST, "assets", "styles.css"), "utf8");
+  const profile = await readFile(path.join(DIST, "profil/index.html"), "utf8");
+  assert.match(styles, /\.main-nav \.nav-volume\[data-state="locked"\] \.nav-volume__lock\s*\{[^}]*display:\s*grid/s);
+  assert.match(styles, /\.nav-volume__lock\s*\{[^}]*position:\s*absolute[^}]*border-radius:\s*50%/s);
+  assert.ok(profile.includes("Volumes requis validés"));
+  assert.ok(profile.includes("Le Volume 2 reste facultatif"));
+  assert.ok(profile.includes('data-volume-order="2"'));
+  assert.ok(profile.includes('data-volume-optional="true"'));
 });
 
 test("locked volume layout stays readable on desktop", async () => {

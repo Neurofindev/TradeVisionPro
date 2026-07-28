@@ -533,6 +533,7 @@ class DocxConverter:
             "parts",
             "partSequenceComplete",
             "futureVolumeNumber",
+            "optional",
         ):
             if self.metadata_overrides.get(key) is not None:
                 metadata[key] = self.metadata_overrides[key]

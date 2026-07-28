@@ -110,6 +110,7 @@
     "source": "content/source/Formation_Investissement_Trading_Volume_2_Risques_Cas_Historiques.docx",
     "slug": "2-dossiers-historiques",
     "title": "Dossiers historiques",
+    "optional": true,
     "subtitle": "Berkshire Hathaway · Enron · Barings · LTCM · Archegos",
     "description": "Cinq cas réels pour comprendre comment exposition, financement, gouvernance et liquidité transforment une thèse en résultat.",
     "archetype": "case_dossiers",

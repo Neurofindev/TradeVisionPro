@@ -78,7 +78,8 @@ test("every page is protected by the access gate without exposing the code", asy
   assert.ok(client.includes("9c6e9172266f90a10de4d8cc2a767e9815488ae926d39ee68b1fab34091d4235"));
   assert.ok(client.includes('name: "Aedan De Chavigny"'));
   assert.ok(!client.includes("Aedan Dechavigny"));
-  assert.ok(client.includes("e5af42e35c3fb1fe989dee4acf652b81ef0dc956753926d6b22b705d110b01fc"));
+  assert.ok(client.includes("10fa41674c48ed8376b5f82fd8777454fa0023062f1b99b03645d00525dd2065"));
+  assert.ok(!client.includes("e5af42e35c3fb1fe989dee4acf652b81ef0dc956753926d6b22b705d110b01fc"));
   assert.ok(client.includes("4f8c5f5a97c0bbf84c176fda321365057b68cd8a135eaf003eae6584af3f77ba"));
   assert.ok(client.includes('tradevisionpro-access-session-v3'));
   assert.ok(!client.includes("fa5d171c9280388b26a2569e9fccc7683ab3ec70b685b3f9cde7066eee987263"));

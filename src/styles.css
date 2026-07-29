@@ -4355,6 +4355,18 @@ body.rank-reveal-open {
   color: var(--gold);
 }
 
+.course-list--ordered {
+  padding-left: 1.65rem;
+}
+
+.course-list--ordered li {
+  padding-left: 0.55rem;
+}
+
+.course-list--ordered li::marker {
+  font-weight: 850;
+}
+
 .text-underline {
   text-decoration: underline;
   text-underline-offset: 0.18em;
@@ -4414,6 +4426,31 @@ body.rank-reveal-open {
 
 :root[data-theme="dark"] .callout--summary {
   --callout-bg: #1e3328;
+}
+
+.callout--formula {
+  --callout-accent: #a67b31;
+  --callout-bg: #fbf3df;
+  border-left-width: 4px;
+  box-shadow: 0 10px 26px color-mix(in srgb, var(--callout-accent) 8%, transparent);
+}
+
+:root[data-theme="dark"] .callout--formula {
+  --callout-bg: #30291d;
+}
+
+.callout--formula .callout__label {
+  margin-bottom: 0.55rem !important;
+  font-family: var(--font-serif);
+  font-size: clamp(1rem, 1.8vw, 1.18rem) !important;
+  font-weight: 750;
+  letter-spacing: 0.015em;
+  line-height: 1.35 !important;
+  text-transform: none;
+}
+
+.callout--formula .callout__body {
+  max-width: 74ch;
 }
 
 .callout--mnemonic,

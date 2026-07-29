@@ -496,9 +496,11 @@ const CALLOUT_ICONS = {
 
 function renderCallout(block) {
   const variant = block.variant || "default";
-  return `<aside class="callout callout--${escapeHtml(variant)}" role="note">
-    <div class="callout__icon" aria-hidden="true">${CALLOUT_ICONS[variant] || CALLOUT_ICONS.default}</div>
-    <div><p class="callout__label">${escapeHtml(block.label || "À noter")}</p>
+  const label = String(block.label || "À noter");
+  const isFormula = /P\(ruine\)|KELLY|f\*\s*=|Taux d’équilibre\s*=|Taille\s*=\s*risque monétaire/i.test(label);
+  return `<aside class="callout callout--${escapeHtml(variant)}${isFormula ? " callout--formula" : ""}" role="note">
+    <div class="callout__icon" aria-hidden="true">${isFormula ? "ƒ" : CALLOUT_ICONS[variant] || CALLOUT_ICONS.default}</div>
+    <div><p class="callout__label">${escapeHtml(label)}</p>
     <p class="callout__body">${linkifyText(block.text || "")}</p></div>
   </aside>`;
 }
@@ -619,8 +621,12 @@ export function renderBlock(block) {
     }
     case "paragraph":
       return `<p>${renderSegments(block.segments, block.text)}</p>`;
-    case "list":
-      return `<ul class="course-list">${(block.items || []).map(renderDefinitionItem).join("")}</ul>`;
+    case "list": {
+      const listTag = block.ordered ? "ol" : "ul";
+      return `<${listTag} class="course-list${block.ordered ? " course-list--ordered" : ""}">${(block.items || [])
+        .map(renderDefinitionItem)
+        .join("")}</${listTag}>`;
+    }
     case "callout":
       return renderCallout(block);
     case "lesson_note":

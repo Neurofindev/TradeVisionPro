@@ -700,9 +700,14 @@
       "levier"
     ],
     "supplementalContent": [
+      "content/supplemental/6-money-management-position-sizing.json",
       "content/supplemental/6-money-management-trailing-aapl.json"
     ],
     "removeBlockRanges": [
+      {
+        "startId": "3-1-la-formule-generale-pour-les-produits-lineaires",
+        "endId": "3-2-comprendre-les-lots-unites-et-contrats"
+      },
       {
         "startId": "6-3-cas-concret-trailing-structurel-sur-aapl",
         "endId": "7-cas-de-synthese-du-signal-a-la-sortie"
@@ -720,6 +725,10 @@
       {
         "match": "9. Corrigés et conclusion",
         "replacement": "8. Conclusion"
+      },
+      {
+        "match": "KELLY : BORNE THÉORIQUE, PAS CONSIGNE",
+        "replacement": "Kelly — f* = p − (1 − p) / b · borne théorique, pas consigne"
       }
     ],
     "highlights": [

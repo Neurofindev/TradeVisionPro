@@ -685,7 +685,7 @@
     },
     {
       "type": "callout",
-      "label": "KELLY : BORNE THÉORIQUE, PAS CONSIGNE",
+      "label": "Kelly — f* = p − (1 − p) / b · borne théorique, pas consigne",
       "variant": "default",
       "text": "f* = p − (1 − p) / b\np = taux de trades gagnants ; 1 − p = taux de trades perdants ; b = gain moyen ÷ perte moyenne ; f* = fraction théorique du capital issue du modèle.\nExemple : avec p = 55 %, un gain moyen de 1,5R et une perte moyenne de 1R, b = 1,5. Le calcul donne f* = 0,55 − (0,45 ÷ 1,5) = 0,25, soit 25 %.\nCe résultat de 25 % n’est pas une recommandation de risquer 25 % par trade. Une petite erreur sur le taux de réussite, des pertes corrélées ou un événement extrême peut rendre cette fraction dangereuse. Kelly reste ici un repère théorique, jamais le taux de risque opérationnel [9].",
       "sourceFill": "EDF5FC"
@@ -1153,8 +1153,11 @@
       "type": "callout",
       "label": "Taille = risque monétaire autorisé ÷ perte par unité au stop",
       "variant": "default",
-      "text": "Risque monétaire = capital × pourcentage de risque. La perte par unité inclut la distance au stop et la valeur du point, du pip, du tick ou du mouvement de prix. Pour un produit à risque non linéaire, elle doit provenir d’un scénario adapté au produit, et non de cette seule formule.",
-      "sourceFill": "EEF6FF"
+      "text": "Cette formule détermine la quantité maximale compatible avec la perte acceptée si le stop est exécuté au niveau prévu.\nRisque monétaire autorisé = capital de référence × pourcentage de risque.\nPerte par unité au stop = distance entre l’entrée et le stop × valeur monétaire d’un point, d’un pip, d’un tick ou d’une unité de variation.\nLa formule convient aux produits dont la perte évolue de manière approximativement linéaire avec le prix. Pour une option ou un autre produit à risque non linéaire, la perte doit être estimée à l’aide d’un scénario adapté au produit."
+    },
+    {
+      "type": "paragraph",
+      "text": "La logique se lit dans cet ordre : le marché détermine d’abord le niveau d’invalidation ; ce niveau détermine la perte par unité ; le budget de risque détermine ensuite la quantité. La quantité ne doit donc jamais servir à rapprocher artificiellement le stop."
     },
     {
       "type": "heading",
@@ -1164,55 +1167,35 @@
     },
     {
       "type": "list",
-      "ordered": false,
+      "ordered": true,
       "items": [
         {
-          "text": "Capital de référence : solde ou équité, selon la règle choisie.",
-          "segments": [
-            {
-              "text": "Capital de référence : solde ou équité, selon la règle choisie."
-            }
-          ]
+          "term": "Capital de référence",
+          "definition": "Choisir à l’avance le solde ou l’équité du compte et conserver la même convention. L’équité tient compte des gains et pertes latents ; le solde ne les intègre pas."
         },
         {
-          "text": "Risque autorisé : par exemple 0,75 % de 10 000 $ = 75 $.",
-          "segments": [
-            {
-              "text": "Risque autorisé : par exemple 0,75 % de 10 000 $ = 75 $."
-            }
-          ]
+          "term": "Risque monétaire autorisé",
+          "definition": "Multiplier le capital de référence par le pourcentage de risque. Par exemple, 0,75 % de 10 000 $ donne un budget maximal de 75 $."
         },
         {
-          "text": "Invalidation : le stop est placé au niveau logique, pas au niveau qui permet un gros lot [1].",
-          "segments": [
-            {
-              "text": "Invalidation : le stop est placé au niveau logique, pas au niveau qui permet un gros lot [1]."
-            }
-          ]
+          "term": "Invalidation",
+          "definition": "Placer le stop au niveau où le scénario n’est plus valable. Il ne doit pas être rapproché uniquement pour augmenter la quantité [1]."
         },
         {
-          "text": "Perte unitaire : distance × valeur monétaire du mouvement.",
-          "segments": [
-            {
-              "text": "Perte unitaire : distance × valeur monétaire du mouvement."
-            }
-          ]
+          "term": "Perte par unité au stop",
+          "definition": "Calculer la distance entre l’entrée et le stop, puis la convertir en monnaie avec la valeur du point, du pip, du tick ou du mouvement de prix."
         },
         {
-          "text": "Quantité : risque disponible ÷ perte unitaire ; arrondir vers le bas.",
-          "segments": [
-            {
-              "text": "Quantité : risque disponible ÷ perte unitaire ; arrondir vers le bas."
-            }
-          ]
+          "term": "Quantité théorique",
+          "definition": "Diviser le risque monétaire autorisé par la perte unitaire. Le résultat indique le nombre maximal d’unités avant les coûts."
         },
         {
-          "text": "Contrôle final : marge, notionnel, frais, slippage et corrélation.",
-          "segments": [
-            {
-              "text": "Contrôle final : marge, notionnel, frais, slippage et corrélation."
-            }
-          ]
+          "term": "Quantité exécutable",
+          "definition": "Arrondir vers le bas selon le pas autorisé par le courtier : action entière, fraction, micro-lot ou nombre entier de contrats."
+        },
+        {
+          "term": "Contrôle final",
+          "definition": "Vérifier que la marge, le notionnel, les frais, le slippage, la liquidité et les positions corrélées restent compatibles avec le plan. Réduire encore la quantité si nécessaire."
         }
       ]
     },
@@ -1220,16 +1203,47 @@
       "type": "heading",
       "level": 3,
       "id": "exemple-actions",
-      "text": "Exemple actions"
+      "text": "Exemple actions, calculé étape par étape"
     },
     {
       "type": "paragraph",
-      "text": "Capital : 20 000 €. Risque : 0,75 %, soit 150 €. Entrée envisagée : 50 €. Stop : 47,50 €. La perte par action vaut 2,50 €. Taille = 150 ÷ 2,50 = 60 actions. Exposition = 60 × 50 = 3 000 €. Si le stop est exécuté exactement, la perte brute vaut 150 € ; les frais et le slippage restent à ajouter.",
-      "segments": [
-        {
-          "text": "Capital : 20 000 €. Risque : 0,75 %, soit 150 €. Entrée envisagée : 50 €. Stop : 47,50 €. La perte par action vaut 2,50 €. Taille = 150 ÷ 2,50 = 60 actions. Exposition = 60 × 50 = 3 000 €. Si le stop est exécuté exactement, la perte brute vaut 150 € ; les frais et le slippage restent à ajouter."
-        }
-      ]
+      "text": "Un compte de 20 000 € autorise 0,75 % de risque sur une position. L’action est envisagée à 50 € et le scénario est invalidé à 47,50 €."
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Étape",
+        "Calcul",
+        "Résultat"
+      ],
+      "rows": [
+        [
+          "1. Budget de risque",
+          "20 000 € × 0,75 %",
+          "150 €"
+        ],
+        [
+          "2. Perte par action au stop",
+          "50 € − 47,50 €",
+          "2,50 €"
+        ],
+        [
+          "3. Quantité maximale",
+          "150 € ÷ 2,50 €",
+          "60 actions"
+        ],
+        [
+          "4. Exposition de marché",
+          "60 × 50 €",
+          "3 000 €"
+        ],
+        [
+          "5. Perte brute planifiée",
+          "60 × 2,50 €",
+          "150 €"
+        ]
+      ],
+      "links": []
     },
     {
       "type": "stat_row",
@@ -1244,7 +1258,7 @@
         },
         {
           "value": "60",
-          "label": "ACTIONS"
+          "label": "ACTIONS MAX."
         },
         {
           "value": "3 000 €",
@@ -1255,9 +1269,8 @@
     {
       "type": "callout",
       "label": "CONTRÔLE",
-      "variant": "default",
-      "text": "Acheter 300 actions parce que 20 000 € permettent de les payer risquerait 750 € au stop, soit 3,75 % du capital. La capacité d’achat n’est pas la taille de risque.",
-      "sourceFill": "FFF9EA"
+      "variant": "principle",
+      "text": "Les 60 actions représentent une taille maximale théorique avant frais et slippage. Si le stop est exécuté exactement à 47,50 €, la perte brute vaut 150 €. Une réserve pour les coûts peut conduire à retenir moins de 60 actions. À l’inverse, acheter 300 actions parce que le compte permet de les payer exposerait 750 € au stop, soit 3,75 % du capital : la capacité d’achat n’est pas le budget de risque."
     },
     {
       "type": "heading",

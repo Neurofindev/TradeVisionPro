@@ -5,6 +5,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import {
   buildSearchEntries,
+  configureRanks,
   configureSite,
   layout,
   renderHome,
@@ -39,6 +40,8 @@ async function main() {
   });
   const manifest = await readJson(path.join(GENERATED, "index.json"));
   const quizzes = await readJson(path.join(ROOT, "config", "quizzes.json"));
+  const ranks = await readJson(path.join(ROOT, "config", "ranks.json"));
+  configureRanks(ranks);
   const volumes = await Promise.all(
     manifest.volumes.map((entry) => readJson(path.join(GENERATED, entry.file))),
   );

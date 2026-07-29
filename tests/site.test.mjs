@@ -215,6 +215,98 @@ test("profile page presents identity, useful progress and account controls", asy
   assert.match(styles, /@media \(max-width: 46rem\)[\s\S]*?\.profile-stats,/);
 });
 
+test("ranks depend only on fully validated volumes and use configurable thresholds", async () => {
+  const ranks = JSON.parse(await readFile(path.join(ROOT, "config", "ranks.json"), "utf8"));
+  const client = await readFile(path.join(DIST, "assets", "client.js"), "utf8");
+  assert.deepEqual(ranks.ranks.map((rank) => rank.id), ["bronze", "silver", "gold", "platine", "elite"]);
+  assert.equal(ranks.defaultMode, "auto");
+  assert.equal(ranks.countOptionalVolumes, true);
+  assert.deepEqual(
+    ranks.ranks.map((rank) => Math.ceil(5 * ranks.autoFractions[rank.id])),
+    [0, 1, 2, 3, 4],
+  );
+  assert.ok(client.includes('const rankSettingsKey = "tradevisionpro-rank-settings-v1"'));
+  assert.ok(client.includes("function validatedVolumeCount("));
+  assert.ok(client.includes('Number(progressData[String(order)] || 0) >= passingScore'));
+  assert.ok(client.includes("function rankForValidated("));
+  assert.ok(client.includes("function rankProgressState("));
+  assert.ok(client.includes("const volumeValidatedNow = !volumeWasValidated && volumeIsNowValidated"));
+  assert.ok(!client.includes("rankExperiencePoints"));
+  assert.ok(!client.includes("rankAverageScore"));
+  assert.ok(!client.includes("rankTimeSpent"));
+  assert.ok(!client.includes("isAdminAccess() ? totalAvailableVolumes"));
+});
+
+test("profile shows original rank emblems, progression and local admin controls", async () => {
+  const profile = await readFile(path.join(DIST, "profil/index.html"), "utf8");
+  const client = await readFile(path.join(DIST, "assets", "client.js"), "utf8");
+  const styles = await readFile(path.join(DIST, "assets", "styles.css"), "utf8");
+  assert.ok(profile.includes("Classement de progression"));
+  assert.ok(profile.includes("data-profile-rank-card"));
+  assert.ok(profile.includes("data-profile-rank-name"));
+  assert.ok(profile.includes("data-profile-rank-validated"));
+  assert.ok(profile.includes("data-profile-rank-progress"));
+  assert.equal((profile.match(/data-profile-rank-item=/g) || []).length, 5);
+  for (const rank of ["bronze", "silver", "gold", "platine", "elite"]) {
+    assert.ok(profile.includes(`data-profile-rank-item="${rank}"`), rank);
+    assert.ok(profile.includes(`data-rank="${rank}"`), rank);
+  }
+  assert.ok(profile.includes("data-rank-admin"));
+  assert.ok(profile.includes("Répartition configurable"));
+  assert.ok(profile.includes("Automatique selon les volumes"));
+  assert.ok(profile.includes("Dévalider un volume"));
+  assert.ok(client.includes("localStorage.setItem(rankSettingsKey"));
+  assert.ok(client.includes("key.startsWith(`${volumeOrder}-part-`)"));
+  assert.ok(client.includes("updateCourseProgress()"));
+  assert.match(styles, /\.profile-rank-card\s*\{/);
+  assert.match(styles, /\.rank-emblem__wings path\s*\{/);
+  assert.match(styles, /\.profile-admin\s*\{/);
+});
+
+test("volume validation launches responsive rank progress and rank-up animations", async () => {
+  const volumeOne = await readFile(path.join(DIST, "volumes/1-fondations-et-analyses/index.html"), "utf8");
+  const client = await readFile(path.join(DIST, "assets", "client.js"), "utf8");
+  const styles = await readFile(path.join(DIST, "assets", "styles.css"), "utf8");
+  assert.ok(volumeOne.includes("data-rank-reveal"));
+  assert.ok(volumeOne.includes("data-rank-reveal-skip"));
+  assert.ok(volumeOne.includes("data-rank-reveal-continue"));
+  assert.ok(volumeOne.includes("data-rank-reveal-progress"));
+  assert.equal((volumeOne.match(/data-rank-emblem="/g) || []).length, 5);
+  assert.ok(client.includes("function showRankProgress("));
+  assert.ok(client.includes('rankReveal.classList.add(rankUp ? "is-rank-up" : "is-standard")'));
+  assert.ok(client.includes("if (reduceMotion) rankReveal.classList.add"));
+  assert.ok(client.includes("showRankProgress({"));
+  assert.ok(client.includes("Volume ${volumeOrder} validé ·"));
+  assert.ok(client.includes('event.key !== "Tab"'));
+  assert.match(styles, /\.rank-reveal\s*\{[^}]*position:\s*fixed/s);
+  assert.match(styles, /@keyframes rank-forge-left/);
+  assert.match(styles, /@keyframes rank-forge-core/);
+  assert.match(styles, /\.rank-reveal\[data-rank="elite"\] \.rank-reveal__light/);
+  assert.match(styles, /@media \(prefers-reduced-motion: reduce\)[\s\S]*?\.rank-reveal/);
+  assert.match(styles, /@media \(max-width: 46rem\)[\s\S]*?\.rank-reveal__panel\s*\{[^}]*grid-template-columns:\s*1fr/s);
+});
+
+test("quiz reflection level progresses gradually across volumes", async () => {
+  const quizzes = JSON.parse(await readFile(path.join(ROOT, "config", "quizzes.json"), "utf8"));
+  const stages = (slug) => quizzes[slug].parts || [quizzes[slug]];
+  const easyCount = (stage) => stage.questions.filter((question) => question.difficulty === "Facile").length;
+  assert.equal(easyCount(stages("1-fondations-et-analyses")[0]), 3);
+  assert.ok(stages("3-analyse-technique").every((stage) => easyCount(stage) <= 2));
+  assert.ok(stages("4-analyse-macroeconomique").every((stage) => easyCount(stage) <= 1));
+  assert.ok(stages("5-psychologie-du-trading").every((stage) => easyCount(stage) <= 1));
+  assert.match(JSON.stringify(stages("3-analyse-technique")), /Vous préparez une entrée en H1|RSI 14 est affiché sur un graphique H4/);
+  assert.match(JSON.stringify(stages("5-psychologie-du-trading")), /acquis des volumes historiques, techniques et macroéconomiques/);
+
+  const volumeOne = await readFile(path.join(DIST, "volumes/1-fondations-et-analyses/index.html"), "utf8");
+  const volumeThree = await readFile(path.join(DIST, "volumes/3-analyse-technique/index.html"), "utf8");
+  const volumeFour = await readFile(path.join(DIST, "volumes/4-analyse-macroeconomique/index.html"), "utf8");
+  const volumeFive = await readFile(path.join(DIST, "volumes/5-psychologie-du-trading/index.html"), "utf8");
+  assert.ok(volumeOne.includes("Fondations guidées"));
+  assert.ok(volumeThree.includes("Application"));
+  assert.ok(volumeFour.includes("Analyse croisée"));
+  assert.ok(volumeFive.includes("Décision raisonnée"));
+});
+
 test("home accompaniment and dark primary action stay complete and legible", async () => {
   const home = await readFile(path.join(DIST, "index.html"), "utf8");
   const styles = await readFile(path.join(DIST, "assets", "styles.css"), "utf8");

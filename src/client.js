@@ -122,6 +122,86 @@
   const courseProgressPrefix = "tradevisionpro-course-progress-v2";
   const passingScore = 8;
   const volumePrerequisites = { 2: 1, 3: 1, 4: 3, 5: 4 };
+  const rankSettingsKey = "tradevisionpro-rank-settings-v1";
+  const rankConfig = (() => {
+    const fallback = {
+      defaultMode: "auto",
+      autoFractions: { bronze: 0, silver: 0.2, gold: 0.4, platine: 0.6, elite: 0.8 },
+      manualThresholds: { bronze: 0, silver: 1, gold: 2, platine: 3, elite: 4 },
+      ranks: [
+        { id: "bronze", name: "Bronze", description: "Le parcours commence." },
+        { id: "silver", name: "Silver", description: "Un premier niveau est atteint." },
+        { id: "gold", name: "Gold", description: "La méthode devient cohérente." },
+        { id: "platine", name: "Platine", description: "Le parcours atteint un niveau avancé." },
+        { id: "elite", name: "Elite", description: "La formation est entièrement ou presque maîtrisée." },
+      ],
+    };
+    try {
+      const parsed = JSON.parse(document.querySelector("#tradevisionpro-rank-config")?.textContent || "{}");
+      return Array.isArray(parsed.ranks) && parsed.ranks.length ? { ...fallback, ...parsed } : fallback;
+    } catch (error) {
+      return fallback;
+    }
+  })();
+  const totalAvailableVolumes = Math.max(
+    1,
+    ...[...document.querySelectorAll("[data-volume-order]")].map((element) => Number(element.dataset.volumeOrder || 0)),
+  );
+
+  function readRankSettings() {
+    try {
+      const stored = JSON.parse(localStorage.getItem(rankSettingsKey) || "{}");
+      return {
+        mode: stored.mode === "manual" ? "manual" : rankConfig.defaultMode || "auto",
+        thresholds: { ...(rankConfig.manualThresholds || {}), ...(stored.thresholds || {}) },
+      };
+    } catch (error) {
+      return { mode: rankConfig.defaultMode || "auto", thresholds: { ...(rankConfig.manualThresholds || {}) } };
+    }
+  }
+
+  function resolvedRanks(totalVolumes = totalAvailableVolumes, settings = readRankSettings()) {
+    let previousThreshold = 0;
+    return rankConfig.ranks.map((rank, index) => {
+      const configured = settings.mode === "manual"
+        ? Number(settings.thresholds?.[rank.id])
+        : Math.ceil(totalVolumes * Number(rankConfig.autoFractions?.[rank.id] || 0));
+      const minimum = index === 0 ? 0 : Math.max(1, Number.isFinite(configured) ? configured : previousThreshold);
+      const threshold = Math.min(totalVolumes, Math.max(previousThreshold, minimum));
+      previousThreshold = threshold;
+      return { ...rank, minValidated: threshold };
+    });
+  }
+
+  function validatedVolumeCount(progressData = readCourseProgress(), totalVolumes = totalAvailableVolumes) {
+    return Array.from({ length: totalVolumes }, (_, index) => index + 1).filter(
+      (order) => Number(progressData[String(order)] || 0) >= passingScore,
+    ).length;
+  }
+
+  function rankForValidated(validated, ranks = resolvedRanks()) {
+    return ranks.reduce(
+      (current, rank) => (validated >= Number(rank.minValidated || 0) ? rank : current),
+      ranks[0],
+    );
+  }
+
+  function rankProgressState(validated, ranks = resolvedRanks(), totalVolumes = totalAvailableVolumes) {
+    const current = rankForValidated(validated, ranks);
+    const currentIndex = Math.max(0, ranks.findIndex((rank) => rank.id === current.id));
+    const next = ranks[currentIndex + 1] || null;
+    const lowerBound = Number(current.minValidated || 0);
+    const upperBound = Number(next?.minValidated ?? totalVolumes);
+    const span = Math.max(1, upperBound - lowerBound);
+    const progress = next ? Math.max(0, Math.min(1, (validated - lowerBound) / span)) : 1;
+    return { current, currentIndex, next, progress, lowerBound, upperBound };
+  }
+
+  function showRankEmblem(scope, rankId) {
+    scope?.querySelectorAll("[data-rank-emblem]").forEach((element) => {
+      element.hidden = element.dataset.rankEmblem !== rankId;
+    });
+  }
 
   function courseProgressKey() {
     const profile = currentAccessProfile();
@@ -337,6 +417,59 @@
     return partIds[partOrder - 1] ? `#${partIds[partOrder - 1]}` : "";
   }
 
+  function updateRankUi(progressData = readCourseProgress()) {
+    const ranks = resolvedRanks();
+    const validated = validatedVolumeCount(progressData);
+    const state = rankProgressState(validated, ranks);
+    const remaining = state.next ? Math.max(0, state.next.minValidated - validated) : 0;
+
+    document.querySelectorAll("[data-profile-rank-mini]").forEach((element) => {
+      element.textContent = state.current.name;
+      element.dataset.rank = state.current.id;
+    });
+    document.querySelectorAll("[data-profile-rank-name]").forEach((element) => { element.textContent = state.current.name; });
+    document.querySelectorAll("[data-profile-rank-description]").forEach((element) => {
+      element.textContent = state.current.description || "";
+    });
+    document.querySelectorAll("[data-profile-rank-validated]").forEach((element) => { element.textContent = String(validated); });
+    document.querySelectorAll("[data-profile-rank-total]").forEach((element) => { element.textContent = String(totalAvailableVolumes); });
+    document.querySelectorAll("[data-profile-rank-next-label]").forEach((element) => {
+      element.textContent = state.next ? `Progression vers ${state.next.name}` : "Rang maximal atteint";
+    });
+    document.querySelectorAll("[data-profile-rank-progress-value]").forEach((element) => {
+      element.textContent = state.next ? `${validated} / ${state.next.minValidated}` : `${validated} / ${totalAvailableVolumes}`;
+    });
+    document.querySelectorAll("[data-profile-rank-progress]").forEach((element) => {
+      element.setAttribute("aria-valuenow", String(Math.round(state.progress * 100)));
+    });
+    document.querySelectorAll("[data-profile-rank-progress-bar]").forEach((element) => {
+      element.style.width = `${Math.round(state.progress * 100)}%`;
+    });
+    document.querySelectorAll("[data-profile-rank-remaining]").forEach((element) => {
+      element.textContent = state.next
+        ? `Encore ${remaining} volume${remaining > 1 ? "s" : ""} avant le rang ${state.next.name}.`
+        : `Rang maximal atteint avec ${validated} volume${validated > 1 ? "s" : ""} validé${validated > 1 ? "s" : ""}.`;
+    });
+    document.querySelectorAll("[data-profile-rank-card]").forEach((card) => {
+      card.dataset.rank = state.current.id;
+      showRankEmblem(card, state.current.id);
+    });
+    document.querySelectorAll("[data-profile-rank-item]").forEach((item) => {
+      const rankIndex = ranks.findIndex((rank) => rank.id === item.dataset.profileRankItem);
+      const earned = rankIndex <= state.currentIndex;
+      const current = rankIndex === state.currentIndex;
+      item.dataset.state = current ? "current" : earned ? "earned" : "locked";
+      const icon = item.querySelector("i");
+      if (icon) icon.textContent = earned ? "✓" : "◇";
+    });
+    ranks.forEach((rank, index) => {
+      document.querySelectorAll(`[data-profile-rank-threshold="${rank.id}"]`).forEach((element) => {
+        element.textContent = index === 0 ? "Rang initial" : `${rank.minValidated} volume${rank.minValidated > 1 ? "s" : ""} validé${rank.minValidated > 1 ? "s" : ""}`;
+      });
+    });
+    return { ...state, validated, ranks };
+  }
+
   function updateProfileUi(progressData = readCourseProgress()) {
     const profile = currentAccessProfile();
     if (!profile) return;
@@ -346,9 +479,11 @@
     document.querySelectorAll("[data-profile-role]").forEach((element) => {
       element.textContent = profile.role === "admin" ? "Administrateur · accès intégral" : "Compte apprenant";
     });
+    document.querySelectorAll("[data-rank-admin]").forEach((element) => { element.hidden = !isAdminAccess(); });
+    updateRankUi(progressData);
 
     const profileVolumes = [...document.querySelectorAll("[data-profile-volume]")];
-    const totalVolumes = profileVolumes.length || 3;
+    const totalVolumes = profileVolumes.length || totalAvailableVolumes;
     const scores = Array.from({ length: totalVolumes }, (_, index) => Number(progressData[String(index + 1)] || 0));
     const requiredOrders = Array.from({ length: totalVolumes }, (_, index) => index + 1).filter((order) => order !== 2);
     const validated = requiredOrders.filter((order) => scores[order - 1] >= passingScore).length;
@@ -499,6 +634,185 @@
       updateAccessStatus("Compte déconnecté. Saisissez le code du profil à ouvrir.");
       requestAnimationFrame(() => accessInput?.focus({ preventScroll: true }));
     });
+  });
+
+  const rankSettingsForm = document.querySelector("[data-rank-settings-form]");
+  const rankSettingsMode = rankSettingsForm?.querySelector("[data-rank-settings-mode]");
+  const rankThresholdInputs = [...(rankSettingsForm?.querySelectorAll("[data-rank-threshold-input]") || [])];
+  const rankSettingsPreview = rankSettingsForm?.querySelector("[data-rank-settings-preview]");
+  const rankSettingsStatus = rankSettingsForm?.querySelector("[data-rank-settings-status]");
+
+  function rankSettingsFromForm() {
+    return {
+      mode: rankSettingsMode?.value === "manual" ? "manual" : "auto",
+      thresholds: Object.fromEntries(
+        rankThresholdInputs.map((input) => [input.dataset.rankThresholdInput, Number(input.value || 0)]),
+      ),
+    };
+  }
+
+  function updateRankSettingsForm(settings = readRankSettings()) {
+    if (!rankSettingsForm || !rankSettingsMode) return;
+    rankSettingsMode.value = settings.mode;
+    rankThresholdInputs.forEach((input) => {
+      input.value = String(Number(settings.thresholds?.[input.dataset.rankThresholdInput] || 1));
+      input.disabled = settings.mode !== "manual";
+    });
+    const ranks = resolvedRanks(totalAvailableVolumes, settings);
+    if (rankSettingsPreview) {
+      rankSettingsPreview.textContent = ranks
+        .map((rank) => `${rank.name} ${rank.minValidated}`)
+        .join(" · ");
+    }
+  }
+
+  rankSettingsMode?.addEventListener("change", () => {
+    const settings = rankSettingsFromForm();
+    rankThresholdInputs.forEach((input) => { input.disabled = settings.mode !== "manual"; });
+    const ranks = resolvedRanks(totalAvailableVolumes, settings);
+    if (rankSettingsPreview) rankSettingsPreview.textContent = ranks.map((rank) => `${rank.name} ${rank.minValidated}`).join(" · ");
+  });
+  rankThresholdInputs.forEach((input) => {
+    input.addEventListener("input", () => {
+      if (!rankSettingsPreview) return;
+      const ranks = resolvedRanks(totalAvailableVolumes, rankSettingsFromForm());
+      rankSettingsPreview.textContent = ranks.map((rank) => `${rank.name} ${rank.minValidated}`).join(" · ");
+    });
+  });
+  rankSettingsForm?.addEventListener("submit", (event) => {
+    event.preventDefault();
+    if (!isAdminAccess()) return;
+    const settings = rankSettingsFromForm();
+    localStorage.setItem(rankSettingsKey, JSON.stringify(settings));
+    updateRankSettingsForm(settings);
+    updateCourseProgress();
+    if (rankSettingsStatus) rankSettingsStatus.textContent = "Seuils enregistrés et rangs recalculés.";
+  });
+  rankSettingsForm?.querySelector("[data-rank-settings-reset]")?.addEventListener("click", () => {
+    if (!isAdminAccess()) return;
+    localStorage.removeItem(rankSettingsKey);
+    updateRankSettingsForm();
+    updateCourseProgress();
+    if (rankSettingsStatus) rankSettingsStatus.textContent = "Répartition automatique restaurée.";
+  });
+  updateRankSettingsForm();
+
+  const progressResetForm = document.querySelector("[data-progress-reset-form]");
+  progressResetForm?.addEventListener("submit", (event) => {
+    event.preventDefault();
+    if (!isAdminAccess()) return;
+    const profileId = progressResetForm.querySelector("[data-progress-reset-profile]")?.value;
+    const volumeOrder = Number(progressResetForm.querySelector("[data-progress-reset-volume]")?.value || 0);
+    const profile = accessProfiles.find((candidate) => candidate.id === profileId);
+    if (!profile || !volumeOrder) return;
+    const confirmed = window.confirm(`Dévalider le Volume ${volumeOrder} pour ${profile.name} ? Les scores de ses parties seront supprimés sur cet appareil.`);
+    if (!confirmed) return;
+    const targetKey = `${courseProgressPrefix}:${profile.id}`;
+    let progressData = {};
+    try {
+      progressData = JSON.parse(localStorage.getItem(targetKey) || "{}");
+    } catch (error) {
+      progressData = {};
+    }
+    Object.keys(progressData).forEach((key) => {
+      if (key === String(volumeOrder) || key.startsWith(`${volumeOrder}-part-`)) delete progressData[key];
+    });
+    localStorage.setItem(targetKey, JSON.stringify(progressData));
+    if (profile.id === currentAccessProfile()?.id) updateCourseProgress();
+    const status = progressResetForm.querySelector("[data-progress-reset-status]");
+    if (status) status.textContent = `Volume ${volumeOrder} dévalidé pour ${profile.name}. Son rang sera recalculé à la prochaine ouverture du profil.`;
+  });
+
+  const rankReveal = document.querySelector("[data-rank-reveal]");
+  let rankRevealReturnFocus = null;
+  let rankRevealFocusTimer = 0;
+
+  function closeRankReveal() {
+    if (!rankReveal || rankReveal.hidden) return;
+    window.clearTimeout(rankRevealFocusTimer);
+    rankRevealFocusTimer = 0;
+    rankReveal.classList.remove("is-visible", "is-rank-up", "is-standard", "is-reduced");
+    rankReveal.hidden = true;
+    document.body.classList.remove("rank-reveal-open");
+    rankRevealReturnFocus?.focus?.({ preventScroll: true });
+    rankRevealReturnFocus = null;
+  }
+
+  function showRankProgress({ volumeOrder, volumeTitle, beforeProgress, afterProgress, focusTarget }) {
+    if (!rankReveal) return;
+    const ranks = resolvedRanks();
+    const beforeValidated = validatedVolumeCount(beforeProgress);
+    const afterValidated = validatedVolumeCount(afterProgress);
+    const beforeState = rankProgressState(beforeValidated, ranks);
+    const afterState = rankProgressState(afterValidated, ranks);
+    const rankUp = beforeState.current.id !== afterState.current.id;
+    const remaining = afterState.next ? Math.max(0, afterState.next.minValidated - afterValidated) : 0;
+    const progressPercent = Math.round(afterState.progress * 100);
+
+    rankReveal.hidden = false;
+    rankReveal.dataset.rank = afterState.current.id;
+    rankReveal.classList.remove("is-visible", "is-rank-up", "is-standard", "is-reduced");
+    rankReveal.classList.add(rankUp ? "is-rank-up" : "is-standard");
+    if (reduceMotion) rankReveal.classList.add("is-reduced");
+    showRankEmblem(rankReveal, afterState.current.id);
+    rankReveal.querySelector("[data-rank-reveal-eyebrow]").textContent = rankUp ? "Nouveau rang" : "Volume validé";
+    rankReveal.querySelector("[data-rank-reveal-title]").textContent = rankUp
+      ? afterState.current.name.toUpperCase()
+      : `Volume ${volumeOrder} validé`;
+    rankReveal.querySelector("[data-rank-reveal-volume]").textContent = rankUp
+      ? `Volume ${volumeOrder} validé · ${volumeTitle || `Volume ${volumeOrder}`}`
+      : volumeTitle || `Volume ${volumeOrder}`;
+    rankReveal.querySelector("[data-rank-reveal-message]").textContent = rankUp
+      ? `${afterState.current.celebration || "Votre progression franchit une nouvelle étape."} Vous avez validé ${afterValidated} volume${afterValidated > 1 ? "s" : ""}.`
+      : afterState.next
+        ? `${afterValidated} volume${afterValidated > 1 ? "s" : ""} sur ${afterState.next.minValidated} nécessaire${afterState.next.minValidated > 1 ? "s" : ""} pour atteindre ${afterState.next.name}.`
+        : `Vous avez atteint le rang maximal avec ${afterValidated} volume${afterValidated > 1 ? "s" : ""} validé${afterValidated > 1 ? "s" : ""}.`;
+    rankReveal.querySelector("[data-rank-reveal-progress-label]").textContent = afterState.next
+      ? `Vers ${afterState.next.name}`
+      : "Formation disponible";
+    rankReveal.querySelector("[data-rank-reveal-progress-value]").textContent = afterState.next
+      ? `${afterValidated} / ${afterState.next.minValidated}`
+      : `${afterValidated} / ${totalAvailableVolumes}`;
+    rankReveal.querySelector("[data-rank-reveal-current]").textContent = afterState.current.name;
+    const progressElement = rankReveal.querySelector("[data-rank-reveal-progress]");
+    progressElement?.setAttribute("aria-valuenow", String(progressPercent));
+    const progressBar = rankReveal.querySelector("[data-rank-reveal-progress-bar]");
+    if (progressBar) progressBar.style.width = `${progressPercent}%`;
+    const remainingLabel = rankReveal.querySelector("[data-rank-reveal-progress-label]");
+    if (remainingLabel && afterState.next && remaining > 0) {
+      remainingLabel.title = `${remaining} volume${remaining > 1 ? "s" : ""} restant${remaining > 1 ? "s" : ""}`;
+    }
+    rankRevealReturnFocus = focusTarget || document.activeElement;
+    document.body.classList.add("rank-reveal-open");
+    requestAnimationFrame(() => {
+      rankReveal.classList.add("is-visible");
+      rankRevealFocusTimer = window.setTimeout(
+        () => rankReveal.querySelector("[data-rank-reveal-continue]")?.focus({ preventScroll: true }),
+        reduceMotion ? 0 : rankUp ? 900 : 420,
+      );
+    });
+  }
+
+  rankReveal?.querySelector("[data-rank-reveal-continue]")?.addEventListener("click", closeRankReveal);
+  rankReveal?.querySelector("[data-rank-reveal-skip]")?.addEventListener("click", closeRankReveal);
+  document.addEventListener("keydown", (event) => {
+    if (!rankReveal || rankReveal.hidden) return;
+    if (event.key === "Escape") {
+      closeRankReveal();
+      return;
+    }
+    if (event.key !== "Tab") return;
+    const focusable = [...rankReveal.querySelectorAll("button:not([disabled])")].filter((element) => element.offsetParent);
+    if (!focusable.length) return;
+    const first = focusable[0];
+    const last = focusable.at(-1);
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
   });
 
   const volumeTabs = [...document.querySelectorAll("[data-volume-tab]")];
@@ -669,7 +983,12 @@
       const awaitsFutureVolume = quizForm.dataset.awaitsFutureVolume === "true";
       const futureVolumeNumber = Number(quizForm.dataset.futureVolumeNumber || volumeOrder + 1);
       const passed = score >= passingScore;
+      const progressBeforeSave = readCourseProgress();
+      const volumeWasValidated = Number(progressBeforeSave[String(volumeOrder)] || 0) >= passingScore;
       saveQuizScore(volumeOrder, score, partOrder, completesVolume);
+      const progressAfterSave = readCourseProgress();
+      const volumeIsNowValidated = Number(progressAfterSave[String(volumeOrder)] || 0) >= passingScore;
+      const volumeValidatedNow = !volumeWasValidated && volumeIsNowValidated;
       updateCourseProgress();
       quizForm.classList.add("is-reviewed");
       if (result) {
@@ -719,6 +1038,18 @@
         }
         result.focus({ preventScroll: true });
         result.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "center" });
+        if (volumeValidatedNow) {
+          window.setTimeout(
+            () => showRankProgress({
+              volumeOrder,
+              volumeTitle: document.querySelector(".volume-hero h1")?.textContent || `Volume ${volumeOrder}`,
+              beforeProgress: progressBeforeSave,
+              afterProgress: progressAfterSave,
+              focusTarget: result,
+            }),
+            reduceMotion ? 0 : 260,
+          );
+        }
       }
       updateQuizView();
     });

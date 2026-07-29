@@ -428,15 +428,15 @@
       {
         "id": "v3-q1",
         "difficulty": "Facile",
-        "question": "Par quelles unités de temps commence une analyse multi-timeframe structurée ?",
+        "question": "Vous préparez une entrée en H1. Quelle séquence conserve correctement le contexte de marché ?",
         "options": [
-          "Les unités les plus courtes uniquement",
-          "Les unités larges comme Weekly et Daily",
-          "Une unité choisie au hasard",
-          "Le graphique en une minute"
+          "Commencer en une minute, puis regarder le Weekly uniquement si le trade perd",
+          "Lire d’abord Weekly et Daily, puis descendre vers H8, H4 et H1 pour préciser le scénario",
+          "Donner exactement le même poids à toutes les unités sans hiérarchie",
+          "Utiliser seulement H1 puisque l’entrée sera réalisée sur cette unité"
         ],
         "answer": 1,
-        "explanation": "Les unités larges servent à identifier la tendance de fond avant de descendre progressivement vers des horizons plus courts."
+        "explanation": "Les unités larges identifient le régime et les niveaux structurants. Les unités intermédiaires puis H1 servent ensuite à préciser le scénario et le timing sans perdre ce contexte."
       },
       {
         "id": "v3-q2",
@@ -453,16 +453,16 @@
       },
       {
         "id": "v3-q3",
-        "difficulty": "Facile",
-        "question": "Que décrit une zone de résistance ?",
+        "difficulty": "Intermédiaire",
+        "question": "Le prix échoue plusieurs fois dans une même zone haute. Quelle lecture reste la plus rigoureuse ?",
         "options": [
-          "Une zone basse testée par les acheteurs",
-          "Une zone haute sur laquelle le prix bute",
-          "Une tendance sans correction",
-          "Le volume quotidien moyen"
+          "La zone garantit que le prochain contact provoquera une baisse",
+          "Il s’agit d’une résistance à surveiller, sans certitude sur la réaction suivante",
+          "Ces échecs prouvent que le volume futur sera faible",
+          "La tendance devient automatiquement baissière sur toutes les unités"
         ],
         "answer": 1,
-        "explanation": "Une résistance est une zone haute où les réactions vendeuses ont plusieurs fois freiné ou repoussé le prix."
+        "explanation": "Une résistance est une zone haute où le prix a déjà réagi. Elle aide à construire un scénario, mais ne garantit ni un nouveau rejet ni la puissance d’une éventuelle cassure."
       },
       {
         "id": "v3-q4",
@@ -591,7 +591,7 @@
           },
           {
             "id": "v3-p2-q3",
-            "difficulty": "Facile",
+            "difficulty": "Intermédiaire",
             "question": "Quel message porte d’abord un doji ?",
             "options": [
               "Une certitude de retournement haussier",
@@ -716,16 +716,16 @@
           },
           {
             "id": "v3-p3-q2",
-            "difficulty": "Facile",
-            "question": "Dans le réglage d’un indicateur, que signifie une période ?",
+            "difficulty": "Intermédiaire",
+            "question": "Un RSI 14 est affiché sur un graphique H4. Que représentent ses 14 périodes ?",
             "options": [
-              "Une bougie de l’unité de temps observée",
-              "Toujours une journée complète",
-              "Un mois civil, quel que soit le graphique",
-              "Le nombre de transactions de l’investisseur"
+              "Les 14 dernières bougies de quatre heures",
+              "Quatorze journées complètes, quelle que soit l’unité affichée",
+              "Quatorze mois civils",
+              "Les quatorze dernières transactions de l’investisseur"
             ],
             "answer": 0,
-            "explanation": "Une période correspond à une bougie. Ainsi, 14 périodes représentent 14 heures sur un graphique horaire, 14 séances en Daily ou 14 semaines en Weekly."
+            "explanation": "Une période correspond à une bougie de l’unité observée. Sur H4, 14 périodes représentent donc les 14 dernières bougies de quatre heures."
           },
           {
             "id": "v3-p3-q3",
@@ -860,7 +860,7 @@
           },
           {
             "id": "v4-p1-q2",
-            "difficulty": "Facile",
+            "difficulty": "Intermédiaire",
             "question": "Pourquoi faut-il vérifier le mandat propre à chaque banque centrale ?",
             "options": [
               "Parce qu’elles utilisent toutes une devise identique",
@@ -998,7 +998,7 @@
           },
           {
             "id": "v4-p2-q2",
-            "difficulty": "Facile",
+            "difficulty": "Intermédiaire",
             "question": "Quelles sont les trois valeurs indispensables d’un calendrier économique ?",
             "options": [
               "Ouverture, plus haut et clôture",
@@ -1136,7 +1136,7 @@
           },
           {
             "id": "v4-p3-q2",
-            "difficulty": "Facile",
+            "difficulty": "Intermédiaire",
             "question": "Quelle est la première étape d’une analyse géopolitique rigoureuse ?",
             "options": [
               "Choisir immédiatement l’actif qui devrait monter",
@@ -1280,7 +1280,7 @@
           },
           {
             "id": "v5-p1-q2",
-            "difficulty": "Facile",
+            "difficulty": "Intermédiaire",
             "question": "Un trader respecte son plan, limite son risque et accepte son invalidation, mais le trade perd. Quelle conclusion est la plus rigoureuse ?",
             "options": [
               "La décision était forcément mauvaise puisque le résultat est négatif",
@@ -1385,7 +1385,7 @@
           {
             "id": "v5-p1-q10",
             "difficulty": "Approfondissement",
-            "question": "Quelle méthode réduit le mieux le risque d’attribuer abusivement un krach à la seule psychologie ?",
+            "question": "En mobilisant les acquis des volumes historiques, techniques et macroéconomiques, quelle méthode évite le mieux d’attribuer abusivement un krach à la seule psychologie ?",
             "options": [
               "Déduire l’état mental des investisseurs à partir d’une seule bougie",
               "Choisir un biais après coup puis ignorer les autres données",
@@ -1393,7 +1393,7 @@
               "Considérer toute baisse comme une preuve de panique irrationnelle"
             ],
             "answer": 2,
-            "explanation": "Les biais offrent une grille de lecture, pas une cause unique. Une analyse rigoureuse distingue ce que montre le prix, les mécanismes économiques observables et les interprétations psychologiques possibles."
+            "explanation": "Les biais offrent une grille de lecture, pas une cause unique. Une analyse rigoureuse croise la structure du prix, les mécanismes économiques, le financement, la liquidité et les interprétations psychologiques possibles."
           }
         ]
       }

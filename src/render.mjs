@@ -2,12 +2,38 @@ const SITE_NAME = "TradeVisionPro";
 const SITE_TAGLINE = "Financial Training";
 let SITE_BASE_PATH = "/";
 let SITE_ASSET_VERSION = "";
+let RANK_CONFIG = {
+  version: 1,
+  defaultMode: "auto",
+  autoFractions: { bronze: 0, silver: 0.2, gold: 0.4, platine: 0.6, elite: 0.8 },
+  manualThresholds: { bronze: 0, silver: 1, gold: 2, platine: 3, elite: 4 },
+  ranks: [
+    { id: "bronze", name: "Bronze" },
+    { id: "silver", name: "Silver" },
+    { id: "gold", name: "Gold" },
+    { id: "platine", name: "Platine" },
+    { id: "elite", name: "Elite" },
+  ],
+};
 
 export function configureSite({ basePath = "/", assetVersion = "" } = {}) {
   const normalized = `/${String(basePath).trim().replace(/^\/+|\/+$/g, "")}/`;
   SITE_BASE_PATH = normalized === "//" ? "/" : normalized;
   SITE_ASSET_VERSION = String(assetVersion).trim().replace(/[^a-z0-9_-]/gi, "");
   return SITE_BASE_PATH;
+}
+
+export function configureRanks(config = {}) {
+  if (Array.isArray(config.ranks) && config.ranks.length) {
+    RANK_CONFIG = {
+      ...RANK_CONFIG,
+      ...config,
+      autoFractions: { ...RANK_CONFIG.autoFractions, ...(config.autoFractions || {}) },
+      manualThresholds: { ...RANK_CONFIG.manualThresholds, ...(config.manualThresholds || {}) },
+      ranks: config.ranks,
+    };
+  }
+  return RANK_CONFIG;
 }
 
 export function sitePath(value = "/") {
@@ -100,6 +126,57 @@ export function blockPlainText(value) {
 
 function formatNumber(value) {
   return new Intl.NumberFormat("fr-FR").format(value || 0);
+}
+
+function renderRankEmblem(rank, { compact = false } = {}) {
+  const id = String(rank?.id || "bronze");
+  const index = Math.max(0, RANK_CONFIG.ranks.findIndex((candidate) => candidate.id === id));
+  return `<svg class="rank-emblem${compact ? " rank-emblem--compact" : ""}" data-rank="${escapeHtml(id)}" viewBox="0 0 180 180" role="img" aria-label="Emblème du rang ${escapeHtml(rank?.name || id)}">
+    <g class="rank-emblem__aura">
+      <circle cx="90" cy="90" r="${62 + index * 3}"></circle>
+      ${index >= 3 ? '<path d="M90 9 97 25 90 32 83 25Z"></path><path d="M90 171 97 155 90 148 83 155Z"></path>' : ""}
+      ${index >= 4 ? '<circle cx="31" cy="45" r="3"></circle><circle cx="149" cy="45" r="3"></circle><circle cx="22" cy="92" r="2.5"></circle><circle cx="158" cy="92" r="2.5"></circle>' : ""}
+    </g>
+    <g class="rank-emblem__wings rank-emblem__wings--left">
+      <path d="M76 58 47 45 19 54 45 68 20 82 57 86 77 75Z"></path>
+      ${index >= 1 ? '<path d="M65 86 31 90 17 105 55 103 75 91Z"></path>' : ""}
+      ${index >= 2 ? '<path d="M56 48 34 28 43 57Z"></path><path d="M51 108 31 126 63 116Z"></path>' : ""}
+      ${index >= 3 ? '<path d="M43 67 11 67 34 78Z"></path>' : ""}
+    </g>
+    <g class="rank-emblem__wings rank-emblem__wings--right">
+      <path d="M104 58 133 45 161 54 135 68 160 82 123 86 103 75Z"></path>
+      ${index >= 1 ? '<path d="M115 86 149 90 163 105 125 103 105 91Z"></path>' : ""}
+      ${index >= 2 ? '<path d="M124 48 146 28 137 57Z"></path><path d="M129 108 149 126 117 116Z"></path>' : ""}
+      ${index >= 3 ? '<path d="M137 67 169 67 146 78Z"></path>' : ""}
+    </g>
+    <g class="rank-emblem__frame">
+      <path d="M90 30 126 55 131 108 90 151 49 108 54 55Z"></path>
+      <path d="M90 43 115 61 118 102 90 132 62 102 65 61Z"></path>
+      ${index >= 2 ? '<path d="M69 43 77 23 90 36 103 23 111 43 90 34Z"></path>' : ""}
+    </g>
+    <g class="rank-emblem__core">
+      <path d="M90 51 108 83 99 81 99 112 90 123 81 112 81 81 72 83Z"></path>
+      <path d="M70 93 81 101 81 115 66 104Z"></path>
+      <path d="M110 93 99 101 99 115 114 104Z"></path>
+      <circle cx="90" cy="87" r="${index >= 4 ? 8 : 5}"></circle>
+      ${index >= 4 ? '<path d="M90 60 96 78 115 78 100 89 106 107 90 96 74 107 80 89 65 78 84 78Z"></path>' : ""}
+    </g>
+    <g class="rank-emblem__shine">
+      <path d="M90 35 124 58"></path><path d="M55 108 89 144"></path>
+    </g>
+  </svg>`;
+}
+
+function renderRankEmblemSet(context) {
+  return `<div class="rank-emblem-stack" data-rank-emblem-stack="${escapeHtml(context)}">${RANK_CONFIG.ranks
+    .map(
+      (rank, index) => `<span data-rank-emblem="${escapeHtml(rank.id)}"${index ? " hidden" : ""}>${renderRankEmblem(rank)}</span>`,
+    )
+    .join("")}</div>`;
+}
+
+function serializedRankConfig() {
+  return JSON.stringify(RANK_CONFIG).replaceAll("<", "\\u003c");
 }
 
 const VOLUME_PREREQUISITES = { 2: 1, 3: 1, 4: 3, 5: 4 };
@@ -436,12 +513,36 @@ function globalNav(volumes, activePage, showToc) {
       </nav>
       <div class="header-actions">
         ${showToc ? '<button class="icon-button toc-toggle" type="button" data-toc-toggle aria-expanded="false" aria-controls="volume-sidebar"><span aria-hidden="true">☰</span><span class="sr-only">Ouvrir le sommaire</span></button>' : ""}
-        <a class="profile-shortcut" href="${sitePath("/profil/")}" aria-label="Ouvrir mon profil"><span data-profile-initials aria-hidden="true">TV</span></a>
+        <a class="profile-shortcut" href="${sitePath("/profil/")}" aria-label="Ouvrir mon profil"><span data-profile-initials aria-hidden="true">TV</span><small data-profile-rank-mini>Bronze</small></a>
         <a class="icon-button" href="${sitePath("/recherche/")}" aria-label="Rechercher"><span aria-hidden="true">⌕</span></a>
         <button class="icon-button" type="button" data-theme-toggle aria-label="Changer de thème"><span data-theme-icon aria-hidden="true">◐</span></button>
       </div>
     </div>
   </header>`;
+}
+
+function renderRankProgressOverlay() {
+  return `<section class="rank-reveal" data-rank-reveal data-rank="bronze" role="dialog" aria-modal="true" aria-labelledby="rank-reveal-title" hidden>
+    <div class="rank-reveal__backdrop" aria-hidden="true"></div>
+    <div class="rank-reveal__particles" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <button class="rank-reveal__skip" type="button" data-rank-reveal-skip>Passer l’animation</button>
+    <div class="rank-reveal__panel">
+      <div class="rank-reveal__light" aria-hidden="true"></div>
+      <div class="rank-reveal__emblem">${renderRankEmblemSet("reveal")}</div>
+      <div class="rank-reveal__copy">
+        <p class="rank-reveal__eyebrow" data-rank-reveal-eyebrow>Volume validé</p>
+        <h2 id="rank-reveal-title" data-rank-reveal-title>Progression enregistrée</h2>
+        <p class="rank-reveal__volume" data-rank-reveal-volume></p>
+        <p class="rank-reveal__message" data-rank-reveal-message></p>
+        <div class="rank-reveal__progress">
+          <div><span data-rank-reveal-progress-label>Progression</span><strong data-rank-reveal-progress-value>0 / 1</strong></div>
+          <span class="rank-reveal__track" role="progressbar" aria-label="Progression vers le prochain rang" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" data-rank-reveal-progress><i data-rank-reveal-progress-bar></i></span>
+        </div>
+        <p class="rank-reveal__current">Rang actuel <strong data-rank-reveal-current>Bronze</strong></p>
+        <button class="button button--primary rank-reveal__continue" type="button" data-rank-reveal-continue>Continuer <span aria-hidden="true">→</span></button>
+      </div>
+    </div>
+  </section>`;
 }
 
 export function layout({ title, description, body, volumes, activePage, showToc = false, bodyClass = "" }) {
@@ -454,6 +555,7 @@ export function layout({ title, description, body, volumes, activePage, showToc 
   <meta name="description" content="${escapeHtml(description)}">
   <meta name="theme-color" content="#17151f">
   <title>${escapeHtml(title)} · ${SITE_NAME}</title>
+  <script id="tradevisionpro-rank-config" type="application/json">${serializedRankConfig()}</script>
   <script>try{const s=localStorage.getItem('tradevisionpro-theme');const t=s||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dataset.theme=t}catch(e){}try{const p=sessionStorage.getItem('tradevisionpro-access-session-v3');const a={'aedan-dechavigny':'learner','yann':'learner','charly-labbetoul':'admin'};if(a[p]){const r=document.documentElement;r.dataset.accessProfile=p;r.dataset.accessRole=a[p];r.classList.remove('access-locked');r.classList.add('access-granted')}}catch(e){}</script>
   <link rel="icon" href="${sitePath("/brand/tradevisionpro-favicon.ico")}" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="${sitePath("/brand/tradevisionpro-favicon-32.png")}">
@@ -499,6 +601,7 @@ export function layout({ title, description, body, volumes, activePage, showToc 
     <div><p>Espace pédagogique privé — pas un conseil en investissement.</p><a href="${sitePath("/volumes/")}">Voir tous les volumes</a></div>
   </footer>
   <div class="drawer-backdrop" data-drawer-backdrop hidden></div>
+  ${renderRankProgressOverlay()}
 </body>
 </html>`;
 }
@@ -548,6 +651,26 @@ export function renderVolumesIndex(volumes) {
 
 export function renderProfilePage(volumes) {
   const requiredVolumeCount = volumes.filter((volume) => !volume.metadata.optional).length;
+  const rankItems = RANK_CONFIG.ranks
+    .map(
+      (rank, index) => `<li data-profile-rank-item="${escapeHtml(rank.id)}"${index ? ' data-state="locked"' : ' data-state="current"'}>
+        <span class="profile-rank-ladder__emblem">${renderRankEmblem(rank, { compact: true })}</span>
+        <span><strong>${escapeHtml(rank.name)}</strong><small data-profile-rank-threshold="${escapeHtml(rank.id)}">${index ? "À débloquer" : "Rang initial"}</small></span>
+        <i aria-hidden="true">${index ? "◇" : "✓"}</i>
+      </li>`,
+    )
+    .join("");
+  const rankThresholdFields = RANK_CONFIG.ranks
+    .filter((rank) => rank.id !== "bronze")
+    .map(
+      (rank) => `<label><span>${escapeHtml(rank.name)}</span><input type="number" min="1" max="${volumes.length}" step="1" data-rank-threshold-input="${escapeHtml(rank.id)}" value="${Number(RANK_CONFIG.manualThresholds?.[rank.id] || 1)}"></label>`,
+    )
+    .join("");
+  const adminVolumeOptions = volumes
+    .map(
+      (volume) => `<option value="${volume.metadata.volumeNumber || volume.metadata.order}">${volumeLabel(volume)} — ${escapeHtml(volume.metadata.title)}</option>`,
+    )
+    .join("");
   const volumeCards = volumes
     .map((volume) => {
       const metadata = volume.metadata;
@@ -568,7 +691,7 @@ export function renderProfilePage(volumes) {
     <header class="profile-hero">
       <div class="profile-identity">
         <span class="profile-avatar" data-profile-initials aria-hidden="true">TV</span>
-        <div><p class="eyebrow">Mon espace</p><p class="profile-welcome">Bonjour,</p><h1 data-profile-name>Votre profil</h1><span class="profile-role" data-profile-role>Compte apprenant</span></div>
+        <div><p class="eyebrow">Mon espace</p><p class="profile-welcome">Bonjour,</p><h1 data-profile-name>Votre profil</h1><div class="profile-identity__labels"><span class="profile-role" data-profile-role>Compte apprenant</span><span class="profile-rank-inline" data-profile-rank-mini>Bronze</span></div></div>
       </div>
       <div class="profile-session"><p><span aria-hidden="true">◆</span> Progression enregistrée sur cet appareil</p><button class="button button--secondary" type="button" data-profile-logout>Changer de compte</button></div>
     </header>
@@ -578,6 +701,22 @@ export function renderProfilePage(volumes) {
       <article><span>Volumes accessibles</span><strong data-profile-open>1</strong><small data-profile-access-note>Déblocage progressif</small></article>
       <article><span>Meilleur score</span><strong data-profile-best>—</strong><small>Sur l’ensemble des QCM</small></article>
       <article><span>Progression globale</span><strong data-profile-completion>0 %</strong><small>Volumes pédagogiques validés</small></article>
+    </section>
+
+    <section class="profile-rank-card" data-profile-rank-card data-rank="bronze" aria-labelledby="profile-rank-title">
+      <div class="profile-rank-card__current">
+        <div class="profile-rank-card__emblem">${renderRankEmblemSet("profile")}</div>
+        <div><p class="eyebrow">Classement de progression</p><h2 id="profile-rank-title">Rang actuel : <strong data-profile-rank-name>Bronze</strong></h2><p data-profile-rank-description>Le parcours commence : les premières fondations sont en construction.</p></div>
+      </div>
+      <div class="profile-rank-card__metrics">
+        <p><span>Volumes validés</span><strong><b data-profile-rank-validated>0</b> sur <b data-profile-rank-total>${volumes.length}</b></strong></p>
+        <div class="profile-rank-progress">
+          <div><span data-profile-rank-next-label>Progression vers Silver</span><strong data-profile-rank-progress-value>0 / 1</strong></div>
+          <span role="progressbar" aria-label="Progression vers le prochain rang" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" data-profile-rank-progress><i data-profile-rank-progress-bar></i></span>
+        </div>
+        <p class="profile-rank-card__remaining" data-profile-rank-remaining>Encore 1 volume avant le rang Silver.</p>
+      </div>
+      <ol class="profile-rank-ladder" aria-label="Rangs obtenus et verrouillés">${rankItems}</ol>
     </section>
 
     <section class="profile-dashboard">
@@ -600,6 +739,27 @@ export function renderProfilePage(volumes) {
         </article>
         <p class="profile-device-note"><span aria-hidden="true">ⓘ</span><span><strong>Données locales</strong> Vos scores sont liés à ce profil sur ce navigateur. Changer de compte ne supprime pas votre progression.</span></p>
       </aside>
+    </section>
+
+    <section class="profile-admin" data-rank-admin hidden aria-labelledby="profile-admin-title">
+      <header><div><p class="eyebrow">Administration locale</p><h2 id="profile-admin-title">Rangs et validations</h2></div><p>Ces réglages s’appliquent aux profils enregistrés dans ce navigateur. Ils n’activent pas de synchronisation entre plusieurs appareils.</p></header>
+      <div class="profile-admin__grid">
+        <form class="rank-settings" data-rank-settings-form>
+          <div><p class="eyebrow">Seuils des rangs</p><h3>Répartition configurable</h3><p>Le mode automatique recalcule les seuils lorsque le nombre de volumes évolue.</p></div>
+          <label class="rank-settings__mode"><span>Mode de calcul</span><select data-rank-settings-mode><option value="auto">Automatique selon les volumes</option><option value="manual">Seuils manuels</option></select></label>
+          <div class="rank-settings__thresholds">${rankThresholdFields}</div>
+          <p class="rank-settings__preview" data-rank-settings-preview></p>
+          <div class="rank-settings__actions"><button class="button button--primary" type="submit">Enregistrer les seuils</button><button class="button button--secondary" type="button" data-rank-settings-reset>Valeurs par défaut</button></div>
+          <p class="rank-settings__status" data-rank-settings-status role="status" aria-live="polite"></p>
+        </form>
+        <form class="progress-reset" data-progress-reset-form>
+          <div><p class="eyebrow">Recalcul immédiat</p><h3>Dévalider un volume</h3><p>La validation et les scores de toutes les parties du volume seront supprimés pour le profil choisi.</p></div>
+          <label><span>Profil</span><select data-progress-reset-profile><option value="aedan-dechavigny">Aedan De Chavigny</option><option value="yann">Yann</option><option value="charly-labbetoul">Charly Labbetoul</option></select></label>
+          <label><span>Volume</span><select data-progress-reset-volume>${adminVolumeOptions}</select></label>
+          <button class="button button--secondary" type="submit">Dévalider ce volume</button>
+          <p data-progress-reset-status role="status" aria-live="polite"></p>
+        </form>
+      </div>
     </section>
   </main>`;
 }
@@ -661,12 +821,19 @@ function renderQuiz(volume, quiz, volumes, part = null, parts = []) {
       : { kind: "overview", label: "", title: "", url: sitePath("/volumes/") };
   const quizId = part ? `${order}-part-${part.order}` : String(order);
   const contextLabel = part ? `Partie ${part.order} · ${volumeLabel(volume)}` : `Exercices du ${volumeLabel(volume)}`;
+  const complexityLabel = {
+    1: "Fondations guidées",
+    2: "Consolidation",
+    3: "Application",
+    4: "Analyse croisée",
+    5: "Décision raisonnée",
+  }[order] || "Application progressive";
   const completesVolume = Boolean(part && !nextPart && !awaitsNextPart);
   if (!questions.length) return "";
   return `<section class="quiz-workspace" aria-labelledby="quiz-title-${quizId}">
     <header class="quiz-intro">
       <div><p class="eyebrow">${escapeHtml(contextLabel)}</p><h2 id="quiz-title-${quizId}">${escapeHtml(quiz.title)}</h2></div>
-      <span class="quiz-threshold"><strong>8/10</strong> pour valider</span>
+      <div class="quiz-intro__levels"><span class="quiz-complexity"><small>Niveau de réflexion</small><strong>${escapeHtml(complexityLabel)}</strong></span><span class="quiz-threshold"><strong>8/10</strong> pour valider</span></div>
       <p>${escapeHtml(quiz.intro)}</p>
     </header>
     <div class="quiz-guidance" role="note"><span aria-hidden="true">◆</span><p><strong>Votre objectif</strong> Sélectionnez une réponse par question. Après validation, chaque correction sera expliquée et votre meilleur score sera conservé sur cet appareil.</p></div>

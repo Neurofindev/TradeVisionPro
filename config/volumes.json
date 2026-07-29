@@ -740,14 +740,14 @@
       }
     ],
     "figureSources": [
-      "TradingView — AAPL, graphique journalier. Capture du 29 juillet 2026.",
-      "TradingView — EUR/USD, graphique journalier. Capture du 29 juillet 2026.",
-      "TradingView — AAPL, graphique journalier. Capture du 29 juillet 2026."
+      "TradingView — AAPL, graphique journalier. Capture native du 29 juillet 2026 ; niveaux tracés avec les outils TradingView.",
+      "TradingView — EUR/USD, graphique journalier. Capture native du 29 juillet 2026 ; niveaux tracés avec les outils TradingView.",
+      "TradingView — AAPL, graphique journalier. Capture native du 29 juillet 2026 ; niveaux tracés avec les outils TradingView."
     ],
     "figureAlts": [
       "Graphique journalier AAPL présentant une entrée à 280 dollars, un stop-loss à 270 dollars et deux objectifs à 300 et 315 dollars.",
       "Graphique journalier EUR/USD présentant une entrée vendeuse à 1,1600, un stop-loss à 1,1650 et un take profit à 1,1450.",
-      "Graphique journalier AAPL présentant une entrée à 280 dollars, un stop initial à 270 dollars, deux relèvements du stop et le risque d’une exécution sous le seuil en cas de gap."
+      "Graphique journalier AAPL présentant une entrée à 280 dollars, un stop initial à 270 dollars et deux relèvements du stop à 290 et 305 dollars."
     ]
   }
 ]

@@ -145,7 +145,8 @@ class ConverterOutputTests(unittest.TestCase):
             block for block in blocks if block.get("type") == "figure" and block.get("variant") == "trade-plan"
         ]
         self.assertEqual(len(trade_plan_figures), 1)
-        self.assertIn("risque d’exécution sous le stop", trade_plan_figures[0]["alt"].casefold())
+        self.assertIn("deux relèvements du stop à 290 et 305 dollars", trade_plan_figures[0]["alt"].casefold())
+        self.assertIn("outils tradingview", trade_plan_figures[0]["source"].casefold())
 
     def test_volume_three_integrates_three_progressive_parts(self):
         blocks = self.v3["blocks"]

@@ -55,9 +55,9 @@
       "type": "figure",
       "variant": "trade-plan",
       "src": "/media/6-money-management/6-money-management-d511836c3aee.webp",
-      "alt": "Graphique journalier AAPL présentant une entrée à 280 dollars, un stop initial à 270 dollars, puis deux relèvements du stop à 290 et 305 dollars. Une zone signale le risque d’exécution sous le stop en cas de gap.",
-      "caption": "AAPL, bougies journalières — Exemple pédagogique étudié a posteriori. Les niveaux sont arrondis et ne constituent pas une recommandation.",
-      "source": "TradingView — capture du 29 juillet 2026, annotations pédagogiques TradeVisionPro."
+      "alt": "Graphique journalier AAPL présentant une entrée à 280 dollars, un stop initial à 270 dollars, puis deux relèvements du stop à 290 et 305 dollars.",
+      "caption": "AAPL, bougies journalières — Les quatre niveaux sont répartis à l’aide de lignes horizontales et de libellés natifs TradingView. Exemple pédagogique étudié a posteriori.",
+      "source": "TradingView — capture native du 29 juillet 2026 ; lignes et libellés créés avec les outils TradingView."
     },
     {
       "type": "table",

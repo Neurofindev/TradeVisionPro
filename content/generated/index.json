@@ -484,6 +484,69 @@
         "figureCount": 2
       },
       "archetype": "trading_psychology"
+    },
+    {
+      "file": "6-money-management.json",
+      "metadata": {
+        "id": "volume-6",
+        "order": 6,
+        "volumeNumber": 6,
+        "title": "Money Management",
+        "subtitle": "Protéger le capital, calibrer le risque et laisser travailler l’avantage.",
+        "description": "Transformer une idée de marché en risque mesurable : risque de ruine, taille de position, sorties partielles, rendement/risque, espérance et trailing stop.",
+        "edition": null,
+        "format": "Niveau : intermédiaire  |  Support pédagogique  |  Juillet 2026",
+        "coverLines": [
+          "FORMATION TRADING & INVESTISSEMENT",
+          "Volume 6",
+          "Money Management",
+          "Protéger le capital, calibrer le risque, laisser travailler l’avantage",
+          "De la taille de position au trailing stop : une méthode concrète,\nchiffrée et reproductible pour structurer une pratique de niveau intermédiaire.",
+          "Niveau : intermédiaire  |  Support pédagogique  |  Juillet 2026"
+        ],
+        "tags": [
+          "money management",
+          "gestion du risque",
+          "risque de ruine",
+          "taille de position",
+          "Kelly",
+          "espérance",
+          "rendement risque",
+          "stop-loss",
+          "take profit",
+          "clôture partielle",
+          "trailing stop",
+          "corrélation",
+          "slippage",
+          "levier"
+        ],
+        "highlights": [
+          {
+            "number": "01",
+            "title": "Calibrer",
+            "text": "Définir la perte maximale, placer l’invalidation puis calculer une taille compatible avec le capital."
+          },
+          {
+            "number": "02",
+            "title": "Mesurer",
+            "text": "Lire les résultats en R, intégrer les coûts et vérifier l’espérance sur une série suffisante."
+          },
+          {
+            "number": "03",
+            "title": "Protéger",
+            "text": "Limiter le risque agrégé, préparer les sorties et faire évoluer le stop sans élargir le risque initial."
+          }
+        ],
+        "slug": "6-money-management"
+      },
+      "stats": {
+        "wordCount": 5246,
+        "readingMinutes": 24,
+        "chapterCount": 12,
+        "dossierCount": 0,
+        "figureCount": 3
+      },
+      "archetype": "risk_management"
     }
   ]
 }

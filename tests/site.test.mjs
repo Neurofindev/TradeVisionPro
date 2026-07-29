@@ -35,6 +35,7 @@ test("all expected pages are built", () => {
     "volumes/3-analyse-technique/index.html",
     "volumes/4-analyse-macroeconomique/index.html",
     "volumes/5-psychologie-du-trading/index.html",
+    "volumes/6-money-management/index.html",
   ]) {
     assert.ok(existsSync(path.join(DIST, relative)), relative);
   }
@@ -102,6 +103,7 @@ test("every course stage has a ten-question exercise and an enriching correction
     "3-analyse-technique",
     "4-analyse-macroeconomique",
     "5-psychologie-du-trading",
+    "6-money-management",
   ];
   for (const [index, slug] of slugs.entries()) {
     const quiz = quizzes[slug];
@@ -147,9 +149,10 @@ test("course progression is isolated by profile while admin access bypasses lock
   const volumeThree = await readFile(path.join(DIST, "volumes/3-analyse-technique/index.html"), "utf8");
   const volumeFour = await readFile(path.join(DIST, "volumes/4-analyse-macroeconomique/index.html"), "utf8");
   const volumeFive = await readFile(path.join(DIST, "volumes/5-psychologie-du-trading/index.html"), "utf8");
+  const volumeSix = await readFile(path.join(DIST, "volumes/6-money-management/index.html"), "utf8");
   assert.ok(client.includes("const passingScore = 8"));
   assert.ok(client.includes('root.dataset.accessRole === "admin"'));
-  assert.ok(client.includes("const volumePrerequisites = { 2: 1, 3: 1, 4: 3, 5: 4 }"));
+  assert.ok(client.includes("const volumePrerequisites = { 2: 1, 3: 1, 4: 3, 5: 4, 6: 5 }"));
   assert.ok(client.includes("prerequisiteVolumeOrder"));
   assert.ok(client.includes("tradevisionpro-course-progress-v2"));
   assert.ok(client.includes("${courseProgressPrefix}:${profile.id}"));
@@ -165,14 +168,15 @@ test("course progression is isolated by profile while admin access bypasses lock
   assert.ok(client.includes("allPartsPassed"));
   assert.ok(client.includes("isPartUnlocked"));
   assert.ok(client.includes("completesVolume"));
-  assert.equal((home.match(/data-volume-card/g) || []).length, 5);
+  assert.equal((home.match(/data-volume-card/g) || []).length, 6);
   assert.ok(volumeTwo.includes("data-volume-lock"));
   assert.ok(volumeTwo.includes("Ce volume est encore verrouillé"));
   assert.ok(volumeTwo.includes("Passer le QCM du Volume 1"));
   assert.ok(volumeThree.includes("Passer le QCM du Volume 1"));
   assert.ok(volumeFour.includes("Passer le QCM du Volume 3"));
   assert.ok(volumeFive.includes("Passer le QCM du Volume 4"));
-  assert.equal((home.match(/data-volume-nav-lock/g) || []).length, 5);
+  assert.ok(volumeSix.includes("Passer le QCM du Volume 5"));
+  assert.equal((home.match(/data-volume-nav-lock/g) || []).length, 6);
   assert.ok(home.includes('data-volume-optional="true"'));
   assert.ok(home.includes("Optionnel · Cas historiques"));
 });
@@ -205,7 +209,7 @@ test("profile page presents identity, useful progress and account controls", asy
   assert.ok(profile.includes("data-profile-role"));
   assert.ok(profile.includes("data-profile-logout"));
   assert.ok(profile.includes("Progression enregistrée sur cet appareil"));
-  assert.equal((profile.match(/data-profile-volume data-volume-order=/g) || []).length, 5);
+  assert.equal((profile.match(/data-profile-volume data-volume-order=/g) || []).length, 6);
   assert.ok(profile.includes("data-profile-next-title"));
   assert.ok(profile.includes("data-profile-progress-bar"));
   assert.ok(profile.includes('data-profile-achievement="complete"'));
@@ -591,6 +595,31 @@ test("volume five presents a corrected psychology course and one progressive par
   assert.ok(!html.includes("Unsupported content block"));
 });
 
+test("volume six presents the complete money management course and a ten-question QCM", async () => {
+  const html = await readFile(path.join(DIST, "volumes/6-money-management/index.html"), "utf8");
+  const quiz = JSON.parse(await readFile(path.join(ROOT, "config", "quizzes.json"), "utf8"))["6-money-management"];
+  const client = await readFile(path.join(DIST, "assets", "client.js"), "utf8");
+  assert.ok(html.includes("Money Management"));
+  assert.ok(html.includes("Modèle simplifié : P(ruine)"));
+  assert.ok(html.includes("KELLY : BORNE THÉORIQUE, PAS CONSIGNE"));
+  assert.ok(html.includes("Taux d’équilibre = 1 ÷ (1 + gain moyen en R)"));
+  assert.ok(html.includes("6.3 Cas concret — trailing structurel sur AAPL"));
+  assert.ok(html.includes("Entrée pédagogique"));
+  assert.ok(html.includes("Premier stop relevé"));
+  assert.ok(html.includes("course-figure--trade-plan"));
+  assert.ok(html.includes("Un ordre stop fixe un seuil de déclenchement"));
+  assert.ok(html.includes("8. Conclusion"));
+  assert.ok(!html.includes("8. Exercices d’application"));
+  assert.ok(!html.includes("Corrigés rapides"));
+  assert.equal((html.match(/class="quiz-workspace"/g) || []).length, 1);
+  assert.equal((html.match(/class="quiz-question"/g) || []).length, 10);
+  assert.equal(quiz.questions.length, 10);
+  assert.ok(new Set(quiz.questions.map((question) => question.answer)).size >= 3);
+  assert.match(JSON.stringify(quiz), /taille maximale|Forex|espérance nette|P\(ruine\)|Kelly/i);
+  assert.ok(client.includes("6: 5"));
+  assert.ok(!html.includes("Unsupported content block"));
+});
+
 test("volume three part headers stay compact and homogeneous on desktop", async () => {
   const styles = await readFile(path.join(DIST, "assets", "styles.css"), "utf8");
   assert.match(styles, /\.volume-part__hero\s*\{[^}]*padding:\s*clamp\(1\.35rem, 3vw, 2\.1rem\)/s);
@@ -616,6 +645,8 @@ test("search index covers all volumes and figure captions", async () => {
   assert.ok(index.some((entry) => entry.volume === "Volume 4" && /Brexit|Abqaiq|Mer Rouge|semi-conducteurs/i.test(entry.text)));
   assert.ok(index.some((entry) => entry.volume === "Volume 5" && /biais cognitifs|surconfiance/i.test(entry.text)));
   assert.ok(index.some((entry) => entry.volume === "Volume 5" && /GameStop|FOMO/i.test(entry.text)));
+  assert.ok(index.some((entry) => entry.volume === "Volume 6" && /risque de ruine|Kelly/i.test(entry.text)));
+  assert.ok(index.some((entry) => entry.volume === "Volume 6" && /trailing structurel|stop relevé/i.test(entry.text)));
 });
 
 test("generated internal links resolve", async () => {

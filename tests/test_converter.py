@@ -79,10 +79,11 @@ class ConverterOutputTests(unittest.TestCase):
         cls.v3 = load("3-analyse-technique.json")
         cls.v4 = load("4-analyse-macroeconomique.json")
         cls.v5 = load("5-psychologie-du-trading.json")
+        cls.v6 = load("6-money-management.json")
 
     def test_manifest_contains_all_volumes_in_order(self):
         manifest = load("index.json")
-        self.assertEqual([item["metadata"]["volumeNumber"] for item in manifest["volumes"]], [1, 2, 3, 4, 5])
+        self.assertEqual([item["metadata"]["volumeNumber"] for item in manifest["volumes"]], [1, 2, 3, 4, 5, 6])
 
     def test_volume_one_structure(self):
         types = [block["type"] for block in self.v1["blocks"]]
@@ -123,6 +124,28 @@ class ConverterOutputTests(unittest.TestCase):
         self.assertEqual(types.count("stat_row"), 5)
         self.assertEqual(types.count("table"), 19)
         self.assertEqual(types.count("callout"), 15)
+
+    def test_volume_six_integrates_money_management_without_duplicate_exercises(self):
+        blocks = self.v6["blocks"]
+        types = [block["type"] for block in blocks]
+        rendered_text = " ".join(all_strings(self.v6))
+        self.assertEqual(self.v6["metadata"]["title"], "Money Management")
+        self.assertEqual(self.v6["metadata"]["volumeNumber"], 6)
+        self.assertEqual(types.count("figure"), 3)
+        self.assertIn("Modèle simplifié : P(ruine)", rendered_text)
+        self.assertIn("KELLY : BORNE THÉORIQUE, PAS CONSIGNE", rendered_text)
+        self.assertIn("Taux d’équilibre = 1 ÷ (1 + gain moyen en R)", rendered_text)
+        self.assertIn("6.3 Cas concret — trailing structurel sur AAPL", rendered_text)
+        self.assertIn("Premier stop relevé", rendered_text)
+        self.assertIn("Un ordre stop fixe un seuil de déclenchement", rendered_text)
+        self.assertIn("8. Conclusion", rendered_text)
+        self.assertNotIn("8. Exercices d’application", rendered_text)
+        self.assertNotIn("Corrigés rapides", rendered_text)
+        trade_plan_figures = [
+            block for block in blocks if block.get("type") == "figure" and block.get("variant") == "trade-plan"
+        ]
+        self.assertEqual(len(trade_plan_figures), 1)
+        self.assertIn("risque d’exécution sous le stop", trade_plan_figures[0]["alt"].casefold())
 
     def test_volume_three_integrates_three_progressive_parts(self):
         blocks = self.v3["blocks"]

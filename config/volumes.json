@@ -672,5 +672,82 @@
       "Graphique mensuel du Nasdaq Composite montrant la hausse de la fin des années 1990 puis la baisse de 2000 à 2002.",
       "Graphique mensuel du Nasdaq Composite montrant la hausse précédant la crise financière puis la baisse de 2008 à 2009."
     ]
+  },
+  {
+    "id": "volume-6",
+    "order": 6,
+    "volumeNumber": 6,
+    "source": "content/source/Volume_6_Money_Management.docx",
+    "slug": "6-money-management",
+    "title": "Money Management",
+    "subtitle": "Protéger le capital, calibrer le risque et laisser travailler l’avantage.",
+    "description": "Transformer une idée de marché en risque mesurable : risque de ruine, taille de position, sorties partielles, rendement/risque, espérance et trailing stop.",
+    "archetype": "risk_management",
+    "tags": [
+      "money management",
+      "gestion du risque",
+      "risque de ruine",
+      "taille de position",
+      "Kelly",
+      "espérance",
+      "rendement risque",
+      "stop-loss",
+      "take profit",
+      "clôture partielle",
+      "trailing stop",
+      "corrélation",
+      "slippage",
+      "levier"
+    ],
+    "supplementalContent": [
+      "content/supplemental/6-money-management-trailing-aapl.json"
+    ],
+    "removeBlockRanges": [
+      {
+        "startId": "6-3-cas-concret-trailing-structurel-sur-aapl",
+        "endId": "7-cas-de-synthese-du-signal-a-la-sortie"
+      },
+      {
+        "startId": "8-exercices-d-application",
+        "endId": "9-corriges-et-conclusion"
+      },
+      {
+        "startId": "corriges-rapides",
+        "endId": "conclusion"
+      }
+    ],
+    "textReplacements": [
+      {
+        "match": "9. Corrigés et conclusion",
+        "replacement": "8. Conclusion"
+      }
+    ],
+    "highlights": [
+      {
+        "number": "01",
+        "title": "Calibrer",
+        "text": "Définir la perte maximale, placer l’invalidation puis calculer une taille compatible avec le capital."
+      },
+      {
+        "number": "02",
+        "title": "Mesurer",
+        "text": "Lire les résultats en R, intégrer les coûts et vérifier l’espérance sur une série suffisante."
+      },
+      {
+        "number": "03",
+        "title": "Protéger",
+        "text": "Limiter le risque agrégé, préparer les sorties et faire évoluer le stop sans élargir le risque initial."
+      }
+    ],
+    "figureSources": [
+      "TradingView — AAPL, graphique journalier. Capture du 29 juillet 2026.",
+      "TradingView — EUR/USD, graphique journalier. Capture du 29 juillet 2026.",
+      "TradingView — AAPL, graphique journalier. Capture du 29 juillet 2026."
+    ],
+    "figureAlts": [
+      "Graphique journalier AAPL présentant une entrée à 280 dollars, un stop-loss à 270 dollars et deux objectifs à 300 et 315 dollars.",
+      "Graphique journalier EUR/USD présentant une entrée vendeuse à 1,1600, un stop-loss à 1,1650 et un take profit à 1,1450.",
+      "Graphique journalier AAPL présentant une entrée à 280 dollars, un stop initial à 270 dollars, deux relèvements du stop et le risque d’une exécution sous le seuil en cas de gap."
+    ]
   }
 ]

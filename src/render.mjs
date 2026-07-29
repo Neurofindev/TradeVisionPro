@@ -463,7 +463,7 @@ function serializedRankConfig() {
   return JSON.stringify(RANK_CONFIG).replaceAll("<", "\\u003c");
 }
 
-const VOLUME_PREREQUISITES = { 2: 1, 3: 1, 4: 3, 5: 4 };
+const VOLUME_PREREQUISITES = { 2: 1, 3: 1, 4: 3, 5: 4, 6: 5 };
 
 function prerequisiteVolumeOrder(volumeOrder) {
   return Number(VOLUME_PREREQUISITES[volumeOrder] || Math.max(1, volumeOrder - 1));
@@ -578,7 +578,8 @@ function appendSourceLinks(text, links = []) {
 }
 
 function renderFigure(block) {
-  return `<figure class="course-figure breakout">
+  const variantClass = block.variant ? ` course-figure--${escapeHtml(block.variant)}` : "";
+  return `<figure class="course-figure breakout${variantClass}">
     <div class="course-figure__frame"><img src="${escapeHtml(sitePath(block.src))}" alt="${escapeHtml(
       block.alt || block.caption || "Illustration du cours",
     )}"${block.width ? ` width="${Number(block.width)}"` : ""}${

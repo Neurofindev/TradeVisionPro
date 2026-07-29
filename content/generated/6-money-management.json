@@ -1,0 +1,2491 @@
+{
+  "schemaVersion": 1,
+  "source": {
+    "file": "Volume_6_Money_Management.docx",
+    "sha256": "c792c596d40f78618cc6809ea0246ce995458159b5c7e03cecabf9e706c308d3"
+  },
+  "metadata": {
+    "id": "volume-6",
+    "order": 6,
+    "volumeNumber": 6,
+    "title": "Money Management",
+    "subtitle": "Protéger le capital, calibrer le risque et laisser travailler l’avantage.",
+    "description": "Transformer une idée de marché en risque mesurable : risque de ruine, taille de position, sorties partielles, rendement/risque, espérance et trailing stop.",
+    "edition": null,
+    "format": "Niveau : intermédiaire  |  Support pédagogique  |  Juillet 2026",
+    "coverLines": [
+      "FORMATION TRADING & INVESTISSEMENT",
+      "Volume 6",
+      "Money Management",
+      "Protéger le capital, calibrer le risque, laisser travailler l’avantage",
+      "De la taille de position au trailing stop : une méthode concrète,\nchiffrée et reproductible pour structurer une pratique de niveau intermédiaire.",
+      "Niveau : intermédiaire  |  Support pédagogique  |  Juillet 2026"
+    ],
+    "tags": [
+      "money management",
+      "gestion du risque",
+      "risque de ruine",
+      "taille de position",
+      "Kelly",
+      "espérance",
+      "rendement risque",
+      "stop-loss",
+      "take profit",
+      "clôture partielle",
+      "trailing stop",
+      "corrélation",
+      "slippage",
+      "levier"
+    ],
+    "highlights": [
+      {
+        "number": "01",
+        "title": "Calibrer",
+        "text": "Définir la perte maximale, placer l’invalidation puis calculer une taille compatible avec le capital."
+      },
+      {
+        "number": "02",
+        "title": "Mesurer",
+        "text": "Lire les résultats en R, intégrer les coûts et vérifier l’espérance sur une série suffisante."
+      },
+      {
+        "number": "03",
+        "title": "Protéger",
+        "text": "Limiter le risque agrégé, préparer les sorties et faire évoluer le stop sans élargir le risque initial."
+      }
+    ],
+    "slug": "6-money-management"
+  },
+  "archetype": "risk_management",
+  "stats": {
+    "wordCount": 5246,
+    "readingMinutes": 24,
+    "chapterCount": 12,
+    "dossierCount": 0,
+    "figureCount": 3
+  },
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "comment-utiliser-ce-cours",
+      "text": "Comment utiliser ce cours"
+    },
+    {
+      "type": "paragraph",
+      "text": "Le money management transforme une idée de marché en risque mesurable. Il répond à cinq questions avant l’ordre : combien puis-je perdre, où mon scénario devient-il faux, quelle quantité puis-je prendre, où sortir si j’ai raison, et que faire si le prix évolue en ma faveur ?",
+      "segments": [
+        {
+          "text": "Le money management transforme une idée de marché en risque mesurable. Il répond à cinq questions avant l’ordre : combien puis-je perdre, où mon scénario devient-il faux, quelle quantité puis-je prendre, où sortir si j’ai raison, et que faire si le prix évolue en ma faveur ?"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "IDÉE CENTRALE",
+      "variant": "default",
+      "text": "Le stop se place là où l’idée est invalidée. La taille de position se calcule ensuite pour que la perte probable au stop reste compatible avec le capital. Réduire artificiellement le stop pour prendre plus de lots inverse cette logique.",
+      "sourceFill": "EEF6FF"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "objectifs-d-apprentissage",
+      "text": "Objectifs d’apprentissage"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Distinguer la gestion d’un trade de celle d’un portefeuille d’investissement à moyen ou long terme.",
+          "segments": [
+            {
+              "text": "Distinguer la gestion d’un trade de celle d’un portefeuille d’investissement à moyen ou long terme."
+            }
+          ]
+        },
+        {
+          "text": "Comprendre comment le levier, le surdimensionnement, la corrélation et les gaps créent un risque de ruine.",
+          "segments": [
+            {
+              "text": "Comprendre comment le levier, le surdimensionnement, la corrélation et les gaps créent un risque de ruine."
+            }
+          ]
+        },
+        {
+          "text": "Calculer une taille de position en unités, actions, lots ou contrats.",
+          "segments": [
+            {
+              "text": "Calculer une taille de position en unités, actions, lots ou contrats."
+            }
+          ]
+        },
+        {
+          "text": "Mesurer le résultat en R et comprendre la clôture partielle.",
+          "segments": [
+            {
+              "text": "Mesurer le résultat en R et comprendre la clôture partielle."
+            }
+          ]
+        },
+        {
+          "text": "Placer un stop et un take profit à partir d’une invalidation et d’un objectif réaliste.",
+          "segments": [
+            {
+              "text": "Placer un stop et un take profit à partir d’une invalidation et d’un objectif réaliste."
+            }
+          ]
+        },
+        {
+          "text": "Choisir un trailing stop cohérent avec l’horizon et la volatilité.",
+          "segments": [
+            {
+              "text": "Choisir un trailing stop cohérent avec l’horizon et la volatilité."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "convention-du-cours",
+      "text": "Convention du cours"
+    },
+    {
+      "type": "paragraph",
+      "text": "1R désigne le risque initial du trade. Si la perte maximale planifiée vaut 100 €, alors −1R = −100 €, +2R = +200 € et +0,5R = +50 €. Cette unité rend comparables des trades de tailles différentes.",
+      "segments": [
+        {
+          "text": "1R désigne le risque initial du trade. Si la perte maximale planifiée vaut 100 €, alors −1R = −100 €, +2R = +200 € et +0,5R = +50 €. Cette unité rend comparables des trades de tailles différentes."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "PRÉCAUTION",
+      "variant": "default",
+      "text": "Les pertes réelles peuvent dépasser le risque théorique à cause d’un gap, du slippage, d’une absence de liquidité, des frais ou d’une défaillance opérationnelle. Ce document est éducatif et ne constitue pas un conseil financier personnalisé.",
+      "sourceFill": "FFF4ED"
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "le-plan-de-gestion-en-une-page",
+      "text": "Le plan de gestion en une page"
+    },
+    {
+      "type": "stat_row",
+      "stats": [
+        {
+          "value": "1",
+          "label": "RISQUE COMPTE"
+        },
+        {
+          "value": "2",
+          "label": "INVALIDATION"
+        },
+        {
+          "value": "3",
+          "label": "TAILLE"
+        },
+        {
+          "value": "4",
+          "label": "SORTIES"
+        },
+        {
+          "value": "5",
+          "label": "SUIVI"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "la-sequence-correcte",
+      "text": "La séquence correcte"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Fixer la perte maximale autorisée sur ce trade, en euros ou en pourcentage du capital.",
+          "segments": [
+            {
+              "text": "Fixer la perte maximale autorisée sur ce trade, en euros ou en pourcentage du capital."
+            }
+          ]
+        },
+        {
+          "text": "Définir l’invalidation technique ou fondamentale et la distance jusqu’au stop.",
+          "segments": [
+            {
+              "text": "Définir l’invalidation technique ou fondamentale et la distance jusqu’au stop."
+            }
+          ]
+        },
+        {
+          "text": "Calculer la quantité compatible avec ce risque ; arrondir vers le bas.",
+          "segments": [
+            {
+              "text": "Calculer la quantité compatible avec ce risque ; arrondir vers le bas."
+            }
+          ]
+        },
+        {
+          "text": "Vérifier le rendement/risque, les frais, la liquidité et les risques corrélés déjà ouverts.",
+          "segments": [
+            {
+              "text": "Vérifier le rendement/risque, les frais, la liquidité et les risques corrélés déjà ouverts."
+            }
+          ]
+        },
+        {
+          "text": "Écrire les règles de sortie : stop, take profit, clôture partielle ou trailing stop.",
+          "segments": [
+            {
+              "text": "Écrire les règles de sortie : stop, take profit, clôture partielle ou trailing stop."
+            }
+          ]
+        },
+        {
+          "text": "Après le trade, mesurer le résultat en R et vérifier le respect du processus.",
+          "segments": [
+            {
+              "text": "Après le trade, mesurer le résultat en R et vérifier le respect du processus."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "les-quatre-budgets-a-ne-pas-confondre",
+      "text": "Les quatre budgets à ne pas confondre"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Budget",
+        "Question",
+        "Exemple"
+      ],
+      "rows": [
+        [
+          "Risque par trade",
+          "Combien ce scénario peut-il coûter ?",
+          "0,50 % à 1 % du capital — règle d’exemple, pas norme universelle."
+        ],
+        [
+          "Risque agrégé",
+          "Que se passe-t-il si plusieurs positions baissent ensemble ?",
+          "Trois actions technologiques ne sont pas trois risques indépendants."
+        ],
+        [
+          "Perte de période",
+          "Quand interrompre la prise de risque ?",
+          "Limite journalière ou hebdomadaire prédéfinie."
+        ],
+        [
+          "Exposition",
+          "Quelle valeur de marché est contrôlée ?",
+          "10 000 € de notionnel n’impliquent pas toujours 10 000 € de risque, mais le levier compte."
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "À RETENIR",
+      "variant": "default",
+      "text": "L’exposition mesure la taille économique de la position. Le risque mesure la perte plausible. Les deux sont liées, mais ne sont pas interchangeables.",
+      "sourceFill": "FFF9EA"
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "1-trading-et-investissement-deux-gestions-differentes",
+      "text": "1. Trading et investissement : deux gestions différentes"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "1-1-le-meme-capital-deux-missions",
+      "text": "1.1 Le même capital, deux missions"
+    },
+    {
+      "type": "paragraph",
+      "text": "En trading, la position est souvent déclenchée par un signal de prix et protégée par une invalidation proche. En investissement à moyen ou long terme, le risque est davantage piloté par l’allocation, la diversification, la solidité de la thèse, l’horizon, la liquidité et le rééquilibrage [3][4].",
+      "segments": [
+        {
+          "text": "En trading, la position est souvent déclenchée par un signal de prix et protégée par une invalidation proche. En investissement à moyen ou long terme, le risque est davantage piloté par l’allocation, la diversification, la solidité de la thèse, l’horizon, la liquidité et le rééquilibrage [3][4]."
+        }
+      ]
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Dimension",
+        "Trading",
+        "Investissement moyen / long terme"
+      ],
+      "rows": [
+        [
+          "Horizon",
+          "Minutes à semaines ; fréquence plus élevée.",
+          "Mois à années ; objectifs patrimoniaux ou fondamentaux."
+        ],
+        [
+          "Unité de décision",
+          "Le trade et son risque initial en R.",
+          "La ligne, la classe d’actifs et le portefeuille."
+        ],
+        [
+          "Entrée",
+          "Signal, structure, volatilité, timing.",
+          "Thèse, valorisation, qualité, allocation, calendrier d’apports."
+        ],
+        [
+          "Sortie défensive",
+          "Stop technique, temporel ou de volatilité.",
+          "Thèse invalidée, risque devenu excessif, besoin de liquidité ou rééquilibrage."
+        ],
+        [
+          "Taille",
+          "Risque monétaire ÷ (distance au stop × valeur du point).",
+          "Poids cible, contribution au risque, diversification et capacité de perte."
+        ],
+        [
+          "Levier",
+          "Parfois utilisé ; surveillance serrée de la marge.",
+          "Souvent faible ou nul selon l’objectif et la capacité de perte ; financement compatible avec l’horizon."
+        ],
+        [
+          "Suivi",
+          "Journal, séries de pertes, limites de période.",
+          "Allocation, corrélations, frais, fiscalité, objectifs et rééquilibrage."
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "ERREUR FRÉQUENTE",
+      "variant": "default",
+      "text": "Gérer un investissement comme un scalp conduit à sortir sur le bruit quotidien. Gérer un trade comme un investissement conduit à conserver une position invalidée en espérant « le long terme ».",
+      "sourceFill": "FFF4ED"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "1-2-construire-les-regles-adaptees-a-chaque-horizon",
+      "text": "1.2 Construire les règles adaptées à chaque horizon"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "pour-un-trade",
+      "text": "Pour un trade"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Risque par trade et risque total des positions ouvertes.",
+          "segments": [
+            {
+              "text": "Risque par trade et risque total des positions ouvertes."
+            }
+          ]
+        },
+        {
+          "text": "Stop relié à une invalidation observable ; taille calculée après le stop.",
+          "segments": [
+            {
+              "text": "Stop relié à une invalidation observable ; taille calculée après le stop."
+            }
+          ]
+        },
+        {
+          "text": "Limite de perte journalière ou hebdomadaire et interdiction d’augmenter après une perte impulsive.",
+          "segments": [
+            {
+              "text": "Limite de perte journalière ou hebdomadaire et interdiction d’augmenter après une perte impulsive."
+            }
+          ]
+        },
+        {
+          "text": "Sortie écrite avant l’entrée : stop, take profit, partielle ou trailing.",
+          "segments": [
+            {
+              "text": "Sortie écrite avant l’entrée : stop, take profit, partielle ou trailing."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "pour-un-investissement-moyen-long-terme",
+      "text": "Pour un investissement moyen / long terme"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Objectif, horizon et capacité réelle à supporter une baisse sans vendre au pire moment.",
+          "segments": [
+            {
+              "text": "Objectif, horizon et capacité réelle à supporter une baisse sans vendre au pire moment."
+            }
+          ]
+        },
+        {
+          "text": "Poids maximum par ligne, secteur, devise et classe d’actifs.",
+          "segments": [
+            {
+              "text": "Poids maximum par ligne, secteur, devise et classe d’actifs."
+            }
+          ]
+        },
+        {
+          "text": "Diversification réelle : plusieurs ETF très concentrés sur les mêmes valeurs restent corrélés [4].",
+          "segments": [
+            {
+              "text": "Diversification réelle : plusieurs ETF très concentrés sur les mêmes valeurs restent corrélés [4]."
+            }
+          ]
+        },
+        {
+          "text": "Rééquilibrage périodique ou par seuil pour revenir à l’allocation cible, en tenant compte des coûts et de la fiscalité [3].",
+          "segments": [
+            {
+              "text": "Rééquilibrage périodique ou par seuil pour revenir à l’allocation cible, en tenant compte des coûts et de la fiscalité [3]."
+            }
+          ]
+        },
+        {
+          "text": "Critères de sortie fondamentaux : thèse cassée, gouvernance dégradée, valorisation extrême ou besoin planifié de liquidité.",
+          "segments": [
+            {
+              "text": "Critères de sortie fondamentaux : thèse cassée, gouvernance dégradée, valorisation extrême ou besoin planifié de liquidité."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "cas-concret-20-000-disponibles",
+      "text": "Cas concret : 20 000 € disponibles"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Approche",
+        "Décision de départ",
+        "Contrôle du risque"
+      ],
+      "rows": [
+        [
+          "Trading",
+          "Capital dédié 5 000 € ; risque d’exemple 0,75 % = 37,50 € par trade.",
+          "La quantité dépend de chaque stop ; limite agrégée de 1,50 % si deux positions corrélées."
+        ],
+        [
+          "Investissement",
+          "Capital 15 000 € ; allocation cible diversifiée selon objectif et horizon.",
+          "Poids des lignes, diversification, poche de liquidité et rééquilibrage ; pas de stop serré universel."
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "NUANCE",
+      "variant": "default",
+      "text": "Un investisseur peut utiliser des niveaux d’invalidation ou des ordres stop. La différence tient moins à l’étiquette qu’à la logique : une baisse quotidienne n’invalide pas automatiquement une thèse de cinq ans.",
+      "sourceFill": "EEF6FF"
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "2-les-origines-du-risque-de-ruine",
+      "text": "2. Les origines du risque de ruine"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "2-1-de-la-probabilite-classique-a-la-ruine-pratique",
+      "text": "2.1 De la probabilité classique à la ruine pratique"
+    },
+    {
+      "type": "paragraph",
+      "text": "Le modèle de ruine répond à une question simple : si chaque résultat vaut exactement +1 unité ou −1 unité, quelle est la probabilité de perdre toutes les unités disponibles ? Il sert ici à comprendre l’effet de la taille du risque. Il ne prédit pas directement le comportement d’un compte de trading réel.",
+      "segments": [
+        {
+          "text": "Le modèle de ruine répond à une question simple : si chaque résultat vaut exactement +1 unité ou −1 unité, quelle est la probabilité de perdre toutes les unités disponibles ? Il sert ici à comprendre l’effet de la taille du risque. Il ne prédit pas directement le comportement d’un compte de trading réel."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "Modèle simplifié : P(ruine) = (q / p)ᴺ, uniquement si p > q",
+      "variant": "default",
+      "text": "P(ruine) = probabilité théorique de perdre toutes les unités de risque disponibles.\np = probabilité de gain ; q = 1 − p = probabilité de perte ; N = nombre de pertes complètes de 1R que le capital peut théoriquement absorber avant le seuil de ruine.\nHypothèses très simplifiées : résultats indépendants, gains et pertes toujours égaux à 1 unité, probabilités constantes et horizon illimité. Si p ≤ q, le modèle conduit vers 100 % de ruine sur un horizon infini.",
+      "sourceFill": "EEF6FF"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "exemple-theorique-calcule-pas-a-pas",
+      "text": "Exemple théorique, calculé pas à pas"
+    },
+    {
+      "type": "paragraph",
+      "text": "Étape 1 — convertir les pourcentages : p = 55 % = 0,55 et q = 45 % = 0,45. Le rapport q / p vaut donc 0,45 ÷ 0,55 ≈ 0,818.",
+      "segments": [
+        {
+          "text": "Étape 1 — ",
+          "bold": true
+        },
+        {
+          "text": "convertir les pourcentages : p = 55 % = 0,55 et q = 45 % = 0,45. Le rapport q / p vaut donc 0,45 ÷ 0,55 ≈ 0,818."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Étape 2 — avec N = 20 unités de risque, P(ruine) = 0,818²⁰ ≈ 0,018, soit environ 1,8 %.",
+      "segments": [
+        {
+          "text": "Étape 2 — ",
+          "bold": true
+        },
+        {
+          "text": "avec N = 20 unités de risque, P(ruine) = 0,818²⁰ ≈ 0,018, soit environ 1,8 %."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Étape 3 — avec seulement N = 5 unités, P(ruine) = 0,818⁵ ≈ 0,367, soit environ 36,7 %. Le même avantage théorique devient beaucoup plus fragile lorsque chaque perte consomme une part plus importante du capital.",
+      "segments": [
+        {
+          "text": "Étape 3 — ",
+          "bold": true
+        },
+        {
+          "text": "avec seulement N = 5 unités, P(ruine) = 0,818⁵ ≈ 0,367, soit environ 36,7 %. Le même avantage théorique devient beaucoup plus fragile lorsque chaque perte consomme une part plus importante du capital."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "À retenir — ces pourcentages illustrent un mécanisme, pas une prévision. Sur les marchés, les résultats ne sont pas indépendants, les probabilités changent et les pertes peuvent dépasser 1R à cause des gaps, du slippage ou des frais.",
+      "segments": [
+        {
+          "text": "À retenir — ",
+          "bold": true
+        },
+        {
+          "text": "ces pourcentages illustrent un mécanisme, pas une prévision. Sur les marchés, les résultats ne sont pas indépendants, les probabilités changent et les pertes peuvent dépasser 1R à cause des gaps, du slippage ou des frais."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "KELLY : BORNE THÉORIQUE, PAS CONSIGNE",
+      "variant": "default",
+      "text": "f* = p − (1 − p) / b\np = taux de trades gagnants ; 1 − p = taux de trades perdants ; b = gain moyen ÷ perte moyenne ; f* = fraction théorique du capital issue du modèle.\nExemple : avec p = 55 %, un gain moyen de 1,5R et une perte moyenne de 1R, b = 1,5. Le calcul donne f* = 0,55 − (0,45 ÷ 1,5) = 0,25, soit 25 %.\nCe résultat de 25 % n’est pas une recommandation de risquer 25 % par trade. Une petite erreur sur le taux de réussite, des pertes corrélées ou un événement extrême peut rendre cette fraction dangereuse. Kelly reste ici un repère théorique, jamais le taux de risque opérationnel [9].",
+      "sourceFill": "EDF5FC"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "la-ruine-pratique-arrive-avant-zero",
+      "text": "La ruine pratique arrive avant zéro"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Ruine financière : marge épuisée, dette, appel de marge ou capital devenu trop faible pour exécuter la stratégie.",
+          "segments": [
+            {
+              "text": "Ruine financière : marge épuisée, dette, appel de marge ou capital devenu trop faible pour exécuter la stratégie."
+            }
+          ]
+        },
+        {
+          "text": "Ruine stratégique : drawdown si profond que l’avantage statistique ne peut plus être exploité.",
+          "segments": [
+            {
+              "text": "Ruine stratégique : drawdown si profond que l’avantage statistique ne peut plus être exploité."
+            }
+          ]
+        },
+        {
+          "text": "Ruine psychologique : abandon du plan, peur de cliquer ou escalade du risque pour « se refaire ».",
+          "segments": [
+            {
+              "text": "Ruine psychologique : abandon du plan, peur de cliquer ou escalade du risque pour « se refaire »."
+            }
+          ]
+        },
+        {
+          "text": "Ruine opérationnelle : plateforme, erreur d’ordre, absence de liquidité ou événement extrême.",
+          "segments": [
+            {
+              "text": "Ruine opérationnelle : plateforme, erreur d’ordre, absence de liquidité ou événement extrême."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "DÉFINITION UTILE",
+      "variant": "default",
+      "text": "Le risque de ruine est la probabilité de perdre assez pour ne plus pouvoir — ou ne plus oser — appliquer le plan. Le seuil doit donc être défini avant de calculer la probabilité.",
+      "sourceFill": "FFF9EA"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "2-2-les-huit-mecanismes-qui-fabriquent-la-ruine",
+      "text": "2.2 Les huit mécanismes qui fabriquent la ruine"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Origine",
+        "Mécanisme",
+        "Protection"
+      ],
+      "rows": [
+        [
+          "Espérance négative",
+          "Après spread, frais et erreurs, le gain moyen ne compense pas la perte moyenne.",
+          "Tester, journaliser en R, inclure les coûts."
+        ],
+        [
+          "Taille excessive",
+          "Une courte série de pertes détruit une grande part du capital.",
+          "Fraction de risque modeste et stable ; arrondir la taille vers le bas."
+        ],
+        [
+          "Levier / marge",
+          "Une faible variation du sous-jacent produit une forte variation du capital [5].",
+          "Limiter le notionnel, connaître la marge et prévoir un coussin de liquidité."
+        ],
+        [
+          "Concentration",
+          "Plusieurs positions dépendent du même facteur de risque.",
+          "Regrouper par thème, secteur, devise et corrélation."
+        ],
+        [
+          "Pertes en grappe",
+          "Les trades ne sont pas toujours indépendants ; un régime défavorable peut durer.",
+          "Réduire après seuil de drawdown, réévaluer l’avantage."
+        ],
+        [
+          "Gap / slippage",
+          "Le stop est déclenché, mais exécuté plus loin que prévu [6].",
+          "Taille conservatrice, liquidité, risque événementiel, réserve de slippage."
+        ],
+        [
+          "Liquidité / financement",
+          "Appels de marge et ventes forcées cristallisent les pertes.",
+          "Pas de capital vital, réserve disponible, scénarios de stress."
+        ],
+        [
+          "Escalade humaine",
+          "Revenge trading, déplacement du stop, ajout à une position invalidée.",
+          "Règles de pause, limites de période, ordre conditionnel et journal."
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "POINT ESSENTIEL",
+      "variant": "default",
+      "text": "Le taux de réussite seul ne protège pas. Une stratégie gagnant 80 % du temps peut être ruinée si les 20 % de pertes sont démesurées. À l’inverse, une stratégie à 40 % de réussite peut être rentable si les gains moyens sont suffisamment supérieurs aux pertes.",
+      "sourceFill": "EEF6FF"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "2-3-exemple-concret-dix-pertes-consecutives",
+      "text": "2.3 Exemple concret : dix pertes consécutives"
+    },
+    {
+      "type": "paragraph",
+      "text": "On part d’un capital de 10 000 €. Après chaque perte, le risque est recalculé comme un pourcentage du capital restant. La formule est : capital final = 10 000 × (1 − risque)¹⁰.",
+      "segments": [
+        {
+          "text": "On part d’un capital de 10 000 €. Après chaque perte, le risque est recalculé comme un pourcentage du capital restant. La formule est : capital final = 10 000 × (1 − risque)¹⁰."
+        }
+      ]
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Risque par trade",
+        "Capital après 10 pertes",
+        "Drawdown",
+        "Gain requis pour revenir à 10 000 €"
+      ],
+      "rows": [
+        [
+          "0,50 %",
+          "9 511 €",
+          "−4,89 %",
+          "+5,14 %"
+        ],
+        [
+          "1,00 %",
+          "9 044 €",
+          "−9,56 %",
+          "+10,57 %"
+        ],
+        [
+          "2,00 %",
+          "8 171 €",
+          "−18,29 %",
+          "+22,39 %"
+        ],
+        [
+          "5,00 %",
+          "5 987 €",
+          "−40,13 %",
+          "+67,02 %"
+        ],
+        [
+          "10,00 %",
+          "3 487 €",
+          "−65,13 %",
+          "+186,80 %"
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "LECTURE",
+      "variant": "default",
+      "text": "Le drawdown et la récupération ne sont pas symétriques. Après −50 %, il faut +100 % pour revenir au point de départ. Le premier rôle du money management est d’empêcher qu’une série normale de pertes devienne un événement existentiel.",
+      "sourceFill": "FFF4ED"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "cas-historique-ltcm-1998",
+      "text": "Cas historique : LTCM, 1998"
+    },
+    {
+      "type": "paragraph",
+      "text": "Long-Term Capital Management utilisait des arbitrages à faible marge, amplifiés par l’emprunt. Fin 1997, le fonds détenait environ 30 dollars de dette pour 1 dollar de capital. Lorsque les relations historiques entre marchés se sont disloquées après la crise russe, LTCM a perdu 44 % en août 1998. Quatorze banques et maisons de courtage ont apporté 3,625 milliards de dollars pour éviter une liquidation désordonnée ; la Réserve fédérale a facilité l’accord sans prêter ses fonds [10].",
+      "segments": [
+        {
+          "text": "Long-Term Capital Management utilisait des arbitrages à faible marge, amplifiés par l’emprunt. Fin 1997, le fonds détenait environ 30 dollars de dette pour 1 dollar de capital. Lorsque les relations historiques entre marchés se sont disloquées après la crise russe, LTCM a perdu 44 % en août 1998. Quatorze banques et maisons de courtage ont apporté 3,625 milliards de dollars pour éviter une liquidation désordonnée ; la Réserve fédérale a facilité l’accord sans prêter ses fonds [10]."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Leçon : une stratégie sophistiquée ne neutralise ni le levier, ni la corrélation en crise, ni le risque de liquidité. Quand les positions doivent être vendues en même temps que celles des autres, la taille théorique n’est plus la taille réellement liquidable.",
+      "segments": [
+        {
+          "text": "Leçon : une stratégie sophistiquée ne neutralise ni le levier, ni la corrélation en crise, ni le risque de liquidité. Quand les positions doivent être vendues en même temps que celles des autres, la taille théorique n’est plus la taille réellement liquidable."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "ÉCHO MODERNE — ARCHEGOS, 2021",
+      "variant": "default",
+      "text": "Selon la plainte de la SEC, l’exposition d’Archegos est passée d’environ 10 milliards de dollars en mars 2020 à 160 milliards à son pic. Des baisses sur des positions concentrées ont déclenché des appels de marge que le fonds n’a pas pu satisfaire. Levier, concentration, opacité et financement se sont renforcés [11].",
+      "sourceFill": "FFF9EA"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "2-4-le-pare-feu-anti-ruine",
+      "text": "2.4 Le pare-feu anti-ruine"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Niveau",
+        "Règle écrite",
+        "Déclencheur"
+      ],
+      "rows": [
+        [
+          "Trade",
+          "Perte maximale, stop, réserve de slippage.",
+          "Avant l’ordre."
+        ],
+        [
+          "Portefeuille",
+          "Risque agrégé et plafond par facteur corrélé.",
+          "Avant chaque nouvelle position."
+        ],
+        [
+          "Journée / semaine",
+          "Seuil de perte puis arrêt automatique.",
+          "Après le seuil, aucune nouvelle exposition."
+        ],
+        [
+          "Drawdown",
+          "Réduction de taille et revue de stratégie.",
+          "Ex. −5R ou seuil statistique défini."
+        ],
+        [
+          "Événement",
+          "Réduction ou fermeture avant publication si le gap n’est pas assumé.",
+          "Résultats, banque centrale, référendum, échéance."
+        ],
+        [
+          "Opérationnel",
+          "Plan B : téléphone courtier, double vérification, type d’ordre.",
+          "Avant les sessions actives."
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "RISQUE OUVERT (« PORTFOLIO HEAT »)",
+      "variant": "default",
+      "text": "Additionner les pertes prévues si tous les stops sont exécutés donne un premier budget. Ce total n’est pas un plafond : gaps, slippage et corrélations peuvent le dépasser. Trois positions à 0,50 % représentent 1,50 % de risque planifié ; un stress test commun doit ensuite estimer une perte plus sévère.",
+      "sourceFill": "EDF5FC"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "exemple-de-regle-complete",
+      "text": "Exemple de règle complète"
+    },
+    {
+      "type": "callout",
+      "label": "CADRE INTERMÉDIAIRE — EXEMPLE",
+      "variant": "default",
+      "text": "Risque 0,75 % par trade ; risque total ouvert 1,50 % ; arrêt de la journée à −2R ; taille divisée par deux après −5R depuis le sommet du compte ; reprise normale seulement après revue de 20 trades. Ces valeurs illustrent une structure, elles ne sont pas une recommandation universelle.",
+      "sourceFill": "EEF6FF"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "test-de-resistance-avant-de-cliquer",
+      "text": "Test de résistance avant de cliquer"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Si le stop subit deux fois le slippage prévu, la perte reste-t-elle acceptable ?",
+          "segments": [
+            {
+              "text": "Si le stop subit deux fois le slippage prévu, la perte reste-t-elle acceptable ?"
+            }
+          ]
+        },
+        {
+          "text": "Si toutes les positions corrélées touchent leur stop le même jour, le portefeuille survit-il ?",
+          "segments": [
+            {
+              "text": "Si toutes les positions corrélées touchent leur stop le même jour, le portefeuille survit-il ?"
+            }
+          ]
+        },
+        {
+          "text": "Si le marché ouvre directement au-delà du stop, ai-je la liquidité et la marge nécessaires ?",
+          "segments": [
+            {
+              "text": "Si le marché ouvre directement au-delà du stop, ai-je la liquidité et la marge nécessaires ?"
+            }
+          ]
+        },
+        {
+          "text": "Si dix pertes se suivent, puis-je exécuter le onzième trade sans changer les règles ?",
+          "segments": [
+            {
+              "text": "Si dix pertes se suivent, puis-je exécuter le onzième trade sans changer les règles ?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "SIGNAL D’ALARME",
+      "variant": "default",
+      "text": "Si une seule position peut effacer plusieurs mois de discipline, la taille est trop grande — même si le scénario semble exceptionnellement convaincant.",
+      "sourceFill": "FFF4ED"
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "3-calculer-la-taille-de-position",
+      "text": "3. Calculer la taille de position"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "3-1-la-formule-generale-pour-les-produits-lineaires",
+      "text": "3.1 La formule générale pour les produits linéaires"
+    },
+    {
+      "type": "callout",
+      "label": "Taille = risque monétaire autorisé ÷ perte par unité au stop",
+      "variant": "default",
+      "text": "Risque monétaire = capital × pourcentage de risque. La perte par unité inclut la distance au stop et la valeur du point, du pip, du tick ou du mouvement de prix. Pour un produit à risque non linéaire, elle doit provenir d’un scénario adapté au produit, et non de cette seule formule.",
+      "sourceFill": "EEF6FF"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "ordre-de-calcul",
+      "text": "Ordre de calcul"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Capital de référence : solde ou équité, selon la règle choisie.",
+          "segments": [
+            {
+              "text": "Capital de référence : solde ou équité, selon la règle choisie."
+            }
+          ]
+        },
+        {
+          "text": "Risque autorisé : par exemple 0,75 % de 10 000 $ = 75 $.",
+          "segments": [
+            {
+              "text": "Risque autorisé : par exemple 0,75 % de 10 000 $ = 75 $."
+            }
+          ]
+        },
+        {
+          "text": "Invalidation : le stop est placé au niveau logique, pas au niveau qui permet un gros lot [1].",
+          "segments": [
+            {
+              "text": "Invalidation : le stop est placé au niveau logique, pas au niveau qui permet un gros lot [1]."
+            }
+          ]
+        },
+        {
+          "text": "Perte unitaire : distance × valeur monétaire du mouvement.",
+          "segments": [
+            {
+              "text": "Perte unitaire : distance × valeur monétaire du mouvement."
+            }
+          ]
+        },
+        {
+          "text": "Quantité : risque disponible ÷ perte unitaire ; arrondir vers le bas.",
+          "segments": [
+            {
+              "text": "Quantité : risque disponible ÷ perte unitaire ; arrondir vers le bas."
+            }
+          ]
+        },
+        {
+          "text": "Contrôle final : marge, notionnel, frais, slippage et corrélation.",
+          "segments": [
+            {
+              "text": "Contrôle final : marge, notionnel, frais, slippage et corrélation."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "exemple-actions",
+      "text": "Exemple actions"
+    },
+    {
+      "type": "paragraph",
+      "text": "Capital : 20 000 €. Risque : 0,75 %, soit 150 €. Entrée envisagée : 50 €. Stop : 47,50 €. La perte par action vaut 2,50 €. Taille = 150 ÷ 2,50 = 60 actions. Exposition = 60 × 50 = 3 000 €. Si le stop est exécuté exactement, la perte brute vaut 150 € ; les frais et le slippage restent à ajouter.",
+      "segments": [
+        {
+          "text": "Capital : 20 000 €. Risque : 0,75 %, soit 150 €. Entrée envisagée : 50 €. Stop : 47,50 €. La perte par action vaut 2,50 €. Taille = 150 ÷ 2,50 = 60 actions. Exposition = 60 × 50 = 3 000 €. Si le stop est exécuté exactement, la perte brute vaut 150 € ; les frais et le slippage restent à ajouter."
+        }
+      ]
+    },
+    {
+      "type": "stat_row",
+      "stats": [
+        {
+          "value": "150 €",
+          "label": "BUDGET RISQUE"
+        },
+        {
+          "value": "2,50 €",
+          "label": "RISQUE / ACTION"
+        },
+        {
+          "value": "60",
+          "label": "ACTIONS"
+        },
+        {
+          "value": "3 000 €",
+          "label": "EXPOSITION"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "CONTRÔLE",
+      "variant": "default",
+      "text": "Acheter 300 actions parce que 20 000 € permettent de les payer risquerait 750 € au stop, soit 3,75 % du capital. La capacité d’achat n’est pas la taille de risque.",
+      "sourceFill": "FFF9EA"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "3-2-comprendre-les-lots-unites-et-contrats",
+      "text": "3.2 Comprendre les lots, unités et contrats"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Marché",
+        "Unité habituelle",
+        "Calcul utile",
+        "Attention"
+      ],
+      "rows": [
+        [
+          "Actions",
+          "Nombre d’actions.",
+          "Distance en € ou $ × nombre d’actions.",
+          "Gap et exécution du stop."
+        ],
+        [
+          "Forex",
+          "Unités ou lots. 1 lot standard = 100 000 unités ; mini = 10 000 ; micro = 1 000 [8].",
+          "Pips × valeur du pip × lots.",
+          "Valeur du pip dépend de la paire et de la devise du compte."
+        ],
+        [
+          "Futures",
+          "Contrats standardisés.",
+          "Ticks jusqu’au stop × valeur du tick × contrats.",
+          "Un seul contrat peut déjà dépasser le risque autorisé."
+        ],
+        [
+          "CFD",
+          "Contrats ou lots propres au courtier.",
+          "Distance × valeur par point × contrats.",
+          "Spécifications et financement varient."
+        ],
+        [
+          "Crypto",
+          "Unités ou fractions d’unité.",
+          "Distance de prix × quantité.",
+          "Volatilité, liquidité et risque de plateforme."
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "cas-forex-eur-usd-et-lot-ajuste",
+      "text": "Cas Forex : EUR/USD et lot ajusté"
+    },
+    {
+      "type": "paragraph",
+      "text": "Compte en USD : 10 000 $. Risque total : 0,75 % = 75 $. On réserve 5 $ pour les coûts et un glissement modeste ; il reste 70 $ de risque théorique. Stop : 25 pips. Pour EUR/USD, lorsque le compte est en USD, 1 lot standard vaut environ 10 $ par pip. Taille = 70 ÷ (25 × 10) = 0,28 lot, soit 28 000 unités.",
+      "segments": [
+        {
+          "text": "Compte en USD : 10 000 $. Risque total : 0,75 % = 75 $. On réserve 5 $ pour les coûts et un glissement modeste ; il reste 70 $ de risque théorique. Stop : 25 pips. Pour EUR/USD, lorsque le compte est en USD, 1 lot standard vaut environ 10 $ par pip. Taille = 70 ÷ (25 × 10) = 0,28 lot, soit 28 000 unités."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "0,28 lot × 25 pips × 10 $/pip = 70 $",
+      "variant": "default",
+      "text": "Avec la réserve de 5 $, le budget reste proche de 75 $. Toujours vérifier la valeur du pip et le pas minimal auprès du courtier ; certaines plateformes acceptent les unités plutôt que les lots [8][14].",
+      "sourceFill": "EEF6FF"
+    },
+    {
+      "type": "callout",
+      "label": "ARRONDIR VERS LE BAS",
+      "variant": "default",
+      "text": "Si le calcul donne 0,287 lot et que le pas est 0,01, retenir 0,28 — pas 0,29. La précision du calcul ne supprime ni le spread, ni les frais, ni le slippage.",
+      "sourceFill": "EEF6FF"
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "4-cloturer-partiellement-une-position",
+      "text": "4. Clôturer partiellement une position"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "4-1-ce-que-signifie-prendre-une-partielle",
+      "text": "4.1 Ce que signifie « prendre une partielle »"
+    },
+    {
+      "type": "paragraph",
+      "text": "Une clôture partielle réduit la quantité sans fermer toute la position. Elle réalise une partie du gain ou de la perte, puis laisse le solde suivre un second objectif, un stop ramené au point d’entrée ou un trailing stop. Sur une position de 100 actions, vendre 40 actions laisse 60 actions ouvertes.",
+      "segments": [
+        {
+          "text": "Une clôture partielle réduit la quantité sans fermer toute la position. Elle réalise une partie du gain ou de la perte, puis laisse le solde suivre un second objectif, un stop ramené au point d’entrée ou un trailing stop. Sur une position de 100 actions, vendre 40 actions laisse 60 actions ouvertes."
+        }
+      ]
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Avantage",
+        "Contrepartie"
+      ],
+      "rows": [
+        [
+          "Réduit l’exposition et la pression émotionnelle.",
+          "Réduit aussi le gain si le mouvement continue fortement."
+        ],
+        [
+          "Transforme une partie du gain latent en gain réalisé.",
+          "Multiplie les ordres, les frais et les décisions."
+        ],
+        [
+          "Permet plusieurs objectifs ou un runner.",
+          "Peut masquer une sortie improvisée si les pourcentages ne sont pas écrits."
+        ],
+        [
+          "Facilite un stop plus protecteur sur le reliquat.",
+          "Un stop au break-even peut sortir sur le bruit avant la tendance."
+        ]
+      ],
+      "links": [
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "4-2-exemple-chiffre-aapl-niveaux-arrondis",
+      "text": "4.2 Exemple chiffré — AAPL, niveaux arrondis"
+    },
+    {
+      "type": "paragraph",
+      "text": "Étude a posteriori sur graphique journalier TradingView. Entrée pédagogique à 280 $, stop à 270 $ : le risque par action vaut 10 $. Avec un budget de 1 000 $, la taille théorique est de 100 actions. À 300 $, 50 actions sont vendues à +2R ; à 315 $, les 50 restantes sont vendues à +3,5R.",
+      "segments": [
+        {
+          "text": "Étude a posteriori sur graphique journalier TradingView. Entrée pédagogique à 280 $, stop à 270 $ : le risque par action vaut 10 $. Avec un budget de 1 000 $, la taille théorique est de 100 actions. À 300 $, 50 actions sont vendues à +2R ; à 315 $, les 50 restantes sont vendues à +3,5R."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "Résultat = (50 % × 2R) + (50 % × 3,5R) = +2,75R",
+      "variant": "default",
+      "text": "Soit 2 750 $ bruts dans cet exemple, avant frais, fiscalité et glissement. Les prix ont été arrondis pour l’apprentissage et ne constituent pas une recommandation.",
+      "sourceFill": "EEF6FF"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "apres-la-premiere-partielle",
+      "text": "Après la première partielle"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Option prudente : conserver le stop initial si la structure n’a pas changé.",
+          "segments": [
+            {
+              "text": "Option prudente : conserver le stop initial si la structure n’a pas changé."
+            }
+          ]
+        },
+        {
+          "text": "Option break-even : remonter le stop à l’entrée ; le trade total cristallise environ +1R si le reliquat sort à 0R, hors gap, frais et slippage.",
+          "segments": [
+            {
+              "text": "Option break-even : remonter le stop à l’entrée ; le trade total cristallise environ +1R si le reliquat sort à 0R, hors gap, frais et slippage."
+            }
+          ]
+        },
+        {
+          "text": "Option structurelle : remonter le stop sous un nouveau creux pertinent.",
+          "segments": [
+            {
+              "text": "Option structurelle : remonter le stop sous un nouveau creux pertinent."
+            }
+          ]
+        },
+        {
+          "text": "Option dynamique : appliquer un trailing stop défini à l’avance.",
+          "segments": [
+            {
+              "text": "Option dynamique : appliquer un trailing stop défini à l’avance."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "4-3-graphique-tradingview-cloture-partielle",
+      "text": "4.3 Graphique TradingView — clôture partielle"
+    },
+    {
+      "type": "figure",
+      "src": "/media/6-money-management/6-money-management-bc8150b0a8f2.webp",
+      "originalName": "image1.png",
+      "width": 1262,
+      "height": 945,
+      "optimized": true,
+      "caption": "Figure 1 — AAPL, bougies journalières. Capture TradingView du 29 juillet 2026, annotée à des fins pédagogiques. Les niveaux sont arrondis et analysés a posteriori [12].",
+      "source": "TradingView — AAPL, graphique journalier. Capture du 29 juillet 2026.",
+      "sourceLinks": [],
+      "alt": "Graphique journalier AAPL présentant une entrée à 280 dollars, un stop-loss à 270 dollars et deux objectifs à 300 et 315 dollars."
+    },
+    {
+      "type": "callout",
+      "label": "CE QUE MONTRE LE GRAPHIQUE",
+      "variant": "default",
+      "text": "La partielle modifie la distribution du résultat : elle abandonne une partie du potentiel maximal en échange d’une baisse d’exposition. Sa qualité se juge sur une série de trades, pas sur un exemple choisi après coup.",
+      "sourceFill": "EEF6FF"
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "5-rendement-risque-stop-objectif-et-esperance",
+      "text": "5. Rendement / risque : stop, objectif et espérance"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "5-1-deux-conventions-une-seule-obligation-preciser",
+      "text": "5.1 Deux conventions, une seule obligation : préciser"
+    },
+    {
+      "type": "paragraph",
+      "text": "Les plateformes et les traders n’emploient pas toujours le ratio dans le même sens. Dans ce cours, « rendement/risque = 3:1 » signifie que le gain visé est trois fois le risque. La même situation peut s’écrire « risque/rendement = 1:3 ». Toujours nommer le numérateur.",
+      "segments": [
+        {
+          "text": "Les plateformes et les traders n’emploient pas toujours le ratio dans le même sens. Dans ce cours, « rendement/risque = 3:1 » signifie que le gain visé est trois fois le risque. La même situation peut s’écrire « risque/rendement = 1:3 ». Toujours nommer le numérateur."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "Rendement / risque = distance jusqu’au take profit ÷ distance jusqu’au stop",
+      "variant": "default",
+      "text": "Pour une position vendeuse : risque = stop − entrée ; rendement = entrée − objectif. Les distances monétaires doivent intégrer la même taille de position.",
+      "sourceFill": "EEF6FF"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "5-2-placer-le-stop-correctement",
+      "text": "5.2 Placer le stop correctement"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Définir ce qui invalide le scénario : structure, volatilité, temps, information fondamentale ou niveau de portefeuille.",
+          "segments": [
+            {
+              "text": "Définir ce qui invalide le scénario : structure, volatilité, temps, information fondamentale ou niveau de portefeuille."
+            }
+          ]
+        },
+        {
+          "text": "Ajouter un buffer cohérent avec le spread et le bruit normal ; éviter un niveau évident au centime près.",
+          "segments": [
+            {
+              "text": "Ajouter un buffer cohérent avec le spread et le bruit normal ; éviter un niveau évident au centime près."
+            }
+          ]
+        },
+        {
+          "text": "Mesurer la distance réelle entre l’entrée prévue et le stop.",
+          "segments": [
+            {
+              "text": "Mesurer la distance réelle entre l’entrée prévue et le stop."
+            }
+          ]
+        },
+        {
+          "text": "Calculer la taille à partir de cette distance.",
+          "segments": [
+            {
+              "text": "Calculer la taille à partir de cette distance."
+            }
+          ]
+        },
+        {
+          "text": "Vérifier le type d’ordre : un ordre stop devient un ordre au marché lorsque le seuil est atteint et son prix d’exécution n’est pas garanti ; un stop-limit maîtrise le prix minimal ou maximal, mais peut ne pas être exécuté [6].",
+          "segments": [
+            {
+              "text": "Vérifier le type d’ordre : un ordre stop devient un ordre au marché lorsque le seuil est atteint et son prix d’exécution n’est pas garanti ; un stop-limit maîtrise le prix minimal ou maximal, mais peut ne pas être exécuté [6]."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "5-3-placer-le-take-profit",
+      "text": "5.3 Placer le take profit"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Zone de liquidité, support/résistance ou objectif de structure.",
+          "segments": [
+            {
+              "text": "Zone de liquidité, support/résistance ou objectif de structure."
+            }
+          ]
+        },
+        {
+          "text": "Mesure statistique issue du journal : excursion favorable moyenne et durée du setup.",
+          "segments": [
+            {
+              "text": "Mesure statistique issue du journal : excursion favorable moyenne et durée du setup."
+            }
+          ]
+        },
+        {
+          "text": "Ratio minimal seulement si le marché offre réellement l’espace nécessaire.",
+          "segments": [
+            {
+              "text": "Ratio minimal seulement si le marché offre réellement l’espace nécessaire."
+            }
+          ]
+        },
+        {
+          "text": "Sortie temporelle si le scénario n’avance pas dans le délai prévu.",
+          "segments": [
+            {
+              "text": "Sortie temporelle si le scénario n’avance pas dans le délai prévu."
+            }
+          ]
+        },
+        {
+          "text": "Combinaison possible : partielle sur objectif fixe, reliquat en trailing.",
+          "segments": [
+            {
+              "text": "Combinaison possible : partielle sur objectif fixe, reliquat en trailing."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "REPÈRE INTERMÉDIAIRE — MAE / MFE",
+      "variant": "default",
+      "text": "La MAE mesure l’excursion défavorable maximale d’un trade ; la MFE mesure son excursion favorable maximale. Les exprimer en R, par type de setup, aide à tester le buffer du stop et le réalisme des objectifs. Elles ne doivent pas servir à optimiser un exemple isolé a posteriori.",
+      "sourceFill": "EDF5FC"
+    },
+    {
+      "type": "callout",
+      "label": "ERREUR À ÉVITER",
+      "variant": "default",
+      "text": "Déplacer le take profit très loin pour afficher artificiellement 3R ne crée pas une opportunité à 3R. Un objectif doit rester atteignable selon la structure et les données de la stratégie.",
+      "sourceFill": "FFF4ED"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "5-4-cas-concret-eur-usd-vendeur",
+      "text": "5.4 Cas concret — EUR/USD vendeur"
+    },
+    {
+      "type": "paragraph",
+      "text": "Étude a posteriori sur graphique journalier TradingView : entrée vendeuse à 1,1600, stop à 1,1650 et take profit à 1,1450. Le risque vaut 50 pips ; le rendement visé vaut 150 pips. Le ratio rendement/risque est donc de 3:1.",
+      "segments": [
+        {
+          "text": "Étude a posteriori sur graphique journalier TradingView : entrée vendeuse à 1,1600, stop à 1,1650 et take profit à 1,1450. Le risque vaut 50 pips ; le rendement visé vaut 150 pips. Le ratio rendement/risque est donc de 3:1."
+        }
+      ]
+    },
+    {
+      "type": "figure",
+      "src": "/media/6-money-management/6-money-management-60c358d771bd.webp",
+      "originalName": "image2.png",
+      "width": 1262,
+      "height": 945,
+      "optimized": true,
+      "caption": "Figure 2 — EUR/USD, bougies journalières. Capture TradingView du 29 juillet 2026, annotée à des fins pédagogiques. Les niveaux arrondis sont étudiés a posteriori [13].",
+      "source": "TradingView — EUR/USD, graphique journalier. Capture du 29 juillet 2026.",
+      "sourceLinks": [],
+      "alt": "Graphique journalier EUR/USD présentant une entrée vendeuse à 1,1600, un stop-loss à 1,1650 et un take profit à 1,1450."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "taille-correspondante",
+      "text": "Taille correspondante"
+    },
+    {
+      "type": "paragraph",
+      "text": "Compte de 10 000 $ ; risque 0,75 % = 75 $. Sur EUR/USD, 1 lot standard vaut environ 10 $ par pip pour un compte en USD. Taille = 75 ÷ (50 × 10) = 0,15 lot. Perte théorique au stop : 75 $. Gain théorique à l’objectif : 225 $, avant coûts et slippage.",
+      "segments": [
+        {
+          "text": "Compte de 10 000 $ ; risque 0,75 % = 75 $. Sur EUR/USD, 1 lot standard vaut environ 10 $ par pip pour un compte en USD. Taille = 75 ÷ (50 × 10) = 0,15 lot. Perte théorique au stop : 75 $. Gain théorique à l’objectif : 225 $, avant coûts et slippage."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "5-5-le-ratio-ne-remplace-pas-l-avantage-statistique",
+      "text": "5.5 Le ratio ne remplace pas l’avantage statistique"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "taux-de-reussite-minimal-atteindre-l-equilibre",
+      "text": "Taux de réussite minimal : atteindre l’équilibre"
+    },
+    {
+      "type": "callout",
+      "label": "Taux d’équilibre = 1 ÷ (1 + gain moyen en R)",
+      "variant": "default",
+      "text": "Le taux d’équilibre est le pourcentage minimal de trades gagnants nécessaire pour ne gagner ni perdre en moyenne, avant les frais.\nR représente le risque initial d’un trade. Si une perte moyenne vaut −1R et qu’un trade gagnant rapporte en moyenne +2R, le « gain moyen en R » vaut 2. À l’équilibre : p × 2R doit compenser (1 − p) × 1R. En isolant p, on obtient p = 1 ÷ (1 + 2) = 33,3 %.\nHypothèse simplifiée : perte moyenne = 1R et coûts nuls. Les frais, le slippage et les pertes supérieures à 1R augmentent le taux de réussite réellement nécessaire.",
+      "sourceFill": "EEF6FF"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Gain moyen d’un trade gagnant",
+        "Réussite minimale",
+        "Résultat moyen si 40 % des trades gagnent"
+      ],
+      "rows": [
+        [
+          "1R",
+          "50,0 %",
+          "Espérance = −0,20R par trade, avant coûts."
+        ],
+        [
+          "1,5R",
+          "40,0 %",
+          "Espérance = 0R par trade, avant coûts."
+        ],
+        [
+          "2R",
+          "33,3 %",
+          "Espérance = +0,20R par trade, avant coûts."
+        ],
+        [
+          "3R",
+          "25,0 %",
+          "Espérance = +0,60R par trade, avant coûts."
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Comment lire le tableau — avec 40 % de réussite, un gain moyen de 1,5R compense exactement les 60 % de pertes à −1R. Avec un gain moyen de 2R, le résultat théorique passe à +0,20R par trade avant coûts. Avec seulement 1R de gain moyen, il devient −0,20R.",
+      "segments": [
+        {
+          "text": "Comment lire le tableau — ",
+          "bold": true
+        },
+        {
+          "text": "avec 40 % de réussite, un gain moyen de 1,5R compense exactement les 60 % de pertes à −1R. Avec un gain moyen de 2R, le résultat théorique passe à +0,20R par trade avant coûts. Avec seulement 1R de gain moyen, il devient −0,20R."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "l-esperance-le-resultat-moyen-d-un-trade",
+      "text": "L’espérance : le résultat moyen d’un trade"
+    },
+    {
+      "type": "callout",
+      "label": "E = (p × gain moyen) − [(1 − p) × perte moyenne] − coûts",
+      "variant": "default",
+      "text": "E = résultat moyen attendu par trade ; p = taux de réussite ; 1 − p = taux de perte. Le gain moyen, la perte moyenne et les coûts doivent être exprimés dans la même unité, ici en R.\nExemple pas à pas : E = (0,35 × 2R) − (0,65 × 1R) = 0,70R − 0,65R = +0,05R avant coûts. Si les coûts moyens valent 0,05R, alors E net = 0R.\nUne espérance de +0,05R ne signifie pas que chaque trade gagne 0,05R. Elle décrit une moyenne théorique sur une longue série : environ +5R pour 100 trades avant coûts, sans garantie sur l’ordre des gains et des pertes.",
+      "sourceFill": "EEF6FF"
+    },
+    {
+      "type": "callout",
+      "label": "CONSÉQUENCE",
+      "variant": "default",
+      "text": "Un ratio séduisant sur un graphique ne suffit pas. Il faut mesurer le taux de réussite, le gain moyen, la perte moyenne et les coûts sur un échantillon assez large. Même avec une espérance positive, le prochain trade peut être perdant et une série de pertes reste possible.",
+      "sourceFill": "EEF6FF"
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "6-le-trailing-stop",
+      "text": "6. Le trailing stop"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "6-1-definition",
+      "text": "6.1 Définition"
+    },
+    {
+      "type": "paragraph",
+      "text": "Un trailing stop, ou stop suiveur, rapproche le niveau de protection lorsque le marché évolue dans le sens favorable. Sur une position longue, le niveau programmé monte sans redescendre ; sur une position vendeuse, il baisse sans remonter. Un relèvement manuel doit suivre la même discipline : ne jamais élargir le risque initial après l’entrée. Le mécanisme peut suivre un montant, un pourcentage ou une formule prédéfinie [7].",
+      "segments": [
+        {
+          "text": "Un trailing stop, ou stop suiveur, rapproche le niveau de protection lorsque le marché évolue dans le sens favorable. Sur une position longue, le niveau programmé monte sans redescendre ; sur une position vendeuse, il baisse sans remonter. Un relèvement manuel doit suivre la même discipline : ne jamais élargir le risque initial après l’entrée. Le mécanisme peut suivre un montant, un pourcentage ou une formule prédéfinie [7]."
+        }
+      ]
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Méthode",
+        "Principe",
+        "Atout",
+        "Limite"
+      ],
+      "rows": [
+        [
+          "Distance fixe",
+          "Ex. 5 € sous le plus haut.",
+          "Simple et automatisable.",
+          "Ignore la volatilité."
+        ],
+        [
+          "Pourcentage",
+          "Ex. 3 % sous le plus haut.",
+          "S’adapte au niveau de prix.",
+          "Peut rester trop serré ou trop large."
+        ],
+        [
+          "Volatilité / ATR",
+          "Distance liée à l’amplitude récente.",
+          "Respire avec le marché.",
+          "Paramètre instable lors d’un changement de régime."
+        ],
+        [
+          "Structure",
+          "Sous un creux ascendant ou au-dessus d’un sommet descendant.",
+          "Relié à l’invalidation.",
+          "Subjectif ; mise à jour moins fréquente."
+        ],
+        [
+          "Moyenne mobile",
+          "Sortie sous/au-dessus d’une moyenne choisie.",
+          "Capte les tendances longues.",
+          "Retard et faux signaux en range."
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "6-2-regles-de-conception",
+      "text": "6.2 Règles de conception"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Choisir la méthode avant l’entrée et la tester sur le même horizon que le setup.",
+          "segments": [
+            {
+              "text": "Choisir la méthode avant l’entrée et la tester sur le même horizon que le setup."
+            }
+          ]
+        },
+        {
+          "text": "Ne jamais éloigner le trailing stop pour augmenter la perte possible.",
+          "segments": [
+            {
+              "text": "Ne jamais éloigner le trailing stop pour augmenter la perte possible."
+            }
+          ]
+        },
+        {
+          "text": "Ne pas le serrer uniquement parce que le gain latent devient émotionnellement important.",
+          "segments": [
+            {
+              "text": "Ne pas le serrer uniquement parce que le gain latent devient émotionnellement important."
+            }
+          ]
+        },
+        {
+          "text": "Distinguer stop suiveur du courtier et relèvement manuel selon la structure.",
+          "segments": [
+            {
+              "text": "Distinguer stop suiveur du courtier et relèvement manuel selon la structure."
+            }
+          ]
+        },
+        {
+          "text": "Vérifier si le trailing stop déclenche un ordre au marché ou un ordre limite ; les conséquences diffèrent.",
+          "segments": [
+            {
+              "text": "Vérifier si le trailing stop déclenche un ordre au marché ou un ordre limite ; les conséquences diffèrent."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "COMPROMIS",
+      "variant": "default",
+      "text": "Un trailing serré protège vite mais coupe les tendances. Un trailing large capture davantage de mouvement mais rend une part plus importante du gain latent. Il n’existe pas de distance parfaite hors d’une stratégie testée.",
+      "sourceFill": "FFF9EA"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "6-3-cas-concret-trailing-structurel-sur-aapl",
+      "text": "6.3 Cas concret — trailing structurel sur AAPL"
+    },
+    {
+      "type": "paragraph",
+      "text": "Cet exemple illustre une position longue étudiée a posteriori. L’entrée est située à 280 $, avec un stop initial à 270 $. Lorsque le prix progresse et construit de nouveaux creux ascendants, le stop peut être relevé sous ces structures : d’abord à 290 $, puis à 305 $. Le but n’est pas de deviner le sommet, mais de protéger progressivement la position sans élargir le risque initial.",
+      "segments": [
+        {
+          "text": "Cet exemple illustre une position longue étudiée a posteriori. L’entrée est située à 280 $, avec un stop initial à 270 $. Lorsque le prix progresse et construit de nouveaux creux ascendants, le stop peut être relevé sous ces structures : d’abord à 290 $, puis à 305 $. Le but n’est pas de deviner le sommet, mais de protéger progressivement la position sans élargir le risque initial."
+        }
+      ]
+    },
+    {
+      "type": "stat_row",
+      "stats": [
+        {
+          "value": "280 $",
+          "label": "Entrée pédagogique"
+        },
+        {
+          "value": "270 $",
+          "label": "Stop initial · risque 1R"
+        },
+        {
+          "value": "290 $",
+          "label": "Premier stop relevé"
+        },
+        {
+          "value": "305 $",
+          "label": "Second stop relevé"
+        }
+      ]
+    },
+    {
+      "type": "lesson_note",
+      "variant": "principle",
+      "text": "Lecture du graphique — Les lignes matérialisent une succession de décisions. Le stop initial définit le risque avant l’entrée. Les stops à 290 $ et 305 $ ne sont relevés qu’après l’apparition d’une structure de prix plus favorable.",
+      "segments": [
+        {
+          "text": "Lecture du graphique — ",
+          "bold": true
+        },
+        {
+          "text": "Les lignes matérialisent une succession de décisions. Le stop initial définit le risque avant l’entrée. Les stops à 290 $ et 305 $ ne sont relevés qu’après l’apparition d’une structure de prix plus favorable."
+        }
+      ]
+    },
+    {
+      "type": "figure",
+      "variant": "trade-plan",
+      "src": "/media/6-money-management/6-money-management-d511836c3aee.webp",
+      "alt": "Graphique journalier AAPL présentant une entrée à 280 dollars, un stop initial à 270 dollars, puis deux relèvements du stop à 290 et 305 dollars. Une zone signale le risque d’exécution sous le stop en cas de gap.",
+      "caption": "AAPL, bougies journalières — Exemple pédagogique étudié a posteriori. Les niveaux sont arrondis et ne constituent pas une recommandation.",
+      "source": "TradingView — capture du 29 juillet 2026, annotations pédagogiques TradeVisionPro."
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Étape",
+        "Décision",
+        "Ce qu’il faut comprendre"
+      ],
+      "rows": [
+        [
+          "1. Avant l’entrée",
+          "Entrée 280 $ · stop 270 $",
+          "La distance de 10 $ représente 1R et sert à calculer la taille de position."
+        ],
+        [
+          "2. Première progression",
+          "Stop relevé à 290 $",
+          "Le risque initial est réduit seulement après la formation d’un nouveau creux pertinent."
+        ],
+        [
+          "3. Nouvelle structure",
+          "Stop relevé à 305 $",
+          "Une partie du gain latent est protégée, mais le prix exact d’exécution reste incertain."
+        ],
+        [
+          "4. Gap ou marché rapide",
+          "Exécution possible sous 305 $",
+          "Un ordre stop fixe un seuil de déclenchement, pas un prix d’exécution garanti."
+        ]
+      ],
+      "links": []
+    },
+    {
+      "type": "callout",
+      "label": "LEÇON",
+      "variant": "warning",
+      "text": "Le trailing stop protège une règle, pas un montant certain. En cas de gap, le marché peut franchir le niveau sans permettre une exécution à 305 $. Ce risque doit être absorbable grâce à la taille initiale, à la liquidité de l’instrument et à une règle claire concernant la conservation d’une position pendant les événements."
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "7-cas-de-synthese-du-signal-a-la-sortie",
+      "text": "7. Cas de synthèse : du signal à la sortie"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "scenario",
+      "text": "Scénario"
+    },
+    {
+      "type": "paragraph",
+      "text": "Compte : 12 000 €. Risque autorisé : 0,75 %, soit 90 €. Action achetée à 42 €. Invalidation à 40,50 € : risque de 1,50 € par action. Taille brute = 90 ÷ 1,50 = 60 actions. Le trader décide de réserver 9 € pour les coûts et le slippage : taille retenue = 54 actions.",
+      "segments": [
+        {
+          "text": "Compte : 12 000 €. Risque autorisé : 0,75 %, soit 90 €. Action achetée à 42 €. Invalidation à 40,50 € : risque de 1,50 € par action. Taille brute = 90 ÷ 1,50 = 60 actions. Le trader décide de réserver 9 € pour les coûts et le slippage : taille retenue = 54 actions."
+        }
+      ]
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Étape",
+        "Décision",
+        "Impact en R"
+      ],
+      "rows": [
+        [
+          "Entrée",
+          "54 actions à 42 € ; stop 40,50 €.",
+          "Risque théorique brut : 81 €."
+        ],
+        [
+          "Objectif 1",
+          "Vendre 27 actions à 45 €.",
+          "+2R sur 50 % = +1R pour le trade total."
+        ],
+        [
+          "Protection",
+          "Stop du reliquat relevé à 42 €.",
+          "Reliquat protégé à 0R hors gap et coûts."
+        ],
+        [
+          "Trailing",
+          "Sous chaque creux ascendant confirmé.",
+          "Le potentiel reste ouvert."
+        ],
+        [
+          "Sortie finale",
+          "27 actions sorties à 46,50 €.",
+          "+3R sur 50 % = +1,5R."
+        ],
+        [
+          "Résultat",
+          "Partielle + sortie finale.",
+          "+2,5R brut, soit environ 202,50 € sur R = 81 €."
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "checklist-avant-ordre",
+      "text": "Checklist avant ordre"
+    },
+    {
+      "type": "paragraph",
+      "text": "☐ Le scénario et son invalidation sont écrits.",
+      "segments": [
+        {
+          "text": "☐ Le scénario et son invalidation sont écrits."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "☐ Le risque en euros et en pourcentage est connu.",
+      "segments": [
+        {
+          "text": "☐ Le risque en euros et en pourcentage est connu."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "☐ La taille a été calculée puis arrondie vers le bas.",
+      "segments": [
+        {
+          "text": "☐ La taille a été calculée puis arrondie vers le bas."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "☐ Le risque agrégé des positions corrélées reste sous le plafond.",
+      "segments": [
+        {
+          "text": "☐ Le risque agrégé des positions corrélées reste sous le plafond."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "☐ Stop, partielle, take profit et trailing sont définis.",
+      "segments": [
+        {
+          "text": "☐ Stop, partielle, take profit et trailing sont définis."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "☐ Frais, spread, slippage, gap et marge ont été examinés.",
+      "segments": [
+        {
+          "text": "☐ Frais, spread, slippage, gap et marge ont été examinés."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "☐ Aucune règle ne dépend de l’espoir de « se refaire ».",
+      "segments": [
+        {
+          "text": "☐ Aucune règle ne dépend de l’espoir de « se refaire »."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "9-corriges-et-conclusion",
+      "text": "8. Conclusion"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "conclusion",
+      "text": "Conclusion"
+    },
+    {
+      "type": "paragraph",
+      "text": "Le money management n’a pas pour fonction de rendre chaque trade gagnant. Il organise l’incertitude pour qu’une erreur, une série de pertes ou un événement extrême ne décide pas seul de l’avenir du compte.",
+      "segments": [
+        {
+          "text": "Le money management n’a pas pour fonction de rendre chaque trade gagnant. Il organise l’incertitude pour qu’une erreur, une série de pertes ou un événement extrême ne décide pas seul de l’avenir du compte."
+        }
+      ]
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "En trading, le stop et le risque unitaire pilotent la taille.",
+          "segments": [
+            {
+              "text": "En trading, le stop et le risque unitaire pilotent la taille."
+            }
+          ]
+        },
+        {
+          "text": "En investissement, l’allocation, la diversification, l’horizon et le rééquilibrage dominent.",
+          "segments": [
+            {
+              "text": "En investissement, l’allocation, la diversification, l’horizon et le rééquilibrage dominent."
+            }
+          ]
+        },
+        {
+          "text": "Le risque de ruine naît surtout du surdimensionnement, du levier, de la concentration et des pertes non bornées.",
+          "segments": [
+            {
+              "text": "Le risque de ruine naît surtout du surdimensionnement, du levier, de la concentration et des pertes non bornées."
+            }
+          ]
+        },
+        {
+          "text": "Une partielle, un take profit ou un trailing stop sont des outils ; leur valeur dépend de règles testées.",
+          "segments": [
+            {
+              "text": "Une partielle, un take profit ou un trailing stop sont des outils ; leur valeur dépend de règles testées."
+            }
+          ]
+        },
+        {
+          "text": "Le bon ordre reste toujours : invalidation → risque → taille → sorties → suivi.",
+          "segments": [
+            {
+              "text": "Le bon ordre reste toujours : invalidation → risque → taille → sorties → suivi."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "PHRASE DE CLÔTURE",
+      "variant": "default",
+      "text": "Le capital est l’outil de travail. Tant qu’il est protégé, une nouvelle opportunité reste possible. Quand il est détruit, même la meilleure analyse arrive trop tard.",
+      "sourceFill": "FFF9EA"
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "sources-et-references",
+      "text": "Sources et références"
+    },
+    {
+      "type": "paragraph",
+      "text": "Les sources institutionnelles expliquent les mécanismes généraux ; les graphiques TradingView servent uniquement à visualiser des scénarios pédagogiques a posteriori. Consultation : 29 juillet 2026.",
+      "segments": [
+        {
+          "text": "Les sources institutionnelles expliquent les mécanismes généraux ; les graphiques TradingView servent uniquement à visualiser des scénarios pédagogiques a posteriori. Consultation : 29 juillet 2026."
+        }
+      ]
+    },
+    {
+      "type": "sources",
+      "scope": "global",
+      "entries": [
+        {
+          "text": "[1] CME Group. Proper Position Size",
+          "links": [
+            "https://www.cmegroup.com/education/courses/trade-and-risk-management/proper-position-size"
+          ]
+        },
+        {
+          "text": "[2] CME Group. The 2% Rule",
+          "links": [
+            "https://www.cmegroup.com/education/courses/trade-and-risk-management/the-2-percent-rule"
+          ]
+        },
+        {
+          "text": "[3] U.S. SEC — Investor.gov. Beginners’ Guide to Asset Allocation, Diversification, and Rebalancing",
+          "links": [
+            "https://www.investor.gov/additional-resources/general-resources/publications-research/info-sheets/beginners-guide-asset"
+          ]
+        },
+        {
+          "text": "[4] U.S. SEC — Investor.gov. Asset Allocation and Diversification",
+          "links": [
+            "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+          ]
+        },
+        {
+          "text": "[5] U.S. CFTC. Eight Things You Should Know Before Trading Forex",
+          "links": [
+            "https://www.cftc.gov/LearnAndProtect/AdvisoriesAndArticles/CustomerAdvisory_MustKnowForex.html"
+          ]
+        },
+        {
+          "text": "[6] FINRA. Stop Orders: Factors to Consider During Volatile Markets",
+          "links": [
+            "https://www.finra.org/investors/insights/stop-orders-factors-consider-during-volatile-markets"
+          ]
+        },
+        {
+          "text": "[7] FINRA. OATS Report — définition du Trailing Stop Order",
+          "links": [
+            "https://www.finra.org/filing-reporting/oats/oats-report-october-21-2002"
+          ]
+        },
+        {
+          "text": "[8] OANDA. Micro lots — standard, mini et micro lots",
+          "links": [
+            "https://help.oanda.com/us/en/faqs/micro-lots.htm"
+          ]
+        },
+        {
+          "text": "[9] J. L. Kelly Jr., Bell System Technical Journal, 1956. A New Interpretation of Information Rate",
+          "links": [
+            "https://www.nokia.com/bell-labs/publications-and-media/publications/a-new-interpretation-of-information-rate/"
+          ]
+        },
+        {
+          "text": "[10] Federal Reserve History. Near Failure of Long-Term Capital Management",
+          "links": [
+            "https://www.federalreservehistory.org/essays/ltcm-near-failure"
+          ]
+        },
+        {
+          "text": "[11] U.S. SEC. SEC Charges Archegos and its Founder with Massive Market Manipulation Scheme",
+          "links": [
+            "https://www.sec.gov/newsroom/press-releases/2022-70"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "sources-graphiques-et-complements",
+      "text": "Sources graphiques et compléments"
+    },
+    {
+      "type": "sources",
+      "scope": "global",
+      "entries": [
+        {
+          "text": "[12] TradingView. AAPL — graphique journalier",
+          "links": [
+            "https://www.tradingview.com/chart/?symbol=NASDAQ%3AAAPL&interval=D"
+          ]
+        },
+        {
+          "text": "[13] TradingView. EUR/USD — graphique journalier",
+          "links": [
+            "https://www.tradingview.com/chart/?symbol=FX%3AEURUSD&interval=D"
+          ]
+        },
+        {
+          "text": "[14] OANDA. Calcul des pertes et profits sur les transactions",
+          "links": [
+            "https://www.oanda.com/bvi-fr/cfds/how-calculate-profit-loss/"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "note-methodologique-sur-les-graphiques",
+      "text": "Note méthodologique sur les graphiques"
+    },
+    {
+      "type": "paragraph",
+      "text": "Les figures 1 à 3 sont des captures de graphiques TradingView en bougies journalières. Elles ont été recadrées pour retirer les bandeaux secondaires, puis annotées uniquement avec les repères utiles à la décision : entrée, stop-loss, take profit et risque. Les prix, les bougies, les volumes, les axes et la marque TradingView n’ont pas été redessinés.",
+      "segments": [
+        {
+          "text": "Les figures 1 à 3 sont des captures de graphiques TradingView en bougies journalières. Elles ont été recadrées pour retirer les bandeaux secondaires, puis annotées uniquement avec les repères utiles à la décision : entrée, stop-loss, take profit et risque. Les prix, les bougies, les volumes, les axes et la marque TradingView n’ont pas été redessinés."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Les niveaux d’entrée, de stop-loss, de take profit et de stop relevé ont été arrondis et choisis a posteriori pour expliquer les calculs. Ils ne constituent ni un signal, ni une recommandation, ni une preuve de performance future.",
+      "segments": [
+        {
+          "text": "Les niveaux d’entrée, de stop-loss, de take profit et de stop relevé ont été arrondis et choisis a posteriori pour expliquer les calculs. Ils ne constituent ni un signal, ni une recommandation, ni une preuve de performance future."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "limites-des-modeles",
+      "text": "Limites des modèles"
+    },
+    {
+      "type": "paragraph",
+      "text": "Les exemples supposent parfois une exécution exacte pour rendre les calculs lisibles. En pratique, l’exécution dépend du type d’ordre, du spread, de la liquidité, de la volatilité, du gap, du courtier et de l’infrastructure. Le modèle classique de ruine suppose des paris indépendants et des gains/pertes fixes ; les marchés violent fréquemment ces hypothèses.",
+      "segments": [
+        {
+          "text": "Les exemples supposent parfois une exécution exacte pour rendre les calculs lisibles. En pratique, l’exécution dépend du type d’ordre, du spread, de la liquidité, de la volatilité, du gap, du courtier et de l’infrastructure. Le modèle classique de ruine suppose des paris indépendants et des gains/pertes fixes ; les marchés violent fréquemment ces hypothèses."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "DERNIÈRE VÉRIFICATION",
+      "variant": "default",
+      "text": "Avant toute utilisation réelle : consulter les spécifications du produit et du courtier, tester la méthode, simuler les coûts, vérifier les règles de marge et adapter le risque à sa situation personnelle.",
+      "sourceFill": "EEF6FF"
+    }
+  ]
+}

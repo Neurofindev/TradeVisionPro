@@ -1,0 +1,100 @@
+{
+  "insertBeforeId": "7-cas-de-synthese-du-signal-a-la-sortie",
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "6-3-cas-concret-trailing-structurel-sur-aapl",
+      "text": "6.3 Cas concret — trailing structurel sur AAPL"
+    },
+    {
+      "type": "paragraph",
+      "text": "Cet exemple illustre une position longue étudiée a posteriori. L’entrée est située à 280 $, avec un stop initial à 270 $. Lorsque le prix progresse et construit de nouveaux creux ascendants, le stop peut être relevé sous ces structures : d’abord à 290 $, puis à 305 $. Le but n’est pas de deviner le sommet, mais de protéger progressivement la position sans élargir le risque initial.",
+      "segments": [
+        {
+          "text": "Cet exemple illustre une position longue étudiée a posteriori. L’entrée est située à 280 $, avec un stop initial à 270 $. Lorsque le prix progresse et construit de nouveaux creux ascendants, le stop peut être relevé sous ces structures : d’abord à 290 $, puis à 305 $. Le but n’est pas de deviner le sommet, mais de protéger progressivement la position sans élargir le risque initial."
+        }
+      ]
+    },
+    {
+      "type": "stat_row",
+      "stats": [
+        {
+          "value": "280 $",
+          "label": "Entrée pédagogique"
+        },
+        {
+          "value": "270 $",
+          "label": "Stop initial · risque 1R"
+        },
+        {
+          "value": "290 $",
+          "label": "Premier stop relevé"
+        },
+        {
+          "value": "305 $",
+          "label": "Second stop relevé"
+        }
+      ]
+    },
+    {
+      "type": "lesson_note",
+      "variant": "principle",
+      "text": "Lecture du graphique — Les lignes matérialisent une succession de décisions. Le stop initial définit le risque avant l’entrée. Les stops à 290 $ et 305 $ ne sont relevés qu’après l’apparition d’une structure de prix plus favorable.",
+      "segments": [
+        {
+          "text": "Lecture du graphique — ",
+          "bold": true
+        },
+        {
+          "text": "Les lignes matérialisent une succession de décisions. Le stop initial définit le risque avant l’entrée. Les stops à 290 $ et 305 $ ne sont relevés qu’après l’apparition d’une structure de prix plus favorable."
+        }
+      ]
+    },
+    {
+      "type": "figure",
+      "variant": "trade-plan",
+      "src": "/media/6-money-management/6-money-management-d511836c3aee.webp",
+      "alt": "Graphique journalier AAPL présentant une entrée à 280 dollars, un stop initial à 270 dollars, puis deux relèvements du stop à 290 et 305 dollars. Une zone signale le risque d’exécution sous le stop en cas de gap.",
+      "caption": "AAPL, bougies journalières — Exemple pédagogique étudié a posteriori. Les niveaux sont arrondis et ne constituent pas une recommandation.",
+      "source": "TradingView — capture du 29 juillet 2026, annotations pédagogiques TradeVisionPro."
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Étape",
+        "Décision",
+        "Ce qu’il faut comprendre"
+      ],
+      "rows": [
+        [
+          "1. Avant l’entrée",
+          "Entrée 280 $ · stop 270 $",
+          "La distance de 10 $ représente 1R et sert à calculer la taille de position."
+        ],
+        [
+          "2. Première progression",
+          "Stop relevé à 290 $",
+          "Le risque initial est réduit seulement après la formation d’un nouveau creux pertinent."
+        ],
+        [
+          "3. Nouvelle structure",
+          "Stop relevé à 305 $",
+          "Une partie du gain latent est protégée, mais le prix exact d’exécution reste incertain."
+        ],
+        [
+          "4. Gap ou marché rapide",
+          "Exécution possible sous 305 $",
+          "Un ordre stop fixe un seuil de déclenchement, pas un prix d’exécution garanti."
+        ]
+      ],
+      "links": []
+    },
+    {
+      "type": "callout",
+      "label": "LEÇON",
+      "variant": "warning",
+      "text": "Le trailing stop protège une règle, pas un montant certain. En cas de gap, le marché peut franchir le niveau sans permettre une exécution à 305 $. Ce risque doit être absorbable grâce à la taille initiale, à la liquidité de l’instrument et à une règle claire concernant la conservation d’une position pendant les événements."
+    }
+  ]
+}

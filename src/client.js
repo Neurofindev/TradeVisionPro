@@ -125,7 +125,7 @@
 
   const courseProgressPrefix = "tradevisionpro-course-progress-v2";
   const passingScore = 8;
-  const volumePrerequisites = { 2: 1, 3: 1, 4: 3, 5: 4 };
+  const volumePrerequisites = { 2: 1, 3: 1, 4: 3, 5: 4, 6: 5 };
   const rankSettingsKey = "tradevisionpro-rank-settings-v1";
   const rankConfig = (() => {
     const fallback = {

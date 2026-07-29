@@ -1398,5 +1398,141 @@
         ]
       }
     ]
+  },
+  "6-money-management": {
+    "title": "QCM du Volume 6 — Money Management",
+    "intro": "10 questions d’application sur la taille de position, le risque agrégé, les sorties partielles, l’espérance, le risque de ruine et la formule de Kelly.",
+    "questions": [
+      {
+        "id": "v6-q1",
+        "difficulty": "Facile",
+        "question": "Un compte vaut 8 000 €. Le risque autorisé est de 1 %. L’entrée se situe à 25 € et le stop à 23,40 €. Quelle taille maximale obtient-on avant d’ajouter une réserve pour les frais et le slippage ?",
+        "options": [
+          "32 actions, soit 800 € de notionnel",
+          "40 actions, soit 1 000 € de notionnel",
+          "50 actions, soit 1 250 € de notionnel",
+          "80 actions, soit 2 000 € de notionnel"
+        ],
+        "answer": 2,
+        "explanation": "Le budget de risque vaut 8 000 × 1 % = 80 €. La perte par action au stop vaut 25 − 23,40 = 1,60 €. La taille est donc 80 ÷ 1,60 = 50 actions, pour un notionnel de 50 × 25 = 1 250 €."
+      },
+      {
+        "id": "v6-q2",
+        "difficulty": "Facile",
+        "question": "Un compte Forex de 15 000 $ risque 0,50 %. Le stop se trouve à 30 pips et un lot standard vaut 10 $ par pip. Quelle taille théorique faut-il retenir ?",
+        "options": [
+          "0,15 lot",
+          "0,25 lot",
+          "0,50 lot",
+          "2,50 lots"
+        ],
+        "answer": 1,
+        "explanation": "Le risque autorisé vaut 15 000 × 0,50 % = 75 $. Un lot risquerait 30 × 10 = 300 $. La taille théorique vaut donc 75 ÷ 300 = 0,25 lot, avant réserve éventuelle pour les coûts."
+      },
+      {
+        "id": "v6-q3",
+        "difficulty": "Intermédiaire",
+        "question": "Une position longue entre à 100, place son stop à 96 et son objectif à 110. Quel est son ratio rendement/risque et son taux de réussite d’équilibre théorique, avec une perte moyenne de 1R et des coûts nuls ?",
+        "options": [
+          "1:1 et 50 %",
+          "2:1 et 33,3 %",
+          "3:1 et 25 %",
+          "2,5:1 et environ 28,6 %"
+        ],
+        "answer": 3,
+        "explanation": "Le risque vaut 100 − 96 = 4 et le rendement visé 110 − 100 = 10. Le ratio est donc 10 ÷ 4 = 2,5R. Le taux d’équilibre vaut 1 ÷ (1 + 2,5) = 28,6 % avant coûts."
+      },
+      {
+        "id": "v6-q4",
+        "difficulty": "Intermédiaire",
+        "question": "Vous clôturez 40 % d’une position à +1,5R et 60 % à +3R. Quel est le résultat total ? Et quel serait-il si les 60 % restants sortaient finalement au break-even ?",
+        "options": [
+          "+2,4R dans le premier cas et +0,6R dans le second",
+          "+4,5R dans le premier cas et +1,5R dans le second",
+          "+1,8R dans le premier cas et 0R dans le second",
+          "+3R dans le premier cas et +1R dans le second"
+        ],
+        "answer": 0,
+        "explanation": "Le premier résultat vaut 0,40 × 1,5R + 0,60 × 3R = 0,6R + 1,8R = 2,4R. Si le reliquat sort à 0R, seule la première part contribue : 0,40 × 1,5R = 0,6R."
+      },
+      {
+        "id": "v6-q5",
+        "difficulty": "Intermédiaire",
+        "question": "Un trader détient le Nasdaq, Nvidia et un ETF de semi-conducteurs. Chaque position risque 1 % au stop. Quelle lecture est la plus rigoureuse ?",
+        "options": [
+          "Le risque réel est inférieur à 1 % parce qu’il existe trois lignes",
+          "Le risque est exactement de 3 % dans tous les scénarios",
+          "La somme planifiée vaut 3 %, mais la corrélation, un gap ou le slippage peuvent produire une perte supérieure",
+          "Les stops rendent les trois positions indépendantes"
+        ],
+        "answer": 2,
+        "explanation": "Les trois expositions partagent des facteurs technologiques et peuvent baisser ensemble. Additionner les stops donne un premier budget de 3 %, mais ce total n’est pas un plafond garanti lors d’un choc commun ou d’une mauvaise exécution."
+      },
+      {
+        "id": "v6-q6",
+        "difficulty": "Intermédiaire",
+        "question": "Trois positions très corrélées risquent chacune 0,50 % au stop. Un gap double la perte prévue sur chaque position. Quel scénario de stress faut-il envisager ?",
+        "options": [
+          "0,50 %",
+          "3,00 %",
+          "1,00 %",
+          "4,50 %"
+        ],
+        "answer": 1,
+        "explanation": "Le risque planifié agrégé vaut 3 × 0,50 % = 1,50 %. Si chaque perte est doublée par le gap, le scénario de stress devient 3 × 1,00 % = 3,00 %."
+      },
+      {
+        "id": "v6-q7",
+        "difficulty": "Intermédiaire",
+        "question": "Vous clôturez 50 % d’une position à +2R et le reliquat à 0R. Les coûts et le slippage totalisent 0,08R. Quel est le résultat net ?",
+        "options": [
+          "0R",
+          "+0,50R",
+          "+1,08R",
+          "+0,92R"
+        ],
+        "answer": 3,
+        "explanation": "Le résultat brut vaut 0,50 × 2R + 0,50 × 0R = 1R. Après 0,08R de coûts, le résultat net vaut 1R − 0,08R = 0,92R."
+      },
+      {
+        "id": "v6-q8",
+        "difficulty": "Approfondissement",
+        "question": "Une stratégie gagne 35 % de ses trades à +2R et perd 65 % à −1R. Les coûts moyens sont de 0,05R par trade. Quelle est son espérance nette ?",
+        "options": [
+          "0R par trade",
+          "+0,05R par trade",
+          "−0,05R par trade",
+          "+0,70R par trade"
+        ],
+        "answer": 0,
+        "explanation": "Avant coûts, E = 0,35 × 2R − 0,65 × 1R = 0,70R − 0,65R = +0,05R. Après 0,05R de coûts moyens, l’espérance nette devient 0R."
+      },
+      {
+        "id": "v6-q9",
+        "difficulty": "Approfondissement",
+        "question": "Dans le modèle simplifié P(ruine) = (q ÷ p)ᴺ, pourquoi passer de 20 unités de risque disponibles à seulement 5 augmente-t-il fortement la probabilité théorique de ruine ?",
+        "options": [
+          "Parce que le taux de réussite p devient automatiquement inférieur à q",
+          "Parce que le marché modifie la formule après cinq pertes",
+          "Parce que chaque perte consomme une part plus grande du capital et laisse moins d’erreurs survivables",
+          "Parce que N représente le nombre de trades gagnants attendus"
+        ],
+        "answer": 2,
+        "explanation": "N représente le nombre de pertes complètes de 1R que le capital peut théoriquement absorber. Un N plus faible signifie que le risque par trade est plus lourd relativement au capital. Ce modèle illustre un mécanisme ; il ne prédit pas directement un compte réel."
+      },
+      {
+        "id": "v6-q10",
+        "difficulty": "Approfondissement",
+        "question": "Avec p = 55 %, un gain moyen de 1,5R et une perte moyenne de 1R, la formule de Kelly donne f* = 25 %. Quelle interprétation est correcte dans ce cours ?",
+        "options": [
+          "Il faut toujours risquer exactement 25 % sur le prochain trade",
+          "Il s’agit d’une borne théorique, pas d’un taux de risque opérationnel recommandé",
+          "La stratégie ne peut plus connaître de série de pertes",
+          "Le résultat garantit une croissance de 25 % du compte"
+        ],
+        "answer": 1,
+        "explanation": "Kelly suppose des probabilités et une distribution relativement stables. Une erreur d’estimation, des pertes corrélées ou un événement extrême peut rendre cette fraction excessive. Le résultat de 25 % reste donc un repère théorique, pas une consigne."
+      }
+    ]
   }
 }

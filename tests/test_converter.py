@@ -78,10 +78,11 @@ class ConverterOutputTests(unittest.TestCase):
         cls.v2 = load("2-dossiers-historiques.json")
         cls.v3 = load("3-analyse-technique.json")
         cls.v4 = load("4-analyse-macroeconomique.json")
+        cls.v5 = load("5-psychologie-du-trading.json")
 
     def test_manifest_contains_all_volumes_in_order(self):
         manifest = load("index.json")
-        self.assertEqual([item["metadata"]["volumeNumber"] for item in manifest["volumes"]], [1, 2, 3, 4])
+        self.assertEqual([item["metadata"]["volumeNumber"] for item in manifest["volumes"]], [1, 2, 3, 4, 5])
 
     def test_volume_one_structure(self):
         types = [block["type"] for block in self.v1["blocks"]]
@@ -218,10 +219,44 @@ class ConverterOutputTests(unittest.TestCase):
         self.assertNotIn("VOLUME 5", rendered_text)
         self.assertNotIn("relier les cinq volumes", rendered_text.casefold())
 
+    def test_volume_five_integrates_corrected_psychology_course(self):
+        blocks = self.v5["blocks"]
+        types = [block["type"] for block in blocks]
+        metadata = self.v5["metadata"]
+        self.assertEqual(metadata["title"], "Psychologie du trading")
+        self.assertEqual(metadata["volumeNumber"], 5)
+        self.assertEqual(len(metadata["parts"]), 1)
+        self.assertFalse(metadata["partSequenceComplete"])
+        self.assertEqual(metadata["parts"][0]["title"], "Les biais cognitifs")
+        self.assertEqual(types.count("figure"), 2)
+        figures = [block for block in blocks if block["type"] == "figure"]
+        self.assertTrue(all(figure["source"] and figure["alt"] for figure in figures))
+        rendered_text = " ".join(all_strings(self.v5))
+        for expected in (
+            "La théorie des perspectives peut ainsi contribuer à expliquer l’effet de disposition",
+            "elle n’en constitue ni une cause unique ni une conséquence automatique",
+            "L’étude observe le lien entre activité et performance",
+            "elle ne mesure pas directement la surconfiance de chaque investisseur",
+            "La FOMO (« fear of missing out ») est un état émotionnel et motivationnel",
+            "Une étude NBER estime la volatilité annualisée réalisée du Nasdaq à environ 47 % pour l’année 2000",
+            "Cette concomitance ne suffit pas à attribuer le mouvement à une cause unique",
+            "Un ordre stop est un déclencheur et ne garantit pas son prix d’exécution",
+            "Une petite perte contrôlée réduit le risque",
+        ):
+            self.assertIn(expected, rendered_text)
+        for removed in (
+            "Plan du module",
+            "Quiz de validation",
+            "Réponses au quiz",
+            "surconfiance inversée",
+            "La FOMO est un biais cognitif",
+        ):
+            self.assertNotIn(removed, rendered_text)
+
     def test_figures_are_complete_and_optimized(self):
         figures = [
             block
-            for volume in (self.v2, self.v4)
+            for volume in (self.v2, self.v4, self.v5)
             for block in volume["blocks"]
             if block["type"] == "figure"
         ]

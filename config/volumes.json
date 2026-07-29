@@ -515,5 +515,162 @@
       "Histogramme du nombre de postes vacants JOLTS aux États-Unis.",
       "Histogramme de la variation mensuelle des ventes au détail américaines."
     ]
+  },
+  {
+    "id": "volume-5",
+    "order": 5,
+    "volumeNumber": 5,
+    "source": "content/source/Volume_5_Psychologie_du_trading_Partie_1_Biais_cognitifs.docx",
+    "slug": "5-psychologie-du-trading",
+    "title": "Psychologie du trading",
+    "subtitle": "Reconnaître les biais, protéger ses décisions et construire une discipline observable.",
+    "description": "Comprendre les mécanismes psychologiques qui influencent les décisions sous incertitude, puis les transformer en règles de préparation, d’invalidation et de gestion du risque.",
+    "archetype": "trading_psychology",
+    "tags": [
+      "psychologie du trading",
+      "biais cognitifs",
+      "surconfiance",
+      "confirmation",
+      "ancrage",
+      "récence",
+      "représentativité",
+      "FOMO",
+      "aversion à la perte",
+      "effet de disposition",
+      "discipline",
+      "journal de trading",
+      "gestion du risque"
+    ],
+    "partSequenceComplete": false,
+    "parts": [
+      {
+        "order": 1,
+        "id": "partie-1-biais-cognitifs",
+        "startId": "comment-utiliser-ce-cours",
+        "title": "Les biais cognitifs",
+        "subtitle": "Décision · émotions · erreurs prévisibles · discipline",
+        "description": "Identifier les biais et mécanismes psychologiques qui apparaissent avant, pendant et après une position, puis construire des protections observables.",
+        "tocIds": [
+          "comment-utiliser-ce-cours",
+          "1-fondements-decider-lorsque-l-avenir-est-inconnu",
+          "2-les-8-biais-cognitifs-essentiels",
+          "3-ce-que-montrent-les-etudes-sur-les-investisseurs",
+          "4-cas-historique-la-bulle-internet-et-le-krach-de-2000",
+          "5-cas-historique-la-crise-financiere-de-2008",
+          "6-cas-moderne-gamestop-fomo-et-preuve-sociale",
+          "7-la-methode-anti-biais-transformer-la-discipline-en-systeme",
+          "8-matrice-de-detection-rapide",
+          "9-exercices-d-application",
+          "10-corriges",
+          "11-conclusion-le-trader-contre-lui-meme",
+          "sources-et-bibliographie-selective"
+        ]
+      }
+    ],
+    "removeBlockRanges": [
+      {
+        "startId": "plan-du-module",
+        "endId": "1-fondements-decider-lorsque-l-avenir-est-inconnu"
+      },
+      {
+        "startId": "quiz-de-validation",
+        "endId": "10-corriges"
+      },
+      {
+        "startId": "reponses-au-quiz",
+        "endId": "11-conclusion-le-trader-contre-lui-meme"
+      }
+    ],
+    "textReplacements": [
+      {
+        "match": "Conséquence directe : lorsque la position est gagnante, le trader peut sécuriser trop tôt. Lorsqu'elle est perdante, il peut accepter un risque croissant pour éviter de matérialiser la perte. C'est la base de l'effet de disposition.",
+        "replacement": "Une implication possible est la suivante : lorsque la position est gagnante, le trader peut sécuriser trop tôt ; lorsqu’elle est perdante, il peut accepter un risque croissant pour éviter de matérialiser la perte. La théorie des perspectives peut ainsi contribuer à expliquer l’effet de disposition, mais elle n’en constitue ni une cause unique ni une conséquence automatique."
+      },
+      {
+        "match": "Preuve empirique : Barber et Odean ont étudié 66 465 ménages. Les plus actifs ont obtenu 11,4 % par an contre 17,9 % pour le marché sur la période étudiée [4].",
+        "replacement": "Observation empirique compatible avec l’hypothèse de surconfiance : Barber et Odean ont étudié 66 465 ménages. Les plus actifs ont obtenu 11,4 % par an contre 17,9 % pour le marché sur la période étudiée [4]. L’étude observe le lien entre activité et performance ; elle ne mesure pas directement la surconfiance de chaque investisseur."
+      },
+      {
+        "match": "2. Les 8 biais cognitifs essentiels",
+        "replacement": "2. Les 8 biais et mécanismes psychologiques essentiels"
+      },
+      {
+        "match": "Définition. Le comportement grégaire consiste à imiter le groupe. La FOMO (« fear of missing out ») ajoute la peur de voir les autres gagner sans soi.",
+        "replacement": "Définition. Le comportement grégaire consiste à imiter le groupe. La FOMO (« fear of missing out ») est un état émotionnel et motivationnel : la peur de manquer une expérience ou une occasion perçue comme profitable. Elle peut renforcer le comportement grégaire, mais ne constitue pas à elle seule un biais cognitif au même titre que l’ancrage ou la confirmation."
+      },
+      {
+        "match": "Définition. Une perte menace davantage le trader qu'un gain identique ne le satisfait. Cette asymétrie pousse parfois à éviter une petite perte certaine au prix d'une grande perte possible.",
+        "replacement": "Définition. Dans de nombreuses décisions, une perte peut peser davantage qu’un gain équivalent. Cette asymétrie peut pousser le trader à éviter une petite perte certaine au prix d’une perte possible plus importante ; elle ne décrit toutefois pas chaque personne ni chaque situation."
+      },
+      {
+        "match": "Définition. L'effet de disposition combine aversion à la perte, besoin d'avoir raison et préférence pour la réalisation rapide d'un gain.",
+        "replacement": "Définition. L’effet de disposition désigne la tendance observée à vendre les positions gagnantes plus rapidement que les positions perdantes. Il peut être favorisé par l’aversion à la perte, le regret, le point de référence du prix d’achat ou le besoin d’avoir raison, sans se réduire à une explication unique."
+      },
+      {
+        "match": "Une étude NBER situe la volatilité annuelle réalisée du Nasdaq à un pic d'environ 47 % en 2000 [6].",
+        "replacement": "Une étude NBER estime la volatilité annualisée réalisée du Nasdaq à environ 47 % pour l’année 2000, selon une mesure fondée sur les rendements quotidiens [6]."
+      },
+      {
+        "match": "La bulle Internet est un cas majeur pour comprendre comment une innovation réelle peut être transformée en certitude excessive. Internet a effectivement changé l'économie. L'erreur n'était donc pas de croire à la technologie, mais de supposer que presque toute entreprise liée à Internet justifiait n'importe quel prix.",
+        "replacement": "La bulle Internet est un cas majeur pour comprendre comment une innovation réelle peut être transformée en certitude excessive. Internet a effectivement changé l’économie. L’erreur ne consistait donc pas à croire à la technologie, mais à considérer que l’appartenance au thème Internet suffisait parfois à justifier des valorisations extrêmes sans examiner les profits, le financement et le prix payé [11]."
+      },
+      {
+        "match": "Surconfiance inversée : après plusieurs séances de baisse, certains traders finissent par traiter le pire scénario comme une certitude.",
+        "replacement": "Extrapolation pessimiste : après plusieurs séances de baisse, la récence et la disponibilité peuvent conduire certains traders à traiter le pire scénario comme une certitude."
+      },
+      {
+        "match": "En janvier 2021, GameStop et d'autres « meme stocks » connaissent des variations extrêmes. Le rapport du personnel de la SEC décrit une forte hausse des prix, de la volatilité, du volume et de l'attention, alimentée notamment par un sentiment haussier sur les réseaux sociaux [10].",
+        "replacement": "En janvier 2021, GameStop et d’autres « meme stocks » connaissent des variations extrêmes. Le rapport du personnel de la SEC décrit une forte hausse des prix, de la volatilité, du volume et de l’attention dans un contexte de sentiment haussier largement diffusé sur les réseaux sociaux [10]. Cette concomitance ne suffit pas à attribuer le mouvement à une cause unique."
+      },
+      {
+        "match": "La volonté seule est insuffisante. Sous stress, le trader revient vers ses automatismes. La protection la plus efficace consiste donc à déplacer les décisions importantes avant l'émotion : critères d'entrée, invalidation, risque, scénarios et conditions de non-trade.",
+        "replacement": "La volonté seule est souvent insuffisante. Le stress peut favoriser des réactions plus automatiques et moins flexibles. Une protection pratique consiste donc à préparer avant l’émotion les décisions importantes : critères d’entrée, invalidation, risque, scénarios et conditions de non-trade."
+      },
+      {
+        "match": "Règle de protection. Définir la perte maximale avant l'entrée et automatiser la sortie si possible. Penser en séries de trades : une perte contrôlée est un coût d'exploitation, pas un verdict sur la personne.",
+        "replacement": "Règle de protection. Définir la perte maximale avant l’entrée et automatiser la sortie si cela correspond au plan. Un ordre stop est un déclencheur et ne garantit pas son prix d’exécution, notamment lors d’un gap ou dans un marché rapide. Penser en séries de trades : une perte contrôlée est un coût d’exploitation, pas un verdict sur la personne."
+      },
+      {
+        "match": "Le problème n'est pas d'avoir des émotions ou des biais : ils sont inévitables. Le problème est de leur laisser le dernier mot sur la taille, l'entrée, la sortie et le risque. Un trader progresse lorsqu'il cesse d'attendre une lucidité parfaite et construit un environnement où l'erreur psychologique devient plus difficile à exécuter.",
+        "replacement": "Le problème n’est pas d’éprouver des émotions ni de pouvoir subir des biais : ces mécanismes peuvent apparaître chez les débutants comme chez les personnes expérimentées, sans être présents dans chaque décision. Le risque consiste à leur laisser le dernier mot sur la taille, l’entrée, la sortie et l’exposition. Le trader progresse lorsqu’il construit un environnement où l’erreur psychologique devient plus difficile à exécuter."
+      },
+      {
+        "match": "Une petite perte contrôlée protège contre une perte irrécupérable.",
+        "replacement": "Une petite perte contrôlée réduit le risque qu’une erreur isolée devienne une perte difficile à récupérer."
+      },
+      {
+        "match": "Date de consultation des sources et de génération du document : 29 juillet 2026.",
+        "replacement": "Date de vérification des sources pour la version Web : 28 juillet 2026."
+      },
+      {
+        "match": " Lien",
+        "replacement": ""
+      }
+    ],
+    "highlights": [
+      {
+        "number": "01",
+        "title": "Reconnaître",
+        "text": "Identifier le biais ou le mécanisme psychologique sans transformer une hypothèse en diagnostic."
+      },
+      {
+        "number": "02",
+        "title": "Invalider",
+        "text": "Écrire avant l’entrée les faits capables de remettre en cause la thèse."
+      },
+      {
+        "number": "03",
+        "title": "Protéger",
+        "text": "Transformer la discipline en limites, checklists, pauses et revues mesurables."
+      }
+    ],
+    "figureSources": [
+      "TradingView — Nasdaq Composite (NASDAQ:IXIC), graphique mensuel. Attribution conservée.",
+      "TradingView — Nasdaq Composite (NASDAQ:IXIC), graphique mensuel. Attribution conservée."
+    ],
+    "figureAlts": [
+      "Graphique mensuel du Nasdaq Composite montrant la hausse de la fin des années 1990 puis la baisse de 2000 à 2002.",
+      "Graphique mensuel du Nasdaq Composite montrant la hausse précédant la crise financière puis la baisse de 2008 à 2009."
+    ]
   }
 ]

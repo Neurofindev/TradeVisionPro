@@ -1,0 +1,2448 @@
+{
+  "schemaVersion": 1,
+  "source": {
+    "file": "Volume_5_Psychologie_du_trading_Partie_1_Biais_cognitifs.docx",
+    "sha256": "4a248a54e3d258fb953b2d22dd1810cfbabae573dd066d2309251f39fe8fe84b"
+  },
+  "metadata": {
+    "id": "volume-5",
+    "order": 5,
+    "volumeNumber": 5,
+    "title": "Psychologie du trading",
+    "subtitle": "Reconnaître les biais, protéger ses décisions et construire une discipline observable.",
+    "description": "Comprendre les mécanismes psychologiques qui influencent les décisions sous incertitude, puis les transformer en règles de préparation, d’invalidation et de gestion du risque.",
+    "edition": null,
+    "format": "Niveau : débutant  |  Support pédagogique  |  Juillet 2026",
+    "coverLines": [
+      "FORMATION TRADING & INVESTISSEMENT",
+      "Volume 5",
+      "Psychologie du trading",
+      "Partie 1 - Les biais cognitifs",
+      "Comprendre les erreurs prévisibles du cerveau pour protéger ses décisions,\nson capital et sa discipline.",
+      "Niveau : débutant  |  Support pédagogique  |  Juillet 2026"
+    ],
+    "tags": [
+      "psychologie du trading",
+      "biais cognitifs",
+      "surconfiance",
+      "confirmation",
+      "ancrage",
+      "récence",
+      "représentativité",
+      "FOMO",
+      "aversion à la perte",
+      "effet de disposition",
+      "discipline",
+      "journal de trading",
+      "gestion du risque"
+    ],
+    "highlights": [
+      {
+        "number": "01",
+        "title": "Reconnaître",
+        "text": "Identifier le biais ou le mécanisme psychologique sans transformer une hypothèse en diagnostic."
+      },
+      {
+        "number": "02",
+        "title": "Invalider",
+        "text": "Écrire avant l’entrée les faits capables de remettre en cause la thèse."
+      },
+      {
+        "number": "03",
+        "title": "Protéger",
+        "text": "Transformer la discipline en limites, checklists, pauses et revues mesurables."
+      }
+    ],
+    "parts": [
+      {
+        "order": 1,
+        "id": "partie-1-biais-cognitifs",
+        "startId": "comment-utiliser-ce-cours",
+        "title": "Les biais cognitifs",
+        "subtitle": "Décision · émotions · erreurs prévisibles · discipline",
+        "description": "Identifier les biais et mécanismes psychologiques qui apparaissent avant, pendant et après une position, puis construire des protections observables.",
+        "tocIds": [
+          "comment-utiliser-ce-cours",
+          "1-fondements-decider-lorsque-l-avenir-est-inconnu",
+          "2-les-8-biais-cognitifs-essentiels",
+          "3-ce-que-montrent-les-etudes-sur-les-investisseurs",
+          "4-cas-historique-la-bulle-internet-et-le-krach-de-2000",
+          "5-cas-historique-la-crise-financiere-de-2008",
+          "6-cas-moderne-gamestop-fomo-et-preuve-sociale",
+          "7-la-methode-anti-biais-transformer-la-discipline-en-systeme",
+          "8-matrice-de-detection-rapide",
+          "9-exercices-d-application",
+          "10-corriges",
+          "11-conclusion-le-trader-contre-lui-meme",
+          "sources-et-bibliographie-selective"
+        ]
+      }
+    ],
+    "partSequenceComplete": false,
+    "slug": "5-psychologie-du-trading"
+  },
+  "archetype": "trading_psychology",
+  "stats": {
+    "wordCount": 4547,
+    "readingMinutes": 21,
+    "chapterCount": 13,
+    "dossierCount": 0,
+    "figureCount": 2
+  },
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "comment-utiliser-ce-cours",
+      "text": "Comment utiliser ce cours"
+    },
+    {
+      "type": "paragraph",
+      "text": "Ce module est la première partie du Volume 5 consacré à la psychologie du trading. Il ne cherche pas à transformer le trader en psychologue. Son objectif est plus pratique : reconnaître les erreurs mentales qui apparaissent avant, pendant et après une prise de position, puis les remplacer par des règles observables.",
+      "segments": [
+        {
+          "text": "Ce module est la première partie du Volume 5 consacré à la psychologie du trading. Il ne cherche pas à transformer le trader en psychologue. Son objectif est plus pratique : reconnaître les erreurs mentales qui apparaissent avant, pendant et après une prise de position, puis les remplacer par des règles observables."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "IDÉE CENTRALE",
+      "variant": "default",
+      "text": "Un biais cognitif n'est pas un manque d'intelligence. C'est un raccourci mental utile dans la vie courante, mais parfois dangereux lorsque l'on décide vite, sous incertitude, avec de l'argent réel.",
+      "sourceFill": "EEF6FF"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "objectifs-d-apprentissage",
+      "text": "Objectifs d'apprentissage"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Définir simplement un biais cognitif et expliquer pourquoi le trading les active.",
+          "segments": [
+            {
+              "text": "Définir simplement un biais cognitif et expliquer pourquoi le trading les active."
+            }
+          ]
+        },
+        {
+          "text": "Identifier les 8 biais les plus dangereux dans une décision de marché.",
+          "segments": [
+            {
+              "text": "Identifier les 8 biais les plus dangereux dans une décision de marché."
+            }
+          ]
+        },
+        {
+          "text": "Distinguer une bonne décision d'un résultat simplement chanceux.",
+          "segments": [
+            {
+              "text": "Distinguer une bonne décision d'un résultat simplement chanceux."
+            }
+          ]
+        },
+        {
+          "text": "Relier les biais aux bulles, aux paniques et aux erreurs individuelles.",
+          "segments": [
+            {
+              "text": "Relier les biais aux bulles, aux paniques et aux erreurs individuelles."
+            }
+          ]
+        },
+        {
+          "text": "Analyser les krachs de 2000 et de 2008 sans réduire leur cause à la psychologie.",
+          "segments": [
+            {
+              "text": "Analyser les krachs de 2000 et de 2008 sans réduire leur cause à la psychologie."
+            }
+          ]
+        },
+        {
+          "text": "Construire une procédure anti-biais avant, pendant et après le trade.",
+          "segments": [
+            {
+              "text": "Construire une procédure anti-biais avant, pendant et après le trade."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "1-fondements-decider-lorsque-l-avenir-est-inconnu",
+      "text": "1. Fondements : décider lorsque l'avenir est inconnu"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "1-1-qu-est-ce-qu-un-biais-cognitif",
+      "text": "1.1 Qu'est-ce qu'un biais cognitif ?"
+    },
+    {
+      "type": "paragraph",
+      "text": "Un biais cognitif est une déviation systématique du jugement. « Systématique » signifie que l'erreur n'est pas entièrement aléatoire : dans certaines situations, de nombreuses personnes ont tendance à se tromper dans la même direction. Les travaux de Daniel Kahneman et Amos Tversky ont notamment mis en évidence trois grandes heuristiques : la représentativité, la disponibilité et l'ancrage [1][2].",
+      "segments": [
+        {
+          "text": "Un biais cognitif est une déviation systématique du jugement. « Systématique » signifie que l'erreur n'est pas entièrement aléatoire : dans certaines situations, de nombreuses personnes ont tendance à se tromper dans la même direction. Les travaux de Daniel Kahneman et Amos Tversky ont notamment mis en évidence trois grandes heuristiques : la représentativité, la disponibilité et l'ancrage [1][2]."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Une heuristique est une règle rapide du type « ce qui monte fortement doit être solide » ou « si tout le monde en parle, c'est probablement important ». Elle permet de décider sans analyser toutes les informations. Le problème commence lorsque le raccourci remplace l'analyse.",
+      "segments": [
+        {
+          "text": "Une heuristique est une règle rapide du type « ce qui monte fortement doit être solide » ou « si tout le monde en parle, c'est probablement important ». Elle permet de décider sans analyser toutes les informations. Le problème commence lorsque le raccourci remplace l'analyse."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "1-2-pourquoi-le-trading-amplifie-ces-erreurs",
+      "text": "1.2 Pourquoi le trading amplifie ces erreurs"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "L'incertitude : aucune analyse ne supprime totalement le risque.",
+          "segments": [
+            {
+              "text": "L'incertitude : aucune analyse ne supprime totalement le risque."
+            }
+          ]
+        },
+        {
+          "text": "La vitesse : certaines décisions doivent être prises en quelques secondes.",
+          "segments": [
+            {
+              "text": "La vitesse : certaines décisions doivent être prises en quelques secondes."
+            }
+          ]
+        },
+        {
+          "text": "L'argent : une perte menace directement le sentiment de sécurité et l'ego.",
+          "segments": [
+            {
+              "text": "L'argent : une perte menace directement le sentiment de sécurité et l'ego."
+            }
+          ]
+        },
+        {
+          "text": "Le feedback immédiat : le prix réagit en continu et semble juger chaque décision.",
+          "segments": [
+            {
+              "text": "Le feedback immédiat : le prix réagit en continu et semble juger chaque décision."
+            }
+          ]
+        },
+        {
+          "text": "Le bruit : les réseaux sociaux, alertes et commentaires multiplient les signaux contradictoires.",
+          "segments": [
+            {
+              "text": "Le bruit : les réseaux sociaux, alertes et commentaires multiplient les signaux contradictoires."
+            }
+          ]
+        },
+        {
+          "text": "La récompense variable : un comportement mauvais peut gagner à court terme, et un bon processus peut perdre.",
+          "segments": [
+            {
+              "text": "La récompense variable : un comportement mauvais peut gagner à court terme, et un bon processus peut perdre."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "1-3-la-chaine-d-une-erreur-psychologique",
+      "text": "1.3 La chaîne d'une erreur psychologique"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Étape",
+        "Ce qui se passe"
+      ],
+      "rows": [
+        [
+          "1. Signal",
+          "Le trader voit une hausse rapide, une news ou une perte latente."
+        ],
+        [
+          "2. Interprétation",
+          "Un biais sélectionne ou déforme l'information."
+        ],
+        [
+          "3. Émotion",
+          "Peur, euphorie, regret ou urgence apparaissent."
+        ],
+        [
+          "4. Action",
+          "Entrée tardive, surdimensionnement, déplacement du stop ou revenge trading."
+        ],
+        [
+          "5. Résultat",
+          "Gain ou perte renforce parfois une fausse leçon."
+        ]
+      ],
+      "links": [
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "POINT ESSENTIEL",
+      "variant": "default",
+      "text": "Le marché ne récompense pas toujours immédiatement le bon processus. Un trade impulsif peut gagner. Un trade parfaitement préparé peut perdre. La qualité de la décision doit donc être évaluée séparément du résultat.",
+      "sourceFill": "EEF6FF"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "1-4-theorie-des-perspectives-le-socle",
+      "text": "1.4 Théorie des perspectives : le socle"
+    },
+    {
+      "type": "paragraph",
+      "text": "La théorie des perspectives de Kahneman et Tversky décrit la manière dont les individus évaluent des gains et des pertes par rapport à un point de référence, et non uniquement selon leur richesse finale. Elle montre aussi que les décisions réelles s'écartent de façon prévisible du modèle parfaitement rationnel [3].",
+      "segments": [
+        {
+          "text": "La théorie des perspectives de Kahneman et Tversky décrit la manière dont les individus évaluent des gains et des pertes par rapport à un point de référence, et non uniquement selon leur richesse finale. Elle montre aussi que les décisions réelles s'écartent de façon prévisible du modèle parfaitement rationnel [3]."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Une implication possible est la suivante : lorsque la position est gagnante, le trader peut sécuriser trop tôt ; lorsqu’elle est perdante, il peut accepter un risque croissant pour éviter de matérialiser la perte. La théorie des perspectives peut ainsi contribuer à expliquer l’effet de disposition, mais elle n’en constitue ni une cause unique ni une conséquence automatique.",
+      "segments": [
+        {
+          "text": "Une implication possible est la suivante : lorsque la position est gagnante, le trader peut sécuriser trop tôt ; lorsqu’elle est perdante, il peut accepter un risque croissant pour éviter de matérialiser la perte. La théorie des perspectives peut ainsi contribuer à expliquer l’effet de disposition, mais elle n’en constitue ni une cause unique ni une conséquence automatique."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "RAPPEL MATHÉMATIQUE",
+      "variant": "default",
+      "text": "Une baisse de 20 % exige ensuite une hausse de 25 % pour revenir au point de départ. Une baisse de 50 % exige une hausse de 100 %. Refuser une petite perte peut donc créer une perte beaucoup plus difficile à récupérer.",
+      "sourceFill": "FFF4ED"
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "2-les-8-biais-cognitifs-essentiels",
+      "text": "2. Les 8 biais et mécanismes psychologiques essentiels"
+    },
+    {
+      "type": "paragraph",
+      "text": "Les biais suivants se combinent souvent. Par exemple, une série de gains récents peut produire de la surconfiance ; la surconfiance pousse à chercher des informations confirmantes ; puis l'aversion à la perte empêche de sortir lorsque le scénario est invalidé.",
+      "segments": [
+        {
+          "text": "Les biais suivants se combinent souvent. Par exemple, une série de gains récents peut produire de la surconfiance ; la surconfiance pousse à chercher des informations confirmantes ; puis l'aversion à la perte empêche de sortir lorsque le scénario est invalidé."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "1-surconfiance-et-illusion-de-controle",
+      "text": "1. Surconfiance et illusion de contrôle"
+    },
+    {
+      "type": "paragraph",
+      "text": "SURESTIMER SA COMPÉTENCE OU SA MAÎTRISE DU HASARD",
+      "segments": [
+        {
+          "text": "SURESTIMER SA COMPÉTENCE OU SA MAÎTRISE DU HASARD",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Définition. La surconfiance consiste à surestimer la précision de son analyse, sa capacité à prévoir ou son avantage réel. L'illusion de contrôle ajoute l'impression que davantage d'écrans, d'indicateurs ou d'actions donnent davantage de contrôle.",
+      "segments": [
+        {
+          "text": "Définition. ",
+          "bold": true
+        },
+        {
+          "text": "La surconfiance consiste à surestimer la précision de son analyse, sa capacité à prévoir ou son avantage réel. L'illusion de contrôle ajoute l'impression que davantage d'écrans, d'indicateurs ou d'actions donnent davantage de contrôle."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "VOIX INTÉRIEURE TYPIQUE",
+      "variant": "default",
+      "text": "« J'ai gagné quatre fois ; j'ai enfin compris le marché. Je peux augmenter fortement la taille. »",
+      "sourceFill": "FFF9EA"
+    },
+    {
+      "type": "paragraph",
+      "text": "Exemple de trading. Après plusieurs trades gagnants dans un marché haussier, un débutant passe de 0,5 % à 3 % de risque par trade. Il confond un contexte favorable avec une compétence déjà stable.",
+      "segments": [
+        {
+          "text": "Exemple de trading. ",
+          "bold": true
+        },
+        {
+          "text": "Après plusieurs trades gagnants dans un marché haussier, un débutant passe de 0,5 % à 3 % de risque par trade. Il confond un contexte favorable avec une compétence déjà stable."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Danger. Elle augmente le nombre de trades, le levier, la concentration et la résistance aux preuves contraires.",
+      "segments": [
+        {
+          "text": "Danger. ",
+          "bold": true
+        },
+        {
+          "text": "Elle augmente le nombre de trades, le levier, la concentration et la résistance aux preuves contraires."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Règle de protection. Conserver une taille fixe tant qu'un échantillon suffisant de trades documentés ne prouve pas un avantage. Mesurer le respect du plan, le drawdown et l'espérance, pas seulement le taux de réussite.",
+      "segments": [
+        {
+          "text": "Règle de protection. ",
+          "bold": true
+        },
+        {
+          "text": "Conserver une taille fixe tant qu'un échantillon suffisant de trades documentés ne prouve pas un avantage. Mesurer le respect du plan, le drawdown et l'espérance, pas seulement le taux de réussite."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Observation empirique compatible avec l’hypothèse de surconfiance : Barber et Odean ont étudié 66 465 ménages. Les plus actifs ont obtenu 11,4 % par an contre 17,9 % pour le marché sur la période étudiée [4]. L’étude observe le lien entre activité et performance ; elle ne mesure pas directement la surconfiance de chaque investisseur.",
+      "segments": [
+        {
+          "text": "Observation empirique compatible avec l’hypothèse de surconfiance : Barber et Odean ont étudié 66 465 ménages. Les plus actifs ont obtenu 11,4 % par an contre 17,9 % pour le marché sur la période étudiée [4]. L’étude observe le lien entre activité et performance ; elle ne mesure pas directement la surconfiance de chaque investisseur."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "2-biais-de-confirmation",
+      "text": "2. Biais de confirmation"
+    },
+    {
+      "type": "paragraph",
+      "text": "CHERCHER SURTOUT CE QUI VALIDE L'IDÉE INITIALE",
+      "segments": [
+        {
+          "text": "CHERCHER SURTOUT CE QUI VALIDE L'IDÉE INITIALE",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Définition. Le trader sélectionne les informations qui confirment sa position et minimise celles qui la contredisent.",
+      "segments": [
+        {
+          "text": "Définition. ",
+          "bold": true
+        },
+        {
+          "text": "Le trader sélectionne les informations qui confirment sa position et minimise celles qui la contredisent."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "VOIX INTÉRIEURE TYPIQUE",
+      "variant": "default",
+      "text": "« Cet analyste confirme mon achat ; les autres n'ont simplement pas compris l'entreprise. »",
+      "sourceFill": "FFF9EA"
+    },
+    {
+      "type": "paragraph",
+      "text": "Exemple de trading. Une position longue casse son support avec un avertissement sur les résultats. Le trader lit uniquement les messages haussiers et interprète chaque rebond mineur comme une validation.",
+      "segments": [
+        {
+          "text": "Exemple de trading. ",
+          "bold": true
+        },
+        {
+          "text": "Une position longue casse son support avec un avertissement sur les résultats. Le trader lit uniquement les messages haussiers et interprète chaque rebond mineur comme une validation."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Danger. La thèse devient impossible à invalider. Une opinion se transforme en identité.",
+      "segments": [
+        {
+          "text": "Danger. ",
+          "bold": true
+        },
+        {
+          "text": "La thèse devient impossible à invalider. Une opinion se transforme en identité."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Règle de protection. Avant l'entrée, écrire trois faits qui invalideraient la thèse. Pendant le trade, rechercher délibérément l'argument opposé le plus solide. Si aucun élément ne peut faire changer d'avis, ce n'est plus une analyse.",
+      "segments": [
+        {
+          "text": "Règle de protection. ",
+          "bold": true
+        },
+        {
+          "text": "Avant l'entrée, écrire trois faits qui invalideraient la thèse. Pendant le trade, rechercher délibérément l'argument opposé le plus solide. Si aucun élément ne peut faire changer d'avis, ce n'est plus une analyse."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "3-ancrage",
+      "text": "3. Ancrage"
+    },
+    {
+      "type": "paragraph",
+      "text": "RESTER ATTACHÉ À UN PREMIER CHIFFRE",
+      "segments": [
+        {
+          "text": "RESTER ATTACHÉ À UN PREMIER CHIFFRE",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Définition. L'ancrage apparaît lorsqu'une estimation reste excessivement influencée par une valeur initiale : prix d'achat, ancien sommet, objectif d'un analyste ou valorisation passée.",
+      "segments": [
+        {
+          "text": "Définition. ",
+          "bold": true
+        },
+        {
+          "text": "L'ancrage apparaît lorsqu'une estimation reste excessivement influencée par une valeur initiale : prix d'achat, ancien sommet, objectif d'un analyste ou valorisation passée."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "VOIX INTÉRIEURE TYPIQUE",
+      "variant": "default",
+      "text": "« L'action valait 100 ; à 60 elle est forcément bon marché. »",
+      "sourceFill": "FFF9EA"
+    },
+    {
+      "type": "paragraph",
+      "text": "Exemple de trading. Le titre baisse de 100 à 60 après une détérioration structurelle de ses marges. Le trader compare 60 à l'ancien prix au lieu de réévaluer les flux futurs et le risque.",
+      "segments": [
+        {
+          "text": "Exemple de trading. ",
+          "bold": true
+        },
+        {
+          "text": "Le titre baisse de 100 à 60 après une détérioration structurelle de ses marges. Le trader compare 60 à l'ancien prix au lieu de réévaluer les flux futurs et le risque."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Danger. Le prix passé devient une fausse valeur fondamentale et justifie des renforcements non prévus.",
+      "segments": [
+        {
+          "text": "Danger. ",
+          "bold": true
+        },
+        {
+          "text": "Le prix passé devient une fausse valeur fondamentale et justifie des renforcements non prévus."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Règle de protection. Recalculer la thèse comme si la position n'existait pas : « Si je n'avais aucune action aujourd'hui, l'achèterais-je à ce prix, avec ces nouvelles informations ? »",
+      "segments": [
+        {
+          "text": "Règle de protection. ",
+          "bold": true
+        },
+        {
+          "text": "Recalculer la thèse comme si la position n'existait pas : « Si je n'avais aucune action aujourd'hui, l'achèterais-je à ce prix, avec ces nouvelles informations ? »"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "L'ancrage et l'ajustement insuffisant figurent parmi les heuristiques décrites par Tversky et Kahneman [2].",
+      "segments": [
+        {
+          "text": "L'ancrage et l'ajustement insuffisant figurent parmi les heuristiques décrites par Tversky et Kahneman [2]."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "4-recence-et-disponibilite",
+      "text": "4. Récence et disponibilité"
+    },
+    {
+      "type": "paragraph",
+      "text": "SURESTIMER CE QUI VIENT D'ARRIVER OU CE QUI MARQUE L'ESPRIT",
+      "segments": [
+        {
+          "text": "SURESTIMER CE QUI VIENT D'ARRIVER OU CE QUI MARQUE L'ESPRIT",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Définition. Le biais de récence donne trop de poids aux dernières observations. L'heuristique de disponibilité estime la probabilité d'un événement selon la facilité avec laquelle des exemples viennent à l'esprit.",
+      "segments": [
+        {
+          "text": "Définition. ",
+          "bold": true
+        },
+        {
+          "text": "Le biais de récence donne trop de poids aux dernières observations. L'heuristique de disponibilité estime la probabilité d'un événement selon la facilité avec laquelle des exemples viennent à l'esprit."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "VOIX INTÉRIEURE TYPIQUE",
+      "variant": "default",
+      "text": "« Cette action monte chaque jour ; elle va continuer. Tous les médias en parlent. »",
+      "sourceFill": "FFF9EA"
+    },
+    {
+      "type": "paragraph",
+      "text": "Exemple de trading. Après trois séances très haussières, le trader augmente son scénario de continuation sans étudier la fréquence historique des retournements, la volatilité normale ni les publications à venir.",
+      "segments": [
+        {
+          "text": "Exemple de trading. ",
+          "bold": true
+        },
+        {
+          "text": "Après trois séances très haussières, le trader augmente son scénario de continuation sans étudier la fréquence historique des retournements, la volatilité normale ni les publications à venir."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Danger. Il extrapole une courte séquence et confond visibilité médiatique avec probabilité.",
+      "segments": [
+        {
+          "text": "Danger. ",
+          "bold": true
+        },
+        {
+          "text": "Il extrapole une courte séquence et confond visibilité médiatique avec probabilité."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Règle de protection. Comparer le signal récent à un historique plus long, à plusieurs régimes de marché et à un taux de base. Limiter les décisions prises juste après une alerte spectaculaire.",
+      "segments": [
+        {
+          "text": "Règle de protection. ",
+          "bold": true
+        },
+        {
+          "text": "Comparer le signal récent à un historique plus long, à plusieurs régimes de marché et à un taux de base. Limiter les décisions prises juste après une alerte spectaculaire."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Tversky et Kahneman ont formalisé la disponibilité comme une heuristique de jugement sous incertitude [2].",
+      "segments": [
+        {
+          "text": "Tversky et Kahneman ont formalisé la disponibilité comme une heuristique de jugement sous incertitude [2]."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "5-representativite-et-oubli-des-taux-de-base",
+      "text": "5. Représentativité et oubli des taux de base"
+    },
+    {
+      "type": "paragraph",
+      "text": "CONFONDRE RESSEMBLANCE ET PROBABILITÉ",
+      "segments": [
+        {
+          "text": "CONFONDRE RESSEMBLANCE ET PROBABILITÉ",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Définition. Un actif est jugé selon sa ressemblance avec une histoire familière (« le prochain Amazon ») plutôt que selon la fréquence réelle de réussite d'entreprises comparables.",
+      "segments": [
+        {
+          "text": "Définition. ",
+          "bold": true
+        },
+        {
+          "text": "Un actif est jugé selon sa ressemblance avec une histoire familière (« le prochain Amazon ») plutôt que selon la fréquence réelle de réussite d'entreprises comparables."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "VOIX INTÉRIEURE TYPIQUE",
+      "variant": "default",
+      "text": "« Cette petite société ressemble à Nvidia au début ; son potentiel est donc énorme. »",
+      "sourceFill": "FFF9EA"
+    },
+    {
+      "type": "paragraph",
+      "text": "Exemple de trading. Le trader sélectionne deux ressemblances - secteur et croissance du chiffre d'affaires - mais ignore la dilution, la concurrence, l'absence de marge et le faible taux de survie des sociétés similaires.",
+      "segments": [
+        {
+          "text": "Exemple de trading. ",
+          "bold": true
+        },
+        {
+          "text": "Le trader sélectionne deux ressemblances - secteur et croissance du chiffre d'affaires - mais ignore la dilution, la concurrence, l'absence de marge et le faible taux de survie des sociétés similaires."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Danger. Une narration convaincante remplace les statistiques de base et l'analyse comparative.",
+      "segments": [
+        {
+          "text": "Danger. ",
+          "bold": true
+        },
+        {
+          "text": "Une narration convaincante remplace les statistiques de base et l'analyse comparative."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Règle de protection. Commencer par la classe de référence : combien d'entreprises comparables ont réellement réussi ? Puis examiner ce qui rend ce cas différent, avec des preuves quantitatives.",
+      "segments": [
+        {
+          "text": "Règle de protection. ",
+          "bold": true
+        },
+        {
+          "text": "Commencer par la classe de référence : combien d'entreprises comparables ont réellement réussi ? Puis examiner ce qui rend ce cas différent, avec des preuves quantitatives."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "La représentativité et la négligence des probabilités de base sont au coeur de l'article de 1974 [2].",
+      "segments": [
+        {
+          "text": "La représentativité et la négligence des probabilités de base sont au coeur de l'article de 1974 [2]."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "6-comportement-gregaire-et-fomo",
+      "text": "6. Comportement grégaire et FOMO"
+    },
+    {
+      "type": "paragraph",
+      "text": "SUIVRE LE GROUPE POUR NE PAS RATER LE MOUVEMENT",
+      "segments": [
+        {
+          "text": "SUIVRE LE GROUPE POUR NE PAS RATER LE MOUVEMENT",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Définition. Le comportement grégaire consiste à imiter le groupe. La FOMO (« fear of missing out ») est un état émotionnel et motivationnel : la peur de manquer une expérience ou une occasion perçue comme profitable. Elle peut renforcer le comportement grégaire, mais ne constitue pas à elle seule un biais cognitif au même titre que l’ancrage ou la confirmation.",
+      "segments": [
+        {
+          "text": "Définition. Le comportement grégaire consiste à imiter le groupe. La FOMO (« fear of missing out ») est un état émotionnel et motivationnel : la peur de manquer une expérience ou une occasion perçue comme profitable. Elle peut renforcer le comportement grégaire, mais ne constitue pas à elle seule un biais cognitif au même titre que l’ancrage ou la confirmation."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "VOIX INTÉRIEURE TYPIQUE",
+      "variant": "default",
+      "text": "« Tout le monde achète ; attendre serait l'erreur la plus coûteuse. »",
+      "sourceFill": "FFF9EA"
+    },
+    {
+      "type": "paragraph",
+      "text": "Exemple de trading. Le trader entre après une accélération verticale, sans niveau d'invalidation et avec une taille trop grande, parce que le mouvement est devenu socialement visible.",
+      "segments": [
+        {
+          "text": "Exemple de trading. ",
+          "bold": true
+        },
+        {
+          "text": "Le trader entre après une accélération verticale, sans niveau d'invalidation et avec une taille trop grande, parce que le mouvement est devenu socialement visible."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Danger. Le consensus donne une impression de sécurité précisément lorsque le prix peut intégrer les attentes les plus optimistes.",
+      "segments": [
+        {
+          "text": "Danger. ",
+          "bold": true
+        },
+        {
+          "text": "Le consensus donne une impression de sécurité précisément lorsque le prix peut intégrer les attentes les plus optimistes."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Règle de protection. Interdire l'entrée si le scénario, le stop et la taille n'étaient pas définis avant l'impulsion. Une occasion manquée ne détruit pas le capital ; une entrée tardive surdimensionnée peut le faire.",
+      "segments": [
+        {
+          "text": "Règle de protection. ",
+          "bold": true
+        },
+        {
+          "text": "Interdire l'entrée si le scénario, le stop et la taille n'étaient pas définis avant l'impulsion. Une occasion manquée ne détruit pas le capital ; une entrée tardive surdimensionnée peut le faire."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "7-aversion-a-la-perte",
+      "text": "7. Aversion à la perte"
+    },
+    {
+      "type": "paragraph",
+      "text": "DONNER PLUS DE POIDS AUX PERTES QU'AUX GAINS ÉQUIVALENTS",
+      "segments": [
+        {
+          "text": "DONNER PLUS DE POIDS AUX PERTES QU'AUX GAINS ÉQUIVALENTS",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Définition. Dans de nombreuses décisions, une perte peut peser davantage qu’un gain équivalent. Cette asymétrie peut pousser le trader à éviter une petite perte certaine au prix d’une perte possible plus importante ; elle ne décrit toutefois pas chaque personne ni chaque situation.",
+      "segments": [
+        {
+          "text": "Définition. Dans de nombreuses décisions, une perte peut peser davantage qu’un gain équivalent. Cette asymétrie peut pousser le trader à éviter une petite perte certaine au prix d’une perte possible plus importante ; elle ne décrit toutefois pas chaque personne ni chaque situation."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "VOIX INTÉRIEURE TYPIQUE",
+      "variant": "default",
+      "text": "« Je ne peux pas clôturer maintenant ; tant que je ne vends pas, ce n'est pas vraiment perdu. »",
+      "sourceFill": "FFF9EA"
+    },
+    {
+      "type": "paragraph",
+      "text": "Exemple de trading. Le stop prévu à -1R est déplacé à -2R, puis supprimé. L'objectif n'est plus de gérer le risque, mais d'éviter la douleur de reconnaître l'erreur.",
+      "segments": [
+        {
+          "text": "Exemple de trading. ",
+          "bold": true
+        },
+        {
+          "text": "Le stop prévu à -1R est déplacé à -2R, puis supprimé. L'objectif n'est plus de gérer le risque, mais d'éviter la douleur de reconnaître l'erreur."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Danger. La décision devient risquante précisément lorsque les preuves se détériorent.",
+      "segments": [
+        {
+          "text": "Danger. ",
+          "bold": true
+        },
+        {
+          "text": "La décision devient risquante précisément lorsque les preuves se détériorent."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Règle de protection. Définir la perte maximale avant l’entrée et automatiser la sortie si cela correspond au plan. Un ordre stop est un déclencheur et ne garantit pas son prix d’exécution, notamment lors d’un gap ou dans un marché rapide. Penser en séries de trades : une perte contrôlée est un coût d’exploitation, pas un verdict sur la personne.",
+      "segments": [
+        {
+          "text": "Règle de protection. Définir la perte maximale avant l’entrée et automatiser la sortie si cela correspond au plan. Un ordre stop est un déclencheur et ne garantit pas son prix d’exécution, notamment lors d’un gap ou dans un marché rapide. Penser en séries de trades : une perte contrôlée est un coût d’exploitation, pas un verdict sur la personne."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "La théorie des perspectives fournit le cadre fondateur de cette asymétrie [3].",
+      "segments": [
+        {
+          "text": "La théorie des perspectives fournit le cadre fondateur de cette asymétrie [3]."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "8-effet-de-disposition",
+      "text": "8. Effet de disposition"
+    },
+    {
+      "type": "paragraph",
+      "text": "VENDRE LES GAGNANTS TROP TÔT ET CONSERVER LES PERDANTS TROP LONGTEMPS",
+      "segments": [
+        {
+          "text": "VENDRE LES GAGNANTS TROP TÔT ET CONSERVER LES PERDANTS TROP LONGTEMPS",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Définition. L’effet de disposition désigne la tendance observée à vendre les positions gagnantes plus rapidement que les positions perdantes. Il peut être favorisé par l’aversion à la perte, le regret, le point de référence du prix d’achat ou le besoin d’avoir raison, sans se réduire à une explication unique.",
+      "segments": [
+        {
+          "text": "Définition. L’effet de disposition désigne la tendance observée à vendre les positions gagnantes plus rapidement que les positions perdantes. Il peut être favorisé par l’aversion à la perte, le regret, le point de référence du prix d’achat ou le besoin d’avoir raison, sans se réduire à une explication unique."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "VOIX INTÉRIEURE TYPIQUE",
+      "variant": "default",
+      "text": "« Je prends vite mes 5 % ; pour la position à -20 %, j'attends juste qu'elle revienne. »",
+      "sourceFill": "FFF9EA"
+    },
+    {
+      "type": "paragraph",
+      "text": "Exemple de trading. Le trader coupe une tendance gagnante dès le premier petit repli, mais transforme une mauvaise position de court terme en investissement non prévu.",
+      "segments": [
+        {
+          "text": "Exemple de trading. ",
+          "bold": true
+        },
+        {
+          "text": "Le trader coupe une tendance gagnante dès le premier petit repli, mais transforme une mauvaise position de court terme en investissement non prévu."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Danger. Les gains sont plafonnés, les pertes restent ouvertes et le ratio rendement/risque réel se dégrade.",
+      "segments": [
+        {
+          "text": "Danger. ",
+          "bold": true
+        },
+        {
+          "text": "Les gains sont plafonnés, les pertes restent ouvertes et le ratio rendement/risque réel se dégrade."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Règle de protection. Appliquer des critères symétriques : laisser courir tant que la thèse reste valide ; sortir dès que l'invalidation est atteinte, indépendamment du prix d'achat.",
+      "segments": [
+        {
+          "text": "Règle de protection. ",
+          "bold": true
+        },
+        {
+          "text": "Appliquer des critères symétriques : laisser courir tant que la thèse reste valide ; sortir dès que l'invalidation est atteinte, indépendamment du prix d'achat."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Odean a documenté cette tendance sur 10 000 comptes de courtage et a montré qu'elle n'était pas justifiée par la performance ultérieure [5].",
+      "segments": [
+        {
+          "text": "Odean a documenté cette tendance sur 10 000 comptes de courtage et a montré qu'elle n'était pas justifiée par la performance ultérieure [5]."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "3-ce-que-montrent-les-etudes-sur-les-investisseurs",
+      "text": "3. Ce que montrent les études sur les investisseurs"
+    },
+    {
+      "type": "paragraph",
+      "text": "Les biais ne sont pas seulement des histoires plausibles. Plusieurs comportements ont été observés dans des données réelles de courtage. Les résultats ci-dessous ne signifient pas que tous les individus se comportent de la même manière, mais ils montrent que certaines erreurs sont suffisamment fréquentes pour être mesurables.",
+      "segments": [
+        {
+          "text": "Les biais ne sont pas seulement des histoires plausibles. Plusieurs comportements ont été observés dans des données réelles de courtage. Les résultats ci-dessous ne signifient pas que tous les individus se comportent de la même manière, mais ils montrent que certaines erreurs sont suffisamment fréquentes pour être mesurables."
+        }
+      ]
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Phénomène",
+        "Étude",
+        "Échantillon",
+        "Résultat",
+        "Leçon"
+      ],
+      "rows": [
+        [
+          "Surtrading",
+          "Barber & Odean (2000)",
+          "66 465 ménages, 1991-1996",
+          "Les ménages les plus actifs : 11,4 %/an ; marché : 17,9 %/an.",
+          "Plus d'activité ne signifie pas plus d'avantage. Les coûts et les mauvaises sélections détruisent une partie de la performance."
+        ],
+        [
+          "Effet de disposition",
+          "Odean (1998)",
+          "10 000 comptes, 1987-1993",
+          "Tendance à vendre les gagnants et à conserver les perdants ; non justifiée par la performance future.",
+          "Le prix d'achat influence trop la décision de sortie."
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Lecture prudente : ces études portent surtout sur des investisseurs particuliers et sur des périodes précises. Elles établissent des régularités de comportement, pas une condamnation automatique du trading actif.",
+      "segments": [
+        {
+          "text": "Lecture prudente : ces études portent surtout sur des investisseurs particuliers et sur des périodes précises. Elles établissent des régularités de comportement, pas une condamnation automatique du trading actif."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "3-1-correlation-interpretation-et-limites",
+      "text": "3.1 Corrélation, interprétation et limites"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Un comportement observé à l'échelle d'un groupe ne décrit pas nécessairement chaque trader.",
+          "segments": [
+            {
+              "text": "Un comportement observé à l'échelle d'un groupe ne décrit pas nécessairement chaque trader."
+            }
+          ]
+        },
+        {
+          "text": "Un biais peut coexister avec des contraintes rationnelles : fiscalité, besoin de liquidité, mandat ou couverture.",
+          "segments": [
+            {
+              "text": "Un biais peut coexister avec des contraintes rationnelles : fiscalité, besoin de liquidité, mandat ou couverture."
+            }
+          ]
+        },
+        {
+          "text": "Une bulle ou un krach résulte d'interactions entre psychologie, crédit, levier, profits, politique monétaire et structure du marché.",
+          "segments": [
+            {
+              "text": "Une bulle ou un krach résulte d'interactions entre psychologie, crédit, levier, profits, politique monétaire et structure du marché."
+            }
+          ]
+        },
+        {
+          "text": "Identifier un biais après coup est facile ; la véritable compétence consiste à définir avant le trade ce qui l'invalidera.",
+          "segments": [
+            {
+              "text": "Identifier un biais après coup est facile ; la véritable compétence consiste à définir avant le trade ce qui l'invalidera."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "4-cas-historique-la-bulle-internet-et-le-krach-de-2000",
+      "text": "4. Cas historique : la bulle Internet et le krach de 2000"
+    },
+    {
+      "type": "paragraph",
+      "text": "La bulle Internet est un cas majeur pour comprendre comment une innovation réelle peut être transformée en certitude excessive. Internet a effectivement changé l’économie. L’erreur ne consistait donc pas à croire à la technologie, mais à considérer que l’appartenance au thème Internet suffisait parfois à justifier des valorisations extrêmes sans examiner les profits, le financement et le prix payé [11].",
+      "segments": [
+        {
+          "text": "La bulle Internet est un cas majeur pour comprendre comment une innovation réelle peut être transformée en certitude excessive. Internet a effectivement changé l’économie. L’erreur ne consistait donc pas à croire à la technologie, mais à considérer que l’appartenance au thème Internet suffisait parfois à justifier des valorisations extrêmes sans examiner les profits, le financement et le prix payé [11]."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "4-1-les-faits-essentiels",
+      "text": "4.1 Les faits essentiels"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "En 1999, le Nasdaq Composite gagne environ 85,6 % sur l'année [7].",
+          "segments": [
+            {
+              "text": "En 1999, le Nasdaq Composite gagne environ 85,6 % sur l'année [7]."
+            }
+          ]
+        },
+        {
+          "text": "Le 10 mars 2000, il clôture à 5 048,62 points, son sommet de clôture de la bulle [7].",
+          "segments": [
+            {
+              "text": "Le 10 mars 2000, il clôture à 5 048,62 points, son sommet de clôture de la bulle [7]."
+            }
+          ]
+        },
+        {
+          "text": "Le 9 octobre 2002, il clôture à 1 114,11 points [7].",
+          "segments": [
+            {
+              "text": "Le 9 octobre 2002, il clôture à 1 114,11 points [7]."
+            }
+          ]
+        },
+        {
+          "text": "La baisse du sommet au creux atteint environ 77,9 %.",
+          "segments": [
+            {
+              "text": "La baisse du sommet au creux atteint environ 77,9 %."
+            }
+          ]
+        },
+        {
+          "text": "Une étude NBER estime la volatilité annualisée réalisée du Nasdaq à environ 47 % pour l’année 2000, selon une mesure fondée sur les rendements quotidiens [6].",
+          "segments": [
+            {
+              "text": "Une étude NBER estime la volatilité annualisée réalisée du Nasdaq à environ 47 % pour l’année 2000, selon une mesure fondée sur les rendements quotidiens [6]."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "figure",
+      "src": "/media/5-psychologie-du-trading/5-psychologie-du-trading-ebfbb8dfecaf.webp",
+      "originalName": "image1.png",
+      "width": 958,
+      "height": 770,
+      "optimized": true,
+      "caption": "Figure 1 - Nasdaq Composite (NASDAQ:IXIC), bougies mensuelles, vue centrée sur le krach de 2000. Source : capture TradingView [7].",
+      "source": "TradingView — Nasdaq Composite (NASDAQ:IXIC), graphique mensuel. Attribution conservée.",
+      "sourceLinks": [],
+      "alt": "Graphique mensuel du Nasdaq Composite montrant la hausse de la fin des années 1990 puis la baisse de 2000 à 2002."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "4-2-lecture-psychologique",
+      "text": "4.2 Lecture psychologique"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Biais",
+        "Manifestation possible dans la bulle"
+      ],
+      "rows": [
+        [
+          "Récence",
+          "La hausse rapide de 1998-1999 a rendu la poursuite de la tendance mentalement plus probable."
+        ],
+        [
+          "Représentativité",
+          "Une société « Internet » pouvait être comparée aux futurs grands gagnants sans examiner son modèle économique."
+        ],
+        [
+          "Comportement grégaire",
+          "Le fait que les autres investisseurs, médias et entreprises se positionnent sur le thème réduisait la perception du danger."
+        ],
+        [
+          "Surconfiance",
+          "Les gains faciles d'un marché haussier pouvaient être attribués au talent plutôt qu'au régime de marché."
+        ],
+        [
+          "Confirmation",
+          "Les arguments sur la révolution numérique pouvaient masquer les questions de prix, de profits et de financement."
+        ],
+        [
+          "Ancrage après le sommet",
+          "Les investisseurs pouvaient considérer les anciens sommets comme une valeur normale à retrouver, même après la rupture du régime."
+        ]
+      ],
+      "links": [
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "LEÇON DE 2000",
+      "variant": "default",
+      "text": "Une thèse peut être correcte sur la direction du monde et fausse sur le prix payé. « Internet va transformer l'économie » n'impliquait pas que toute valorisation était rationnelle.",
+      "sourceFill": "FFF9EA"
+    },
+    {
+      "type": "paragraph",
+      "text": "Important : le graphique prouve l'ampleur de la hausse et de la baisse ; il ne prouve pas, à lui seul, l'état mental de chaque investisseur. L'attribution des biais est une interprétation cohérente avec la littérature comportementale et l'histoire de la bulle, pas un diagnostic individuel.",
+      "segments": [
+        {
+          "text": "Important : le graphique prouve l'ampleur de la hausse et de la baisse ; il ne prouve pas, à lui seul, l'état mental de chaque investisseur. L'attribution des biais est une interprétation cohérente avec la littérature comportementale et l'histoire de la bulle, pas un diagnostic individuel."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "5-cas-historique-la-crise-financiere-de-2008",
+      "text": "5. Cas historique : la crise financière de 2008"
+    },
+    {
+      "type": "paragraph",
+      "text": "La crise de 2008 ne fut pas une simple panique boursière. Elle résulte d'une bulle immobilière, de prêts risqués, de titrisation complexe, d'un levier élevé, d'échecs de gouvernance et de régulation, puis d'une rupture de liquidité et de confiance. La psychologie a contribué à sous-estimer les risques pendant le boom et à amplifier certaines réactions pendant la crise.",
+      "segments": [
+        {
+          "text": "La crise de 2008 ne fut pas une simple panique boursière. Elle résulte d'une bulle immobilière, de prêts risqués, de titrisation complexe, d'un levier élevé, d'échecs de gouvernance et de régulation, puis d'une rupture de liquidité et de confiance. La psychologie a contribué à sous-estimer les risques pendant le boom et à amplifier certaines réactions pendant la crise."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "5-1-les-faits-essentiels",
+      "text": "5.1 Les faits essentiels"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "La Financial Crisis Inquiry Commission a conclu que de nombreux signaux d'alerte avaient été ignorés ou minimisés [8].",
+          "segments": [
+            {
+              "text": "La Financial Crisis Inquiry Commission a conclu que de nombreux signaux d'alerte avaient été ignorés ou minimisés [8]."
+            }
+          ]
+        },
+        {
+          "text": "Le rapport officiel décrit des montants considérables engagés sur la croyance que les prix immobiliers continueraient de monter et que les défauts resteraient rares [8].",
+          "segments": [
+            {
+              "text": "Le rapport officiel décrit des montants considérables engagés sur la croyance que les prix immobiliers continueraient de monter et que les défauts resteraient rares [8]."
+            }
+          ]
+        },
+        {
+          "text": "Lehman Brothers fait faillite le 15 septembre 2008, accélérant la crise de confiance.",
+          "segments": [
+            {
+              "text": "Lehman Brothers fait faillite le 15 septembre 2008, accélérant la crise de confiance."
+            }
+          ]
+        },
+        {
+          "text": "Selon Federal Reserve History, le S&P 500 chute de 57 % entre son sommet d'octobre 2007 et son creux de mars 2009 [9].",
+          "segments": [
+            {
+              "text": "Selon Federal Reserve History, le S&P 500 chute de 57 % entre son sommet d'octobre 2007 et son creux de mars 2009 [9]."
+            }
+          ]
+        },
+        {
+          "text": "Sur le Nasdaq Composite, la baisse entre la clôture du 31 octobre 2007 et celle du 9 mars 2009 atteint environ 55,6 % [7].",
+          "segments": [
+            {
+              "text": "Sur le Nasdaq Composite, la baisse entre la clôture du 31 octobre 2007 et celle du 9 mars 2009 atteint environ 55,6 % [7]."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "figure",
+      "src": "/media/5-psychologie-du-trading/5-psychologie-du-trading-6901c1842356.webp",
+      "originalName": "image2.png",
+      "width": 958,
+      "height": 770,
+      "optimized": true,
+      "caption": "Figure 2 - Nasdaq Composite (NASDAQ:IXIC), bougies mensuelles, vue centrée sur la crise de 2008. Source : capture TradingView [7].",
+      "source": "TradingView — Nasdaq Composite (NASDAQ:IXIC), graphique mensuel. Attribution conservée.",
+      "sourceLinks": [],
+      "alt": "Graphique mensuel du Nasdaq Composite montrant la hausse précédant la crise financière puis la baisse de 2008 à 2009."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "5-2-avant-la-crise-les-biais-du-boom",
+      "text": "5.2 Avant la crise : les biais du boom"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Récence : plusieurs années de hausse immobilière rendent la baisse nationale difficile à imaginer.",
+          "segments": [
+            {
+              "text": "Récence : plusieurs années de hausse immobilière rendent la baisse nationale difficile à imaginer."
+            }
+          ]
+        },
+        {
+          "text": "Confirmation : les modèles, notations et profits récents qui rassurent sont privilégiés ; les défauts et signaux faibles sont relativisés.",
+          "segments": [
+            {
+              "text": "Confirmation : les modèles, notations et profits récents qui rassurent sont privilégiés ; les défauts et signaux faibles sont relativisés."
+            }
+          ]
+        },
+        {
+          "text": "Ancrage : les prix immobiliers élevés et les faibles taux de défaut deviennent la nouvelle normalité.",
+          "segments": [
+            {
+              "text": "Ancrage : les prix immobiliers élevés et les faibles taux de défaut deviennent la nouvelle normalité."
+            }
+          ]
+        },
+        {
+          "text": "Surconfiance : la complexité des produits peut créer une illusion de précision et de diversification.",
+          "segments": [
+            {
+              "text": "Surconfiance : la complexité des produits peut créer une illusion de précision et de diversification."
+            }
+          ]
+        },
+        {
+          "text": "Comportement grégaire : refuser une activité rentable suivie par les concurrents peut sembler plus risqué professionnellement que les imiter.",
+          "segments": [
+            {
+              "text": "Comportement grégaire : refuser une activité rentable suivie par les concurrents peut sembler plus risqué professionnellement que les imiter."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "5-3-pendant-la-crise-les-biais-de-la-panique",
+      "text": "5.3 Pendant la crise : les biais de la panique"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Disponibilité : faillites, sauvetages et chutes deviennent omniprésents ; le pire scénario paraît être le seul possible.",
+          "segments": [
+            {
+              "text": "Disponibilité : faillites, sauvetages et chutes deviennent omniprésents ; le pire scénario paraît être le seul possible."
+            }
+          ]
+        },
+        {
+          "text": "Aversion à la perte : des ventes sont déclenchées pour stopper la douleur, parfois après une grande partie de la baisse.",
+          "segments": [
+            {
+              "text": "Aversion à la perte : des ventes sont déclenchées pour stopper la douleur, parfois après une grande partie de la baisse."
+            }
+          ]
+        },
+        {
+          "text": "Effet de troupeau : les ventes forcées, appels de marge et rachats de fonds renforcent le mouvement collectif.",
+          "segments": [
+            {
+              "text": "Effet de troupeau : les ventes forcées, appels de marge et rachats de fonds renforcent le mouvement collectif."
+            }
+          ]
+        },
+        {
+          "text": "Extrapolation pessimiste : après plusieurs séances de baisse, la récence et la disponibilité peuvent conduire certains traders à traiter le pire scénario comme une certitude.",
+          "segments": [
+            {
+              "text": "Extrapolation pessimiste : après plusieurs séances de baisse, la récence et la disponibilité peuvent conduire certains traders à traiter le pire scénario comme une certitude."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "LEÇON DE 2008",
+      "variant": "default",
+      "text": "Un risque longtemps invisible ne devient pas impossible. Plus un régime paraît stable, plus il faut tester ce qui se passerait si l'hypothèse centrale cessait d'être vraie : liquidité disponible, corrélations faibles, refinancement facile ou prix toujours haussiers.",
+      "sourceFill": "FFF4ED"
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "6-cas-moderne-gamestop-fomo-et-preuve-sociale",
+      "text": "6. Cas moderne : GameStop, FOMO et preuve sociale"
+    },
+    {
+      "type": "paragraph",
+      "text": "En janvier 2021, GameStop et d’autres « meme stocks » connaissent des variations extrêmes. Le rapport du personnel de la SEC décrit une forte hausse des prix, de la volatilité, du volume et de l’attention dans un contexte de sentiment haussier largement diffusé sur les réseaux sociaux [10]. Cette concomitance ne suffit pas à attribuer le mouvement à une cause unique.",
+      "segments": [
+        {
+          "text": "En janvier 2021, GameStop et d’autres « meme stocks » connaissent des variations extrêmes. Le rapport du personnel de la SEC décrit une forte hausse des prix, de la volatilité, du volume et de l’attention dans un contexte de sentiment haussier largement diffusé sur les réseaux sociaux [10]. Cette concomitance ne suffit pas à attribuer le mouvement à une cause unique."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "6-1-ce-que-ce-cas-illustre",
+      "text": "6.1 Ce que ce cas illustre"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "FOMO : le coût psychologique de ne pas participer semble supérieur au risque de perte.",
+          "segments": [
+            {
+              "text": "FOMO : le coût psychologique de ne pas participer semble supérieur au risque de perte."
+            }
+          ]
+        },
+        {
+          "text": "Preuve sociale : le nombre de messages, captures de gains et participants remplace parfois l'analyse.",
+          "segments": [
+            {
+              "text": "Preuve sociale : le nombre de messages, captures de gains et participants remplace parfois l'analyse."
+            }
+          ]
+        },
+        {
+          "text": "Récence : une hausse très rapide paraît devoir continuer.",
+          "segments": [
+            {
+              "text": "Récence : une hausse très rapide paraît devoir continuer."
+            }
+          ]
+        },
+        {
+          "text": "Confirmation : les messages haussiers sont facilement retenus, tandis que les risques de liquidité et de retournement sont minimisés.",
+          "segments": [
+            {
+              "text": "Confirmation : les messages haussiers sont facilement retenus, tandis que les risques de liquidité et de retournement sont minimisés."
+            }
+          ]
+        },
+        {
+          "text": "Surconfiance : les premiers gains peuvent faire croire qu'un processus extrêmement risqué est maîtrisé.",
+          "segments": [
+            {
+              "text": "Surconfiance : les premiers gains peuvent faire croire qu'un processus extrêmement risqué est maîtrisé."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "PRÉCISION",
+      "variant": "default",
+      "text": "Le cas GameStop ne doit pas être réduit à « des particuliers irrationnels ». Il implique aussi un short interest élevé, des mécanismes de marché, les options, la liquidité et des contraintes de courtage. La SEC n'a pas conclu que l'épisode s'expliquait par une cause psychologique unique [10].",
+      "sourceFill": "EEF6FF"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "6-2-la-regle-pratique",
+      "text": "6.2 La règle pratique"
+    },
+    {
+      "type": "paragraph",
+      "text": "Plus une opportunité est spectaculaire et visible, plus la procédure doit ralentir. L'intensité de l'attention est une information sur le marché, mais pas une preuve de valeur. Une forte attention peut créer une opportunité, un piège ou les deux selon l'horizon.",
+      "segments": [
+        {
+          "text": "Plus une opportunité est spectaculaire et visible, plus la procédure doit ralentir. L'intensité de l'attention est une information sur le marché, mais pas une preuve de valeur. Une forte attention peut créer une opportunité, un piège ou les deux selon l'horizon."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "7-la-methode-anti-biais-transformer-la-discipline-en-systeme",
+      "text": "7. La méthode anti-biais : transformer la discipline en système"
+    },
+    {
+      "type": "paragraph",
+      "text": "La volonté seule est souvent insuffisante. Le stress peut favoriser des réactions plus automatiques et moins flexibles. Une protection pratique consiste donc à préparer avant l’émotion les décisions importantes : critères d’entrée, invalidation, risque, scénarios et conditions de non-trade.",
+      "segments": [
+        {
+          "text": "La volonté seule est souvent insuffisante. Le stress peut favoriser des réactions plus automatiques et moins flexibles. Une protection pratique consiste donc à préparer avant l’émotion les décisions importantes : critères d’entrée, invalidation, risque, scénarios et conditions de non-trade."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "7-1-la-fiche-de-these-pre-trade",
+      "text": "7.1 La fiche de thèse pré-trade"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Actif, sens, horizon et contexte de marché.",
+          "segments": [
+            {
+              "text": "Actif, sens, horizon et contexte de marché."
+            }
+          ]
+        },
+        {
+          "text": "Catalyseur ou logique du setup.",
+          "segments": [
+            {
+              "text": "Catalyseur ou logique du setup."
+            }
+          ]
+        },
+        {
+          "text": "Niveau d'entrée prévu et raison précise.",
+          "segments": [
+            {
+              "text": "Niveau d'entrée prévu et raison précise."
+            }
+          ]
+        },
+        {
+          "text": "Niveau d'invalidation technique ou fondamentale.",
+          "segments": [
+            {
+              "text": "Niveau d'invalidation technique ou fondamentale."
+            }
+          ]
+        },
+        {
+          "text": "Stop, objectif, ratio rendement/risque et taille.",
+          "segments": [
+            {
+              "text": "Stop, objectif, ratio rendement/risque et taille."
+            }
+          ]
+        },
+        {
+          "text": "Scénario haussier, scénario neutre et scénario baissier.",
+          "segments": [
+            {
+              "text": "Scénario haussier, scénario neutre et scénario baissier."
+            }
+          ]
+        },
+        {
+          "text": "Taux de base ou exemple comparable.",
+          "segments": [
+            {
+              "text": "Taux de base ou exemple comparable."
+            }
+          ]
+        },
+        {
+          "text": "Trois faits qui contredisent la thèse.",
+          "segments": [
+            {
+              "text": "Trois faits qui contredisent la thèse."
+            }
+          ]
+        },
+        {
+          "text": "Événement à risque : résultats, banque centrale, inflation, emploi ou géopolitique.",
+          "segments": [
+            {
+              "text": "Événement à risque : résultats, banque centrale, inflation, emploi ou géopolitique."
+            }
+          ]
+        },
+        {
+          "text": "État interne : calme, fatigue, euphorie, frustration ou besoin de se refaire.",
+          "segments": [
+            {
+              "text": "État interne : calme, fatigue, euphorie, frustration ou besoin de se refaire."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "7-2-les-cinq-questions-qui-stoppent-une-decision-impulsive",
+      "text": "7.2 Les cinq questions qui stoppent une décision impulsive"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Si je n'avais aucune position, est-ce que j'entrerais maintenant au même prix ?",
+          "segments": [
+            {
+              "text": "Si je n'avais aucune position, est-ce que j'entrerais maintenant au même prix ?"
+            }
+          ]
+        },
+        {
+          "text": "Quelle information concrète me ferait changer d'avis ?",
+          "segments": [
+            {
+              "text": "Quelle information concrète me ferait changer d'avis ?"
+            }
+          ]
+        },
+        {
+          "text": "Est-ce que j'analyse un fait ou est-ce que je protège mon ego ?",
+          "segments": [
+            {
+              "text": "Est-ce que j'analyse un fait ou est-ce que je protège mon ego ?"
+            }
+          ]
+        },
+        {
+          "text": "Mon risque a-t-il été défini avant que le marché accélère ?",
+          "segments": [
+            {
+              "text": "Mon risque a-t-il été défini avant que le marché accélère ?"
+            }
+          ]
+        },
+        {
+          "text": "Cette décision respecte-t-elle mon plan, même si personne ne la voit et même si le trade perd ?",
+          "segments": [
+            {
+              "text": "Cette décision respecte-t-elle mon plan, même si personne ne la voit et même si le trade perd ?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "7-3-regles-mecaniques-recommandees",
+      "text": "7.3 Règles mécaniques recommandées"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Règle",
+        "Fonction psychologique"
+      ],
+      "rows": [
+        [
+          "Risque fixe",
+          "Limiter le risque par trade et le risque total corrélé. Une forte conviction ne remplace pas une limite."
+        ],
+        [
+          "Stop non élargi",
+          "Le stop ne peut être éloigné que si le risque en euros n'augmente pas et si la règle était prévue."
+        ],
+        [
+          "Délai après émotion",
+          "Après une perte forte ou un gain euphorisant, imposer une pause mesurée en temps, pas en ressenti."
+        ],
+        [
+          "Limite de trades",
+          "Fixer un nombre maximal d'ordres ou une perte journalière maximale."
+        ],
+        [
+          "Watchlist préparée",
+          "Réduire l'influence des actifs soudainement visibles."
+        ],
+        [
+          "Revue hebdomadaire",
+          "Chercher les erreurs récurrentes par catégorie de biais, pas seulement la performance."
+        ]
+      ],
+      "links": [
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "7-4-le-journal-anti-biais",
+      "text": "7.4 Le journal anti-biais"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Date, actif, setup, sens, horizon.",
+          "segments": [
+            {
+              "text": "Date, actif, setup, sens, horizon."
+            }
+          ]
+        },
+        {
+          "text": "Capture avant et après.",
+          "segments": [
+            {
+              "text": "Capture avant et après."
+            }
+          ]
+        },
+        {
+          "text": "Plan initial et modifications en cours de trade.",
+          "segments": [
+            {
+              "text": "Plan initial et modifications en cours de trade."
+            }
+          ]
+        },
+        {
+          "text": "Émotion dominante notée de 0 à 10.",
+          "segments": [
+            {
+              "text": "Émotion dominante notée de 0 à 10."
+            }
+          ]
+        },
+        {
+          "text": "Biais suspectés avant, pendant et après.",
+          "segments": [
+            {
+              "text": "Biais suspectés avant, pendant et après."
+            }
+          ]
+        },
+        {
+          "text": "Décision conforme au plan : oui/non, avec preuve.",
+          "segments": [
+            {
+              "text": "Décision conforme au plan : oui/non, avec preuve."
+            }
+          ]
+        },
+        {
+          "text": "Résultat en R, frais inclus.",
+          "segments": [
+            {
+              "text": "Résultat en R, frais inclus."
+            }
+          ]
+        },
+        {
+          "text": "Leçon de processus en une phrase.",
+          "segments": [
+            {
+              "text": "Leçon de processus en une phrase."
+            }
+          ]
+        },
+        {
+          "text": "Une règle précise à conserver ou modifier.",
+          "segments": [
+            {
+              "text": "Une règle précise à conserver ou modifier."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "RÈGLE D'ÉVALUATION",
+      "variant": "default",
+      "text": "Une bonne revue n'écrit pas « j'aurais dû savoir ». Elle compare ce qui était raisonnablement connaissable avant le trade avec la décision prise à ce moment-là.",
+      "sourceFill": "FFF9EA"
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "8-matrice-de-detection-rapide",
+      "text": "8. Matrice de détection rapide"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Biais",
+        "Signal d'alerte",
+        "Réponse"
+      ],
+      "rows": [
+        [
+          "Surconfiance",
+          "Taille ou fréquence augmente après quelques gains",
+          "Risque fixe + échantillon documenté"
+        ],
+        [
+          "Confirmation",
+          "Je ne lis que les analyses favorables",
+          "Écrire la thèse opposée"
+        ],
+        [
+          "Ancrage",
+          "Je compare au prix d'achat ou à l'ancien sommet",
+          "Revaloriser comme si je n'avais pas la position"
+        ],
+        [
+          "Récence",
+          "J'extrapole les dernières séances",
+          "Comparer plusieurs régimes et taux de base"
+        ],
+        [
+          "Représentativité",
+          "« Le prochain X »",
+          "Étudier la classe de référence"
+        ],
+        [
+          "FOMO/troupeau",
+          "Entrée après accélération sans plan",
+          "Aucun ordre sans invalidation et taille"
+        ],
+        [
+          "Aversion à la perte",
+          "Je déplace le stop",
+          "Perte maximale décidée avant l'entrée"
+        ],
+        [
+          "Disposition",
+          "Gain coupé vite, perte conservée",
+          "Critères de sortie symétriques"
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "9-exercices-d-application",
+      "text": "9. Exercices d'application"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "exercice-1-identifier-le-biais-dominant",
+      "text": "Exercice 1 - Identifier le biais dominant"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Après cinq gains, Léa double son risque et ouvre trois positions supplémentaires.",
+          "segments": [
+            {
+              "text": "Après cinq gains, Léa double son risque et ouvre trois positions supplémentaires."
+            }
+          ]
+        },
+        {
+          "text": "Noah conserve une action à -35 % parce qu'elle valait deux fois plus six mois auparavant.",
+          "segments": [
+            {
+              "text": "Noah conserve une action à -35 % parce qu'elle valait deux fois plus six mois auparavant."
+            }
+          ]
+        },
+        {
+          "text": "Inès vend systématiquement ses positions à +4 %, mais attend sur celles à -15 %.",
+          "segments": [
+            {
+              "text": "Inès vend systématiquement ses positions à +4 %, mais attend sur celles à -15 %."
+            }
+          ]
+        },
+        {
+          "text": "Adam achète un titre après l'avoir vu dix fois sur les réseaux sociaux dans la même journée.",
+          "segments": [
+            {
+              "text": "Adam achète un titre après l'avoir vu dix fois sur les réseaux sociaux dans la même journée."
+            }
+          ]
+        },
+        {
+          "text": "Sara achète une jeune société d'intelligence artificielle en l'appelant « le prochain Nvidia », sans comparer ses marges ni son financement.",
+          "segments": [
+            {
+              "text": "Sara achète une jeune société d'intelligence artificielle en l'appelant « le prochain Nvidia », sans comparer ses marges ni son financement."
+            }
+          ]
+        },
+        {
+          "text": "Yanis cherche uniquement les vidéos qui confirment sa prévision haussière.",
+          "segments": [
+            {
+              "text": "Yanis cherche uniquement les vidéos qui confirment sa prévision haussière."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Consigne : nommez le biais principal, indiquez un biais secondaire possible, puis proposez une règle de protection observable.",
+      "segments": [
+        {
+          "text": "Consigne : nommez le biais principal, indiquez un biais secondaire possible, puis proposez une règle de protection observable."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "exercice-2-decision-ou-resultat",
+      "text": "Exercice 2 - Décision ou résultat ?"
+    },
+    {
+      "type": "paragraph",
+      "text": "Un trader respecte son plan : risque 0,5 %, stop cohérent, publication vérifiée, ratio 2:1. Le trade perd. Un autre entre sans plan avant une annonce, risque 5 % et gagne. Qui a pris la meilleure décision ? Expliquez pourquoi le résultat ne suffit pas à répondre.",
+      "segments": [
+        {
+          "text": "Un trader respecte son plan : risque 0,5 %, stop cohérent, publication vérifiée, ratio 2:1. Le trade perd. Un autre entre sans plan avant une annonce, risque 5 % et gagne. Qui a pris la meilleure décision ? Expliquez pourquoi le résultat ne suffit pas à répondre."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "exercice-3-autopsie-d-une-position-perdante",
+      "text": "Exercice 3 - Autopsie d'une position perdante"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Écrivez la thèse initiale en une phrase.",
+          "segments": [
+            {
+              "text": "Écrivez la thèse initiale en une phrase."
+            }
+          ]
+        },
+        {
+          "text": "Listez les informations disponibles avant l'entrée.",
+          "segments": [
+            {
+              "text": "Listez les informations disponibles avant l'entrée."
+            }
+          ]
+        },
+        {
+          "text": "Identifiez le premier moment où la thèse a été invalidée.",
+          "segments": [
+            {
+              "text": "Identifiez le premier moment où la thèse a été invalidée."
+            }
+          ]
+        },
+        {
+          "text": "Repérez chaque modification du plan.",
+          "segments": [
+            {
+              "text": "Repérez chaque modification du plan."
+            }
+          ]
+        },
+        {
+          "text": "Associez un biais possible à chaque modification.",
+          "segments": [
+            {
+              "text": "Associez un biais possible à chaque modification."
+            }
+          ]
+        },
+        {
+          "text": "Formulez une seule règle mécanique pour empêcher la répétition.",
+          "segments": [
+            {
+              "text": "Formulez une seule règle mécanique pour empêcher la répétition."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "10-corriges",
+      "text": "10. Corrigés"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "corrige-de-l-exercice-1",
+      "text": "Corrigé de l'exercice 1"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Léa : surconfiance ; secondaire possible : récence. Protection : risque fixe et augmentation uniquement après revue d'un échantillon défini.",
+          "segments": [
+            {
+              "text": "Léa : surconfiance ; secondaire possible : récence. Protection : risque fixe et augmentation uniquement après revue d'un échantillon défini."
+            }
+          ]
+        },
+        {
+          "text": "Noah : ancrage ; secondaire : aversion à la perte. Protection : réévaluer la thèse sans tenir compte du prix d'achat.",
+          "segments": [
+            {
+              "text": "Noah : ancrage ; secondaire : aversion à la perte. Protection : réévaluer la thèse sans tenir compte du prix d'achat."
+            }
+          ]
+        },
+        {
+          "text": "Inès : effet de disposition. Protection : sorties fondées sur l'invalidation et la tendance, pas sur le signe du P&L.",
+          "segments": [
+            {
+              "text": "Inès : effet de disposition. Protection : sorties fondées sur l'invalidation et la tendance, pas sur le signe du P&L."
+            }
+          ]
+        },
+        {
+          "text": "Adam : FOMO/troupeau ; secondaire : récence-disponibilité. Protection : délai et checklist pour toute idée hors watchlist.",
+          "segments": [
+            {
+              "text": "Adam : FOMO/troupeau ; secondaire : récence-disponibilité. Protection : délai et checklist pour toute idée hors watchlist."
+            }
+          ]
+        },
+        {
+          "text": "Sara : représentativité et oubli des taux de base. Protection : définir une classe de référence et comparer des données vérifiables.",
+          "segments": [
+            {
+              "text": "Sara : représentativité et oubli des taux de base. Protection : définir une classe de référence et comparer des données vérifiables."
+            }
+          ]
+        },
+        {
+          "text": "Yanis : biais de confirmation. Protection : construire l'argument opposé et trois critères d'invalidation.",
+          "segments": [
+            {
+              "text": "Yanis : biais de confirmation. Protection : construire l'argument opposé et trois critères d'invalidation."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "corrige-de-l-exercice-2",
+      "text": "Corrigé de l'exercice 2"
+    },
+    {
+      "type": "paragraph",
+      "text": "Le premier trader a pris la meilleure décision, même si elle a perdu. Il a contrôlé ce qui dépendait de lui. Le second a obtenu le meilleur résultat, mais sa décision exposait le capital à un risque disproportionné. Répété suffisamment souvent, ce comportement peut conduire à une perte majeure.",
+      "segments": [
+        {
+          "text": "Le premier trader a pris la meilleure décision, même si elle a perdu. Il a contrôlé ce qui dépendait de lui. Le second a obtenu le meilleur résultat, mais sa décision exposait le capital à un risque disproportionné. Répété suffisamment souvent, ce comportement peut conduire à une perte majeure."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "11-conclusion-le-trader-contre-lui-meme",
+      "text": "11. Conclusion : le trader contre lui-même ?"
+    },
+    {
+      "type": "paragraph",
+      "text": "Le problème n’est pas d’éprouver des émotions ni de pouvoir subir des biais : ces mécanismes peuvent apparaître chez les débutants comme chez les personnes expérimentées, sans être présents dans chaque décision. Le risque consiste à leur laisser le dernier mot sur la taille, l’entrée, la sortie et l’exposition. Le trader progresse lorsqu’il construit un environnement où l’erreur psychologique devient plus difficile à exécuter.",
+      "segments": [
+        {
+          "text": "Le problème n’est pas d’éprouver des émotions ni de pouvoir subir des biais : ces mécanismes peuvent apparaître chez les débutants comme chez les personnes expérimentées, sans être présents dans chaque décision. Le risque consiste à leur laisser le dernier mot sur la taille, l’entrée, la sortie et l’exposition. Le trader progresse lorsqu’il construit un environnement où l’erreur psychologique devient plus difficile à exécuter."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "À RETENIR",
+      "variant": "default",
+      "text": "Prévoir le marché est incertain. Préparer sa réaction ne l'est pas. La psychologie du trading devient réellement utile lorsqu'elle se transforme en limites, checklists, critères d'invalidation, pauses et revues mesurables.",
+      "sourceFill": "EEF6FF"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "les-10-idees-a-memoriser",
+      "text": "Les 10 idées à mémoriser"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Un biais est une erreur systématique, pas une preuve de stupidité.",
+          "segments": [
+            {
+              "text": "Un biais est une erreur systématique, pas une preuve de stupidité."
+            }
+          ]
+        },
+        {
+          "text": "Le trading active les biais par l'incertitude, la vitesse, l'argent et le feedback continu.",
+          "segments": [
+            {
+              "text": "Le trading active les biais par l'incertitude, la vitesse, l'argent et le feedback continu."
+            }
+          ]
+        },
+        {
+          "text": "Une bonne décision peut perdre ; une mauvaise peut gagner.",
+          "segments": [
+            {
+              "text": "Une bonne décision peut perdre ; une mauvaise peut gagner."
+            }
+          ]
+        },
+        {
+          "text": "Le prix d'achat n'est pas une valeur fondamentale.",
+          "segments": [
+            {
+              "text": "Le prix d'achat n'est pas une valeur fondamentale."
+            }
+          ]
+        },
+        {
+          "text": "Le groupe et l'attention ne remplacent pas une thèse.",
+          "segments": [
+            {
+              "text": "Le groupe et l'attention ne remplacent pas une thèse."
+            }
+          ]
+        },
+        {
+          "text": "Une petite perte contrôlée réduit le risque qu’une erreur isolée devienne une perte difficile à récupérer.",
+          "segments": [
+            {
+              "text": "Une petite perte contrôlée réduit le risque qu’une erreur isolée devienne une perte difficile à récupérer."
+            }
+          ]
+        },
+        {
+          "text": "Les gagnants ne doivent pas être coupés uniquement pour ressentir un succès.",
+          "segments": [
+            {
+              "text": "Les gagnants ne doivent pas être coupés uniquement pour ressentir un succès."
+            }
+          ]
+        },
+        {
+          "text": "Les taux de base protègent contre les histoires trop séduisantes.",
+          "segments": [
+            {
+              "text": "Les taux de base protègent contre les histoires trop séduisantes."
+            }
+          ]
+        },
+        {
+          "text": "Les critères d'invalidation doivent être écrits avant l'entrée.",
+          "segments": [
+            {
+              "text": "Les critères d'invalidation doivent être écrits avant l'entrée."
+            }
+          ]
+        },
+        {
+          "text": "La discipline est un système observable, pas une simple intention.",
+          "segments": [
+            {
+              "text": "La discipline est un système observable, pas une simple intention."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "sources-et-bibliographie-selective",
+      "text": "Sources et bibliographie sélective"
+    },
+    {
+      "type": "paragraph",
+      "text": "Les sources ci-dessous ont été privilégiées pour leur caractère académique, institutionnel ou réglementaire. Les deux graphiques boursiers sont des captures attribuées à TradingView.",
+      "segments": [
+        {
+          "text": "Les sources ci-dessous ont été privilégiées pour leur caractère académique, institutionnel ou réglementaire. Les deux graphiques boursiers sont des captures attribuées à TradingView."
+        }
+      ]
+    },
+    {
+      "type": "sources",
+      "scope": "global",
+      "entries": [
+        {
+          "text": "[1] Nobel Prize - Daniel Kahneman, facts and 2002 prize materials.",
+          "links": [
+            "https://www.nobelprize.org/prizes/economic-sciences/2002/kahneman/facts/"
+          ]
+        },
+        {
+          "text": "[2] Tversky, A. & Kahneman, D. (1974), Judgment under Uncertainty: Heuristics and Biases, Science.",
+          "links": [
+            "https://pubmed.ncbi.nlm.nih.gov/17835457/"
+          ]
+        },
+        {
+          "text": "[3] Kahneman, D. & Tversky, A. (1979), Prospect Theory: An Analysis of Decision under Risk, Econometrica.",
+          "links": [
+            "https://web.mit.edu/curhan/www/docs/Articles/15341_Readings/Behavioral_Decision_Theory/Kahneman_Tversky_1979_Prospect_theory.pdf"
+          ]
+        },
+        {
+          "text": "[4] Barber, B. M. & Odean, T. (2000), Trading Is Hazardous to Your Wealth, Journal of Finance.",
+          "links": [
+            "https://faculty.haas.berkeley.edu/odean/papers%20current%20versions/individual_investor_performance_final.pdf"
+          ]
+        },
+        {
+          "text": "[5] Odean, T. (1998), Are Investors Reluctant to Realize Their Losses?, Journal of Finance.",
+          "links": [
+            "https://faculty.haas.berkeley.edu/odean/papers%20current%20versions/areinvestorsreluctant.pdf"
+          ]
+        },
+        {
+          "text": "[6] Pástor, L. & Veronesi, P. (NBER), Was There a Nasdaq Bubble in the Late 1990s?",
+          "links": [
+            "https://www.nber.org/system/files/working_papers/w10581/w10581.pdf"
+          ]
+        },
+        {
+          "text": "[7] TradingView, Nasdaq Composite Index (NASDAQ:IXIC), graphique en bougies mensuelles.",
+          "links": [
+            "https://www.tradingview.com/chart/?symbol=NASDAQ%3AIXIC&interval=M"
+          ]
+        },
+        {
+          "text": "[8] Financial Crisis Inquiry Commission (2011), The Financial Crisis Inquiry Report, official U.S. government edition.",
+          "links": [
+            "https://www.govinfo.gov/content/pkg/GPO-FCIC/pdf/GPO-FCIC.pdf"
+          ]
+        },
+        {
+          "text": "[9] Federal Reserve History, The Great Recession.",
+          "links": [
+            "https://www.federalreservehistory.org/essays/great-recession-of-200709"
+          ]
+        },
+        {
+          "text": "[10] U.S. Securities and Exchange Commission (2021), Staff Report on Equity and Options Market Structure Conditions in Early 2021.",
+          "links": [
+            "https://www.sec.gov/files/staff-report-equity-options-market-struction-conditions-early-2021.pdf"
+          ]
+        },
+        {
+          "text": "[11] NBER, A Short Note on the Size of the Dot-Com Bubble.",
+          "links": [
+            "https://www.nber.org/system/files/working_papers/w12011/w12011.pdf"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "note-methodologique-sur-les-graphiques",
+      "text": "Note méthodologique sur les graphiques"
+    },
+    {
+      "type": "paragraph",
+      "text": "Les figures 1 et 2 sont des captures du graphique TradingView du Nasdaq Composite (symbole NASDAQ:IXIC), en bougies mensuelles. Elles ont été centrées respectivement sur la bulle Internet et la crise de 2008, puis recadrées pour retirer les panneaux de navigation sans modifier les prix, les bougies, les volumes, les axes ni la marque TradingView.",
+      "segments": [
+        {
+          "text": "Les figures 1 et 2 sont des captures du graphique TradingView du Nasdaq Composite (symbole NASDAQ:IXIC), en bougies mensuelles. Elles ont été centrées respectivement sur la bulle Internet et la crise de 2008, puis recadrées pour retirer les panneaux de navigation sans modifier les prix, les bougies, les volumes, les axes ni la marque TradingView."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Date de vérification des sources pour la version Web : 28 juillet 2026. Ce support est éducatif et ne constitue pas un conseil financier personnalisé.",
+      "segments": [
+        {
+          "text": "Date de vérification des sources pour la version Web : 28 juillet 2026. Ce support est éducatif et ne constitue pas un conseil financier personnalisé."
+        }
+      ]
+    }
+  ]
+}

@@ -1254,5 +1254,149 @@
         ]
       }
     ]
+  },
+  "5-psychologie-du-trading": {
+    "title": "QCM du Volume 5 — Psychologie du trading",
+    "intro": "La Partie 1 se valide avec 10 questions consacrées aux biais, aux mécanismes psychologiques et aux protections observables.",
+    "parts": [
+      {
+        "order": 1,
+        "id": "partie-1",
+        "title": "QCM de la Partie 1 — Biais cognitifs",
+        "intro": "10 questions pour reconnaître les mécanismes psychologiques, distinguer observation et causalité, puis choisir une règle de protection adaptée.",
+        "questions": [
+          {
+            "id": "v5-p1-q1",
+            "difficulty": "Facile",
+            "question": "Que désigne un biais cognitif dans ce cours ?",
+            "options": [
+              "Une erreur purement aléatoire qui ne se répète jamais",
+              "Une déviation systématique du jugement qui apparaît dans certaines situations",
+              "Un manque d’intelligence propre aux débutants",
+              "Une émotion qui provoque toujours une perte"
+            ],
+            "answer": 1,
+            "explanation": "Un biais correspond à une tendance prévisible du jugement dans certaines situations. Il ne touche pas uniquement les débutants et ne détermine pas automatiquement le résultat d’un trade."
+          },
+          {
+            "id": "v5-p1-q2",
+            "difficulty": "Facile",
+            "question": "Un trader respecte son plan, limite son risque et accepte son invalidation, mais le trade perd. Quelle conclusion est la plus rigoureuse ?",
+            "options": [
+              "La décision était forcément mauvaise puisque le résultat est négatif",
+              "Le plan était inutile car un bon processus gagne toujours",
+              "La décision peut être correcte même si l’issue est défavorable",
+              "Il faut augmenter le risque sur le trade suivant"
+            ],
+            "answer": 2,
+            "explanation": "La qualité d’une décision s’évalue à partir des informations disponibles et du processus suivi avant de connaître l’issue. Un bon processus ne supprime pas l’incertitude."
+          },
+          {
+            "id": "v5-p1-q3",
+            "difficulty": "Intermédiaire",
+            "question": "Que démontre directement l’étude de Barber et Odean sur les ménages les plus actifs ?",
+            "options": [
+              "Chaque participant souffrait personnellement de surconfiance",
+              "Le trading actif produit toujours une perte absolue",
+              "L’étude permet de prédire la performance future de tout trader",
+              "Dans l’échantillon étudié, les ménages les plus actifs ont sous-performé le marché après coûts"
+            ],
+            "answer": 3,
+            "explanation": "L’étude observe une relation entre forte activité, coûts et performance dans un échantillon précis. La surconfiance est une explication compatible avec le résultat, mais elle n’est pas directement mesurée chez chaque individu."
+          },
+          {
+            "id": "v5-p1-q4",
+            "difficulty": "Intermédiaire",
+            "question": "Quelle pratique protège le mieux contre le biais de confirmation avant une entrée ?",
+            "options": [
+              "Écrire les faits capables d’invalider la thèse et rechercher l’argument opposé",
+              "Consulter uniquement les analyses favorables",
+              "Modifier la thèse dès que le prix varie légèrement",
+              "Supprimer tout scénario contraire pour rester discipliné"
+            ],
+            "answer": 0,
+            "explanation": "Des critères d’invalidation écrits avant l’entrée empêchent plus difficilement la thèse de devenir irréfutable après coup."
+          },
+          {
+            "id": "v5-p1-q5",
+            "difficulty": "Intermédiaire",
+            "question": "Une action est passée de 100 € à 60 €. Le trader affirme qu’elle est bon marché uniquement parce qu’elle valait autrefois 100 €. Quel biais domine ?",
+            "options": [
+              "La disponibilité",
+              "L’ancrage",
+              "L’effet de troupeau",
+              "La diversification"
+            ],
+            "answer": 1,
+            "explanation": "L’ancien prix agit comme une référence excessive. Il faut réexaminer les fondamentaux, les risques et la thèse actuelle plutôt que traiter l’ancien sommet comme une valeur normale."
+          },
+          {
+            "id": "v5-p1-q6",
+            "difficulty": "Intermédiaire",
+            "question": "Pourquoi l’expression « le prochain Nvidia » peut-elle conduire à une mauvaise analyse ?",
+            "options": [
+              "Parce qu’aucune entreprise ne peut croître rapidement",
+              "Parce que les comparaisons sectorielles sont toujours interdites",
+              "Parce que la ressemblance narrative peut faire oublier les taux de base et les différences économiques",
+              "Parce que le prix d’une action ne dépend jamais de ses résultats"
+            ],
+            "answer": 2,
+            "explanation": "La représentativité confond une ressemblance visible avec une probabilité de réussite. Une classe de référence, les marges, le financement et la concurrence doivent compléter le récit."
+          },
+          {
+            "id": "v5-p1-q7",
+            "difficulty": "Intermédiaire",
+            "question": "Quelle description de la FOMO est la plus exacte ?",
+            "options": [
+              "Une méthode d’analyse fondamentale",
+              "Une garantie qu’un mouvement populaire va continuer",
+              "Un synonyme strict de l’ancrage",
+              "Un état émotionnel lié à la peur de manquer une occasion, capable de renforcer le comportement grégaire"
+            ],
+            "answer": 3,
+            "explanation": "La FOMO n’est pas un biais cognitif isolé au même titre que l’ancrage. Elle peut accélérer une décision impulsive et renforcer l’imitation du groupe."
+          },
+          {
+            "id": "v5-p1-q8",
+            "difficulty": "Approfondissement",
+            "question": "Quelle distinction entre aversion à la perte et effet de disposition est correcte ?",
+            "options": [
+              "L’aversion à la perte décrit une asymétrie de préférence ; l’effet de disposition est un comportement de vente et de conservation qui peut en découler",
+              "Les deux expressions désignent exactement le déplacement d’un stop",
+              "L’effet de disposition est la cause unique de toute perte",
+              "L’aversion à la perte touche uniquement les positions gagnantes"
+            ],
+            "answer": 0,
+            "explanation": "La théorie des perspectives peut contribuer à expliquer l’effet de disposition, mais le lien dépend notamment du point de référence et ne constitue pas une causalité universelle."
+          },
+          {
+            "id": "v5-p1-q9",
+            "difficulty": "Approfondissement",
+            "question": "Quelle limite faut-il connaître lorsqu’un ordre stop est utilisé pour contrôler une perte ?",
+            "options": [
+              "Un stop empêche toute perte sur le compte",
+              "Le prix de déclenchement n’est pas nécessairement le prix d’exécution dans un marché rapide ou après un gap",
+              "Un stop garantit toujours une exécution exacte au centime près",
+              "Un stop ne peut jamais être déclenché par une fluctuation courte"
+            ],
+            "answer": 1,
+            "explanation": "Un ordre stop devient généralement un ordre au marché lorsqu’il est déclenché. Son prix d’exécution peut donc différer du seuil prévu lorsque la liquidité est faible ou que le prix se déplace rapidement."
+          },
+          {
+            "id": "v5-p1-q10",
+            "difficulty": "Approfondissement",
+            "question": "Quelle méthode réduit le mieux le risque d’attribuer abusivement un krach à la seule psychologie ?",
+            "options": [
+              "Déduire l’état mental des investisseurs à partir d’une seule bougie",
+              "Choisir un biais après coup puis ignorer les autres données",
+              "Relier prudemment les comportements possibles au crédit, au levier, à la liquidité, aux profits et à la structure du marché",
+              "Considérer toute baisse comme une preuve de panique irrationnelle"
+            ],
+            "answer": 2,
+            "explanation": "Les biais offrent une grille de lecture, pas une cause unique. Une analyse rigoureuse distingue ce que montre le prix, les mécanismes économiques observables et les interprétations psychologiques possibles."
+          }
+        ]
+      }
+    ]
   }
 }

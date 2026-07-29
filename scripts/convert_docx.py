@@ -75,6 +75,28 @@ def replace_text_values(value, match_text: str, replacement_text: str):
     return value, 0
 
 
+def synchronize_text_segments(value):
+    """Keep rendered rich-text segments aligned with an overridden block text."""
+    if isinstance(value, list):
+        return [synchronize_text_segments(item) for item in value]
+    if not isinstance(value, dict):
+        return value
+
+    synchronized = {
+        key: synchronize_text_segments(item)
+        for key, item in value.items()
+    }
+    text = synchronized.get("text")
+    segments = synchronized.get("segments")
+    if isinstance(text, str) and isinstance(segments, list):
+        rendered_text = clean_text(
+            "".join(str(segment.get("text", "")) for segment in segments if isinstance(segment, dict))
+        )
+        if rendered_text != clean_text(text):
+            synchronized["segments"] = [{"text": text}]
+    return synchronized
+
+
 def normalize_label(value: str) -> str:
     return re.sub(r"\s+", " ", clean_text(value).upper()).strip(" :—–-")
 
@@ -623,7 +645,10 @@ class DocxConverter:
                 if re.match(r"^Figure\s+\d+\s*[—–-]", text, re.IGNORECASE):
                     if last_figure_index is not None and last_figure_index >= len(blocks) - 2:
                         blocks[last_figure_index]["caption"] = text
-                        blocks[last_figure_index]["alt"] = re.sub(r"^Figure\s+\d+\s*[—–-]\s*", "", text)
+                        if not blocks[last_figure_index].get("alt"):
+                            blocks[last_figure_index]["alt"] = re.sub(
+                                r"^Figure\s+\d+\s*[—–-]\s*", "", text
+                            )
                         continue
                 if re.match(r"^Sources?\s*:", text, re.IGNORECASE):
                     if (
@@ -769,6 +794,31 @@ class DocxConverter:
             blocks, replacement_count = replace_text_values(blocks, match_text, replacement_text)
             if replacement_count < 1:
                 raise ValueError(f"Configured text replacement target not found: {match_text}")
+        blocks = synchronize_text_segments(blocks)
+
+        configured_range_removals = self.metadata_overrides.get("removeBlockRanges") or []
+        for configured_removal in configured_range_removals:
+            start_id = str(configured_removal.get("startId", "")).strip()
+            end_id = str(configured_removal.get("endId", "")).strip()
+            if not start_id or not end_id:
+                continue
+            start_index = next(
+                (index for index, block in enumerate(blocks) if block.get("id") == start_id),
+                -1,
+            )
+            end_index = next(
+                (
+                    index
+                    for index, block in enumerate(blocks)
+                    if index > start_index and block.get("id") == end_id
+                ),
+                -1,
+            )
+            if start_index < 0 or end_index < 0:
+                raise ValueError(
+                    f"Configured block range not found: {start_id} -> {end_id}"
+                )
+            del blocks[start_index:end_index]
 
         blocks = self._postprocess_case_headers(blocks)
         for supplemental_block in deepcopy(self.supplemental_blocks):

@@ -396,6 +396,94 @@
         "figureCount": 22
       },
       "archetype": "macroeconomic_analysis"
+    },
+    {
+      "file": "5-psychologie-du-trading.json",
+      "metadata": {
+        "id": "volume-5",
+        "order": 5,
+        "volumeNumber": 5,
+        "title": "Psychologie du trading",
+        "subtitle": "Reconnaître les biais, protéger ses décisions et construire une discipline observable.",
+        "description": "Comprendre les mécanismes psychologiques qui influencent les décisions sous incertitude, puis les transformer en règles de préparation, d’invalidation et de gestion du risque.",
+        "edition": null,
+        "format": "Niveau : débutant  |  Support pédagogique  |  Juillet 2026",
+        "coverLines": [
+          "FORMATION TRADING & INVESTISSEMENT",
+          "Volume 5",
+          "Psychologie du trading",
+          "Partie 1 - Les biais cognitifs",
+          "Comprendre les erreurs prévisibles du cerveau pour protéger ses décisions,\nson capital et sa discipline.",
+          "Niveau : débutant  |  Support pédagogique  |  Juillet 2026"
+        ],
+        "tags": [
+          "psychologie du trading",
+          "biais cognitifs",
+          "surconfiance",
+          "confirmation",
+          "ancrage",
+          "récence",
+          "représentativité",
+          "FOMO",
+          "aversion à la perte",
+          "effet de disposition",
+          "discipline",
+          "journal de trading",
+          "gestion du risque"
+        ],
+        "highlights": [
+          {
+            "number": "01",
+            "title": "Reconnaître",
+            "text": "Identifier le biais ou le mécanisme psychologique sans transformer une hypothèse en diagnostic."
+          },
+          {
+            "number": "02",
+            "title": "Invalider",
+            "text": "Écrire avant l’entrée les faits capables de remettre en cause la thèse."
+          },
+          {
+            "number": "03",
+            "title": "Protéger",
+            "text": "Transformer la discipline en limites, checklists, pauses et revues mesurables."
+          }
+        ],
+        "parts": [
+          {
+            "order": 1,
+            "id": "partie-1-biais-cognitifs",
+            "startId": "comment-utiliser-ce-cours",
+            "title": "Les biais cognitifs",
+            "subtitle": "Décision · émotions · erreurs prévisibles · discipline",
+            "description": "Identifier les biais et mécanismes psychologiques qui apparaissent avant, pendant et après une position, puis construire des protections observables.",
+            "tocIds": [
+              "comment-utiliser-ce-cours",
+              "1-fondements-decider-lorsque-l-avenir-est-inconnu",
+              "2-les-8-biais-cognitifs-essentiels",
+              "3-ce-que-montrent-les-etudes-sur-les-investisseurs",
+              "4-cas-historique-la-bulle-internet-et-le-krach-de-2000",
+              "5-cas-historique-la-crise-financiere-de-2008",
+              "6-cas-moderne-gamestop-fomo-et-preuve-sociale",
+              "7-la-methode-anti-biais-transformer-la-discipline-en-systeme",
+              "8-matrice-de-detection-rapide",
+              "9-exercices-d-application",
+              "10-corriges",
+              "11-conclusion-le-trader-contre-lui-meme",
+              "sources-et-bibliographie-selective"
+            ]
+          }
+        ],
+        "partSequenceComplete": false,
+        "slug": "5-psychologie-du-trading"
+      },
+      "stats": {
+        "wordCount": 4547,
+        "readingMinutes": 21,
+        "chapterCount": 13,
+        "dossierCount": 0,
+        "figureCount": 2
+      },
+      "archetype": "trading_psychology"
     }
   ]
 }

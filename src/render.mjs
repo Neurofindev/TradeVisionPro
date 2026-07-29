@@ -102,7 +102,7 @@ function formatNumber(value) {
   return new Intl.NumberFormat("fr-FR").format(value || 0);
 }
 
-const VOLUME_PREREQUISITES = { 2: 1, 3: 1, 4: 3 };
+const VOLUME_PREREQUISITES = { 2: 1, 3: 1, 4: 3, 5: 4 };
 
 function prerequisiteVolumeOrder(volumeOrder) {
   return Number(VOLUME_PREREQUISITES[volumeOrder] || Math.max(1, volumeOrder - 1));
@@ -395,6 +395,7 @@ function archetypeLabel(volume) {
     case_dossiers: "Cas historiques",
     technical_analysis: "Analyse technique",
     macroeconomic_analysis: "Macroéconomie",
+    trading_psychology: "Psychologie",
     conceptual: "Fondations",
   };
   return labels[volume.archetype] || "Formation";
@@ -510,7 +511,7 @@ export function renderHome(volumes) {
       <div class="home-hero__content">
         <p class="eyebrow">TradeVisionPro · Édition 2026</p>
         <h1>Lire les marchés.<br><em>Comprendre les mécanismes.</em></h1>
-        <p class="home-hero__lead">Une formation structurée pour relier analyse fondamentale, comportement des prix, gestion du risque, timing et macroéconomie — des fondations jusqu’à la lecture des publications économiques.</p>
+        <p class="home-hero__lead">Une formation structurée pour relier analyse fondamentale, comportement des prix, gestion du risque, timing, macroéconomie et psychologie — des fondations jusqu’à la discipline de décision.</p>
         <div class="hero-actions"><a class="button button--primary" href="${escapeHtml(
           sitePath(`/volumes/${first.metadata.slug}/`),
         )}" data-volume-link data-volume-order="1">Commencer le Volume 1</a><a class="button button--secondary" href="${sitePath("/volumes/")}">Voir le parcours</a></div>
@@ -526,7 +527,7 @@ export function renderHome(volumes) {
       </aside>
     </section>
     <section class="section-shell section-shell--volumes">
-      <div class="section-heading"><div><p class="eyebrow">Le parcours</p><h2>Quatre angles, une même discipline</h2></div><p>Chaque volume possède sa propre structure, mais partage un langage visuel et une méthode de lecture cohérents.</p></div>
+      <div class="section-heading"><div><p class="eyebrow">Le parcours</p><h2>Cinq angles, une même discipline</h2></div><p>Chaque volume possède sa propre structure, mais partage un langage visuel et une méthode de lecture cohérents.</p></div>
       <div class="volume-grid">${volumes.map((volume, index) => renderVolumeCard(volume, index === 0)).join("")}</div>
     </section>
     <section class="method-band">
@@ -713,8 +714,12 @@ function renderQuiz(volume, quiz, volumes, part = null, parts = []) {
 function renderPartNavigation(volume, partGroups) {
   const countWords = { 1: "Une", 2: "Deux", 3: "Trois" };
   const countLabel = countWords[partGroups.length] || String(partGroups.length);
+  const progressionCopy =
+    partGroups.length === 1 && volume.metadata.partSequenceComplete === false
+      ? "Validez cette première partie avec au moins 8/10. Votre meilleur score sera conservé pour la suite du Volume."
+      : "Obtenez au moins 8/10 au QCM d’une partie pour ouvrir la suivante.";
   return `<section class="volume-parts-map" aria-labelledby="volume-parts-title">
-    <header><div><p class="eyebrow">Parcours du ${volumeLabel(volume)}</p><h2 id="volume-parts-title">${countLabel} partie${partGroups.length > 1 ? "s" : ""}, ${countLabel.toLowerCase()} validation${partGroups.length > 1 ? "s" : ""}</h2></div><p>Obtenez au moins 8/10 au QCM d’une partie pour ouvrir la suivante.</p></header>
+    <header><div><p class="eyebrow">Parcours du ${volumeLabel(volume)}</p><h2 id="volume-parts-title">${countLabel} partie${partGroups.length > 1 ? "s" : ""}, ${countLabel.toLowerCase()} validation${partGroups.length > 1 ? "s" : ""}</h2></div><p>${progressionCopy}</p></header>
     <ol>${partGroups
       .map(
         (part) => `<li><a href="#${escapeHtml(part.id)}" data-volume-part-link data-part-order="${part.order}">
@@ -769,9 +774,13 @@ function renderPartQuizzes(volume, quiz, volumes, partGroups) {
       .map((part) => {
         const partQuiz = quizzes.find((candidate) => Number(candidate.order) === Number(part.order));
         return `<section class="part-quiz" id="exercices-partie-${part.order}" data-part-quiz data-part-order="${part.order}">
-          <section class="volume-part-lock volume-part-lock--quiz" data-part-quiz-lock${part.order === 1 ? " hidden" : ""} aria-labelledby="part-quiz-lock-title-${part.order}">
+          ${
+            part.order > 1
+              ? `<section class="volume-part-lock volume-part-lock--quiz" data-part-quiz-lock aria-labelledby="part-quiz-lock-title-${part.order}">
             <span aria-hidden="true">◇</span><div><p class="eyebrow">QCM verrouillé</p><h3 id="part-quiz-lock-title-${part.order}">La Partie ${part.order} doit d’abord être accessible</h3><p>Obtenez au moins <strong>8/10</strong> au QCM de la Partie ${part.order - 1} pour ouvrir ce questionnaire.</p></div>
-          </section>
+          </section>`
+              : ""
+          }
           <div data-part-quiz-protected${part.order > 1 ? " hidden" : ""}>${renderQuiz(volume, partQuiz, volumes, part, partGroups)}</div>
         </section>`;
       })
@@ -788,7 +797,7 @@ export function renderVolumePage(volume, volumes, quiz) {
   const toc = partGroups.length ? buildPartsToc(volume, partGroups) : buildToc(volume.blocks);
   const groups = sectionGroups(volume.blocks);
   const countLabel = partGroups.length
-    ? `${partGroups.length} parties`
+    ? `${partGroups.length} partie${partGroups.length > 1 ? "s" : ""}`
     : volume.stats.dossierCount
     ? `${volume.stats.dossierCount} dossiers`
     : `${volume.stats.chapterCount} chapitre${volume.stats.chapterCount > 1 ? "s" : ""}`;
@@ -809,7 +818,7 @@ export function renderVolumePage(volume, volumes, quiz) {
           <p class="volume-hero__description">${escapeHtml(metadata.description || "")}</p>
           <div class="volume-hero__meta"><span>${countLabel}</span><span>${volume.stats.readingMinutes} min</span><span>${formatNumber(
             volume.stats.wordCount,
-          )} mots</span>${volume.stats.figureCount ? `<span>${volume.stats.figureCount} figures</span>` : ""}</div>
+          )} mots</span>${volume.stats.figureCount ? `<span>${volume.stats.figureCount} figure${volume.stats.figureCount > 1 ? "s" : ""}</span>` : ""}</div>
         </header>
         <div class="mobile-toc-card"><button type="button" data-toc-toggle aria-expanded="false" aria-controls="volume-sidebar"><span>Ouvrir le sommaire</span><span aria-hidden="true">☰</span></button></div>
         <section class="volume-lock" data-volume-lock hidden aria-labelledby="volume-lock-title-${order}">

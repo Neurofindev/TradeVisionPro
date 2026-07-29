@@ -34,6 +34,7 @@ test("all expected pages are built", () => {
     "volumes/2-dossiers-historiques/index.html",
     "volumes/3-analyse-technique/index.html",
     "volumes/4-analyse-macroeconomique/index.html",
+    "volumes/5-psychologie-du-trading/index.html",
   ]) {
     assert.ok(existsSync(path.join(DIST, relative)), relative);
   }
@@ -95,7 +96,13 @@ test("every page is protected by the access gate without exposing the code", asy
 
 test("every course stage has a ten-question exercise and an enriching correction", async () => {
   const quizzes = JSON.parse(await readFile(path.join(ROOT, "config", "quizzes.json"), "utf8"));
-  const slugs = ["1-fondations-et-analyses", "2-dossiers-historiques", "3-analyse-technique", "4-analyse-macroeconomique"];
+  const slugs = [
+    "1-fondations-et-analyses",
+    "2-dossiers-historiques",
+    "3-analyse-technique",
+    "4-analyse-macroeconomique",
+    "5-psychologie-du-trading",
+  ];
   for (const [index, slug] of slugs.entries()) {
     const quiz = quizzes[slug];
     const quizStages = quiz.parts || [quiz];
@@ -139,9 +146,10 @@ test("course progression is isolated by profile while admin access bypasses lock
   const volumeTwo = await readFile(path.join(DIST, "volumes/2-dossiers-historiques/index.html"), "utf8");
   const volumeThree = await readFile(path.join(DIST, "volumes/3-analyse-technique/index.html"), "utf8");
   const volumeFour = await readFile(path.join(DIST, "volumes/4-analyse-macroeconomique/index.html"), "utf8");
+  const volumeFive = await readFile(path.join(DIST, "volumes/5-psychologie-du-trading/index.html"), "utf8");
   assert.ok(client.includes("const passingScore = 8"));
   assert.ok(client.includes('root.dataset.accessRole === "admin"'));
-  assert.ok(client.includes("const volumePrerequisites = { 2: 1, 3: 1, 4: 3 }"));
+  assert.ok(client.includes("const volumePrerequisites = { 2: 1, 3: 1, 4: 3, 5: 4 }"));
   assert.ok(client.includes("prerequisiteVolumeOrder"));
   assert.ok(client.includes("tradevisionpro-course-progress-v2"));
   assert.ok(client.includes("${courseProgressPrefix}:${profile.id}"));
@@ -157,13 +165,14 @@ test("course progression is isolated by profile while admin access bypasses lock
   assert.ok(client.includes("allPartsPassed"));
   assert.ok(client.includes("isPartUnlocked"));
   assert.ok(client.includes("completesVolume"));
-  assert.equal((home.match(/data-volume-card/g) || []).length, 4);
+  assert.equal((home.match(/data-volume-card/g) || []).length, 5);
   assert.ok(volumeTwo.includes("data-volume-lock"));
   assert.ok(volumeTwo.includes("Ce volume est encore verrouillé"));
   assert.ok(volumeTwo.includes("Passer le QCM du Volume 1"));
   assert.ok(volumeThree.includes("Passer le QCM du Volume 1"));
   assert.ok(volumeFour.includes("Passer le QCM du Volume 3"));
-  assert.equal((home.match(/data-volume-nav-lock/g) || []).length, 4);
+  assert.ok(volumeFive.includes("Passer le QCM du Volume 4"));
+  assert.equal((home.match(/data-volume-nav-lock/g) || []).length, 5);
   assert.ok(home.includes('data-volume-optional="true"'));
   assert.ok(home.includes("Optionnel · Cas historiques"));
 });
@@ -196,7 +205,7 @@ test("profile page presents identity, useful progress and account controls", asy
   assert.ok(profile.includes("data-profile-role"));
   assert.ok(profile.includes("data-profile-logout"));
   assert.ok(profile.includes("Progression enregistrée sur cet appareil"));
-  assert.equal((profile.match(/data-profile-volume data-volume-order=/g) || []).length, 4);
+  assert.equal((profile.match(/data-profile-volume data-volume-order=/g) || []).length, 5);
   assert.ok(profile.includes("data-profile-next-title"));
   assert.ok(profile.includes("data-profile-progress-bar"));
   assert.ok(profile.includes('data-profile-achievement="complete"'));
@@ -377,7 +386,8 @@ test("volume four progresses from central banks to macro data and geopolitics", 
   assert.ok(html.includes('data-completes-volume="false"'));
   assert.ok(html.includes('data-completes-volume="true"'));
   assert.ok(!html.includes('data-awaits-next-part="true"'));
-  assert.ok(html.includes('data-awaits-future-volume="true"'));
+  assert.ok(!html.includes('data-awaits-future-volume="true"'));
+  assert.ok(html.includes('data-next-step-label="Volume 5"'));
   assert.equal(quizzes.length, 3);
   assert.ok(quizzes.every((quiz) => quiz.questions.length === 10));
   assert.ok(quizzes.every((quiz) => new Set(quiz.questions.map((question) => question.answer)).size >= 3));
@@ -385,6 +395,38 @@ test("volume four progresses from central banks to macro data and geopolitics", 
   assert.match(JSON.stringify(quizzes[1]), /consensus|Core PCE|PIB réel|NFP|JOLTS|ventes au détail/i);
   assert.match(JSON.stringify(quizzes[2]), /géopolitique|géoéconomie|VIX|USD\/CNH|Abqaiq|sources/i);
   assert.doesNotMatch(JSON.stringify(quizzes.flatMap((quiz) => quiz.questions.map((question) => question.question))), /Doji|MACD|moyenne mobile/i);
+  assert.ok(!html.includes("Unsupported content block"));
+});
+
+test("volume five presents a corrected psychology course and one progressive part", async () => {
+  const html = await readFile(path.join(DIST, "volumes/5-psychologie-du-trading/index.html"), "utf8");
+  const quiz = JSON.parse(await readFile(path.join(ROOT, "config", "quizzes.json"), "utf8"))["5-psychologie-du-trading"];
+  assert.ok(html.includes("Psychologie du trading"));
+  assert.ok(html.includes("Les biais cognitifs"));
+  assert.ok(html.includes("Une partie, une validation"));
+  assert.ok(html.includes(">1 partie<"));
+  assert.ok(html.includes("Votre meilleur score sera conservé pour la suite du Volume."));
+  assert.equal((html.match(/class="volume-part"/g) || []).length, 1);
+  assert.equal((html.match(/class="quiz-workspace"/g) || []).length, 1);
+  assert.equal((html.match(/class="quiz-question"/g) || []).length, 10);
+  assert.equal((html.match(/data-part-quiz-lock/g) || []).length, 0);
+  assert.equal((html.match(/data-awaits-next-part="true"/g) || []).length, 1);
+  assert.ok(html.includes("La théorie des perspectives peut ainsi contribuer à expliquer l’effet de disposition"));
+  assert.ok(html.includes("elle n’en constitue ni une cause unique ni une conséquence automatique"));
+  assert.ok(html.includes("elle ne mesure pas directement la surconfiance de chaque investisseur"));
+  assert.ok(html.includes("La FOMO (« fear of missing out ») est un état émotionnel et motivationnel"));
+  assert.ok(html.includes("volatilité annualisée réalisée du Nasdaq à environ 47 % pour l’année 2000"));
+  assert.ok(html.includes("Cette concomitance ne suffit pas à attribuer le mouvement à une cause unique"));
+  assert.ok(html.includes("Un ordre stop est un déclencheur et ne garantit pas son prix d’exécution"));
+  assert.ok(!html.includes("Plan du module"));
+  assert.ok(!html.includes("Quiz de validation"));
+  assert.ok(!html.includes("Réponses au quiz"));
+  assert.ok(!html.includes("surconfiance inversée"));
+  assert.equal((html.match(/class="course-figure breakout"/g) || []).length, 2);
+  assert.ok(html.includes("Graphique mensuel du Nasdaq Composite montrant la hausse de la fin des années 1990"));
+  assert.match(JSON.stringify(quiz), /surconfiance|confirmation|ancrage|FOMO|ordre stop|GameStop/i);
+  assert.equal(quiz.parts[0].questions.length, 10);
+  assert.ok(new Set(quiz.parts[0].questions.map((question) => question.answer)).size >= 3);
   assert.ok(!html.includes("Unsupported content block"));
 });
 
@@ -411,6 +453,8 @@ test("search index covers all volumes and figure captions", async () => {
   assert.ok(index.some((entry) => entry.volume === "Volume 4" && /Core PCE/i.test(entry.text)));
   assert.ok(index.some((entry) => entry.volume === "Volume 4" && /JOLTS/i.test(entry.text)));
   assert.ok(index.some((entry) => entry.volume === "Volume 4" && /Brexit|Abqaiq|Mer Rouge|semi-conducteurs/i.test(entry.text)));
+  assert.ok(index.some((entry) => entry.volume === "Volume 5" && /biais cognitifs|surconfiance/i.test(entry.text)));
+  assert.ok(index.some((entry) => entry.volume === "Volume 5" && /GameStop|FOMO/i.test(entry.text)));
 });
 
 test("generated internal links resolve", async () => {

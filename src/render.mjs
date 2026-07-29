@@ -128,41 +128,325 @@ function formatNumber(value) {
   return new Intl.NumberFormat("fr-FR").format(value || 0);
 }
 
+let RANK_EMBLEM_SEQUENCE = 0;
+
+function rankEmblemGeometry(id) {
+  const geometries = {
+    bronze: {
+      aura: ["M120 22 126 34 120 40 114 34Z", "M120 218 126 206 120 200 114 206Z"],
+      underlay: ["M120 20 177 51 190 139 120 220 50 139 63 51Z"],
+      left: ["M82 67 45 51 18 67 47 88 27 105 77 102Z"],
+      right: ["M158 67 195 51 222 67 193 88 213 105 163 102Z"],
+      frame: [
+        { d: "M120 30 166 58 177 133 120 204 63 133 74 58Z", fill: "metal" },
+        { d: "M120 43 154 65 162 128 120 186 78 128 86 65Z", fill: "dark" },
+        { d: "M120 54 145 71 150 122 120 169 90 122 95 71Z", fill: "metal" },
+      ],
+      plates: [
+        { d: "M74 58 86 65 78 128 63 133Z", fill: "low" },
+        { d: "M166 58 154 65 162 128 177 133Z", fill: "high" },
+        { d: "M79 139 120 189 161 139 151 159 120 204 89 159Z", fill: "low" },
+      ],
+      crown: [],
+      core: [
+        { d: "M120 64 145 107 134 103 134 147 120 164 106 147 106 103 95 107Z", fill: "light" },
+        { d: "M94 124 106 133 106 151 88 138Z", fill: "metal" },
+        { d: "M146 124 134 133 134 151 152 138Z", fill: "high" },
+      ],
+      energy: [{ d: "M120 98 126 108 120 118 114 108Z", fill: "energy" }],
+      engravings: ["M83 82 76 118", "M157 82 164 118", "M101 68 120 57 139 68"],
+      damage: ["M88 88 96 91", "M76 112 85 109", "M142 151 150 145"],
+      texture: "M120 31 165 59 176 133 120 202 64 133 75 59Z",
+    },
+    silver: {
+      aura: ["M120 13 127 28 120 36 113 28Z", "M120 227 127 212 120 204 113 212Z"],
+      underlay: ["M120 17 180 48 198 139 120 224 42 139 60 48Z"],
+      left: [
+        "M86 61 46 39 12 52 46 75 17 91 75 94Z",
+        "M76 94 32 101 13 122 68 119 91 105Z",
+      ],
+      right: [
+        "M154 61 194 39 228 52 194 75 223 91 165 94Z",
+        "M164 94 208 101 227 122 172 119 149 105Z",
+      ],
+      frame: [
+        { d: "M120 27 169 54 184 132 120 210 56 132 71 54Z", fill: "high" },
+        { d: "M120 39 158 62 170 127 120 193 70 127 82 62Z", fill: "dark" },
+        { d: "M120 50 149 69 157 122 120 176 83 122 91 69Z", fill: "metal" },
+        { d: "M120 59 141 75 147 118 120 161 93 118 99 75Z", fill: "dark" },
+      ],
+      plates: [
+        { d: "M71 54 82 62 70 127 56 132Z", fill: "low" },
+        { d: "M169 54 158 62 170 127 184 132Z", fill: "high" },
+        { d: "M69 143 120 202 171 143 157 166 120 210 83 166Z", fill: "metal" },
+        { d: "M48 77 75 88 68 100 34 91Z", fill: "high" },
+        { d: "M192 77 165 88 172 100 206 91Z", fill: "high" },
+      ],
+      crown: [],
+      core: [
+        { d: "M120 62 146 107 135 103 135 148 120 166 105 148 105 103 94 107Z", fill: "light" },
+        { d: "M91 123 105 133 105 153 84 138Z", fill: "metal" },
+        { d: "M149 123 135 133 135 153 156 138Z", fill: "high" },
+      ],
+      energy: [
+        { d: "M120 91 131 108 120 126 109 108Z", fill: "energy" },
+        { d: "M120 96 125 108 120 117 115 108Z", fill: "light" },
+      ],
+      engravings: ["M92 75 81 120", "M148 75 159 120", "M101 63 120 51 139 63", "M80 133 120 182 160 133"],
+      damage: ["M67 72 79 76", "M161 150 170 143"],
+      texture: "M120 28 168 55 183 132 120 208 57 132 72 55Z",
+    },
+    gold: {
+      aura: [
+        "M120 7 128 24 120 34 112 24Z",
+        "M120 233 128 216 120 206 112 216Z",
+        "M17 120 31 113 39 120 31 127Z",
+        "M223 120 209 113 201 120 209 127Z",
+      ],
+      underlay: ["M120 14 184 44 204 138 120 228 36 138 56 44Z"],
+      left: [
+        "M88 57 47 31 7 44 44 69 11 82 73 91Z",
+        "M75 86 28 91 5 111 66 114 91 101Z",
+        "M70 111 26 128 15 151 73 132 96 114Z",
+      ],
+      right: [
+        "M152 57 193 31 233 44 196 69 229 82 167 91Z",
+        "M165 86 212 91 235 111 174 114 149 101Z",
+        "M170 111 214 128 225 151 167 132 144 114Z",
+      ],
+      frame: [
+        { d: "M120 25 173 51 191 132 120 216 49 132 67 51Z", fill: "high" },
+        { d: "M120 38 161 59 176 127 120 199 64 127 79 59Z", fill: "dark" },
+        { d: "M120 48 152 66 164 123 120 184 76 123 88 66Z", fill: "metal" },
+        { d: "M120 58 143 72 153 118 120 167 87 118 97 72Z", fill: "dark" },
+      ],
+      plates: [
+        { d: "M49 132 64 127 120 199 120 216Z", fill: "low" },
+        { d: "M191 132 176 127 120 199 120 216Z", fill: "high" },
+        { d: "M67 51 79 59 64 127 49 132Z", fill: "metal" },
+        { d: "M173 51 161 59 176 127 191 132Z", fill: "high" },
+        { d: "M36 97 73 101 66 114 22 111Z", fill: "high" },
+        { d: "M204 97 167 101 174 114 218 111Z", fill: "high" },
+      ],
+      crown: [
+        { d: "M79 52 87 21 107 39 120 8 133 39 153 21 161 52 120 36Z", fill: "light" },
+        { d: "M96 43 107 39 120 19 133 39 144 43 120 36Z", fill: "energy" },
+      ],
+      core: [
+        { d: "M120 61 148 107 136 103 136 149 120 169 104 149 104 103 92 107Z", fill: "light" },
+        { d: "M89 123 104 134 104 154 81 138Z", fill: "metal" },
+        { d: "M151 123 136 134 136 154 159 138Z", fill: "high" },
+      ],
+      energy: [
+        { d: "M120 85 136 108 120 133 104 108Z", fill: "energy" },
+        { d: "M120 94 128 108 120 122 112 108Z", fill: "light" },
+      ],
+      engravings: ["M92 69 79 120", "M148 69 161 120", "M89 133 120 177 151 133", "M57 74 75 81", "M183 74 165 81"],
+      damage: ["M67 92 77 95"],
+      texture: "M120 26 172 52 190 132 120 214 50 132 68 52Z",
+    },
+    platine: {
+      aura: [
+        "M120 3 129 22 120 34 111 22Z",
+        "M120 237 129 218 120 206 111 218Z",
+        "M7 104 25 98 36 106 20 115Z",
+        "M233 104 215 98 204 106 220 115Z",
+      ],
+      underlay: ["M120 11 188 40 210 137 120 232 30 137 52 40Z"],
+      left: [
+        "M91 53 50 23 2 34 42 62 5 75 73 88Z",
+        "M77 81 25 84 1 104 68 110 94 96Z",
+        "M70 105 18 120 3 145 72 128 98 110Z",
+        "M74 127 31 157 26 179 83 143 100 119Z",
+      ],
+      right: [
+        "M149 53 190 23 238 34 198 62 235 75 167 88Z",
+        "M163 81 215 84 239 104 172 110 146 96Z",
+        "M170 105 222 120 237 145 168 128 142 110Z",
+        "M166 127 209 157 214 179 157 143 140 119Z",
+      ],
+      frame: [
+        { d: "M120 21 178 47 198 130 120 220 42 130 62 47Z", fill: "high" },
+        { d: "M120 34 166 56 182 126 120 204 58 126 74 56Z", fill: "dark" },
+        { d: "M120 45 156 64 169 121 120 187 71 121 84 64Z", fill: "metal" },
+        { d: "M120 55 146 70 158 117 120 170 82 117 94 70Z", fill: "dark" },
+      ],
+      plates: [
+        { d: "M42 130 58 126 120 204 120 220Z", fill: "low" },
+        { d: "M198 130 182 126 120 204 120 220Z", fill: "high" },
+        { d: "M62 47 74 56 58 126 42 130Z", fill: "metal" },
+        { d: "M178 47 166 56 182 126 198 130Z", fill: "high" },
+        { d: "M25 84 73 92 68 110 8 103Z", fill: "light" },
+        { d: "M215 84 167 92 172 110 232 103Z", fill: "light" },
+        { d: "M24 130 72 118 68 131 11 150Z", fill: "metal" },
+        { d: "M216 130 168 118 172 131 229 150Z", fill: "high" },
+      ],
+      crown: [
+        { d: "M77 49 83 17 105 36 120 2 135 36 157 17 163 49 120 32Z", fill: "light" },
+        { d: "M103 35 120 10 137 35 120 31Z", fill: "energy" },
+      ],
+      core: [
+        { d: "M120 58 149 106 137 102 137 150 120 172 103 150 103 102 91 106Z", fill: "light" },
+        { d: "M87 122 103 134 103 156 78 138Z", fill: "metal" },
+        { d: "M153 122 137 134 137 156 162 138Z", fill: "high" },
+      ],
+      energy: [
+        { d: "M120 79 139 107 120 139 101 107Z", fill: "energy" },
+        { d: "M120 88 130 107 120 128 110 107Z", fill: "light" },
+        { d: "M101 107 120 79 139 107 120 96Z", fill: "high" },
+      ],
+      engravings: ["M91 66 75 121", "M149 66 165 121", "M86 133 120 181 154 133", "M54 66 75 77", "M186 66 165 77", "M42 118 70 116", "M198 118 170 116"],
+      damage: [],
+      texture: "M120 22 177 48 197 130 120 218 43 130 63 48Z",
+    },
+    elite: {
+      aura: [
+        "M120 0 131 22 120 36 109 22Z",
+        "M120 240 131 218 120 204 109 218Z",
+        "M0 92 24 87 38 99 14 108Z",
+        "M240 92 216 87 202 99 226 108Z",
+        "M14 184 34 166 49 171 30 193Z",
+        "M226 184 206 166 191 171 210 193Z",
+      ],
+      underlay: ["M120 8 192 35 216 135 120 236 24 135 48 35Z"],
+      left: [
+        "M94 48 52 16 0 25 41 55 2 69 73 85Z",
+        "M79 76 22 76 0 96 69 106 96 91Z",
+        "M70 100 14 113 0 139 71 125 100 106Z",
+        "M72 122 22 148 8 178 80 142 103 115Z",
+        "M83 145 42 185 44 213 99 157 108 124Z",
+      ],
+      right: [
+        "M146 48 188 16 240 25 199 55 238 69 167 85Z",
+        "M161 76 218 76 240 96 171 106 144 91Z",
+        "M170 100 226 113 240 139 169 125 140 106Z",
+        "M168 122 218 148 232 178 160 142 137 115Z",
+        "M157 145 198 185 196 213 141 157 132 124Z",
+      ],
+      frame: [
+        { d: "M120 17 183 42 205 129 120 224 35 129 57 42Z", fill: "high" },
+        { d: "M120 30 171 51 188 125 120 208 52 125 69 51Z", fill: "dark" },
+        { d: "M120 41 160 59 175 120 120 191 65 120 80 59Z", fill: "metal" },
+        { d: "M120 51 150 66 163 116 120 174 77 116 90 66Z", fill: "dark" },
+      ],
+      plates: [
+        { d: "M35 129 52 125 120 208 120 224Z", fill: "low" },
+        { d: "M205 129 188 125 120 208 120 224Z", fill: "high" },
+        { d: "M57 42 69 51 52 125 35 129Z", fill: "metal" },
+        { d: "M183 42 171 51 188 125 205 129Z", fill: "high" },
+        { d: "M20 76 75 89 69 106 4 96Z", fill: "energy" },
+        { d: "M220 76 165 89 171 106 236 96Z", fill: "energy" },
+        { d: "M14 129 71 115 69 129 1 145Z", fill: "metal" },
+        { d: "M226 129 169 115 171 129 239 145Z", fill: "high" },
+        { d: "M41 172 82 137 78 152 30 194Z", fill: "energy" },
+        { d: "M199 172 158 137 162 152 210 194Z", fill: "energy" },
+      ],
+      crown: [
+        { d: "M72 46 78 12 103 33 120 0 137 33 162 12 168 46 145 38 120 27 95 38Z", fill: "light" },
+        { d: "M96 36 105 16 120 28 135 16 144 36 120 27Z", fill: "energy" },
+        { d: "M112 18 120 1 128 18 120 27Z", fill: "high" },
+      ],
+      core: [
+        { d: "M120 55 151 105 138 101 138 151 120 176 102 151 102 101 89 105Z", fill: "light" },
+        { d: "M85 121 102 134 102 158 75 138Z", fill: "metal" },
+        { d: "M155 121 138 134 138 158 165 138Z", fill: "high" },
+      ],
+      energy: [
+        { d: "M120 72 143 106 120 145 97 106Z", fill: "energy" },
+        { d: "M120 81 133 106 120 134 107 106Z", fill: "light" },
+        { d: "M120 88 126 100 140 101 130 111 134 126 120 117 106 126 110 111 100 101 114 100Z", fill: "energy" },
+      ],
+      engravings: ["M89 62 71 119", "M151 62 169 119", "M82 132 120 186 158 132", "M52 60 75 75", "M188 60 165 75", "M34 113 68 112", "M206 113 172 112", "M53 154 79 135", "M187 154 161 135"],
+      damage: [],
+      texture: "M120 18 182 43 204 129 120 223 36 129 58 43Z",
+    },
+  };
+  return geometries[id] || geometries.bronze;
+}
+
 function renderRankEmblem(rank, { compact = false } = {}) {
   const id = String(rank?.id || "bronze");
+  const name = String(rank?.name || id);
   const index = Math.max(0, RANK_CONFIG.ranks.findIndex((candidate) => candidate.id === id));
-  return `<svg class="rank-emblem${compact ? " rank-emblem--compact" : ""}" data-rank="${escapeHtml(id)}" viewBox="0 0 180 180" role="img" aria-label="Emblème du rang ${escapeHtml(rank?.name || id)}">
-    <g class="rank-emblem__aura">
-      <circle cx="90" cy="90" r="${62 + index * 3}"></circle>
-      ${index >= 3 ? '<path d="M90 9 97 25 90 32 83 25Z"></path><path d="M90 171 97 155 90 148 83 155Z"></path>' : ""}
-      ${index >= 4 ? '<circle cx="31" cy="45" r="3"></circle><circle cx="149" cy="45" r="3"></circle><circle cx="22" cy="92" r="2.5"></circle><circle cx="158" cy="92" r="2.5"></circle>' : ""}
+  const geometry = rankEmblemGeometry(id);
+  const prefix = `rank-${id}-${++RANK_EMBLEM_SEQUENCE}`;
+  const paint = (surface) => `url(#${prefix}-${surface})`;
+  const renderSurfaces = (surfaces = [], fallback = "metal") =>
+    surfaces
+      .map((surface) => {
+        const item = typeof surface === "string" ? { d: surface } : surface;
+        return `<path d="${item.d}" fill="${paint(item.fill || fallback)}"></path>`;
+      })
+      .join("");
+  return `<svg class="rank-emblem${compact ? " rank-emblem--compact" : ""}" data-rank="${escapeHtml(id)}" data-rank-tier="${index + 1}" viewBox="0 0 240 240" role="img" aria-labelledby="${prefix}-title ${prefix}-description">
+    <title id="${prefix}-title">Emblème du rang ${escapeHtml(name)}</title>
+    <desc id="${prefix}-description">Emblème original TradeVisionPro de niveau ${index + 1}, composé de plaques métalliques, de gravures et d’un noyau central.</desc>
+    <defs>
+      <linearGradient id="${prefix}-metal" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="var(--rank-metal-high)"></stop>
+        <stop offset=".18" stop-color="var(--rank-metal-mid)"></stop>
+        <stop offset=".46" stop-color="var(--rank-metal-low)"></stop>
+        <stop offset=".58" stop-color="var(--rank-metal-high)"></stop>
+        <stop offset=".82" stop-color="var(--rank-metal-mid)"></stop>
+        <stop offset="1" stop-color="var(--rank-metal-low)"></stop>
+      </linearGradient>
+      <linearGradient id="${prefix}-high" x1=".15" y1="0" x2=".85" y2="1">
+        <stop offset="0" stop-color="var(--rank-edge)"></stop>
+        <stop offset=".32" stop-color="var(--rank-metal-high)"></stop>
+        <stop offset=".68" stop-color="var(--rank-metal-mid)"></stop>
+        <stop offset="1" stop-color="var(--rank-metal-low)"></stop>
+      </linearGradient>
+      <linearGradient id="${prefix}-low" x1="0" y1="0" x2="1" y2=".2">
+        <stop offset="0" stop-color="var(--rank-metal-low)"></stop>
+        <stop offset=".5" stop-color="var(--rank-shadow)"></stop>
+        <stop offset="1" stop-color="var(--rank-metal-mid)"></stop>
+      </linearGradient>
+      <linearGradient id="${prefix}-dark" x1=".2" y1="0" x2=".8" y2="1">
+        <stop offset="0" stop-color="var(--rank-dark)"></stop>
+        <stop offset=".5" stop-color="var(--rank-shadow)"></stop>
+        <stop offset="1" stop-color="var(--rank-metal-low)"></stop>
+      </linearGradient>
+      <linearGradient id="${prefix}-light" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="var(--rank-edge)"></stop>
+        <stop offset=".42" stop-color="var(--rank-light)"></stop>
+        <stop offset="1" stop-color="var(--rank-metal-mid)"></stop>
+      </linearGradient>
+      <radialGradient id="${prefix}-energy" cx="46%" cy="38%" r="68%">
+        <stop offset="0" stop-color="#fff"></stop>
+        <stop offset=".28" stop-color="var(--rank-light)"></stop>
+        <stop offset=".68" stop-color="var(--rank-energy)"></stop>
+        <stop offset="1" stop-color="var(--rank-dark)"></stop>
+      </radialGradient>
+      <pattern id="${prefix}-grain" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(24)">
+        <path d="M0 1H8M0 6H8" stroke="var(--rank-texture)" stroke-width=".55" opacity=".34"></path>
+        <circle cx="2" cy="4" r=".55" fill="var(--rank-edge)" opacity=".2"></circle>
+      </pattern>
+      <filter id="${prefix}-glow" x="-80%" y="-80%" width="260%" height="260%">
+        <feGaussianBlur stdDeviation="${2.2 + index * 0.45}" result="blur"></feGaussianBlur>
+        <feMerge><feMergeNode in="blur"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge>
+      </filter>
+    </defs>
+    <g class="rank-emblem__aura" aria-hidden="true">
+      <circle cx="120" cy="120" r="${88 + index * 4}"></circle>
+      <circle cx="120" cy="120" r="${75 + index * 3}"></circle>
+      ${geometry.aura.map((path) => `<path d="${path}"></path>`).join("")}
     </g>
-    <g class="rank-emblem__wings rank-emblem__wings--left">
-      <path d="M76 58 47 45 19 54 45 68 20 82 57 86 77 75Z"></path>
-      ${index >= 1 ? '<path d="M65 86 31 90 17 105 55 103 75 91Z"></path>' : ""}
-      ${index >= 2 ? '<path d="M56 48 34 28 43 57Z"></path><path d="M51 108 31 126 63 116Z"></path>' : ""}
-      ${index >= 3 ? '<path d="M43 67 11 67 34 78Z"></path>' : ""}
+    <g class="rank-emblem__underlay">${renderSurfaces(geometry.underlay, "dark")}</g>
+    <g class="rank-emblem__wings rank-emblem__wings--left">${renderSurfaces(geometry.left)}</g>
+    <g class="rank-emblem__wings rank-emblem__wings--right">${renderSurfaces(geometry.right)}</g>
+    <g class="rank-emblem__crown">${renderSurfaces(geometry.crown, "light")}</g>
+    <g class="rank-emblem__frame">${renderSurfaces(geometry.frame)}</g>
+    <g class="rank-emblem__plates">${renderSurfaces(geometry.plates)}</g>
+    <path class="rank-emblem__texture" d="${geometry.texture}" fill="${paint("grain")}"></path>
+    <g class="rank-emblem__core">${renderSurfaces(geometry.core, "light")}</g>
+    <g class="rank-emblem__energy" filter="url(#${prefix}-glow)">${renderSurfaces(geometry.energy, "energy")}</g>
+    <g class="rank-emblem__engraving">${geometry.engravings.map((path) => `<path d="${path}"></path>`).join("")}</g>
+    <g class="rank-emblem__damage rank-detail--fine">${geometry.damage.map((path) => `<path d="${path}"></path>`).join("")}</g>
+    <g class="rank-emblem__shine" aria-hidden="true">
+      <path d="M49 60 108 30"></path><path d="M73 150 129 58"></path><path d="M126 183 187 80"></path>
     </g>
-    <g class="rank-emblem__wings rank-emblem__wings--right">
-      <path d="M104 58 133 45 161 54 135 68 160 82 123 86 103 75Z"></path>
-      ${index >= 1 ? '<path d="M115 86 149 90 163 105 125 103 105 91Z"></path>' : ""}
-      ${index >= 2 ? '<path d="M124 48 146 28 137 57Z"></path><path d="M129 108 149 126 117 116Z"></path>' : ""}
-      ${index >= 3 ? '<path d="M137 67 169 67 146 78Z"></path>' : ""}
-    </g>
-    <g class="rank-emblem__frame">
-      <path d="M90 30 126 55 131 108 90 151 49 108 54 55Z"></path>
-      <path d="M90 43 115 61 118 102 90 132 62 102 65 61Z"></path>
-      ${index >= 2 ? '<path d="M69 43 77 23 90 36 103 23 111 43 90 34Z"></path>' : ""}
-    </g>
-    <g class="rank-emblem__core">
-      <path d="M90 51 108 83 99 81 99 112 90 123 81 112 81 81 72 83Z"></path>
-      <path d="M70 93 81 101 81 115 66 104Z"></path>
-      <path d="M110 93 99 101 99 115 114 104Z"></path>
-      <circle cx="90" cy="87" r="${index >= 4 ? 8 : 5}"></circle>
-      ${index >= 4 ? '<path d="M90 60 96 78 115 78 100 89 106 107 90 96 74 107 80 89 65 78 84 78Z"></path>' : ""}
-    </g>
-    <g class="rank-emblem__shine">
-      <path d="M90 35 124 58"></path><path d="M55 108 89 144"></path>
+    <g class="rank-emblem__micro-particles rank-detail--fine" aria-hidden="true">
+      <circle cx="34" cy="48" r="1.4"></circle><circle cx="205" cy="54" r="1.1"></circle><circle cx="23" cy="151" r="1.2"></circle><circle cx="216" cy="160" r="1.5"></circle>
     </g>
   </svg>`;
 }
@@ -524,11 +808,16 @@ function globalNav(volumes, activePage, showToc) {
 function renderRankProgressOverlay() {
   return `<section class="rank-reveal" data-rank-reveal data-rank="bronze" role="dialog" aria-modal="true" aria-labelledby="rank-reveal-title" hidden>
     <div class="rank-reveal__backdrop" aria-hidden="true"></div>
-    <div class="rank-reveal__particles" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="rank-reveal__atmosphere" aria-hidden="true"><i></i><i></i><i></i></div>
+    <div class="rank-reveal__particles" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
     <button class="rank-reveal__skip" type="button" data-rank-reveal-skip>Passer l’animation</button>
     <div class="rank-reveal__panel">
-      <div class="rank-reveal__light" aria-hidden="true"></div>
-      <div class="rank-reveal__emblem">${renderRankEmblemSet("reveal")}</div>
+      <div class="rank-reveal__stage">
+        <div class="rank-reveal__light" aria-hidden="true"></div>
+        <div class="rank-reveal__shockwave" aria-hidden="true"><i></i><i></i></div>
+        <div class="rank-reveal__impact" aria-hidden="true"></div>
+        <div class="rank-reveal__emblem">${renderRankEmblemSet("reveal")}</div>
+      </div>
       <div class="rank-reveal__copy">
         <p class="rank-reveal__eyebrow" data-rank-reveal-eyebrow>Volume validé</p>
         <h2 id="rank-reveal-title" data-rank-reveal-title>Progression enregistrée</h2>

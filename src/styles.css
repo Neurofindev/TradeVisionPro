@@ -1764,132 +1764,297 @@ a {
 
 [data-rank="bronze"],
 [data-profile-rank-mini][data-rank="bronze"] {
-  --rank-metal: #a8633f;
-  --rank-light: #e2a071;
-  --rank-dark: #4b271d;
-  --rank-glow: rgba(211, 124, 75, 0.34);
+  --rank-metal: #a45c3c;
+  --rank-metal-high: #d69262;
+  --rank-metal-mid: #a45c3c;
+  --rank-metal-low: #5f3025;
+  --rank-edge: #f0b27d;
+  --rank-light: #e7a36f;
+  --rank-dark: #49251d;
+  --rank-shadow: #21130f;
+  --rank-energy: #c86c3f;
+  --rank-texture: #321b16;
+  --rank-glow: rgba(205, 103, 59, 0.36);
 }
 
 [data-rank="silver"],
 [data-profile-rank-mini][data-rank="silver"] {
-  --rank-metal: #aeb9c8;
-  --rank-light: #f1f5fa;
-  --rank-dark: #4c5868;
-  --rank-glow: rgba(163, 205, 238, 0.4);
+  --rank-metal: #aebac9;
+  --rank-metal-high: #f2f6fb;
+  --rank-metal-mid: #aebac9;
+  --rank-metal-low: #5b697a;
+  --rank-edge: #ffffff;
+  --rank-light: #e9f4ff;
+  --rank-dark: #445263;
+  --rank-shadow: #19232e;
+  --rank-energy: #89cfff;
+  --rank-texture: #344251;
+  --rank-glow: rgba(142, 202, 244, 0.44);
 }
 
 [data-rank="gold"],
 [data-profile-rank-mini][data-rank="gold"] {
-  --rank-metal: #d7a832;
-  --rank-light: #fff0a1;
-  --rank-dark: #6b4510;
-  --rank-glow: rgba(255, 203, 71, 0.5);
+  --rank-metal: #d9a52e;
+  --rank-metal-high: #ffe88a;
+  --rank-metal-mid: #d9a52e;
+  --rank-metal-low: #76500d;
+  --rank-edge: #fff5be;
+  --rank-light: #ffe98d;
+  --rank-dark: #5d3b08;
+  --rank-shadow: #241603;
+  --rank-energy: #ffbd26;
+  --rank-texture: #62400a;
+  --rank-glow: rgba(255, 190, 36, 0.56);
 }
 
 [data-rank="platine"],
 [data-profile-rank-mini][data-rank="platine"] {
-  --rank-metal: #bfe6ee;
-  --rank-light: #f6ffff;
-  --rank-dark: #3d6d79;
-  --rank-glow: rgba(81, 224, 244, 0.5);
+  --rank-metal: #b9dfe7;
+  --rank-metal-high: #f5ffff;
+  --rank-metal-mid: #b9dfe7;
+  --rank-metal-low: #557e8c;
+  --rank-edge: #ffffff;
+  --rank-light: #eaffff;
+  --rank-dark: #315c68;
+  --rank-shadow: #102b34;
+  --rank-energy: #47e5ff;
+  --rank-texture: #3e6e78;
+  --rank-glow: rgba(67, 224, 245, 0.58);
 }
 
 [data-rank="elite"],
 [data-profile-rank-mini][data-rank="elite"] {
-  --rank-metal: #7657dd;
-  --rank-light: #e8edff;
-  --rank-dark: #21143e;
-  --rank-glow: rgba(111, 95, 255, 0.64);
+  --rank-metal: #7e68df;
+  --rank-metal-high: #f1efff;
+  --rank-metal-mid: #846ce4;
+  --rank-metal-low: #30265c;
+  --rank-edge: #ffffff;
+  --rank-light: #e9f4ff;
+  --rank-dark: #17102d;
+  --rank-shadow: #07050d;
+  --rank-energy: #7355ff;
+  --rank-texture: #3b2874;
+  --rank-glow: rgba(102, 83, 255, 0.7);
 }
 
 .rank-emblem {
   width: 100%;
   height: auto;
   overflow: visible;
+  isolation: isolate;
   color: var(--rank-metal);
-  filter: drop-shadow(0 12px 20px color-mix(in srgb, var(--rank-dark) 36%, transparent));
+  filter:
+    drop-shadow(0 1px 0 color-mix(in srgb, var(--rank-edge) 44%, transparent))
+    drop-shadow(0 12px 13px color-mix(in srgb, var(--rank-shadow) 60%, transparent))
+    drop-shadow(0 0 15px var(--rank-glow));
+  transform-origin: 50% 52%;
+  will-change: transform, filter;
+}
+
+.rank-emblem path,
+.rank-emblem circle {
+  vector-effect: non-scaling-stroke;
 }
 
 .rank-emblem__aura circle {
   fill: none;
   stroke: var(--rank-light);
-  stroke-width: 1.6;
-  opacity: 0.28;
+  stroke-width: 1.15;
+  opacity: 0.2;
+}
+
+.rank-emblem__aura circle:nth-child(2) {
+  stroke-dasharray: 4 8;
+  opacity: 0.32;
 }
 
 .rank-emblem__aura path,
 .rank-emblem__aura circle:not(:first-child) {
   fill: var(--rank-light);
   stroke: none;
-  opacity: 0.82;
+  opacity: 0.68;
+}
+
+.rank-emblem__underlay path {
+  stroke: var(--rank-shadow);
+  stroke-width: 5;
+  stroke-linejoin: round;
+}
+
+.rank-emblem__underlay {
+  transform: translateY(3px);
+  opacity: 0.92;
 }
 
 .rank-emblem__wings path {
-  fill: var(--rank-dark);
-  stroke: var(--rank-metal);
-  stroke-width: 2;
+  stroke: color-mix(in srgb, var(--rank-edge) 72%, var(--rank-metal-low));
+  stroke-width: 1.65;
   stroke-linejoin: round;
 }
 
-.rank-emblem__frame > path:first-child {
-  fill: var(--rank-dark);
-  stroke: var(--rank-light);
-  stroke-width: 2.4;
+.rank-emblem__wings--left {
+  filter: drop-shadow(-3px 5px 3px color-mix(in srgb, var(--rank-shadow) 54%, transparent));
+}
+
+.rank-emblem__wings--right {
+  filter: drop-shadow(3px 5px 3px color-mix(in srgb, var(--rank-shadow) 54%, transparent));
+}
+
+.rank-emblem__crown path {
+  stroke: var(--rank-edge);
+  stroke-width: 1.3;
   stroke-linejoin: round;
 }
 
-.rank-emblem__frame > path:nth-child(2) {
-  fill: var(--rank-metal);
-  stroke: var(--rank-light);
-  stroke-width: 1.5;
+.rank-emblem__frame path {
+  stroke: color-mix(in srgb, var(--rank-edge) 76%, var(--rank-metal-mid));
+  stroke-width: 1.85;
   stroke-linejoin: round;
 }
 
-.rank-emblem__frame > path:nth-child(3) {
-  fill: var(--rank-light);
-  stroke: var(--rank-dark);
-  stroke-width: 1.4;
+.rank-emblem__plates path {
+  stroke: color-mix(in srgb, var(--rank-edge) 55%, var(--rank-metal-low));
+  stroke-width: 1.05;
+  stroke-linejoin: round;
+}
+
+.rank-emblem__texture {
+  mix-blend-mode: soft-light;
+  opacity: 0.32;
+  pointer-events: none;
 }
 
 .rank-emblem__core path {
-  fill: var(--rank-light);
-  stroke: var(--rank-dark);
-  stroke-width: 1.5;
+  stroke: color-mix(in srgb, var(--rank-edge) 72%, var(--rank-shadow));
+  stroke-width: 1.45;
   stroke-linejoin: round;
 }
 
-.rank-emblem__core circle {
-  fill: var(--rank-dark);
-  stroke: var(--rank-light);
-  stroke-width: 2;
+.rank-emblem__energy {
+  transform-origin: 50% 46%;
 }
 
-.rank-emblem[data-rank="elite"] .rank-emblem__core path:last-of-type {
-  fill: var(--rank-light);
-  opacity: 0.92;
+.rank-emblem__energy path {
+  stroke: color-mix(in srgb, var(--rank-edge) 78%, var(--rank-energy));
+  stroke-width: 0.95;
+  stroke-linejoin: round;
+}
+
+.rank-emblem__engraving path {
+  fill: none;
+  stroke: color-mix(in srgb, var(--rank-energy) 72%, var(--rank-edge));
+  stroke-width: 0.9;
+  stroke-linecap: round;
+  opacity: 0.66;
+}
+
+.rank-emblem__damage path {
+  fill: none;
+  stroke: var(--rank-shadow);
+  stroke-width: 1.15;
+  stroke-linecap: round;
+  opacity: 0.62;
 }
 
 .rank-emblem__shine path {
   fill: none;
   stroke: #fff;
-  stroke-width: 2;
+  stroke-width: 2.6;
   stroke-linecap: round;
-  opacity: 0.48;
+  opacity: 0;
+  filter: blur(0.35px);
+}
+
+.rank-emblem__micro-particles circle {
+  fill: var(--rank-light);
+  filter: drop-shadow(0 0 5px var(--rank-glow));
+  opacity: 0.58;
+}
+
+.rank-emblem[data-rank="bronze"] .rank-emblem__energy {
+  opacity: 0.52;
+}
+
+.rank-emblem[data-rank="gold"] .rank-emblem__energy,
+.rank-emblem[data-rank="platine"] .rank-emblem__energy,
+.rank-emblem[data-rank="elite"] .rank-emblem__energy {
+  animation: rank-core-breathe 3.4s ease-in-out infinite;
+}
+
+.rank-emblem[data-rank="platine"] .rank-emblem__engraving,
+.rank-emblem[data-rank="elite"] .rank-emblem__engraving {
+  filter: drop-shadow(0 0 3px var(--rank-glow));
+}
+
+.rank-emblem[data-rank="elite"] {
+  filter:
+    drop-shadow(0 1px 0 rgba(255,255,255,0.62))
+    drop-shadow(0 15px 15px rgba(5,3,11,0.82))
+    drop-shadow(0 0 20px var(--rank-glow));
 }
 
 .rank-emblem--compact {
   width: 3.5rem;
-  filter: drop-shadow(0 6px 10px color-mix(in srgb, var(--rank-dark) 30%, transparent));
+  filter:
+    drop-shadow(0 4px 5px color-mix(in srgb, var(--rank-shadow) 50%, transparent))
+    drop-shadow(0 0 5px var(--rank-glow));
+}
+
+.rank-emblem--compact .rank-detail--fine,
+.rank-emblem--compact .rank-emblem__texture,
+.rank-emblem--compact .rank-emblem__aura circle:nth-child(2) {
+  display: none;
+}
+
+.rank-emblem--compact .rank-emblem__engraving path {
+  stroke-width: 1.3;
+  opacity: 0.78;
+}
+
+.rank-emblem--compact .rank-emblem__energy {
+  filter: none;
+  animation: none !important;
 }
 
 .rank-emblem-stack {
   display: grid;
   place-items: center;
+  transform:
+    perspective(900px)
+    rotateX(var(--rank-tilt-x, 0deg))
+    rotateY(var(--rank-tilt-y, 0deg));
+  transform-style: preserve-3d;
+  transition: transform 260ms cubic-bezier(.2,.8,.2,1);
+  will-change: transform;
 }
 
 .rank-emblem-stack > span {
   grid-area: 1 / 1;
   width: 100%;
+}
+
+.profile-rank-card__emblem .rank-emblem:not(.rank-emblem--compact) {
+  animation: rank-emblem-idle 7s ease-in-out infinite;
+}
+
+.profile-rank-card__emblem .rank-emblem__shine {
+  animation: rank-surface-scan 5.8s 900ms ease-in-out infinite;
+}
+
+@keyframes rank-emblem-idle {
+  0%, 100% { transform: translateY(0) rotateZ(-0.25deg); }
+  50% { transform: translateY(-4px) rotateZ(0.25deg); }
+}
+
+@keyframes rank-core-breathe {
+  0%, 100% { opacity: 0.82; transform: scale(0.97); }
+  50% { opacity: 1; transform: scale(1.035); }
+}
+
+@keyframes rank-surface-scan {
+  0%, 16% { opacity: 0; transform: translateX(-16px); }
+  28% { opacity: 0.68; }
+  44%, 100% { opacity: 0; transform: translateX(22px); }
 }
 
 .profile-identity__labels {
@@ -3259,6 +3424,14 @@ body.rank-reveal-open {
 }
 
 .rank-reveal {
+  --forge-step-1: 280ms;
+  --forge-step-2: 680ms;
+  --forge-step-3: 1080ms;
+  --forge-step-4: 1480ms;
+  --forge-step-5: 1880ms;
+  --forge-step-6: 2260ms;
+  --forge-step-7: 2640ms;
+  --forge-copy: 2940ms;
   position: fixed;
   z-index: 400;
   inset: 0;
@@ -3268,43 +3441,110 @@ body.rank-reveal-open {
   color: #f7f5ff;
 }
 
+.rank-reveal[data-rank="platine"] {
+  --forge-step-1: 320ms;
+  --forge-step-2: 760ms;
+  --forge-step-3: 1200ms;
+  --forge-step-4: 1640ms;
+  --forge-step-5: 2070ms;
+  --forge-step-6: 2500ms;
+  --forge-step-7: 2920ms;
+  --forge-copy: 3220ms;
+}
+
+.rank-reveal[data-rank="elite"] {
+  --forge-step-1: 340ms;
+  --forge-step-2: 800ms;
+  --forge-step-3: 1280ms;
+  --forge-step-4: 1760ms;
+  --forge-step-5: 2220ms;
+  --forge-step-6: 2680ms;
+  --forge-step-7: 3120ms;
+  --forge-copy: 3460ms;
+}
+
 .rank-reveal__backdrop {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 50% 45%, color-mix(in srgb, var(--rank-glow) 70%, transparent), transparent 34rem),
-    rgba(7, 6, 12, 0.92);
-  backdrop-filter: blur(12px);
+    radial-gradient(circle at 50% 46%, color-mix(in srgb, var(--rank-glow) 68%, transparent), transparent 37rem),
+    linear-gradient(135deg, rgba(9,8,16,0.94), rgba(4,4,9,0.97));
+  backdrop-filter: blur(14px) saturate(0.78);
   opacity: 0;
-  transition: opacity 240ms ease;
+  transition: opacity 420ms ease;
 }
 
 .rank-reveal.is-visible .rank-reveal__backdrop {
   opacity: 1;
 }
 
+.rank-reveal__atmosphere {
+  position: absolute;
+  z-index: 1;
+  inset: -20%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.rank-reveal__atmosphere i {
+  position: absolute;
+  width: 42rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--rank-glow) 58%, transparent), transparent 68%);
+  filter: blur(24px);
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.rank-reveal__atmosphere i:nth-child(1) { top: 8%; left: 12%; }
+.rank-reveal__atmosphere i:nth-child(2) { right: 7%; bottom: 4%; scale: 0.8; }
+.rank-reveal__atmosphere i:nth-child(3) { top: 18%; right: 25%; scale: 0.52; }
+
+.rank-reveal.is-visible .rank-reveal__atmosphere i {
+  animation: rank-atmosphere 7s ease-in-out infinite alternate;
+}
+
+.rank-reveal.is-visible .rank-reveal__atmosphere i:nth-child(2) { animation-delay: -2.4s; }
+.rank-reveal.is-visible .rank-reveal__atmosphere i:nth-child(3) { animation-delay: -4.2s; }
+
 .rank-reveal__panel {
   position: relative;
   z-index: 2;
-  width: min(55rem, 100%);
+  width: min(64rem, 100%);
   max-height: calc(100vh - 2rem);
-  padding: clamp(1.4rem, 4vw, 3.2rem);
+  padding: clamp(1.4rem, 4vw, 3rem);
   display: grid;
-  grid-template-columns: minmax(13rem, 0.75fr) minmax(18rem, 1.25fr);
+  grid-template-columns: minmax(20rem, 0.95fr) minmax(19rem, 1.05fr);
   align-items: center;
-  gap: clamp(1.5rem, 5vw, 4rem);
+  gap: clamp(1.4rem, 4vw, 3.6rem);
   overflow: auto;
-  border: 1px solid color-mix(in srgb, var(--rank-metal) 58%, rgba(255,255,255,0.12));
-  border-radius: 1.7rem;
+  border: 1px solid color-mix(in srgb, var(--rank-edge) 42%, rgba(255,255,255,0.1));
+  border-radius: 1.85rem;
   background:
-    linear-gradient(145deg, color-mix(in srgb, var(--rank-dark) 40%, #171421), #0f0d16 70%);
-  box-shadow: 0 35px 100px rgba(0,0,0,0.55), 0 0 55px color-mix(in srgb, var(--rank-glow) 55%, transparent);
+    linear-gradient(112deg, color-mix(in srgb, var(--rank-dark) 46%, #1c1b27), #0e0c14 58%, color-mix(in srgb, var(--rank-shadow) 78%, #11101a));
+  box-shadow:
+    0 40px 120px rgba(0,0,0,0.68),
+    inset 0 1px 0 rgba(255,255,255,0.08),
+    inset 0 -1px 0 rgba(0,0,0,0.5),
+    0 0 72px color-mix(in srgb, var(--rank-glow) 54%, transparent);
   opacity: 0;
-  transform: scale(0.94) translateY(1rem);
+  transform: perspective(1200px) scale(0.94) translateY(1.2rem) rotateX(1.5deg);
+}
+
+.rank-reveal__panel::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border-radius: inherit;
+  background:
+    linear-gradient(125deg, rgba(255,255,255,0.055), transparent 28%),
+    repeating-linear-gradient(115deg, rgba(255,255,255,0.012) 0 1px, transparent 1px 7px);
+  pointer-events: none;
 }
 
 .rank-reveal.is-visible .rank-reveal__panel {
-  animation: rank-panel-in 480ms cubic-bezier(.16,.8,.25,1) forwards;
+  animation: rank-panel-in 620ms cubic-bezier(.16,.8,.25,1) forwards;
 }
 
 .rank-reveal__skip {
@@ -3321,40 +3561,102 @@ body.rank-reveal-open {
   cursor: pointer;
 }
 
+.rank-reveal__skip:hover,
+.rank-reveal__skip:focus-visible {
+  border-color: color-mix(in srgb, var(--rank-edge) 48%, transparent);
+  color: #fff;
+}
+
+.rank-reveal__stage {
+  position: relative;
+  min-height: 25rem;
+  display: grid;
+  place-items: center;
+  perspective: 1100px;
+  isolation: isolate;
+}
+
 .rank-reveal__light {
   position: absolute;
   top: 50%;
-  left: 27%;
-  width: 22rem;
+  left: 50%;
+  width: 28rem;
   aspect-ratio: 1;
   border-radius: 50%;
-  background: radial-gradient(circle, color-mix(in srgb, var(--rank-light) 30%, transparent), transparent 67%);
+  background:
+    radial-gradient(circle, color-mix(in srgb, #fff 44%, transparent) 0 3%, color-mix(in srgb, var(--rank-light) 26%, transparent) 18%, transparent 68%);
+  filter: blur(1px);
   opacity: 0;
-  transform: translate(-50%, -50%) scale(0.3);
+  transform: translate(-50%, -50%) scale(0.2);
   pointer-events: none;
 }
 
 .rank-reveal.is-visible .rank-reveal__light {
-  animation: rank-light-in 800ms 120ms ease-out forwards;
+  animation: rank-light-in 1600ms 120ms cubic-bezier(.16,.8,.2,1) forwards;
+}
+
+.rank-reveal__shockwave {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+}
+
+.rank-reveal__shockwave i {
+  grid-area: 1 / 1;
+  width: 8rem;
+  aspect-ratio: 1;
+  border: 1px solid var(--rank-light);
+  border-radius: 50%;
+  opacity: 0;
+  box-shadow: 0 0 24px var(--rank-glow), inset 0 0 20px var(--rank-glow);
+}
+
+.rank-reveal.is-rank-up.is-visible .rank-reveal__shockwave i:first-child {
+  animation: rank-shockwave 920ms var(--forge-step-3) ease-out forwards;
+}
+
+.rank-reveal.is-rank-up.is-visible .rank-reveal__shockwave i:last-child {
+  animation: rank-shockwave 1050ms var(--forge-step-6) ease-out forwards;
+}
+
+.rank-reveal__impact {
+  position: absolute;
+  width: 13rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.72), color-mix(in srgb, var(--rank-glow) 72%, transparent) 28%, transparent 69%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.rank-reveal.is-rank-up.is-visible .rank-reveal__impact {
+  animation: rank-impact 620ms var(--forge-step-6) ease-out forwards;
 }
 
 .rank-reveal__emblem {
   position: relative;
-  z-index: 1;
-  width: min(100%, 18rem);
+  z-index: 2;
+  width: min(100%, 23rem);
   margin-inline: auto;
+  transform-style: preserve-3d;
+  will-change: transform;
 }
 
 .rank-reveal__emblem .rank-emblem {
-  filter: drop-shadow(0 18px 35px var(--rank-glow));
+  filter:
+    drop-shadow(0 2px 0 color-mix(in srgb, var(--rank-edge) 46%, transparent))
+    drop-shadow(0 24px 24px rgba(0,0,0,0.62))
+    drop-shadow(0 0 28px var(--rank-glow));
 }
 
 .rank-reveal[data-rank="platine"] .rank-reveal__light {
-  width: 26rem;
+  width: 32rem;
 }
 
 .rank-reveal[data-rank="elite"] .rank-reveal__light {
-  width: 30rem;
+  width: 36rem;
   background: radial-gradient(circle, color-mix(in srgb, var(--rank-light) 42%, transparent), transparent 68%);
 }
 
@@ -3372,46 +3674,101 @@ body.rank-reveal-open {
 
 .rank-reveal.is-standard .rank-reveal__emblem {
   opacity: 0;
-  transform: scale(0.82);
+  transform: translateZ(-6rem) scale(0.78) rotateY(-5deg);
 }
 
 .rank-reveal.is-standard.is-visible .rank-reveal__emblem {
-  animation: rank-emblem-pop 600ms 120ms cubic-bezier(.16,.9,.3,1.2) forwards;
+  animation: rank-emblem-pop 1050ms 180ms cubic-bezier(.16,.9,.24,1.12) forwards;
 }
 
+.rank-reveal.is-rank-up .rank-emblem__underlay,
 .rank-reveal.is-rank-up .rank-emblem__wings--left,
 .rank-reveal.is-rank-up .rank-emblem__wings--right,
+.rank-reveal.is-rank-up .rank-emblem__crown,
 .rank-reveal.is-rank-up .rank-emblem__frame,
+.rank-reveal.is-rank-up .rank-emblem__plates,
 .rank-reveal.is-rank-up .rank-emblem__core,
+.rank-reveal.is-rank-up .rank-emblem__energy,
+.rank-reveal.is-rank-up .rank-emblem__engraving,
+.rank-reveal.is-rank-up .rank-emblem__damage,
+.rank-reveal.is-rank-up .rank-emblem__texture,
+.rank-reveal.is-rank-up .rank-emblem__shine,
+.rank-reveal.is-rank-up .rank-emblem__micro-particles,
 .rank-reveal.is-rank-up .rank-emblem__aura {
   transform-box: fill-box;
   transform-origin: center;
   opacity: 0;
 }
 
+.rank-reveal.is-rank-up.is-visible .rank-emblem__underlay {
+  animation: rank-forge-underlay 720ms var(--forge-step-1) cubic-bezier(.16,.82,.24,1) forwards;
+}
+
 .rank-reveal.is-rank-up.is-visible .rank-emblem__wings--left {
-  animation: rank-forge-left 620ms 180ms cubic-bezier(.16,.82,.24,1) forwards;
+  animation: rank-forge-left 760ms var(--forge-step-2) cubic-bezier(.16,.82,.24,1) forwards;
 }
 
 .rank-reveal.is-rank-up.is-visible .rank-emblem__wings--right {
-  animation: rank-forge-right 620ms 180ms cubic-bezier(.16,.82,.24,1) forwards;
+  animation: rank-forge-right 760ms var(--forge-step-2) cubic-bezier(.16,.82,.24,1) forwards;
+}
+
+.rank-reveal.is-rank-up.is-visible .rank-emblem__crown {
+  animation: rank-forge-crown 700ms var(--forge-step-3) cubic-bezier(.16,.9,.2,1.1) forwards;
 }
 
 .rank-reveal.is-rank-up.is-visible .rank-emblem__frame {
-  animation: rank-forge-core 620ms 430ms cubic-bezier(.16,.9,.2,1.15) forwards;
+  animation: rank-forge-frame 760ms var(--forge-step-3) cubic-bezier(.16,.9,.2,1.08) forwards;
+}
+
+.rank-reveal.is-rank-up.is-visible .rank-emblem__plates {
+  animation: rank-forge-plates 700ms var(--forge-step-4) cubic-bezier(.16,.9,.2,1.08) forwards;
+}
+
+.rank-reveal.is-rank-up.is-visible .rank-emblem__texture,
+.rank-reveal.is-rank-up.is-visible .rank-emblem__damage {
+  animation: rank-detail-reveal 620ms var(--forge-step-5) ease-out forwards;
 }
 
 .rank-reveal.is-rank-up.is-visible .rank-emblem__core {
-  animation: rank-forge-core 520ms 640ms cubic-bezier(.16,.9,.2,1.15) forwards;
+  animation: rank-forge-core 700ms var(--forge-step-5) cubic-bezier(.16,.9,.2,1.12) forwards;
+}
+
+.rank-reveal.is-rank-up.is-visible .rank-emblem__energy {
+  animation: rank-energy-activate 720ms var(--forge-step-6) cubic-bezier(.16,.9,.2,1.1) forwards;
+}
+
+.rank-reveal.is-rank-up.is-visible .rank-emblem__engraving {
+  animation: rank-engraving-activate 760ms var(--forge-step-6) ease-out forwards;
 }
 
 .rank-reveal.is-rank-up.is-visible .rank-emblem__aura {
-  animation: rank-aura-in 700ms 760ms ease-out forwards;
+  animation: rank-aura-in 900ms var(--forge-step-7) ease-out forwards;
+}
+
+.rank-reveal.is-rank-up.is-visible .rank-emblem__shine {
+  animation: rank-forge-scan 1000ms var(--forge-step-7) ease-in-out forwards;
+}
+
+.rank-reveal.is-rank-up.is-visible .rank-emblem__micro-particles {
+  animation: rank-detail-reveal 800ms var(--forge-step-7) ease-out forwards;
+}
+
+.rank-reveal.is-rank-up.is-visible .rank-reveal__emblem {
+  animation: rank-emblem-advance 1000ms var(--forge-copy) cubic-bezier(.16,.82,.24,1) both;
 }
 
 .rank-reveal__copy {
   position: relative;
   z-index: 1;
+}
+
+.rank-reveal.is-rank-up .rank-reveal__copy {
+  opacity: 0;
+  transform: translateY(0.8rem);
+}
+
+.rank-reveal.is-rank-up.is-visible .rank-reveal__copy {
+  animation: rank-copy-reveal 620ms var(--forge-copy) ease-out forwards;
 }
 
 .rank-reveal__eyebrow {
@@ -3427,11 +3784,11 @@ body.rank-reveal-open {
   margin: 0.35rem 0 0;
   color: #fff;
   font-family: var(--font-serif);
-  font-size: clamp(2.6rem, 7vw, 5.4rem);
-  font-weight: 500;
-  letter-spacing: -0.055em;
-  line-height: 0.95;
-  text-shadow: 0 0 28px var(--rank-glow);
+  font-size: clamp(2.8rem, 7vw, 5.8rem);
+  font-weight: 600;
+  letter-spacing: -0.06em;
+  line-height: 0.9;
+  text-shadow: 0 0 34px var(--rank-glow), 0 4px 18px rgba(0,0,0,0.6);
 }
 
 .rank-reveal__volume {
@@ -3450,9 +3807,11 @@ body.rank-reveal-open {
 .rank-reveal__progress {
   margin-top: 1.5rem;
   padding: 1rem;
-  border: 1px solid rgba(255,255,255,0.12);
+  border: 1px solid color-mix(in srgb, var(--rank-metal) 34%, rgba(255,255,255,0.1));
   border-radius: var(--radius-sm);
-  background: rgba(255,255,255,0.035);
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--rank-dark) 28%, rgba(255,255,255,0.04)), rgba(255,255,255,0.025));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.045);
 }
 
 .rank-reveal__progress > div {
@@ -3481,7 +3840,7 @@ body.rank-reveal-open {
   border-radius: inherit;
   background: linear-gradient(90deg, var(--rank-metal), var(--rank-light));
   box-shadow: 0 0 18px var(--rank-glow);
-  transition: width 700ms 320ms cubic-bezier(.2,.8,.2,1);
+  transition: width 900ms var(--forge-copy) cubic-bezier(.2,.8,.2,1);
 }
 
 .rank-reveal__current {
@@ -3513,7 +3872,7 @@ body.rank-reveal-open {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 0.3rem;
+  width: 0.28rem;
   aspect-ratio: 1;
   border-radius: 50%;
   background: var(--rank-light);
@@ -3522,53 +3881,164 @@ body.rank-reveal-open {
 }
 
 .rank-reveal.is-rank-up.is-visible .rank-reveal__particles i {
-  animation: rank-particle 1.2s 520ms ease-out forwards;
+  animation: rank-particle 1.35s var(--forge-step-7) ease-out forwards;
 }
 
-.rank-reveal__particles i:nth-child(1) { --particle-x: -19rem; --particle-y: -10rem; }
-.rank-reveal__particles i:nth-child(2) { --particle-x: 18rem; --particle-y: -8rem; }
-.rank-reveal__particles i:nth-child(3) { --particle-x: -15rem; --particle-y: 11rem; }
-.rank-reveal__particles i:nth-child(4) { --particle-x: 17rem; --particle-y: 12rem; }
-.rank-reveal__particles i:nth-child(5) { --particle-x: -4rem; --particle-y: -15rem; }
-.rank-reveal__particles i:nth-child(6) { --particle-x: 7rem; --particle-y: 16rem; }
+.rank-reveal__particles i:nth-child(1) { --particle-x: -21rem; --particle-y: -11rem; }
+.rank-reveal__particles i:nth-child(2) { --particle-x: 20rem; --particle-y: -9rem; }
+.rank-reveal__particles i:nth-child(3) { --particle-x: -17rem; --particle-y: 13rem; }
+.rank-reveal__particles i:nth-child(4) { --particle-x: 19rem; --particle-y: 14rem; }
+.rank-reveal__particles i:nth-child(5) { --particle-x: -5rem; --particle-y: -18rem; }
+.rank-reveal__particles i:nth-child(6) { --particle-x: 8rem; --particle-y: 18rem; }
+.rank-reveal__particles i:nth-child(7) { --particle-x: -25rem; --particle-y: 2rem; }
+.rank-reveal__particles i:nth-child(8) { --particle-x: 24rem; --particle-y: 3rem; }
+.rank-reveal__particles i:nth-child(9) { --particle-x: -11rem; --particle-y: 19rem; }
+.rank-reveal__particles i:nth-child(10) { --particle-x: 13rem; --particle-y: -19rem; }
+
+.rank-effects-lite .rank-reveal__atmosphere,
+.rank-effects-lite .rank-reveal__particles,
+.rank-effects-lite .rank-emblem__micro-particles,
+.rank-effects-lite .rank-emblem__texture {
+  display: none;
+}
+
+.rank-effects-lite .rank-reveal__backdrop {
+  backdrop-filter: none;
+}
+
+.rank-effects-lite .rank-reveal {
+  --forge-step-1: 100ms;
+  --forge-step-2: 240ms;
+  --forge-step-3: 400ms;
+  --forge-step-4: 580ms;
+  --forge-step-5: 760ms;
+  --forge-step-6: 960ms;
+  --forge-step-7: 1160ms;
+  --forge-copy: 1380ms;
+}
+
+.rank-effects-lite .profile-rank-card__emblem .rank-emblem,
+.rank-effects-lite .profile-rank-card__emblem .rank-emblem__shine,
+.rank-effects-lite .rank-emblem__energy {
+  animation: none !important;
+}
 
 @keyframes rank-panel-in {
-  to { opacity: 1; transform: scale(1) translateY(0); }
+  to { opacity: 1; transform: perspective(1200px) scale(1) translateY(0) rotateX(0); }
 }
 
 @keyframes rank-light-in {
-  45% { opacity: 1; }
-  to { opacity: 0.6; transform: translate(-50%, -50%) scale(1); }
+  42% { opacity: 0.92; }
+  to { opacity: 0.58; transform: translate(-50%, -50%) scale(1); }
 }
 
 @keyframes rank-emblem-pop {
-  to { opacity: 1; transform: scale(1); }
+  65% { opacity: 1; transform: translateZ(1rem) scale(1.04) rotateY(1deg); }
+  to { opacity: 1; transform: translateZ(0) scale(1) rotateY(0); }
+}
+
+@keyframes rank-forge-underlay {
+  from { opacity: 0; transform: translateY(3rem) scale(0.72); }
+  70% { opacity: 1; transform: translateY(-0.15rem) scale(1.02); }
+  to { opacity: 1; transform: translateY(3px) scale(1); }
 }
 
 @keyframes rank-forge-left {
-  from { opacity: 0; transform: translateX(-3rem) rotate(-12deg) scale(0.72); }
+  from { opacity: 0; transform: translateX(-5rem) rotate(-16deg) scale(0.64); }
+  72% { opacity: 1; transform: translateX(0.18rem) rotate(1deg) scale(1.015); }
   to { opacity: 1; transform: translateX(0) rotate(0) scale(1); }
 }
 
 @keyframes rank-forge-right {
-  from { opacity: 0; transform: translateX(3rem) rotate(12deg) scale(0.72); }
+  from { opacity: 0; transform: translateX(5rem) rotate(16deg) scale(0.64); }
+  72% { opacity: 1; transform: translateX(-0.18rem) rotate(-1deg) scale(1.015); }
   to { opacity: 1; transform: translateX(0) rotate(0) scale(1); }
 }
 
-@keyframes rank-forge-core {
-  from { opacity: 0; transform: scale(0.35) rotate(-8deg); }
+@keyframes rank-forge-crown {
+  from { opacity: 0; transform: translateY(-3rem) scale(0.62); }
+  72% { opacity: 1; transform: translateY(0.15rem) scale(1.04); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes rank-forge-frame {
+  from { opacity: 0; transform: scale(0.42) rotate(-7deg); }
+  68% { opacity: 1; transform: scale(1.04) rotate(1deg); }
   to { opacity: 1; transform: scale(1) rotate(0); }
 }
 
-@keyframes rank-aura-in {
-  from { opacity: 0; transform: scale(0.5) rotate(-20deg); }
+@keyframes rank-forge-plates {
+  from { opacity: 0; transform: scale(1.34); }
+  72% { opacity: 1; transform: scale(0.985); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes rank-forge-core {
+  from { opacity: 0; transform: scale(0.26) rotate(-12deg); }
+  72% { opacity: 1; transform: scale(1.08) rotate(1deg); }
   to { opacity: 1; transform: scale(1) rotate(0); }
+}
+
+@keyframes rank-energy-activate {
+  from { opacity: 0; transform: scale(0.1); filter: brightness(2.4); }
+  55% { opacity: 1; transform: scale(1.22); filter: brightness(1.8); }
+  to { opacity: 1; transform: scale(1); filter: brightness(1); }
+}
+
+@keyframes rank-engraving-activate {
+  from { opacity: 0; filter: brightness(2.2); }
+  55% { opacity: 1; filter: brightness(1.8); }
+  to { opacity: 1; filter: brightness(1); }
+}
+
+@keyframes rank-detail-reveal {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes rank-aura-in {
+  from { opacity: 0; transform: scale(0.45) rotate(-18deg); }
+  60% { opacity: 1; }
+  to { opacity: 1; transform: scale(1) rotate(0); }
+}
+
+@keyframes rank-forge-scan {
+  0% { opacity: 0; transform: translateX(-28px); }
+  42% { opacity: 0.86; }
+  100% { opacity: 0; transform: translateX(30px); }
+}
+
+@keyframes rank-emblem-advance {
+  from { transform: translateZ(-1rem) scale(0.96) rotateY(-1deg); }
+  55% { transform: translateZ(2.4rem) scale(1.045) rotateY(0.8deg); }
+  to { transform: translateZ(0) scale(1) rotateY(0); }
+}
+
+@keyframes rank-copy-reveal {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes rank-shockwave {
+  0% { opacity: 0; transform: scale(0.25); }
+  20% { opacity: 0.8; }
+  100% { opacity: 0; transform: scale(3.4); }
+}
+
+@keyframes rank-impact {
+  0% { opacity: 0; transform: scale(0.22); }
+  22% { opacity: 0.9; }
+  100% { opacity: 0; transform: scale(1.35); }
 }
 
 @keyframes rank-particle {
   0% { opacity: 0; transform: translate(0, 0) scale(0.2); }
   25% { opacity: 1; }
   100% { opacity: 0; transform: translate(var(--particle-x), var(--particle-y)) scale(1.6); }
+}
+
+@keyframes rank-atmosphere {
+  from { opacity: 0.18; transform: translate3d(-1rem, 1rem, 0) scale(0.94); }
+  to { opacity: 0.46; transform: translate3d(1.5rem, -1rem, 0) scale(1.06); }
 }
 
 .course-body {
@@ -5440,8 +5910,24 @@ body.rank-reveal-open {
     border-radius: 1.15rem;
   }
 
+  .rank-reveal__stage {
+    min-height: 12rem;
+  }
+
+  .rank-reveal__light {
+    width: 19rem;
+  }
+
+  .rank-reveal[data-rank="platine"] .rank-reveal__light {
+    width: 21rem;
+  }
+
+  .rank-reveal[data-rank="elite"] .rank-reveal__light {
+    width: 23rem;
+  }
+
   .rank-reveal__emblem {
-    width: 8.8rem;
+    width: 11.4rem;
   }
 
   .rank-reveal__copy {
@@ -5502,13 +5988,29 @@ body.rank-reveal-open {
   .rank-reveal.is-visible .rank-reveal__panel,
   .rank-reveal.is-visible .rank-reveal__backdrop,
   .rank-reveal.is-visible .rank-reveal__emblem,
+  .rank-reveal.is-rank-up .rank-reveal__copy,
+  .rank-reveal.is-rank-up .rank-emblem__underlay,
   .rank-reveal.is-rank-up .rank-emblem__wings--left,
   .rank-reveal.is-rank-up .rank-emblem__wings--right,
+  .rank-reveal.is-rank-up .rank-emblem__crown,
   .rank-reveal.is-rank-up .rank-emblem__frame,
+  .rank-reveal.is-rank-up .rank-emblem__plates,
   .rank-reveal.is-rank-up .rank-emblem__core,
+  .rank-reveal.is-rank-up .rank-emblem__energy,
+  .rank-reveal.is-rank-up .rank-emblem__engraving,
+  .rank-reveal.is-rank-up .rank-emblem__damage,
+  .rank-reveal.is-rank-up .rank-emblem__texture,
+  .rank-reveal.is-rank-up .rank-emblem__shine,
+  .rank-reveal.is-rank-up .rank-emblem__micro-particles,
   .rank-reveal.is-rank-up .rank-emblem__aura {
     opacity: 1 !important;
     transform: none !important;
+  }
+
+  .profile-rank-card__emblem .rank-emblem,
+  .profile-rank-card__emblem .rank-emblem__shine,
+  .rank-emblem__energy {
+    animation: none !important;
   }
 
   .motion-ready .reveal {

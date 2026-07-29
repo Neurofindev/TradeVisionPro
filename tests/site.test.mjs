@@ -263,6 +263,30 @@ test("profile shows original rank emblems, progression and local admin controls"
   assert.match(styles, /\.profile-admin\s*\{/);
 });
 
+test("rank emblems use distinct progressive vector architectures and premium materials", async () => {
+  const profile = await readFile(path.join(DIST, "profil/index.html"), "utf8");
+  const client = await readFile(path.join(DIST, "assets", "client.js"), "utf8");
+  const styles = await readFile(path.join(DIST, "assets", "styles.css"), "utf8");
+  const pathCounts = ["bronze", "silver", "gold", "platine", "elite"].map((rank) => {
+    const emblem = profile.match(new RegExp(`<svg class="rank-emblem[^"]*" data-rank="${rank}"[\\s\\S]*?<\\/svg>`))?.[0] || "";
+    assert.ok(emblem, `emblème ${rank}`);
+    assert.ok(emblem.includes("<linearGradient"), `${rank} : dégradé métallique`);
+    assert.ok(emblem.includes("<radialGradient"), `${rank} : noyau énergétique`);
+    assert.ok(emblem.includes("<pattern"), `${rank} : texture vectorielle`);
+    assert.ok(emblem.includes("rank-emblem__engraving"), `${rank} : gravures`);
+    return (emblem.match(/<path/g) || []).length;
+  });
+  assert.ok(pathCounts.every((count, index) => index === 0 || count > pathCounts[index - 1]), pathCounts.join(" → "));
+  assert.ok(client.includes("const reducedRankEffects"));
+  assert.ok(client.includes("navigator.hardwareConcurrency"));
+  assert.ok(client.includes('card.addEventListener("pointermove"'));
+  assert.match(styles, /--rank-metal-high:/);
+  assert.match(styles, /--rank-metal-low:/);
+  assert.match(styles, /@keyframes rank-surface-scan/);
+  assert.match(styles, /@keyframes rank-core-breathe/);
+  assert.match(styles, /\.rank-emblem--compact \.rank-detail--fine/);
+});
+
 test("volume validation launches responsive rank progress and rank-up animations", async () => {
   const volumeOne = await readFile(path.join(DIST, "volumes/1-fondations-et-analyses/index.html"), "utf8");
   const client = await readFile(path.join(DIST, "assets", "client.js"), "utf8");
@@ -281,6 +305,12 @@ test("volume validation launches responsive rank progress and rank-up animations
   assert.match(styles, /\.rank-reveal\s*\{[^}]*position:\s*fixed/s);
   assert.match(styles, /@keyframes rank-forge-left/);
   assert.match(styles, /@keyframes rank-forge-core/);
+  assert.match(styles, /@keyframes rank-forge-underlay/);
+  assert.match(styles, /@keyframes rank-forge-plates/);
+  assert.match(styles, /@keyframes rank-energy-activate/);
+  assert.match(styles, /@keyframes rank-shockwave/);
+  assert.match(styles, /--forge-copy:\s*3460ms/);
+  assert.match(styles, /\.rank-effects-lite \.rank-reveal/);
   assert.match(styles, /\.rank-reveal\[data-rank="elite"\] \.rank-reveal__light/);
   assert.match(styles, /@media \(prefers-reduced-motion: reduce\)[\s\S]*?\.rank-reveal/);
   assert.match(styles, /@media \(max-width: 46rem\)[\s\S]*?\.rank-reveal__panel\s*\{[^}]*grid-template-columns:\s*1fr/s);

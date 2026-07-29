@@ -2,6 +2,10 @@
   const root = document.documentElement;
   const basePath = root.dataset.basePath || "/";
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const reducedRankEffects = reduceMotion
+    || Boolean(navigator.connection?.saveData)
+    || (Number(navigator.hardwareConcurrency || 8) <= 4);
+  if (reducedRankEffects) root.classList.add("rank-effects-lite");
   const accessSessionKey = "tradevisionpro-access-session-v3";
   const accessProfiles = [
     { id: "aedan-dechavigny", name: "Aedan De Chavigny", role: "learner", hash: "9c6e9172266f90a10de4d8cc2a767e9815488ae926d39ee68b1fab34091d4235" },
@@ -200,6 +204,33 @@
   function showRankEmblem(scope, rankId) {
     scope?.querySelectorAll("[data-rank-emblem]").forEach((element) => {
       element.hidden = element.dataset.rankEmblem !== rankId;
+    });
+  }
+
+  if (!reducedRankEffects && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+    document.querySelectorAll("[data-profile-rank-card]").forEach((card) => {
+      const emblem = card.querySelector(".profile-rank-card__emblem .rank-emblem-stack");
+      if (!emblem) return;
+      let tiltFrame = 0;
+      let latestPointer = null;
+      card.addEventListener("pointermove", (event) => {
+        latestPointer = event;
+        if (tiltFrame) return;
+        tiltFrame = requestAnimationFrame(() => {
+          const bounds = card.getBoundingClientRect();
+          const x = ((latestPointer.clientX - bounds.left) / bounds.width - 0.5) * 2;
+          const y = ((latestPointer.clientY - bounds.top) / bounds.height - 0.5) * 2;
+          emblem.style.setProperty("--rank-tilt-x", `${(-y * 3.2).toFixed(2)}deg`);
+          emblem.style.setProperty("--rank-tilt-y", `${(x * 4.2).toFixed(2)}deg`);
+          tiltFrame = 0;
+        });
+      });
+      card.addEventListener("pointerleave", () => {
+        cancelAnimationFrame(tiltFrame);
+        tiltFrame = 0;
+        emblem.style.removeProperty("--rank-tilt-x");
+        emblem.style.removeProperty("--rank-tilt-y");
+      });
     });
   }
 
@@ -786,9 +817,13 @@
     document.body.classList.add("rank-reveal-open");
     requestAnimationFrame(() => {
       rankReveal.classList.add("is-visible");
+      const rankUpFocusDelay = {
+        platine: 3800,
+        elite: 4100,
+      }[afterState.current.id] || 3550;
       rankRevealFocusTimer = window.setTimeout(
         () => rankReveal.querySelector("[data-rank-reveal-continue]")?.focus({ preventScroll: true }),
-        reduceMotion ? 0 : rankUp ? 900 : 420,
+        reduceMotion ? 0 : rankUp ? reducedRankEffects ? 1900 : rankUpFocusDelay : 760,
       );
     });
   }

@@ -2223,9 +2223,9 @@ a {
   min-width: 0;
   padding: 0.65rem;
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-columns: 2.7rem minmax(0, 1fr) 0.75rem;
   align-items: center;
-  gap: 0.55rem;
+  column-gap: 0.6rem;
   border: 1px solid var(--line);
   border-radius: var(--radius-sm);
   background: var(--surface);
@@ -2243,12 +2243,27 @@ a {
 }
 
 .profile-rank-ladder__emblem {
-  width: 2.6rem;
+  width: 2.7rem;
+  min-width: 0;
+  display: grid;
+  place-items: center;
+}
+
+.profile-rank-ladder__emblem .rank-emblem--compact {
+  width: 100%;
+  max-width: 100%;
+}
+
+.profile-rank-ladder li > span:nth-child(2) {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
 }
 
 .profile-rank-ladder strong,
 .profile-rank-ladder small {
   display: block;
+  overflow-wrap: anywhere;
 }
 
 .profile-rank-ladder strong {

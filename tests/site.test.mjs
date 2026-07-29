@@ -285,6 +285,8 @@ test("rank emblems use distinct progressive vector architectures and premium mat
   assert.match(styles, /@keyframes rank-surface-scan/);
   assert.match(styles, /@keyframes rank-core-breathe/);
   assert.match(styles, /\.rank-emblem--compact \.rank-detail--fine/);
+  assert.match(styles, /\.profile-rank-ladder__emblem \.rank-emblem--compact\s*\{[^}]*width:\s*100%/s);
+  assert.match(styles, /\.profile-rank-ladder li\s*\{[^}]*grid-template-columns:\s*2\.7rem minmax\(0,\s*1fr\) 0\.75rem/s);
 });
 
 test("volume validation launches responsive rank progress and rank-up animations", async () => {

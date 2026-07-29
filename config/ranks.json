@@ -21,31 +21,31 @@
       "id": "bronze",
       "name": "Bronze",
       "description": "Le parcours commence : les premières fondations sont en construction.",
-      "celebration": "Votre progression prend forme."
+      "celebration": "Votre progression commence ici."
     },
     {
       "id": "silver",
       "name": "Silver",
       "description": "Un premier niveau de maîtrise est atteint.",
-      "celebration": "Les fondations sont validées."
+      "celebration": "Une nouvelle étape est franchie."
     },
     {
       "id": "gold",
       "name": "Gold",
       "description": "Les notions commencent à former une méthode cohérente.",
-      "celebration": "Votre méthode gagne en précision."
+      "celebration": "Votre maîtrise commence à se distinguer."
     },
     {
       "id": "platine",
       "name": "Platine",
       "description": "Le parcours atteint un niveau avancé et transversal.",
-      "celebration": "Votre lecture des marchés se structure."
+      "celebration": "Vous atteignez un niveau avancé."
     },
     {
       "id": "elite",
       "name": "Elite",
       "description": "La formation disponible est entièrement ou presque entièrement maîtrisée.",
-      "celebration": "Excellence, maîtrise et discipline."
+      "celebration": "Formation maîtrisée. Vous avez atteint l’excellence."
     }
   ]
 }

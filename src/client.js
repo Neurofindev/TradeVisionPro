@@ -754,12 +754,340 @@
     if (status) status.textContent = `Volume ${volumeOrder} dévalidé pour ${profile.name}. Son rang sera recalculé à la prochaine ouverture du profil.`;
   });
 
+  const rankSoundPreferenceKey = "tradevisionpro-rank-sound-v1";
+  let rankSoundEnabled = true;
+  try {
+    rankSoundEnabled = localStorage.getItem(rankSoundPreferenceKey) !== "off";
+  } catch (error) {
+    rankSoundEnabled = true;
+  }
+
+  const rankSoundProfiles = {
+    bronze: { root: 130.81, wave: "triangle", brightness: 780, chord: [130.81, 196, 261.63], tempo: 0.9 },
+    silver: { root: 164.81, wave: "sine", brightness: 1850, chord: [220, 329.63, 440], tempo: 0.96 },
+    gold: { root: 196, wave: "triangle", brightness: 1450, chord: [196, 293.66, 392, 493.88], tempo: 1 },
+    platine: { root: 220, wave: "sine", brightness: 2350, chord: [220, 329.63, 440, 659.25], tempo: 1.06 },
+    elite: { root: 110, wave: "sawtooth", brightness: 2100, chord: [110, 220, 329.63, 440, 659.25], tempo: 1.12 },
+  };
+
+  function createRankSoundEngine() {
+    let context = null;
+    let master = null;
+    const activeSources = new Set();
+
+    function prepare() {
+      if (!rankSoundEnabled) return null;
+      const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+      if (!AudioContextClass) return null;
+      if (!context) {
+        context = new AudioContextClass();
+        master = context.createGain();
+        master.gain.value = 0.0001;
+        master.connect(context.destination);
+      }
+      const now = context.currentTime;
+      master.gain.cancelScheduledValues(now);
+      master.gain.setValueAtTime(Math.max(0.0001, master.gain.value), now);
+      master.gain.setTargetAtTime(0.16, now, 0.035);
+      context.resume?.().catch(() => {});
+      return context;
+    }
+
+    function register(source) {
+      activeSources.add(source);
+      source.addEventListener?.("ended", () => activeSources.delete(source), { once: true });
+      return source;
+    }
+
+    function voiceChain(source, { start, duration, gain = 0.03, attack = 0.018, pan = 0, filter = 0 } = {}) {
+      const gainNode = context.createGain();
+      gainNode.gain.setValueAtTime(0.0001, start);
+      gainNode.gain.exponentialRampToValueAtTime(Math.max(0.0002, gain), start + attack);
+      gainNode.gain.exponentialRampToValueAtTime(0.0001, start + duration);
+      let tail = gainNode;
+      if (filter > 0) {
+        const filterNode = context.createBiquadFilter();
+        filterNode.type = "lowpass";
+        filterNode.frequency.setValueAtTime(filter, start);
+        filterNode.Q.value = 0.7;
+        gainNode.connect(filterNode);
+        tail = filterNode;
+      }
+      if (context.createStereoPanner) {
+        const panner = context.createStereoPanner();
+        panner.pan.setValueAtTime(Math.max(-1, Math.min(1, pan)), start);
+        tail.connect(panner);
+        panner.connect(master);
+      } else {
+        tail.connect(master);
+      }
+      source.connect(gainNode);
+      return gainNode;
+    }
+
+    function tone({
+      offset = 0,
+      duration = 0.35,
+      frequency = 220,
+      endFrequency = 0,
+      type = "sine",
+      gain = 0.025,
+      attack = 0.018,
+      pan = 0,
+      filter = 0,
+    } = {}) {
+      if (!context || !master) return;
+      const start = context.currentTime + Math.max(0, offset);
+      const oscillator = register(context.createOscillator());
+      oscillator.type = type;
+      oscillator.frequency.setValueAtTime(Math.max(20, frequency), start);
+      if (endFrequency > 0) {
+        oscillator.frequency.exponentialRampToValueAtTime(Math.max(20, endFrequency), start + duration);
+      }
+      voiceChain(oscillator, { start, duration, gain, attack, pan, filter });
+      oscillator.start(start);
+      oscillator.stop(start + duration + 0.04);
+    }
+
+    function noise({
+      offset = 0,
+      duration = 0.22,
+      gain = 0.018,
+      frequency = 1200,
+      type = "bandpass",
+      pan = 0,
+    } = {}) {
+      if (!context || !master) return;
+      const frameCount = Math.max(1, Math.ceil(context.sampleRate * duration));
+      const buffer = context.createBuffer(1, frameCount, context.sampleRate);
+      const data = buffer.getChannelData(0);
+      for (let index = 0; index < frameCount; index += 1) {
+        const envelope = 1 - index / frameCount;
+        data[index] = (Math.random() * 2 - 1) * envelope * envelope;
+      }
+      const source = register(context.createBufferSource());
+      source.buffer = buffer;
+      const start = context.currentTime + Math.max(0, offset);
+      const gainNode = context.createGain();
+      gainNode.gain.setValueAtTime(Math.max(0.0001, gain), start);
+      gainNode.gain.exponentialRampToValueAtTime(0.0001, start + duration);
+      const filterNode = context.createBiquadFilter();
+      filterNode.type = type;
+      filterNode.frequency.setValueAtTime(frequency, start);
+      filterNode.Q.value = type === "bandpass" ? 3.2 : 0.8;
+      source.connect(filterNode);
+      filterNode.connect(gainNode);
+      if (context.createStereoPanner) {
+        const panner = context.createStereoPanner();
+        panner.pan.value = pan;
+        gainNode.connect(panner);
+        panner.connect(master);
+      } else {
+        gainNode.connect(master);
+      }
+      source.start(start);
+      source.stop(start + duration + 0.03);
+    }
+
+    function metallicImpact(offset, profile, pan = 0, weight = 1) {
+      tone({
+        offset,
+        duration: 0.24,
+        frequency: profile.root * 2.02,
+        endFrequency: profile.root * 1.72,
+        type: "triangle",
+        gain: 0.018 * weight,
+        pan,
+        filter: profile.brightness,
+      });
+      tone({
+        offset: offset + 0.012,
+        duration: 0.18,
+        frequency: profile.root * 3.71,
+        type: "sine",
+        gain: 0.01 * weight,
+        pan: -pan,
+      });
+      noise({
+        offset,
+        duration: 0.16,
+        gain: 0.012 * weight,
+        frequency: profile.brightness,
+        pan,
+      });
+    }
+
+    function lowImpact(offset, profile, weight = 1) {
+      tone({
+        offset,
+        duration: 0.58,
+        frequency: profile.root,
+        endFrequency: profile.root * 0.57,
+        type: "sine",
+        gain: 0.045 * weight,
+        attack: 0.008,
+        filter: 620,
+      });
+      noise({
+        offset,
+        duration: 0.34,
+        gain: 0.016 * weight,
+        frequency: 260,
+        type: "lowpass",
+      });
+    }
+
+    function energyRise(offset, duration, profile, gain = 0.018) {
+      tone({
+        offset,
+        duration,
+        frequency: profile.root * 0.76,
+        endFrequency: profile.root * 4.05,
+        type: profile.wave,
+        gain,
+        attack: Math.min(0.45, duration * 0.42),
+        filter: profile.brightness,
+      });
+      noise({
+        offset: offset + duration * 0.35,
+        duration: duration * 0.6,
+        gain: gain * 0.42,
+        frequency: profile.brightness,
+        type: "highpass",
+      });
+    }
+
+    function resolutionChord(offset, profile, gain = 0.018) {
+      profile.chord.forEach((frequency, index) => {
+        tone({
+          offset: offset + index * 0.018,
+          duration: 1.35 - index * 0.04,
+          frequency,
+          type: index === 0 ? "triangle" : "sine",
+          gain: gain / Math.max(1, Math.sqrt(profile.chord.length)),
+          attack: 0.04 + index * 0.012,
+          pan: (index / Math.max(1, profile.chord.length - 1) - 0.5) * 0.7,
+          filter: profile.brightness * 1.2,
+        });
+      });
+    }
+
+    function progression(offset, profile) {
+      [0, 0.2, 0.42, 0.66, 0.9].forEach((step, index) => {
+        tone({
+          offset: offset + step,
+          duration: 0.2,
+          frequency: profile.root * (1.45 + index * 0.23),
+          type: "sine",
+          gain: 0.011 + index * 0.0015,
+          attack: 0.008,
+          pan: -0.35 + index * 0.17,
+        });
+      });
+    }
+
+    function stop(fade = 0.045) {
+      if (!context || !master) return;
+      const now = context.currentTime;
+      master.gain.cancelScheduledValues(now);
+      master.gain.setValueAtTime(Math.max(0.0001, master.gain.value), now);
+      master.gain.exponentialRampToValueAtTime(0.0001, now + fade);
+      activeSources.forEach((source) => {
+        try {
+          source.stop(now + fade + 0.02);
+        } catch (error) {
+          // The source may already have ended.
+        }
+      });
+      activeSources.clear();
+    }
+
+    function playStandard(rankId) {
+      if (!prepare()) return;
+      const profile = rankSoundProfiles[rankId] || rankSoundProfiles.bronze;
+      progression(0.08, profile);
+      energyRise(0.2, 1.05, profile, 0.011);
+      metallicImpact(1.12, profile, 0.18, 0.62);
+      tone({ offset: 1.28, duration: 0.22, frequency: profile.root * 4.2, type: "sine", gain: 0.012 });
+      lowImpact(1.5, profile, 0.48);
+      resolutionChord(1.62, profile, 0.013);
+    }
+
+    function playRankUp(rankId) {
+      if (!prepare()) return;
+      const profile = rankSoundProfiles[rankId] || rankSoundProfiles.silver;
+      const pace = profile.tempo;
+      energyRise(0.05, 2.45 * pace, profile, rankId === "elite" ? 0.025 : 0.019);
+      metallicImpact(0.34 * pace, profile, -0.46, 0.72);
+      metallicImpact(0.76 * pace, profile, 0.46, 0.76);
+      metallicImpact(1.18 * pace, profile, -0.3, 0.88);
+      metallicImpact(1.58 * pace, profile, 0.3, 0.92);
+      metallicImpact(2.02 * pace, profile, 0, 1);
+      tone({
+        offset: 2.24 * pace,
+        duration: 0.72,
+        frequency: profile.root * 1.35,
+        endFrequency: profile.root * 3.2,
+        type: profile.wave,
+        gain: 0.022,
+        filter: profile.brightness * 1.25,
+      });
+      lowImpact(2.8 * pace, profile, rankId === "elite" ? 1.28 : rankId === "platine" ? 1.12 : 1);
+      noise({
+        offset: 2.82 * pace,
+        duration: 0.5,
+        gain: rankId === "elite" ? 0.025 : 0.018,
+        frequency: profile.brightness * 1.15,
+        type: "highpass",
+      });
+      resolutionChord(3.02 * pace, profile, rankId === "elite" ? 0.027 : 0.021);
+      tone({
+        offset: 3.48 * pace,
+        duration: 1.15,
+        frequency: profile.root * 0.5,
+        type: "sine",
+        gain: 0.012,
+        attack: 0.12,
+        filter: 520,
+      });
+    }
+
+    function preview(rankId) {
+      if (!prepare()) return;
+      const profile = rankSoundProfiles[rankId] || rankSoundProfiles.bronze;
+      metallicImpact(0, profile, 0, 0.5);
+      resolutionChord(0.08, profile, 0.009);
+    }
+
+    return {
+      prime: prepare,
+      playStandard,
+      playRankUp,
+      preview,
+      stop,
+    };
+  }
+
+  const rankSoundEngine = createRankSoundEngine();
   const rankReveal = document.querySelector("[data-rank-reveal]");
+  const rankSoundToggle = rankReveal?.querySelector("[data-rank-sound-toggle]");
   let rankRevealReturnFocus = null;
   let rankRevealFocusTimer = 0;
 
+  function updateRankSoundUi() {
+    if (!rankSoundToggle) return;
+    rankSoundToggle.setAttribute("aria-pressed", String(rankSoundEnabled));
+    rankSoundToggle.setAttribute("aria-label", rankSoundEnabled ? "Désactiver les bruitages" : "Activer les bruitages");
+    const icon = rankSoundToggle.querySelector("[data-rank-sound-icon]");
+    const label = rankSoundToggle.querySelector("[data-rank-sound-label]");
+    if (icon) icon.textContent = rankSoundEnabled ? "◖)))" : "◖×";
+    if (label) label.textContent = rankSoundEnabled ? "Son activé" : "Son coupé";
+  }
+  updateRankSoundUi();
+
   function closeRankReveal() {
     if (!rankReveal || rankReveal.hidden) return;
+    rankSoundEngine.stop();
     window.clearTimeout(rankRevealFocusTimer);
     rankRevealFocusTimer = 0;
     rankReveal.classList.remove("is-visible", "is-rank-up", "is-standard", "is-reduced");
@@ -779,6 +1107,7 @@
     const rankUp = beforeState.current.id !== afterState.current.id;
     const remaining = afterState.next ? Math.max(0, afterState.next.minValidated - afterValidated) : 0;
     const progressPercent = Math.round(afterState.progress * 100);
+    const continueButton = rankReveal.querySelector("[data-rank-reveal-continue]");
 
     rankReveal.hidden = false;
     rankReveal.dataset.rank = afterState.current.id;
@@ -808,28 +1137,56 @@
     const progressElement = rankReveal.querySelector("[data-rank-reveal-progress]");
     progressElement?.setAttribute("aria-valuenow", String(progressPercent));
     const progressBar = rankReveal.querySelector("[data-rank-reveal-progress-bar]");
-    if (progressBar) progressBar.style.width = `${progressPercent}%`;
+    if (progressBar) {
+      progressBar.style.width = "0%";
+      progressBar.dataset.targetWidth = `${progressPercent}%`;
+    }
     const remainingLabel = rankReveal.querySelector("[data-rank-reveal-progress-label]");
     if (remainingLabel && afterState.next && remaining > 0) {
       remainingLabel.title = `${remaining} volume${remaining > 1 ? "s" : ""} restant${remaining > 1 ? "s" : ""}`;
     }
     rankRevealReturnFocus = focusTarget || document.activeElement;
+    if (continueButton) continueButton.disabled = true;
     document.body.classList.add("rank-reveal-open");
+    if (rankUp) rankSoundEngine.playRankUp(afterState.current.id);
+    else rankSoundEngine.playStandard(afterState.current.id);
     requestAnimationFrame(() => {
       rankReveal.classList.add("is-visible");
+      requestAnimationFrame(() => {
+        if (progressBar) progressBar.style.width = progressBar.dataset.targetWidth || `${progressPercent}%`;
+      });
       const rankUpFocusDelay = {
         platine: 3800,
         elite: 4100,
       }[afterState.current.id] || 3550;
       rankRevealFocusTimer = window.setTimeout(
-        () => rankReveal.querySelector("[data-rank-reveal-continue]")?.focus({ preventScroll: true }),
-        reduceMotion ? 0 : rankUp ? reducedRankEffects ? 1900 : rankUpFocusDelay : 760,
+        () => {
+          if (continueButton) {
+            continueButton.disabled = false;
+            continueButton.focus({ preventScroll: true });
+          }
+        },
+        reduceMotion ? 0 : rankUp ? reducedRankEffects ? 1900 : rankUpFocusDelay : 1900,
       );
     });
   }
 
   rankReveal?.querySelector("[data-rank-reveal-continue]")?.addEventListener("click", closeRankReveal);
   rankReveal?.querySelector("[data-rank-reveal-skip]")?.addEventListener("click", closeRankReveal);
+  rankSoundToggle?.addEventListener("click", () => {
+    rankSoundEnabled = !rankSoundEnabled;
+    try {
+      localStorage.setItem(rankSoundPreferenceKey, rankSoundEnabled ? "on" : "off");
+    } catch (error) {
+      // The preference remains active for this page if storage is unavailable.
+    }
+    updateRankSoundUi();
+    if (!rankSoundEnabled) {
+      rankSoundEngine.stop();
+    } else {
+      rankSoundEngine.preview(rankReveal?.dataset.rank || "bronze");
+    }
+  });
   document.addEventListener("keydown", (event) => {
     if (!rankReveal || rankReveal.hidden) return;
     if (event.key === "Escape") {
@@ -837,7 +1194,10 @@
       return;
     }
     if (event.key !== "Tab") return;
-    const focusable = [...rankReveal.querySelectorAll("button:not([disabled])")].filter((element) => element.offsetParent);
+    const focusable = [...rankReveal.querySelectorAll("button:not([disabled])")].filter((element) => {
+      const style = window.getComputedStyle(element);
+      return element.offsetParent && style.visibility !== "hidden" && style.pointerEvents !== "none";
+    });
     if (!focusable.length) return;
     const first = focusable[0];
     const last = focusable.at(-1);
@@ -1074,6 +1434,7 @@
         result.focus({ preventScroll: true });
         result.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "center" });
         if (volumeValidatedNow) {
+          rankSoundEngine.prime();
           window.setTimeout(
             () => showRankProgress({
               volumeOrder,

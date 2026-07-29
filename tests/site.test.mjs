@@ -293,10 +293,13 @@ test("volume validation launches responsive rank progress and rank-up animations
   const volumeOne = await readFile(path.join(DIST, "volumes/1-fondations-et-analyses/index.html"), "utf8");
   const client = await readFile(path.join(DIST, "assets", "client.js"), "utf8");
   const styles = await readFile(path.join(DIST, "assets", "styles.css"), "utf8");
+  const ranks = JSON.parse(await readFile(path.join(ROOT, "config", "ranks.json"), "utf8"));
   assert.ok(volumeOne.includes("data-rank-reveal"));
   assert.ok(volumeOne.includes("data-rank-reveal-skip"));
   assert.ok(volumeOne.includes("data-rank-reveal-continue"));
   assert.ok(volumeOne.includes("data-rank-reveal-progress"));
+  assert.ok(volumeOne.includes("data-rank-sound-toggle"));
+  assert.ok(volumeOne.includes("data-rank-sound-label"));
   assert.equal((volumeOne.match(/data-rank-emblem="/g) || []).length, 5);
   assert.ok(client.includes("function showRankProgress("));
   assert.ok(client.includes('rankReveal.classList.add(rankUp ? "is-rank-up" : "is-standard")'));
@@ -311,11 +314,45 @@ test("volume validation launches responsive rank progress and rank-up animations
   assert.match(styles, /@keyframes rank-forge-plates/);
   assert.match(styles, /@keyframes rank-energy-activate/);
   assert.match(styles, /@keyframes rank-shockwave/);
+  assert.match(styles, /@keyframes rank-final-vibration/);
+  assert.match(styles, /@keyframes rank-progress-beam/);
+  assert.match(styles, /@keyframes rank-counter-increment/);
+  assert.match(styles, /@keyframes rank-validation-particle/);
   assert.match(styles, /--forge-copy:\s*3460ms/);
+  assert.match(styles, /--continue-delay:\s*4100ms/);
   assert.match(styles, /\.rank-effects-lite \.rank-reveal/);
   assert.match(styles, /\.rank-reveal\[data-rank="elite"\] \.rank-reveal__light/);
   assert.match(styles, /@media \(prefers-reduced-motion: reduce\)[\s\S]*?\.rank-reveal/);
   assert.match(styles, /@media \(max-width: 46rem\)[\s\S]*?\.rank-reveal__panel\s*\{[^}]*grid-template-columns:\s*1fr/s);
+  assert.deepEqual(
+    ranks.ranks.map((rank) => rank.celebration),
+    [
+      "Votre progression commence ici.",
+      "Une nouvelle étape est franchie.",
+      "Votre maîtrise commence à se distinguer.",
+      "Vous atteignez un niveau avancé.",
+      "Formation maîtrisée. Vous avez atteint l’excellence.",
+    ],
+  );
+});
+
+test("rank sound design is original, synchronized, optional and persistent", async () => {
+  const client = await readFile(path.join(DIST, "assets", "client.js"), "utf8");
+  assert.ok(client.includes('const rankSoundPreferenceKey = "tradevisionpro-rank-sound-v1"'));
+  assert.ok(client.includes("window.AudioContext || window.webkitAudioContext"));
+  assert.ok(client.includes("function metallicImpact("));
+  assert.ok(client.includes("function energyRise("));
+  assert.ok(client.includes("function resolutionChord("));
+  assert.ok(client.includes("function playStandard("));
+  assert.ok(client.includes("function playRankUp("));
+  assert.ok(client.includes("rankSoundEngine.prime()"));
+  assert.ok(client.includes("rankSoundEngine.stop()"));
+  assert.ok(client.includes("localStorage.setItem(rankSoundPreferenceKey"));
+  for (const rank of ["bronze", "silver", "gold", "platine", "elite"]) {
+    assert.match(client, new RegExp(`${rank}: \\{ root:`), rank);
+  }
+  assert.ok(!client.includes("<audio"));
+  assert.doesNotMatch(client, /["'][^"']+\.(?:mp3|wav|ogg)["']/i);
 });
 
 test("quiz reflection level progresses gradually across volumes", async () => {

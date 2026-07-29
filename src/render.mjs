@@ -810,7 +810,10 @@ function renderRankProgressOverlay() {
     <div class="rank-reveal__backdrop" aria-hidden="true"></div>
     <div class="rank-reveal__atmosphere" aria-hidden="true"><i></i><i></i><i></i></div>
     <div class="rank-reveal__particles" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-    <button class="rank-reveal__skip" type="button" data-rank-reveal-skip>Passer l’animation</button>
+    <div class="rank-reveal__controls">
+      <button class="rank-reveal__sound" type="button" data-rank-sound-toggle aria-pressed="true" aria-label="Désactiver les bruitages"><span data-rank-sound-icon aria-hidden="true">◖)))</span><span data-rank-sound-label>Son activé</span></button>
+      <button class="rank-reveal__skip" type="button" data-rank-reveal-skip>Passer l’animation</button>
+    </div>
     <div class="rank-reveal__panel">
       <div class="rank-reveal__stage">
         <div class="rank-reveal__light" aria-hidden="true"></div>

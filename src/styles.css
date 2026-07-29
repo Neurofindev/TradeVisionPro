@@ -3447,6 +3447,8 @@ body.rank-reveal-open {
   --forge-step-6: 2260ms;
   --forge-step-7: 2640ms;
   --forge-copy: 2940ms;
+  --progress-delay: 320ms;
+  --continue-delay: 1700ms;
   position: fixed;
   z-index: 400;
   inset: 0;
@@ -3476,6 +3478,19 @@ body.rank-reveal-open {
   --forge-step-6: 2680ms;
   --forge-step-7: 3120ms;
   --forge-copy: 3460ms;
+}
+
+.rank-reveal.is-rank-up {
+  --progress-delay: var(--forge-copy);
+  --continue-delay: 3540ms;
+}
+
+.rank-reveal.is-rank-up[data-rank="platine"] {
+  --continue-delay: 3800ms;
+}
+
+.rank-reveal.is-rank-up[data-rank="elite"] {
+  --continue-delay: 4100ms;
 }
 
 .rank-reveal__backdrop {
@@ -3562,11 +3577,24 @@ body.rank-reveal-open {
   animation: rank-panel-in 620ms cubic-bezier(.16,.8,.25,1) forwards;
 }
 
-.rank-reveal__skip {
+.rank-reveal.is-rank-up.is-visible .rank-reveal__panel {
+  animation:
+    rank-panel-in 620ms cubic-bezier(.16,.8,.25,1) forwards,
+    rank-final-vibration 360ms var(--forge-step-7) ease-out;
+}
+
+.rank-reveal__controls {
   position: fixed;
   z-index: 4;
   top: 1rem;
   right: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.rank-reveal__skip,
+.rank-reveal__sound {
   padding: 0.55rem 0.8rem;
   border: 1px solid rgba(255,255,255,0.18);
   border-radius: 99px;
@@ -3576,8 +3604,33 @@ body.rank-reveal-open {
   cursor: pointer;
 }
 
+.rank-reveal__sound {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.42rem;
+}
+
+.rank-reveal__sound [data-rank-sound-icon] {
+  min-width: 1.45rem;
+  color: var(--rank-light);
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 0.62rem;
+  letter-spacing: -0.14em;
+}
+
+.rank-reveal__sound[aria-pressed="false"] {
+  color: #aaa3b2;
+  opacity: 0.8;
+}
+
+.rank-reveal__sound[aria-pressed="false"] [data-rank-sound-icon] {
+  color: #aaa3b2;
+}
+
 .rank-reveal__skip:hover,
-.rank-reveal__skip:focus-visible {
+.rank-reveal__skip:focus-visible,
+.rank-reveal__sound:hover,
+.rank-reveal__sound:focus-visible {
   border-color: color-mix(in srgb, var(--rank-edge) 48%, transparent);
   color: #fff;
 }
@@ -3696,6 +3749,16 @@ body.rank-reveal-open {
   animation: rank-emblem-pop 1050ms 180ms cubic-bezier(.16,.9,.24,1.12) forwards;
 }
 
+.rank-reveal.is-standard.is-visible .rank-emblem__energy {
+  animation: rank-validation-core 850ms 720ms cubic-bezier(.16,.9,.2,1.1) both;
+}
+
+.rank-reveal.is-standard.is-visible .rank-emblem__shine {
+  animation:
+    rank-forge-scan 820ms 780ms ease-in-out both,
+    rank-surface-scan 5.8s 1900ms ease-in-out infinite;
+}
+
 .rank-reveal.is-rank-up .rank-emblem__underlay,
 .rank-reveal.is-rank-up .rank-emblem__wings--left,
 .rank-reveal.is-rank-up .rank-emblem__wings--right,
@@ -3761,7 +3824,9 @@ body.rank-reveal-open {
 }
 
 .rank-reveal.is-rank-up.is-visible .rank-emblem__shine {
-  animation: rank-forge-scan 1000ms var(--forge-step-7) ease-in-out forwards;
+  animation:
+    rank-forge-scan 1000ms var(--forge-step-7) ease-in-out forwards,
+    rank-surface-scan 5.8s calc(var(--forge-copy) + 1200ms) ease-in-out infinite;
 }
 
 .rank-reveal.is-rank-up.is-visible .rank-emblem__micro-particles {
@@ -3784,6 +3849,15 @@ body.rank-reveal-open {
 
 .rank-reveal.is-rank-up.is-visible .rank-reveal__copy {
   animation: rank-copy-reveal 620ms var(--forge-copy) ease-out forwards;
+}
+
+.rank-reveal.is-standard .rank-reveal__copy {
+  opacity: 0;
+  transform: translateY(0.65rem);
+}
+
+.rank-reveal.is-standard.is-visible .rank-reveal__copy {
+  animation: rank-validation-copy 560ms 260ms cubic-bezier(.16,.84,.2,1) forwards;
 }
 
 .rank-reveal__eyebrow {
@@ -3841,6 +3915,7 @@ body.rank-reveal-open {
 }
 
 .rank-reveal__track {
+  position: relative;
   height: 0.5rem;
   display: block;
   overflow: hidden;
@@ -3849,13 +3924,58 @@ body.rank-reveal-open {
 }
 
 .rank-reveal__track i {
+  position: relative;
   width: 0;
   height: 100%;
   display: block;
+  overflow: visible;
   border-radius: inherit;
   background: linear-gradient(90deg, var(--rank-metal), var(--rank-light));
   box-shadow: 0 0 18px var(--rank-glow);
-  transition: width 900ms var(--forge-copy) cubic-bezier(.2,.8,.2,1);
+  transition: width 900ms var(--progress-delay) cubic-bezier(.2,.8,.2,1);
+}
+
+.rank-reveal__track i::before,
+.rank-reveal__track i::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.rank-reveal__track i::before {
+  top: 50%;
+  right: -0.18rem;
+  width: 0.42rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow:
+    0 0 7px var(--rank-light),
+    -0.45rem -0.35rem 0 -0.08rem var(--rank-light),
+    -0.2rem 0.48rem 0 -0.12rem var(--rank-light),
+    0.4rem -0.18rem 0 -0.13rem var(--rank-light);
+  transform: translateY(-50%) scale(0.2);
+}
+
+.rank-reveal__track i::after {
+  inset: -0.16rem auto -0.16rem -1.4rem;
+  width: 1.6rem;
+  border-radius: 99px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.92), transparent);
+  filter: blur(1px);
+}
+
+.rank-reveal.is-visible .rank-reveal__track i::after {
+  animation: rank-progress-beam 900ms calc(var(--progress-delay) + 180ms) ease-in-out forwards;
+}
+
+.rank-reveal.is-visible .rank-reveal__track i::before {
+  animation: rank-progress-arrival 620ms calc(var(--progress-delay) + 820ms) ease-out forwards;
+}
+
+.rank-reveal.is-visible [data-rank-reveal-progress-value] {
+  animation: rank-counter-increment 520ms calc(var(--progress-delay) + 760ms) cubic-bezier(.16,.9,.2,1.15) both;
 }
 
 .rank-reveal__current {
@@ -3873,6 +3993,17 @@ body.rank-reveal-open {
   margin-top: 1.25rem;
   justify-content: center;
   color: #17131a;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(0.55rem);
+}
+
+.rank-reveal.is-visible .rank-reveal__continue {
+  animation: rank-action-reveal 420ms var(--continue-delay) ease-out forwards;
+}
+
+.rank-reveal__continue:disabled {
+  cursor: default;
 }
 
 .rank-reveal__particles {
@@ -3899,6 +4030,17 @@ body.rank-reveal-open {
   animation: rank-particle 1.35s var(--forge-step-7) ease-out forwards;
 }
 
+.rank-reveal.is-standard.is-visible .rank-reveal__particles i:nth-child(-n+6) {
+  animation: rank-validation-particle 980ms 1180ms ease-out forwards;
+}
+
+.rank-reveal.is-standard .rank-reveal__particles i:nth-child(1) { --validation-x: -7rem; --validation-y: -2rem; }
+.rank-reveal.is-standard .rank-reveal__particles i:nth-child(2) { --validation-x: 7rem; --validation-y: -1rem; }
+.rank-reveal.is-standard .rank-reveal__particles i:nth-child(3) { --validation-x: -5rem; --validation-y: 4rem; }
+.rank-reveal.is-standard .rank-reveal__particles i:nth-child(4) { --validation-x: 6rem; --validation-y: 4rem; }
+.rank-reveal.is-standard .rank-reveal__particles i:nth-child(5) { --validation-x: -1rem; --validation-y: -6rem; }
+.rank-reveal.is-standard .rank-reveal__particles i:nth-child(6) { --validation-x: 2rem; --validation-y: 6rem; }
+
 .rank-reveal__particles i:nth-child(1) { --particle-x: -21rem; --particle-y: -11rem; }
 .rank-reveal__particles i:nth-child(2) { --particle-x: 20rem; --particle-y: -9rem; }
 .rank-reveal__particles i:nth-child(3) { --particle-x: -17rem; --particle-y: 13rem; }
@@ -3909,6 +4051,31 @@ body.rank-reveal-open {
 .rank-reveal__particles i:nth-child(8) { --particle-x: 24rem; --particle-y: 3rem; }
 .rank-reveal__particles i:nth-child(9) { --particle-x: -11rem; --particle-y: 19rem; }
 .rank-reveal__particles i:nth-child(10) { --particle-x: 13rem; --particle-y: -19rem; }
+
+.rank-reveal[data-rank="bronze"] .rank-reveal__particles i {
+  border-radius: 2px;
+  rotate: 18deg;
+}
+
+.rank-reveal[data-rank="silver"] .rank-reveal__particles i {
+  background: #f8fcff;
+  box-shadow: 0 0 10px #b9e3ff;
+}
+
+.rank-reveal[data-rank="gold"] .rank-reveal__particles i {
+  width: 0.34rem;
+  background: radial-gradient(circle, #fff 0 22%, var(--rank-light) 48%, var(--rank-metal) 100%);
+}
+
+.rank-reveal[data-rank="platine"] .rank-reveal__atmosphere i {
+  filter: blur(30px) saturate(1.18);
+}
+
+.rank-reveal[data-rank="elite"] .rank-reveal__backdrop {
+  background:
+    radial-gradient(circle at 50% 46%, rgba(74,52,197,0.4), transparent 36rem),
+    linear-gradient(135deg, rgba(5,4,12,0.97), rgba(2,2,7,0.985));
+}
 
 .rank-effects-lite .rank-reveal__atmosphere,
 .rank-effects-lite .rank-reveal__particles,
@@ -3930,6 +4097,17 @@ body.rank-reveal-open {
   --forge-step-6: 960ms;
   --forge-step-7: 1160ms;
   --forge-copy: 1380ms;
+  --progress-delay: 180ms;
+  --continue-delay: 1580ms;
+}
+
+.rank-effects-lite .rank-reveal.is-rank-up {
+  --progress-delay: 1380ms;
+  --continue-delay: 1780ms;
+}
+
+.rank-effects-lite .rank-reveal.is-rank-up.is-visible .rank-reveal__panel {
+  animation: rank-panel-in 420ms cubic-bezier(.16,.8,.25,1) forwards;
 }
 
 .rank-effects-lite .profile-rank-card__emblem .rank-emblem,
@@ -3950,6 +4128,18 @@ body.rank-reveal-open {
 @keyframes rank-emblem-pop {
   65% { opacity: 1; transform: translateZ(1rem) scale(1.04) rotateY(1deg); }
   to { opacity: 1; transform: translateZ(0) scale(1) rotateY(0); }
+}
+
+@keyframes rank-validation-core {
+  0% { opacity: 0.7; transform: scale(0.9); filter: brightness(1); }
+  54% { opacity: 1; transform: scale(1.16); filter: brightness(1.9); }
+  100% { opacity: 1; transform: scale(1); filter: brightness(1); }
+}
+
+@keyframes rank-validation-copy {
+  0% { opacity: 0; transform: translateY(0.65rem); }
+  70% { opacity: 1; transform: translateY(-0.08rem); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes rank-forge-underlay {
@@ -4033,6 +4223,13 @@ body.rank-reveal-open {
   to { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes rank-final-vibration {
+  0%, 100% { transform: perspective(1200px) translate3d(0,0,0) rotateZ(0); }
+  24% { transform: perspective(1200px) translate3d(-2px,1px,0) rotateZ(-0.08deg); }
+  48% { transform: perspective(1200px) translate3d(2px,-1px,0) rotateZ(0.08deg); }
+  72% { transform: perspective(1200px) translate3d(-1px,0,0) rotateZ(-0.04deg); }
+}
+
 @keyframes rank-shockwave {
   0% { opacity: 0; transform: scale(0.25); }
   20% { opacity: 0.8; }
@@ -4049,6 +4246,34 @@ body.rank-reveal-open {
   0% { opacity: 0; transform: translate(0, 0) scale(0.2); }
   25% { opacity: 1; }
   100% { opacity: 0; transform: translate(var(--particle-x), var(--particle-y)) scale(1.6); }
+}
+
+@keyframes rank-validation-particle {
+  0% { opacity: 0; transform: translate(0,0) scale(0.2); }
+  24% { opacity: 0.9; }
+  100% { opacity: 0; transform: translate(var(--validation-x), var(--validation-y)) scale(1.2); }
+}
+
+@keyframes rank-progress-beam {
+  0% { left: -1.4rem; opacity: 0; }
+  18% { opacity: 0.95; }
+  100% { left: calc(100% - 0.2rem); opacity: 0; }
+}
+
+@keyframes rank-progress-arrival {
+  0% { opacity: 0; transform: translateY(-50%) scale(0.2); }
+  38% { opacity: 1; transform: translateY(-50%) scale(1.55); }
+  100% { opacity: 0; transform: translateY(-50%) scale(2.1); }
+}
+
+@keyframes rank-counter-increment {
+  0% { opacity: 0.25; transform: translateY(0.35rem) scale(0.82); }
+  68% { opacity: 1; transform: translateY(-0.06rem) scale(1.12); color: var(--rank-light); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes rank-action-reveal {
+  to { opacity: 1; pointer-events: auto; transform: translateY(0); }
 }
 
 @keyframes rank-atmosphere {
@@ -5965,9 +6190,13 @@ body.rank-reveal-open {
     width: 100%;
   }
 
-  .rank-reveal__skip {
+  .rank-reveal__controls {
     top: 0.55rem;
     right: 0.55rem;
+  }
+
+  .rank-reveal__sound [data-rank-sound-label] {
+    display: none;
   }
 }
 
@@ -6004,6 +6233,7 @@ body.rank-reveal-open {
   .rank-reveal.is-visible .rank-reveal__backdrop,
   .rank-reveal.is-visible .rank-reveal__emblem,
   .rank-reveal.is-rank-up .rank-reveal__copy,
+  .rank-reveal.is-standard .rank-reveal__copy,
   .rank-reveal.is-rank-up .rank-emblem__underlay,
   .rank-reveal.is-rank-up .rank-emblem__wings--left,
   .rank-reveal.is-rank-up .rank-emblem__wings--right,
@@ -6019,6 +6249,12 @@ body.rank-reveal-open {
   .rank-reveal.is-rank-up .rank-emblem__micro-particles,
   .rank-reveal.is-rank-up .rank-emblem__aura {
     opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .rank-reveal.is-visible .rank-reveal__continue {
+    opacity: 1 !important;
+    pointer-events: auto !important;
     transform: none !important;
   }
 

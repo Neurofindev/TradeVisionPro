@@ -23,6 +23,26 @@ async function readJson(file) {
   return JSON.parse(await readFile(file, "utf8"));
 }
 
+async function readLocalEnvironment() {
+  try {
+    const content = await readFile(path.join(ROOT, ".env.local"), "utf8");
+    return Object.fromEntries(
+      content
+        .split(/\r?\n/)
+        .map((line) => line.trim())
+        .filter((line) => line && !line.startsWith("#") && line.includes("="))
+        .map((line) => {
+          const separator = line.indexOf("=");
+          const key = line.slice(0, separator).trim();
+          const value = line.slice(separator + 1).trim().replace(/^(['"])(.*)\1$/, "$2");
+          return [key, value];
+        }),
+    );
+  } catch (error) {
+    return {};
+  }
+}
+
 async function writePage(relativePath, html) {
   const destination = path.join(DIST, relativePath, "index.html");
   await mkdir(path.dirname(destination), { recursive: true });
@@ -31,6 +51,7 @@ async function writePage(relativePath, html) {
 
 async function main() {
   const basePathArgument = process.argv.find((argument) => argument.startsWith("--base-path="));
+  const localEnvironment = await readLocalEnvironment();
   const stylesSource = await readFile(path.join(ROOT, "src", "styles.css"));
   const clientSource = await readFile(path.join(ROOT, "src", "client.js"));
   const assetVersion = createHash("sha256").update(stylesSource).update(clientSource).digest("hex").slice(0, 12);
@@ -52,6 +73,17 @@ async function main() {
   await cp(path.join(ROOT, "public"), DIST, { recursive: true });
   await writeFile(path.join(DIST, "assets", "styles.css"), stylesSource);
   await writeFile(path.join(DIST, "assets", "client.js"), clientSource);
+  await writeFile(
+    path.join(DIST, "runtime-config.js"),
+    `window.__TVP_RUNTIME_CONFIG__=${JSON.stringify({
+      supabaseUrl: process.env.SUPABASE_URL || localEnvironment.SUPABASE_URL || "",
+      supabasePublishableKey:
+        process.env.SUPABASE_PUBLISHABLE_KEY
+        || localEnvironment.SUPABASE_PUBLISHABLE_KEY
+        || "",
+    })};\n`,
+    "utf8",
+  );
 
   await writePage(
     "",

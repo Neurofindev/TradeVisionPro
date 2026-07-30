@@ -66,7 +66,7 @@ test("HTML automatically refreshes versioned frontend assets", async () => {
   assert.equal(clientVersion, styleVersion);
 });
 
-test("every page is protected by the access gate without exposing the code", async () => {
+test("every page is protected by server authentication without exposing access credentials", async () => {
   for (const file of await htmlFiles()) {
     const html = await readFile(file, "utf8");
     assert.match(html, /<html lang="fr" class="access-locked"/);
@@ -77,19 +77,27 @@ test("every page is protected by the access gate without exposing the code", asy
 
   const client = await readFile(path.join(DIST, "assets", "client.js"), "utf8");
   const styles = await readFile(path.join(DIST, "assets", "styles.css"), "utf8");
-  assert.ok(client.includes("9c6e9172266f90a10de4d8cc2a767e9815488ae926d39ee68b1fab34091d4235"));
-  assert.ok(client.includes('name: "Aedan De Chavigny"'));
+  const migration = await readFile(
+    path.join(ROOT, "supabase", "migrations", "202607290001_daily_streak.sql"),
+    "utf8",
+  );
+  assert.ok(client.includes('const accessSessionKey = "tradevisionpro-access-session-v4"'));
+  assert.ok(client.includes("/functions/v1/tradevision-api"));
+  assert.ok(client.includes('await accessApi("login", { code: value }, "")'));
+  assert.ok(client.includes('await accessApi("session"'));
+  assert.ok(!client.includes("9c6e9172266f90a10de4d8cc2a767e9815488ae926d39ee68b1fab34091d4235"));
+  assert.ok(!client.includes("10fa41674c48ed8376b5f82fd8777454fa0023062f1b99b03645d00525dd2065"));
+  assert.ok(!client.includes("4f8c5f5a97c0bbf84c176fda321365057b68cd8a135eaf003eae6584af3f77ba"));
+  assert.ok(!migration.includes("9c6e9172266f90a10de4d8cc2a767e9815488ae926d39ee68b1fab34091d4235"));
   assert.ok(!client.includes("Aedan Dechavigny"));
-  assert.ok(client.includes("10fa41674c48ed8376b5f82fd8777454fa0023062f1b99b03645d00525dd2065"));
   assert.ok(!client.includes("e5af42e35c3fb1fe989dee4acf652b81ef0dc956753926d6b22b705d110b01fc"));
-  assert.ok(client.includes("4f8c5f5a97c0bbf84c176fda321365057b68cd8a135eaf003eae6584af3f77ba"));
-  assert.ok(client.includes('tradevisionpro-access-session-v3'));
   assert.ok(!client.includes("fa5d171c9280388b26a2569e9fccc7683ab3ec70b685b3f9cde7066eee987263"));
+  assert.ok(!client.includes("tradevisionpro-access-session-v3"));
   assert.ok(!client.includes("tradevisionpro-access-session-v2"));
   assert.ok(!client.includes("tradevisionpro-access-session-v1"));
-  assert.ok(client.includes('crypto.subtle.digest("SHA-256"'));
   assert.ok(!client.includes("110930"));
   assert.ok(!client.includes("020926"));
+  assert.ok(!client.includes("251226"));
   assert.ok(!client.includes("251126"));
   assert.ok(!client.includes("300402"));
   assert.match(styles, /html\.access-locked body > :not\(\.access-gate\)/);
@@ -217,6 +225,59 @@ test("profile page presents identity, useful progress and account controls", asy
   assert.ok(client.includes('profile.role === "admin" ? "Administrateur · accès intégral"'));
   assert.match(styles, /\.profile-dashboard\s*\{/);
   assert.match(styles, /@media \(max-width: 46rem\)[\s\S]*?\.profile-stats,/);
+});
+
+test("daily streak is persistent, accessible, responsive and only celebrated after a server event", async () => {
+  const profile = await readFile(path.join(DIST, "profil/index.html"), "utf8");
+  const home = await readFile(path.join(DIST, "index.html"), "utf8");
+  const client = await readFile(path.join(DIST, "assets", "client.js"), "utf8");
+  const styles = await readFile(path.join(DIST, "assets", "styles.css"), "utf8");
+  const migration = await readFile(
+    path.join(ROOT, "supabase", "migrations", "202607290001_daily_streak.sql"),
+    "utf8",
+  );
+  const edgeFunction = await readFile(
+    path.join(ROOT, "supabase", "functions", "tradevision-api", "index.ts"),
+    "utf8",
+  );
+
+  assert.ok(profile.includes("Série quotidienne"));
+  assert.ok(profile.includes("data-profile-streak"));
+  assert.ok(profile.includes("data-streak-record"));
+  assert.equal((profile.match(/data-streak-week/g) || []).length, 2);
+  assert.ok(home.includes("data-streak-reward"));
+  assert.ok(home.includes('role="dialog" aria-modal="true"'));
+  assert.ok(home.includes("data-streak-reward-continue"));
+  assert.ok(home.includes("daily-streak-activation.ogg"));
+  assert.ok(existsSync(path.join(DIST, "sounds", "daily-streak-activation.ogg")));
+  assert.ok(client.includes('["started", "incremented"].includes(activeStreak.event)'));
+  assert.ok(client.includes("allowCelebration: false"));
+  assert.ok(client.includes("function renderStreakWeek("));
+  assert.ok(client.includes("function closeStreakReward("));
+  assert.ok(client.includes("event.key === \"Escape\""));
+  assert.ok(client.includes('await accessApi("preference"'));
+  assert.ok(client.includes("pendingStreakSound"));
+  assert.ok(client.includes("rewardSoundEnabled"));
+  assert.match(styles, /\.profile-streak\s*\{[^}]*grid-template-columns:/s);
+  assert.match(styles, /\.streak-reward__card\s*\{[^}]*width:\s*min\(92vw,\s*32\.5rem\)/s);
+  assert.match(styles, /@media \(max-width: 46rem\)[\s\S]*?\.streak-reward__actions\s*\{[^}]*grid-template-columns:\s*1fr/s);
+  assert.match(styles, /@media \(prefers-reduced-motion: reduce\)[\s\S]*?\.streak-reward \*/s);
+  assert.match(migration, /unique \(user_id, local_date\)/);
+  assert.match(migration, /for update;/);
+  assert.match(migration, /elapsed >= interval '24 hours'/);
+  assert.match(migration, /America\/Martinique/);
+  assert.match(edgeFunction, /TVP_ACCESS_CODE_HASHES/);
+  assert.match(edgeFunction, /constantTimeEqual/);
+  assert.match(edgeFunction, /tvp_allow_login_attempt/);
+});
+
+test("daily streak sound source and license are documented", async () => {
+  const readme = await readFile(path.join(ROOT, "README.md"), "utf8");
+  assert.ok(readme.includes("Kenney — Interface Sounds"));
+  assert.ok(readme.includes("confirmation_002.ogg"));
+  assert.ok(readme.includes("Creative Commons CC0 1.0"));
+  assert.ok(readme.includes("29 juillet 2026"));
+  assert.ok(readme.includes("https://kenney.nl/assets/interface-sounds"));
 });
 
 test("ranks depend only on fully validated volumes and use configurable thresholds", async () => {

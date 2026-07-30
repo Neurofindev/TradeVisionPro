@@ -6,12 +6,23 @@
     || Boolean(navigator.connection?.saveData)
     || (Number(navigator.hardwareConcurrency || 8) <= 4);
   if (reducedRankEffects) root.classList.add("rank-effects-lite");
-  const accessSessionKey = "tradevisionpro-access-session-v3";
-  const accessProfiles = [
-    { id: "aedan-dechavigny", name: "Aedan De Chavigny", role: "learner", hash: "9c6e9172266f90a10de4d8cc2a767e9815488ae926d39ee68b1fab34091d4235" },
-    { id: "yann", name: "Yann", role: "learner", hash: "10fa41674c48ed8376b5f82fd8777454fa0023062f1b99b03645d00525dd2065" },
-    { id: "charly-labbetoul", name: "Charly Labbetoul", role: "admin", hash: "4f8c5f5a97c0bbf84c176fda321365057b68cd8a135eaf003eae6584af3f77ba" },
-  ];
+  const accessSessionKey = "tradevisionpro-access-session-v4";
+  const runtimeConfig = window.__TVP_RUNTIME_CONFIG__ || {};
+  const supabaseUrl = String(runtimeConfig.supabaseUrl || "").replace(/\/+$/, "");
+  const supabasePublishableKey = String(runtimeConfig.supabasePublishableKey || "");
+  const accessApiUrl = supabaseUrl ? `${supabaseUrl}/functions/v1/tradevision-api` : "";
+  const isHostedSupabase = /^https:\/\/[^/]+\.supabase\.co$/i.test(supabaseUrl);
+  const isLocalSupabase = /^http:\/\/(?:127\.0\.0\.1|localhost):\d+$/i.test(supabaseUrl);
+  const accessApiConfigured = (isHostedSupabase || isLocalSupabase) && Boolean(supabasePublishableKey);
+  const knownProfileLabels = {
+    "aedan-dechavigny": "Aedan De Chavigny",
+    yann: "Yann",
+    "charly-labbetoul": "Charly Labbetoul",
+  };
+  let activeAccessProfile = null;
+  let activeAccessToken = "";
+  let activeStreak = null;
+  let rewardSoundEnabled = true;
   const accessGate = document.querySelector("[data-access-gate]");
   const accessCard = document.querySelector("[data-access-card]");
   const accessForm = document.querySelector("[data-access-form]");
@@ -21,10 +32,53 @@
   const accessVisibility = document.querySelector("[data-access-visibility]");
   const accessVisibilityIcon = document.querySelector("[data-access-visibility-icon]");
 
-  async function digestAccessCode(value) {
-    const bytes = new TextEncoder().encode(value);
-    const digest = await crypto.subtle.digest("SHA-256", bytes);
-    return [...new Uint8Array(digest)].map((byte) => byte.toString(16).padStart(2, "0")).join("");
+  function readAccessSession() {
+    try {
+      const parsed = JSON.parse(sessionStorage.getItem(accessSessionKey) || "null");
+      return parsed?.token && parsed?.profile?.id ? parsed : null;
+    } catch (error) {
+      return null;
+    }
+  }
+
+  function storeAccessSession(value) {
+    try {
+      sessionStorage.setItem(accessSessionKey, JSON.stringify(value));
+    } catch (error) {
+      // The authenticated session remains usable until this page is closed.
+    }
+  }
+
+  async function accessApi(action, payload = {}, token = activeAccessToken) {
+    if (!accessApiConfigured) {
+      const error = new Error("server_not_configured");
+      error.code = "server_not_configured";
+      throw error;
+    }
+    const response = await fetch(accessApiUrl, {
+      method: "POST",
+      mode: "cors",
+      cache: "no-store",
+      headers: {
+        "Content-Type": "application/json",
+        apikey: supabasePublishableKey,
+        ...(token ? { Authorization: `Bearer ${token}` } : {}),
+      },
+      body: JSON.stringify({ action, ...payload }),
+    });
+    let result = {};
+    try {
+      result = await response.json();
+    } catch (error) {
+      result = {};
+    }
+    if (!response.ok || !result.ok) {
+      const apiError = new Error(result.error || "service_unavailable");
+      apiError.code = result.error || "service_unavailable";
+      apiError.retryAfterSeconds = Number(result.retryAfterSeconds || response.headers.get("Retry-After") || 0);
+      throw apiError;
+    }
+    return result;
   }
 
   function updateAccessStatus(message, state = "neutral") {
@@ -41,40 +95,48 @@
   }
 
   function currentAccessProfile() {
-    return accessProfiles.find((profile) => profile.id === root.dataset.accessProfile) || null;
+    return activeAccessProfile;
   }
 
-  function grantAccess(profile) {
+  function grantAccess(profile, { focus = true } = {}) {
     if (!profile) return;
+    activeAccessProfile = profile;
     root.dataset.accessProfile = profile.id;
     root.dataset.accessRole = profile.role;
     root.classList.remove("access-locked");
     root.classList.add("access-granted");
     if (accessGate) accessGate.hidden = true;
     updateCourseProgress();
-    document.querySelector(".brand, main a, main button, main")?.focus({ preventScroll: true });
+    if (focus) document.querySelector(".brand, main a, main button, main")?.focus({ preventScroll: true });
   }
 
-  if (root.classList.contains("access-granted")) {
-    const profile = currentAccessProfile();
-    if (profile) {
-      root.dataset.accessRole = profile.role;
-      if (accessGate) accessGate.hidden = true;
-    } else {
-      root.classList.remove("access-granted");
-      root.classList.add("access-locked");
-      if (accessGate) accessGate.hidden = false;
+  function revokeAccess(message = "Saisissez le code du profil à ouvrir.") {
+    activeAccessProfile = null;
+    activeAccessToken = "";
+    activeStreak = null;
+    try {
+      sessionStorage.removeItem(accessSessionKey);
+    } catch (error) {
+      // The in-memory state is already cleared.
     }
-  } else {
+    delete root.dataset.accessProfile;
+    delete root.dataset.accessRole;
+    root.classList.remove("access-granted");
     root.classList.add("access-locked");
     if (accessGate) accessGate.hidden = false;
+    if (accessInput) accessInput.value = "";
+    updateAccessStatus(message);
     requestAnimationFrame(() => accessInput?.focus({ preventScroll: true }));
   }
+
+  root.classList.remove("access-granted");
+  root.classList.add("access-locked");
+  if (accessGate) accessGate.hidden = false;
 
   accessInput?.addEventListener("input", () => {
     accessInput.value = accessInput.value.replace(/\D/g, "").slice(0, 6);
     if (accessInput.getAttribute("aria-invalid") === "true") {
-      updateAccessStatus("Votre accès restera actif pendant cette session.");
+      updateAccessStatus("Votre série est vérifiée avec l’heure sécurisée du serveur.");
     }
   });
 
@@ -100,28 +162,69 @@
 
     accessSubmit.disabled = true;
     accessSubmit.setAttribute("aria-busy", "true");
-    updateAccessStatus("Vérification du code…");
+    updateAccessStatus("Vérification sécurisée du code et de votre série…");
+    primeStreakSound();
     try {
-      const digest = await digestAccessCode(value);
-      const profile = accessProfiles.find((candidate) => candidate.hash === digest);
-      if (!profile) {
-        accessInput.value = "";
-        updateAccessStatus("Code incorrect. L’accès reste verrouillé.", "error");
-        accessInput.focus();
-        return;
-      }
-
-      sessionStorage.setItem(accessSessionKey, profile.id);
-      updateAccessStatus(`Bienvenue ${profile.name}. Ouverture de votre espace…`, "success");
-      window.setTimeout(() => grantAccess(profile), reduceMotion ? 0 : 420);
+      const response = await accessApi("login", { code: value }, "");
+      activeAccessToken = response.sessionToken;
+      activeAccessProfile = response.profile;
+      rewardSoundEnabled = response.preferences?.rewardSoundEnabled !== false;
+      storeAccessSession({
+        token: activeAccessToken,
+        profile: activeAccessProfile,
+        expiresAt: response.expiresAt,
+      });
+      updateAccessStatus(`Bienvenue ${activeAccessProfile.name}. Ouverture de votre espace…`, "success");
+      window.setTimeout(() => {
+        grantAccess(activeAccessProfile);
+        syncStreakResponse(response, { allowCelebration: true });
+      }, reduceMotion ? 0 : 360);
     } catch (error) {
-      updateAccessStatus("Validation momentanément indisponible. Réessayez.", "error");
+      accessInput.value = "";
+      if (error.code === "invalid_credentials") {
+        updateAccessStatus("Code incorrect. L’accès reste verrouillé.", "error");
+      } else if (error.code === "rate_limited") {
+        const minutes = Math.max(1, Math.ceil(Number(error.retryAfterSeconds || 900) / 60));
+        updateAccessStatus(`Trop de tentatives. Réessayez dans environ ${minutes} minute${minutes > 1 ? "s" : ""}.`, "error");
+      } else if (error.code === "server_not_configured") {
+        updateAccessStatus("Le service sécurisé n’est pas encore configuré pour ce déploiement.", "error");
+      } else {
+        updateAccessStatus("Connexion au serveur momentanément indisponible. Réessayez.", "error");
+      }
       accessInput.focus();
     } finally {
       accessSubmit.disabled = false;
       accessSubmit.removeAttribute("aria-busy");
     }
   });
+
+  async function restoreAccessSession() {
+    const stored = readAccessSession();
+    if (!stored) {
+      updateAccessStatus(
+        accessApiConfigured
+          ? "Votre série est vérifiée avec l’heure sécurisée du serveur."
+          : "Le service sécurisé doit être configuré avant la connexion.",
+      );
+      requestAnimationFrame(() => accessInput?.focus({ preventScroll: true }));
+      return;
+    }
+
+    activeAccessToken = stored.token;
+    updateAccessStatus("Restauration sécurisée de votre session…");
+    try {
+      const response = await accessApi("session", {}, activeAccessToken);
+      activeAccessProfile = response.profile;
+      rewardSoundEnabled = response.preferences?.rewardSoundEnabled !== false;
+      storeAccessSession({ ...stored, profile: activeAccessProfile });
+      grantAccess(activeAccessProfile, { focus: false });
+      syncStreakResponse(response, { allowCelebration: false });
+    } catch (error) {
+      revokeAccess("Votre session a expiré. Saisissez de nouveau votre code.");
+    }
+  }
+
+  restoreAccessSession();
 
   const courseProgressPrefix = "tradevisionpro-course-progress-v2";
   const passingScore = 8;
@@ -654,16 +757,16 @@
   }
 
   document.querySelectorAll("[data-profile-logout]").forEach((button) => {
-    button.addEventListener("click", () => {
-      sessionStorage.removeItem(accessSessionKey);
-      delete root.dataset.accessProfile;
-      delete root.dataset.accessRole;
-      root.classList.remove("access-granted");
-      root.classList.add("access-locked");
-      if (accessGate) accessGate.hidden = false;
-      if (accessInput) accessInput.value = "";
-      updateAccessStatus("Compte déconnecté. Saisissez le code du profil à ouvrir.");
-      requestAnimationFrame(() => accessInput?.focus({ preventScroll: true }));
+    button.addEventListener("click", async () => {
+      button.disabled = true;
+      try {
+        await accessApi("logout");
+      } catch (error) {
+        // Local logout must remain available even if the network is unavailable.
+      } finally {
+        button.disabled = false;
+        revokeAccess("Compte déconnecté. Saisissez le code du profil à ouvrir.");
+      }
     });
   });
 
@@ -734,11 +837,11 @@
     if (!isAdminAccess()) return;
     const profileId = progressResetForm.querySelector("[data-progress-reset-profile]")?.value;
     const volumeOrder = Number(progressResetForm.querySelector("[data-progress-reset-volume]")?.value || 0);
-    const profile = accessProfiles.find((candidate) => candidate.id === profileId);
-    if (!profile || !volumeOrder) return;
-    const confirmed = window.confirm(`Dévalider le Volume ${volumeOrder} pour ${profile.name} ? Les scores de ses parties seront supprimés sur cet appareil.`);
+    const profileName = knownProfileLabels[profileId];
+    if (!profileName || !volumeOrder) return;
+    const confirmed = window.confirm(`Dévalider le Volume ${volumeOrder} pour ${profileName} ? Les scores de ses parties seront supprimés sur cet appareil.`);
     if (!confirmed) return;
-    const targetKey = `${courseProgressPrefix}:${profile.id}`;
+    const targetKey = `${courseProgressPrefix}:${profileId}`;
     let progressData = {};
     try {
       progressData = JSON.parse(localStorage.getItem(targetKey) || "{}");
@@ -749,9 +852,9 @@
       if (key === String(volumeOrder) || key.startsWith(`${volumeOrder}-part-`)) delete progressData[key];
     });
     localStorage.setItem(targetKey, JSON.stringify(progressData));
-    if (profile.id === currentAccessProfile()?.id) updateCourseProgress();
+    if (profileId === currentAccessProfile()?.id) updateCourseProgress();
     const status = progressResetForm.querySelector("[data-progress-reset-status]");
-    if (status) status.textContent = `Volume ${volumeOrder} dévalidé pour ${profile.name}. Son rang sera recalculé à la prochaine ouverture du profil.`;
+    if (status) status.textContent = `Volume ${volumeOrder} dévalidé pour ${profileName}. Son rang sera recalculé à la prochaine ouverture du profil.`;
   });
 
   const rankSoundPreferenceKey = "tradevisionpro-rank-sound-v1";
@@ -1209,6 +1312,229 @@
       first.focus();
     }
   });
+
+  const streakReward = document.querySelector("[data-streak-reward]");
+  const streakAudio = document.querySelector("[data-streak-audio]");
+  const streakSoundToggles = [...document.querySelectorAll("[data-streak-sound-toggle]")];
+  let streakRewardReturnFocus = null;
+  let pendingStreakSound = false;
+  let streakSoundPlayed = false;
+
+  function primeStreakSound() {
+    if (!streakAudio) return;
+    streakAudio.volume = 0.34;
+    streakAudio.load();
+  }
+
+  async function playStreakSound() {
+    if (!streakAudio || !rewardSoundEnabled || streakSoundPlayed) return false;
+    try {
+      streakAudio.currentTime = 0;
+      streakAudio.volume = 0.34;
+      await streakAudio.play();
+      streakSoundPlayed = true;
+      pendingStreakSound = false;
+      return true;
+    } catch (error) {
+      pendingStreakSound = true;
+      return false;
+    }
+  }
+
+  function updateStreakSoundUi() {
+    streakSoundToggles.forEach((button) => {
+      button.setAttribute("aria-pressed", String(rewardSoundEnabled));
+      button.setAttribute("aria-label", rewardSoundEnabled ? "Désactiver les sons de récompense" : "Activer les sons de récompense");
+      const icon = button.querySelector("span[aria-hidden]");
+      const label = button.querySelector("[data-streak-sound-label]");
+      if (icon) icon.textContent = rewardSoundEnabled ? "◖)))" : "◖×";
+      if (label) label.textContent = rewardSoundEnabled ? "Son activé" : "Son coupé";
+    });
+  }
+
+  function updateFlameState(scope, state) {
+    scope?.querySelectorAll(".streak-flame__body").forEach((body) => {
+      body.setAttribute(
+        "fill",
+        state === "broken" ? body.dataset.streakMutedFill : body.dataset.streakActiveFill,
+      );
+    });
+  }
+
+  function renderStreakWeek(scope, weekProgress = []) {
+    scope?.querySelectorAll("[data-streak-week]").forEach((week) => {
+      const fallbackLabels = ["Lun.", "Mar.", "Mer.", "Jeu.", "Ven.", "Sam.", "Dim."];
+      const days = Array.from({ length: 7 }, (_, index) => weekProgress[index] || {
+        label: fallbackLabels[index],
+        state: "future",
+        localDate: "",
+      });
+      week.replaceChildren(...days.map((day) => {
+        const item = document.createElement("li");
+        const state = ["validated", "today_validated", "future", "missed"].includes(day.state)
+          ? day.state
+          : "future";
+        const stateLabels = {
+          validated: "Validé",
+          today_validated: "Aujourd’hui",
+          future: "À venir",
+          missed: "Non validé",
+        };
+        item.dataset.state = state;
+        item.setAttribute(
+          "aria-label",
+          `${day.label || fallbackLabels[index]} : ${stateLabels[state]}${day.localDate ? `, ${day.localDate}` : ""}`,
+        );
+        const label = document.createElement("span");
+        label.textContent = day.label || fallbackLabels[index];
+        const indicator = document.createElement("i");
+        indicator.setAttribute("aria-hidden", "true");
+        indicator.textContent = ["validated", "today_validated"].includes(state) ? "✓" : "";
+        const detail = document.createElement("small");
+        detail.textContent = stateLabels[state];
+        item.append(label, indicator, detail);
+        return item;
+      }));
+    });
+  }
+
+  function updateProfileStreak(streak = activeStreak) {
+    const card = document.querySelector("[data-profile-streak]");
+    if (!card || !streak) return;
+    const count = Math.max(0, Number(streak.currentStreak || 0));
+    const broken = streak.status === "broken";
+    card.dataset.state = broken ? "broken" : "active";
+    card.setAttribute("aria-busy", "false");
+    card.setAttribute(
+      "aria-label",
+      broken
+        ? `Série interrompue : 0 jour. Record personnel : ${streak.longestStreak || 0} jours`
+        : `Série active : ${count} jour${count === 1 ? "" : "s"} consécutif${count === 1 ? "" : "s"}`,
+    );
+    updateFlameState(card, broken ? "broken" : "active");
+    const countNode = card.querySelector("[data-streak-count]");
+    const unitNode = card.querySelector("[data-streak-unit]");
+    const statusNode = card.querySelector("[data-streak-status]");
+    const recordNode = card.querySelector("[data-streak-record]");
+    if (countNode) countNode.textContent = String(count);
+    if (unitNode) unitNode.textContent = `${count === 1 ? "jour" : "jours"} de série`;
+    if (statusNode) statusNode.textContent = broken
+      ? "Série interrompue"
+      : count === 1
+        ? "Première journée validée"
+        : "Série active";
+    if (recordNode) {
+      const record = Math.max(0, Number(streak.longestStreak || 0));
+      recordNode.textContent = `${record} ${record === 1 ? "jour" : "jours"}`;
+    }
+    renderStreakWeek(card, streak.weekProgress);
+  }
+
+  function closeStreakReward() {
+    if (!streakReward || streakReward.hidden) return;
+    streakReward.classList.remove("is-visible", "is-started", "is-incremented");
+    streakReward.hidden = true;
+    document.body.classList.remove("streak-reward-open");
+    pendingStreakSound = false;
+    streakRewardReturnFocus?.focus?.({ preventScroll: true });
+    streakRewardReturnFocus = null;
+  }
+
+  function showStreakReward(streak) {
+    if (!streakReward || !["started", "incremented"].includes(streak?.event)) return;
+    const count = Math.max(1, Number(streak.currentStreak || 1));
+    streakRewardReturnFocus = document.activeElement;
+    streakSoundPlayed = false;
+    pendingStreakSound = Boolean(streak.shouldPlaySound && rewardSoundEnabled);
+    streakReward.hidden = false;
+    streakReward.classList.remove("is-visible", "is-started", "is-incremented");
+    streakReward.classList.add(streak.event === "started" ? "is-started" : "is-incremented");
+    updateFlameState(streakReward, "active");
+    const countNode = streakReward.querySelector("[data-streak-reward-count]");
+    const labelNode = streakReward.querySelector("[data-streak-reward-label]");
+    const messageNode = streakReward.querySelector("[data-streak-reward-message]");
+    if (countNode) countNode.textContent = String(count);
+    if (labelNode) labelNode.textContent = `${count === 1 ? "jour" : "jours"} de série`;
+    if (messageNode) messageNode.textContent = streak.message || "Nouvelle journée validée.";
+    renderStreakWeek(streakReward, streak.weekProgress);
+    document.body.classList.add("streak-reward-open");
+    requestAnimationFrame(() => {
+      streakReward.classList.add("is-visible");
+      streakReward.querySelector("[data-streak-reward-continue]")?.focus({ preventScroll: true });
+    });
+    if (pendingStreakSound) playStreakSound();
+  }
+
+  function syncStreakResponse(response, { allowCelebration = false } = {}) {
+    if (!response?.streak) return;
+    activeStreak = response.streak;
+    if (response.preferences) rewardSoundEnabled = response.preferences.rewardSoundEnabled !== false;
+    updateStreakSoundUi();
+    updateProfileStreak(activeStreak);
+    if (
+      allowCelebration
+      && activeStreak.shouldCelebrate
+      && ["started", "incremented"].includes(activeStreak.event)
+    ) {
+      showStreakReward(activeStreak);
+    }
+  }
+
+  streakSoundToggles.forEach((button) => {
+    button.addEventListener("click", async () => {
+      const previous = rewardSoundEnabled;
+      rewardSoundEnabled = !rewardSoundEnabled;
+      if (!rewardSoundEnabled && streakAudio) {
+        streakAudio.pause();
+        streakAudio.currentTime = 0;
+        pendingStreakSound = false;
+      }
+      updateStreakSoundUi();
+      try {
+        const result = await accessApi("preference", { rewardSoundEnabled });
+        rewardSoundEnabled = result.rewardSoundEnabled !== false;
+        updateStreakSoundUi();
+        if (rewardSoundEnabled && !streakReward?.hidden && activeStreak?.shouldPlaySound) {
+          streakSoundPlayed = false;
+          await playStreakSound();
+        }
+      } catch (error) {
+        rewardSoundEnabled = previous;
+        updateStreakSoundUi();
+        button.title = "La préférence n’a pas pu être synchronisée. Réessayez.";
+      }
+    });
+  });
+
+  streakReward?.querySelector("[data-streak-reward-continue]")?.addEventListener("click", async () => {
+    if (pendingStreakSound && rewardSoundEnabled) await playStreakSound();
+    closeStreakReward();
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (!streakReward || streakReward.hidden) return;
+    if (event.key === "Escape") {
+      closeStreakReward();
+      return;
+    }
+    if (event.key !== "Tab") return;
+    const focusable = [...streakReward.querySelectorAll("button:not([disabled])")].filter((element) => {
+      const style = window.getComputedStyle(element);
+      return element.offsetParent && style.visibility !== "hidden";
+    });
+    if (!focusable.length) return;
+    const first = focusable[0];
+    const last = focusable.at(-1);
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  });
+
+  updateStreakSoundUi();
 
   const volumeTabs = [...document.querySelectorAll("[data-volume-tab]")];
   const volumePanes = [...document.querySelectorAll("[data-volume-pane]")];

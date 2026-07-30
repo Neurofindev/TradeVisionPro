@@ -129,6 +129,7 @@ function formatNumber(value) {
 }
 
 let RANK_EMBLEM_SEQUENCE = 0;
+let STREAK_FLAME_SEQUENCE = 0;
 
 function rankEmblemGeometry(id) {
   const geometries = {
@@ -844,6 +845,89 @@ function renderRankProgressOverlay() {
   </section>`;
 }
 
+function renderStreakFlame({ compact = false } = {}) {
+  const prefix = `streak-flame-${++STREAK_FLAME_SEQUENCE}`;
+  return `<svg class="streak-flame${compact ? " streak-flame--compact" : ""}" viewBox="0 0 180 210" role="img" aria-labelledby="${prefix}-title ${prefix}-description">
+    <title id="${prefix}-title">Flamme de série quotidienne</title>
+    <desc id="${prefix}-description">Une flamme originale TradeVisionPro dont la couleur indique si la série est active.</desc>
+    <defs>
+      <linearGradient id="${prefix}-outer" x1="38" y1="24" x2="151" y2="186" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="#ffbe4d"></stop>
+        <stop offset=".43" stop-color="#ff6f43"></stop>
+        <stop offset="1" stop-color="#d92d70"></stop>
+      </linearGradient>
+      <linearGradient id="${prefix}-inner" x1="86" y1="86" x2="101" y2="168" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="#fff6bf"></stop>
+        <stop offset=".52" stop-color="#ffd66e"></stop>
+        <stop offset="1" stop-color="#ff8c47"></stop>
+      </linearGradient>
+      <linearGradient id="${prefix}-muted" x1="45" y1="34" x2="139" y2="185" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="#a9a4ad"></stop>
+        <stop offset=".55" stop-color="#77727c"></stop>
+        <stop offset="1" stop-color="#4c4852"></stop>
+      </linearGradient>
+      <radialGradient id="${prefix}-glow" cx="0" cy="0" r="1" gradientTransform="translate(92 120) rotate(90) scale(86 76)" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#ffd66e" stop-opacity=".56"></stop>
+        <stop offset="1" stop-color="#ff633f" stop-opacity="0"></stop>
+      </radialGradient>
+      <filter id="${prefix}-shadow" x="-40%" y="-30%" width="180%" height="190%">
+        <feDropShadow dx="0" dy="13" stdDeviation="10" flood-color="#130c16" flood-opacity=".34"></feDropShadow>
+      </filter>
+    </defs>
+    <ellipse class="streak-flame__halo" cx="90" cy="122" rx="74" ry="82" fill="url(#${prefix}-glow)"></ellipse>
+    <path class="streak-flame__depth" d="M34 144c0 37 24 59 56 59 38 0 61-26 61-61 0-23-12-45-30-65-3 17-10 26-18 33-2-31-16-65-45-94 2 29-10 43-20 58-11 16-18 38-18 59 0 5 0 8 1 11 3-8 7-15 13-22v22Z"></path>
+    <path class="streak-flame__body" fill="url(#${prefix}-outer)" data-streak-active-fill="url(#${prefix}-outer)" data-streak-muted-fill="url(#${prefix}-muted)" filter="url(#${prefix}-shadow)" d="M90 197c-34 0-61-24-61-59 0-24 11-43 24-61 12-16 21-30 17-57 29 24 47 55 49 83 8-8 13-19 13-34 17 18 27 43 27 66 0 37-27 62-69 62Z"></path>
+    <path class="streak-flame__facet" d="M69 29c26 27 40 56 40 82-9-8-16-17-22-28 1 26-7 41-23 54-14 12-19 26-15 40-12-10-20-24-20-41 0-21 10-39 23-57 11-15 19-28 17-50Z"></path>
+    <path class="streak-flame__core" fill="url(#${prefix}-inner)" d="M92 177c-18 0-31-12-31-29 0-13 7-23 15-33 7-9 12-17 12-30 17 14 30 34 33 52 4-4 7-9 9-15 5 8 8 17 8 26 0 17-17 29-46 29Z"></path>
+    <g class="streak-flame__sparks" aria-hidden="true">
+      <circle cx="31" cy="79" r="4"></circle><circle cx="148" cy="61" r="3"></circle><circle cx="155" cy="99" r="2.5"></circle>
+    </g>
+  </svg>`;
+}
+
+function renderStreakWeek(className = "") {
+  const labels = ["Lun.", "Mar.", "Mer.", "Jeu.", "Ven.", "Sam.", "Dim."];
+  return `<ol class="streak-week${className ? ` ${className}` : ""}" data-streak-week aria-label="Progression de la semaine">${labels
+    .map((label) => `<li data-state="future"><span>${label}</span><i aria-hidden="true"></i><small>À venir</small></li>`)
+    .join("")}</ol>`;
+}
+
+function renderStreakRewardOverlay() {
+  return `<section class="streak-reward" data-streak-reward role="dialog" aria-modal="true" aria-labelledby="streak-reward-title" aria-describedby="streak-reward-message" hidden>
+    <div class="streak-reward__backdrop" aria-hidden="true"></div>
+    <div class="streak-reward__card" tabindex="-1">
+      <div class="streak-reward__embers" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="streak-reward__flame">${renderStreakFlame()}</div>
+      <p class="eyebrow">Série quotidienne</p>
+      <h2 id="streak-reward-title"><strong data-streak-reward-count>1</strong><span data-streak-reward-label>jour de série</span></h2>
+      <p id="streak-reward-message" data-streak-reward-message>Ta série commence aujourd’hui.</p>
+      ${renderStreakWeek("streak-week--reward")}
+      <div class="streak-reward__actions">
+        <button class="streak-sound-toggle" type="button" data-streak-sound-toggle aria-pressed="true"><span aria-hidden="true">◖)))</span><span data-streak-sound-label>Son activé</span></button>
+        <button class="button button--primary" type="button" data-streak-reward-continue>Continuer <span aria-hidden="true">→</span></button>
+      </div>
+    </div>
+    <audio data-streak-audio preload="metadata" src="${sitePath("/sounds/daily-streak-activation.ogg")}"></audio>
+  </section>`;
+}
+
+function renderProfileStreak() {
+  return `<section class="profile-streak" data-profile-streak data-state="loading" aria-labelledby="profile-streak-title" aria-busy="true">
+    <div class="profile-streak__visual">${renderStreakFlame({ compact: true })}</div>
+    <div class="profile-streak__copy">
+      <p class="eyebrow">Régularité</p>
+      <h2 id="profile-streak-title">Série quotidienne</h2>
+      <p class="profile-streak__value" aria-live="polite"><strong data-streak-count>—</strong><span data-streak-unit>jours de série</span></p>
+      <p class="profile-streak__status" data-streak-status>Synchronisation avec votre compte…</p>
+      <p class="profile-streak__record">Record personnel : <strong data-streak-record>—</strong></p>
+    </div>
+    <div class="profile-streak__week">
+      <div><p class="eyebrow">Cette semaine</p><button class="streak-sound-toggle" type="button" data-streak-sound-toggle aria-pressed="true"><span aria-hidden="true">◖)))</span><span data-streak-sound-label>Son activé</span></button></div>
+      ${renderStreakWeek()}
+    </div>
+  </section>`;
+}
+
 export function layout({ title, description, body, volumes, activePage, showToc = false, bodyClass = "" }) {
   return `<!doctype html>
 <html lang="fr" class="access-locked" data-base-path="${escapeHtml(sitePath("/"))}">
@@ -855,12 +939,13 @@ export function layout({ title, description, body, volumes, activePage, showToc 
   <meta name="theme-color" content="#17151f">
   <title>${escapeHtml(title)} · ${SITE_NAME}</title>
   <script id="tradevisionpro-rank-config" type="application/json">${serializedRankConfig()}</script>
-  <script>try{const s=localStorage.getItem('tradevisionpro-theme');const t=s||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dataset.theme=t}catch(e){}try{const p=sessionStorage.getItem('tradevisionpro-access-session-v3');const a={'aedan-dechavigny':'learner','yann':'learner','charly-labbetoul':'admin'};if(a[p]){const r=document.documentElement;r.dataset.accessProfile=p;r.dataset.accessRole=a[p];r.classList.remove('access-locked');r.classList.add('access-granted')}}catch(e){}</script>
+  <script>try{const s=localStorage.getItem('tradevisionpro-theme');const t=s||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dataset.theme=t}catch(e){}</script>
   <link rel="icon" href="${sitePath("/brand/tradevisionpro-favicon.ico")}" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="${sitePath("/brand/tradevisionpro-favicon-32.png")}">
   <link rel="icon" type="image/png" sizes="64x64" href="${sitePath("/brand/tradevisionpro-favicon-64.png")}">
   <link rel="apple-touch-icon" href="${sitePath("/brand/tradevisionpro-apple-touch-icon.png")}">
   <link rel="stylesheet" href="${assetPath("/assets/styles.css")}">
+  <script src="${sitePath("/runtime-config.js")}"></script>
   <script src="${assetPath("/assets/client.js")}" defer></script>
 </head>
 <body class="${escapeHtml(bodyClass)}">
@@ -901,6 +986,7 @@ export function layout({ title, description, body, volumes, activePage, showToc 
   </footer>
   <div class="drawer-backdrop" data-drawer-backdrop hidden></div>
   ${renderRankProgressOverlay()}
+  ${renderStreakRewardOverlay()}
 </body>
 </html>`;
 }
@@ -1001,6 +1087,8 @@ export function renderProfilePage(volumes) {
       <article><span>Meilleur score</span><strong data-profile-best>—</strong><small>Sur l’ensemble des QCM</small></article>
       <article><span>Progression globale</span><strong data-profile-completion>0 %</strong><small>Volumes pédagogiques validés</small></article>
     </section>
+
+    ${renderProfileStreak()}
 
     <section class="profile-rank-card" data-profile-rank-card data-rank="bronze" aria-labelledby="profile-rank-title">
       <div class="profile-rank-card__current">

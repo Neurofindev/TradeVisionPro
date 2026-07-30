@@ -1,0 +1,25 @@
+project_id = "tradevisionpro"
+
+[api]
+port = 55421
+
+[db]
+port = 55422
+shadow_port = 55420
+major_version = 17
+
+[db.pooler]
+enabled = false
+port = 55429
+
+[studio]
+port = 55423
+
+[local_smtp]
+port = 55424
+
+[analytics]
+port = 55427
+
+[functions.tradevision-api]
+verify_jwt = false

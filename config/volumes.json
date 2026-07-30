@@ -701,12 +701,17 @@
     ],
     "supplementalContent": [
       "content/supplemental/6-money-management-position-sizing.json",
+      "content/supplemental/6-money-management-expectancy.json",
       "content/supplemental/6-money-management-trailing-aapl.json"
     ],
     "removeBlockRanges": [
       {
         "startId": "3-1-la-formule-generale-pour-les-produits-lineaires",
         "endId": "3-2-comprendre-les-lots-unites-et-contrats"
+      },
+      {
+        "startId": "l-esperance-le-resultat-moyen-d-un-trade",
+        "endId": "6-le-trailing-stop"
       },
       {
         "startId": "6-3-cas-concret-trailing-structurel-sur-aapl",

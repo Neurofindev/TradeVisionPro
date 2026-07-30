@@ -1,0 +1,68 @@
+{
+  "insertBeforeId": "6-le-trailing-stop",
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "l-esperance-le-resultat-moyen-d-un-trade",
+      "text": "L’espérance : le résultat moyen d’un trade"
+    },
+    {
+      "type": "callout",
+      "label": "E = (p × gain moyen) − [(1 − p) × perte moyenne] − coûts",
+      "variant": "default",
+      "text": "E représente le résultat moyen théorique attendu par trade sur une longue série.\np = taux de réussite ; 1 − p = taux de perte, c’est-à-dire la part restante des trades.\nLe gain moyen, la perte moyenne et les coûts doivent être exprimés dans la même unité. Ici, tout est mesuré en R afin de comparer des trades de tailles différentes."
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Étape",
+        "Calcul",
+        "Résultat"
+      ],
+      "rows": [
+        [
+          "1. Gains pondérés",
+          "35 % × 2R",
+          "+0,70R"
+        ],
+        [
+          "2. Pertes pondérées",
+          "65 % × 1R",
+          "−0,65R"
+        ],
+        [
+          "3. Espérance avant coûts",
+          "+0,70R − 0,65R",
+          "+0,05R par trade"
+        ],
+        [
+          "4. Coûts moyens",
+          "+0,05R − 0,05R",
+          "0R net"
+        ]
+      ],
+      "links": []
+    },
+    {
+      "type": "lesson_note",
+      "variant": "principle",
+      "text": "Comment lire +0,05R — Ce résultat ne signifie pas que chaque trade rapporte 0,05R. Il décrit une moyenne théorique : sur 100 trades présentant les mêmes caractéristiques, l’attente serait d’environ +5R avant coûts. Le résultat réel peut être très différent, car l’ordre des gains et des pertes est inconnu et les statistiques peuvent évoluer.",
+      "segments": [
+        {
+          "text": "Comment lire +0,05R — ",
+          "bold": true
+        },
+        {
+          "text": "Ce résultat ne signifie pas que chaque trade rapporte 0,05R. Il décrit une moyenne théorique : sur 100 trades présentant les mêmes caractéristiques, l’attente serait d’environ +5R avant coûts. Le résultat réel peut être très différent, car l’ordre des gains et des pertes est inconnu et les statistiques peuvent évoluer."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "CONSÉQUENCE",
+      "variant": "principle",
+      "text": "Un ratio séduisant sur un graphique ne suffit pas. Il faut mesurer le taux de réussite, le gain moyen, la perte moyenne et les coûts sur un échantillon assez large. Une espérance positive n’empêche ni le prochain trade d’être perdant, ni l’apparition d’une série de pertes ; elle indique seulement qu’un avantage statistique peut exister si les hypothèses restent valides."
+    }
+  ]
+}

@@ -603,12 +603,16 @@ test("volume six presents the complete money management course and a ten-questio
   assert.ok(html.includes("Modèle simplifié : P(ruine)"));
   assert.ok(html.includes("Kelly — f* = p − (1 − p) / b"));
   assert.ok(html.includes("Taux d’équilibre = 1 ÷ (1 + gain moyen en R)"));
-  assert.equal((html.match(/callout--formula/g) || []).length, 4);
+  assert.equal((html.match(/callout--formula/g) || []).length, 5);
   assert.ok(html.includes("Exemple actions, calculé étape par étape"));
   assert.ok(html.includes("Quantité exécutable"));
   assert.ok(html.includes('<ol class="course-list course-list--ordered">'));
   assert.ok(html.includes("60 actions"));
   assert.ok(html.includes("la capacité d’achat n’est pas le budget de risque"));
+  assert.ok(html.includes("1. Gains pondérés"));
+  assert.ok(html.includes("+0,05R par trade"));
+  assert.ok(html.includes("Comment lire +0,05R"));
+  assert.ok(html.includes("0R net"));
   assert.ok(html.includes("6.3 Cas concret — trailing structurel sur AAPL"));
   assert.ok(html.includes("Entrée pédagogique"));
   assert.ok(html.includes("Premier stop relevé"));

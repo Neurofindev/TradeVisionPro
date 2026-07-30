@@ -497,7 +497,7 @@ const CALLOUT_ICONS = {
 function renderCallout(block) {
   const variant = block.variant || "default";
   const label = String(block.label || "À noter");
-  const isFormula = /P\(ruine\)|KELLY|f\*\s*=|Taux d’équilibre\s*=|Taille\s*=\s*risque monétaire/i.test(label);
+  const isFormula = /P\(ruine\)|KELLY|f\*\s*=|Taux d’équilibre\s*=|Taille\s*=\s*risque monétaire|^E\s*=/i.test(label);
   return `<aside class="callout callout--${escapeHtml(variant)}${isFormula ? " callout--formula" : ""}" role="note">
     <div class="callout__icon" aria-hidden="true">${isFormula ? "ƒ" : CALLOUT_ICONS[variant] || CALLOUT_ICONS.default}</div>
     <div><p class="callout__label">${escapeHtml(label)}</p>

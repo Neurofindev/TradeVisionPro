@@ -940,6 +940,7 @@ export function layout({ title, description, body, volumes, activePage, showToc 
   <title>${escapeHtml(title)} · ${SITE_NAME}</title>
   <script id="tradevisionpro-rank-config" type="application/json">${serializedRankConfig()}</script>
   <script>try{const s=localStorage.getItem('tradevisionpro-theme');const t=s||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dataset.theme=t}catch(e){}</script>
+  <script>try{const s=JSON.parse(sessionStorage.getItem('tradevisionpro-access-session-v4')||'null');const e=Date.parse(s?.expiresAt||'');if(s?.token&&s?.profile?.id&&Number.isFinite(e)&&e>Date.now())document.documentElement.classList.add('access-restoring')}catch(e){}</script>
   <link rel="icon" href="${sitePath("/brand/tradevisionpro-favicon.ico")}" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="${sitePath("/brand/tradevisionpro-favicon-32.png")}">
   <link rel="icon" type="image/png" sizes="64x64" href="${sitePath("/brand/tradevisionpro-favicon-64.png")}">
@@ -974,6 +975,14 @@ export function layout({ title, description, body, volumes, activePage, showToc 
         <p class="access-status" id="access-status" data-access-status role="status" aria-live="polite">Votre accès restera actif pendant cette session.</p>
       </form>
       <footer class="access-card__footer"><span aria-hidden="true">◆</span> Espace de formation TradeVisionPro</footer>
+    </div>
+  </section>
+  <section class="access-session-resume" data-access-session-resume role="status" aria-live="polite" aria-label="Restauration sécurisée de votre session">
+    <div class="access-session-resume__content">
+      <span class="access-session-resume__mark" aria-hidden="true"><img src="${sitePath("/brand/tradevisionpro-mark-256.png")}" alt="" aria-hidden="true" width="256" height="256"></span>
+      <span class="access-session-resume__pulse" aria-hidden="true"></span>
+      <strong>TradeVisionPro</strong>
+      <p>Ouverture sécurisée de votre espace…</p>
     </div>
   </section>
   <a class="skip-link" href="#contenu">Aller au contenu</a>

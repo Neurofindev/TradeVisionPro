@@ -103,7 +103,7 @@
     activeAccessProfile = profile;
     root.dataset.accessProfile = profile.id;
     root.dataset.accessRole = profile.role;
-    root.classList.remove("access-locked");
+    root.classList.remove("access-locked", "access-restoring");
     root.classList.add("access-granted");
     if (accessGate) accessGate.hidden = true;
     updateCourseProgress();
@@ -121,7 +121,7 @@
     }
     delete root.dataset.accessProfile;
     delete root.dataset.accessRole;
-    root.classList.remove("access-granted");
+    root.classList.remove("access-granted", "access-restoring");
     root.classList.add("access-locked");
     if (accessGate) accessGate.hidden = false;
     if (accessInput) accessInput.value = "";
@@ -201,6 +201,7 @@
   async function restoreAccessSession() {
     const stored = readAccessSession();
     if (!stored) {
+      root.classList.remove("access-restoring");
       updateAccessStatus(
         accessApiConfigured
           ? "Votre série est vérifiée avec l’heure sécurisée du serveur."

@@ -1,5 +1,6 @@
 (() => {
   const root = document.documentElement;
+  document.querySelector("[data-access-session-resume]")?.remove();
   const basePath = root.dataset.basePath || "/";
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const reducedRankEffects = reduceMotion

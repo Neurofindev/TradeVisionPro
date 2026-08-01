@@ -122,6 +122,7 @@ test("restored sessions display their destination immediately without a loading 
   assert.match(client, /classList\.remove\("access-granted", "access-restoring"\)/);
   assert.match(client, /grantAccess\(activeAccessProfile, \{ focus: false, syncProgress: false \}\)/);
   assert.match(client, /Number\.isFinite\(expiresAt\) && expiresAt > Date\.now\(\)/);
+  assert.match(client, /querySelector\("\[data-access-session-resume\]"\)\?\.remove\(\)/);
   assert.match(styles, /\[data-access-session-resume\]\s*\{[^}]*display:\s*none !important/s);
   assert.match(styles, /html\.access-restoring \.access-gate\s*\{[^}]*display:\s*none !important/s);
   assert.match(styles, /html\.access-locked\.access-restoring body > :not\(\.access-gate\)\s*\{[^}]*visibility:\s*visible/s);

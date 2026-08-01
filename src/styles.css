@@ -81,6 +81,10 @@ html.access-locked body > :not(.access-gate) {
   user-select: none;
 }
 
+[data-access-session-resume] {
+  display: none !important;
+}
+
 html.access-restoring .access-gate {
   display: none !important;
 }

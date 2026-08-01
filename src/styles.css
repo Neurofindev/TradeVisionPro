@@ -75,88 +75,25 @@ html.access-locked body {
   overflow: hidden;
 }
 
-html.access-locked body > :not(.access-gate):not(.access-session-resume) {
+html.access-locked body > :not(.access-gate) {
   visibility: hidden;
   pointer-events: none;
   user-select: none;
-}
-
-.access-session-resume {
-  position: fixed;
-  z-index: 2001;
-  inset: 0;
-  display: none;
-  min-height: 100vh;
-  min-height: 100dvh;
-  place-items: center;
-  padding: 1.5rem;
-  background:
-    radial-gradient(circle at 50% 44%, rgba(218, 168, 54, 0.12), transparent 20rem),
-    linear-gradient(145deg, #0c0a10 0%, #15111c 48%, #09080d 100%);
-  color: #f8f2e5;
 }
 
 html.access-restoring .access-gate {
   display: none !important;
 }
 
-html.access-restoring .access-session-resume {
-  display: grid;
+html.access-locked.access-restoring body {
+  overflow: visible;
+  overflow-x: hidden;
 }
 
-.access-session-resume__content {
-  position: relative;
-  display: grid;
-  justify-items: center;
-  gap: 0.55rem;
-  text-align: center;
-}
-
-.access-session-resume__mark {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  width: 4.5rem;
-  aspect-ratio: 1;
-  place-items: center;
-  border: 1px solid rgba(239, 199, 98, 0.28);
-  border-radius: 50%;
-  background: rgba(24, 20, 29, 0.88);
-  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.34);
-}
-
-.access-session-resume__mark img {
-  width: 3.25rem;
-  height: 3.25rem;
-  object-fit: contain;
-}
-
-.access-session-resume__pulse {
-  position: absolute;
-  top: -0.35rem;
-  width: 5.2rem;
-  aspect-ratio: 1;
-  border: 1px solid rgba(232, 185, 76, 0.22);
-  border-radius: 50%;
-  animation: access-session-pulse 1.4s ease-out infinite;
-}
-
-.access-session-resume strong {
-  margin-top: 0.35rem;
-  color: #f2ce71;
-  font-size: 0.82rem;
-  letter-spacing: 0.08em;
-}
-
-.access-session-resume p {
-  margin: 0;
-  color: rgba(248, 242, 229, 0.68);
-  font-size: 0.78rem;
-}
-
-@keyframes access-session-pulse {
-  0% { opacity: 0.65; transform: scale(0.82); }
-  75%, 100% { opacity: 0; transform: scale(1.18); }
+html.access-locked.access-restoring body > :not(.access-gate) {
+  visibility: visible;
+  pointer-events: auto;
+  user-select: auto;
 }
 
 .access-gate[hidden],
@@ -6985,7 +6922,6 @@ body.rank-reveal-open {
   }
 
   .market-ambient span,
-  .access-session-resume__pulse,
   .access-gate__ambient span,
   .access-gate__ambient i,
   .access-card.is-error,

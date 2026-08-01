@@ -71,7 +71,7 @@ test("every page is protected by server authentication without exposing access c
     const html = await readFile(file, "utf8");
     assert.match(html, /<html lang="fr" class="access-locked"/);
     assert.ok(html.includes("tradevisionpro-access-session-v4"), path.relative(DIST, file));
-    assert.ok(html.includes("data-access-session-resume"), path.relative(DIST, file));
+    assert.ok(!html.includes("data-access-session-resume"), path.relative(DIST, file));
     assert.ok(html.includes("data-access-gate"), path.relative(DIST, file));
     assert.ok(html.includes("data-access-form"), path.relative(DIST, file));
     assert.ok(html.includes("data-access-input"), path.relative(DIST, file));
@@ -109,7 +109,7 @@ test("every page is protected by server authentication without exposing access c
   assert.match(styles, /html\.access-locked body > :not\(\.access-gate\)/);
 });
 
-test("restored sessions never flash the access-code portal during navigation", async () => {
+test("restored sessions display their destination immediately without a loading screen", async () => {
   const home = await readFile(path.join(DIST, "index.html"), "utf8");
   const client = await readFile(path.join(DIST, "assets", "client.js"), "utf8");
   const styles = await readFile(path.join(DIST, "assets", "styles.css"), "utf8");
@@ -117,12 +117,14 @@ test("restored sessions never flash the access-code portal during navigation", a
   assert.match(home, /sessionStorage\.getItem\('tradevisionpro-access-session-v4'\)/);
   assert.match(home, /classList\.add\('access-restoring'\)/);
   assert.ok(home.indexOf("access-restoring") < home.indexOf("data-access-gate"));
-  assert.ok(home.includes('role="status" aria-live="polite"'));
+  assert.ok(!home.includes("Ouverture sécurisée de votre espace"));
   assert.match(client, /classList\.remove\("access-locked", "access-restoring"\)/);
   assert.match(client, /classList\.remove\("access-granted", "access-restoring"\)/);
+  assert.match(client, /grantAccess\(activeAccessProfile, \{ focus: false, syncProgress: false \}\)/);
+  assert.match(client, /Number\.isFinite\(expiresAt\) && expiresAt > Date\.now\(\)/);
   assert.match(styles, /html\.access-restoring \.access-gate\s*\{[^}]*display:\s*none !important/s);
-  assert.match(styles, /html\.access-restoring \.access-session-resume\s*\{[^}]*display:\s*grid/s);
-  assert.match(styles, /@media \(prefers-reduced-motion: reduce\)[\s\S]*?\.access-session-resume__pulse/s);
+  assert.match(styles, /html\.access-locked\.access-restoring body > :not\(\.access-gate\)\s*\{[^}]*visibility:\s*visible/s);
+  assert.ok(!styles.includes(".access-session-resume"));
 });
 
 test("every course stage has a ten-question exercise and an enriching correction", async () => {

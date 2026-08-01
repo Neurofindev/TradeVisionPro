@@ -35,7 +35,10 @@
   function readAccessSession() {
     try {
       const parsed = JSON.parse(sessionStorage.getItem(accessSessionKey) || "null");
-      return parsed?.token && parsed?.profile?.id ? parsed : null;
+      const expiresAt = Date.parse(parsed?.expiresAt || "");
+      return parsed?.token && parsed?.profile?.id && Number.isFinite(expiresAt) && expiresAt > Date.now()
+        ? parsed
+        : null;
     } catch (error) {
       return null;
     }
@@ -98,7 +101,7 @@
     return activeAccessProfile;
   }
 
-  function grantAccess(profile, { focus = true } = {}) {
+  function grantAccess(profile, { focus = true, syncProgress = true } = {}) {
     if (!profile) return;
     activeAccessProfile = profile;
     root.dataset.accessProfile = profile.id;
@@ -106,7 +109,7 @@
     root.classList.remove("access-locked", "access-restoring");
     root.classList.add("access-granted");
     if (accessGate) accessGate.hidden = true;
-    updateCourseProgress();
+    if (syncProgress) updateCourseProgress();
     if (focus) document.querySelector(".brand, main a, main button, main")?.focus({ preventScroll: true });
   }
 
@@ -212,6 +215,8 @@
     }
 
     activeAccessToken = stored.token;
+    activeAccessProfile = stored.profile;
+    grantAccess(activeAccessProfile, { focus: false, syncProgress: false });
     updateAccessStatus("Restauration sécurisée de votre session…");
     try {
       const response = await accessApi("session", {}, activeAccessToken);

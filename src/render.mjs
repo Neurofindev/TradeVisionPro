@@ -977,14 +977,6 @@ export function layout({ title, description, body, volumes, activePage, showToc 
       <footer class="access-card__footer"><span aria-hidden="true">◆</span> Espace de formation TradeVisionPro</footer>
     </div>
   </section>
-  <section class="access-session-resume" data-access-session-resume role="status" aria-live="polite" aria-label="Restauration sécurisée de votre session">
-    <div class="access-session-resume__content">
-      <span class="access-session-resume__mark" aria-hidden="true"><img src="${sitePath("/brand/tradevisionpro-mark-256.png")}" alt="" aria-hidden="true" width="256" height="256"></span>
-      <span class="access-session-resume__pulse" aria-hidden="true"></span>
-      <strong>TradeVisionPro</strong>
-      <p>Ouverture sécurisée de votre espace…</p>
-    </div>
-  </section>
   <a class="skip-link" href="#contenu">Aller au contenu</a>
   <div class="market-ambient" aria-hidden="true"><span></span><span></span><span></span></div>
   ${globalNav(volumes, activePage, showToc)}

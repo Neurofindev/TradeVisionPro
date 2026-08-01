@@ -106,6 +106,7 @@ test("every page is protected by server authentication without exposing access c
   assert.ok(!client.includes("251226"));
   assert.ok(!client.includes("251126"));
   assert.ok(!client.includes("300402"));
+  assert.ok(!client.includes("0000"));
   assert.match(styles, /html\.access-locked body > :not\(\.access-gate\)/);
 });
 
@@ -248,9 +249,46 @@ test("profile page presents identity, useful progress and account controls", asy
   assert.ok(profile.includes("data-profile-progress-bar"));
   assert.ok(profile.includes('data-profile-achievement="complete"'));
   assert.ok(client.includes('sessionStorage.removeItem(accessSessionKey)'));
-  assert.ok(client.includes('profile.role === "admin" ? "Administrateur · accès intégral"'));
+  assert.ok(client.includes('profile.role === "admin"'));
+  assert.ok(client.includes('"Administrateur · accès intégral"'));
   assert.match(styles, /\.profile-dashboard\s*\{/);
   assert.match(styles, /@media \(max-width: 46rem\)[\s\S]*?\.profile-stats,/);
+});
+
+test("Utilisateur alone receives private rank and streak previews without exposing its code", async () => {
+  const home = await readFile(path.join(DIST, "index.html"), "utf8");
+  const profile = await readFile(path.join(DIST, "profil/index.html"), "utf8");
+  const client = await readFile(path.join(DIST, "assets", "client.js"), "utf8");
+  const styles = await readFile(path.join(DIST, "assets", "styles.css"), "utf8");
+  const edgeFunction = await readFile(
+    path.join(ROOT, "supabase", "functions", "tradevision-api", "index.ts"),
+    "utf8",
+  );
+  const migration = await readFile(
+    path.join(ROOT, "supabase", "migrations", "202608010001_utilisateur_preview.sql"),
+    "utf8",
+  );
+
+  assert.ok(home.includes('minlength="4" maxlength="6"'));
+  assert.ok(home.includes('pattern="(?:[0-9]{4}|[0-9]{6})"'));
+  assert.ok(profile.includes("data-reward-preview"));
+  assert.ok(profile.includes("data-reward-preview-rank-launch"));
+  assert.ok(profile.includes("data-reward-preview-streak-launch"));
+  assert.equal((profile.match(/data-reward-preview-rank-launch/g) || []).length, 1);
+  assert.equal((profile.match(/data-reward-preview-streak-launch/g) || []).length, 1);
+  assert.ok(client.includes('currentAccessProfile()?.id === "utilisateur"'));
+  assert.ok(client.includes('profile.id !== "utilisateur"'));
+  assert.ok(client.includes("previewRankId"));
+  assert.ok(client.includes("forceSound: true"));
+  assert.ok(!client.includes("0000"));
+  assert.match(styles, /html:not\(\[data-access-profile="utilisateur"\]\) \[data-reward-preview\]/);
+  assert.match(styles, /\.profile-preview-studio__grid\s*\{[^}]*grid-template-columns:\s*repeat\(2,/s);
+  assert.match(styles, /@media \(max-width: 46rem\)[\s\S]*?\.profile-preview-studio__grid\s*\{[^}]*grid-template-columns:\s*1fr/s);
+  assert.match(edgeFunction, /TVP_ACCESS_CODE_HASH_UTILISATEUR/);
+  assert.match(edgeFunction, /\^\(\?:\\d\{4\}\|\\d\{6\}\)\$/);
+  assert.ok(!edgeFunction.includes("0000"));
+  assert.match(migration, /'utilisateur', 'Utilisateur', 'learner', 'America\/Martinique'/);
+  assert.ok(!migration.includes("0000"));
 });
 
 test("daily streak is persistent, accessible, responsive and only celebrated after a server event", async () => {

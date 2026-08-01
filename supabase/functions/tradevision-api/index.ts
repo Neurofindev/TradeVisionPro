@@ -3,6 +3,7 @@ import { streakDayLabel, streakMessage } from "../_shared/streak-policy.mjs";
 const SUPABASE_URL = Deno.env.get("SUPABASE_URL") || "";
 const SERVICE_ROLE_KEY = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") || "";
 const ACCESS_CODE_HASHES = JSON.parse(Deno.env.get("TVP_ACCESS_CODE_HASHES") || "{}") as Record<string, string>;
+const UTILISATEUR_ACCESS_CODE_HASH = Deno.env.get("TVP_ACCESS_CODE_HASH_UTILISATEUR") || "";
 const RATE_LIMIT_SALT = Deno.env.get("TVP_RATE_LIMIT_SALT") || "tradevisionpro";
 const ALLOWED_ORIGINS = new Set(
   (Deno.env.get("TVP_ALLOWED_ORIGINS")
@@ -93,7 +94,7 @@ function decorateStreak(payload: Record<string, unknown>) {
 
 async function login(request: Request, input: Record<string, unknown>) {
   const code = String(input.code || "");
-  if (!/^\d{6}$/.test(code)) {
+  if (!/^(?:\d{4}|\d{6})$/.test(code)) {
     return json(request, { ok: false, error: "invalid_credentials" }, 401);
   }
 
@@ -114,7 +115,10 @@ async function login(request: Request, input: Record<string, unknown>) {
 
   const codeHash = await sha256(code);
   const profileKey = Object.entries(ACCESS_CODE_HASHES)
-    .find(([, expectedHash]) => constantTimeEqual(codeHash, expectedHash))?.[0];
+    .find(([, expectedHash]) => constantTimeEqual(codeHash, expectedHash))?.[0]
+    || (UTILISATEUR_ACCESS_CODE_HASH && constantTimeEqual(codeHash, UTILISATEUR_ACCESS_CODE_HASH)
+      ? "utilisateur"
+      : "");
   if (!profileKey) {
     return json(request, { ok: false, error: "invalid_credentials" }, 401);
   }

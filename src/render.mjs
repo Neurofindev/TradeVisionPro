@@ -963,14 +963,14 @@ export function layout({ title, description, body, volumes, activePage, showToc 
         <p id="access-intro">Cette formation est réservée aux personnes disposant de leur code personnel.</p>
       </div>
       <form class="access-form" data-access-form novalidate>
-        <label for="access-code">Code à 6 chiffres</label>
+        <label for="access-code">Code à 4 ou 6 chiffres</label>
         <div class="access-field">
-          <input id="access-code" data-access-input type="password" inputmode="numeric" autocomplete="off" minlength="6" maxlength="6" pattern="[0-9]{6}" aria-describedby="access-help access-status" aria-invalid="false" placeholder="••••••" required>
+          <input id="access-code" data-access-input type="password" inputmode="numeric" autocomplete="off" minlength="4" maxlength="6" pattern="(?:[0-9]{4}|[0-9]{6})" aria-describedby="access-help access-status" aria-invalid="false" placeholder="••••••" required>
           <button class="access-visibility" data-access-visibility type="button" aria-label="Afficher le code" aria-pressed="false">
             <span data-access-visibility-icon aria-hidden="true">◉</span>
           </button>
         </div>
-        <p class="access-help" id="access-help">Saisissez les six chiffres communiqués avec votre accès.</p>
+        <p class="access-help" id="access-help">Saisissez les 4 ou 6 chiffres communiqués avec votre accès.</p>
         <button class="access-submit" data-access-submit type="submit"><span>Accéder à la formation</span><span aria-hidden="true">→</span></button>
         <p class="access-status" id="access-status" data-access-status role="status" aria-live="polite">Votre accès restera actif pendant cette session.</p>
       </form>
@@ -1057,6 +1057,9 @@ export function renderProfilePage(volumes) {
       (volume) => `<option value="${volume.metadata.volumeNumber || volume.metadata.order}">${volumeLabel(volume)} — ${escapeHtml(volume.metadata.title)}</option>`,
     )
     .join("");
+  const previewRankOptions = RANK_CONFIG.ranks
+    .map((rank) => `<option value="${escapeHtml(rank.id)}">${escapeHtml(rank.name)}</option>`)
+    .join("");
   const volumeCards = volumes
     .map((volume) => {
       const metadata = volume.metadata;
@@ -1090,6 +1093,29 @@ export function renderProfilePage(volumes) {
     </section>
 
     ${renderProfileStreak()}
+
+    <section class="profile-preview-studio" data-reward-preview hidden aria-labelledby="reward-preview-title">
+      <header>
+        <div><p class="eyebrow">Studio privé</p><h2 id="reward-preview-title">Animations et identités sonores</h2></div>
+        <span>Compte Utilisateur</span>
+      </header>
+      <p class="profile-preview-studio__intro">Explorez les animations de progression sans modifier vos scores, votre rang ni votre série quotidienne.</p>
+      <div class="profile-preview-studio__grid">
+        <article>
+          <span class="profile-preview-studio__icon" aria-hidden="true">◇</span>
+          <div><h3>Animation de rang</h3><p>Choisissez l’un des cinq rangs pour découvrir son emblème, son mouvement et sa signature sonore.</p></div>
+          <label for="reward-preview-rank">Rang à prévisualiser</label>
+          <select id="reward-preview-rank" data-reward-preview-rank>${previewRankOptions}</select>
+          <button class="button button--primary" type="button" data-reward-preview-rank-launch>Voir et écouter le rang <span aria-hidden="true">→</span></button>
+        </article>
+        <article>
+          <span class="profile-preview-studio__icon" aria-hidden="true">🔥</span>
+          <div><h3>Série quotidienne</h3><p>Lancez une démonstration complète de la flamme, de la semaine validée et du son de récompense.</p></div>
+          <button class="button button--secondary" type="button" data-reward-preview-streak-launch>Voir et écouter la série <span aria-hidden="true">→</span></button>
+        </article>
+      </div>
+      <p class="profile-preview-studio__note"><span aria-hidden="true">ⓘ</span> Ces prévisualisations sont sans effet sur la progression enregistrée.</p>
+    </section>
 
     <section class="profile-rank-card" data-profile-rank-card data-rank="bronze" aria-labelledby="profile-rank-title">
       <div class="profile-rank-card__current">
@@ -1142,7 +1168,7 @@ export function renderProfilePage(volumes) {
         </form>
         <form class="progress-reset" data-progress-reset-form>
           <div><p class="eyebrow">Recalcul immédiat</p><h3>Dévalider un volume</h3><p>La validation et les scores de toutes les parties du volume seront supprimés pour le profil choisi.</p></div>
-          <label><span>Profil</span><select data-progress-reset-profile><option value="aedan-dechavigny">Aedan De Chavigny</option><option value="yann">Yann</option><option value="charly-labbetoul">Charly Labbetoul</option></select></label>
+          <label><span>Profil</span><select data-progress-reset-profile><option value="aedan-dechavigny">Aedan De Chavigny</option><option value="yann">Yann</option><option value="charly-labbetoul">Charly Labbetoul</option><option value="utilisateur">Utilisateur</option></select></label>
           <label><span>Volume</span><select data-progress-reset-volume>${adminVolumeOptions}</select></label>
           <button class="button button--secondary" type="submit">Dévalider ce volume</button>
           <p data-progress-reset-status role="status" aria-live="polite"></p>

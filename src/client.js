@@ -19,6 +19,7 @@
     "aedan-dechavigny": "Aedan De Chavigny",
     yann: "Yann",
     "charly-labbetoul": "Charly Labbetoul",
+    utilisateur: "Utilisateur",
   };
   let activeAccessProfile = null;
   let activeAccessToken = "";
@@ -158,8 +159,8 @@
     event.preventDefault();
     if (!accessInput || !accessSubmit) return;
     const value = accessInput.value;
-    if (!/^\d{6}$/.test(value)) {
-      updateAccessStatus("Le code doit comporter exactement 6 chiffres.", "error");
+    if (!/^(?:\d{4}|\d{6})$/.test(value)) {
+      updateAccessStatus("Le code doit comporter exactement 4 ou 6 chiffres.", "error");
       accessInput.focus();
       return;
     }
@@ -618,9 +619,16 @@
     document.querySelectorAll("[data-profile-name]").forEach((element) => { element.textContent = profile.name; });
     document.querySelectorAll("[data-profile-initials]").forEach((element) => { element.textContent = initials; });
     document.querySelectorAll("[data-profile-role]").forEach((element) => {
-      element.textContent = profile.role === "admin" ? "Administrateur · accès intégral" : "Compte apprenant";
+      element.textContent = profile.role === "admin"
+        ? "Administrateur · accès intégral"
+        : profile.id === "utilisateur"
+          ? "Compte apprenant · studio privé"
+          : "Compte apprenant";
     });
     document.querySelectorAll("[data-rank-admin]").forEach((element) => { element.hidden = !isAdminAccess(); });
+    document.querySelectorAll("[data-reward-preview]").forEach((element) => {
+      element.hidden = profile.id !== "utilisateur";
+    });
     updateRankUi(progressData);
 
     const profileVolumes = [...document.querySelectorAll("[data-profile-volume]")];
@@ -1207,43 +1215,58 @@
     rankRevealReturnFocus = null;
   }
 
-  function showRankProgress({ volumeOrder, volumeTitle, beforeProgress, afterProgress, focusTarget }) {
+  function showRankProgress({ volumeOrder, volumeTitle, beforeProgress, afterProgress, focusTarget, previewRankId = "" }) {
     if (!rankReveal) return;
     const ranks = resolvedRanks();
-    const beforeValidated = validatedVolumeCount(beforeProgress);
-    const afterValidated = validatedVolumeCount(afterProgress);
+    const previewRank = ranks.find((rank) => rank.id === previewRankId) || null;
+    const previewRankIndex = previewRank ? ranks.findIndex((rank) => rank.id === previewRank.id) : -1;
+    const beforeValidated = previewRank ? Math.max(0, Number(previewRank.minValidated || 0) - 1) : validatedVolumeCount(beforeProgress);
+    const afterValidated = previewRank ? Number(previewRank.minValidated || 0) : validatedVolumeCount(afterProgress);
     const beforeState = rankProgressState(beforeValidated, ranks);
     const afterState = rankProgressState(afterValidated, ranks);
-    const rankUp = beforeState.current.id !== afterState.current.id;
+    const rankUp = Boolean(previewRank) || beforeState.current.id !== afterState.current.id;
+    const displayedRank = previewRank || afterState.current;
     const remaining = afterState.next ? Math.max(0, afterState.next.minValidated - afterValidated) : 0;
-    const progressPercent = Math.round(afterState.progress * 100);
+    const progressPercent = previewRank
+      ? Math.round(((previewRankIndex + 1) / ranks.length) * 100)
+      : Math.round(afterState.progress * 100);
     const continueButton = rankReveal.querySelector("[data-rank-reveal-continue]");
 
     rankReveal.hidden = false;
-    rankReveal.dataset.rank = afterState.current.id;
+    rankReveal.dataset.rank = displayedRank.id;
     rankReveal.classList.remove("is-visible", "is-rank-up", "is-standard", "is-reduced");
     rankReveal.classList.add(rankUp ? "is-rank-up" : "is-standard");
     if (reduceMotion) rankReveal.classList.add("is-reduced");
-    showRankEmblem(rankReveal, afterState.current.id);
-    rankReveal.querySelector("[data-rank-reveal-eyebrow]").textContent = rankUp ? "Nouveau rang" : "Volume validé";
-    rankReveal.querySelector("[data-rank-reveal-title]").textContent = rankUp
+    showRankEmblem(rankReveal, displayedRank.id);
+    rankReveal.querySelector("[data-rank-reveal-eyebrow]").textContent = previewRank ? "Prévisualisation du rang" : rankUp ? "Nouveau rang" : "Volume validé";
+    rankReveal.querySelector("[data-rank-reveal-title]").textContent = previewRank
+      ? previewRank.name.toUpperCase()
+      : rankUp
       ? afterState.current.name.toUpperCase()
       : `Volume ${volumeOrder} validé`;
-    rankReveal.querySelector("[data-rank-reveal-volume]").textContent = rankUp
+    rankReveal.querySelector("[data-rank-reveal-volume]").textContent = previewRank
+      ? "Identité visuelle et sonore · accès privé"
+      : rankUp
       ? `Volume ${volumeOrder} validé · ${volumeTitle || `Volume ${volumeOrder}`}`
       : volumeTitle || `Volume ${volumeOrder}`;
-    rankReveal.querySelector("[data-rank-reveal-message]").textContent = rankUp
+    rankReveal.querySelector("[data-rank-reveal-message]").textContent = previewRank
+      ? `${previewRank.celebration || previewRank.description || "Découvrez l’identité complète de ce rang."} Cette démonstration ne modifie pas votre progression.`
+      : rankUp
       ? `${afterState.current.celebration || "Votre progression franchit une nouvelle étape."} Vous avez validé ${afterValidated} volume${afterValidated > 1 ? "s" : ""}.`
       : afterState.next
         ? `${afterValidated} volume${afterValidated > 1 ? "s" : ""} sur ${afterState.next.minValidated} nécessaire${afterState.next.minValidated > 1 ? "s" : ""} pour atteindre ${afterState.next.name}.`
         : `Vous avez atteint le rang maximal avec ${afterValidated} volume${afterValidated > 1 ? "s" : ""} validé${afterValidated > 1 ? "s" : ""}.`;
-    rankReveal.querySelector("[data-rank-reveal-progress-label]").textContent = afterState.next
+    rankReveal.querySelector("[data-rank-reveal-progress-label]").textContent = previewRank
+      ? `Aperçu ${previewRankIndex + 1} sur ${ranks.length}`
+      : afterState.next
       ? `Vers ${afterState.next.name}`
       : "Formation disponible";
-    rankReveal.querySelector("[data-rank-reveal-progress-value]").textContent = afterState.next
+    rankReveal.querySelector("[data-rank-reveal-progress-value]").textContent = previewRank
+      ? `${previewRankIndex + 1} / ${ranks.length}`
+      : afterState.next
       ? `${afterValidated} / ${afterState.next.minValidated}`
       : `${afterValidated} / ${totalAvailableVolumes}`;
-    rankReveal.querySelector("[data-rank-reveal-current]").textContent = afterState.current.name;
+    rankReveal.querySelector("[data-rank-reveal-current]").textContent = previewRank?.name || afterState.current.name;
     const progressElement = rankReveal.querySelector("[data-rank-reveal-progress]");
     progressElement?.setAttribute("aria-valuenow", String(progressPercent));
     const progressBar = rankReveal.querySelector("[data-rank-reveal-progress-bar]");
@@ -1252,14 +1275,14 @@
       progressBar.dataset.targetWidth = `${progressPercent}%`;
     }
     const remainingLabel = rankReveal.querySelector("[data-rank-reveal-progress-label]");
-    if (remainingLabel && afterState.next && remaining > 0) {
+    if (remainingLabel && !previewRank && afterState.next && remaining > 0) {
       remainingLabel.title = `${remaining} volume${remaining > 1 ? "s" : ""} restant${remaining > 1 ? "s" : ""}`;
     }
     rankRevealReturnFocus = focusTarget || document.activeElement;
     if (continueButton) continueButton.disabled = true;
     document.body.classList.add("rank-reveal-open");
-    if (rankUp) rankSoundEngine.playRankUp(afterState.current.id);
-    else rankSoundEngine.playStandard(afterState.current.id);
+    if (rankUp) rankSoundEngine.playRankUp(displayedRank.id);
+    else rankSoundEngine.playStandard(displayedRank.id);
     requestAnimationFrame(() => {
       rankReveal.classList.add("is-visible");
       requestAnimationFrame(() => {
@@ -1268,7 +1291,7 @@
       const rankUpFocusDelay = {
         platine: 3800,
         elite: 4100,
-      }[afterState.current.id] || 3550;
+      }[displayedRank.id] || 3550;
       rankRevealFocusTimer = window.setTimeout(
         () => {
           if (continueButton) {
@@ -1326,6 +1349,7 @@
   let streakRewardReturnFocus = null;
   let pendingStreakSound = false;
   let streakSoundPlayed = false;
+  let forceStreakPreviewSound = false;
 
   function primeStreakSound() {
     if (!streakAudio) return;
@@ -1333,8 +1357,8 @@
     streakAudio.load();
   }
 
-  async function playStreakSound() {
-    if (!streakAudio || !rewardSoundEnabled || streakSoundPlayed) return false;
+  async function playStreakSound({ force = false } = {}) {
+    if (!streakAudio || (!rewardSoundEnabled && !force) || streakSoundPlayed) return false;
     try {
       streakAudio.currentTime = 0;
       streakAudio.volume = 0.34;
@@ -1443,16 +1467,18 @@
     streakReward.hidden = true;
     document.body.classList.remove("streak-reward-open");
     pendingStreakSound = false;
+    forceStreakPreviewSound = false;
     streakRewardReturnFocus?.focus?.({ preventScroll: true });
     streakRewardReturnFocus = null;
   }
 
-  function showStreakReward(streak) {
+  function showStreakReward(streak, { forceSound = false } = {}) {
     if (!streakReward || !["started", "incremented"].includes(streak?.event)) return;
     const count = Math.max(1, Number(streak.currentStreak || 1));
     streakRewardReturnFocus = document.activeElement;
     streakSoundPlayed = false;
-    pendingStreakSound = Boolean(streak.shouldPlaySound && rewardSoundEnabled);
+    forceStreakPreviewSound = forceSound;
+    pendingStreakSound = Boolean(streak.shouldPlaySound && (rewardSoundEnabled || forceSound));
     streakReward.hidden = false;
     streakReward.classList.remove("is-visible", "is-started", "is-incremented");
     streakReward.classList.add(streak.event === "started" ? "is-started" : "is-incremented");
@@ -1469,7 +1495,7 @@
       streakReward.classList.add("is-visible");
       streakReward.querySelector("[data-streak-reward-continue]")?.focus({ preventScroll: true });
     });
-    if (pendingStreakSound) playStreakSound();
+    if (pendingStreakSound) playStreakSound({ force: forceStreakPreviewSound });
   }
 
   function syncStreakResponse(response, { allowCelebration = false } = {}) {
@@ -1514,7 +1540,9 @@
   });
 
   streakReward?.querySelector("[data-streak-reward-continue]")?.addEventListener("click", async () => {
-    if (pendingStreakSound && rewardSoundEnabled) await playStreakSound();
+    if (pendingStreakSound && (rewardSoundEnabled || forceStreakPreviewSound)) {
+      await playStreakSound({ force: forceStreakPreviewSound });
+    }
     closeStreakReward();
   });
 
@@ -1542,6 +1570,43 @@
   });
 
   updateStreakSoundUi();
+
+  const rewardPreviewPanel = document.querySelector("[data-reward-preview]");
+  const rewardPreviewRank = rewardPreviewPanel?.querySelector("[data-reward-preview-rank]");
+  const rewardPreviewRankLaunch = rewardPreviewPanel?.querySelector("[data-reward-preview-rank-launch]");
+  const rewardPreviewStreakLaunch = rewardPreviewPanel?.querySelector("[data-reward-preview-streak-launch]");
+
+  function isRewardPreviewProfile() {
+    return currentAccessProfile()?.id === "utilisateur";
+  }
+
+  rewardPreviewRankLaunch?.addEventListener("click", () => {
+    if (!isRewardPreviewProfile()) return;
+    rankSoundEnabled = true;
+    updateRankSoundUi();
+    showRankProgress({
+      previewRankId: rewardPreviewRank?.value || "bronze",
+      focusTarget: rewardPreviewRankLaunch,
+    });
+  });
+
+  rewardPreviewStreakLaunch?.addEventListener("click", () => {
+    if (!isRewardPreviewProfile()) return;
+    primeStreakSound();
+    const labels = ["Lun.", "Mar.", "Mer.", "Jeu.", "Ven.", "Sam.", "Dim."];
+    showStreakReward({
+      event: "incremented",
+      currentStreak: 7,
+      longestStreak: Math.max(7, Number(activeStreak?.longestStreak || 0)),
+      message: "Sept jours consécutifs : votre régularité prend forme. Cette démonstration ne modifie pas votre série réelle.",
+      shouldPlaySound: true,
+      weekProgress: labels.map((label, index) => ({
+        label,
+        state: index === 6 ? "today_validated" : "validated",
+        localDate: "",
+      })),
+    }, { forceSound: true });
+  });
 
   const volumeTabs = [...document.querySelectorAll("[data-volume-tab]")];
   const volumePanes = [...document.querySelectorAll("[data-volume-pane]")];

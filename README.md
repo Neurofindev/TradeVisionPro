@@ -82,9 +82,9 @@ Le modèle produit est une liste ordonnée de blocs (`heading`, `paragraph`, `li
 
 ## Série quotidienne et Supabase
 
-La migration `supabase/migrations/202607290001_daily_streak.sql` crée :
+Les migrations `supabase/migrations/202607290001_daily_streak.sql` et `supabase/migrations/202608010001_utilisateur_preview.sql` créent :
 
-- les trois profils existants avec le fuseau IANA `America/Martinique` (UTC−4 sans changement saisonnier) ;
+- les profils existants avec le fuseau IANA `America/Martinique` (UTC−4 sans changement saisonnier), dont le compte `Utilisateur` réservé aux prévisualisations sonores et visuelles ;
 - l’état courant et le record de série ;
 - les validations quotidiennes uniques par utilisateur et date locale ;
 - les sessions serveur et la limitation des tentatives de connexion ;
@@ -96,6 +96,7 @@ Variables et secrets requis :
 
 ```text
 TVP_ACCESS_CODE_HASHES  objet JSON profile_key → empreinte SHA-256
+TVP_ACCESS_CODE_HASH_UTILISATEUR  empreinte SHA-256 réservée au compte Utilisateur
 TVP_RATE_LIMIT_SALT     valeur aléatoire réservée au serveur
 TVP_ALLOWED_ORIGINS     origines séparées par des virgules
 ```

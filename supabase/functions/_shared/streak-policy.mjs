@@ -39,7 +39,7 @@ export function streakTransition(state, { serverNow, localDate }) {
 
 export function streakDayLabel(value) {
   const count = Math.max(0, Number(value || 0));
-  return `${count} ${count === 1 ? "jour" : "jours"} de série`;
+  return `${count} ${count <= 1 ? "jour" : "jours"} de série`;
 }
 
 export function streakMessage(value, event = "incremented") {

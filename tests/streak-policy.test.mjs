@@ -96,7 +96,7 @@ test("same local day after a break remains uncelebrated", () => {
 });
 
 test("day labels use correct French agreement", () => {
-  assert.equal(streakDayLabel(0), "0 jours de série");
+  assert.equal(streakDayLabel(0), "0 jour de série");
   assert.equal(streakDayLabel(1), "1 jour de série");
   assert.equal(streakDayLabel(2), "2 jours de série");
 });

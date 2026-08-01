@@ -1417,7 +1417,7 @@
     const statusNode = card.querySelector("[data-streak-status]");
     const recordNode = card.querySelector("[data-streak-record]");
     if (countNode) countNode.textContent = String(count);
-    if (unitNode) unitNode.textContent = `${count === 1 ? "jour" : "jours"} de série`;
+    if (unitNode) unitNode.textContent = `${count <= 1 ? "jour" : "jours"} de série`;
     if (statusNode) statusNode.textContent = broken
       ? "Série interrompue"
       : count === 1

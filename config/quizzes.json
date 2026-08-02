@@ -416,7 +416,7 @@
     ]
   },
   "3-analyse-technique": {
-    "title": "Valider les trois parties de l’analyse technique",
+    "title": "Valider les quatre parties de l’analyse technique",
     "intro": "Chaque partie possède son propre QCM de 10 questions. Une note d’au moins 8/10 débloque l’étape suivante.",
     "parts": [
       {
@@ -830,6 +830,144 @@
             ],
             "answer": 0,
             "explanation": "Ces trois outils sont calculés à partir du prix. Leur alignement peut être utile, mais il faut éviter le double comptage et rechercher des informations complémentaires comme la structure et le volume."
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "id": "partie-4",
+        "title": "QCM de la Partie 4 — Figures chartistes",
+        "intro": "10 questions appliquées à la Partie 4 : structures classiques, confirmation, objectif théorique, invalidation, faux signaux et décision.",
+        "questions": [
+          {
+            "id": "v3-p4-q1",
+            "difficulty": "Facile",
+            "question": "Quand un double sommet devient-il un scénario baissier confirmé ?",
+            "options": [
+              "Dès l’apparition du second sommet",
+              "Lorsque le prix clôture sous le creux intermédiaire qui forme la ligne de cou",
+              "Lorsque les deux sommets ont exactement le même prix",
+              "Dès que le volume diminue pendant quelques bougies"
+            ],
+            "answer": 1,
+            "explanation": "Les deux sommets dessinent seulement une figure potentielle. La clôture sous le creux intermédiaire constitue le déclencheur observable du scénario baissier."
+          },
+          {
+            "id": "v3-p4-q2",
+            "difficulty": "Facile",
+            "question": "Comment faut-il traiter un triangle symétrique avant sa cassure ?",
+            "options": [
+              "Comme une figure toujours haussière",
+              "Comme un retournement baissier obligatoire",
+              "Comme une structure neutre dont la direction dépend de la sortie confirmée",
+              "Comme une absence totale de volatilité"
+            ],
+            "answer": 2,
+            "explanation": "Ses deux frontières convergent sans imposer la direction future. Le sens exploitable vient de la clôture hors de la structure et du comportement qui suit."
+          },
+          {
+            "id": "v3-p4-q3",
+            "difficulty": "Intermédiaire",
+            "question": "À quelle famille appartient d’abord l’épaule-tête-épaule classique ?",
+            "options": [
+              "Aux figures de retournement",
+              "Aux indicateurs de volume",
+              "Aux figures de continuation obligatoires",
+              "Aux ranges sans tendance préalable"
+            ],
+            "answer": 0,
+            "explanation": "La définition classique décrit l’affaiblissement puis le retournement d’une tendance. Une lecture de continuation est une variante avancée qui doit être annoncée comme telle."
+          },
+          {
+            "id": "v3-p4-q4",
+            "difficulty": "Intermédiaire",
+            "question": "Quel élément distingue principalement un fanion d’un grand triangle autonome ?",
+            "options": [
+              "Le fanion est une courte consolidation convergente directement précédée d’un mât impulsif",
+              "Le fanion ne possède jamais de volume",
+              "Le triangle autonome comporte toujours une résistance horizontale",
+              "Aucun élément ne permet de les distinguer"
+            ],
+            "answer": 0,
+            "explanation": "Le contexte est décisif : le fanion est une petite pause liée à une impulsion récente, tandis qu’un triangle peut constituer une compression plus autonome."
+          },
+          {
+            "id": "v3-p4-q5",
+            "difficulty": "Intermédiaire",
+            "question": "Pourquoi ne faut-il pas vendre un biseau ascendant avant sa cassure ?",
+            "options": [
+              "Parce qu’il garantit une nouvelle hausse",
+              "Parce que le prix peut continuer à monter longtemps malgré la convergence",
+              "Parce que les mèches sont interdites dans un biseau",
+              "Parce que son objectif théorique est toujours atteint"
+            ],
+            "answer": 1,
+            "explanation": "L’inclinaison donne un biais classique, pas un déclencheur. Seule une sortie confirmée fournit un signal observable et permet de définir une invalidation."
+          },
+          {
+            "id": "v3-p4-q6",
+            "difficulty": "Intermédiaire",
+            "question": "Après une cassure, le prix clôture rapidement de nouveau à l’intérieur de la figure. Quelle lecture est la plus rigoureuse ?",
+            "options": [
+              "L’objectif géométrique est désormais garanti",
+              "La cassure est fragile ou invalidée et peut avoir piégé les entrées de cassure",
+              "Le volume mondial vient nécessairement d’augmenter",
+              "La tendance future est devenue certaine"
+            ],
+            "answer": 1,
+            "explanation": "La réintégration retire la confirmation initiale. Elle impose de réévaluer le scénario au lieu de conserver une position uniquement parce que la forme semblait convaincante."
+          },
+          {
+            "id": "v3-p4-q7",
+            "difficulty": "Approfondissement",
+            "question": "Quelle formule résume correctement le dimensionnement rappelé dans cette partie ?",
+            "options": [
+              "Taille = gain espéré ÷ capital",
+              "Taille = capital ÷ prix de l’actif",
+              "Taille = risque monétaire autorisé ÷ perte monétaire par unité au stop",
+              "Taille = objectif théorique ÷ stop"
+            ],
+            "answer": 2,
+            "explanation": "Le niveau d’invalidation détermine d’abord la perte par unité. Le budget de risque fixe ensuite la quantité compatible avec cette perte, avant les frais et le glissement."
+          },
+          {
+            "id": "v3-p4-q8",
+            "difficulty": "Approfondissement",
+            "question": "Quels éléments invalidaient le scénario baissier dans l’étude du faux signal sur Bitcoin ?",
+            "options": [
+              "Le seul nom de la figure",
+              "La réintégration de la ligne de cou et l’absence de suivi baissier",
+              "Un objectif théorique trop proche",
+              "Le simple passage du temps"
+            ],
+            "answer": 1,
+            "explanation": "Le niveau supposé cassé a été repris et le mouvement baissier n’a pas obtenu de confirmation durable. Ces observations imposaient d’abandonner le scénario initial."
+          },
+          {
+            "id": "v3-p4-q9",
+            "difficulty": "Approfondissement",
+            "question": "Une clôture, un RSI et un MACD réagissent à la même accélération du prix. Comment faut-il compter ces signaux ?",
+            "options": [
+              "Comme trois preuves totalement indépendantes",
+              "Comme des informations inutiles",
+              "Avec prudence, car ils peuvent compter plusieurs fois le même mouvement",
+              "Comme une garantie de réussite"
+            ],
+            "answer": 2,
+            "explanation": "Plusieurs outils dérivés du prix peuvent refléter une seule information. La complémentarité du contexte, de la structure et de la participation importe davantage que leur nombre."
+          },
+          {
+            "id": "v3-p4-q10",
+            "difficulty": "Approfondissement",
+            "question": "Trois bosses apparaissent dans un range, sans tendance préalable ni ligne de cou nette. Quelle décision respecte le mieux la méthode ?",
+            "options": [
+              "Vendre immédiatement",
+              "Forcer une épaule-tête-épaule et projeter une cible",
+              "Attendre ou conclure qu’aucune figure n’est exploitable",
+              "Augmenter le risque pour compenser l’incertitude"
+            ],
+            "answer": 2,
+            "explanation": "Refuser une structure insuffisante évite de transformer une simple ressemblance visuelle en scénario de trading. L’absence de signal exploitable est une conclusion valide."
           }
         ]
       }

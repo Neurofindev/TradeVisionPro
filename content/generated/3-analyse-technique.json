@@ -10,7 +10,7 @@
     "volumeNumber": 3,
     "title": "L’analyse technique",
     "subtitle": "L’art du timing, un outil essentiel.",
-    "description": "Lire le contexte du marché, comprendre le langage des bougies japonaises et utiliser les indicateurs techniques pour affiner le timing.",
+    "description": "Lire le contexte du marché, comprendre les bougies japonaises, utiliser les indicateurs et reconnaître les principales figures chartistes pour affiner le timing sans confondre scénario et certitude.",
     "edition": null,
     "format": null,
     "coverLines": [],
@@ -106,6 +106,27 @@
           "9-1-ce-que-chaque-volume-apporte",
           "sources-principales"
         ]
+      },
+      {
+        "order": 4,
+        "id": "partie-4-figures-chartistes",
+        "startId": "1-rappel-des-prerequis-du-volume-3",
+        "title": "Les figures chartistes en trading",
+        "subtitle": "Structures · confirmations · objectifs · faux signaux",
+        "description": "Reconnaître six familles classiques, attendre leur confirmation, définir l’invalidation et traiter l’objectif comme une projection — jamais comme une promesse.",
+        "tocIds": [
+          "1-rappel-des-prerequis-du-volume-3",
+          "2-double-sommet-et-double-creux",
+          "3-epaule-tete-epaule-et-version-inversee",
+          "4-triangles-symetrique-ascendant-et-descendant",
+          "5-drapeau-et-fanion",
+          "6-biseaux-ascendant-et-descendant",
+          "7-tasse-avec-anse",
+          "8-transformer-une-figure-en-decision",
+          "9-etudes-de-cas-tradingview-et-contre-exemple",
+          "10-checklist-operationnelle-du-debutant",
+          "sources-et-graphiques"
+        ]
       }
     ],
     "partSequenceComplete": true,
@@ -113,11 +134,11 @@
   },
   "archetype": "technical_analysis",
   "stats": {
-    "wordCount": 11877,
-    "readingMinutes": 54,
-    "chapterCount": 32,
+    "wordCount": 17346,
+    "readingMinutes": 79,
+    "chapterCount": 47,
     "dossierCount": 0,
-    "figureCount": 30
+    "figureCount": 39
   },
   "blocks": [
     {
@@ -6964,6 +6985,3176 @@
       "variant": "principle",
       "text": "Travaille d'abord sur des graphiques historiques, en masquant la partie droite. Écris ton scénario avec le prix, le volume et un seul indicateur de momentum, puis révèle la suite. Ce processus développe la lecture sans transformer l'exercice en recherche de paramètres parfaits.",
       "sourceFill": "FFF7DD"
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "1-rappel-des-prerequis-du-volume-3",
+      "text": "1. Rappel des prérequis du Volume 3"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "1-1-une-figure-organise-un-scenario",
+      "text": "1.1 Une figure organise un scénario"
+    },
+    {
+      "type": "paragraph",
+      "text": "Une figure chartiste décrit une organisation visuelle du prix. Elle sert à préparer des conditions observables : niveau de déclenchement, invalidation, premier obstacle et objectif mesuré. Elle ne révèle ni les ordres cachés ni l’avenir avec certitude. Les familles utiles ici sont le retournement, la continuation et les structures neutres dont la direction dépend de la cassure.",
+      "segments": [
+        {
+          "text": "Une figure chartiste décrit une organisation visuelle du prix. Elle sert à préparer des conditions observables : niveau de déclenchement, invalidation, premier obstacle et objectif mesuré. Elle ne révèle ni les ordres cachés ni l’avenir avec certitude. Les familles utiles ici sont le retournement, la continuation et les structures neutres dont la direction dépend de la cassure."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "REPÈRE",
+      "variant": "default",
+      "text": "Règle absolue — Avant la cassure confirmée, on parle d'une figure potentielle. Après la cassure, on dispose d'un scénario ; jamais d'une certitude.",
+      "sourceFill": "FFF6D8"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "1-2-rappel-express-du-vocabulaire",
+      "text": "1.2 Rappel express du vocabulaire"
+    },
+    {
+      "type": "paragraph",
+      "text": "Tendance : succession de sommets et de creux. Haussière si les sommets et creux montent ; baissière s'ils descendent.",
+      "segments": [
+        {
+          "text": "Tendance : ",
+          "bold": true
+        },
+        {
+          "text": "succession de sommets et de creux. Haussière si les sommets et creux montent ; baissière s'ils descendent."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Support : zone où la demande a déjà stoppé ou ralenti la baisse.",
+      "segments": [
+        {
+          "text": "Support : ",
+          "bold": true
+        },
+        {
+          "text": "zone où la demande a déjà stoppé ou ralenti la baisse."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Résistance : zone où l'offre a déjà stoppé ou ralenti la hausse.",
+      "segments": [
+        {
+          "text": "Résistance : ",
+          "bold": true
+        },
+        {
+          "text": "zone où l'offre a déjà stoppé ou ralenti la hausse."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Ligne de cou : support ou résistance central d'une figure de retournement.",
+      "segments": [
+        {
+          "text": "Ligne de cou : ",
+          "bold": true
+        },
+        {
+          "text": "support ou résistance central d'une figure de retournement."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Cassure : sortie du prix au-delà d'une frontière de la figure. La clôture de la bougie compte davantage qu'une simple mèche.",
+      "segments": [
+        {
+          "text": "Cassure : ",
+          "bold": true
+        },
+        {
+          "text": "sortie du prix au-delà d'une frontière de la figure. La clôture de la bougie compte davantage qu'une simple mèche."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Retest : retour du prix sur le niveau cassé. Le niveau peut changer de rôle : ancienne résistance devenue support, ou inversement.",
+      "segments": [
+        {
+          "text": "Retest : ",
+          "bold": true
+        },
+        {
+          "text": "retour du prix sur le niveau cassé. Le niveau peut changer de rôle : ancienne résistance devenue support, ou inversement."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Invalidation : condition objective qui prouve que le scénario choisi n'est plus cohérent.",
+      "segments": [
+        {
+          "text": "Invalidation : ",
+          "bold": true
+        },
+        {
+          "text": "condition objective qui prouve que le scénario choisi n'est plus cohérent."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Objectif mesuré : projection géométrique de la hauteur de la figure à partir de la cassure. C'est une estimation, pas une promesse.",
+      "segments": [
+        {
+          "text": "Objectif mesuré : ",
+          "bold": true
+        },
+        {
+          "text": "projection géométrique de la hauteur de la figure à partir de la cassure. C'est une estimation, pas une promesse."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "1-3-de-l-observation-a-l-interpretation",
+      "text": "1.3 De l’observation à l’interprétation"
+    },
+    {
+      "type": "paragraph",
+      "text": "Le graphique permet d’observer une impulsion, un ralentissement, une compression, une cassure ou une réintégration. En revanche, attribuer ces mouvements à des prises de bénéfices, à des stops ou à l’absorption d’ordres reste une interprétation possible : le prix seul ne révèle pas les motivations exactes des intervenants.",
+      "segments": [
+        {
+          "text": "Le graphique permet d’observer une impulsion, un ralentissement, une compression, une cassure ou une réintégration. En revanche, attribuer ces mouvements à des prises de bénéfices, à des stops ou à l’absorption d’ordres reste une interprétation possible : le prix seul ne révèle pas les motivations exactes des intervenants."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Lecture prudente — Décris d’abord ce que le prix a fait. Propose ensuite une interprétation, puis indique ce qui la confirmerait ou l’invaliderait.",
+      "segments": [
+        {
+          "text": "Lecture prudente — Décris d’abord ce que le prix a fait. Propose ensuite une interprétation, puis indique ce qui la confirmerait ou l’invaliderait."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "1-4-les-filtres-propres-aux-figures",
+      "text": "1.4 Les filtres propres aux figures"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Une tendance préalable cohérente avec la figure.",
+          "segments": [
+            {
+              "text": "Une tendance préalable cohérente avec la figure."
+            }
+          ]
+        },
+        {
+          "text": "Des points de contact visibles, sans redessiner les lignes pour faire entrer le prix de force.",
+          "segments": [
+            {
+              "text": "Des points de contact visibles, sans redessiner les lignes pour faire entrer le prix de force."
+            }
+          ]
+        },
+        {
+          "text": "Une clôture nette hors de la structure, idéalement avec une bougie d'amplitude supérieure à la moyenne.",
+          "segments": [
+            {
+              "text": "Une clôture nette hors de la structure, idéalement avec une bougie d'amplitude supérieure à la moyenne."
+            }
+          ]
+        },
+        {
+          "text": "Une expansion du volume sur les actions ou les cryptomonnaies ; sur le Forex au comptant, le volume affiché est souvent un volume de ticks et doit être interprété avec prudence.",
+          "segments": [
+            {
+              "text": "Une expansion du volume sur les actions ou les cryptomonnaies ; sur le Forex au comptant, le volume affiché est souvent un volume de ticks et doit être interprété avec prudence."
+            }
+          ]
+        },
+        {
+          "text": "Un retest qui tient, lorsque le marché en offre un.",
+          "segments": [
+            {
+              "text": "Un retest qui tient, lorsque le marché en offre un."
+            }
+          ]
+        },
+        {
+          "text": "Une unité de temps assez élevée pour réduire le bruit, en gardant à l'esprit que le stop sera généralement plus large.",
+          "segments": [
+            {
+              "text": "Une unité de temps assez élevée pour réduire le bruit, en gardant à l'esprit que le stop sera généralement plus large."
+            }
+          ]
+        },
+        {
+          "text": "Un risque défini avant l'entrée et un ratio rendement/risque acceptable.",
+          "segments": [
+            {
+              "text": "Un risque défini avant l'entrée et un ratio rendement/risque acceptable."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "REPÈRE",
+      "variant": "default",
+      "text": "Piège débutant — Deux signaux issus du même mouvement ne sont pas deux preuves indépendantes. Une clôture, un RSI et un MACD peuvent tous refléter la même accélération du prix. Recherche des confirmations complémentaires et compréhensibles, sans les compter mécaniquement.",
+      "sourceFill": "FDECEC"
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "2-double-sommet-et-double-creux",
+      "text": "2. Double sommet et double creux"
+    },
+    {
+      "type": "paragraph",
+      "text": "Catégorie : Retournement",
+      "segments": [
+        {
+          "text": "Catégorie : ",
+          "bold": true
+        },
+        {
+          "text": "Retournement"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Priorité d’apprentissage : Essentielle.",
+      "segments": [
+        {
+          "text": "Priorité d’apprentissage : Essentielle."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "comment-la-reconnaitre",
+      "text": "Comment la reconnaître"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Le double sommet ressemble à un M : deux sommets proches, séparés par un creux intermédiaire.",
+          "segments": [
+            {
+              "text": "Le double sommet ressemble à un M : deux sommets proches, séparés par un creux intermédiaire."
+            }
+          ]
+        },
+        {
+          "text": "Le double creux ressemble à un W : deux creux proches, séparés par un sommet intermédiaire.",
+          "segments": [
+            {
+              "text": "Le double creux ressemble à un W : deux creux proches, séparés par un sommet intermédiaire."
+            }
+          ]
+        },
+        {
+          "text": "Les deux extrêmes n'ont pas besoin d'être identiques au centime près ; ils doivent appartenir à la même zone.",
+          "segments": [
+            {
+              "text": "Les deux extrêmes n'ont pas besoin d'être identiques au centime près ; ils doivent appartenir à la même zone."
+            }
+          ]
+        },
+        {
+          "text": "La figure exige une tendance préalable : hausse avant un double sommet, baisse avant un double creux.",
+          "segments": [
+            {
+              "text": "La figure exige une tendance préalable : hausse avant un double sommet, baisse avant un double creux."
+            }
+          ]
+        },
+        {
+          "text": "Le niveau intermédiaire constitue la ligne de cou.",
+          "segments": [
+            {
+              "text": "Le niveau intermédiaire constitue la ligne de cou."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "figure",
+      "src": "/media/3-analyse-technique/3-analyse-technique-figures-chartistes-e691bd135fc1.webp",
+      "originalName": "image1.png",
+      "width": 1260,
+      "height": 826,
+      "optimized": true,
+      "caption": "Double sommet sur Amazon : deux tests de la même zone, puis rupture de la ligne de cou.",
+      "source": "TradingView — graphique pédagogique Amazon",
+      "sourceLinks": [
+        "https://www.tradingview.com/chart/cJFsOApx/"
+      ],
+      "alt": "Graphique journalier Amazon montrant deux sommets proches, un creux intermédiaire et la rupture baissière de la ligne de cou."
+    },
+    {
+      "type": "callout",
+      "label": "REPÈRE",
+      "variant": "default",
+      "text": "Version miroir — Le double creux inverse verticalement toute la logique : deux tests d'un support, puis cassure haussière du sommet intermédiaire.",
+      "sourceFill": "E8EEF5"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "la-psychologie-derriere-la-figure",
+      "text": "La psychologie derrière la figure"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Premier extrême : la tendance semble encore saine, mais les premières prises de bénéfices apparaissent.",
+          "segments": [
+            {
+              "text": "Premier extrême : la tendance semble encore saine, mais les premières prises de bénéfices apparaissent."
+            }
+          ]
+        },
+        {
+          "text": "Retour vers le même niveau : les traders anticipent la reprise de tendance et renforcent leurs positions.",
+          "segments": [
+            {
+              "text": "Retour vers le même niveau : les traders anticipent la reprise de tendance et renforcent leurs positions."
+            }
+          ]
+        },
+        {
+          "text": "Échec à dépasser nettement le premier extrême : le camp dominant ne produit plus de nouveau progrès malgré un second effort.",
+          "segments": [
+            {
+              "text": "Échec à dépasser nettement le premier extrême : le camp dominant ne produit plus de nouveau progrès malgré un second effort."
+            }
+          ]
+        },
+        {
+          "text": "Cassure de la ligne de cou : la structure des sommets et creux change. Des sorties, des stops ou de nouvelles positions peuvent contribuer au mouvement, mais leur présence et leur importance ne sont pas directement observables sur le graphique.",
+          "segments": [
+            {
+              "text": "Cassure de la ligne de cou : la structure des sommets et creux change. Des sorties, des stops ou de nouvelles positions peuvent contribuer au mouvement, mais leur présence et leur importance ne sont pas directement observables sur le graphique."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "comment-elle-fonctionne",
+      "text": "Comment elle fonctionne"
+    },
+    {
+      "type": "paragraph",
+      "text": "Confirmation : Double sommet : clôture sous le creux intermédiaire. Double creux : clôture au-dessus du sommet intermédiaire. Une mèche seule ne suffit pas.",
+      "segments": [
+        {
+          "text": "Confirmation : ",
+          "bold": true
+        },
+        {
+          "text": "Double sommet : clôture sous le creux intermédiaire. Double creux : clôture au-dessus du sommet intermédiaire. Une mèche seule ne suffit pas."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Objectif théorique : Mesurer la distance verticale entre les sommets/creux et la ligne de cou, puis la reporter depuis le point de cassure dans le sens du mouvement.",
+      "segments": [
+        {
+          "text": "Objectif théorique : ",
+          "bold": true
+        },
+        {
+          "text": "Mesurer la distance verticale entre les sommets/creux et la ligne de cou, puis la reporter depuis le point de cassure dans le sens du mouvement."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Invalidation : Double sommet : reprise nette au-dessus de la zone des sommets. Double creux : clôture nette sous la zone des creux. Un stop peut être placé au-delà de cette zone avec un tampon adapté à la volatilité.",
+      "segments": [
+        {
+          "text": "Invalidation : ",
+          "bold": true
+        },
+        {
+          "text": "Double sommet : reprise nette au-dessus de la zone des sommets. Double creux : clôture nette sous la zone des creux. Un stop peut être placé au-delà de cette zone avec un tampon adapté à la volatilité."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "exemple-guide-un-double-sommet-peut-etre-valide-mais-peu-interessant",
+      "text": "Exemple guidé — un double sommet peut être valide mais peu intéressant"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Structure : premier sommet à 80 €, creux intermédiaire à 74 €, second sommet à 79,50 €.",
+          "segments": [
+            {
+              "text": "Structure : premier sommet à 80 €, creux intermédiaire à 74 €, second sommet à 79,50 €."
+            }
+          ]
+        },
+        {
+          "text": "Confirmation : une clôture à 73,50 € casse la ligne de cou située vers 74 €.",
+          "segments": [
+            {
+              "text": "Confirmation : une clôture à 73,50 € casse la ligne de cou située vers 74 €."
+            }
+          ]
+        },
+        {
+          "text": "Objectif mesuré : hauteur de 6 € ; projection théorique vers 68 € depuis la cassure.",
+          "segments": [
+            {
+              "text": "Objectif mesuré : hauteur de 6 € ; projection théorique vers 68 € depuis la cassure."
+            }
+          ]
+        },
+        {
+          "text": "Invalidation : reprise nette de la zone 80 €. Avec une entrée tardive et un stop trop éloigné, le rendement potentiel peut devenir inférieur au risque.",
+          "segments": [
+            {
+              "text": "Invalidation : reprise nette de la zone 80 €. Avec une entrée tardive et un stop trop éloigné, le rendement potentiel peut devenir inférieur au risque."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Décision — La figure peut être correctement identifiée tout en offrant un mauvais plan. La géométrie ne remplace pas l’évaluation du risque et des obstacles intermédiaires.",
+      "segments": [
+        {
+          "text": "Décision — La figure peut être correctement identifiée tout en offrant un mauvais plan. La géométrie ne remplace pas l’évaluation du risque et des obstacles intermédiaires."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "pourquoi-elle-est-utile",
+      "text": "Pourquoi elle est utile"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Structure simple, lisible et compatible avec toutes les unités de temps.",
+          "segments": [
+            {
+              "text": "Structure simple, lisible et compatible avec toutes les unités de temps."
+            }
+          ]
+        },
+        {
+          "text": "Ligne de cou, objectif et invalidation peuvent être définis avant l'entrée.",
+          "segments": [
+            {
+              "text": "Ligne de cou, objectif et invalidation peuvent être définis avant l'entrée."
+            }
+          ]
+        },
+        {
+          "text": "Le second test offre une lecture directe de la force ou de la faiblesse du camp dominant.",
+          "segments": [
+            {
+              "text": "Le second test offre une lecture directe de la force ou de la faiblesse du camp dominant."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "risques-et-erreurs-frequentes",
+      "text": "Risques et erreurs fréquentes"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Vendre le deuxième sommet ou acheter le deuxième creux avant cassure revient à anticiper la figure.",
+          "segments": [
+            {
+              "text": "Vendre le deuxième sommet ou acheter le deuxième creux avant cassure revient à anticiper la figure."
+            }
+          ]
+        },
+        {
+          "text": "Deux points proches sans tendance préalable peuvent n'être qu'une simple oscillation latérale.",
+          "segments": [
+            {
+              "text": "Deux points proches sans tendance préalable peuvent n'être qu'une simple oscillation latérale."
+            }
+          ]
+        },
+        {
+          "text": "Un deuxième sommet légèrement plus haut peut être une chasse aux stops, mais aussi le début d'une nouvelle impulsion ; seule la réaction suivante tranche.",
+          "segments": [
+            {
+              "text": "Un deuxième sommet légèrement plus haut peut être une chasse aux stops, mais aussi le début d'une nouvelle impulsion ; seule la réaction suivante tranche."
+            }
+          ]
+        },
+        {
+          "text": "Un objectif mesuré peut être bloqué par un support ou une résistance majeure situé avant lui.",
+          "segments": [
+            {
+              "text": "Un objectif mesuré peut être bloqué par un support ou une résistance majeure situé avant lui."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "3-epaule-tete-epaule-et-version-inversee",
+      "text": "3. Épaule-tête-épaule et version inversée"
+    },
+    {
+      "type": "paragraph",
+      "text": "Catégorie classique : Retournement. Variante avancée : certains praticiens emploient une structure similaire comme continuation ; cette lecture doit être explicitement distinguée de la définition classique.",
+      "segments": [
+        {
+          "text": "Catégorie classique : Retournement. Variante avancée : certains praticiens emploient une structure similaire comme continuation ; cette lecture doit être explicitement distinguée de la définition classique."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Priorité d’apprentissage : Essentielle.",
+      "segments": [
+        {
+          "text": "Priorité d’apprentissage : Essentielle."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "comment-la-reconnaitre-2",
+      "text": "Comment la reconnaître"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Trois sommets dans la version baissière : épaule gauche, tête plus haute, épaule droite plus basse ou proche de la gauche.",
+          "segments": [
+            {
+              "text": "Trois sommets dans la version baissière : épaule gauche, tête plus haute, épaule droite plus basse ou proche de la gauche."
+            }
+          ]
+        },
+        {
+          "text": "Deux creux intermédiaires reliés forment la ligne de cou, horizontale ou inclinée.",
+          "segments": [
+            {
+              "text": "Deux creux intermédiaires reliés forment la ligne de cou, horizontale ou inclinée."
+            }
+          ]
+        },
+        {
+          "text": "La version inversée présente trois creux, dont le creux central est le plus profond.",
+          "segments": [
+            {
+              "text": "La version inversée présente trois creux, dont le creux central est le plus profond."
+            }
+          ]
+        },
+        {
+          "text": "Une tendance préalable claire est essentielle ; sans elle, la figure perd une grande partie de son sens.",
+          "segments": [
+            {
+              "text": "Une tendance préalable claire est essentielle ; sans elle, la figure perd une grande partie de son sens."
+            }
+          ]
+        },
+        {
+          "text": "La symétrie parfaite est rare. La logique de structure compte davantage que la beauté du dessin.",
+          "segments": [
+            {
+              "text": "La symétrie parfaite est rare. La logique de structure compte davantage que la beauté du dessin."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "figure",
+      "src": "/media/3-analyse-technique/3-analyse-technique-figures-chartistes-2bcacce79c12.webp",
+      "originalName": "image2.png",
+      "width": 1260,
+      "height": 826,
+      "optimized": true,
+      "caption": "Épaule-tête-épaule inversée sur Apple : le creux central est le plus profond, puis la ligne de cou est franchie.",
+      "source": "TradingView — graphique pédagogique Apple",
+      "sourceLinks": [
+        "https://www.tradingview.com/chart/cJFsOApx/"
+      ],
+      "alt": "Graphique journalier Apple montrant une épaule-tête-épaule inversée et la cassure haussière de sa ligne de cou."
+    },
+    {
+      "type": "callout",
+      "label": "REPÈRE",
+      "variant": "default",
+      "text": "Version miroir — L'ETE inversée décrit l'épuisement d'une baisse : le creux central est le plus profond, puis la cassure haussière de la ligne de cou confirme la reprise des acheteurs.",
+      "sourceFill": "E8EEF5"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "la-psychologie-derriere-la-figure-2",
+      "text": "La psychologie derrière la figure"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Épaule gauche : les acheteurs contrôlent encore la tendance, puis subissent un premier recul sérieux.",
+          "segments": [
+            {
+              "text": "Épaule gauche : les acheteurs contrôlent encore la tendance, puis subissent un premier recul sérieux."
+            }
+          ]
+        },
+        {
+          "text": "Tête : un nouveau sommet attire les acheteurs tardifs, mais le prix revient une nouvelle fois vers la ligne de cou.",
+          "segments": [
+            {
+              "text": "Tête : un nouveau sommet attire les acheteurs tardifs, mais le prix revient une nouvelle fois vers la ligne de cou."
+            }
+          ]
+        },
+        {
+          "text": "Épaule droite : le marché tente de repartir, mais échoue à créer un sommet supérieur à la tête ; le momentum se dégrade.",
+          "segments": [
+            {
+              "text": "Épaule droite : le marché tente de repartir, mais échoue à créer un sommet supérieur à la tête ; le momentum se dégrade."
+            }
+          ]
+        },
+        {
+          "text": "Cassure de la ligne de cou : les acheteurs qui misaient sur la tendance sortent, tandis que les vendeurs obtiennent une confirmation de changement de structure.",
+          "segments": [
+            {
+              "text": "Cassure de la ligne de cou : les acheteurs qui misaient sur la tendance sortent, tandis que les vendeurs obtiennent une confirmation de changement de structure."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "comment-elle-fonctionne-2",
+      "text": "Comment elle fonctionne"
+    },
+    {
+      "type": "paragraph",
+      "text": "Confirmation : Version baissière : clôture sous la ligne de cou après l'épaule droite. Version inversée : clôture au-dessus de la ligne de cou. Le retest de la ligne de cou peut renforcer le scénario, sans être obligatoire.",
+      "segments": [
+        {
+          "text": "Confirmation : ",
+          "bold": true
+        },
+        {
+          "text": "Version baissière : clôture sous la ligne de cou après l'épaule droite. Version inversée : clôture au-dessus de la ligne de cou. Le retest de la ligne de cou peut renforcer le scénario, sans être obligatoire."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Objectif théorique : Mesurer la distance entre la tête et la ligne de cou, puis reporter cette hauteur à partir de la cassure.",
+      "segments": [
+        {
+          "text": "Objectif théorique : ",
+          "bold": true
+        },
+        {
+          "text": "Mesurer la distance entre la tête et la ligne de cou, puis reporter cette hauteur à partir de la cassure."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Invalidation : Version baissière : retour durable au-dessus de l'épaule droite, et plus fortement au-dessus de la tête. Version inversée : retour sous l'épaule droite ou sous la tête selon le plan choisi.",
+      "segments": [
+        {
+          "text": "Invalidation : ",
+          "bold": true
+        },
+        {
+          "text": "Version baissière : retour durable au-dessus de l'épaule droite, et plus fortement au-dessus de la tête. Version inversée : retour sous l'épaule droite ou sous la tête selon le plan choisi."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "exemple-guide-ete-inversee-et-distinction-retournement-continuation",
+      "text": "Exemple guidé — ETE inversée et distinction retournement/continuation"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Structure : épaule gauche à 102 €, tête à 96 €, épaule droite à 103 € et ligne de cou vers 108 €.",
+          "segments": [
+            {
+              "text": "Structure : épaule gauche à 102 €, tête à 96 €, épaule droite à 103 € et ligne de cou vers 108 €."
+            }
+          ]
+        },
+        {
+          "text": "Confirmation : une clôture à 109 € franchit la ligne de cou ; avant cette clôture, la figure reste potentielle.",
+          "segments": [
+            {
+              "text": "Confirmation : une clôture à 109 € franchit la ligne de cou ; avant cette clôture, la figure reste potentielle."
+            }
+          ]
+        },
+        {
+          "text": "Objectif mesuré : 108 € − 96 € = 12 € ; projection théorique vers 120 €.",
+          "segments": [
+            {
+              "text": "Objectif mesuré : 108 € − 96 € = 12 € ; projection théorique vers 120 €."
+            }
+          ]
+        },
+        {
+          "text": "Contexte : après une baisse, il s’agit de la définition classique de retournement. Dans une hausse déjà établie, parler de continuation est une variante avancée qui doit être annoncée comme telle.",
+          "segments": [
+            {
+              "text": "Contexte : après une baisse, il s’agit de la définition classique de retournement. Dans une hausse déjà établie, parler de continuation est une variante avancée qui doit être annoncée comme telle."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Invalidation — Un retour sous l’épaule droite fragilise le scénario ; une rupture de la tête l’invalide beaucoup plus nettement. Le niveau exact dépend du plan et de la volatilité.",
+      "segments": [
+        {
+          "text": "Invalidation — Un retour sous l’épaule droite fragilise le scénario ; une rupture de la tête l’invalide beaucoup plus nettement. Le niveau exact dépend du plan et de la volatilité."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "pourquoi-elle-est-utile-2",
+      "text": "Pourquoi elle est utile"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Décrit une transition progressive plutôt qu'un retournement brutal.",
+          "segments": [
+            {
+              "text": "Décrit une transition progressive plutôt qu'un retournement brutal."
+            }
+          ]
+        },
+        {
+          "text": "Offre plusieurs points d'observation : force de la tête, hauteur de l'épaule droite, ligne de cou, retest.",
+          "segments": [
+            {
+              "text": "Offre plusieurs points d'observation : force de la tête, hauteur de l'épaule droite, ligne de cou, retest."
+            }
+          ]
+        },
+        {
+          "text": "La géométrie fournit un objectif et une invalidation explicites.",
+          "segments": [
+            {
+              "text": "La géométrie fournit un objectif et une invalidation explicites."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "risques-et-erreurs-frequentes-2",
+      "text": "Risques et erreurs fréquentes"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Voir trois bosses partout : sans tendance préalable et ligne de cou nette, l'étiquette ETE est souvent abusive.",
+          "segments": [
+            {
+              "text": "Voir trois bosses partout : sans tendance préalable et ligne de cou nette, l'étiquette ETE est souvent abusive."
+            }
+          ]
+        },
+        {
+          "text": "Entrer avant la cassure expose au rebond depuis la ligne de cou.",
+          "segments": [
+            {
+              "text": "Entrer avant la cassure expose au rebond depuis la ligne de cou."
+            }
+          ]
+        },
+        {
+          "text": "Une ligne de cou très inclinée peut rendre la projection et le risque moins fiables.",
+          "segments": [
+            {
+              "text": "Une ligne de cou très inclinée peut rendre la projection et le risque moins fiables."
+            }
+          ]
+        },
+        {
+          "text": "Lorsque le prix réintègre vite la structure après cassure, le mouvement opposé peut être violent à cause des positions piégées.",
+          "segments": [
+            {
+              "text": "Lorsque le prix réintègre vite la structure après cassure, le mouvement opposé peut être violent à cause des positions piégées."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "4-triangles-symetrique-ascendant-et-descendant",
+      "text": "4. Triangles symétrique, ascendant et descendant"
+    },
+    {
+      "type": "paragraph",
+      "text": "Catégorie : Neutre pour le triangle symétrique ; biais de continuation pour les versions ascendante et descendante",
+      "segments": [
+        {
+          "text": "Catégorie : ",
+          "bold": true
+        },
+        {
+          "text": "Neutre pour le triangle symétrique ; biais de continuation pour les versions ascendante et descendante"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Priorité d’apprentissage : Essentielle.",
+      "segments": [
+        {
+          "text": "Priorité d’apprentissage : Essentielle."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "comment-la-reconnaitre-3",
+      "text": "Comment la reconnaître"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Triangle symétrique : sommets descendants et creux ascendants ; deux obliques convergent.",
+          "segments": [
+            {
+              "text": "Triangle symétrique : sommets descendants et creux ascendants ; deux obliques convergent."
+            }
+          ]
+        },
+        {
+          "text": "Triangle ascendant : résistance horizontale et creux de plus en plus hauts.",
+          "segments": [
+            {
+              "text": "Triangle ascendant : résistance horizontale et creux de plus en plus hauts."
+            }
+          ]
+        },
+        {
+          "text": "Triangle descendant : support horizontal et sommets de plus en plus bas.",
+          "segments": [
+            {
+              "text": "Triangle descendant : support horizontal et sommets de plus en plus bas."
+            }
+          ]
+        },
+        {
+          "text": "L'amplitude des oscillations diminue à mesure que le prix se rapproche du sommet géométrique.",
+          "segments": [
+            {
+              "text": "L'amplitude des oscillations diminue à mesure que le prix se rapproche du sommet géométrique."
+            }
+          ]
+        },
+        {
+          "text": "Deux contacts par frontière constituent un minimum ; trois contacts rendent souvent la structure plus lisible.",
+          "segments": [
+            {
+              "text": "Deux contacts par frontière constituent un minimum ; trois contacts rendent souvent la structure plus lisible."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "figure",
+      "src": "/media/3-analyse-technique/3-analyse-technique-figures-chartistes-5c8339df5911.webp",
+      "originalName": "image3.jpg",
+      "width": 2704,
+      "height": 1862,
+      "optimized": true,
+      "caption": "Triangle symétrique : la direction n’est connue qu’après la clôture hors de la structure.",
+      "source": "TradingView — Chart Pattern Triangle",
+      "sourceLinks": [
+        "https://www.tradingview.com/support/solutions/43000653217-chart-pattern-triangle/"
+      ],
+      "alt": "Schéma de triangle symétrique montrant des sommets descendants, des creux ascendants et une sortie de la structure."
+    },
+    {
+      "type": "callout",
+      "label": "REPÈRE",
+      "variant": "default",
+      "text": "Version miroir — Ascendant ne signifie pas infailliblement haussier et descendant ne signifie pas infailliblement baissier. La clôture hors de la structure reste le déclencheur.",
+      "sourceFill": "E8EEF5"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "la-psychologie-derriere-la-figure-3",
+      "text": "La psychologie derrière la figure"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "La volatilité se contracte : chaque camp réussit moins bien à éloigner le prix.",
+          "segments": [
+            {
+              "text": "La volatilité se contracte : chaque camp réussit moins bien à éloigner le prix."
+            }
+          ]
+        },
+        {
+          "text": "Dans un triangle ascendant, les vendeurs défendent le même plafond, mais les acheteurs acceptent des prix de plus en plus élevés : la demande se rapproche de la résistance.",
+          "segments": [
+            {
+              "text": "Dans un triangle ascendant, les vendeurs défendent le même plafond, mais les acheteurs acceptent des prix de plus en plus élevés : la demande se rapproche de la résistance."
+            }
+          ]
+        },
+        {
+          "text": "Dans un triangle descendant, les acheteurs défendent le même plancher, mais les vendeurs acceptent des sommets de plus en plus bas : l'offre presse le support.",
+          "segments": [
+            {
+              "text": "Dans un triangle descendant, les acheteurs défendent le même plancher, mais les vendeurs acceptent des sommets de plus en plus bas : l'offre presse le support."
+            }
+          ]
+        },
+        {
+          "text": "La cassure libère la tension accumulée ; les ordres stop et les entrées de momentum peuvent amplifier l'expansion de volatilité.",
+          "segments": [
+            {
+              "text": "La cassure libère la tension accumulée ; les ordres stop et les entrées de momentum peuvent amplifier l'expansion de volatilité."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "comment-elle-fonctionne-3",
+      "text": "Comment elle fonctionne"
+    },
+    {
+      "type": "paragraph",
+      "text": "Confirmation : Clôture hors de la frontière du triangle. Pour un triangle symétrique, ne présumer aucune direction avant la sortie. Un volume en hausse et/ou un retest qui tient renforcent la lecture.",
+      "segments": [
+        {
+          "text": "Confirmation : ",
+          "bold": true
+        },
+        {
+          "text": "Clôture hors de la frontière du triangle. Pour un triangle symétrique, ne présumer aucune direction avant la sortie. Un volume en hausse et/ou un retest qui tient renforcent la lecture."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Objectif théorique : Mesurer la plus grande hauteur du triangle, généralement sa base, puis la reporter depuis la cassure dans le sens choisi.",
+      "segments": [
+        {
+          "text": "Objectif théorique : ",
+          "bold": true
+        },
+        {
+          "text": "Mesurer la plus grande hauteur du triangle, généralement sa base, puis la reporter depuis la cassure dans le sens choisi."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Invalidation : Retour rapide et clôture à l'intérieur du triangle, puis franchissement de la frontière opposée ou du dernier pivot contraire.",
+      "segments": [
+        {
+          "text": "Invalidation : ",
+          "bold": true
+        },
+        {
+          "text": "Retour rapide et clôture à l'intérieur du triangle, puis franchissement de la frontière opposée ou du dernier pivot contraire."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "exemple-guide-preparer-les-deux-directions-d-un-triangle",
+      "text": "Exemple guidé — préparer les deux directions d’un triangle"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Base du triangle : 12 €. Borne supérieure proche de 110 € et borne inférieure proche de 100 € au moment décisif.",
+          "segments": [
+            {
+              "text": "Base du triangle : 12 €. Borne supérieure proche de 110 € et borne inférieure proche de 100 € au moment décisif."
+            }
+          ]
+        },
+        {
+          "text": "Scénario haussier : clôture au-dessus de 110 €, projection théorique vers 122 €.",
+          "segments": [
+            {
+              "text": "Scénario haussier : clôture au-dessus de 110 €, projection théorique vers 122 €."
+            }
+          ]
+        },
+        {
+          "text": "Scénario baissier : clôture sous 100 €, projection théorique vers 88 €.",
+          "segments": [
+            {
+              "text": "Scénario baissier : clôture sous 100 €, projection théorique vers 88 €."
+            }
+          ]
+        },
+        {
+          "text": "Échec : sortie par une mèche, puis clôture à l’intérieur. La direction n’est donc pas validée.",
+          "segments": [
+            {
+              "text": "Échec : sortie par une mèche, puis clôture à l’intérieur. La direction n’est donc pas validée."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Leçon — Le nom « triangle » ne donne pas la direction. Le déclencheur vient de la clôture et du comportement qui suit.",
+      "segments": [
+        {
+          "text": "Leçon — Le nom « triangle » ne donne pas la direction. Le déclencheur vient de la clôture et du comportement qui suit."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "pourquoi-elle-est-utile-3",
+      "text": "Pourquoi elle est utile"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Figure fréquente et adaptée à la lecture de la compression de volatilité.",
+          "segments": [
+            {
+              "text": "Figure fréquente et adaptée à la lecture de la compression de volatilité."
+            }
+          ]
+        },
+        {
+          "text": "Permet de préparer deux scénarios avant la sortie.",
+          "segments": [
+            {
+              "text": "Permet de préparer deux scénarios avant la sortie."
+            }
+          ]
+        },
+        {
+          "text": "Les frontières convergentes donnent des niveaux d'alerte clairs.",
+          "segments": [
+            {
+              "text": "Les frontières convergentes donnent des niveaux d'alerte clairs."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "risques-et-erreurs-frequentes-3",
+      "text": "Risques et erreurs fréquentes"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Confondre biais et certitude : un triangle ascendant peut casser vers le bas, un descendant vers le haut.",
+          "segments": [
+            {
+              "text": "Confondre biais et certitude : un triangle ascendant peut casser vers le bas, un descendant vers le haut."
+            }
+          ]
+        },
+        {
+          "text": "Une sortie très proche du sommet géométrique peut manquer d'énergie, car la compression est déjà presque entièrement consommée.",
+          "segments": [
+            {
+              "text": "Une sortie très proche du sommet géométrique peut manquer d'énergie, car la compression est déjà presque entièrement consommée."
+            }
+          ]
+        },
+        {
+          "text": "Les mèches hors du triangle sont fréquentes sur les unités courtes et les cryptomonnaies.",
+          "segments": [
+            {
+              "text": "Les mèches hors du triangle sont fréquentes sur les unités courtes et les cryptomonnaies."
+            }
+          ]
+        },
+        {
+          "text": "Tracer des lignes qui coupent de nombreuses bougies pour obtenir artificiellement une convergence.",
+          "segments": [
+            {
+              "text": "Tracer des lignes qui coupent de nombreuses bougies pour obtenir artificiellement une convergence."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "5-drapeau-et-fanion",
+      "text": "5. Drapeau et fanion"
+    },
+    {
+      "type": "paragraph",
+      "text": "Catégorie : Continuation",
+      "segments": [
+        {
+          "text": "Catégorie : ",
+          "bold": true
+        },
+        {
+          "text": "Continuation"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Priorité d’apprentissage : Importante.",
+      "segments": [
+        {
+          "text": "Priorité d’apprentissage : Importante."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "comment-la-reconnaitre-4",
+      "text": "Comment la reconnaître"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Une impulsion rapide et presque verticale constitue le mât.",
+          "segments": [
+            {
+              "text": "Une impulsion rapide et presque verticale constitue le mât."
+            }
+          ]
+        },
+        {
+          "text": "Le drapeau est un petit canal parallèle souvent incliné contre la tendance principale.",
+          "segments": [
+            {
+              "text": "Le drapeau est un petit canal parallèle souvent incliné contre la tendance principale."
+            }
+          ]
+        },
+        {
+          "text": "Le fanion est une petite consolidation triangulaire après le mât.",
+          "segments": [
+            {
+              "text": "Le fanion est une petite consolidation triangulaire après le mât."
+            }
+          ]
+        },
+        {
+          "text": "La correction doit rester modeste par rapport à l'impulsion ; si elle efface la majeure partie du mât, la logique de continuation s'affaiblit.",
+          "segments": [
+            {
+              "text": "La correction doit rester modeste par rapport à l'impulsion ; si elle efface la majeure partie du mât, la logique de continuation s'affaiblit."
+            }
+          ]
+        },
+        {
+          "text": "Ces figures sont généralement plus courtes que les grandes structures de retournement.",
+          "segments": [
+            {
+              "text": "Ces figures sont généralement plus courtes que les grandes structures de retournement."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "figure",
+      "src": "/media/3-analyse-technique/3-analyse-technique-figures-chartistes-6e36ce536b7f.webp",
+      "originalName": "image4.png",
+      "width": 1260,
+      "height": 826,
+      "optimized": true,
+      "caption": "Drapeau haussier sur Bitcoin : impulsion, canal descendant, cassure et prolongement haussier.",
+      "source": "TradingView — graphique pédagogique Bitcoin",
+      "sourceLinks": [
+        "https://www.tradingview.com/chart/cJFsOApx/"
+      ],
+      "alt": "Graphique journalier Bitcoin montrant un mât haussier, une consolidation en canal descendant puis une cassure haussière."
+    },
+    {
+      "type": "callout",
+      "label": "REPÈRE",
+      "variant": "default",
+      "text": "Version miroir — Le fanion remplace le canal parallèle par un petit triangle. La version baissière inverse toutes les directions : mât baissier, pause légèrement haussière ou triangulaire, puis sortie vers le bas.",
+      "sourceFill": "E8EEF5"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "la-psychologie-derriere-la-figure-4",
+      "text": "La psychologie derrière la figure"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "L'impulsion révèle un déséquilibre fort : achats agressifs dans un drapeau haussier, ventes agressives dans un drapeau baissier.",
+          "segments": [
+            {
+              "text": "L'impulsion révèle un déséquilibre fort : achats agressifs dans un drapeau haussier, ventes agressives dans un drapeau baissier."
+            }
+          ]
+        },
+        {
+          "text": "Les traders précoces prennent une partie de leurs bénéfices, tandis que le camp opposé tente un contre-mouvement.",
+          "segments": [
+            {
+              "text": "Les traders précoces prennent une partie de leurs bénéfices, tandis que le camp opposé tente un contre-mouvement."
+            }
+          ]
+        },
+        {
+          "text": "La correction progresse lentement et sans puissance comparable au mât : le camp opposé ne renverse pas réellement le contrôle.",
+          "segments": [
+            {
+              "text": "La correction progresse lentement et sans puissance comparable au mât : le camp opposé ne renverse pas réellement le contrôle."
+            }
+          ]
+        },
+        {
+          "text": "La cassure dans le sens initial montre que les prises de bénéfices ont été absorbées et que le momentum reprend.",
+          "segments": [
+            {
+              "text": "La cassure dans le sens initial montre que les prises de bénéfices ont été absorbées et que le momentum reprend."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "comment-elle-fonctionne-4",
+      "text": "Comment elle fonctionne"
+    },
+    {
+      "type": "paragraph",
+      "text": "Confirmation : Clôture hors du canal ou du fanion dans le sens du mât. Un volume qui se contracte pendant la pause puis s'élargit à la sortie est favorable, sans garantir le résultat.",
+      "segments": [
+        {
+          "text": "Confirmation : ",
+          "bold": true
+        },
+        {
+          "text": "Clôture hors du canal ou du fanion dans le sens du mât. Un volume qui se contracte pendant la pause puis s'élargit à la sortie est favorable, sans garantir le résultat."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Objectif théorique : Reporter la hauteur du mât depuis le point de cassure. Une approche prudente peut viser d'abord une résistance ou un support intermédiaire.",
+      "segments": [
+        {
+          "text": "Objectif théorique : ",
+          "bold": true
+        },
+        {
+          "text": "Reporter la hauteur du mât depuis le point de cassure. Une approche prudente peut viser d'abord une résistance ou un support intermédiaire."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Invalidation : Cassure de la frontière opposée, retour sous le dernier creux du drapeau haussier ou au-dessus du dernier sommet du drapeau baissier.",
+      "segments": [
+        {
+          "text": "Invalidation : ",
+          "bold": true
+        },
+        {
+          "text": "Cassure de la frontière opposée, retour sous le dernier creux du drapeau haussier ou au-dessus du dernier sommet du drapeau baissier."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "exemple-guide-drapeau-haussier-avec-obstacle-intermediaire",
+      "text": "Exemple guidé — drapeau haussier avec obstacle intermédiaire"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Mât : hausse de 50 € à 60 €, soit 10 €. La pause forme un canal descendant entre 60 € et 57 €.",
+          "segments": [
+            {
+              "text": "Mât : hausse de 50 € à 60 €, soit 10 €. La pause forme un canal descendant entre 60 € et 57 €."
+            }
+          ]
+        },
+        {
+          "text": "Confirmation : clôture au-dessus du canal vers 60 €. L’objectif complet du mât se projette vers 70 €.",
+          "segments": [
+            {
+              "text": "Confirmation : clôture au-dessus du canal vers 60 €. L’objectif complet du mât se projette vers 70 €."
+            }
+          ]
+        },
+        {
+          "text": "Obstacle : une ancienne résistance existe à 65 €. Elle constitue un premier objectif plus prudent.",
+          "segments": [
+            {
+              "text": "Obstacle : une ancienne résistance existe à 65 €. Elle constitue un premier objectif plus prudent."
+            }
+          ]
+        },
+        {
+          "text": "Invalidation : rupture du bas du drapeau vers 57 €, puis absence de reprise.",
+          "segments": [
+            {
+              "text": "Invalidation : rupture du bas du drapeau vers 57 €, puis absence de reprise."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Décision — Une cible géométrique à 70 € n’oblige pas à ignorer la résistance de 65 €. Le prix réel prime sur le dessin théorique.",
+      "segments": [
+        {
+          "text": "Décision — Une cible géométrique à 70 € n’oblige pas à ignorer la résistance de 65 €. Le prix réel prime sur le dessin théorique."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "pourquoi-elle-est-utile-4",
+      "text": "Pourquoi elle est utile"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Bonne lecture de la différence entre impulsion forte et correction faible.",
+          "segments": [
+            {
+              "text": "Bonne lecture de la différence entre impulsion forte et correction faible."
+            }
+          ]
+        },
+        {
+          "text": "Peut offrir un point d'entrée plus structuré que poursuivre directement une bougie impulsive.",
+          "segments": [
+            {
+              "text": "Peut offrir un point d'entrée plus structuré que poursuivre directement une bougie impulsive."
+            }
+          ]
+        },
+        {
+          "text": "L'objectif par le mât est facile à visualiser.",
+          "segments": [
+            {
+              "text": "L'objectif par le mât est facile à visualiser."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "risques-et-erreurs-frequentes-4",
+      "text": "Risques et erreurs fréquentes"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Confondre une simple tendance baissière avec un drapeau haussier parce qu'elle suit une hausse ancienne.",
+          "segments": [
+            {
+              "text": "Confondre une simple tendance baissière avec un drapeau haussier parce qu'elle suit une hausse ancienne."
+            }
+          ]
+        },
+        {
+          "text": "Un mât peu impulsif ou une consolidation trop profonde réduisent la qualité de la figure.",
+          "segments": [
+            {
+              "text": "Un mât peu impulsif ou une consolidation trop profonde réduisent la qualité de la figure."
+            }
+          ]
+        },
+        {
+          "text": "Les drapeaux sur unités très courtes produisent de nombreux faux signaux.",
+          "segments": [
+            {
+              "text": "Les drapeaux sur unités très courtes produisent de nombreux faux signaux."
+            }
+          ]
+        },
+        {
+          "text": "L'objectif complet du mât peut être irréaliste si une résistance majeure est proche.",
+          "segments": [
+            {
+              "text": "L'objectif complet du mât peut être irréaliste si une résistance majeure est proche."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "5-1-drapeau-fanion-ou-triangle",
+      "text": "5.1 Drapeau, fanion ou triangle ?"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Structure",
+        "Géométrie",
+        "Contexte indispensable",
+        "Erreur fréquente"
+      ],
+      "rows": [
+        [
+          "Drapeau",
+          "Petit canal parallèle",
+          "Mât impulsif juste avant",
+          "Confondre une baisse ordinaire avec une pause"
+        ],
+        [
+          "Fanion",
+          "Petit triangle convergent",
+          "Mât impulsif juste avant",
+          "Le confondre avec un grand triangle autonome"
+        ],
+        [
+          "Triangle",
+          "Convergence plus autonome",
+          "Compression ; mât non obligatoire",
+          "Présumer sa direction avant la cassure"
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "6-biseaux-ascendant-et-descendant",
+      "text": "6. Biseaux ascendant et descendant"
+    },
+    {
+      "type": "paragraph",
+      "text": "Catégorie : Retournement ou continuation selon le contexte ; biais fréquent opposé à l'inclinaison",
+      "segments": [
+        {
+          "text": "Catégorie : ",
+          "bold": true
+        },
+        {
+          "text": "Retournement ou continuation selon le contexte ; biais fréquent opposé à l'inclinaison"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Priorité d’apprentissage : Importante.",
+      "segments": [
+        {
+          "text": "Priorité d’apprentissage : Importante."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "comment-la-reconnaitre-5",
+      "text": "Comment la reconnaître"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Deux lignes convergentes s'orientent dans la même direction.",
+          "segments": [
+            {
+              "text": "Deux lignes convergentes s'orientent dans la même direction."
+            }
+          ]
+        },
+        {
+          "text": "Biseau ascendant : sommets et creux montent, mais les deux lignes se resserrent.",
+          "segments": [
+            {
+              "text": "Biseau ascendant : sommets et creux montent, mais les deux lignes se resserrent."
+            }
+          ]
+        },
+        {
+          "text": "Biseau descendant : sommets et creux baissent, mais les deux lignes se resserrent.",
+          "segments": [
+            {
+              "text": "Biseau descendant : sommets et creux baissent, mais les deux lignes se resserrent."
+            }
+          ]
+        },
+        {
+          "text": "Le mouvement continue dans sa direction apparente tout en parcourant une distance de plus en plus faible à chaque oscillation.",
+          "segments": [
+            {
+              "text": "Le mouvement continue dans sa direction apparente tout en parcourant une distance de plus en plus faible à chaque oscillation."
+            }
+          ]
+        },
+        {
+          "text": "La figure doit comporter plusieurs contacts sur les deux frontières.",
+          "segments": [
+            {
+              "text": "La figure doit comporter plusieurs contacts sur les deux frontières."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "figure",
+      "src": "/media/3-analyse-technique/3-analyse-technique-figures-chartistes-fd37864d2366.webp",
+      "originalName": "image6.jpg",
+      "width": 2428,
+      "height": 2042,
+      "optimized": true,
+      "caption": "Biseau ascendant : le prix monte encore, mais l’espace entre les deux lignes se contracte.",
+      "source": "TradingView — Rising Wedge",
+      "sourceLinks": [
+        "https://www.tradingview.com/support/solutions/43000653219-chart-pattern-rising-wedge/"
+      ],
+      "alt": "Schéma de biseau ascendant avec deux lignes montantes convergentes et une cassure de la borne inférieure."
+    },
+    {
+      "type": "callout",
+      "label": "REPÈRE",
+      "variant": "default",
+      "text": "Version miroir — Le biseau descendant est généralement surveillé pour une cassure haussière. Ce biais n'est jamais une obligation : le sens réel vient de la sortie confirmée.",
+      "sourceFill": "E8EEF5"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "la-psychologie-derriere-la-figure-5",
+      "text": "La psychologie derrière la figure"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Dans un biseau ascendant, les acheteurs font encore monter le prix, mais chaque poussée produit moins de progrès ; les vendeurs répondent de plus en plus tôt.",
+          "segments": [
+            {
+              "text": "Dans un biseau ascendant, les acheteurs font encore monter le prix, mais chaque poussée produit moins de progrès ; les vendeurs répondent de plus en plus tôt."
+            }
+          ]
+        },
+        {
+          "text": "Le resserrement montre que chaque nouvelle oscillation couvre moins de distance. Cela peut être interprété comme une perte de momentum, mais la fragilité du mouvement n’est confirmée qu’après une sortie et un suivi cohérents.",
+          "segments": [
+            {
+              "text": "Le resserrement montre que chaque nouvelle oscillation couvre moins de distance. Cela peut être interprété comme une perte de momentum, mais la fragilité du mouvement n’est confirmée qu’après une sortie et un suivi cohérents."
+            }
+          ]
+        },
+        {
+          "text": "La cassure de la ligne inférieure indique que les acheteurs ne défendent plus le rythme de hausse.",
+          "segments": [
+            {
+              "text": "La cassure de la ligne inférieure indique que les acheteurs ne défendent plus le rythme de hausse."
+            }
+          ]
+        },
+        {
+          "text": "Dans un biseau descendant, la même logique s'inverse : la baisse continue, mais la pression vendeuse s'essouffle jusqu'à une possible cassure haussière.",
+          "segments": [
+            {
+              "text": "Dans un biseau descendant, la même logique s'inverse : la baisse continue, mais la pression vendeuse s'essouffle jusqu'à une possible cassure haussière."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "comment-elle-fonctionne-5",
+      "text": "Comment elle fonctionne"
+    },
+    {
+      "type": "paragraph",
+      "text": "Confirmation : Biseau ascendant : clôture sous la borne inférieure. Biseau descendant : clôture au-dessus de la borne supérieure. La direction opposée reste possible et invalide le biais classique.",
+      "segments": [
+        {
+          "text": "Confirmation : ",
+          "bold": true
+        },
+        {
+          "text": "Biseau ascendant : clôture sous la borne inférieure. Biseau descendant : clôture au-dessus de la borne supérieure. La direction opposée reste possible et invalide le biais classique."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Objectif théorique : Reporter la largeur de la base du biseau depuis la cassure, ou viser d'abord l'origine du dernier mouvement lorsqu'elle constitue un niveau plus réaliste.",
+      "segments": [
+        {
+          "text": "Objectif théorique : ",
+          "bold": true
+        },
+        {
+          "text": "Reporter la largeur de la base du biseau depuis la cassure, ou viser d'abord l'origine du dernier mouvement lorsqu'elle constitue un niveau plus réaliste."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Invalidation : Franchissement de la borne opposée ou retour au-delà du dernier pivot extrême après une cassure supposée.",
+      "segments": [
+        {
+          "text": "Invalidation : ",
+          "bold": true
+        },
+        {
+          "text": "Franchissement de la borne opposée ou retour au-delà du dernier pivot extrême après une cassure supposée."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "exemple-guide-biseau-ascendant-sans-anticipation",
+      "text": "Exemple guidé — biseau ascendant sans anticipation"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Le prix progresse de 100 € à 110 €, mais les oscillations se resserrent entre deux lignes montantes.",
+          "segments": [
+            {
+              "text": "Le prix progresse de 100 € à 110 €, mais les oscillations se resserrent entre deux lignes montantes."
+            }
+          ]
+        },
+        {
+          "text": "Aucune vente n’est justifiée tant que la borne inférieure tient : un biseau peut continuer longtemps.",
+          "segments": [
+            {
+              "text": "Aucune vente n’est justifiée tant que la borne inférieure tient : un biseau peut continuer longtemps."
+            }
+          ]
+        },
+        {
+          "text": "Confirmation : clôture sous la borne inférieure vers 105 €. Si la base mesure 8 €, la projection théorique se situe vers 97 €.",
+          "segments": [
+            {
+              "text": "Confirmation : clôture sous la borne inférieure vers 105 €. Si la base mesure 8 €, la projection théorique se situe vers 97 €."
+            }
+          ]
+        },
+        {
+          "text": "Invalidation : reprise durable de la borne cassée ou nouveau sommet au-dessus de la structure.",
+          "segments": [
+            {
+              "text": "Invalidation : reprise durable de la borne cassée ou nouveau sommet au-dessus de la structure."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Échelle — Vérifie le tracé en échelle linéaire et logarithmique sur les mouvements de grande amplitude : l’angle et parfois la lisibilité du biseau peuvent changer.",
+      "segments": [
+        {
+          "text": "Échelle — Vérifie le tracé en échelle linéaire et logarithmique sur les mouvements de grande amplitude : l’angle et parfois la lisibilité du biseau peuvent changer."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "pourquoi-elle-est-utile-5",
+      "text": "Pourquoi elle est utile"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Visualise la différence entre direction du prix et force du mouvement.",
+          "segments": [
+            {
+              "text": "Visualise la différence entre direction du prix et force du mouvement."
+            }
+          ]
+        },
+        {
+          "text": "Peut signaler un essoufflement avant qu'une structure horizontale apparaisse.",
+          "segments": [
+            {
+              "text": "Peut signaler un essoufflement avant qu'une structure horizontale apparaisse."
+            }
+          ]
+        },
+        {
+          "text": "Offre une ligne de déclenchement claire.",
+          "segments": [
+            {
+              "text": "Offre une ligne de déclenchement claire."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "risques-et-erreurs-frequentes-5",
+      "text": "Risques et erreurs fréquentes"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Un canal parallèle n'est pas un biseau : il faut une convergence visible.",
+          "segments": [
+            {
+              "text": "Un canal parallèle n'est pas un biseau : il faut une convergence visible."
+            }
+          ]
+        },
+        {
+          "text": "Un biseau ascendant peut continuer à monter longtemps avant de casser ; anticiper la baisse est dangereux.",
+          "segments": [
+            {
+              "text": "Un biseau ascendant peut continuer à monter longtemps avant de casser ; anticiper la baisse est dangereux."
+            }
+          ]
+        },
+        {
+          "text": "L'angle des lignes dépend du choix d'échelle, notamment logarithmique ou linéaire.",
+          "segments": [
+            {
+              "text": "L'angle des lignes dépend du choix d'échelle, notamment logarithmique ou linéaire."
+            }
+          ]
+        },
+        {
+          "text": "Les mèches peuvent créer de fausses cassures ; la clôture et le suivi du mouvement sont essentiels.",
+          "segments": [
+            {
+              "text": "Les mèches peuvent créer de fausses cassures ; la clôture et le suivi du mouvement sont essentiels."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "7-tasse-avec-anse",
+      "text": "7. Tasse avec anse"
+    },
+    {
+      "type": "paragraph",
+      "text": "Catégorie : Continuation haussière, surtout sur unités de temps moyennes à longues",
+      "segments": [
+        {
+          "text": "Catégorie : ",
+          "bold": true
+        },
+        {
+          "text": "Continuation haussière, surtout sur unités de temps moyennes à longues"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Priorité d’apprentissage : Complémentaire.",
+      "segments": [
+        {
+          "text": "Priorité d’apprentissage : Complémentaire."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "comment-la-reconnaitre-6",
+      "text": "Comment la reconnaître"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Une correction arrondie en U constitue la tasse ; un V brutal est généralement moins propre.",
+          "segments": [
+            {
+              "text": "Une correction arrondie en U constitue la tasse ; un V brutal est généralement moins propre."
+            }
+          ]
+        },
+        {
+          "text": "Les deux bords de la tasse se situent dans une zone de prix comparable.",
+          "segments": [
+            {
+              "text": "Les deux bords de la tasse se situent dans une zone de prix comparable."
+            }
+          ]
+        },
+        {
+          "text": "L'anse est une petite correction après le retour au bord droit de la tasse.",
+          "segments": [
+            {
+              "text": "L'anse est une petite correction après le retour au bord droit de la tasse."
+            }
+          ]
+        },
+        {
+          "text": "L'anse doit rester plus courte et moins profonde que la tasse.",
+          "segments": [
+            {
+              "text": "L'anse doit rester plus courte et moins profonde que la tasse."
+            }
+          ]
+        },
+        {
+          "text": "La figure se confirme lorsque le prix clôture au-dessus de la résistance formée par le bord ou la ligne de l'anse.",
+          "segments": [
+            {
+              "text": "La figure se confirme lorsque le prix clôture au-dessus de la résistance formée par le bord ou la ligne de l'anse."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "figure",
+      "src": "/media/3-analyse-technique/3-analyse-technique-figures-chartistes-1e09d8c7fb0d.webp",
+      "originalName": "image7.png",
+      "width": 1684,
+      "height": 920,
+      "optimized": true,
+      "caption": "Tasse avec anse : correction arrondie, petite consolidation finale, puis cassure de la résistance.",
+      "source": "TradingView — Cup and Handle",
+      "sourceLinks": [
+        "https://www.tradingview.com/support/solutions/43000732556-chart-pattern-cup-and-handle/"
+      ],
+      "alt": "Graphique représentant une tasse avec anse, son fond arrondi, la consolidation de l’anse et la zone de cassure."
+    },
+    {
+      "type": "callout",
+      "label": "REPÈRE",
+      "variant": "default",
+      "text": "Version miroir — La tasse avec anse inversée existe dans un contexte baissier, mais elle est moins essentielle pour un débutant. La logique d'offre et de demande est simplement renversée.",
+      "sourceFill": "E8EEF5"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "la-psychologie-derriere-la-figure-6",
+      "text": "La psychologie derrière la figure"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Après une hausse, les vendeurs et prises de bénéfices imposent une correction progressive.",
+          "segments": [
+            {
+              "text": "Après une hausse, les vendeurs et prises de bénéfices imposent une correction progressive."
+            }
+          ]
+        },
+        {
+          "text": "Au fond de la tasse, la pression vendeuse ralentit ; les acheteurs reviennent sans provoquer immédiatement une envolée.",
+          "segments": [
+            {
+              "text": "Au fond de la tasse, la pression vendeuse ralentit ; les acheteurs reviennent sans provoquer immédiatement une envolée."
+            }
+          ]
+        },
+        {
+          "text": "Près de l’ancien sommet, une lecture possible est que certains détenteurs vendent à l’équilibre et créent une offre temporaire. Cette hypothèse aide à comprendre l’anse, sans pouvoir être prouvée par le prix seul.",
+          "segments": [
+            {
+              "text": "Près de l’ancien sommet, une lecture possible est que certains détenteurs vendent à l’équilibre et créent une offre temporaire. Cette hypothèse aide à comprendre l’anse, sans pouvoir être prouvée par le prix seul."
+            }
+          ]
+        },
+        {
+          "text": "Une cassure confirmée montre que la résistance n’a plus contenu le prix. Elle est compatible avec une diminution de l’offre résiduelle, mais ne permet pas d’identifier précisément les ordres qui ont produit le mouvement.",
+          "segments": [
+            {
+              "text": "Une cassure confirmée montre que la résistance n’a plus contenu le prix. Elle est compatible avec une diminution de l’offre résiduelle, mais ne permet pas d’identifier précisément les ordres qui ont produit le mouvement."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "comment-elle-fonctionne-6",
+      "text": "Comment elle fonctionne"
+    },
+    {
+      "type": "paragraph",
+      "text": "Confirmation : Clôture au-dessus de la ligne de l'anse ou de la résistance du bord droit. Une hausse du volume à la sortie et un retest réussi renforcent le scénario.",
+      "segments": [
+        {
+          "text": "Confirmation : ",
+          "bold": true
+        },
+        {
+          "text": "Clôture au-dessus de la ligne de l'anse ou de la résistance du bord droit. Une hausse du volume à la sortie et un retest réussi renforcent le scénario."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Objectif théorique : Mesurer la profondeur de la tasse entre son bord et son fond, puis reporter cette hauteur au-dessus du point de cassure.",
+      "segments": [
+        {
+          "text": "Objectif théorique : ",
+          "bold": true
+        },
+        {
+          "text": "Mesurer la profondeur de la tasse entre son bord et son fond, puis reporter cette hauteur au-dessus du point de cassure."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Invalidation : Retour sous le bas de l'anse ou correction de l'anse devenue trop profonde ; une rupture du fond de tasse invalide définitivement la structure.",
+      "segments": [
+        {
+          "text": "Invalidation : ",
+          "bold": true
+        },
+        {
+          "text": "Retour sous le bas de l'anse ou correction de l'anse devenue trop profonde ; une rupture du fond de tasse invalide définitivement la structure."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "exemple-guide-tasse-avec-anse-et-niveaux-successifs",
+      "text": "Exemple guidé — tasse avec anse et niveaux successifs"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Bords de la tasse vers 45 €, fond arrondi vers 35 € : profondeur de 10 €.",
+          "segments": [
+            {
+              "text": "Bords de la tasse vers 45 €, fond arrondi vers 35 € : profondeur de 10 €."
+            }
+          ]
+        },
+        {
+          "text": "L’anse corrige jusqu’à 42 €, puis le prix clôture au-dessus de 45 €.",
+          "segments": [
+            {
+              "text": "L’anse corrige jusqu’à 42 €, puis le prix clôture au-dessus de 45 €."
+            }
+          ]
+        },
+        {
+          "text": "Objectif mesuré : projection de 10 € au-dessus de 45 €, soit 55 €.",
+          "segments": [
+            {
+              "text": "Objectif mesuré : projection de 10 € au-dessus de 45 €, soit 55 €."
+            }
+          ]
+        },
+        {
+          "text": "Invalidation : retour sous 42 € fragilisant l’anse ; rupture de 35 € invalidant la structure complète.",
+          "segments": [
+            {
+              "text": "Invalidation : retour sous 42 € fragilisant l’anse ; rupture de 35 € invalidant la structure complète."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Leçon — Plus la tasse est subjective ou asymétrique, moins la précision de la projection doit être prise au pied de la lettre.",
+      "segments": [
+        {
+          "text": "Leçon — Plus la tasse est subjective ou asymétrique, moins la précision de la projection doit être prise au pied de la lettre."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "pourquoi-elle-est-utile-6",
+      "text": "Pourquoi elle est utile"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Raconte une transition lente de l'offre vers la demande.",
+          "segments": [
+            {
+              "text": "Raconte une transition lente de l'offre vers la demande."
+            }
+          ]
+        },
+        {
+          "text": "Particulièrement lisible sur graphiques journaliers et hebdomadaires.",
+          "segments": [
+            {
+              "text": "Particulièrement lisible sur graphiques journaliers et hebdomadaires."
+            }
+          ]
+        },
+        {
+          "text": "La résistance principale et la profondeur de la tasse structurent le plan.",
+          "segments": [
+            {
+              "text": "La résistance principale et la profondeur de la tasse structurent le plan."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "risques-et-erreurs-frequentes-6",
+      "text": "Risques et erreurs fréquentes"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Figure très subjective : de nombreuses corrections arrondies peuvent sembler être des tasses après coup.",
+          "segments": [
+            {
+              "text": "Figure très subjective : de nombreuses corrections arrondies peuvent sembler être des tasses après coup."
+            }
+          ]
+        },
+        {
+          "text": "Acheter avant la cassure expose à une nouvelle vente depuis l'ancien sommet.",
+          "segments": [
+            {
+              "text": "Acheter avant la cassure expose à une nouvelle vente depuis l'ancien sommet."
+            }
+          ]
+        },
+        {
+          "text": "Une anse trop profonde ou plus longue que la tasse dégrade fortement la lecture.",
+          "segments": [
+            {
+              "text": "Une anse trop profonde ou plus longue que la tasse dégrade fortement la lecture."
+            }
+          ]
+        },
+        {
+          "text": "Le temps de formation peut être long ; forcer une cible rapide crée de mauvaises attentes.",
+          "segments": [
+            {
+              "text": "Le temps de formation peut être long ; forcer une cible rapide crée de mauvaises attentes."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "8-transformer-une-figure-en-decision",
+      "text": "8. Transformer une figure en décision"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "8-1-la-methode-en-sept-etapes-complementaires",
+      "text": "8.1 La méthode en sept étapes complémentaires"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Définir le contexte : tendance haussière, baissière ou marché latéral sur l'unité supérieure.",
+          "segments": [
+            {
+              "text": "Définir le contexte : tendance haussière, baissière ou marché latéral sur l'unité supérieure."
+            }
+          ]
+        },
+        {
+          "text": "Tracer des zones et des lignes avec le moins d'ajustements possible.",
+          "segments": [
+            {
+              "text": "Tracer des zones et des lignes avec le moins d'ajustements possible."
+            }
+          ]
+        },
+        {
+          "text": "Nommer la figure seulement si ses éléments obligatoires sont présents.",
+          "segments": [
+            {
+              "text": "Nommer la figure seulement si ses éléments obligatoires sont présents."
+            }
+          ]
+        },
+        {
+          "text": "Définir avant la cassure le niveau de confirmation, le niveau d'invalidation et le premier obstacle.",
+          "segments": [
+            {
+              "text": "Définir avant la cassure le niveau de confirmation, le niveau d'invalidation et le premier obstacle."
+            }
+          ]
+        },
+        {
+          "text": "Attendre une clôture hors de la structure ; éviter de réagir à une simple mèche.",
+          "segments": [
+            {
+              "text": "Attendre une clôture hors de la structure ; éviter de réagir à une simple mèche."
+            }
+          ]
+        },
+        {
+          "text": "Rechercher une ou deux confirmations complémentaires : comportement du prix, participation, retest, unité supérieure ou momentum. Ne pas compter plusieurs fois la même information.",
+          "segments": [
+            {
+              "text": "Rechercher une ou deux confirmations complémentaires : comportement du prix, participation, retest, unité supérieure ou momentum. Ne pas compter plusieurs fois la même information."
+            }
+          ]
+        },
+        {
+          "text": "Calculer la taille de position à partir de la perte maximale acceptable, jamais à partir du gain espéré.",
+          "segments": [
+            {
+              "text": "Calculer la taille de position à partir de la perte maximale acceptable, jamais à partir du gain espéré."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "8-2-volume-rappel-cible-du-volume-3",
+      "text": "8.2 Volume : rappel ciblé du Volume 3"
+    },
+    {
+      "type": "paragraph",
+      "text": "Dans une continuation, on recherche souvent une activité qui se calme pendant la pause puis augmente à la sortie. Dans un retournement, une participation accrue sur la cassure peut renforcer la lecture. Ce sont des indices, pas des conditions universelles. Sur les cryptomonnaies, le volume dépend de la plateforme et de la paire affichées ; il ne représente pas nécessairement l’ensemble du marché.",
+      "segments": [
+        {
+          "text": "Dans une continuation, on recherche souvent une activité qui se calme pendant la pause puis augmente à la sortie. Dans un retournement, une participation accrue sur la cassure peut renforcer la lecture. Ce sont des indices, pas des conditions universelles. Sur les cryptomonnaies, le volume dépend de la plateforme et de la paire affichées ; il ne représente pas nécessairement l’ensemble du marché."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "REPÈRE",
+      "variant": "default",
+      "text": "Forex — Le marché des changes au comptant est décentralisé. Le volume affiché par de nombreuses plateformes correspond au nombre de variations de prix chez un fournisseur, pas à tout le volume mondial.",
+      "sourceFill": "FFF6D8"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "8-3-retest-utile-mais-jamais-obligatoire",
+      "text": "8.3 Retest : utile, mais jamais obligatoire"
+    },
+    {
+      "type": "paragraph",
+      "text": "Un retest peut montrer qu’une ancienne résistance agit désormais comme support, ou inversement. Il offre parfois une invalidation plus lisible, mais il n’est ni obligatoire ni toujours propre. L’attendre réduit certaines entrées précipitées tout en faisant manquer les mouvements qui partent directement. Le Volume 3 développe le changement de polarité et la lecture des niveaux.",
+      "segments": [
+        {
+          "text": "Un retest peut montrer qu’une ancienne résistance agit désormais comme support, ou inversement. Il offre parfois une invalidation plus lisible, mais il n’est ni obligatoire ni toujours propre. L’attendre réduit certaines entrées précipitées tout en faisant manquer les mouvements qui partent directement. Le Volume 3 développe le changement de polarité et la lecture des niveaux."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "8-4-dimensionner-sans-repeter-le-volume-6",
+      "text": "8.4 Dimensionner sans répéter le Volume 6"
+    },
+    {
+      "type": "paragraph",
+      "text": "Le marché détermine d’abord le niveau d’invalidation. Ce niveau permet ensuite d’estimer la perte monétaire par unité, puis la quantité compatible avec le budget de risque. La quantité ne doit jamais servir à rapprocher artificiellement le stop.",
+      "segments": [
+        {
+          "text": "Le marché détermine d’abord le niveau d’invalidation. Ce niveau permet ensuite d’estimer la perte monétaire par unité, puis la quantité compatible avec le budget de risque. La quantité ne doit jamais servir à rapprocher artificiellement le stop."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "REPÈRE",
+      "variant": "default",
+      "text": "Formule de rappel — Taille = risque monétaire autorisé ÷ perte monétaire par unité au stop. Pour une action achetée 50 € avec un stop à 48 €, la perte par action vaut 2 €. Avec 100 € de risque autorisé, la taille théorique maximale est de 50 actions avant frais et glissement. Les pips, ticks, contrats et produits non linéaires exigent leur propre valeur monétaire ou un scénario adapté ; voir le Volume 6.",
+      "sourceFill": "EAF7F2"
+    },
+    {
+      "type": "paragraph",
+      "text": "Le pourcentage de 1 % n'est pas une règle universelle ; c'est seulement un exemple pédagogique. Avec effet de levier, la perte peut se matérialiser très rapidement. Les frais, le spread, le slippage et les gaps doivent être intégrés.",
+      "segments": [
+        {
+          "text": "Le pourcentage de 1 % n'est pas une règle universelle ; c'est seulement un exemple pédagogique. Avec effet de levier, la perte peut se matérialiser très rapidement. Les frais, le spread, le slippage et les gaps doivent être intégrés."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "8-5-limites-et-rappel-anti-biais-du-volume-5",
+      "text": "8.5 Limites et rappel anti-biais du Volume 5"
+    },
+    {
+      "type": "paragraph",
+      "text": "Rappel — Nommer trop tôt une figure favorise le biais de confirmation ; ne retenir que les cas réussis crée un biais rétrospectif. La fiche pré-trade et le journal du Volume 5 permettent de conserver les scénarios invalidés et les absences de signal.",
+      "segments": [
+        {
+          "text": "Rappel — Nommer trop tôt une figure favorise le biais de confirmation ; ne retenir que les cas réussis crée un biais rétrospectif. La fiche pré-trade et le journal du Volume 5 permettent de conserver les scénarios invalidés et les absences de signal."
+        }
+      ]
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Subjectivité : deux traders peuvent tracer des lignes différentes sur le même graphique.",
+          "segments": [
+            {
+              "text": "Subjectivité : deux traders peuvent tracer des lignes différentes sur le même graphique."
+            }
+          ]
+        },
+        {
+          "text": "Transformation : un double sommet potentiel peut se transformer en consolidation, puis en cassure haussière.",
+          "segments": [
+            {
+              "text": "Transformation : un double sommet potentiel peut se transformer en consolidation, puis en cassure haussière."
+            }
+          ]
+        },
+        {
+          "text": "Faux breakouts : le prix dépasse un niveau, déclenche des ordres, puis réintègre la structure.",
+          "segments": [
+            {
+              "text": "Faux breakouts : le prix dépasse un niveau, déclenche des ordres, puis réintègre la structure."
+            }
+          ]
+        },
+        {
+          "text": "Contexte absent : une figure baissière contre une forte tendance haussière a moins de soutien structurel.",
+          "segments": [
+            {
+              "text": "Contexte absent : une figure baissière contre une forte tendance haussière a moins de soutien structurel."
+            }
+          ]
+        },
+        {
+          "text": "Événements : résultats, banques centrales et annonces géopolitiques peuvent invalider toute lecture graphique.",
+          "segments": [
+            {
+              "text": "Événements : résultats, banques centrales et annonces géopolitiques peuvent invalider toute lecture graphique."
+            }
+          ]
+        },
+        {
+          "text": "Objectif non garanti : la règle de mesure décrit une amplitude possible, pas une probabilité ni une destination certaine.",
+          "segments": [
+            {
+              "text": "Objectif non garanti : la règle de mesure décrit une amplitude possible, pas une probabilité ni une destination certaine."
+            }
+          ]
+        },
+        {
+          "text": "Liquidité : sur actifs peu échangés, spreads et mèches rendent les niveaux moins fiables.",
+          "segments": [
+            {
+              "text": "Liquidité : sur actifs peu échangés, spreads et mèches rendent les niveaux moins fiables."
+            }
+          ]
+        },
+        {
+          "text": "Corrélation : plusieurs positions fondées sur la même figure peuvent représenter un seul risque de marché déguisé.",
+          "segments": [
+            {
+              "text": "Corrélation : plusieurs positions fondées sur la même figure peuvent représenter un seul risque de marché déguisé."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "Conclusion",
+      "variant": "summary",
+      "text": "pratique — Une figure sert à organiser une décision : où entrer, où reconnaître l'erreur et où prendre des bénéfices. Elle ne doit jamais remplacer le contexte, la gestion du risque et l'acceptation de l'incertitude.",
+      "sourceFill": "FDECEC"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "8-6-tableau-de-reference-rapide",
+      "text": "8.6 Tableau de référence rapide"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Figure",
+        "Confirmation",
+        "Mesure théorique",
+        "Invalidation typique"
+      ],
+      "rows": [
+        [
+          "Double sommet/creux",
+          "Cassure de la ligne de cou",
+          "Hauteur extrême–cou",
+          "Dépassement des deux extrêmes"
+        ],
+        [
+          "ETE / ETE inversée",
+          "Cassure de la ligne de cou",
+          "Tête–ligne de cou",
+          "Reprise au-delà de l'épaule droite"
+        ],
+        [
+          "Triangle",
+          "Clôture hors d'une oblique",
+          "Hauteur de la base",
+          "Retour puis sortie opposée"
+        ],
+        [
+          "Drapeau/fanion",
+          "Sortie dans le sens du mât",
+          "Hauteur du mât",
+          "Cassure de la borne opposée"
+        ],
+        [
+          "Biseau",
+          "Sortie opposée au biais classique",
+          "Largeur de la base",
+          "Franchissement de la borne opposée"
+        ],
+        [
+          "Tasse avec anse",
+          "Cassure du bord/anse",
+          "Profondeur de la tasse",
+          "Retour sous l'anse"
+        ]
+      ],
+      "links": [
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "9-etudes-de-cas-tradingview-et-contre-exemple",
+      "text": "9. Études de cas TradingView et contre-exemple"
+    },
+    {
+      "type": "paragraph",
+      "text": "Les graphiques suivants ont été reconstruits dans un layout TradingView dédié au cours. Les trois premiers reprennent des scénarios historiques publiés par des membres de la plateforme ; ils sont sélectionnés pour expliquer une méthode et ne constituent ni un backtest, ni un échantillon représentatif, ni une preuve de performance. Le quatrième cas montre comment refuser une figure insuffisante.",
+      "segments": [
+        {
+          "text": "Les graphiques suivants ont été reconstruits dans un layout TradingView dédié au cours. Les trois premiers reprennent des scénarios historiques publiés par des membres de la plateforme ; ils sont sélectionnés pour expliquer une méthode et ne constituent ni un backtest, ni un échantillon représentatif, ni une preuve de performance. Le quatrième cas montre comment refuser une figure insuffisante."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "REPÈRE",
+      "variant": "default",
+      "text": "Méthode — Sépare toujours : 1) les informations visibles avant le résultat ; 2) la condition de confirmation ; 3) l’invalidation ; 4) le résultat observé ; 5) ce que cet exemple isolé ne permet pas de conclure.",
+      "sourceFill": "E8EEF5"
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "cas-1-apple-ete-inversee-validee",
+      "text": "Cas 1 — Apple : ETE inversée validée"
+    },
+    {
+      "type": "paragraph",
+      "text": "NASDAQ:AAPL • graphique journalier • février–avril 2023",
+      "segments": [
+        {
+          "text": "NASDAQ:AAPL • graphique journalier • février–avril 2023"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "REPÈRE",
+      "variant": "default",
+      "text": "Résultat — Figure confirmée et objectif 166–167 $ déclaré atteint le 18 avril 2023.",
+      "sourceFill": "EAF7F2"
+    },
+    {
+      "type": "figure",
+      "src": "/media/3-analyse-technique/3-analyse-technique-figures-chartistes-2bcacce79c12.webp",
+      "originalName": "image2.png",
+      "width": 1260,
+      "height": 826,
+      "optimized": true,
+      "caption": "Étude de cas Apple : épaule gauche, tête, épaule droite, cassure de la ligne de cou et extension haussière.",
+      "source": "TradingView — layout pédagogique du cours",
+      "sourceLinks": [
+        "https://www.tradingview.com/chart/cJFsOApx/"
+      ],
+      "alt": "Étude de cas Apple montrant les trois creux d’une épaule-tête-épaule inversée, sa ligne de cou et le mouvement suivant."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "lecture-pas-a-pas",
+      "text": "Lecture pas à pas"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Contexte : le marché avait construit une reprise après un creux majeur, puis une consolidation sous résistance.",
+          "segments": [
+            {
+              "text": "Contexte : le marché avait construit une reprise après un creux majeur, puis une consolidation sous résistance."
+            }
+          ]
+        },
+        {
+          "text": "Structure : les trois creux reliés par les tracés forment une ETE inversée ; le creux central est inférieur aux deux épaules.",
+          "segments": [
+            {
+              "text": "Structure : les trois creux reliés par les tracés forment une ETE inversée ; le creux central est inférieur aux deux épaules."
+            }
+          ]
+        },
+        {
+          "text": "Confirmation : le passage au-dessus de la zone 156 $ et son changement de rôle en support renforcent la figure.",
+          "segments": [
+            {
+              "text": "Confirmation : le passage au-dessus de la zone 156 $ et son changement de rôle en support renforcent la figure."
+            }
+          ]
+        },
+        {
+          "text": "Plan présenté : objectif 166–167 $ tant que la zone 156 $ tient.",
+          "segments": [
+            {
+              "text": "Plan présenté : objectif 166–167 $ tant que la zone 156 $ tient."
+            }
+          ]
+        },
+        {
+          "text": "Résultat : la publication a été mise à jour le 18 avril avec la mention « objectif atteint ».",
+          "segments": [
+            {
+              "text": "Résultat : la publication a été mise à jour le 18 avril avec la mention « objectif atteint »."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "REPÈRE",
+      "variant": "default",
+      "text": "Leçon — L’auteur de la publication interprétait cette ETE inversée comme une continuation dans une hausse. Il s’agit d’une variante avancée, distincte de la définition classique de retournement. L’objectif atteint valide le résultat de ce scénario particulier, pas la fiabilité générale de la figure.",
+      "sourceFill": "FFF6D8"
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "cas-2-bitcoin-drapeau-haussier-valide",
+      "text": "Cas 2 — Bitcoin : drapeau haussier validé"
+    },
+    {
+      "type": "paragraph",
+      "text": "INDEX:BTCUSD • graphique journalier • août–octobre 2024",
+      "segments": [
+        {
+          "text": "INDEX:BTCUSD • graphique journalier • août–octobre 2024"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "REPÈRE",
+      "variant": "default",
+      "text": "Résultat — Cassure confirmée ; objectif initial de 68 000 $ atteint, puis extension vers environ 71 500 $ au 29 octobre 2024.",
+      "sourceFill": "EAF7F2"
+    },
+    {
+      "type": "figure",
+      "src": "/media/3-analyse-technique/3-analyse-technique-figures-chartistes-6e36ce536b7f.webp",
+      "originalName": "image4.png",
+      "width": 1260,
+      "height": 826,
+      "optimized": true,
+      "caption": "Étude de cas Bitcoin : mât, canal descendant, cassure et extension.",
+      "source": "TradingView — layout pédagogique du cours",
+      "sourceLinks": [
+        "https://www.tradingview.com/chart/cJFsOApx/"
+      ],
+      "alt": "Étude de cas Bitcoin montrant une impulsion haussière, un drapeau descendant et la reprise du mouvement après cassure."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "lecture-pas-a-pas-2",
+      "text": "Lecture pas à pas"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "Contexte : impulsion haussière rapide, puis canal descendant.",
+          "segments": [
+            {
+              "text": "Contexte : impulsion haussière rapide, puis canal descendant."
+            }
+          ]
+        },
+        {
+          "text": "Structure : correction lente et ordonnée, moins puissante que le mât.",
+          "segments": [
+            {
+              "text": "Structure : correction lente et ordonnée, moins puissante que le mât."
+            }
+          ]
+        },
+        {
+          "text": "Confirmation : clôture au-dessus de la borne supérieure du canal.",
+          "segments": [
+            {
+              "text": "Confirmation : clôture au-dessus de la borne supérieure du canal."
+            }
+          ]
+        },
+        {
+          "text": "Invalidation annoncée : une clôture journalière sous 57 000 $ rendrait l'idée caduque.",
+          "segments": [
+            {
+              "text": "Invalidation annoncée : une clôture journalière sous 57 000 $ rendrait l'idée caduque."
+            }
+          ]
+        },
+        {
+          "text": "Résultat : après un retest, Bitcoin atteint puis dépasse l'objectif de 68 000 $.",
+          "segments": [
+            {
+              "text": "Résultat : après un retest, Bitcoin atteint puis dépasse l'objectif de 68 000 $."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "REPÈRE",
+      "variant": "default",
+      "text": "Leçon — Le drapeau n’a pas progressé en ligne droite : le retest et l’attente auraient pu faire sortir un trader surdimensionné. Le résultat atteint ne prouve pas que tous les drapeaux fonctionnent ; il montre seulement que la confirmation, l’invalidation à 57 000 $ et une taille cohérente formaient un scénario contrôlable.",
+      "sourceFill": "FFF6D8"
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "cas-3-bitcoin-ete-baissiere-invalidee",
+      "text": "Cas 3 — Bitcoin : ETE baissière invalidée"
+    },
+    {
+      "type": "paragraph",
+      "text": "INDEX:BTCUSD • graphique 12 heures • mars 2024",
+      "segments": [
+        {
+          "text": "INDEX:BTCUSD • graphique 12 heures • mars 2024"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "REPÈRE",
+      "variant": "default",
+      "text": "Résultat — Faux signal : la ligne de cou n'a pas été confirmée comme résistance et le prix a rebondi au lieu d'atteindre la cible baissière.",
+      "sourceFill": "FDECEC"
+    },
+    {
+      "type": "figure",
+      "src": "/media/3-analyse-technique/3-analyse-technique-figures-chartistes-c2e2f9656ca5.webp",
+      "originalName": "image8.png",
+      "width": 1260,
+      "height": 826,
+      "optimized": true,
+      "caption": "Faux signal sur Bitcoin : la ligne de cou est brièvement traversée, puis rapidement reprise.",
+      "source": "TradingView — layout pédagogique du cours",
+      "sourceLinks": [
+        "https://www.tradingview.com/chart/cJFsOApx/"
+      ],
+      "alt": "Graphique Bitcoin en douze heures montrant une cassure baissière non confirmée, la réintégration de la ligne de cou et le rebond du prix."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "pourquoi-la-figure-a-echoue",
+      "text": "Pourquoi la figure a échoué"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "La forme visuelle était séduisante, mais la ligne de cou était une zone, pas un niveau exact.",
+          "segments": [
+            {
+              "text": "La forme visuelle était séduisante, mais la ligne de cou était une zone, pas un niveau exact."
+            }
+          ]
+        },
+        {
+          "text": "Le prix a brièvement traversé la zone sans installer de clôture et de suivi baissier convaincants.",
+          "segments": [
+            {
+              "text": "Le prix a brièvement traversé la zone sans installer de clôture et de suivi baissier convaincants."
+            }
+          ]
+        },
+        {
+          "text": "La ligne de cou a été reprise et a de nouveau agi comme support.",
+          "segments": [
+            {
+              "text": "La ligne de cou a été reprise et a de nouveau agi comme support."
+            }
+          ]
+        },
+        {
+          "text": "Le RSI et le Stoch RSI se redressaient, ce qui contredisait l'idée d'une accélération vendeuse.",
+          "segments": [
+            {
+              "text": "Le RSI et le Stoch RSI se redressaient, ce qui contredisait l'idée d'une accélération vendeuse."
+            }
+          ]
+        },
+        {
+          "text": "Les positions vendeuses prises uniquement sur la forme ont été piégées lorsque le prix est remonté.",
+          "segments": [
+            {
+              "text": "Les positions vendeuses prises uniquement sur la forme ont été piégées lorsque le prix est remonté."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "label": "REPÈRE",
+      "variant": "default",
+      "text": "Leçon essentielle — La réintégration de la ligne de cou, l’absence de suivi baissier et le redressement du momentum invalidaient ensemble le scénario. Aucun de ces éléments ne garantit à lui seul le rebond ; leur convergence indiquait surtout qu’il ne fallait plus défendre la vente initiale.",
+      "sourceFill": "FDECEC"
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "cas-4-aucun-signal-refuser-une-figure-forcee",
+      "text": "Cas 4 — Aucun signal : refuser une figure forcée"
+    },
+    {
+      "type": "paragraph",
+      "text": "Scénario pédagogique sans position : un actif évolue latéralement depuis trois semaines. Trois sommets sont visibles, mais le sommet central n’est pas nettement supérieur, la ligne de cou coupe plusieurs corps de bougie et aucune tendance haussière préalable n’existe.",
+      "segments": [
+        {
+          "text": "Scénario pédagogique sans position : un actif évolue latéralement depuis trois semaines. Trois sommets sont visibles, mais le sommet central n’est pas nettement supérieur, la ligne de cou coupe plusieurs corps de bougie et aucune tendance haussière préalable n’existe."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "lecture-pas-a-pas-3",
+      "text": "Lecture pas à pas"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "La forme rappelle vaguement une ETE, mais les éléments obligatoires ne sont pas assez distincts.",
+          "segments": [
+            {
+              "text": "La forme rappelle vaguement une ETE, mais les éléments obligatoires ne sont pas assez distincts."
+            }
+          ]
+        },
+        {
+          "text": "Le contexte latéral ne correspond pas à un retournement classique après une hausse.",
+          "segments": [
+            {
+              "text": "Le contexte latéral ne correspond pas à un retournement classique après une hausse."
+            }
+          ]
+        },
+        {
+          "text": "Aucune clôture convaincante ne confirme la cassure de la ligne de cou.",
+          "segments": [
+            {
+              "text": "Aucune clôture convaincante ne confirme la cassure de la ligne de cou."
+            }
+          ]
+        },
+        {
+          "text": "Décision : ne pas nommer la figure, ne pas projeter de cible et ne pas ouvrir de position sur cette seule base.",
+          "segments": [
+            {
+              "text": "Décision : ne pas nommer la figure, ne pas projeter de cible et ne pas ouvrir de position sur cette seule base."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Leçon — Savoir conclure « aucune figure exploitable » est une compétence supérieure au fait de donner un nom à chaque oscillation.",
+      "segments": [
+        {
+          "text": "Leçon — Savoir conclure « aucune figure exploitable » est une compétence supérieure au fait de donner un nom à chaque oscillation."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "10-checklist-operationnelle-du-debutant",
+      "text": "10. Checklist opérationnelle du débutant"
+    },
+    {
+      "type": "paragraph",
+      "text": "Avant chaque entrée fondée sur une figure, réponds honnêtement à ces questions. Un « non » ne signifie pas toujours qu'il faut abandonner ; il signifie que le risque doit être compris et assumé.",
+      "segments": [
+        {
+          "text": "Avant chaque entrée fondée sur une figure, réponds honnêtement à ces questions. Un « non » ne signifie pas toujours qu'il faut abandonner ; il signifie que le risque doit être compris et assumé."
+        }
+      ]
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        {
+          "text": "La tendance préalable correspond-elle à la logique de la figure ?",
+          "segments": [
+            {
+              "text": "La tendance préalable correspond-elle à la logique de la figure ?"
+            }
+          ]
+        },
+        {
+          "text": "Les points de contact sont-ils visibles sans modifier constamment les lignes ?",
+          "segments": [
+            {
+              "text": "Les points de contact sont-ils visibles sans modifier constamment les lignes ?"
+            }
+          ]
+        },
+        {
+          "text": "Ai-je tracé une zone plutôt qu'un niveau arbitrairement précis ?",
+          "segments": [
+            {
+              "text": "Ai-je tracé une zone plutôt qu'un niveau arbitrairement précis ?"
+            }
+          ]
+        },
+        {
+          "text": "La bougie a-t-elle clôturé hors de la structure ?",
+          "segments": [
+            {
+              "text": "La bougie a-t-elle clôturé hors de la structure ?"
+            }
+          ]
+        },
+        {
+          "text": "Le mouvement possède-t-il un suivi, du volume ou un retest crédible ?",
+          "segments": [
+            {
+              "text": "Le mouvement possède-t-il un suivi, du volume ou un retest crédible ?"
+            }
+          ]
+        },
+        {
+          "text": "L'unité supérieure soutient-elle le scénario ou montre-t-elle un obstacle immédiat ?",
+          "segments": [
+            {
+              "text": "L'unité supérieure soutient-elle le scénario ou montre-t-elle un obstacle immédiat ?"
+            }
+          ]
+        },
+        {
+          "text": "Mon niveau d'invalidation est-il technique et défini avant l'entrée ?",
+          "segments": [
+            {
+              "text": "Mon niveau d'invalidation est-il technique et défini avant l'entrée ?"
+            }
+          ]
+        },
+        {
+          "text": "La taille de position limite-t-elle la perte à un montant acceptable ?",
+          "segments": [
+            {
+              "text": "La taille de position limite-t-elle la perte à un montant acceptable ?"
+            }
+          ]
+        },
+        {
+          "text": "Le premier objectif offre-t-il un ratio rendement/risque suffisant après frais ?",
+          "segments": [
+            {
+              "text": "Le premier objectif offre-t-il un ratio rendement/risque suffisant après frais ?"
+            }
+          ]
+        },
+        {
+          "text": "Une annonce importante peut-elle provoquer un gap ou une volatilité anormale ?",
+          "segments": [
+            {
+              "text": "Une annonce importante peut-elle provoquer un gap ou une volatilité anormale ?"
+            }
+          ]
+        },
+        {
+          "text": "Suis-je prêt à sortir si la figure échoue, sans déplacer le stop pour avoir raison ?",
+          "segments": [
+            {
+              "text": "Suis-je prêt à sortir si la figure échoue, sans déplacer le stop pour avoir raison ?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "id": "sources-et-graphiques",
+      "text": "Sources et graphiques"
+    },
+    {
+      "type": "paragraph",
+      "text": "Les définitions techniques principales proviennent du centre d’aide officiel de TradingView. Les études de cas sont des publications de membres hébergées sur la plateforme et non des validations institutionnelles. Elles sont utilisées comme exemples sélectionnés, sans prétendre mesurer un taux de réussite. Sources consultées le 1er août 2026.",
+      "segments": [
+        {
+          "text": "Les définitions techniques principales proviennent du centre d’aide officiel de TradingView. Les études de cas sont des publications de membres hébergées sur la plateforme et non des validations institutionnelles. Elles sont utilisées comme exemples sélectionnés, sans prétendre mesurer un taux de réussite. Sources consultées le 1er août 2026."
+        }
+      ]
+    },
+    {
+      "type": "sources",
+      "scope": "global",
+      "entries": [
+        {
+          "text": "TradingView — Auto chart patterns",
+          "links": [
+            "https://www.tradingview.com/support/solutions/43000690464-auto-chart-patterns-on-tradingview/"
+          ]
+        },
+        {
+          "text": "TradingView — All Chart Patterns",
+          "links": [
+            "https://www.tradingview.com/support/solutions/43000706927-all-chart-patterns/"
+          ]
+        },
+        {
+          "text": "TradingView — Double Top",
+          "links": [
+            "https://www.tradingview.com/support/solutions/43000653211-chart-pattern-double-top/"
+          ]
+        },
+        {
+          "text": "TradingView — Head and Shoulders",
+          "links": [
+            "https://www.tradingview.com/support/solutions/43000653213-chart-pattern-head-and-shoulders/"
+          ]
+        },
+        {
+          "text": "TradingView — Triangle",
+          "links": [
+            "https://www.tradingview.com/support/solutions/43000653217-chart-pattern-triangle/"
+          ]
+        },
+        {
+          "text": "TradingView — Bullish Flag",
+          "links": [
+            "https://www.tradingview.com/support/solutions/43000653209-chart-pattern-bullish-flag/"
+          ]
+        },
+        {
+          "text": "TradingView — Bullish Pennant",
+          "links": [
+            "https://www.tradingview.com/support/solutions/43000653215-chart-pattern-bullish-pennant/"
+          ]
+        },
+        {
+          "text": "TradingView — Rising Wedge",
+          "links": [
+            "https://www.tradingview.com/support/solutions/43000653219-chart-pattern-rising-wedge/"
+          ]
+        },
+        {
+          "text": "TradingView — Cup and Handle",
+          "links": [
+            "https://www.tradingview.com/support/solutions/43000732556-chart-pattern-cup-and-handle/"
+          ]
+        },
+        {
+          "text": "Étude AAPL — ETE inversée",
+          "links": [
+            "https://www.tradingview.com/chart/AAPL/fzGSlj0Y-AAPL-Navigating-the-Push-to-166-167-and-its-Impact-on-SPX/"
+          ]
+        },
+        {
+          "text": "Étude BTCUSD — drapeau haussier",
+          "links": [
+            "https://www.tradingview.com/chart/BTCUSD/hZBatBIo-Bitcoin-to-68k-Bull-flag/"
+          ]
+        },
+        {
+          "text": "Étude BTCUSD — ETE invalidée",
+          "links": [
+            "https://www.tradingview.com/chart/BTCUSD/xkCz5UFn-How-to-tell-if-a-Head-Shoulders-pattern-is-void/"
+          ]
+        },
+        {
+          "text": "Layout TradingView — exemples reconstruits",
+          "links": [
+            "https://www.tradingview.com/chart/cJFsOApx/"
+          ]
+        },
+        {
+          "text": "Lo, Mamaysky et Wang — Foundations of Technical Analysis (NBER)",
+          "links": [
+            "https://www.nber.org/papers/w7613"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Portée académique — L’étude met en évidence la subjectivité de l’identification visuelle et observe que certaines figures peuvent contenir une information supplémentaire sur son échantillon historique. Elle ne valide ni une règle universelle ni les objectifs de prix de ce cours.",
+      "segments": [
+        {
+          "text": "Portée académique — L’étude met en évidence la subjectivité de l’identification visuelle et observe que certaines figures peuvent contenir une information supplémentaire sur son échantillon historique. Elle ne valide ni une règle universelle ni les objectifs de prix de ce cours."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Crédits visuels : graphiques reconstruits dans TradingView pour ce cours ; scénarios historiques documentés par les publications citées. Usage pédagogique uniquement.",
+      "segments": [
+        {
+          "text": "Crédits visuels : graphiques reconstruits dans TradingView pour ce cours ; scénarios historiques documentés par les publications citées. Usage pédagogique uniquement."
+        }
+      ]
     }
   ]
 }

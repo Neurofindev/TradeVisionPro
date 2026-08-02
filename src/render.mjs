@@ -1293,7 +1293,7 @@ function renderQuiz(volume, quiz, volumes, part = null, parts = []) {
 }
 
 function renderPartNavigation(volume, partGroups) {
-  const countWords = { 1: "Une", 2: "Deux", 3: "Trois" };
+  const countWords = { 1: "Une", 2: "Deux", 3: "Trois", 4: "Quatre" };
   const countLabel = countWords[partGroups.length] || String(partGroups.length);
   const progressionCopy =
     partGroups.length === 1 && volume.metadata.partSequenceComplete === false
@@ -1347,7 +1347,7 @@ function renderVolumeParts(metadata, partGroups) {
 
 function renderPartQuizzes(volume, quiz, volumes, partGroups) {
   const quizzes = quiz?.parts || [];
-  const countWords = { 1: "Un", 2: "Deux", 3: "Trois" };
+  const countWords = { 1: "Un", 2: "Deux", 3: "Trois", 4: "Quatre" };
   const countLabel = countWords[partGroups.length] || String(partGroups.length);
   return `<section class="part-quizzes" aria-labelledby="part-quizzes-title">
     <header class="part-quizzes__header"><p class="eyebrow">Validations séparées</p><h2 id="part-quizzes-title">${countLabel} QCM indépendant${partGroups.length > 1 ? "s" : ""}</h2><p>Chaque partie se valide avec son propre questionnaire de 10 questions. Les questions ne sont pas cumulées et chaque meilleur score est conservé séparément.</p></header>

@@ -124,7 +124,7 @@
     "slug": "3-analyse-technique",
     "title": "L’analyse technique",
     "subtitle": "L’art du timing, un outil essentiel.",
-    "description": "Lire le contexte du marché, comprendre le langage des bougies japonaises et utiliser les indicateurs techniques pour affiner le timing.",
+    "description": "Lire le contexte du marché, comprendre les bougies japonaises, utiliser les indicateurs et reconnaître les principales figures chartistes pour affiner le timing sans confondre scénario et certitude.",
     "archetype": "technical_analysis",
     "tags": ["analyse technique", "multi-timeframe", "timing", "unités de temps", "confluence", "supports", "résistances", "range", "tendances", "bougies japonaises", "chandeliers", "figures de retournement", "figures de continuation", "RSI", "MACD", "moyennes mobiles", "volume", "momentum"],
     "contentStartsImmediately": true,
@@ -160,7 +160,8 @@
     "supplementalContent": [
       "content/supplemental/3-analyse-technique-supports-resistances.json",
       "content/supplemental/3-analyse-technique-partie-2-bougies-japonaises.json",
-      "content/supplemental/3-analyse-technique-partie-3-indicateurs-techniques.json"
+      "content/supplemental/3-analyse-technique-partie-3-indicateurs-techniques.json",
+      "content/supplemental/3-analyse-technique-partie-4-figures-chartistes.json"
     ],
     "partSequenceComplete": true,
     "parts": [
@@ -217,6 +218,27 @@
           "8-1-configuration-de-depart",
           "9-1-ce-que-chaque-volume-apporte",
           "sources-principales"
+        ]
+      },
+      {
+        "order": 4,
+        "id": "partie-4-figures-chartistes",
+        "startId": "1-rappel-des-prerequis-du-volume-3",
+        "title": "Les figures chartistes en trading",
+        "subtitle": "Structures · confirmations · objectifs · faux signaux",
+        "description": "Reconnaître six familles classiques, attendre leur confirmation, définir l’invalidation et traiter l’objectif comme une projection — jamais comme une promesse.",
+        "tocIds": [
+          "1-rappel-des-prerequis-du-volume-3",
+          "2-double-sommet-et-double-creux",
+          "3-epaule-tete-epaule-et-version-inversee",
+          "4-triangles-symetrique-ascendant-et-descendant",
+          "5-drapeau-et-fanion",
+          "6-biseaux-ascendant-et-descendant",
+          "7-tasse-avec-anse",
+          "8-transformer-une-figure-en-decision",
+          "9-etudes-de-cas-tradingview-et-contre-exemple",
+          "10-checklist-operationnelle-du-debutant",
+          "sources-et-graphiques"
         ]
       }
     ],

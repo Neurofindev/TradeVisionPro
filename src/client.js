@@ -367,6 +367,12 @@
         delete parsed["3"];
         progressChanged = true;
       }
+      const volume3Part4MigrationKey = `${key}:volume3-four-parts-migrated`;
+      if (!localStorage.getItem(volume3Part4MigrationKey)) {
+        if (!parsed["3-part-4"]) delete parsed["3"];
+        localStorage.setItem(volume3Part4MigrationKey, "true");
+        progressChanged = true;
+      }
       const volume4MigrationKey = `${key}:volume4-two-parts-migrated`;
       if (!localStorage.getItem(volume4MigrationKey)) {
         const formerMacroScore = Math.max(Number(parsed["4-part-1"] || 0), Number(parsed["4"] || 0));

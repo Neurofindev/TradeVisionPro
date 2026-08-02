@@ -559,7 +559,7 @@ test("volume two renders every specialist component", async () => {
   assert.ok(!html.includes("Unsupported content block"));
 });
 
-test("volume three renders three distinct progressive parts", async () => {
+test("volume three renders four distinct progressive parts", async () => {
   const html = await readFile(path.join(DIST, "volumes/3-analyse-technique/index.html"), "utf8");
   const quizzes = JSON.parse(await readFile(path.join(ROOT, "config", "quizzes.json"), "utf8"))["3-analyse-technique"].parts;
   assert.ok(html.includes("L’analyse technique"));
@@ -567,37 +567,43 @@ test("volume three renders three distinct progressive parts", async () => {
   assert.ok(html.includes("📆 Multi-timeframe confluence"));
   assert.ok(html.includes("🔥 Les supports et résistances"));
   assert.ok(html.includes("🚨 Les tendances boursières"));
-  assert.ok(html.includes("Trois parties, trois validations"));
+  assert.ok(html.includes("Quatre parties, quatre validations"));
   assert.ok(html.includes("Contexte, niveaux et timing"));
   assert.ok(html.includes("L’essentiel des bougies japonaises"));
   assert.ok(html.includes("Les indicateurs techniques"));
   assert.ok(html.includes("RSI · MACD · moyennes mobiles · volume"));
+  assert.ok(html.includes("Les figures chartistes en trading"));
+  assert.ok(html.includes("Structures · confirmations · objectifs · faux signaux"));
   assert.ok(html.includes("Du dessin à la décision"));
   assert.ok(html.includes("Validez la Partie 1 pour continuer"));
   assert.ok(html.includes("Validez la Partie 2 pour continuer"));
-  assert.ok(html.includes("Trois QCM indépendants"));
+  assert.ok(html.includes("Validez la Partie 3 pour continuer"));
+  assert.ok(html.includes("Quatre QCM indépendants"));
   assert.ok(html.includes("10 questions dans chaque QCM"));
   assert.ok(html.includes("QCM de la Partie 1 — Contexte, niveaux et timing"));
   assert.ok(html.includes("QCM de la Partie 2 — Bougies japonaises"));
   assert.ok(html.includes("QCM de la Partie 3 — Indicateurs techniques"));
+  assert.ok(html.includes("QCM de la Partie 4 — Figures chartistes"));
   assert.ok(!html.includes("20 questions"));
   assert.ok(!html.includes("30 questions"));
-  assert.equal((html.match(/class="volume-part"/g) || []).length, 3);
-  assert.equal((html.match(/class="quiz-workspace"/g) || []).length, 3);
-  assert.equal((html.match(/class="quiz-question"/g) || []).length, 30);
-  assert.equal((html.match(/data-completes-volume="false"/g) || []).length, 2);
+  assert.equal((html.match(/class="volume-part"/g) || []).length, 4);
+  assert.equal((html.match(/class="quiz-workspace"/g) || []).length, 4);
+  assert.equal((html.match(/class="quiz-question"/g) || []).length, 40);
+  assert.equal((html.match(/data-completes-volume="false"/g) || []).length, 3);
   assert.equal((html.match(/data-completes-volume="true"/g) || []).length, 1);
   assert.equal((html.match(/data-awaits-next-part="true"/g) || []).length, 0);
   assert.equal((html.match(/data-awaits-future-volume="true"/g) || []).length, 0);
   assert.equal(quizzes[0].questions.length, 10);
   assert.equal(quizzes[1].questions.length, 10);
   assert.equal(quizzes[2].questions.length, 10);
+  assert.equal(quizzes[3].questions.length, 10);
   assert.doesNotMatch(JSON.stringify(quizzes[0]), /Doji|Marteau|Avalement|bougies japonaises/i);
   assert.doesNotMatch(JSON.stringify(quizzes[1].questions.map((question) => question.question)), /RSI|MACD|moyenne mobile/i);
   assert.doesNotMatch(JSON.stringify(quizzes[2]), /Doji|Marteau|Avalement/i);
+  assert.match(JSON.stringify(quizzes[3]), /double sommet|triangle symétrique|épaule-tête-épaule|faux signal/i);
   assert.equal((html.match(/class="lesson-note /g) || []).length, 13);
-  assert.equal((html.match(/class="course-figure breakout"/g) || []).length, 30);
-  assert.equal((html.match(/class="data-table breakout"/g) || []).length, 21);
+  assert.equal((html.match(/class="course-figure breakout"/g) || []).length, 39);
+  assert.equal((html.match(/class="data-table breakout"/g) || []).length, 23);
   assert.ok(html.includes("class=\"chapter-highlights\""));
   assert.ok(html.includes("class=\"chapter-conclusion\""));
   assert.ok(html.includes("Ces timefraime offrent de nouvelles confluences"));
@@ -623,11 +629,20 @@ test("volume three renders three distinct progressive parts", async () => {
   assert.ok(!html.includes("de nombreux stop-loss sont déclenchés"));
   assert.ok(!html.includes("aussi appelés zones psychologiques"));
   assert.ok(html.includes("Figure 5 — NVIDIA : SMA 9, volume, MACD 12-26-9 et RSI 14"));
+  assert.ok(html.includes("1. Rappel des prérequis du Volume 3"));
+  assert.ok(html.includes("2. Double sommet et double creux"));
+  assert.ok(html.includes("Exemple guidé — un double sommet peut être valide mais peu intéressant"));
+  assert.ok(html.includes("9. Études de cas TradingView et contre-exemple"));
+  assert.ok(html.includes("Cas 4 — Aucun signal : refuser une figure forcée"));
+  assert.ok(html.includes("Double sommet sur Amazon : deux tests de la même zone, puis rupture de la ligne de cou."));
+  assert.ok(!html.includes("11. QCM d’auto-évaluation"));
   assert.ok(!html.includes("Unsupported content block"));
 
   const client = await readFile(path.join(DIST, "assets", "client.js"), "utf8");
   assert.ok(client.includes("il permettra d’accéder au Volume"));
   assert.ok(client.includes('parsed["3"] && !parsed["3-part-3"]'));
+  assert.ok(client.includes("volume3-four-parts-migrated"));
+  assert.ok(client.includes('parsed["3-part-4"]'));
 });
 
 test("volume four progresses from central banks to macro data and geopolitics", async () => {
